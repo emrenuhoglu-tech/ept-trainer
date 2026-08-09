@@ -3,9 +3,9 @@ import { CardRow } from "../../components/Cards";
 import { recordResult } from "../../lib/karne";
 import { recordPractice } from "../../lib/progress";
 
-// Bustout Otopsisi — üç gerçek elenme eli (Bölüm 7), karar-önce-cevap-sonra.
-// İçerik kitaptan (uydurma yok): önce SEN karar ver, sonra kitabın hattı + kural +
-// self-explanation ("neyi value sandın?"). Worked example + self-explain.
+// Bustout Otopsisi — kitabın 3 elenme eli (Bölüm 7) + 1 senin elin (kitap dışı, dün).
+// Kitap vakalarının içeriği birebir kitaptan (uydurma yok): önce SEN karar ver, sonra
+// kitabın hattı + kural + self-explanation. Worked example + self-explain.
 interface Hand {
   id: string;
   title: string;
@@ -17,6 +17,7 @@ interface Hand {
   rule: string;
   selfExplain: string;
   concept: string;
+  beyondBook?: boolean; // kitapta olmayan (senin) el — açıkça etiketlenir
 }
 
 const HANDS: Hand[] = [
@@ -71,6 +72,7 @@ const HANDS: Hand[] = [
     rule: "Senden zayıf hiçbir el all-in'i ödemez: her 10 senin 6 kicker'ını geçer, boat'lar zaten önde. Bu runout'ta trip'in bluff-catcher — check-call, blöfleri içeride tut. Check-raise all-in blöfleri fold ettirir, seni yalnız geçen el öder. 📌 Ödeyecek zayıf el yoksa raise yok (cümle 2 = Vaka 2).",
     selfExplain: "Trip 10 güçlü hissettirdi — o board'da kaç el senin 6 kicker'ını GEÇİYOR, kaçı GERİDE kalıp öder?",
     concept: "kök-hata",
+    beyondBook: true,
   },
 ];
 
@@ -123,7 +125,18 @@ export function BustoutAutopsy({ onBack }: { onBack: () => void }) {
         <span className="text-neutral-500">{i + 1} / {HANDS.length}</span>
       </div>
 
-      <h1 className="text-xl font-bold">{h.title}</h1>
+      <div className="flex flex-wrap items-center gap-2">
+        <h1 className="text-xl font-bold">{h.title}</h1>
+        {h.beyondBook ? (
+          <span className="rounded border border-dashed border-accent/50 bg-accent-soft px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-accent">
+            Kitap dışı · senin elin
+          </span>
+        ) : (
+          <span className="rounded bg-emerald-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
+            Kitaptan · Bölüm 7
+          </span>
+        )}
+      </div>
 
       <div className="card p-4">
         <div className="flex items-center justify-between gap-3">

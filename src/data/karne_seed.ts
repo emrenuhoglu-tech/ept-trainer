@@ -1,5 +1,7 @@
 // Drill karnesi tohum verisi. İlk açılışta localStorage'a yüklenir (bkz. lib/karne.ts).
 // due hesabı orada: wrong +1 gün, half +2, correct +5.
+// NOT: bunlar Emre'nin seanslarından türeyen KİŞİSEL zaaf kayıtlarıdır (kitap doktrini
+// DEĞİL) — kitabın kuralına bağlanır ama kaynağı kişisel performanstır.
 
 export interface KarneSeedItem {
   id: string;

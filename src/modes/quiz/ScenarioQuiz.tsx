@@ -5,11 +5,13 @@ import { recordQuiz } from "../../lib/progress";
 import { load, save } from "../../lib/storage";
 
 const SHOT_SECS = 20; // masa modu karar saati
+// Masa-modu atmosfer çerçeveleri — stack derinliği KASTEN yok: her senaryo kendi
+// derinliğini metninde söylüyor, buraya bb yazmak onunla çelişirdi.
 const FRAMES = [
-  "Day 2 · 42bb · bubble'a 2 kişi",
-  "Final table · 28bb · göz önündesin",
-  "Day 1 · 90bb · derin masa",
-  "ITM sonrası · 35bb · chip leader solunda",
+  "Day 2 · bubble'a 2 kişi",
+  "Final table · göz önündesin",
+  "Day 1 · derin masa",
+  "ITM sonrası · chip leader solunda",
 ];
 
 // Senaryo quiz: kitabın tüm bölümlerinden karar soruları.

@@ -1,12 +1,14 @@
 # EPT Trainer
 
-Poker Cep Kitabı v3'ü üç modlu antrenman uygulamasına çeviren, tek kullanıcılık mobil-öncelikli web uygulaması. Hedef: EPT Barcelona, 16 Ağustos 2026.
+Poker Cep Kitabı v4'ü çok-modlu antrenman uygulamasına çeviren, tek kullanıcılık mobil-öncelikli web uygulaması. Hedef: EPT Barcelona, 16 Ağustos 2026.
 
-- **Ders Modu** — 7 modül, slayt + sesli hoca anlatımı (otomatik ilerletme, hız ayarı, HD ses)
-- **Drill Modu** — Sokratik canlı hoca (Claude), karne + spaced repetition
-- **Hızlı Referans** — molada bakılan tek ekran
+- **Ders Modu** — 9 modül, slayt + sesli hoca anlatımı (otomatik ilerletme, hız ayarı, HD ses)
+- **Quiz** — Aralık/Senaryo/Run (offline, kitaptan)
+- **Drill / Masa** — Sokratik canlı hoca + el simülatörü (Claude)
+- **İlerleme** — karne + spaced repetition, tekrar, karar günlüğü
+- **Referans** — Aralık Rehberi, Bahis Tipleri, Soru Bankası, 11 Cümle, Equity
 
-Tüm poker içeriği `content/poker_cep_kitabi_v3.md`'den gelir (tek doğruluk kaynağı). Ayrıntı: `CLAUDE.md`, `PROJECT_BRIEF.md`.
+Tüm poker içeriği `content/poker_cep_kitabi_v4.md`'den gelir (tek doğruluk kaynağı; v3 tarihsel). Ayrıntı: `CLAUDE.md`, `PROJECT_BRIEF.md`.
 
 ## Kurulum
 
@@ -69,18 +71,18 @@ Ses önceden üretilmezse video sessiz + altyazılı render olur. Tablo/aralık 
 ## Yapı
 
 ```
-content/          poker_cep_kitabi_v3.md (kaynak), karne_seed.json
-server/proxy.mjs  Drill (Anthropic) + TTS proxy; anahtar burada, istemciye sızmaz
+content/          poker_cep_kitabi_v4.md (kaynak, tek doğruluk), v3 (tarihsel), karne_seed.json
+server/proxy.mjs  Drill + Sim (Anthropic) + TTS proxy; anahtar burada, istemciye sızmaz
 src/
-  data/           modules.ts (7 modül + anlatım), kitap_summary.ts, karne_seed.ts
+  data/           modules.ts (9 modül + anlatım), kitap_summary.ts, karne_seed.ts, events.ts
   content/        curriculum.ts (MD parser)
-  lib/            speech.ts (Web + HD ses), storage.ts, karne.ts, drillClient.ts
-  prompts/        drill_system.md
-  components/     DataTable.tsx
-  modes/          lessons/ · reference/ · drill/
+  lib/            speech.ts (Web + HD ses), storage.ts, karne.ts, drillClient.ts, simClient.ts
+  prompts/        drill_system.md · sim_system.md
+  components/     DataTable.tsx · RangeGrid.tsx · Cards.tsx
+  modes/          lessons/ · quiz/ · drill/ · sim/ · progress/ · reference/ · leak/ · autopsy/ · cornerman/
 video/            Remotion projesi (opsiyonel)
 ```
 
 ## İçerik kuralı
 
-Poker içeriği (aralıklar, kurallar, vakalar) `content/poker_cep_kitabi_v3.md`'den birebir gelir. GTO ile çelişirse doküman kazanır — kişiye kalibre. `content/` salt okunurdur.
+Poker içeriği (aralıklar, kurallar, vakalar) `content/poker_cep_kitabi_v4.md`'den birebir gelir. GTO ile çelişirse doküman kazanır — kişiye kalibre. `content/` salt okunurdur.

@@ -1,13 +1,15 @@
 # EPT Trainer
 Hedef: 10 Ağustos 2026 (EPT Barcelona 16 Ağustos). Tek kullanıcı: Emre. Deploy: localhost + telefon.
 
-## Üç mod
-1. Ders Modu — 7 modül, slayt + sesli hoca anlatımı
-2. Drill Modu — Sokratik soru-cevap, Claude API canlı hoca
-3. Hızlı Referans — molada bakılan tek ekran
+## Modlar
+1. Ders Modu — 9 modül, slayt + sesli hoca anlatımı
+2. Quiz — Aralık/Senaryo/Run (offline, kitaptan)
+3. Drill / Masa — Sokratik soru-cevap + el simülatörü, Claude API canlı hoca
+4. İlerleme — karne + spaced repetition, tekrar, karar günlüğü
+5. Referans — Aralık Rehberi, Bahis Tipleri, Soru Bankası, 11 Cümle, Equity
 
-## Modüller
-M1 Kök hata (Bölüm 0 c.1-3 + Bölüm 6) 6dk · M2 Blöf seçimi/board sahipliği (Bölüm 1) 5dk · M3 Aldatıcı orta eller (Bölüm 2) 4dk · M4 Stack modları+ICM (Bölüm 3) 5dk · M5 3-bet/call aralıkları (Bölüm 4) 8dk · M6 Turn draw (Bölüm 5) 4dk · M7 PLO (Bölüm 7) 4dk
+## Modüller (kaynak: content/poker_cep_kitabi_v4.md)
+M1 Kök hata (Bölüm 0+7) · M2 Blöf seçimi & board sahipliği (Bölüm 1) · M3 Aldatıcı orta eller (Bölüm 2) · M4 Stack modları & ICM (Bölüm 3) · M5 3-bet & call aralıkları (Bölüm 4★) · M6 4-bet — 3-bet'e cevap (Bölüm 4.5) · M7 25–30bb bandı (Bölüm 5★) · M8 Turn'de draw (Bölüm 6) · M9 PLO temelleri (Bölüm 8)
 
 ## Fazlar
 Faz 1: iskelet + Hızlı Referans + Ders Modu (Web Speech)

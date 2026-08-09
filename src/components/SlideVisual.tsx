@@ -1,6 +1,5 @@
 import { RangeGrid } from "./RangeGrid";
 import { CardRow } from "./Cards";
-import { VideoPlayer } from "./VideoPlayer";
 import { CaseReplay, type ReplayData } from "./CaseReplay";
 
 // Bildirimsel görsel altyapısı: herhangi bir slayt/modül bir Visual deklare eder,
@@ -9,8 +8,7 @@ export type Visual =
   | { kind: "hand"; cards: string; label?: string; size?: "sm" | "md" | "lg" }
   | { kind: "board"; cards: string; label?: string; size?: "sm" | "md" | "lg" }
   | { kind: "range"; value?: string; blof?: string; flat?: string; caption?: string; compact?: boolean; valueLabel?: string; blofLabel?: string }
-  | { kind: "replay"; replay: ReplayData }
-  | { kind: "video"; src: string; poster?: string };
+  | { kind: "replay"; replay: ReplayData };
 
 export function SlideVisual({ v }: { v: Visual }) {
   switch (v.kind) {
@@ -32,8 +30,6 @@ export function SlideVisual({ v }: { v: Visual }) {
       );
     case "replay":
       return <CaseReplay data={v.replay} />;
-    case "video":
-      return <VideoPlayer src={v.src} poster={v.poster} />;
   }
 }
 

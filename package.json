@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "server": "node --env-file=.env server/proxy.mjs",
+    "selfcheck": "node scripts/selfcheck.mjs",
+    "prebuild": "node scripts/selfcheck.mjs",
     "build": "tsc && vite build",
     "preview": "vite preview --host"
   },

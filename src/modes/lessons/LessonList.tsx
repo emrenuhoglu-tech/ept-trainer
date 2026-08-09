@@ -22,7 +22,7 @@ export function LessonList({ onOpen }: { onOpen: (id: string) => void }) {
         <div className="min-w-0 flex-1">
           <div className="font-semibold">Bustout Otopsisi</div>
           <div className="truncate text-xs text-neutral-500">
-            3 gerçek elenme eli — önce sen karar ver, sonra kitabın hattı
+            4 elenme eli (3 kitaptan + 1 senin) — önce sen karar ver
           </div>
         </div>
         <div className="shrink-0 text-neutral-600">→</div>

@@ -27,7 +27,6 @@ export interface Module {
   chapter: string;
   minutes: number;
   slides: Slide[];
-  video?: string; // public/videos/<video> varsa modülde oynatılır
 }
 
 export const modules: Module[] = [

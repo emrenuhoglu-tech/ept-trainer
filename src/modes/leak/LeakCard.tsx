@@ -61,6 +61,9 @@ function CardView({ onDrill, onDone }: { onDrill: () => void; onDone: () => void
           <b>asla value raise.</b>
         </p>
       </div>
+      <p className="text-center text-[11px] text-neutral-600">
+        Kitabın tanımı: şişmiş = 3-bet+ pot. “~%40 stack ortada” pratik bir sezgi (kitap dışı).
+      </p>
       <p className="text-center text-sm text-neutral-500">
         Yüksek sesle bir kez oku. Masada bu cümle otomatik ateşlenecek.
       </p>

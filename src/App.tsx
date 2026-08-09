@@ -43,7 +43,9 @@ const TABS: { id: Tab; label: string; icon: string }[] = [
 export default function App() {
   const hash = useHash();
   const segs = hash.replace(/^#\/?/, "").split("/").filter(Boolean);
-  const tab = (segs[0] as Tab) || "ders";
+  // bilinmeyen hash boş ekran vermesin → varsayılan "ders"
+  const known = new Set<Tab>(["ders", "quiz", "drill", "ilerleme", "referans"]);
+  const tab: Tab = known.has(segs[0] as Tab) ? (segs[0] as Tab) : "ders";
   const lessonId = segs[1];
 
   return (

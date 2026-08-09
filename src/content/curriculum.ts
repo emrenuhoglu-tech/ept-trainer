@@ -139,17 +139,28 @@ export function rangeGroups(): RangeGroup[] {
   const push = () => {
     if (!cur) return;
     const chunk = cur.buf.join("\n");
-    const table = firstTable(chunk);
+    let table = firstTable(chunk);
+    let flats: string[] = [];
     if (table) {
-      const flats = cur.buf
-        .filter((l) => /^\*\*[^*]*flat/i.test(l.trim()))
-        .map((l) => stripInline(l));
-      groups.push({
-        opener: shortOpener(cur.label),
-        label: cur.label,
-        table,
-        flats,
-      });
+      flats = cur.buf.filter((l) => /^\*\*[^*]*flat/i.test(l.trim())).map((l) => stripInline(l));
+    } else {
+      // Tablosuz (madde-imli) grup — ör. "SB açılışına karşı (yalnız BB) — alanın en kârlı
+      // 3-bet spotu": VALUE/BLÖF/Flat bullet olarak verilir, tablo yok. Tek satırlı sentetik
+      // tabloya çevir; aksi halde kitabın "en kârlı spot"u quiz/atlas'ta hiç görünmez.
+      const val = chunk.match(/VALUE:\*\*\s*(.+)/i)?.[1];
+      const blof = chunk.match(/BL[ÖO]F:\*\*\s*(.+)/i)?.[1];
+      if (val || blof) {
+        const pos = /yaln[ıi]z\s+(BB|SB|BTN|CO)/i.exec(cur.label)?.[1]?.toUpperCase() || "BB";
+        table = {
+          headers: ["Pozisyon", "VALUE", "BLÖF"],
+          rows: [[pos, stripInline(val || ""), stripInline(blof || "")]],
+        };
+        const flatBullet = chunk.match(/Flat:\*\*\s*(.+)/i)?.[1];
+        if (flatBullet) flats = [`${pos} flat: ${stripInline(flatBullet)}`];
+      }
+    }
+    if (table) {
+      groups.push({ opener: shortOpener(cur.label), label: cur.label, table, flats });
     }
     cur = null;
   };
@@ -189,6 +200,19 @@ export function quickReference(): QuickRef {
     band2530: firstTable(findSub(block, "25")),
     redFlags: listItems(findSub(block, "Kırmızı bayraklar"), false),
   };
+}
+
+// ---- Bolum 10 — Soru Bankasi (24 soru, 3 alt-bolum). Cevaplar kitapta YAZILMAZ
+//      (kitabin tasarimi: drill'de sozlu islenir). Sorular MD'den parse edilir. ----
+export interface QBSection {
+  title: string;
+  questions: string[];
+}
+export function questionBank(): QBSection[] {
+  const block = sectionBlock("Bölüm 10");
+  return subsections(block)
+    .map((s) => ({ title: s.title, questions: listItems(s.body, true) }))
+    .filter((s) => s.questions.length > 0);
 }
 
 // ---- Genel yardimci: bir ## bolumundeki ilk tabloyu getir (ders slaytlari icin) ----

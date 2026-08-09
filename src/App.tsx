@@ -11,6 +11,7 @@ import { Sentences } from "./modes/cards/Sentences";
 import { RangeAtlas } from "./modes/ranges/RangeAtlas";
 import { EquityIntuition } from "./modes/reference/EquityIntuition";
 import { BetTypes } from "./modes/reference/BetTypes";
+import { QuestionBank } from "./modes/reference/QuestionBank";
 import { LeakCard } from "./modes/leak/LeakCard";
 import { BustoutAutopsy } from "./modes/autopsy/BustoutAutopsy";
 import { DecisionJournal } from "./modes/cornerman/DecisionJournal";
@@ -107,6 +108,8 @@ export default function App() {
             <EquityIntuition onDone={() => nav("#/referans")} />
           ) : segs[1] === "bahis" ? (
             <BetTypes onDone={() => nav("#/referans")} />
+          ) : segs[1] === "sorubankasi" ? (
+            <QuestionBank onDone={() => nav("#/referans")} />
           ) : (
             <>
               <div className="grid grid-cols-2 gap-2 p-4 pb-0">
@@ -133,6 +136,12 @@ export default function App() {
                   className="btn-ghost col-span-2 py-2.5"
                 >
                   🎯 Bahis Tipleri (value/bluff/thin/overbet) →
+                </button>
+                <button
+                  onClick={() => nav("#/referans/sorubankasi")}
+                  className="btn-ghost col-span-2 py-2.5"
+                >
+                  📝 Soru Bankası (Bölüm 10 · 24 soru) →
                 </button>
               </div>
               <QuickReference />

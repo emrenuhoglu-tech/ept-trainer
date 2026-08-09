@@ -25,6 +25,7 @@ export interface SimResult {
   raw?: string;
   model?: string;
   error?: string;
+  offline?: boolean; // proxy erişilemiyor → çevrimdışı Aralık Quiz öner
 }
 
 function extractJson(text: string): string {
@@ -39,6 +40,7 @@ export async function simTurn(messages: ChatMsg[], karne: string): Promise<SimRe
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ messages, karne, kitap: KITAP }),
+      signal: AbortSignal.timeout(60000), // asılı kalan çağrı UI'yi süresiz kilitlemesin
     });
     const j = await r.json();
     if (!r.ok || j.error) {
@@ -50,7 +52,8 @@ export async function simTurn(messages: ChatMsg[], karne: string): Promise<SimRe
     } catch {
       return { ok: false, raw: text, model: j.model, error: "JSON ayrıştırılamadı" };
     }
-  } catch (e) {
-    return { ok: false, error: String(e) };
+  } catch {
+    // Bağlantı yok / zaman aşımı → proxy kapalı. Çevrimdışı, kitaptan türeyen quiz'e yönlendir.
+    return { ok: false, offline: true, error: "Sunucu kapalı — çevrimdışı Aralık Quiz'i kitaptan çalışır." };
   }
 }

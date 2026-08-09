@@ -4,7 +4,7 @@
 //
 // Çalıştırma: npm run server  (Node 24: --env-file=.env otomatik yüklenir)
 import express from "express";
-import { readFileSync } from "node:fs";
+import { readFileSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import Anthropic from "@anthropic-ai/sdk";
@@ -18,8 +18,20 @@ try {
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dir, "..");
-const SYSTEM = readFileSync(join(ROOT, "src/prompts/drill_system.md"), "utf8");
-const SIM_SYSTEM = readFileSync(join(ROOT, "src/prompts/sim_system.md"), "utf8");
+
+// Sistem prompt'larını mtime-cache ile HER İSTEKTE tazele: .md değişince otomatik yansır
+// (boot'ta donmaz → "stale-proxy" biter). readFileSync 4KB, maliyet ihmal; bytes yalnız dosya
+// gerçekten değişince değişir, bu da Anthropic prompt-cache'ini tam doğru anda geçersiz kılar.
+const _promptCache = new Map(); // path -> { mtimeMs, text }
+function loadPrompt(rel) {
+  const p = join(ROOT, rel);
+  const { mtimeMs } = statSync(p);
+  const hit = _promptCache.get(p);
+  if (hit && hit.mtimeMs === mtimeMs) return hit.text;
+  const text = readFileSync(p, "utf8");
+  _promptCache.set(p, { mtimeMs, text });
+  return text;
+}
 
 const PRIMARY = process.env.ANTHROPIC_MODEL || "claude-fable-5";
 const FALLBACK = process.env.ANTHROPIC_FALLBACK_MODEL || "claude-opus-4-8";
@@ -30,7 +42,10 @@ if (!process.env.ANTHROPIC_API_KEY) {
   console.warn("[proxy] UYARI: ANTHROPIC_API_KEY yok — /api/drill 500 dönecek.");
 }
 
-const client = new Anthropic(); // ANTHROPIC_API_KEY env'den
+// timeout: uzun Fable turlarında UI'yi süresiz kilitlememek için istek başına üst sınır.
+// maxRetries düşük (SDK varsayılanı 2 → toplam bekleme süresini şişirir).
+const REQ_TIMEOUT_MS = Number(process.env.ANTHROPIC_TIMEOUT_MS || 45000);
+const client = new Anthropic({ maxRetries: 1, timeout: REQ_TIMEOUT_MS }); // ANTHROPIC_API_KEY env'den
 
 const app = express();
 app.use(express.json({ limit: "1mb" }));
@@ -40,7 +55,8 @@ app.get("/api/health", (_req, res) =>
 );
 
 // Ortak koç çağrısı: KITAP primer'ı (cache_control ile) + fallback zinciri.
-async function runCoach(res, system, { messages = [], karne = "", kitap = "" }, primerNote) {
+async function runCoach(res, systemRel, { messages = [], karne = "", kitap = "" }, primerNote) {
+  const system = loadPrompt(systemRel);
   const primer = [
     { type: "text", text: kitap, cache_control: { type: "ephemeral" } },
     {
@@ -61,6 +77,11 @@ async function runCoach(res, system, { messages = [], karne = "", kitap = "" }, 
     const resp = await client.messages.create({ ...base, model });
     if (resp.stop_reason === "refusal") {
       throw new Error(`refusal (${resp.stop_details?.category || "?"})`);
+    }
+    // Fable'da thinking max_tokens'ın İÇİNDE sayılır → JSON yarıda kesilebilir. Sessizce
+    // "JSON ayrıştırılamadı" olmasın diye truncation'ı açıkça yakala (fallback denenir).
+    if (resp.stop_reason === "max_tokens") {
+      throw new Error("yanıt kesildi (max_tokens) — çıktı sığmadı");
     }
     const text = (resp.content || [])
       .filter((b) => b.type === "text")
@@ -83,11 +104,11 @@ async function runCoach(res, system, { messages = [], karne = "", kitap = "" }, 
 }
 
 app.post("/api/drill", (req, res) =>
-  runCoach(res, SYSTEM, req.body || {}, "Yukarıdaki KITAP müfredatına göre drill yürüt. Yalnızca geçerli JSON döndür."),
+  runCoach(res, "src/prompts/drill_system.md", req.body || {}, "Yukarıdaki KITAP müfredatına göre drill yürüt. Yalnızca geçerli JSON döndür."),
 );
 
 app.post("/api/sim", (req, res) =>
-  runCoach(res, SIM_SYSTEM, req.body || {}, "Yukarıdaki KITAP müfredatına göre eli sokak sokak oynat. Yalnızca geçerli JSON döndür."),
+  runCoach(res, "src/prompts/sim_system.md", req.body || {}, "Yukarıdaki KITAP müfredatına göre eli sokak sokak oynat. Yalnızca geçerli JSON döndür."),
 );
 
 // --- Faz 3: TTS (OpenAI veya ElevenLabs). Anahtar yoksa 501 → istemci Web Speech'e düşer.

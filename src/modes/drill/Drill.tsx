@@ -44,7 +44,7 @@ export function Drill() {
   const [conf, setConf] = useState(0.8);
   const [loading, setLoading] = useState(false);
   const [summary, setSummary] = useState<string | null>(null);
-  const [rawError, setRawError] = useState<{ msg: string; raw?: string } | null>(
+  const [rawError, setRawError] = useState<{ msg: string; raw?: string; offline?: boolean } | null>(
     null,
   );
   // Anthropic biçimli geçmiş (proxy başına KITAP ekler). İlk sor(S6) sabit tohum.
@@ -73,7 +73,7 @@ export function Drill() {
     setLoading(false);
 
     if (!res.ok || !res.data) {
-      setRawError({ msg: res.error || "Hata", raw: res.raw });
+      setRawError({ msg: res.error || "Hata", raw: res.raw, offline: res.offline });
       return;
     }
 
@@ -186,19 +186,32 @@ export function Drill() {
         {rawError && (
           <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-3 text-sm">
             <div className="mb-1 font-semibold text-red-300">
-              Yanıt işlenemedi: {rawError.msg}
+              {rawError.offline ? "Sunucu kapalı" : `Yanıt işlenemedi: ${rawError.msg}`}
             </div>
-            {rawError.raw && (
-              <pre className="mb-2 max-h-40 overflow-auto whitespace-pre-wrap text-xs text-neutral-400">
-                {rawError.raw}
-              </pre>
+            {rawError.offline ? (
+              <>
+                <p className="mb-2 text-xs text-neutral-300">
+                  Drill için proxy gerekiyor. Şimdi çevrimdışı, kitaptan türeyen quiz'i çalışabilirsin.
+                </p>
+                <a href="#/quiz" className="btn-ghost inline-block px-3 py-1.5 text-sm">
+                  🎯 Aralık Quiz'ine geç →
+                </a>
+              </>
+            ) : (
+              <>
+                {rawError.raw && (
+                  <pre className="mb-2 max-h-40 overflow-auto whitespace-pre-wrap text-xs text-neutral-400">
+                    {rawError.raw}
+                  </pre>
+                )}
+                <button
+                  className="btn-ghost px-3 py-1.5 text-sm"
+                  onClick={() => void send("", true)}
+                >
+                  Tekrar dene
+                </button>
+              </>
             )}
-            <button
-              className="btn-ghost px-3 py-1.5 text-sm"
-              onClick={() => void send("", true)}
-            >
-              Tekrar dene
-            </button>
           </div>
         )}
 

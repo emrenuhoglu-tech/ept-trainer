@@ -20,7 +20,7 @@ export function Simulator() {
   const [cur, setCur] = useState<SimJson | null>(null);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
+  const [err, setErr] = useState<{ msg: string; offline?: boolean } | null>(null);
   const messages = useRef<ChatMsg[]>([]);
   const started = useRef(false);
   const done = cur?.done ?? false;
@@ -36,7 +36,7 @@ export function Simulator() {
     const res = await simTurn(messages.current, karneForModel() + journalForModel());
     setLoading(false);
     if (!res.ok || !res.data) {
-      setErr(res.error || "Hata");
+      setErr({ msg: res.error || "Hata", offline: res.offline });
       return;
     }
     const d = res.data;
@@ -153,10 +153,23 @@ export function Simulator() {
         {loading && <div className="px-1 text-sm text-neutral-500">Koç dağıtıyor…</div>}
         {err && (
           <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-3 text-sm">
-            <div className="mb-1 font-semibold text-red-300">Hata: {err}</div>
-            <button className="btn-ghost px-3 py-1.5 text-sm" onClick={() => void advance(null)}>
-              Tekrar dene
-            </button>
+            <div className="mb-1 font-semibold text-red-300">
+              {err.offline ? "Sunucu kapalı" : `Hata: ${err.msg}`}
+            </div>
+            {err.offline ? (
+              <>
+                <p className="mb-2 text-xs text-neutral-300">
+                  Masa simülatörü proxy gerektirir. Çevrimdışı, kitaptan türeyen quiz açık.
+                </p>
+                <a href="#/quiz" className="btn-ghost inline-block px-3 py-1.5 text-sm">
+                  🎯 Aralık Quiz'ine geç →
+                </a>
+              </>
+            ) : (
+              <button className="btn-ghost px-3 py-1.5 text-sm" onClick={() => void advance(null)}>
+                Tekrar dene
+              </button>
+            )}
           </div>
         )}
       </div>

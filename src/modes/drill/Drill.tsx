@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { FIRST_QUESTION } from "../../data/karne_seed";
-import { karneForModel, recordResult } from "../../lib/karne";
+import { karneForModel, journalForModel, recordResult } from "../../lib/karne";
 import { recordPractice } from "../../lib/progress";
 import { drillTurn, type ChatMsg, type DrillJson } from "../../lib/drillClient";
 
@@ -69,7 +69,7 @@ export function Drill() {
     }
 
     const currentQuestion = turns[turns.length - 1].question;
-    const res = await drillTurn(messages.current, karneForModel());
+    const res = await drillTurn(messages.current, karneForModel() + journalForModel());
     setLoading(false);
 
     if (!res.ok || !res.data) {

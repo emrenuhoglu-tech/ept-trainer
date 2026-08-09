@@ -1,5 +1,6 @@
 import { modules } from "../../data/modules";
 import { load } from "../../lib/storage";
+import { TodayPlan } from "./TodayPlan";
 
 export function LessonList({ onOpen }: { onOpen: (id: string) => void }) {
   const done = load<string[]>("lessons:done", []);
@@ -10,6 +11,8 @@ export function LessonList({ onOpen }: { onOpen: (id: string) => void }) {
       <p className="text-sm text-neutral-400">
         {modules.length} modül · slayt + sesli anlatım
       </p>
+
+      <TodayPlan />
 
       <button
         onClick={() => onOpen("otopsi")}

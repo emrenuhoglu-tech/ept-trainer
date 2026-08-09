@@ -180,6 +180,24 @@ export function masteryCounts(): Record<Mastery, number> {
   return out;
 }
 
+// Karar günlüğünden (cornerman) son 2 günün elleri — drill/sim'e "ertesi-gün tohumu"
+// olarak gider (kitabın Bölüm 9 protokolü: masadan gelen eller vaka olur). Yalnız Emre'nin
+// kendi elleri; değerlendirme yine kitap-temelli LLM prompt'unda kalır. Kayıt yoksa boş.
+interface JournalRow { day: string; el: string; aksiyon: string; gerekce?: string }
+export function journalForModel(): string {
+  const rows = load<JournalRow[]>("journal", []);
+  if (!rows.length) return "";
+  const days = [...new Set(rows.map((r) => r.day))].sort().slice(-2); // son 2 gün
+  const recent = rows.filter((r) => days.includes(r.day)).slice(0, 6);
+  if (!recent.length) return "";
+  return (
+    "\n\nMasadan getirdiği son eller (ertesi-gün tohumu — bu spotları yeni bir kılıkta tekrar sor):\n" +
+    recent
+      .map((r) => `- [${r.day}] ${r.el} → ${r.aksiyon}${r.gerekce ? " (" + r.gerekce + ")" : ""}`)
+      .join("\n")
+  );
+}
+
 // Modele gidecek kısa karne metni: due + severity + confidence ipuçları.
 export function karneForModel(): string {
   const due = dueEntries();

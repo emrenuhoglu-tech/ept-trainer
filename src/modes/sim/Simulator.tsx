@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { CardRow } from "../../components/Cards";
-import { karneForModel, recordResult } from "../../lib/karne";
+import { karneForModel, journalForModel, recordResult } from "../../lib/karne";
 import { recordPractice } from "../../lib/progress";
 import { simTurn, type SimJson } from "../../lib/simClient";
 import type { ChatMsg } from "../../lib/drillClient";
@@ -33,7 +33,7 @@ export function Simulator() {
       messages.current.push({ role: "user", content: userText });
       setFeed((f) => [...f, { role: "me", text: userText }]);
     }
-    const res = await simTurn(messages.current, karneForModel());
+    const res = await simTurn(messages.current, karneForModel() + journalForModel());
     setLoading(false);
     if (!res.ok || !res.data) {
       setErr(res.error || "Hata");

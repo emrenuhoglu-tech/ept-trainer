@@ -671,6 +671,8 @@ Kademe içerikleri drill'de ICMIZER/solver ile *(kalibre et)* — uydurma eşik 
 
 **Emre kalibrasyonu (2026-08-10)** — sert baloncuk, seni cover eden geniş BvB jam, ~22bb: **CALL = 88+ · AJs+ · AQo; A9s / KQs FOLD.** Sürücü: cover + baloncuk = kaybedersen bust €0, marjinal edge tournament life'a değmez (A9s ters-domine, KQs flip). *Cover EDİLMİYORSAN (jammer senden kısa, kaybetsen de bust olmazsın) çizgi çok daha geniş; jammer daralırsa call daha da sıkı. Tam eşik lobiden ICMIZER ile doğrulanır.*
 
+**Drill eklentisi (2026-08-10, 2. seans)** — leak'in asıl yaşadığı COVER EDİLMEYEN taraf: cover edilmiyorsun, 22bb BB, baloncuk, geniş kısa jam — **A9s ve KTo'yu da** foldladın ("range yetersiz"). İkisi de call (KTo, geniş 13bb BTN jam'ine ~%54, fiyat için ~%44 gerekir; A9s daha da net). **Cover edilmeyen fold reflexi leak'in yapışkan yarısı** — aynı seansta covered/not-covered kontrastından sonra bile sürdü. Yani cover edilmeyen CALL tabanı *en az* buradaki A9s/KTo kadar geniş; tam aralık hâlâ `(kalibre et)` (ICMIZER), ama hata call değil fold reflexi. Masa cue'su: **jam'e fold basmadan önce "cover ediliyor muyum?" — Hayır ise call sandığından çok daha geniş.**
+
 ### 12.2 Final table — rol matrisi
 
 FT'de doğru davranış EL'e değil STACK ROLÜNE bağlıdır.
@@ -862,11 +864,11 @@ Kök hata soğuk kanla nadiren yapılır; tipik olarak bir tetikleyiciyi izleyen
 
 | Tetikleyici *(3'ü de Emre'de — 2026-08-10)* | Belirti | Anında hamle |
 |---|---|---|
-| Bad beat / büyük pot kaybı | *(canlıda etiketle)* | Derin nefes |
-| Uzun card-dead → aksiyon açlığı | *(canlıda etiketle)* | 1 orbit VPIP kilidi |
-| Blöf gösterildi / ego | *(canlıda etiketle)* | Su iç / ayağa kalk |
+| Bad beat / büyük pot kaybı | Kötü ellerle kovalama | Derin nefes |
+| Uzun card-dead → aksiyon açlığı | Daha hızlı / snap oynama | 1 orbit VPIP kilidi |
+| Blöf gösterildi / ego | Telefona sarılma | Su iç / ayağa kalk |
 
-*Emre: üçü de geçerli, tek baskın tetikleyici yok. Belirti recall'la değil, tilt anında canlı gözlemle etiketlenecek — bir sonraki tetiklenmede "şu an bedenimde/davranışımda ne değişti?" diye not al.*
+*Emre belirtileri (2026-08-10) — çapraz-kesen, tek baskın tetikleyici yok: **daha hızlı / snap oynama**, **telefona sarılma**, **kötü ellerle kovalama**. Üçünden HERHANGİ biri belirdiğinde alarm — hangi tetikleyici olduğunu teşhis etmeye durma; belirtiyi fark et, o satırın hamlesini uygula. Yukarıdaki eşleşme en-iyi-uyum; her belirti her tetikleyiciden gelebilir.*
 
 Tetikleyici satırları üç elenme vakandan (B7) geri-referanslı doldurulur — generic tilt listesi yazılmaz.
 

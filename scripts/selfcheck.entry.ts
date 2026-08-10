@@ -1,9 +1,19 @@
 // İçerik selfcheck (assertions) — kitabı parse eden GERÇEK modülleri çalıştırır ve
 // quiz cevaplarının poker_cep_kitabi_v5.md ile tutarlılığını doğrular. Parser
 // regresyonlarına karşı kapı. Hiçbir mantık kopyalanmaz; kaynak kodun kendisi test edilir.
-import { rangeGroups, questionBank, sectionBlock, tenSentences } from "../src/content/curriculum";
+import {
+  rangeGroups,
+  questionBank,
+  sectionBlock,
+  tenSentences,
+  turnBarrelMatrix,
+  drawTurnMatrix,
+  riverBluffCatch,
+  badRiverCatalog,
+} from "../src/content/curriculum";
 import { parseRange } from "../src/lib/handgrid";
 import { flatText, flatScope } from "../src/modes/quiz/quizEngine";
+import { postflopQuestion } from "../src/modes/quiz/postflopEngine";
 
 function poolsFor(opener: string, position: string) {
   const g = rangeGroups().find((x) => x.opener === opener)!;
@@ -84,6 +94,27 @@ for (const n of [11, 12, 13, 14, 15, 16]) {
   const body = sectionBlock("Bölüm " + n);
   check(`B${n} sectionBlock dolu`, body.trim().length > 0, String(body.length));
   check(`B${n} en az bir tablo içeriyor`, body.includes("|"));
+}
+
+// Postflop drill (B6/B11 turn+river tabloları) — sadakat kapısı: drill edilen tablolar parse
+// olmalı, bilinen bir net hücre kitabın yönünü taşımalı ve motor her street için soru üretmeli.
+{
+  const tb = turnBarrelMatrix();
+  check("B11.1 turn matrisi 4 satır", !!tb && tb.rows.length === 4, tb ? String(tb.rows.length) : "null");
+  const dr = drawTurnMatrix();
+  check("B6.2 draw matrisi 4 satır", !!dr && dr.rows.length === 4, dr ? String(dr.rows.length) : "null");
+  const rv = riverBluffCatch();
+  check("B11.2 river matrisi 3 satır", !!rv && rv.rows.length === 3, rv ? String(rv.rows.length) : "null");
+  const cat = badRiverCatalog();
+  check("B11.4 kötü river kataloğu 4 madde", cat.length === 4, String(cat.length));
+  // TPGK vs bana-overcard turn → kitap hücresi "Check-call" (kolon 2). Kayarsa grader yanlış
+  // yön öğretir — build'i durdur.
+  if (tb) {
+    const tpgk = tb.rows.find((r) => /good kicker|iyi kicker/i.test(r[0]));
+    check("B11.1 TPGK×overcard = check-call", !!tpgk && /check-call/i.test(tpgk[2] || ""), tpgk?.[2]);
+  }
+  check("postflop turn Q üretiliyor", !!postflopQuestion("turn"));
+  check("postflop river Q üretiliyor", !!postflopQuestion("river"));
 }
 
 console.log(out.join("\n"));

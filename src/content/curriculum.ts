@@ -284,3 +284,28 @@ export function squeezeRange(): { value: string; blof: string } | null {
 export function stackLayer(): MdTable | null {
   return tableFromSection("Bölüm 4", "4.7");
 }
+
+// ---- Bölüm 6 & 11 — Turn/River karar tabloları (Postflop drill) ----
+// Bunlar kitabın YÖN tablolarıdır. Kitapta boyutlar (kalibre et) olduğundan drill yalnız YÖNÜ
+// (bet/check/call/fold) sorar — asla uydurma boyut. Her hücre doğru cevabın kendisidir; elle
+// yazılmış hiçbir değer yok.
+
+/** İkinci fıçı matrisi (Bölüm 11.1): elim × turn-kartı tipi → aksiyon. */
+export function turnBarrelMatrix(): MdTable | null {
+  return tableFromSection("Bölüm 11", "11.1");
+}
+
+/** Turn draw matrisi (Bölüm 6.2): draw kalitesi → bet/check yönü. */
+export function drawTurnMatrix(): MdTable | null {
+  return tableFromSection("Bölüm 6", "6.2");
+}
+
+/** River bluff-catch matrisi (Bölüm 11.2): rakip boyutu → call/fold eğilimi. */
+export function riverBluffCatch(): MdTable | null {
+  return tableFromSection("Bölüm 11", "11.2");
+}
+
+/** Kötü river kataloğu (Bölüm 11.4): overpair'in value'sunu öldüren kartlar. */
+export function badRiverCatalog(): string[] {
+  return listItems(findSub(sectionBlock("Bölüm 11"), "11.4"), false);
+}

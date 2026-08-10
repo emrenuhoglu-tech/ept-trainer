@@ -305,6 +305,11 @@ export function riverBluffCatch(): MdTable | null {
   return tableFromSection("Bölüm 11", "11.2");
 }
 
+/** River thin-value matrisi (Bölüm 11.3): el sınıfım × rakip tipi → value bet / check-call. */
+export function riverThinValue(): MdTable | null {
+  return tableFromSection("Bölüm 11", "11.3");
+}
+
 /** Kötü river kataloğu (Bölüm 11.4): overpair'in value'sunu öldüren kartlar. */
 export function badRiverCatalog(): string[] {
   return listItems(findSub(sectionBlock("Bölüm 11"), "11.4"), false);

@@ -9,11 +9,12 @@ import {
   turnBarrelMatrix,
   drawTurnMatrix,
   riverBluffCatch,
+  riverThinValue,
   badRiverCatalog,
 } from "../src/content/curriculum";
 import { parseRange } from "../src/lib/handgrid";
 import { flatText, flatScope } from "../src/modes/quiz/quizEngine";
-import { postflopQuestion } from "../src/modes/quiz/postflopEngine";
+import { postflopQuestion, betType } from "../src/modes/quiz/postflopEngine";
 
 function poolsFor(opener: string, position: string) {
   const g = rangeGroups().find((x) => x.opener === opener)!;
@@ -105,6 +106,8 @@ for (const n of [11, 12, 13, 14, 15, 16]) {
   check("B6.2 draw matrisi 4 satır", !!dr && dr.rows.length === 4, dr ? String(dr.rows.length) : "null");
   const rv = riverBluffCatch();
   check("B11.2 river matrisi 3 satır", !!rv && rv.rows.length === 3, rv ? String(rv.rows.length) : "null");
+  const tv = riverThinValue();
+  check("B11.3 thin-value matrisi 3 satır", !!tv && tv.rows.length === 3, tv ? String(tv.rows.length) : "null");
   const cat = badRiverCatalog();
   check("B11.4 kötü river kataloğu 4 madde", cat.length === 4, String(cat.length));
   // TPGK vs bana-overcard turn → kitap hücresi "Check-call" (kolon 2). Kayarsa grader yanlış
@@ -112,7 +115,16 @@ for (const n of [11, 12, 13, 14, 15, 16]) {
   if (tb) {
     const tpgk = tb.rows.find((r) => /good kicker|iyi kicker/i.test(r[0]));
     check("B11.1 TPGK×overcard = check-call", !!tpgk && /check-call/i.test(tpgk[2] || ""), tpgk?.[2]);
+    // value/blöf ayrımı hava+bloker satırının varlığına bağlı (→ blöf barrel).
+    check("B11.1 hava+bloker satırı var", tb.rows.some((r) => /air|hava|blocker|bloker/i.test(r[0])));
   }
+  // 11.3 rec kolonu value bet (river'da VALUE bahsinin evi).
+  check("B11.3 rec kolonu = value bet", !!tv && /value bet/i.test(tv.rows[0]?.[1] || ""), tv?.rows[0]?.[1]);
+  // value/blöf etiketi: per elleri VALUE bet'ler, yalnız hava+bloker blöf barrel'dir. (Regresyon kapısı:
+  // çıplak /air/ regex'i "Overpair"/"Top pair"i blöf etiketledi — her value bet yanlış grade oldu.)
+  check("betType Overpair = value", betType("Overpair") === "betvalue");
+  check("betType Top pair iyi kicker = value", betType("Top pair iyi kicker") === "betvalue");
+  check("betType Hava + bloker = blöf", betType("Hava + bloker") === "betbluff");
   check("postflop turn Q üretiliyor", !!postflopQuestion("turn"));
   check("postflop river Q üretiliyor", !!postflopQuestion("river"));
 }

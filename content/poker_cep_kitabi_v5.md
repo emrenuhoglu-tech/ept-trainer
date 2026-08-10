@@ -16,6 +16,7 @@ Emre Nuhoğlu
 - **YENİ Bölüm 14 — 40–70bb Köprü Bandı:** B4 (100–150bb) ile B5 (25–30bb) arasındaki tablosuz band
 - **YENİ Bölüm 15 — PLO Turnuva Katmanı:** stack-modu + pot-geometri/SPR (B5 "3-bet=JAM" pot-limit'te geçersiz çelişkisi kapatıldı)
 - **YENİ Bölüm 16 — Zihinsel Omurga:** bustout/re-entry karar kartı, tilt, otopsi zamanlaması, 8 günlük seri planı ve çakışma ön-kararları
+- **B0 11→15 cümle:** B11/B12/B13/B16'nın aday cümleleri Emre onayıyla çekirdeğe işlendi (2026-08-10)
 - **Alt-numara senkronu:** B6 (5.x→6.x), B8 (7.x→8.x), B9 (8.x→9.x) düzeltildi
 - **Hızlı Referans** genişletildi: ICM/FT kartı, Multiway kartı, Tilt kartı, Postflop boyutlar, yorgunluk bayrakları
 - **Soru bankası** 24 → yeni bölüm soruları eklendi
@@ -24,7 +25,7 @@ Emre Nuhoğlu
 
 ## İçindekiler
 
-- Bölüm 0 — Masaya götürülecek 11 cümle
+- Bölüm 0 — Masaya götürülecek 15 cümle
 - Bölüm 1 — Blöf seçimi: hangi ellerle, kime, hangi hamleyle
 - Bölüm 2 — Aldatıcı orta eller (JTs, KQ, KJ, 97s)
 - Bölüm 3 — Stack modları ve açılış aralıkları (+ ICM katmanı)
@@ -45,9 +46,9 @@ Emre Nuhoğlu
 
 ---
 
-## Bölüm 0 — Masaya Götürülecek 11 Cümle
+## Bölüm 0 — Masaya Götürülecek 15 Cümle
 
-*Bunları ezberle. Masada düşünecek vakit olmadığında karar bu on cümleden çıkar.*
+*Bunları ezberle. Masada düşünecek vakit olmadığında karar bu on beş cümleden çıkar. İlk 11 çekirdek; 12–15 v5'te turnuva-icrasından işlendi.*
 
 1. **Tek per, şişmiş potta bluff-catcher'dır — AA dahil.**
    Kök hatan bu. Üç elenme buradan geldi.
@@ -81,6 +82,18 @@ Emre Nuhoğlu
 
 11. **25–30bb'de değer fold equity'den gelir, kart tamamlamaktan değil.**
     Aradığın el gelişebilen değil, şimdiden iyi olan: as, broadway, çift. Bölüm 5.
+
+12. **Turn'de attığın boyut, river'da vereceğin kararın fiyatıdır.**
+    İkinci fıçı, river'da check-fold lüksünü satın alır. Bölüm 11.
+
+13. **ICM'de marjinal call = kök hatanın turnuva-hayatı sürümüdür.**
+    Risk premium, bluff-catcher'ın ödeme eşiğini yükseltir. Bölüm 12.
+
+14. **Multiway'de tek per, HU'dakinden bir sınıf aşağıdır.**
+    Her ek oyuncu birinin nut olma ihtimalini katlar. Bölüm 13.
+
+15. **Tilt'te alınan karar aralıktan değil, yaradan çıkar — önce yara etiketlenir.**
+    Diğer kurallar ancak fark edilen tilt'te devreye girer. Bölüm 16.
 
 ---
 
@@ -485,7 +498,7 @@ Chip leader'ın jam'e fold ettiğini bir kez gördüysen, o oyuncunun açılış
 
 - Yanlış cevaplanan sorular 1–2 gün sonra farklı kılıkta tekrar sorulur.
 - Masadan getirdiğin eller vaka olarak işlenir ve Bölüm 7'ye eklenir.
-- Yeni bölümlerdeki "B0'a aday cümle"lerden drill'de en çok tetiklenen 1–2'si B0'a (12.+) işlenir; başlık ve numara güncellenir.
+- Bu bölümlerin aday cümleleri B0'a c.12–15 olarak işlendi; masadan gelen yeni kalıcı kurallar B0'a eklenir, başlık güncellenir.
 - Cevap doğruysa gerekçe de sorulur — doğru karar yanlış gerekçeyle yarım puandır.
 - Kamp Ağustos başında açılır; EPT 16 Ağustos'ta başlıyor.
 
@@ -582,7 +595,7 @@ Boyutlar *(kalibre et)* — ama yön sabit: potu her büyüttüğünde river'da 
 
 > **İkinci fıçıyı atmadan önce sor: river planımı söyleyebiliyor muyum? Kötü river'da check-fold edebileceğim pot boyutu bırakıyor muyum?**
 
-**B0'a aday cümle:** *Turn'de attığın boyut, river'da vereceğin kararın fiyatıdır.*
+**B0 c.12:** *Turn'de attığın boyut, river'da vereceğin kararın fiyatıdır.*
 
 ### 11.2 River — bluff-catch: hangi fiyata call
 
@@ -692,7 +705,7 @@ Kural: **kilitlenmiş orta stack masadaki en kârlı hedeftir.** Rec/reg saha fa
 
 **<15bb jam kartı** *(kalibre et — ≤6 satır: yalnız BTN/SB/BB + "ilk giren"; chipEV jam aralığı + ICM düzeltme sütunu; tam Nash tablosu yazılmaz, "molada bakılır" karakteri korunur)*.
 
-**B0'a aday cümle:** *ICM'de marjinal call = kök hatanın turnuva-hayatı sürümü.*
+**B0 c.13:** *ICM'de marjinal call = kök hatanın turnuva-hayatı sürümü.*
 
 ---
 
@@ -737,7 +750,7 @@ B1.4 "kime blöf yapılmaz" listesine eklenir: **Multiway pot (kim olursa olsun)
 
 Canlı PLO'nun varsayılan hâli multiway (limp/çoklu-call normu). "İkinci en iyi el pahalıdır" kuralı multiway'de "ikinci en iyi el stack'ini kaybettirir"e döner. Non-nut flush draw multiway'de ödeme makinesidir; nut-uçlu wrap değeri artar (tamamlanınca çok yönlü ödenir). Sadece NUT'a oyna. (Ayrıntı B15.)
 
-**B0'a aday cümle:** *Multiway'de tek per, HU'dakinden bir sınıf aşağıdır.*
+**B0 c.14:** *Multiway'de tek per, HU'dakinden bir sınıf aşağıdır.*
 
 *Kök hata bağı: doğrudan güçlendirme. B7 başlığının yazılmamış yarısını doldurur; mevcut hiçbir aralığa dokunmaz.*
 
@@ -851,7 +864,7 @@ Kök hata soğuk kanla nadiren yapılır; tipik olarak bir tetikleyiciyi izleyen
 
 Tetikleyici satırları üç elenme vakandan (B7) geri-referanslı doldurulur — generic tilt listesi yazılmaz.
 
-**B0'a aday cümle:** *Tilt'te alınan karar aralıktan değil, yaradan çıkar — önce yara etiketlenir.*
+**B0 c.15:** *Tilt'te alınan karar aralıktan değil, yaradan çıkar — önce yara etiketlenir.*
 
 ### 16.3 Otopsi kuralı
 
@@ -873,10 +886,12 @@ Bu filtre kalibrasyonu KORUR: SHR'de doğru jam'ler sık kaybedilecek; filtre ol
 | 24–26 Ağu | Main grind | *(doldur)* | *(doldur)* | — |
 | 27–29 Ağu | HR €10.3K · Main D5–Final | çakışma | — | Main derindeyse HR taze girme |
 
-**Çakışma ön-kararları** *(Emre önceden doldurur — o an duygusal karar verilemez; slate önerisi SHR > Main > HR > PLO, onayla)*:
+**Çakışma ön-kararları** *(sabit öncelik YOK — o anki stack/ICM'e göre karar; kural aşağıda)*:
 
-- SHR Day 2'ye kalırsam Main flight'ı → __ (23'teki son mermi 1B'yi kaçırma)
-- Main'de derinken HR başlarsa → __
+**Karar kuralı:** Çakışan iki event'ten hangisinde stack'in daha derin ve ödemeye/ICM-avantajına daha yakınsan ONA kal, diğerini feda et. Belirleyen buy-in büyüklüğü değil, o anki KAZANMA beklentin (stack derinliği × saha × ödeme yakınlığı) — mod-önce omurgasının (c.7) event ölçeği.
+
+- SHR Day 2'ye kalırsam Main flight'ı → SHR stack'im ort. üstüyse SHR'de kal, Main'i son mermiye (1B, 23 Ağu) bırak; SHR kısaysa Main 1A'ya geç.
+- Main'de derinken HR başlarsa → Main'de ort. üstü + ödemeye yakınsam Main'de kal, HR'yi atla; Main kısaysa HR'ye taze gir.
 
 **Mola rutini:** her molada 3 madde — (1) yürü, (2) ye/su, (3) Hızlı Referans'a bak. Telefonda sosyal medya YOK.
 

@@ -1,7 +1,7 @@
 // İçerik selfcheck (assertions) — kitabı parse eden GERÇEK modülleri çalıştırır ve
 // quiz cevaplarının poker_cep_kitabi_v5.md ile tutarlılığını doğrular. Parser
 // regresyonlarına karşı kapı. Hiçbir mantık kopyalanmaz; kaynak kodun kendisi test edilir.
-import { rangeGroups, questionBank, sectionBlock } from "../src/content/curriculum";
+import { rangeGroups, questionBank, sectionBlock, tenSentences } from "../src/content/curriculum";
 import { parseRange } from "../src/lib/handgrid";
 import { flatText, flatScope } from "../src/modes/quiz/quizEngine";
 
@@ -65,6 +65,14 @@ check("BTN→SB fold geçerli", poolsFor("BTN", "SB").flatWide === false);
   const total = qb.reduce((n, s) => n + s.questions.length, 0);
   check("Soru Bankası 4 alt-bölüm", qb.length === 4, qb.map((s) => s.questions.length).join("+"));
   check("Soru Bankası 37 soru", total === 37, String(total));
+}
+
+// B0 v5'te 15 cümleye çıktı (12–15 B11/B12/B13/B16'dan işlendi). Sentences modu + karne
+// bağlamı bu parse'a bağlı; sayı düşerse (parser/filtre kırılması) build'i durdur.
+{
+  const s = tenSentences();
+  check("B0 15 cümle parse", s.length === 15, String(s.length));
+  check("B0 c.15 tilt cümlesi var", s.some((x) => x.n === 15 && /tilt/i.test(x.rule)));
 }
 
 // v5 yeni bölümleri (B11–B16) ChapterView tarafından sectionBlock ile render edilir.

@@ -153,7 +153,7 @@ export default function App() {
                   onClick={() => nav("#/referans/cumleler")}
                   className="btn-ghost py-2.5"
                 >
-                  🧠 11 Cümle ezber →
+                  🧠 15 Cümle ezber →
                 </button>
                 <button
                   onClick={() => nav("#/referans/equity")}

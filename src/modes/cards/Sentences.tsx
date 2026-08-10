@@ -29,7 +29,7 @@ export function Sentences({ onDone }: { onDone: () => void }) {
         <button onClick={onDone} className="text-neutral-400">
           ← Referans
         </button>
-        <span className="font-semibold text-neutral-100">🧠 11 Cümle</span>
+        <span className="font-semibold text-neutral-100">🧠 15 Cümle</span>
         <span className="text-neutral-500">
           {i + 1} / {list.length}
         </span>

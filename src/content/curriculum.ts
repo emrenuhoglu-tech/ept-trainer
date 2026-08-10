@@ -59,7 +59,7 @@ export interface Sentence {
   context: string; // altındaki açıklama
 }
 
-/** Bölüm 0'daki "Masaya Götürülecek 11 Cümle"yi parse eder (MD'den, elle yazılmaz). */
+/** Bölüm 0'daki "Masaya Götürülecek 15 Cümle"yi parse eder (MD'den, elle yazılmaz). */
 export function tenSentences(): Sentence[] {
   const block = sectionBlock("Bölüm 0");
   const out: Sentence[] = [];
@@ -74,7 +74,7 @@ export function tenSentences(): Sentence[] {
     }
   }
   if (cur) out.push(cur);
-  return out.filter((s) => s.n >= 1 && s.n <= 11);
+  return out.filter((s) => s.n >= 1 && s.n <= 15);
 }
 
 /** Verilen ham blok icindeki ### alt-baslikli parcalari dondurur: { title, body }. */

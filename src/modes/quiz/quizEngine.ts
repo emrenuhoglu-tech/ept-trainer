@@ -87,7 +87,9 @@ export function nextQuestion(weak?: { opener: string; position: string }[]): Que
 
   // "BB flat: çok geniş" gibi prose flat grid'e açılmaz. O pozisyonda fold havuzu kitabın
   // geniş flat ellerini yanlışlıkla "fold" olarak notlar → fold sorusu üretme (yalnız 3-bet/blöf).
-  const flatWide = setFlat.size === 0 && /geniş|tüm|çoğu/i.test(ft);
+  // HAM flat metnini test et: flatText, "…ve tüm 65s+ suited connector'lar" gibi kuyruğu
+  // parse'tan ÖNCE atar; ft'ye bakmak o eli fold sanıp yanlış notlardı (CO→BTN).
+  const flatWide = /geniş|tüm|çoğu/i.test(applicableFlats.join(" "));
 
   const pool3 = [...set3];
   const poolFlat = [...setFlat];

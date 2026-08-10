@@ -10,7 +10,8 @@ function poolsFor(opener: string, position: string) {
   const applicable = g.flats.filter((fl) => flatScope(fl).includes(position));
   const ft = flatText(applicable);
   const cells = parseRange(ft).cells;
-  const flatWide = cells.size === 0 && /geniş|tüm|çoğu/i.test(ft);
+  // HAM flat metnini test et (flatText "…ve tüm 65s+ suited connector'lar" kuyruğunu atar).
+  const flatWide = /geniş|tüm|çoğu/i.test(applicable.join(" "));
   return { ft, cells, flatWide };
 }
 
@@ -46,6 +47,8 @@ check("BTN→SB fold geçerli", poolsFor("BTN", "SB").flatWide === false);
   check("UTG→CO flat: 76s (150bb+) sızmıyor", !co.has("76s"));
   const btn = poolsFor("CO", "BTN").cells;
   check("CO→BTN flat: JTs kurtarıldı", btn.has("JTs"));
+  // 65s+ suited connector prose flat → fold havuzu bastırılır (T9s/98s/87s/76s/65s yanlış fold notlanmaz)
+  check("CO→BTN flatWide (65s+ connector prose → fold bastırıldı)", poolsFor("CO", "BTN").flatWide === true);
 }
 
 // BB-vs-SB "alanın en kârlı 3-bet spotu" yüzeyde (bullet grup)

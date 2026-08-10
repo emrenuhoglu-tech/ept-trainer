@@ -29,9 +29,13 @@ export function DecisionJournal({ onDone }: { onDone: () => void }) {
   const [aksiyon, setAksiyon] = useState("");
   const [gerekce, setGerekce] = useState("");
   const [guven, setGuven] = useState(0.8);
+  const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
 
   function add() {
-    if (!el.trim() || !aksiyon.trim()) return;
+    if (!el.trim() || !aksiyon.trim()) {
+      setMsg({ ok: false, text: "El ve Aksiyon zorunlu — ikisini de doldur." });
+      return;
+    }
     const next = [{ day: today(), el, aksiyon, gerekce, guven }, ...list];
     setList(next);
     save(KEY, next);
@@ -39,6 +43,7 @@ export function DecisionJournal({ onDone }: { onDone: () => void }) {
     setEl("");
     setAksiyon("");
     setGerekce("");
+    setMsg({ ok: true, text: "Kaydedildi ✓" });
   }
 
   return (
@@ -99,6 +104,11 @@ export function DecisionJournal({ onDone }: { onDone: () => void }) {
             Kaydet
           </button>
         </div>
+        {msg && (
+          <div className={"text-xs " + (msg.ok ? "text-emerald-400" : "text-red-400")}>
+            {msg.text}
+          </div>
+        )}
       </div>
 
       {list.length === 0 ? (

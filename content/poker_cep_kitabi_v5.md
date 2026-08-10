@@ -850,17 +850,19 @@ Serinin en pahalı tek kararı bir el değil: bustout sonrası 5 dakikada verile
 | Toplam seri maruz kalması ön-limitin içinde mi? | Devam | DUR |
 | Fiziksel durumum (uyku/saat) yeşil mi? | Devam | DUR — yarın gir |
 
-**Event-başına max bullet** *(Emre doldurur)*: SHR: __ · PLO: __ · Main: __ · HR: __
+**Event-başına max bullet** *(kalibre 2026-08-10)*: SHR: **1** · PLO: **2** · Main: **2** · HR: **2** — toplam max maruz kalma ~€181K (tek-mermi tabanı €140.6K). SHR €100K'da re-entry yok: ikinci mermi hakkı orada tek başına +€100K, disiplin dışı.
 
 ### 16.2 Tilt kartı
 
 Kök hata soğuk kanla nadiren yapılır; tipik olarak bir tetikleyiciyi izleyen ellerde *(kalibre — B7 vakalarından süreyi işaretle)*. Tilt'teyken ezber cümle okunmaz — önce tilt FARK edilir.
 
-| Tetikleyici *(kendinden doldur)* | Belirti | Anında hamle |
+| Tetikleyici *(3'ü de Emre'de — 2026-08-10)* | Belirti | Anında hamle |
 |---|---|---|
-| Bad beat / büyük pot kaybı | *(kalibre)* | Derin nefes |
-| Uzun card-dead → aksiyon açlığı | *(kalibre)* | 1 orbit VPIP kilidi |
-| Blöf gösterildi / ego | *(kalibre)* | Su iç / ayağa kalk |
+| Bad beat / büyük pot kaybı | *(canlıda etiketle)* | Derin nefes |
+| Uzun card-dead → aksiyon açlığı | *(canlıda etiketle)* | 1 orbit VPIP kilidi |
+| Blöf gösterildi / ego | *(canlıda etiketle)* | Su iç / ayağa kalk |
+
+*Emre: üçü de geçerli, tek baskın tetikleyici yok. Belirti recall'la değil, tilt anında canlı gözlemle etiketlenecek — bir sonraki tetiklenmede "şu an bedenimde/davranışımda ne değişti?" diye not al.*
 
 Tetikleyici satırları üç elenme vakandan (B7) geri-referanslı doldurulur — generic tilt listesi yazılmaz.
 

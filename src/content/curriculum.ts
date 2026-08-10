@@ -1,7 +1,7 @@
-// Tek dogruluk kaynagi: content/poker_cep_kitabi_v4.md
+// Tek dogruluk kaynagi: content/poker_cep_kitabi_v5.md
 // Bu modul MD'yi ham okuyup yapiya cevirir. Hicbir poker degeri burada ELLE yazilmaz;
 // tablolar, listeler ve aralik gruplari dogrudan MD'den parse edilir.
-import raw from "../../content/poker_cep_kitabi_v4.md?raw";
+import raw from "../../content/poker_cep_kitabi_v5.md?raw";
 
 export const rawMarkdown = raw;
 

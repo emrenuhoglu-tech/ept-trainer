@@ -1,0 +1,976 @@
+# POKER CEP KİTABI v5
+
+**EPT Barcelona Edition**
+16–29 Ağustos 2026
+
+Emre Nuhoğlu
+*Ağustos 2026 — turnuva-kazanma sürümü*
+
+## v5'te ne değişti
+
+*Omurga aynı: "şişmiş potta tek per = bluff-catcher" (kök hata). v5 kitabın PREFLOP gücünü korur ve teşhisin eksik yarısını — postflop/ICM/multiway icrasını — ekler. Mevcut bölümlerin (B0–B10) tabloları kişisel olarak kalibre; v4'ten AYNEN korundu, yalnız v3→v4 renumber'ından kalan alt-numara hataları düzeltildi. Yeni bölümler numara kaydırmamak için SONA eklendi. Her yeni sayı `(kalibre et)` slotudur — uydurma aralık/SPR/yüzde yok.*
+
+- **YENİ Bölüm 11 — Şişmiş Pot, Turn Disiplini ve River İcrası:** kök hatanın eksik yarısı — "şişmiş pot"un SPR tanımı, turn barrel kriteri, river bluff-catch + thin value çerçevesi
+- **YENİ Bölüm 12 — ICM ve Final Table Savaş Planı:** B5 jam/call tablolarına risk-premium düzeltmesi, FT rol matrisi, pay-jump/ladder, bubble av haritası, event-bazlı ICM haritası
+- **YENİ Bölüm 13 — Multiway Pot Doktrini:** B7'nin adlandırdığı ama yazmadığı yarı — value daralt / blöf öl / nut-odak
+- **YENİ Bölüm 14 — 40–70bb Köprü Bandı:** B4 (100–150bb) ile B5 (25–30bb) arasındaki tablosuz band
+- **YENİ Bölüm 15 — PLO Turnuva Katmanı:** stack-modu + pot-geometri/SPR (B5 "3-bet=JAM" pot-limit'te geçersiz çelişkisi kapatıldı)
+- **YENİ Bölüm 16 — Zihinsel Omurga:** bustout/re-entry karar kartı, tilt, otopsi zamanlaması, 8 günlük seri planı ve çakışma ön-kararları
+- **Alt-numara senkronu:** B6 (5.x→6.x), B8 (7.x→8.x), B9 (8.x→9.x) düzeltildi
+- **Hızlı Referans** genişletildi: ICM/FT kartı, Multiway kartı, Tilt kartı, Postflop boyutlar, yorgunluk bayrakları
+- **Soru bankası** 24 → yeni bölüm soruları eklendi
+
+---
+
+## İçindekiler
+
+- Bölüm 0 — Masaya götürülecek 11 cümle
+- Bölüm 1 — Blöf seçimi: hangi ellerle, kime, hangi hamleyle
+- Bölüm 2 — Aldatıcı orta eller (JTs, KQ, KJ, 97s)
+- Bölüm 3 — Stack modları ve açılış aralıkları (+ ICM katmanı)
+- Bölüm 4 — Pozisyona göre 3-bet ve call aralıkları (100–150bb)
+- Bölüm 5 — 25–30bb Bandı: Savaş Planı
+- Bölüm 6 — Turn'de draw ile: bet mi, bedava river mı
+- Bölüm 7 — Vaka otopsileri: A4s, KTo, AA river jam
+- Bölüm 8 — PLO temelleri
+- Bölüm 9 — Antrenman protokolü ("beni hazırla")
+- Bölüm 10 — Soru bankası
+- Bölüm 11 — Şişmiş Pot, Turn Disiplini ve River İcrası **YENİ ★**
+- Bölüm 12 — ICM ve Final Table Savaş Planı **YENİ ★**
+- Bölüm 13 — Multiway Pot Doktrini **YENİ ★**
+- Bölüm 14 — 40–70bb Köprü Bandı **YENİ ★**
+- Bölüm 15 — PLO Turnuva Katmanı: stack-modu, SPR, multiway **YENİ ★**
+- Bölüm 16 — Zihinsel Omurga: bustout/re-entry, tilt, otopsi, seri planı **YENİ ★**
+- Hızlı Referans — molada telefondan bakılacak sayfa
+
+---
+
+## Bölüm 0 — Masaya Götürülecek 11 Cümle
+
+*Bunları ezberle. Masada düşünecek vakit olmadığında karar bu on cümleden çıkar.*
+
+1. **Tek per, şişmiş potta bluff-catcher'dır — AA dahil.**
+   Kök hatan bu. Üç elenme buradan geldi.
+
+2. **River'da senden zayıf el ödemeyecekse, jam value değildir.**
+   Kötü river'da overpair: küçük pota check-call, büyük pota check-fold.
+
+3. **Chop'lar jam atmaz.**
+   Rakip all-in geldiyse bölüşmeye oynayan eli elinden çıkarmıştır.
+
+4. **Blöf üç kriterden geçer: bloker, bağlantı, board sahipliği.**
+   Üçünden geçmek 'blöf edilebilir' demek; hamleyi board'un sahibi seçer.
+
+5. **Aldatıcı orta eller küçük pot kazananı, büyük pot kaybedenidir.**
+   JTs, KQ, KJ, 97s. Rolü open/flat/BB-defend; asla büyük pot başlatıcı değil.
+
+6. **Equity kâğıt üzerinde, para masada kazanılır.**
+   Oynanabilirlik equity'den önce gelir. KQo'nun %45'i realize edilemiyorsa fold'dur.
+
+7. **Her elden önce stack modu, sonra aralık.**
+   45bb'de 130bb aralığı oynamak en pahalı alışkanlık.
+
+8. **OOP 3-bet aralığım IP aralığımdan belirgin sıkıdır.**
+   Çünkü OOP şişmiş potta tek per bluff-catcher'dır. Bölüm 1'e bağlanır.
+
+9. **Canlıda kâr blöf 3-bet'ten değil, geniş value 3-bet'inden gelir.**
+   Alan fold etmiyor. Dengeyi bırak, dengesizlikten kâr et.
+
+10. **PLO'da çıplak AA, NLH'deki tek per'dir.**
+    Nut potansiyeli yoksa el büyük pot oynamaz.
+
+11. **25–30bb'de değer fold equity'den gelir, kart tamamlamaktan değil.**
+    Aradığın el gelişebilen değil, şimdiden iyi olan: as, broadway, çift. Bölüm 5.
+
+---
+
+## Bölüm 1 — Blöf Seçimi
+
+### 1.1 Üç kriter
+
+Bir el blöf yakıtı olacaksa şu üçünden geçmeli. Biri eksikse blöf değil, sadece kaybedilen chip.
+
+| Kriter | Ne arıyorsun | Örnek |
+|---|---|---|
+| **Bloker** | Rakibin en güçlü ellerini elinden alan kart | A♠ tut: nut flush'ı bloke ediyorsun |
+| **Bağlantı** | Board'a temas eden, gelişebilen yapı | OESD veya FD — sadece 'iki yüksek kart' değil |
+| **Board sahipliği** | Board kimin aralığına çarpıyor | T98, 765 senin; A-K-7 kuru rakibin |
+
+### 1.2 J2s dersi — suited tuzağı
+
+Suited olmak bir eli blöf yakıtı yapmaz. J2s'in bloker değeri yok (kimsenin nut'ını almıyor), bağlantısı zayıf (iki kart arasında 9 boşluk), ve tamamlandığında bile alt flush riski taşıyor. Suited kelimesi seni kandırıyor: aranan şey suited değil, bağlı ve bloker.
+
+Aynı tuzak offsuit broadway'lerde tersine işler: KJo, QJo — bloker değeri var ama bağlantı yok. Bunlar da blöf yakıtı değil.
+
+### 1.3 Hamle seçimi: board'un sahibi kim
+
+Üç kriterden geçen el bile yanlış hamleyle oynanabilir. Kritik ayrım:
+
+> **Check-raise blöf, SENİN aralığına çarpan boardlarda yapılır** (T98, 765, J-orta bağlantılı).
+> **Rakibin aralığına çarpan boardlarda** (A-K yüksek kuru) draw'lar sessizce call eder.
+
+Neden: A♦ K♠ 7♣ CO'nun open aralığını ezer (AK, AQ, AJ, KQ, A7s, 77, AA, KK). Senin BB savunma aralığında kaç A-K kombinasyonu var? Az. Check-raise'in inandırıcılığı düşük → iyi eller call eder, sadece hava fold eder. Havanın potunu almak için gutshot'ını şişmiş potta riske atmış olursun. Call ise her şeyi çözer: ucuza turn, T gelirse gizli kentle stack, spade gelirse agresifleşme opsiyonu, boşsa ucuz çıkış.
+
+### 1.4 Kime blöf yapılmaz
+
+- **Rec / station tipi:** fold etmez. Blöf değil, value bet düşün.
+- **Kısa stack:** call fiyatı stack'ine göre küçük, otomatik call bölgesinde.
+- **Pota bağlanmış oyuncu (committed):** psikolojik olarak fold kapalı.
+- **Bubble'da hayatta kalmaya oynayan büyük stack:** seni bedavaya ödeyecek.
+
+---
+
+## Bölüm 2 — Aldatıcı Orta Eller
+
+> **JTs, KQ, KJ, 97s: küçük pot kazananı, büyük pot kaybedenidir.**
+> Rolleri open / flat / BB-defend. Rolleri ASLA büyük pot başlatıcı (3-bet, stack-off yakıtı) değil.
+
+Neden: JTs top pair yaptığında kicker sorunu var. KQ top pair yaptığında AK/AQ gölgesinde. 97s iki per yaptığında bile üstü açık. Bu eller pot küçükken (tek raise'li) rakibin marjinal ellerinden para sızdırır; pot büyüdüğünde (3-bet+) karşılarındaki aralık daralır ve güçlenir — dominate edilirler.
+
+**Tek cümle:** *El aynı, pot boyutu değişince kazanan taraf değişir.*
+
+### 2.1 KQo vakası — equity ile oynanabilirlik farkı
+
+**42bb, Day 2. HJ (reg, ~%22) açtı, sen CO'da KQo. Doğru karar: fold.**
+
+KQo'nun HJ'nin %22 aralığına karşı ham equity'si ~%45 — fena değil. Ama o equity'yi realize edemiyorsun:
+
+- HJ aralığındaki AK, AQ, KK, QQ, AA senin en iyi floplarını mezara çevirir: K flopladın → AK'ye üç sokak ödersin. Q flopladın → AQ'ya ödersin.
+- Yani en iyi senaryoların en pahalı tuzaklarındır.
+- 42bb'de 3-bet edip 4-bet yersen devam edemezsin; call edip OOP oynamak da inisiyatifsiz.
+
+**Ders: equity kâğıt üzerinde, para masada kazanılır.**
+
+---
+
+## Bölüm 3 — Stack Modları ve Açılış Aralıkları
+
+*Bir elden önce sorulacak ilk soru: hangi moddayım? Aralık ondan sonra seçilir.*
+
+| Mod | Karakter | Ne düşer / ne yükselir |
+|---|---|---|
+| **80bb+** | Standart chartlar. LJ ~%18 → BTN ~%45 | Suited connector ve küçük çift değeri tavan |
+| **40–60bb** | İlk daralma. Boyut sabit, aralık kısılır | Offsuit alt bant düşer (KTo, QJo, J9o) |
+| **25–40bb** | Ciddi mod değişimi | Suited connector değer kaybeder, A-x değer kazanır. 'Jam'e karşı net karar' filtresi |
+| **15–25bb** | Open-jam sınırı | Bazı pozisyonlardan 2x açılır, bazılarıyla direkt jam |
+| **<15bb** | Jam / fold | Aralık dışı hiçbir hamle yok |
+
+### 3.1 Kritik eşik: 30bb altı orta çiftler
+
+30bb altında 77–TT gibi orta çiftler post-flop oynanacak eller değil — jam-or-fold ellerdir. Set gelmezse üç sokak ödeyecek stack'in yok; gelirse de zaten kısa stack'le maksimum alamazsın.
+
+### 3.2 ICM katmanı
+
+> **Bubble'da 30bb ≠ Day 1'de 30bb.**
+> Para yaklaşırken aynı stack aynı aralığı oynamaz. Sol tarafındaki kısa stack'ler seni koruyor, büyük stack'ler seni sıkıştırıyor.
+
+- Solunda kısa stack'ler varsa: açılış aralığını genişlet, onlar hayatta kalmaya oynuyor.
+- Solunda büyük stack'ler varsa: daralt, seni cezasız 3-bet edebilirler.
+- Bubble'da orta stack en kırılgan pozisyondur — ne kısa gibi jam edebilirsin, ne büyük gibi baskı kurabilirsin. Bu modda sabır.
+
+---
+
+## Bölüm 4 — Pozisyona Göre 3-bet ve Call Aralıkları
+
+*★ v3'te eklendi. 100–150bb, 8 kişilik masa varsayımıyla yazıldı.*
+
+### 4.0 Bu bölümün mantığı
+
+Kök hatan şişmiş potta tek per'i yanlış sınıflandırmak. O hata river'da ortaya çıkıyor ama preflop'ta doğuyor: şişmiş pot dediğimiz şey %90 oranda 3-bet'li pottur. Yani 3-bet aralığını doğru kurmak, kök hatanın FREKANSINI düşürmenin en verimli yolu — el okuma becerisini geliştirmekten daha hızlı sonuç verir.
+
+**Her aralık iki soruyla sınanır:**
+
+1. 3-bet edip flop görürsem, tek per yaptığımda rahat olacak mıyım? Olmayacaksam 3-bet etmiyorum — flat ediyorum veya atıyorum.
+2. OOP mu kalacağım? OOP 3-bet potunda tek per tanım gereği bluff-catcher'dır. OOP aralıkları bu yüzden IP aralıklarından belirgin daha sıkıdır.
+
+### 4.1 Canlı turnuva düzeltmesi
+
+Solver aralıklarını olduğu gibi uygulamayacaksın. EPT alanında üç sistematik sapma var:
+
+| Canlı oyuncu davranışı | Senin düzeltmen |
+|---|---|
+| 3-bet'e karşı çok az fold eder | Blöf 3-bet frekansını düşür, VALUE 3-bet'i genişlet |
+| 4-bet blöfü neredeyse yoktur | 4-bet gördüğünde QQ ve altını ciddiye al; AK otomatik 5-bet değil |
+| Açılışlar geniş, coldcall çok | Squeeze en kârlı hamlen; multiway potlarda blöf 3-bet'i bırak |
+
+> **Canlıda para blöf 3-bet'ten değil, daha geniş value 3-bet'inden gelir.**
+> Teori seni dengeye zorluyor; alan sana dengesizlikten kâr etme izni veriyor.
+
+### 4.2 Boyutlandırma — ezberle, düşünme
+
+| Durum | Boyut |
+|---|---|
+| **IP 3-bet** | Açılışın 3× (canlıda 3.5× serbest) |
+| **OOP 3-bet (blinds dahil)** | Açılışın 4× |
+| **Her coldcaller için** | +1 açılış boyutu ekle |
+| **Squeeze (açılış + 1 caller)** | 4.5–5× |
+| **4-bet IP** | 3-bet'in 2.2× |
+| **4-bet OOP** | 3-bet'in 2.5× |
+
+### 4.3 3-bet aralıkları — pozisyon eşleşmeleri
+
+*Blöf satırındaki eller flop oynanabilirliği için seçildi, blocker teorisi için değil.*
+
+**UTG / UTG+1 açılışına karşı — disiplin bölgesi**
+
+| Pozisyon | VALUE | BLÖF |
+|---|---|---|
+| LJ / HJ | QQ+, AKs, AKo | yok |
+| CO | QQ+, AKs, AKo (JJ karışım) | A5s |
+| BTN | JJ+, AKs, AKo, AQs (karışım) | A5s, A4s |
+| SB | QQ+, AKs, AKo | yok |
+| BB | QQ+, AKs, AKo | A5s (seyrek) |
+
+**Flat (yalnız IP, 100bb+):** TT–77, AQs, AJs, ATs, KQs, KJs, QJs, JTs, T9s, 98s. 150bb+ ise 66–22 ve 87s, 76s eklenir.
+
+**Yapmayacağın şey:** UTG açılışına AJo, KQo, KJo ile coldcall. Bu eller ya 3-bet ya fold — ortada oynanan hâlleri tam olarak kök hatayı yaşatan ellerdir.
+
+**LJ / HJ açılışına karşı**
+
+| Pozisyon | VALUE | BLÖF |
+|---|---|---|
+| CO | JJ+, AQs+, AKo | A5s, A4s |
+| BTN | TT+, AQs+, AKo, AQo (karışım) | A5s–A3s, KJs, QJs |
+| SB | JJ+, AQs+, AKo | A5s, A4s |
+| BB | TT+, AQs+, AKo, AQo | A5s–A3s, KJs, T9s (seyrek) |
+
+**Flat IP (CO/BTN):** 99–22, AJs, ATs, KQs, KJs, KTs, QJs, QTs, JTs, T9s, 98s, 87s, 76s
+
+**CO açılışına karşı**
+
+| Pozisyon | VALUE | BLÖF |
+|---|---|---|
+| BTN | TT+, AJs+, AQo+, KQs | A5s–A2s, KTs, QTs, J9s, T8s |
+| SB | JJ+, AJs+, AQo+, KQs | A5s–A3s, KJs |
+| BB | TT+, ATs+, AQo+, KQs, KJs | A5s–A2s, K9s, QTs, J9s |
+
+**BTN flat:** 99–22, AJo, KJo, KTs, QJs, QTs, JTs ve tüm 65s+ suited connector'lar
+
+**BTN açılışına karşı — steal savunması**
+
+| Pozisyon | VALUE | BLÖF |
+|---|---|---|
+| SB | 88+, ATs+, AJo+, KJs+, QJs | A5s–A2s, K9s, Q9s, J9s, T8s, 87s |
+| BB | 99+, ATs+, AQo+, KQs, KJs | A5s–A3s, K9s–K7s, QTs, J9s, T8s, 76s |
+
+**SB flat: neredeyse yok.** SB'den flat 100bb'de kayıp pozisyondur — 3-bet ya da fold. İstisna: 200bb+ ve zayıf, ödeyen bir BTN varsa 66–22 ve suited connector'larla flat kabul edilebilir.
+
+**BB flat: çok geniş.** Aksiyonu kapatıyorsun, fiyat iyi. Tüm suited eller, tüm çiftler, çoğu broadway, tüm suited connector'lar.
+
+**SB açılışına karşı (yalnız BB) — alanın en kârlı 3-bet spotu**
+
+- **VALUE:** 88+, A9s+, ATo+, KTs+, QTs+, JTs
+- **BLÖF:** K7s+, Q8s+, J8s+, T8s, 97s, 86s, 65s
+- **Flat:** kalan her oynanabilir el. SB aralığı geniş, sen IP'sin — fold sebebi az.
+
+### 4.4 Coldcall'un üç şartı
+
+Coldcall 3-bet'ten daha zor bir karardır çünkü inisiyatifi bırakıyorsun. Üçü aynı anda sağlanmıyorsa flat etme:
+
+1. **Pozisyon:** IP'sin ya da aksiyonu kapatıyorsun (BB).
+2. **Derinlik:** set-mining için efektif stack, call'un en az 15×'i. 100bb'de 3bb call → 45bb+ arkada: tamam. 40bb'de aynı call: değil.
+3. **Ödeyen rakip:** set yaptığında sana para verecek biri. Sıkı bir regi karşısında set-mining kârsızdır.
+
+**Multiway uyarısı:** arkanda 3-bet edebilecek agresif oyuncu varsa sıkı bir elle flat etmek seni squeeze'e açık bırakır. O durumda ya 3-bet'e yükselt ya at.
+
+### 4.5 3-bet'e karşı senin cevabın
+
+| Cevap | Eller |
+|---|---|
+| **4-bet value** | KK+, AKs (geç pozisyon 3-bettor'a karşı) |
+| **4-bet karışım** | QQ, AKo — geç pozisyondan gelen 3-bet'e evet, UTG'ye hayır |
+| **4-bet blöf** | A5s, A4s — canlıda ÇOK seyrek. Kimse fold etmiyorsa blöf 4-bet para yakmaktır |
+| **Flat (IP, 150bb+)** | JJ, TT, AQs, KQs; fiyat 3× altındaysa suited connector |
+| **Fold** | OOP tüm offsuit broadway'ler: AJo, KQo, ATo — 3-bet'e karşı çöp |
+
+> **4-bet'li pot şişmiş pottur.**
+> Orada AA ile flop+turn value alıp kötü river'da jam etmek, Vaka 3'ün (245 boardu) birebir tekrarıdır. Kural değişmiyor: river'da senden zayıf el ödemeyecekse jam value değildir.
+
+### 4.6 Squeeze — canlıda en kârlı tek hamle
+
+Coldcaller'ın aralığı sıkı ama zayıftır: 4-bet edemez, çoğu eli fold eder.
+
+- **VALUE:** JJ+, AQs+, AKo
+- **BLÖF:** A5s–A4s, KQs, AJs (blocker + oynanabilirlik)
+- **BOYUT:** 4.5× IP, blinds'ten 5×+
+
+Coldcaller sıkıysa blöf tarafını genişlet. Coldcaller balıksa (fold etmiyorsa) blöfü tamamen kes — sadece value squeeze.
+
+### 4.7 Stack modu üst katmanı
+
+| Mod | 3-bet karakteri | Flat | Not |
+|---|---|---|---|
+| **200bb+** | Value ağırlıklı, blöf az | En geniş | Implied odds tavan. Offsuit broadway değeri minimum |
+| **100–150bb** | Tablolar aynen geçerli | Geniş | Standart mod |
+| **60–100bb** | Daha polarize, blöf artar | Daralır | Set-mining zayıflar |
+| **40–60bb** | Lineer / merged | Neredeyse yok | 3-bet ya da fold |
+| **25–40bb** | 3-bet = commit demektir | Yok | 3-bet edeceğin el 4-bet'e devam edebilmeli |
+| **<25bb** | Jam / fold | Yok | 3-bet-fold yapısı yok |
+
+**En sık yapılan hata:** 45bb'de 130bb aralığı oynamak — küçük çiftle flat, suited connector'la 3-bet blöfü. İkisi de 45bb'de zarar.
+
+---
+
+## Bölüm 5 — 25–30bb Bandı: Savaş Planı
+
+*★ v4'te eklendi. Turnuvanın en sık yaşanan ve en çok chip kaybedilen bandı. Bölüm 4'ün tabloları 100–150bb içindi; bu bölüm o tablolar geçersizleştiğinde ne oynayacağını söyler.*
+
+### 5.0 Bandın karakteri
+
+> **Bu bantta değer FOLD EQUITY'den gelir, kart tamamlamaktan değil.**
+> Aradığın el "gelişebilen" değil, ŞİMDİDEN İYİ OLAN: as, broadway, çift. Spekülatif ellerin motoru (implied odds) 28bb'de çalışmaz — set veya kent yaptığında ödetecek stack yok, tamamlamadığın %85 durumda ise çaresizsin.
+
+Karar sırası iki saniyede: MOD → POZİSYON → EL. 28bb'de suited connector geldiğinde üçüncü adıma bile geçmiyorsun.
+
+### 5.1 Açılış aralıkları (önünde kimse yoksa)
+
+*Boyut 2–2.2×. Bu derinlikte daha büyük açmanın anlamı yok.*
+
+| Pozisyon | Açılış aralığı |
+|---|---|
+| **UTG / UTG+1** | 77+, ATs+, AJo+, KQs |
+| **LJ / HJ** | 55+, A8s+, ATo+, KTs+, QJs |
+| **CO** | 33+, A5s+, A9o+, K9s+, QTs+, JTs |
+| **BTN** | 22+, tüm A-x, K7s+, K9o+, Q9s+, J9s+, T9s |
+| **SB** | 22+, A2s+, A7o+, K9s+, KTo+, QTs+ |
+
+### 5.2 3-bet = JAM
+
+Bu bantta 3-bet commit demektir. "3-bet edip fold" diye bir yapı yok — doğrudan all-in gidiyorsun.
+
+| Kime karşı | Jam aralığı |
+|---|---|
+| **Erken pozisyon açılışı** | TT+, AQs+, AKo |
+| **CO / BTN açılışı** | 88+, ATs+, AQo+, KQs |
+| **Chip leader / jam'e fold eden** | 77+, A9s+, AJo+, KQs (genişletilmiş) |
+
+**Bu bantta FLAT YOK.** Ne SB'den, ne BB'den, ne IP'den. Bölüm 4'ün geniş flat tabloları 100bb+ dünyasına aittir.
+
+### 5.3 Jam'e karşı call
+
+Rakip all-in geldiyse: 99+, AJs+, AQo+. Bundan aşağısı 28bb'de call değil — ya jam'i sen yapacaksın ya fold edeceksin.
+
+### 5.4 Fold listesi
+
+**Bu bantta kayıtsız şartsız fold:**
+
+- Tüm suited connector'lar: T9s, 98s, 87s, 76s, 65s, 54s
+- Tüm suited gapper'lar
+- Zayıf offsuit broadway'ler: KJo, QJo, JTo
+- Küçük çiftlerle FLAT (jam ayrı konu)
+
+### 5.5 Saha vakası — üç el, tek kalıp (GGMasters $150, Temmuz 2026)
+
+28bb bandında masa aynı soruyu üç farklı elle sordu. Üçünde de doğru cevap fold'du ve belirleyici olan el değil moddu.
+
+| El | Pozisyon | Durum | Karar |
+|---|---|---|---|
+| **T9s** | SB | 40K'ya call teklifi, 28bb arkada | FOLD — SB'den flat kayıp pozisyon |
+| **54s** | BB | 73K potta 30K, 28bb arkada | FOLD — implied odds motoru çalışmıyor |
+| **87s** | BB | 73K potta 30K, 28bb arkada | FOLD — el daha iyi, karar aynı |
+
+**Aynı seanstan doğru karar örneği:** TT ile BTN'den ~23bb jam. Chip leader (1.08M) call düşündü ve fold etti; pot alındı. Bölüm 3'ün kuralı uygulandı — 30bb altında orta çiftler post-flop eli değil, jam-or-fold elidir.
+
+> **Kural: Bu bantta seni bekleyen soru "bu el yeterince iyi mi" değil, "bu el bu stack'te oynanabilir mi"dır.**
+> Spekülatif elleri fold etmek, gerçek elle jam yapacağın cephaneyi korur.
+
+### 5.6 Rakip okuma notu
+
+Chip leader'ın jam'e fold ettiğini bir kez gördüysen, o oyuncunun açılışlarına karşı jam aralığını genişlet. Geniş açıp jam'e katlanan profil, bu bantta masadaki en kârlı hedeftir. Öncelik sırası: (1) o oyuncu açtığında jam, (2) BTN/CO'dan açıp blindleri toplamak.
+
+---
+
+## Bölüm 6 — Turn'de Draw: Bet mi, Bedava River mı
+
+*Pokerin en sık yaşanan turn sorusu. Karar üç faktöre bağlı.*
+
+### 6.1 Fold equity var mı
+
+- Station tipine semi-bluff = para yakma. Fold etmez, çıplak equity'nle kalırsın → check, bedava kart al.
+- Reg'e karşı ve board senin aralığına uygunsa → bet. İki kazanma yolun olur: fold ettirmek VEYA tamamlamak.
+
+### 6.2 Draw'ın kalitesi — tamamlanınca ödenir mi
+
+| Draw | Karar | Gerekçe |
+|---|---|---|
+| **Nut flush draw** | Bet ağırlıklı | Tamamlanınca action alırsın, blokerlerin güçlü |
+| **Düşük flush draw (97s)** | Check ağırlıklı | Tamamlansa bile üstün flush'a ödeme riski |
+| **Açık kent (OESD), düz board** | İkisi de meşru | Gizli güç — tamamlanınca çok ödenir. Rakibe göre seç |
+| **Gutshot** | Check | Neredeyse hiç semi-bluff yakıtı değil |
+
+### 6.3 IP / OOP ayrımı
+
+- **IP:** check etmek gerçekten bedava kart demektir — rakip de check ederse river'ı ücretsiz gördün.
+- **OOP:** check bedava kart garantisi vermez. Rakip bet atarsa 'bedava' plan çöker. OOP'ta draw'ı ya bet'le ya da call planıyla check et — 'bedava görürüm' diye check etme.
+
+---
+
+## Bölüm 7 — Vaka Otopsileri
+
+> **Üç vakanın kök hatası aynı:**
+> Tek per'in (AA dahil) şişmiş veya multiway potta yanlış sınıflandırılması.
+
+### Vaka 1 — A4s river call ($50K High Roller, WSOP 2026)
+
+**Ne oldu:** Chop mekaniğini doğru gördün, ama bir filtreyi atladın ve hero call yaptın.
+
+**Atlanan filtre:** Chop'lar jam atmaz. Rakip all-in geldiyse bölüşmeye oynayan eli aralığından çıkarmıştır.
+
+**Kural:** Bir mekaniği doğru görmek yeterli değil — rakibin hamlesinin o mekanikle uyumlu olup olmadığını da sor.
+
+### Vaka 2 — KTo top pair check-raise all-in ($10K 6-Handed)
+
+**Ne oldu:** Islak boardda top pair ile check-raise all-in; rakip flat'lediği QQ ile call etti.
+
+**Doğru oyun:** Check-call, sonra değerlendir. Top pair islak boardda büyük pot başlatıcı değildir.
+
+**Kural:** Tek per stack-off yakıtı değil. Şişmiş pota giden yol, elini bluff-catcher'a dönüştürür.
+
+### Vaka 3 — AA river jam (PokerOK $108 Mystery Bounty, Temmuz 2026)
+
+**Board:** 2-4-5, river 6. Elin AA. Rakip 66 (river set).
+
+**Doğru olan:** Flop ve turn value bet — ikisi de doğruydu.
+
+**Hata:** Kötü river 6'da kalan stack'i jam etmek. O river'da senden zayıf hiçbir el ödemiyor — 3'lü, kent, set hepsi seni geçmiş; tek per pas geçiyor. Value target yok.
+
+> **Kural: river'da senden zayıf el ödemeyecekse jam value değildir.**
+> Kötü river'da overpair: küçük pota check-call, büyük pota check-fold.
+
+*Bölüm 4 bağlantısı: bu elin şişmiş pot olma sebebi preflop'ta doğdu. 3-bet aralığını doğru kurmak, bu vakanın tekrar etme olasılığını doğrudan düşürüyor.*
+
+---
+
+## Bölüm 8 — PLO Temelleri
+
+### 8.1 Zihniyet farkları
+
+- **Equity'ler yakın koşar.** PLO'da %60/%40 iyi bir favoriliktir; NLH'deki %80 rahatlığı yok.
+- **Nut hakimiyeti her şeydir.** İkinci en iyi el PLO'da pahalı bir eldir.
+- **İki pot bet = stack ortada.** Pot büyümesi NLH'den çok hızlıdır; üçüncü sokağa geldiğinde geri dönüş yok.
+
+### 8.2 El seçimi
+
+| Kavram | Kural |
+|---|---|
+| **Dangler** | Dördüncü kartı bağlantısız el (AA72) — fold. Pratikte üç kartlı el oynuyorsun |
+| **Rundown** | JT98, KQJT gibi bağlı eller — özellikle çift suited olduğunda güçlü |
+| **Çıplak AA** | Tek per muamelesi. Nut potansiyeli yoksa büyük pot oynamaz |
+| **Wrap + FD** | Gerçek silah. 13+ out artı flush draw — agresif oynanır |
+
+### 8.3 NLH oyuncusunun tuzakları
+
+- **AA'yı NLH gözüyle görmek:** PLO'da AA çift suited değilse ve board'a bağlanmıyorsa sadece bir çifttir.
+- **Top pair / top two ile stack-off:** PLO'da iki per neredeyse hiç nut değildir.
+- **Blöf frekansını NLH'den taşımak:** PLO'da aralıklar daha bağlı, blöf daha az geçer.
+- **OOP 3-bet potu oynamak:** PLO'da en zor spot. Şüphe hâlinde flat et.
+
+---
+
+## Bölüm 9 — Antrenman Protokolü
+
+> **Komut: "beni hazırla" / "drill" / "soru sor"**
+> Sokratik Q&A başlar: 5–8 karar sorusu, tek tek, cevabın gelmeden sonraki soru sorulmaz.
+
+### 9.1 Soru karışımı
+
+| Ağırlık | Konu |
+|---|---|
+| **%40** | Kök hata — tek per / şişmiş pot sınıflandırması |
+| **%30** | Stack modu ve aralık seçimi (Bölüm 3, 4, 5) |
+| **%20** | PLO |
+| **%10** | Blöf seçimi ve draw kararları |
+
+### 9.2 Kurallar
+
+- Yanlış cevaplanan sorular 1–2 gün sonra farklı kılıkta tekrar sorulur.
+- Masadan getirdiğin eller vaka olarak işlenir ve Bölüm 7'ye eklenir.
+- Yeni bölümlerdeki "B0'a aday cümle"lerden drill'de en çok tetiklenen 1–2'si B0'a (12.+) işlenir; başlık ve numara güncellenir.
+- Cevap doğruysa gerekçe de sorulur — doğru karar yanlış gerekçeyle yarım puandır.
+- Kamp Ağustos başında açılır; EPT 16 Ağustos'ta başlıyor.
+
+---
+
+## Bölüm 10 — Soru Bankası
+
+*Cevaplar kasten yazılmadı. Drill sırasında sözlü işlenir.*
+
+### Çekirdek sorular (v2)
+
+1. 40bb, HJ açtı, sen CO'da KQo. Karar ve gerekçe?
+2. Board A♦ K♠ 7♣, sen BB'desin, gutshot'ın var, CO cbet attı. Check-raise mi call mi — neden?
+3. 28bb, elinde 99, UTG açtı. Karar? Bu 90bb'de aynı mı?
+4. Turn'de nut flush draw'ın var, rakip station tipi. Bet mi check mi?
+5. A4s ile river'da all-in yedin ve chop mekaniği var. Hangi filtreyi uygulayacaksın?
+6. Islak boardda top pair, OOP, rakip cbet attı. Check-raise all-in neden yanlış?
+7. AA, board 2-4-5, turn'de value aldın, river 6 geldi. Rakip check etti. Sen? (Vaka 3)
+8. Bubble, 30bb, solunda iki kısa stack. Açılış aralığın Day 1'deki 30bb'den nasıl farklı?
+9. PLO, elinde AA72 rainbow, LJ açtı, sen BTN'desin. Karar?
+10. PLO, wrap + nut flush draw ile turn'de pot bet yedin. Stack derinliğine göre karar ağacın?
+
+### Bölüm 4 soruları (v3'te eklendi)
+
+11. 8 kişilik masa, 180bb. UTG açtı, sen BTN'desin, elin AQo. Karar?
+12. 130bb. HJ açtı, CO flat etti, sen BB'desin, elin KQs. Karar ve boyut?
+13. 45bb. BTN açtı, sen SB'desin, elin 76s. Karar? Bu el 130bb'de aynı mı?
+14. 200bb. UTG açtı, sen CO'dasın, elin 44. Coldcall'un üç şartını tek tek uygula.
+15. 120bb. Sen CO'dan AKo ile açtın, BTN 3-bet etti. Karar? 3-bet eden UTG olsaydı değişir miydi?
+16. 90bb. 4-bet'li pot, elin KK, flop K-7-2 rainbow, turn 9, river A. Rakip check etti. Sen?
+17. PLO, 100bb. LJ açtı, elin AA J7 rainbow, sen SB'desin. Karar ve gerekçe?
+18. 30bb. CO açtı, sen BTN'desin, elin AJs. 3-bet mi jam mı flat mı — ve neden diğer ikisi değil?
+
+### Bölüm 5 soruları — 25–30bb bandı (v4'te eklendi)
+
+19. 28bb. Sen SB'desin, elin T9s, BTN açtı ve 40K'ya call teklifi var. Karar? Aynı el 150bb'de ne olurdu?
+20. 28bb. BB'desin, 73K potta 30K ödeyeceksin, elin 87s. Karar? Bölüm 4'ün 'BB flat çok geniş' satırı neden burada geçerli değil?
+21. 26bb. Chip leader (senin 4 katın) CO'dan açtı, sen BTN'desin, elin A9s. Karar ve boyut?
+22. 28bb. Aynı chip leader'ın jam'e bir kez fold ettiğini gördün. Ona karşı jam aralığın nasıl değişir — ve neden bu masadaki en kârlı spot?
+23. 23bb. Sen BTN'desin, elin TT, önünde kimse yok. Karar? Sonuç fold gelirse veya AK'ye call yersen değerlendirmen değişir mi?
+24. 27bb. UTG açtı, sen HJ'desin, elin 66. Jam, flat, fold — hangisi ve neden diğer ikisi değil?
+
+### Bölüm 11–16 soruları (v5'te eklendi)
+
+25. 100bb 3-bet'li potta overpair'in var, flop kuru. SPR kaç, tek per'in rolü ne? Aynı el 250bb tek-raise'li potta değişir mi? (Bölüm 11)
+26. Turn'de top pair iyi kicker, board eşleşti. İkinci fıçı mı check mi — ve "river planım var mı" ne demek? (Bölüm 11)
+27. River'da overpair, rakip overbet attı. Call mı fold mu? Boyut yarım pot olsaydı değişir miydi? (Bölüm 11)
+28. River'da top pair iyi kicker, rakip rec-station, check etti. Bet mi check mi — thin value ne zaman? (Bölüm 11)
+29. SHR, 28bb, para iki el ötede. Jam'e AJs ile call teklifi. Aynı el Main Day 1'de ne olurdu? (Bölüm 12)
+30. Final table, orta stack, masada senden kısa iki oyuncu var. Temel duruşun ne, kimi hedeflersin? (Bölüm 12)
+31. Bubble, büyük stacksin, solunda kilitlenmiş orta stack. En kârlı hamlen ne ve neden? (Bölüm 12)
+32. Rec-ağırlıklı Main, 3 kişi flop gördü, elinde top pair. HU'da value olan bu el şimdi ne? (Bölüm 13)
+33. 4 yollu potta board sahipliği sende, OESD'in var. Blöf üç kriterden geçiyor — yine de neden blöf yok? (Bölüm 13)
+34. 50bb. CO açtı, sen BTN'desin, elin AJs. 3-bet çerçeven B4'ten (130bb) nasıl farklı? (Bölüm 14)
+35. PLO, 30bb, LJ açtı, elin çift-suited rundown. "Bölüm 5: 3-bet=jam" refleksin neden geçersiz, ne yaparsın? (Bölüm 15)
+36. PLO, flop'ta wrap + FD, 13 out sayıyorsun. Stack-off etmeden önce hangi soruyu sorarsın? (Bölüm 15)
+37. SHR'de doğru bir jam'le elendin. Re-entry basmadan önceki 20 dakikada hangi iki soruyu cevaplarsın? (Bölüm 16)
+
+---
+
+## Bölüm 11 — Şişmiş Pot, Turn Disiplini ve River İcrası
+
+*★ v5. Kök hatanın EKSİK YARISI. B0/B4/B7 "şişmiş potta tek per = bluff-catcher" TEŞHİSİNİ koyar; bu bölüm teşhis konduktan sonra elin nasıl oynanacağını verir: potun ne zaman "şişmiş" olduğu, turn'de fıçının atılıp atılmayacağı, river'da hangi fiyata call/value. Üç belgelenmiş elenmenin üçü de bu bölümün konusu.*
+
+### 11.0 "Şişmiş pot" — sayısal tanım
+
+Şimdiye kadar "şişmiş pot" nitel kullanıldı (≈ 3-bet'li pot). Derinlik değişince bu sezgi yanılır: 250bb'de tek-raise'li pot turn'e gelince stack-off bölgesine girebilir; 100bb'de 3-bet'li pot zaten oradadır. Doğru ölçü SPR (stack ÷ pot).
+
+> **Derinde şişmiş potu bet sayısı değil SPR tanımlar.**
+
+| SPR (flopta) | Tipik pot | Tek per'in rolü |
+|---|---|---|
+| **< 1** | 4-bet'li / kısa stack | Karar preflop verildi — commit |
+| **1–4** | 100bb 3-bet'li pot | Bluff-catcher. Büyük pot BAŞLATMA |
+| **4–8** | 40–70bb tek-raise'li / canlı multiway şişkin açılış | İki sokak value + kontrol; üçüncü sokak dikkat |
+| **> 8** | 100bb+ standart tek-raise'li pot (200–300bb Main Day 1 dahil) | İnce value alınabilir — ama re-raise gören pot aniden 1–4 bandına düşer |
+
+SPR aritmetiktir, evrensel. Hangi TAM el sınıfının hangi SPR'de stack-off edeceği senin icra verinle netleşir — *(kalibre et: 3 elenme eline SPR biç)*.
+
+**Kural:** Önce SPR'yi oku, sonra rolü ver. Derinde (SPR>8) tek per'i erken bluff-catcher'a düşürüp value kaçırmak da hata; orta-sığda (SPR 1–4) eski derin refleksle stack-off etmek de.
+
+### 11.1 Turn disiplini — ikinci fıçı kriteri
+
+B6 turn'ü sadece DRAW için işledi. Value/marjinal ellerin turn kararı buraya. Kök hata çoğu zaman turn'de doğar: potu ikinci fıçıyla kendin şişirir, river'da bluff-catcher olarak kalırsın (Vaka 3'te turn bet DOĞRUYDU — B7; ama o bet'le pot şişti — ikinci fıçıyı atarken river planın önceden hazır olmalı).
+
+| Elim | Boş / düşük turn | Bana overcard | Board eşleşti | Draw tamamlayan |
+|---|---|---|---|---|
+| **Overpair** | Bet (kontrollü) | Dikkat — SPR'yi say | Check eğilimi | Check / boyut düşür |
+| **Top pair iyi kicker** | İnce bet | Check-call | Check | Check-fold eğilimi |
+| **Top pair zayıf kicker** | Check | Check | Check-fold | Check-fold |
+| **Hava + bloker** | Barrel adayı | Barrel adayı | Bırak | Bırak (kart geldi) |
+
+Boyutlar *(kalibre et)* — ama yön sabit: potu her büyüttüğünde river'da check-fold lüksünü satın alma gücün azalır.
+
+> **İkinci fıçıyı atmadan önce sor: river planımı söyleyebiliyor muyum? Kötü river'da check-fold edebileceğim pot boyutu bırakıyor muyum?**
+
+**B0'a aday cümle:** *Turn'de attığın boyut, river'da vereceğin kararın fiyatıdır.*
+
+### 11.2 River — bluff-catch: hangi fiyata call
+
+B0 c.2 "küçük pota check-call, büyük pota check-fold" der — kaba bir eğilim. Rakip bet attığında karar üç değişkene iner:
+
+| Rakip boyutu | Hangi blöfleri var? | Benden zayıf hangi value bu boyutu atar? | Bloker | Eğilim |
+|---|---|---|---|---|
+| **≤ %50 pot** | Çok (ince value + blöf) | Bir sürü | Az önemli | Call yönü |
+| **%50–100** | Azalıyor | Daralıyor | Önemli | Sınırda — bloker belirler |
+| **Overbet** | Polarize: nut veya hava | Neredeyse yok | Kritik | Tek per → fold; sadece bloker tutan bluff-catcher call |
+
+**Kural:** Boyut büyüdükçe rakip aralığı value'ya kayar, tek per netleşerek bluff-catcher'dan FOLD'a döner. "Reg overbet attı" = polarize oku; panik hero-call ve chop'ları unutmak (Vaka 1) buranın hatasıdır.
+
+### 11.3 River — thin value: kim öder
+
+Kitabın tüm value filtreleri şimdiye kadar NEGATİF idi ("ödemezse jam etme"). Pozitif komut eksikti: ödeyen varsa İNCE value BET ET. Bu, B0 c.2'nin öbür yüzü — filtre aynı, yön ters.
+
+| El sınıfım | Rec / station | Reg |
+|---|---|---|
+| **Top pair iyi kicker** | Küçük value bet (öder) | İnce bet / check-call |
+| **İkinci per** | Küçük value bet | Check-call |
+| **İki per, küçük board** | Value bet | Check-call — reg bu boyutu daha iyisiyle öder |
+
+**Kural:** "Benden zayıf hangi el ödüyor?" sorusunun cevabı VARSA — ince de olsa — bet. Rec-ağırlıklı Main'de kaçan thin value doğrudan chip kaybıdır.
+
+### 11.4 Kötü river kataloğu
+
+Overpair/güçlü tek per ile bu kartlar geldiğinde "value target yok" alarmı çalar:
+
+- **Alt kartların dördüncüsü / kent tamamlayan** (Vaka 3: 2-4-5'e river 6 — 3'lü, kent, set hepsi seni geçmiş)
+- **Üçüncü flush kartı** (senin elinde flush yoksa)
+- **Board eşleşmesi** (set / full house kapısı)
+- **Üstüne overcard** (rakip top pair'i geçer)
+
+Bu kartlarda: küçük pota check-call, büyük pota check-fold. **Jam ASLA** — jam value ancak senden zayıf bir el ödeyecekse vardır.
+
+*Kök hata bağı: bu bölümün tamamı B0 c.1-2'nin icra katmanıdır. B4 hatanın FREKANSINI preflop'ta düşürür; B11 hata anına gelindiğinde İCRAYI verir.*
+
+---
+
+## Bölüm 12 — ICM ve Final Table Savaş Planı
+
+*★ v5. B3.2'nin 6 satırlık "ICM katmanı"nı taşıyan omurgaya terfi ettirir. SHR €100K ve HR €10.3K küçük saha + dik ödeme: neredeyse her Day 2 kararı ICM altında. En pahalı ICM hatası tam olarak KÖK HATANIN kendisidir — şişmiş potta tek per ile call-off, chipEV'de yanlışken ICM altında katlanarak yanlış.*
+
+### 12.0 Bu turnuvada ICM ne zaman açılır
+
+Aynı 28bb, aynı el, aynı pozisyon: SHR'de ICM kararı, Main Day 1'de saf chipEV kararıdır. Bu ayrımı MASADA değil, önceden yapmış ol.
+
+| Event | Saha karakteri | ICM fiilen ne zaman açılır | Bubble ≈ FT mi? |
+|---|---|---|---|
+| **SHR €100K** | Reg-ağırlıklı, çok küçük saha *(masada doğrula)* | Erken — Day 1 ortasından | Evet, iç içe |
+| **PLO HR €25K** | Küçük saha | Erken–orta | Yakın |
+| **HR €10.3K** | Reg-ağırlıklı, küçük saha | Orta — para yaklaşınca dik | Yakın |
+| **Main €5.3K** | Rec-ağırlıklı, büyük saha | Geç — Day 3'e kadar chipEV | Hayır, ayrı |
+
+Saha boyutu/ödeme yüzdeleri UYDURULMAZ — kayıt sayısına göre lobiden oku. Karar sırasına 0. adım eklenir: **"Bu event'te ICM açık mı?"**
+
+### 12.1 Risk-premium — B5 jam/call tablolarına ICM düzeltmesi
+
+B5.2/5.3 aralıkları saf chipEV. ICM'nin bir numaralı asimetrisi: **jam etmek, call etmekten çok daha ucuzdur** (jam'de fold equity'n var; call'da yok). Seni cover EDEN'e karşı call daralır.
+
+| Durum | JAM aralığı | CALL aralığı (jam'e karşı) | Chip-leader'a jam |
+|---|---|---|---|
+| **ICM kapalı (12.0'a göre)** | B5 aynen | B5 aynen (99+/AJs+/AQo+) | B5 aynen |
+| **Bubble / para yakını** | Bir kademe daralt | İKİ kademe daralt | Genişlet (kilitliyse) |
+| **FT pay-jump aktif** | İki kademe daralt | En sıkı — cover edilen katlan | Rol'e bağlı (12.2) |
+
+Kademe içerikleri drill'de ICMIZER/solver ile *(kalibre et)* — uydurma eşik yok.
+
+> **Jam ve call aralığı ICM'de AYRIŞIR. Simetri bir chipEV varsayımıdır.**
+
+### 12.2 Final table — rol matrisi
+
+FT'de doğru davranış EL'e değil STACK ROLÜNE bağlıdır.
+
+| Rolüm | Masada benden kısa VAR | Masada benden kısa YOK |
+|---|---|---|
+| **Kısa (<15bb)** | İlk jam'ci ol, ladder'ı gözle | Katlanma — doğru jam; kilitlenme de bir busttur (blind'lere) |
+| **Orta** | En kırılgan — kimin bust'ını beklediğini bil, cover edenle pot açma | Fiilen en kısasın — 12.5: herkes kilitliyse jam aralığını GENİŞLET, katlanma |
+| **Cover eden derin** | Agresyon serbest — cezasız ez | Chip-leader'la ego savaşına girme |
+
+### 12.3 Ladder — ne zaman gerçek para
+
+Bir sonraki pay-jump stack'ine oranla BÜYÜKSE ve masada senden kısa varsa: bekle, jump'ı ladder'la. Jump mikroysa: chipEV oyna.
+
+Ödeme merdiveni *(lobiden doldur — eşik sayısı uydurulmaz)*:
+
+| Sıra | Ödül | Bir önceki sıraya fark |
+|---|---|---|
+| *(doldur)* | *(doldur)* | *(doldur)* |
+
+### 12.4 Bubble av haritası
+
+Bubble savunma değil, turnuvanın en yüksek chipEV penceresidir — DOĞRU tarafındaysan.
+
+| Benim stack'im | Kilitli orta stack | Kısa stack | Beni cover eden büyük |
+|---|---|---|---|
+| **Büyük (cover eden)** | Soy — open genişlet + 3-bet baskısı | Normal | Ego yok — blöf 3-bet kapalı |
+| **Orta** | Seçici soy — YALNIZ cover ettiğin kilitli orta; değilse B3.2: sabır | Normal | Kaç |
+| **Kısa** | — | — | Kaç, doğru jam'i bekle |
+
+Kural: **kilitlenmiş orta stack masadaki en kârlı hedeftir.** Rec/reg saha farkı: Main'de hedef bol; SHR/HR'de herkes bunu bildiği için hedef seçici (B5.6 rakip-okuma kalıbının aynısı).
+
+### 12.5 Kısa stack ICM istisnası — DİKKAT
+
+⚠️ **"ICM'de daralt" HER ZAMAN doğru değil.** Herkes kilitliyken kısa stack'in doğru oyunu GENİŞLETMEKtir — kimse seni ödemek istemez. Bu bandda "genel daralt" refleksi aktif olarak yanlış tavsiyedir.
+
+**<15bb jam kartı** *(kalibre et — ≤6 satır: yalnız BTN/SB/BB + "ilk giren"; chipEV jam aralığı + ICM düzeltme sütunu; tam Nash tablosu yazılmaz, "molada bakılır" karakteri korunur)*.
+
+**B0'a aday cümle:** *ICM'de marjinal call = kök hatanın turnuva-hayatı sürümü.*
+
+---
+
+## Bölüm 13 — Multiway Pot Doktrini
+
+*★ v5. B7 kök hatayı "şişmiş VEYA MULTIWAY potta yanlış sınıflandırma" diye tanımlar ama gövdede tek multiway postflop kuralı yoktu. Bu bölüm o borcu öder. Main (€5.3K) rec-ağırlıklı: geniş açılış + çok coldcall = potların çoğu multiway. 4 event içinde en uzun süre geçireceğin doku.*
+
+### 13.0 Çekirdek
+
+> **Her ek oyuncu blöfün fiyatını KATLAR, value'nun barını YÜKSELTİR, nut'un değerini ARTIRIR.**
+
+Sebep bileşik olasılık: rakip sayısı arttıkça birinin iki-per+/set olma ihtimali katlanır. Bu yüzden multiway şişmiş pot, tek per'i HU şişmiş pottan bile daha net bluff-catcher yapar.
+
+### 13.1 HU → 3+ yollu geçiş
+
+| Durum | Heads-up | 3+ yollu |
+|---|---|---|
+| **C-bet frekansı** | Yüksek | Çöker — sadece güçlü value + gerçek nut-draw |
+| **Top pair** | Value | Bir sınıf düşer → check / pot kontrol |
+| **Overpair** | Büyük pot adayı | İki sokak + kontrol; SPR'yi say (B11) |
+| **Blöf** | Üç kriter (B1) | Neredeyse yok — sadece nut-bloker semi-bluff |
+| **Nut FD** | Bet | Bet kalır (fiyat iyi, tamamlanınca çok ödenir) |
+| **Non-nut FD / gutshot** | Duruma göre | Check'e döner / ölür |
+
+### 13.2 Kimden korkuyorum
+
+Preflop caller'ların hepsi değil — **flop'ta hâlâ DURAN en sıkı aralık.** Birinin bet'ine aradaki call'dan sonra gelen raise = neredeyse her zaman nut; tek perle devam yok.
+
+### 13.3 Multiway'de blöf — dördüncü kriter
+
+B1'in üç kriteri (bloker/bağlantı/board sahipliği) tek rakibe kurgulandı. Multiway'de dördüncü değişken: **rakip sayısı = blöfün geçmesi gereken kapı sayısı.** Tek station bile blöfü öldürür.
+
+| Rakip sayısı | Blöf modu |
+|---|---|
+| **HU** | Üç kriter (B1) |
+| **3 yollu** | Sadece nut-bloker semi-bluff |
+| **4+ yollu** | Yok |
+
+B1.4 "kime blöf yapılmaz" listesine eklenir: **Multiway pot (kim olursa olsun).**
+
+### 13.4 Multiway PLO
+
+Canlı PLO'nun varsayılan hâli multiway (limp/çoklu-call normu). "İkinci en iyi el pahalıdır" kuralı multiway'de "ikinci en iyi el stack'ini kaybettirir"e döner. Non-nut flush draw multiway'de ödeme makinesidir; nut-uçlu wrap değeri artar (tamamlanınca çok yönlü ödenir). Sadece NUT'a oyna. (Ayrıntı B15.)
+
+**B0'a aday cümle:** *Multiway'de tek per, HU'dakinden bir sınıf aşağıdır.*
+
+*Kök hata bağı: doğrudan güçlendirme. B7 başlığının yazılmamış yarısını doldurur; mevcut hiçbir aralığa dokunmaz.*
+
+---
+
+## Bölüm 14 — 40–70bb Köprü Bandı
+
+*★ v5. B4 100–150bb, B5 25–30bb için tablo verir; arası B4.7'nin tek satırlık karakter notlarıyla kalıyordu. Main Day 2+ ve tüm High Roller'ların orta fazı ağırlıkla 40–70bb'de oynanır — en çok elde bulunacağın band. Soru bankası 13 ve 34 bu bandı sorar; bu bölüm B4.7 satırlarını tabloya açar.*
+
+### 14.0 Bandın karakteri
+
+B0 c.7'nin ("her elden önce stack modu") iki uç arasındaki tamamlanması. Bu bantta:
+
+- 3-bet giderek COMMIT'e yaklaşır (60bb'de değil, 40bb'de tam commit).
+- Flat penceresi daralır ama B5'teki gibi sıfır değil — IP ve BB'de dar bir flat yaşar.
+- Offsuit broadway ve dominate edilebilir eller B4'e göre düşer; oynanabilirlik önde.
+
+### 14.1 3-bet çerçevesi — B4'ten YÖN olarak türet
+
+*Yeni kombo listesi yazmıyoruz; B4'ün KALİBRE aralıklarından bu bandda hangi yönde daraldığını veriyoruz. Tam eşik drill'de (kalibre et).*
+
+| Band | VALUE 3-bet | BLÖF 3-bet | Jam'e devam | Flat istisnası |
+|---|---|---|---|---|
+| **60–70bb** | B4 VALUE ≈ aynı | B4.7 yönü: daha polarize — blöfü en iyi bloker+oynanabilirlik ellerine daralt *(kalibre et)* | 4-bet'e devam edebilen value | IP: dar; BB: dar |
+| **40–60bb** | B4 VALUE − zayıf uçlar | Neredeyse kes — canlıda kimse fold etmiyor | commit'e YAKLAŞIR; tam commit 40bb altında (B4.7) | Neredeyse yok |
+
+**Kural:** ≈60bb altında "3-bet edip fold" yapısı zayıflamaya başlar, 40bb'de biter — tam eşik drill'de *(kalibre et)*. 3-bet edeceğin el 4-bet/jam'e devam edebilmeli — edemiyorsa flat (IP/BB) ya da fold.
+
+### 14.2 60bb → 40bb geçiş işaretleri
+
+Banttan düşerken tablodan ilk çıkanlar: suited connector'la 3-bet blöfü, küçük çiftle spekülatif flat, offsuit broadway coldcall. B0 c.7'nin uyarısı (B4.7'de de tekrarlanır) burada somutlaşır: **"45bb'de 130bb aralığı oynamak en pahalı alışkanlık."**
+
+*Kök hata bağı: mod-önce-aralık omurgasını (B0 c.7) iki uç band arasında tamamlar; yanlış-mod-aralığı, şişmiş pot üretiminin bir numaralı kaynağıdır.*
+
+---
+
+## Bölüm 15 — PLO Turnuva Katmanı: Stack-Modu, SPR, Multiway
+
+*★ v5. B8 zihniyet + el seçimi verir ama derinlik/turnuva boyutu yoktu. Kritik çelişki: Hızlı Referans "30bb altındaysam Bölüm 5'e git" ve B5'in "3-bet = JAM" doktrini POT-LIMIT'te icra edilemez. €25K PLO HR ayrı bir event (bütçenin ~%18'i); bu bölüm o çelişkiyi kapatır.*
+
+### 15.0 Neden ayrı bir katman
+
+B5'in NLH jam/fold refleksi PLO'da geçersiz: pot-limit'te "jam" yok, max pot-raise var; ve equity'ler yakın koştuğu için fold equity doktrini (B0 c.11) PLO'da zayıflar. Yani "30bb PLO" ≠ "30bb NLH".
+
+### 15.1 PLO stack modları
+
+| Mod | NLH'den fark | Karakter |
+|---|---|---|
+| **60bb+** | Implied odds tavan; rundown/çift-suited değeri zirve | Standart PLO |
+| **25–60bb** | B5 GEÇERSİZ — jam yok, pot-raise var | Nut-odak; çıplak AA postflop oynamaz — değeri pre-commit'te (3-bet → SPR≤1) |
+| **<25bb** | Pot-raise → kalan stack flop'ta otomatik gider | Bu bir "jam" sayılır; aralığı ona göre seç |
+
+**Kural:** Kısa PLO'da pot-raise = commit. Aralığını "flop'ta stack ortaya girecek" varsayımıyla seç: çift-suited rundown, güçlü AAxx; dangler'lı her şeyi KES.
+
+### 15.2 Pot-geometri ve commit eşiği
+
+B8 "iki pot bet = stack ortada" der (uyarı) ama mekaniği vermedi. PLO'da "şişmiş pot" NLH'den iki sokak erken oluşur; commit kararını pot şişmeden ÖNCE bil.
+
+| SPR (flopta) | Stack-off EDEBİLEN | Edemeyen |
+|---|---|---|
+| **< 2** | Nut + güçlü redraw (nut set + FD, wrap + nut FD) | Çıplak AA (postflop), tek yönlü el |
+| **2–4** | Nut yapılmış el, güçlü kombo draw | İkinci nut, non-nut draw |
+| **> 4** | Nut potansiyeli yüksek eller — sokak sokak inşa | Non-nut tamamlanmış el (tuzak) |
+
+**İstisna:** Potu SEN preflop şişirdiysen (3-bet pot → SPR≤1) çıplak AA overpair commit'tir — bu kök hata değil, preflop equity kararıdır. Yasak olan, POSTFLOP şişmiş potta tek-per stack-off'tur.
+
+El-sınıfı eşikleri B8 doktrinine ("nut potansiyeli yoksa büyük pot yok") dayanır; SPR band kenarları (2/4) dahil tam sınırlar başlangıç iskeleti — *(kalibre et)*.
+
+> **PLO'da commit kararı flop'ta değil, pot'u şişirdiğin sokakta verilir.** (B8.1: "iki pot bet = stack ortada"nın mekanik hâli.)
+
+### 15.3 Out sayımı — ham vs nut
+
+PLO'da ham out yanıltır; stack-off eşiği NUT out'la ölçülür. "Wrap + FD: 13+ out" iskonto edilmeden tehlikeli — 13 out'un yarısı non-nut ise gerçek silah değil, tuzaktır. B8'in "gerçek silah" etiketi NUT-FD'li wrap için geçerli KALIR — buradaki kural yalnız stack-off eşiğini nut-out sayımına bağlar.
+
+**Kural:** Stack-off için ham out değil, NUT out say. *(Örnek el: Emre'nin kendi PLO elinden vaka gelince işlenecek — uydurma yok.)*
+
+*NOT: Pozisyona göre PLO açılış/3-bet chartı BİLİNÇLİ yazılmadı — Emre'nin PLO icra verisi yok, generic chart de-kalibre eder. Bu katman drill'de sınıf-bazlı kalibre edilir.*
+
+*Kök hata bağı: B0 c.10 ("PLO'da çıplak AA = tek per") draw'lara ve derinliğe genişletilmiş hâli — non-nut'la şişirilen pot, kök hatanın PLO formudur.*
+
+---
+
+## Bölüm 16 — Zihinsel Omurga: Bustout/Re-entry, Tilt, Otopsi, Seri Planı
+
+*★ v5. Kitap şimdiye kadar %100 teknikti. Ama 21–29 Ağustos bir dayanıklılık yarışı (SHR + PLO + Main 8 gün + HR) ve event çakışmaları var. Teknik doktrin ne kadar iyi olursa olsun, onu uygulayacak karar-durumunu (yorgunluk, tilt, re-entry baskısı) yöneten tek satır yoktu. Kısa KART formatı — textbook değil.*
+
+### 16.1 Bustout + re-entry karar kartı
+
+Serinin en pahalı tek kararı bir el değil: bustout sonrası 5 dakikada verilen re-entry kararı. Tilt hâlinde otomatik re-entry = kök hatanın bankroll ölçeği (şişmiş "seri yatırımında" tek bullet'a value muamelesi).
+
+**Zorunlu bekleme:** Bustout → 20 dk *(varsayılan)* masadan uzak → aşağıyı doldur → sonra karar.
+
+| Soru | Evet | Hayır |
+|---|---|---|
+| Elenme kötü KARAR mıydı? (kötü sonuç değil) | 16.3'ün İKİ SORUSUNU şimdi sor — tam otopsi gün sonuna | Varyans — devam edilebilir |
+| Sonraki bullet hangi Day 1 flight'ını / event'i yiyor? | Takvimi kontrol et (16.4) | Serbest |
+| Toplam seri maruz kalması ön-limitin içinde mi? | Devam | DUR |
+| Fiziksel durumum (uyku/saat) yeşil mi? | Devam | DUR — yarın gir |
+
+**Event-başına max bullet** *(Emre doldurur)*: SHR: __ · PLO: __ · Main: __ · HR: __
+
+### 16.2 Tilt kartı
+
+Kök hata soğuk kanla nadiren yapılır; tipik olarak bir tetikleyiciyi izleyen ellerde *(kalibre — B7 vakalarından süreyi işaretle)*. Tilt'teyken ezber cümle okunmaz — önce tilt FARK edilir.
+
+| Tetikleyici *(kendinden doldur)* | Belirti | Anında hamle |
+|---|---|---|
+| Bad beat / büyük pot kaybı | *(kalibre)* | Derin nefes |
+| Uzun card-dead → aksiyon açlığı | *(kalibre)* | 1 orbit VPIP kilidi |
+| Blöf gösterildi / ego | *(kalibre)* | Su iç / ayağa kalk |
+
+Tetikleyici satırları üç elenme vakandan (B7) geri-referanslı doldurulur — generic tilt listesi yazılmaz.
+
+**B0'a aday cümle:** *Tilt'te alınan karar aralıktan değil, yaradan çıkar — önce yara etiketlenir.*
+
+### 16.3 Otopsi kuralı
+
+| Adım | Kural |
+|---|---|
+| **Ne zaman** | El bittiği an DEĞİL — gün bittikten sonra. Masada sadece eli not al. *İstisna: bustout+re-entry — yalnız iki soru anında (16.1), yazılı otopsi yine gün sonunda* |
+| **İki soru** | (1) Karar anında bildiklerimle kitaptaki kural neydi? (2) Kurala uydum mu? |
+| **Uydum + kaybettim** | Vaka defterine "doğru karar, kötü sonuç" — **ARALIK DEĞİŞMEZ** |
+
+Bu filtre kalibrasyonu KORUR: SHR'de doğru jam'ler sık kaybedilecek; filtre olmadan B4-B5'in özenli tablolarını turnuva ortasında bozarsın. Uyarı: "doğruydu, varyanstı" etiketi kendini aklama kapısına dönüşmesin — yalnız kurala UYDUYSAN geçerli. Örnek: B5.5'teki TT jam (Soru 23).
+
+### 16.4 Seri planı ve çakışma ön-kararları
+
+| Tarih | Event / Day | Tahmini bitiş | Uyku hedefi | Ertesi gün riski |
+|---|---|---|---|---|
+| 21 Ağu | SHR Day 1 | *(doldur)* | *(doldur)* | Main 1A 22'de |
+| 22 Ağu | SHR D2 · PLO HR D1 · Main 1A | üçlü çakışma | — | SHR yaşıyorsa Main 1A yanar |
+| 23 Ağu | SHR Final · PLO D2 · Main 1B | çakışma | — | Main girişi bugün KAPANIR — son mermi |
+| 24–26 Ağu | Main grind | *(doldur)* | *(doldur)* | — |
+| 27–29 Ağu | HR €10.3K · Main D5–Final | çakışma | — | Main derindeyse HR taze girme |
+
+**Çakışma ön-kararları** *(Emre önceden doldurur — o an duygusal karar verilemez; slate önerisi SHR > Main > HR > PLO, onayla)*:
+
+- SHR Day 2'ye kalırsam Main flight'ı → __ (23'teki son mermi 1B'yi kaçırma)
+- Main'de derinken HR başlarsa → __
+
+**Mola rutini:** her molada 3 madde — (1) yürü, (2) ye/su, (3) Hızlı Referans'a bak. Telefonda sosyal medya YOK.
+
+*Kök hata bağı: yorgunluk ve tilt kök hatanın frekans ÇARPANIDIR — B4'ün "frekansı preflop'ta düşür" mantığının gün-planı ölçeğindeki paraleli (hatayı el içinde değil, takvimde önle).*
+
+---
+
+## Hızlı Referans
+
+*Molada telefondan bakılacak sayfa.*
+
+### Karar sırası
+
+0. Bu event'te ICM açık mı? (Bölüm 12) — açıksa jam/call aralığını daralt
+1. Stack modum ne? (Bölüm 3) — 30bb altındaysam Bölüm 5'e git (**PLO'da Bölüm 15** — jam yok)
+2. Pozisyonum ve rakibin pozisyonu ne? (Bölüm 4; 40–70bb ise Bölüm 14)
+3. Pot kaç yollu? 3+ ise Multiway kartına git (Bölüm 13)
+4. Bu el 3-bet mi, flat mi, fold mu?
+5. Flop görürsem tek per yaparsam rahat mıyım? (SPR'yi say — Bölüm 11)
+6. OOP mu kalıyorum?
+
+### Boyutlar
+
+| Hamle | Boyut |
+|---|---|
+| **IP 3-bet** | 3–3.5× |
+| **OOP 3-bet** | 4× |
+| **Coldcaller başına** | +1× |
+| **Squeeze** | 4.5–5× |
+| **4-bet IP / OOP** | 2.2× / 2.5× |
+
+### 25–30bb kartı
+
+| Durum | Ne yapıyorsun |
+|---|---|
+| **Açılış boyutu** | 2–2.2× |
+| **3-bet** | Yok — JAM. Erken poz.'a TT+/AQs+/AKo; CO-BTN'e 88+/ATs+/AQo+/KQs |
+| **Chip leader'a jam** | 77+, A9s+, AJo+, KQs (genişletilmiş) |
+| **Jam'e karşı call** | 99+, AJs+, AQo+ |
+| **Flat** | YOK — hiçbir pozisyondan |
+| **Otomatik fold** | Tüm suited connector'lar, suited gapper'lar, KJo/QJo/JTo |
+
+### Postflop boyutlar (Bölüm 11)
+
+| Durum | Yön |
+|---|---|
+| **Turn ikinci fıçı** | River planım var mı? Kötü river'da check-fold pot'u bırak *(boyut kalibre)* |
+| **River value rec'e** | Öder → ince de olsa BET; ince el küçük, güçlü el büyüt (11.3) |
+| **River value reg'e** | İnce / check-call |
+| **Rakip overbet** | Polarize oku: tek per → fold yönü |
+| **Overbet (kendi)** | YALNIZ nut + derin + rakip capped — tek per ASLA |
+
+### ICM / Final Table kartı (Bölüm 12)
+
+| Durum | Ne yapıyorsun |
+|---|---|
+| **Event ICM açık mı** | SHR/HR erken · Main geç (12.0) |
+| **Para yakını** | JAM ≈ kalır, CALL daralır — cover edilen katlan |
+| **FT rolüm** | Kısa: ladder · Orta: en kırılgan, sabır · Cover eden: ez |
+| **Bubble avı** | Kilitli orta stack = en kârlı hedef |
+| **<15bb + herkes kilitli** | GENİŞLET, daraltma |
+
+### Multiway kartı (Bölüm 13)
+
+| Durum | 3+ yollu |
+|---|---|
+| **C-bet** | Frekans çöker — güçlü value + nut-draw |
+| **Tek per** | Bir sınıf aşağı → bluff-catcher'a yaklaşır |
+| **Blöf** | 3 yollu: sadece nut-bloker · 4+: yok |
+| **Non-nut draw** | Check'e döner / ölür |
+
+### Tilt kartı (Bölüm 16)
+
+| Tetikleyici | Anında hamle |
+|---|---|
+| Bad beat / büyük kayıp | Derin nefes |
+| Card-dead → aksiyon açlığı | 1 orbit VPIP kilidi |
+| Blöf gösterildi / ego | Su iç / ayağa kalk |
+
+### Kırmızı bayraklar — dur ve düşün
+
+- Şişmiş potta tek per ile büyük karar veriyorum → bluff-catcher olarak sınıflandır.
+- River'da jam düşünüyorum → benden zayıf hangi el ödüyor? Cevap yoksa jam yok.
+- Rakip all-in geldi ve ben chop hesaplıyorum → chop'lar jam atmaz.
+- 45bb'deyim ama küçük çiftle flat ediyorum → mod hatası.
+- OOP'tan blöf 3-bet yapıyorum → çoğu zaman hata.
+- PLO'da çıplak AA ile pot şişiriyorum → tek per muamelesi.
+- 28bb'deyim ve suited connector ile pota giriyorum → Bölüm 5, otomatik fold.
+- Turn'de ikinci fıçıyı atıyorum ama river planım yok → Bölüm 11, potu şişirme.
+- 3+ kişilik potta HU gibi c-bet/value düşünüyorum → Bölüm 13, bir sınıf aşağı.
+- Para yakınında jam'e AJs+ ile call ediyorum → Bölüm 12, call daralır (cover?).
+- Son 2 kararımı hatırlamıyorum / saat 01:00+ ve marjinal spot → yorgunluk, Bölüm 16.
+- Bustout oldu, 5 dakikada re-entry basıyorum → Bölüm 16, 20 dk bekle.
+
+---
+
+*Poker Cep Kitabı v5 — EPT Barcelona Edition · Ağustos 2026*

@@ -1,5 +1,5 @@
 // İçerik selfcheck (assertions) — kitabı parse eden GERÇEK modülleri çalıştırır ve
-// quiz cevaplarının poker_cep_kitabi_v4.md ile tutarlılığını doğrular. Parser
+// quiz cevaplarının poker_cep_kitabi_v5.md ile tutarlılığını doğrular. Parser
 // regresyonlarına karşı kapı. Hiçbir mantık kopyalanmaz; kaynak kodun kendisi test edilir.
 import { rangeGroups, questionBank } from "../src/content/curriculum";
 import { parseRange } from "../src/lib/handgrid";
@@ -63,8 +63,8 @@ check("BTN→SB fold geçerli", poolsFor("BTN", "SB").flatWide === false);
 {
   const qb = questionBank();
   const total = qb.reduce((n, s) => n + s.questions.length, 0);
-  check("Soru Bankası 3 alt-bölüm", qb.length === 3, qb.map((s) => s.questions.length).join("+"));
-  check("Soru Bankası 24 soru", total === 24, String(total));
+  check("Soru Bankası 4 alt-bölüm", qb.length === 4, qb.map((s) => s.questions.length).join("+"));
+  check("Soru Bankası 37 soru", total === 37, String(total));
 }
 
 console.log(out.join("\n"));

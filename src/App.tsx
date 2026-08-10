@@ -12,6 +12,7 @@ import { RangeAtlas } from "./modes/ranges/RangeAtlas";
 import { EquityIntuition } from "./modes/reference/EquityIntuition";
 import { BetTypes } from "./modes/reference/BetTypes";
 import { QuestionBank } from "./modes/reference/QuestionBank";
+import { ChapterView, NEW_CHAPTERS } from "./modes/reference/ChapterView";
 import { LeakCard } from "./modes/leak/LeakCard";
 import { BustoutAutopsy } from "./modes/autopsy/BustoutAutopsy";
 import { DecisionJournal } from "./modes/cornerman/DecisionJournal";
@@ -112,6 +113,33 @@ export default function App() {
             <BetTypes onDone={() => nav("#/referans")} />
           ) : segs[1] === "sorubankasi" ? (
             <QuestionBank onDone={() => nav("#/referans")} />
+          ) : segs[1] === "bolum" && segs[2] ? (
+            <ChapterView title={"Bölüm " + segs[2]} onDone={() => nav("#/referans/bolum")} />
+          ) : segs[1] === "bolum" ? (
+            <div className="flex flex-col gap-3 p-4">
+              <div className="flex items-center justify-between text-sm">
+                <button onClick={() => nav("#/referans")} className="text-neutral-400">
+                  ← Referans
+                </button>
+                <span className="font-semibold text-neutral-100">📖 Yeni Bölümler (v5)</span>
+                <span className="w-16" />
+              </div>
+              <p className="text-[13px] leading-relaxed text-neutral-400">
+                Turnuva-kazanma bölümleri — doğrudan kitaptan. Molada telefondan tabloya bak.
+              </p>
+              {NEW_CHAPTERS.map((c) => (
+                <button
+                  key={c.n}
+                  onClick={() => nav("#/referans/bolum/" + c.n)}
+                  className="card flex items-center justify-between p-3 text-left"
+                >
+                  <span className="text-[14px] text-neutral-100">
+                    <span className="font-mono text-neutral-500">B{c.n}</span> · {c.short}
+                  </span>
+                  <span className="text-accent">→</span>
+                </button>
+              ))}
+            </div>
           ) : (
             <>
               <div className="grid grid-cols-2 gap-2 p-4 pb-0">
@@ -143,7 +171,13 @@ export default function App() {
                   onClick={() => nav("#/referans/sorubankasi")}
                   className="btn-ghost col-span-2 py-2.5"
                 >
-                  📝 Soru Bankası (Bölüm 10 · 24 soru) →
+                  📝 Soru Bankası (Bölüm 10 · 37 soru) →
+                </button>
+                <button
+                  onClick={() => nav("#/referans/bolum")}
+                  className="btn-accent col-span-2 py-2.5"
+                >
+                  📖 Yeni Bölümler v5 (ICM · River · Multiway…) →
                 </button>
               </div>
               <QuickReference />

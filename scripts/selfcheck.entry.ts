@@ -1,7 +1,7 @@
 // İçerik selfcheck (assertions) — kitabı parse eden GERÇEK modülleri çalıştırır ve
 // quiz cevaplarının poker_cep_kitabi_v5.md ile tutarlılığını doğrular. Parser
 // regresyonlarına karşı kapı. Hiçbir mantık kopyalanmaz; kaynak kodun kendisi test edilir.
-import { rangeGroups, questionBank } from "../src/content/curriculum";
+import { rangeGroups, questionBank, sectionBlock } from "../src/content/curriculum";
 import { parseRange } from "../src/lib/handgrid";
 import { flatText, flatScope } from "../src/modes/quiz/quizEngine";
 
@@ -65,6 +65,14 @@ check("BTN→SB fold geçerli", poolsFor("BTN", "SB").flatWide === false);
   const total = qb.reduce((n, s) => n + s.questions.length, 0);
   check("Soru Bankası 4 alt-bölüm", qb.length === 4, qb.map((s) => s.questions.length).join("+"));
   check("Soru Bankası 37 soru", total === 37, String(total));
+}
+
+// v5 yeni bölümleri (B11–B16) ChapterView tarafından sectionBlock ile render edilir.
+// Boş dönerse veya tablo kaybolursa yeni Referans görünümü sessizce boşalır → build'i durdur.
+for (const n of [11, 12, 13, 14, 15, 16]) {
+  const body = sectionBlock("Bölüm " + n);
+  check(`B${n} sectionBlock dolu`, body.trim().length > 0, String(body.length));
+  check(`B${n} en az bir tablo içeriyor`, body.includes("|"));
 }
 
 console.log(out.join("\n"));

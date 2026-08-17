@@ -235,6 +235,142 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 5.6",
     kavram: "rakip-okuma",
   },
+  // === Bölüm 17 — WSOP Online ME Day 2 (özel modül drill'leri, S1-S10 + S-T1-5) ===
+  {
+    q: "52 BB stack'le CO'dan AA açtın. BTN'deki 48 BB'lik reg 3-bet yaptı, sen 4-bet ettin, call geldi. Pot ~44 BB, SPR ~1.3. Flop T♠ 9♠ 8♣. 1/3 pot c-bet attın, rakip RAISE yaptı. İçinden 'AA + SPR 1.3 = zaten bağlıyım' geçiyor. Aksiyonun?",
+    options: ["All-in — AA + SPR 1.3, zaten bağlısın; draw'lara bedava kart verme", "Fold — pot 40 BB'yi geçti, tek pair alarm; T♠ 9♠ 8♣ üzerindeki raise aralığına karşı AA ile stack yarışı yok", "Call, turn'de her barrele devam — pot oddsların call'ı zorunlu kılıyor", "Küçük re-raise — bilgi al, rakibi teste çek"],
+    correct: 1,
+    explain:
+      "MW.9 kök hata: pot 40 BB'yi geçtiyse tek pair (AA dahil) = alarm; varsayılan pot kontrolü + bluff-catcher, stack yarışı değil. MW.6: 'pot büyüdü bağlandım' kök hatadır — SPR'nin düşük olması commit nedeni DEĞİLDİR. T♠ 9♠ 8♣ gibi ıslak board'da raise aralığı set/straight/kombo-draw ağırlıklıdır; AA burada tek pair'dir.",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  {
+    q: "34 BB'le BB'de KK. HJ'deki 38 BB'lik sıkı-pasif oyuncu open yaptı, sen 3-bet ettin, call geldi. Flop Q-J-T rainbow; c-bet attın, call geldi. Turn 9♦ (board Q-J-T-9). İçinden 'check-raise all-in ile inisiyatifi geri alayım' geçiyor. Doğru hat?",
+    options: ["Check-raise all-in — K-yüksek straight'in var, inisiyatifi geri al", "Büyük bet — straight'ini koru, bedava kart verme", "Check-fold — sıkı-pasifte AK kesin vardır", "Check-call, river'da yeniden değerlendir — her K seninle chop, AK seni yener; sıkı-pasifin devam aralığı tam bu bölge"],
+    correct: 3,
+    explain:
+      "MW.9 kök hata korkuluğu: check-raise all-in dürtüsü (KTo dersi) — doğru hat check-call-sonra-değerlendir. Q-J-T-9'da KK ile K-yüksek straight'in var ama her tekli K chop, AK broadway ile seni yener; all-in yalnız seni yenen/chop eden ellerden aksiyon alır. MW.9 chop mekaniği: river'da/turn'de board'u yeniden oku.",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  {
+    q: "Bubble'a 25 kişi kaldı, stack'in 41 BB. Seni cover eden chip lideri (140 BB) BTN'den üst üste 3. kez open yaptı. BB'de QQ tutuyorsun. Planın ne; 3-bet'ine jam gelirse call var mı?",
+    options: ["3-bet (value); jam gelirse FOLD — bubble'da cover'a karşı tüm stack aralığı ~KK+; QQ, {KK+, AK} jam'ine karşı ICM'li eşiği tutmaz", "3-bet ve jam'e call — QQ bubble'da fold edilmez, adam üst üste 3. kez açıyor", "Sadece call — cover'a karşı 3-bet tamamen yasak, potu küçük tut", "Fold — chip lideriyle hiçbir pot oynama, ondan uzak dur"],
+    correct: 0,
+    explain:
+      "MW.9 ICM eşikleri: QQ, cover'ın {KK+, AK} jam'ine ~%40 equity alır; bubble ICM primi %6–10 ile gereken ~%48–50 → FOLD. MW.8: 'Bubble'da cover'a karşı QQ bile 4-bet-call olmayabilir'; pratik kural tüm stack için KK+. QQ yine de value 3-bet'tir (MW.4: BB'den 99+, çok açan reg hedef); hata 3-bet'te değil jam'e call'dadır. Cover'dan tamamen kaçmak da strateji değildir (MW.9B).",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  {
+    q: "Derin ITM'desin. 3-bet potunda IP olarak TT ile oynuyorsun. Flop 8-6-2 rainbow'da c-bet'ine check-call geldi; turn 8 (board 8-6-2-8) check-check geçti. River A geldi ve rakip POT büyüklüğünde DONK bet attı. İçinden 'overpair'im vardı, A sadece korkutmaca' geçiyor. Kararın?",
+    options: ["Call — A korkutmaca, TT hâlâ 8'lerin ve altının önünde", "Raise all-in — blöfü cezalandır, zayıf Ax'i fold'a zorla", "Fold — overpair + kötü river + BÜYÜK bet; pot donk polarizedir ve senden kötü el bu boyutu betlemez", "Call — pot oddsların ~%33, rakip yeterince sık blöf yapar"],
+    correct: 2,
+    explain:
+      "MW.6 river disiplini: overpair + kötü river → küçük bet'e check-call, BÜYÜK bet'e fold. A, TT için en kötü karttır ve pot donk polarize aralıktır (MW.9 online telafi: overbet/pot polarize = bluff-catcher matematiği); 'korkutmaca' rasyonalizasyonu MW.9 kök hata ailesindendir. Derin ITM'de MW.8 gereği ICM > chip-EV, fold daha da netleşir.",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  {
+    q: "47 BB'le BB'desin; BTN'in tek raise'ine A9o ile call ettin. Board A-9-4 iki kupa: check-raise yaptın, call geldi. Turn 6♥ ile flush tamamlandı; bet attın, rakip RAISE yaptı. 'İki pair'im var, güvendeyim' diyorsun. Kararın?",
+    options: ["3-bet all-in — iki pair önde, draw'ları ödet", "Raise'e bir kez call — iki pair artık sadece bluff-catcher (+4 out boat); river'da geliştiremezsen büyük bet'e fold, stack yarışı yok", "Call, river'da da her bet'e call — pot büyüdü, artık bağlısın", "Fold — flush tamamlandıysa iki pair anında çöptür"],
+    correct: 1,
+    explain:
+      "MW.6/MW.9: flush tamamlayan 6♥ turn'ünde, check-raise'ine call etmiş rakipten gelen raise ağırlıkla tamamlanmış flush'tır — iki pair 'güvende' değil, bluff-catcher'a döner. Doğru hat eskalasyon değil call-sonra-değerlendir (MW.9 check-raise all-in dürtüsü dersi); jam draw'lara değil yapılmış ellere ödeme yapar. 'Pot büyüdü bağlandım' ise MW.6'daki kök hatadır.",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  {
+    q: "56 BB, Faz 1 (bubble uzak). HJ'den A9s açtın; BTN'deki 48 BB'lik reg ~3x 3-bet yaptı (postflop OOP kalacaksın). Aksiyonun?",
+    options: ["Call — suited as, pozisyonsuz da olsa flop'a bakılır", "4-bet bluff — A bloker'ın var, reg'i test et", "Jam — reg'in 3-bet'ini kır", "Fold — OOP'de 3-bet'e devam aralığı dar: KK+ 4-bet, QQ/AK karışık, JJ–TT/AQs call; A9s bunun dışında"],
+    correct: 3,
+    explain:
+      "MW.5: open'ına OOP'de 3-bet gelince aralık daralır — KK+ 4-bet, QQ/AK karışık, JJ–TT/AQs call, gerisi fold; A9s 'gerisi'ndedir. 4-bet bluff cephanesi A5s–A4s ile sınırlı ve düşük frekanstır. Call ise MW.9B'nin uyardığı asıl tehlikedir: 3-bet call yiyip zayıf elle şişmiş pota girmek.",
+    source: "Bölüm 17",
+    kavram: "3bet-aralik",
+  },
+  {
+    q: "38 BB stack'le (Mod B) CO'dasın, elinde 66; önün fold. Açar mısın? Açarsan BB'nin ~4x 3-bet'ine planın ne?",
+    options: ["Aç (CO aralığı 44+, 66 standart), 3-bet'e fold — Mod B'de flat call daralır, set-mine matematiği bozulur", "Aç, 3-bet'e call — set tutarsan stack alırsın", "Açma — 38 BB'de küçük çiftler open'dan düşer", "Aç, 3-bet'e jam — 38 BB'de commit eşiği zaten geçildi"],
+    correct: 0,
+    explain:
+      "MW.7 Mod B (30–45 BB): open aralığı korunur (MW.3 CO %26 = 44+ dahil) ama flat call daralır — set-mine bozulur ve 3-bet potunda commit eşiği yakındır; 66 ile call plansız şişmiş pot doğurur. Doğru plan: aç, 3-bet'e fold. Jam ise Mod C/D eşiklerini 38 BB'ye taşıyan geçiş hatasıdır (MW.9B).",
+    source: "Bölüm 17",
+    kavram: "stack-modu",
+  },
+  {
+    q: "Bubble'a 40 kişi kaldı. BTN'de KQo ile oturuyorsun; BB'de seni cover eden 130 BB'lik chip lideri var, önün fold. Ne yaparsın?",
+    options: ["Fold — cover'la pot açılmaz, ondan uzak dur", "Aç ve 3-bet'e call — KQo bırakılamayacak kadar güzel bir el", "Aç (2.1–2.3x) — KQo bir kademe daraltılmış BTN aralığında bile açılır; ama cover'ın 3-bet'ine fold", "Limp — ucuza flop gör, cover'ı kızdırma"],
+    correct: 2,
+    explain:
+      "MW.8 Faz 2: cover'lara karşı tek fren 'bir kademe dar' oynamaktır; MW.9B: 'cover'dan kaçış strateji değil'. KQo, MW.3 BTN %40–44 aralığının daraltılmış halinde bile net open'dır. Asıl disiplin 3-bet gelince: MW.6 — 3-bet'e karşı offsuit broadway (KQo, AJo) çöptür, 'en pahalı güzel görünen el'; cover'dan 3-bet'e bir kademe daha dar devam edilir. Limp MW.3'te yoktur.",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  {
+    q: "Faz 2, stack'in 60 BB. SB'deki 22 BB'lik stack open yaptı; sen BB'de A5s tutuyorsun (postflop IP olacaksın). En kârlı hat?",
+    options: ["Call — A5s'i pozisyonla ucuza oyna", "Fold — kısa stack'e bluff 3-bet yanar", "Direkt jam — 22 BB'yi anında fold'a zorla", "3-bet — Faz 2'nin özü 15–25 BB'likleri ezmek; A5s, A bloker'ı + oynanabilirliğiyle ideal baskı eli; jam gelirse çoğunlukla fold"],
+    correct: 3,
+    explain:
+      "MW.8 Faz 2: en kârlı faz — 15–25 BB'lik stacklerin open'larına 3-bet baskısı ana kâr kaynağıdır ve 22 BB tam hedef bölgededir (MW.4'ün 'bluff yanar' yasağı 20 BB ALTI içindir). MW.9B: baskı bluff'ları A5s/K9s gibi bloker'lı ellerle sınırlanır — A5s ders kitabı adayıdır. Jam'e gelirse 60 BB'lik stack'in yarışmaz; fiyat uymadıkça fold.",
+    source: "Bölüm 17",
+    kavram: "blof-secimi",
+  },
+  {
+    q: "3-bet potunda OOP'sin, elinde QQ (overpair). Flop 9-7-5 iki maça; check ettin, rakip POT büyüklüğünde bet attı. Flop/turn/river planın ne?",
+    options: ["Flop'ta raise — overpair'i draw'lardan koru, gerekirse stack gitsin", "Flop call; turn'de maça/straight tamamlayıp büyük barrel gelirse fold; river'da küçük bet'e call, büyük bet'e fold — overpair'i bluff-catcher'a çevir", "Flop call, sonra her sokakta call — QQ premium, pot zaten büyüdü", "Flop fold — pot bet'e overpair yetmez"],
+    correct: 1,
+    explain:
+      "MW.9: 40 BB'yi geçen şişmiş potta tek pair (QQ) = alarm; varsayılan pot kontrolü + bluff-catcher, stack yarışı değil. Sokak planı MW.6'dan: turn'de büyük barrel + flush/straight tamamlayan kart → tek pair biter; river'da küçük bet'e check-call, büyük bet'e check-fold. Her sokakta call etmek 'pot büyüdü bağlandım' kök hatasıdır.",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  {
+    q: "Para yeni girdi (Faz 3), ITM'nin ilk eli. UTG'deki 9 BB'lik stack jam yaptı; sen HJ'de ATo tutuyorsun ve arkanda 3 büyük stack var. Call var mı?",
+    options: ["Call — 9 BB'lik kamikaze jam'e karşı ATo fazlasıyla önde", "İzole re-jam — arkadakileri at, kısayla baş başa kal", "Fold — Faz 3'te ilk 3–4 el tight oynanır; kamikaze jam'ler premium ile karşılanır, ATo premium değil ve arkanda 3 büyük stack var", "Call — pot oddsları neredeyse her iki karta call veriyor"],
+    correct: 2,
+    explain:
+      "MW.8 Faz 3: para girişinde 3–4 el tight — kısalar kamikaze jam atar ve bunlar yalnız PREMIUM ile karşılanır; ATo premium değildir. Arkadaki 3 büyük stack'in uyanma ihtimali denklemi daha da kötüleştirir. Chip-EV'de kârlı görünen call, faz disiplinini (ICM > chip-EV) bozan tipik hatadır.",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  {
+    q: "Elinde KK (overpair). Flop T-8-4 iki sinekti, c-bet'ine call gelmişti. Turn J♣ ile board T-8-4-J oldu ve sinek flush tamamlandı; rakip 3/4 pot ikinci barrel attı. Devam kriterin ne?",
+    options: ["Call — overpair bir barrel daha kaldırır, river'a bakarız", "Raise — flush'ı test et", "All-in — KK'yı koru, çekilişleri at", "Fold — büyük turn barrel + flush tamamlayan board'da tek pair biter; devam ancak K♣ bloker gibi istisnai gerekçeyle düşünülür"],
+    correct: 3,
+    explain:
+      "MW.6 turn disiplini: 'büyük turn barrel + board dörtlü/flush tamamladı → tek pair biter.' 3/4 pot ikinci barrel bu tanımın tam içindedir ve KK bu board'da tek pair'dir → varsayılan fold. Devam etmek, MW.9'un uyardığı 'şişmiş potta tek pair ile stack yarışı' kök hatasının doğum yeridir; raise/all-in ise tamamlanmış ellere ödeme yapar.",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  {
+    q: "Mod D'desin: 17 BB, BTN'den ilk giren sensin, elinde A7o. Jam mi, open-fold mu, fold mu?",
+    options: ["Open 2.1x ve 3-bet'e fold — stack'i koru", "Jam — Mod D'de BTN açılışının bir kısmı direkt jam'dir; A7o Nash'e yakın jam aralığında, open edersen 3-bet'e ya-jam-ya-fold ikileminde kalırsın", "Fold — A7o domine olur, 17 BB'yle riske girme", "Open 2.1x ve 3-bet'e call — A bloker'la flop görürüz"],
+    correct: 1,
+    explain:
+      "MW.7 Mod D (12–20 BB): açılışın bir kısmı SB/BTN'den DİREKT jam'dir ve aralık Nash'e yakındır — 17 BB'de BTN'den A7o bu sınıftadır. Open edersen kural nettir: 3-bet'e ya jam ya fold — A7o ile ikisi de kötüdür (domine yarış ya da equity yakma). Fold ise MW.9B'deki '20 BB panik jam/donma' geçiş hatasının pasif yüzüdür.",
+    source: "Bölüm 17",
+    kavram: "stack-modu",
+  },
+  {
+    q: "Derin ITM, 3 masa kaldı. Seninle EŞİT stack'li (45 BB) rakip CO'dan open yaptı; sen SB'de AQo tutuyorsun. 3-bet boyutun ve 4-bet gelirse planın ne?",
+    options: ["OOP standart 3.8–4.2x 3-bet; 4-bet gelirse fold — derin ITM'de eşit stack'e karşı AQo ile stack yarışı yok ('eşitlerden kaç')", "Küçük 3x 3-bet — ucuz olsun; 4-bet'e call", "Flat call — SB'den potu küçük tut", "4x 3-bet, 4-bet'e jam — AQo bloker'larıyla flip kabul"],
+    correct: 0,
+    explain:
+      "MW.4B boyut kuralı: OOP (SB) 3-bet 3.8–4.2x — küçük OOP 3-bet ucuz call verir ve plansız şişmiş OOP pot doğurur (kök hata doğum yeri). MW.4: SB'den flat YOK, 3-bet ya da fold; AQo CO open'ına value 3-bet'tir. 4-bet'e devam MW.5'te KK+ çekirdeklidir ve MW.8 Faz 4 'eşitlerden kaç' + MW.6 'aynı stack'le flip = son çare' → AQo fold.",
+    source: "Bölüm 17",
+    kavram: "boyut",
+  },
+  {
+    q: "River'dayız; elinde AA, pot iyice şişmiş durumda. Board 2-4-5-9-6. Rakip sana check etti ve son söz sende. Bet var mı; varsa boyut ve hedef el ne?",
+    options: ["Pot bet — AA'yı ödet; Ax ve overpair'ler call eder", "Overbet jam — polarize görün, iki pair'leri ödet", "Bet yok, check geç — 'benden kötü hangi el öder?' sorusunun cevabı boş; bet'i ödeyecek eller (straight, set, iki pair) seni yener", "1/3 pot ince value — KK/QQ tipi eller öder"],
+    correct: 2,
+    explain:
+      "MW.9 kök hata korkuluğu: 'AA river jam: senden kötü el ödemiyorsa jam değersiz — check.' MW.6 river kuralı aynı tek soruyu sorar. Board 2-4-5-9-6'da her 3 ve her 7-8 straight yapar; şişmiş potta bet'ine aksiyon verecek aralık ağırlıkla seni yenen bölgededir, kötü eller zaten fold eder. MW.9: şişmiş potta tek pair = pot kontrolü, value üretme yeri değil.",
+    source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
 ];
 
 export function randomScenario(): Scenario {

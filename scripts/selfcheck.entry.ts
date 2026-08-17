@@ -91,7 +91,7 @@ check("BTN→SB fold geçerli", poolsFor("BTN", "SB").flatWide === false);
 
 // v5 yeni bölümleri (B11–B16) ChapterView tarafından sectionBlock ile render edilir.
 // Boş dönerse veya tablo kaybolursa yeni Referans görünümü sessizce boşalır → build'i durdur.
-for (const n of [11, 12, 13, 14, 15, 16]) {
+for (const n of [11, 12, 13, 14, 15, 16, 17]) {
   const body = sectionBlock("Bölüm " + n);
   check(`B${n} sectionBlock dolu`, body.trim().length > 0, String(body.length));
   check(`B${n} en az bir tablo içeriyor`, body.includes("|"));

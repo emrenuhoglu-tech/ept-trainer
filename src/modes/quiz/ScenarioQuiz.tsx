@@ -83,6 +83,11 @@ export function ScenarioQuiz() {
     const seen = load<SeenMap>(SEEN_KEY, {});
     return SCENARIOS.every((x) => (seen[x.q] ?? 0) >= 2);
   }, [s]);
+  // Yanlışın "neden"i kitapta: kaynaktan bölüm no'yu çöz → ilgili bölüme tıklanır bağ.
+  const chapterHash = useMemo(() => {
+    const m = /B[öo]l[üu]m\s*(\d+)/i.exec(s.source || "");
+    return m ? `#/referans/bolum/${m[1]}` : null;
+  }, [s]);
 
   // Masa modu shot-clock: süre biterse karar = yanlış (turnuvada saat işler).
   useEffect(() => {
@@ -225,6 +230,11 @@ export function ScenarioQuiz() {
             {correct ? "Doğru. " : "Yanlış. "}
             {s.explain}
           </div>
+          {chapterHash && (
+            <a href={chapterHash} className="btn-ghost w-full justify-start py-2.5 text-sm">
+              📖 {s.source} — kitaptan oku →
+            </a>
+          )}
           {overseen && (
             <div className="rounded-xl bg-accent-soft px-4 py-2 text-xs text-accent">
               Tüm senaryoları en az 2 kez gördün — artık yüzeysel ezber riski var. Bu kavramları

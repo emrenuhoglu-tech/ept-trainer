@@ -5,11 +5,12 @@
 import { boardTexture } from "../lib/board";
 
 const RANK_SET = new Set(["A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"]);
-const SUIT: Record<string, { sym: string; red: boolean }> = {
-  s: { sym: "♠", red: false },
-  h: { sym: "♥", red: true },
-  d: { sym: "♦", red: true },
-  c: { sym: "♣", red: false },
+// 4-renk deste (renk-körü güvenli): kupa≠karo, maça≠sinek artık RENKTEN de ayrışıyor.
+const SUIT: Record<string, { sym: string; color: string }> = {
+  s: { sym: "♠", color: "#141414" }, // maça — siyah
+  h: { sym: "♥", color: "#e5484d" }, // kupa — kırmızı
+  d: { sym: "♦", color: "#2f6df6" }, // karo — mavi
+  c: { sym: "♣", color: "#1f9d55" }, // sinek — yeşil
 };
 
 type Size = "sm" | "md" | "lg";
@@ -22,7 +23,7 @@ const DIMS: Record<Size, { w: number; r: number; big: number }> = {
 function PlayingCard({ rank, suit, size = "md" }: { rank: string; suit: string; size?: Size }) {
   const s = SUIT[suit] || SUIT.s;
   const d = DIMS[size];
-  const color = s.red ? "#e5484d" : "#141414";
+  const color = s.color;
   return (
     <div
       className="relative inline-flex shrink-0 flex-col items-center justify-center rounded-lg bg-white shadow-md"

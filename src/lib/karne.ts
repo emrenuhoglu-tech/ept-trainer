@@ -166,6 +166,7 @@ function upsert(
   e.due = computeDue(patch.sonuc, e.streak, e.severity);
   e.mastery = computeMastery(e.streak, e.correctDays);
   save(KEY, k);
+  snapshotTrend(); // o günün trend noktasını güncelle
 }
 
 export function recordResult(r: {
@@ -221,6 +222,28 @@ export function masteryCounts(): Record<Mastery, number> {
   const out: Record<Mastery, number> = { gorundu: 0, asina: 0, yetkin: 0, saglam: 0 };
   for (const e of loadKarne()) out[e.mastery]++;
   return out;
+}
+
+// --- İlerleme trendi: günlük snapshot (yalnız GÖRSELLEŞTİRME; karne/due mantığını etkilemez).
+export interface TrendPoint {
+  day: string;
+  due: number; // o gün tekrar bekleyen konu (düşmesi iyi)
+  saglam: number; // sağlam kavram sayısı (artması iyi)
+}
+const TREND_KEY = "karne:trend";
+export function snapshotTrend(): void {
+  const today = isoDay(0);
+  const all = loadKarne();
+  const due = all.filter((e) => e.due <= today).length;
+  const saglam = all.filter((e) => e.mastery === "saglam").length;
+  const arr = load<TrendPoint[]>(TREND_KEY, []);
+  const i = arr.findIndex((p) => p.day === today);
+  if (i >= 0) arr[i] = { day: today, due, saglam };
+  else arr.push({ day: today, due, saglam });
+  save(TREND_KEY, arr.slice(-30)); // son 30 gün
+}
+export function trend(): TrendPoint[] {
+  return load<TrendPoint[]>(TREND_KEY, []);
 }
 
 // Karar günlüğünden (cornerman) son 2 günün elleri — drill/sim'e "ertesi-gün tohumu"

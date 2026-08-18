@@ -19,6 +19,12 @@
   .term {
     white-space: nowrap;
   }
+  /* baslik satirlari dengeli sarilsin */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
 }
 
 @layer components {
@@ -34,6 +40,14 @@
   }
   .btn-ghost {
     @apply btn bg-surface-2 text-neutral-100 border border-surface-3;
+  }
+  /* min dokunma hedefi (WCAG) */
+  .tap {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  /* hizali rakamlar (istatistik/grafik) */
+  .num {
+    font-variant-numeric: tabular-nums;
   }
 }
 

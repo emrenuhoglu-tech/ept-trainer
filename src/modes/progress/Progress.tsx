@@ -11,6 +11,7 @@ import { getStats, daysUntilEPT, cornermanActive } from "../../lib/progress";
 import { modules } from "../../data/modules";
 import { prefetchHd, sentencesOf, getTtsMode, setTtsMode, type TtsMode } from "../../lib/speech";
 import { exportAll, importAll } from "../../lib/storage";
+import { KarneTrend } from "../../components/KarneTrend";
 
 const DOT: Record<Sonuc, string> = {
   correct: "text-emerald-400",
@@ -135,6 +136,9 @@ export function Progress({ onReview, onJournal }: { onReview?: () => void; onJou
           Sağlam = 3 farklı kılıkta, ≥3 ayrı günde doğru. Tek kaçırış seriyi sıfırlar — kademe en baştan kurulur.
         </p>
       </section>
+
+      {/* ilerleme trendi (sparkline) */}
+      <KarneTrend />
 
       {/* kalibrasyon + emin-ama-yanlış */}
       {(cal || cwrong.length > 0) && (

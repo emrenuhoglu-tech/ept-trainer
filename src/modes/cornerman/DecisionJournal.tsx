@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { load, save } from "../../lib/storage";
 import { recordPractice, cornermanActive } from "../../lib/progress";
+import { localIsoDay } from "../../lib/date";
 
 // Karar günlüğü — sonucu bilmeden ÖNCE yaz. Süreç puanla: iyi girip kaybetmek doğrudur.
 // EPT serisi boyunca masadan getirdiğin leak'ler ertesi gün drill tohumu olur.
@@ -19,10 +20,6 @@ const CONF = [
   { v: 0.95, label: "%95" },
 ];
 
-function today(): string {
-  return new Date().toISOString().slice(0, 10);
-}
-
 export function DecisionJournal({ onDone }: { onDone: () => void }) {
   const [list, setList] = useState<JEntry[]>(() => load<JEntry[]>(KEY, []));
   const [el, setEl] = useState("");
@@ -30,13 +27,15 @@ export function DecisionJournal({ onDone }: { onDone: () => void }) {
   const [gerekce, setGerekce] = useState("");
   const [guven, setGuven] = useState(0.8);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  // "Ertesi gün süreç puanlanır" sözünü kapat: dünün elleri drill tohumudur.
+  const dunkuEl = list.filter((e) => e.day === localIsoDay(-1)).length;
 
   function add() {
     if (!el.trim() || !aksiyon.trim()) {
       setMsg({ ok: false, text: "El ve Aksiyon zorunlu — ikisini de doldur." });
       return;
     }
-    const next = [{ day: today(), el, aksiyon, gerekce, guven }, ...list];
+    const next = [{ day: localIsoDay(0), el, aksiyon, gerekce, guven }, ...list];
     setList(next);
     save(KEY, next);
     recordPractice();
@@ -65,6 +64,15 @@ export function DecisionJournal({ onDone }: { onDone: () => void }) {
       <p className="text-sm text-neutral-500">
         Sonucu bilmeden yaz. İyi karar kötü sonuç = doğru. Ertesi gün süreç puanlanır, sonuç değil.
       </p>
+
+      {dunkuEl > 0 && (
+        <a
+          href="#/drill"
+          className="rounded-xl border border-accent/40 bg-accent-soft px-4 py-2.5 text-sm text-accent"
+        >
+          Dün masadan {dunkuEl} el getirdin → Drill'de puanla
+        </a>
+      )}
 
       <div className="card space-y-2 p-4">
         <input

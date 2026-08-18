@@ -7,7 +7,11 @@ import {
   jamRanges,
   jamCallRange,
   stackLayer,
+  bridgeBand,
+  bridgeRule,
 } from "../../content/curriculum";
+import { flatText, flatScope } from "../quiz/quizEngine";
+import { parseRange } from "../../lib/handgrid";
 import { RangeGrid } from "../../components/RangeGrid";
 import { DataTable } from "../../components/DataTable";
 
@@ -196,12 +200,38 @@ function DerinBody({
 }
 
 function CallBody({ flats }: { flats: string[] }) {
-  const text = flats
-    .map((f) => (f.includes(":") ? f.slice(f.indexOf(":") + 1) : f))
-    .join(" ")
-    .trim();
-  if (!text) return <Note>Bu açılışa flat notu bu grupta verilmemiş.</Note>;
-  return <RangeGrid flat={text} valueLabel="Flat" caption="Flat / call aralığı (Bölüm 4.3)" />;
+  if (!flats.length) return <Note>Bu açılışa flat notu bu grupta verilmemiş.</Note>;
+  return (
+    <div className="space-y-3">
+      {flats.map((f, i) => {
+        // flatText: koşullu (150bb+) cümleleri ve grid'e açılamayan prose kuyruğu atar —
+        // cümle kuyruğuna yapışan 98s/JTs kurtulur. Atılan kısım not olarak yüzeyde kalır.
+        const body = (f.includes(":") ? f.slice(f.indexOf(":") + 1) : f).trim();
+        const cleaned = flatText([f]);
+        const griddable = parseRange(cleaned).cells.size > 0;
+        const rest =
+          griddable && body.startsWith(cleaned)
+            ? body.slice(cleaned.length).replace(/^[.,\s]+/, "")
+            : "";
+        return (
+          <div key={i}>
+            <div className="mb-1 text-xs font-semibold text-neutral-300">
+              Sen: {flatScope(f).join(" / ")}
+            </div>
+            {griddable ? (
+              <>
+                <RangeGrid flat={cleaned} valueLabel="Flat" caption="Flat / call aralığı (Bölüm 4.3)" />
+                {rest && <p className="mt-1 text-xs text-neutral-400">{rest}</p>}
+              </>
+            ) : (
+              // Prose flat ("çok geniş" / "neredeyse yok") grid'e açılmaz — kitabın cümlesi not olarak.
+              <Note>{body}</Note>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 // ---- 25–30bb (Bölüm 5) ----
@@ -227,6 +257,10 @@ function KisaBody({ act }: { act: Action }) {
         <Note>
           Bu bantta <b>3-bet = jam</b> (commit). Flat yok — ne SB'den, ne BB'den, ne IP'den (Bölüm 5.2).
         </Note>
+        <Note>
+          <b>PLO'da bu kart geçersiz</b> — pot-limit'te jam yok, pot-raise var; 25–60bb'de B5 GEÇERSİZ
+          (Bölüm 15.1).
+        </Note>
         {rows.map((r, i) => (
           <div key={i}>
             <div className="mb-1 text-xs font-semibold text-neutral-300">{r.vs}</div>
@@ -249,25 +283,37 @@ function KisaBody({ act }: { act: Action }) {
 // ---- Ara / uç derinlikler: kitapta el listesi YOK, nitel ayar ----
 function NitelBody({ depth }: { depth: Depth }) {
   const t = stackLayer();
+  const bb = depth === "orta" ? bridgeBand() : null;
+  const rule = depth === "orta" ? bridgeRule() : "";
   return (
     <div className="space-y-3">
       <Note>
         Kitap bu derinlik için <b>ayrı el listesi vermiyor.</b> Taban aralık 100bb+ (Bölüm 4)
-        tablolarıdır; aşağıdaki 4.7 karakterine göre <b>ayarlarsın</b> — grid uydurulmaz.
+        tablolarıdır; aşağıdaki YÖN tablolarına göre <b>ayarlarsın</b> — grid uydurulmaz.
       </Note>
       {depth === "orta" ? (
-        <p className="text-sm leading-relaxed text-neutral-300">
-          60–100bb: daha polarize, blöf artar, flat daralır (set-mining zayıflar). 40–60bb: lineer /
-          merged, <b>flat neredeyse yok — 3-bet ya da fold.</b>
-        </p>
+        <>
+          {bb && <DataTable table={bb} />}
+          {rule && <p className="text-sm leading-relaxed text-neutral-300">{rule}</p>}
+        </>
       ) : (
-        <p className="text-sm leading-relaxed text-neutral-300">
-          25–40bb: 3-bet = commit demektir (3-bet edeceğin el 4-bet'e devam edebilmeli). <b>&lt;25bb: jam /
-          fold</b>, 3-bet-fold yapısı yok. En yakın el referansı: <b>25–30bb → Jam</b>.
-        </p>
+        <>
+          <p className="text-sm leading-relaxed text-neutral-300">
+            25–40bb: 3-bet = commit demektir (3-bet edeceğin el 4-bet'e devam edebilmeli). <b>&lt;25bb: jam /
+            fold</b>, 3-bet-fold yapısı yok. En yakın el referansı: <b>25–30bb → Jam</b>.
+          </p>
+          <button
+            onClick={() => (window.location.hash = "#/referans/icmkart")}
+            className="btn-ghost w-full py-2.5 text-sm"
+          >
+            🧮 ICM Kartım — ladder + &lt;15bb jam kartı (Bölüm 12) →
+          </button>
+        </>
       )}
       {t && <DataTable table={t} />}
-      <p className="text-xs text-neutral-500">Bölüm 4.7 — Stack modu üst katmanı.</p>
+      <p className="text-xs text-neutral-500">
+        {depth === "orta" ? "Bölüm 4.7 + Bölüm 14 — köprü bandı yön çerçevesi." : "Bölüm 4.7 — Stack modu üst katmanı."}
+      </p>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 // Masa simülatörü istemcisi — /api/sim'e POST atar, sokak-sokak JSON döner.
 // Drill ile aynı desen; ayrı sistem promptu (sim_system.md) kullanır.
 import { KITAP } from "../data/kitap_summary";
+import { coerceConcept } from "../data/kavramlar";
 import type { ChatMsg } from "./drillClient";
 
 export interface SimJson {
@@ -9,6 +10,7 @@ export interface SimJson {
   pot_bb: number;
   eff_stack_bb: number;
   hero_cards: string; // "As Kh"
+  villain_cards?: string | null; // D6-60: "Qs Qd" — showdown'da açılırsa
   board: string; // "2c 4d 5s" | ""
   to_call_bb: number | null;
   question: string;
@@ -48,12 +50,19 @@ export async function simTurn(messages: ChatMsg[], karne: string): Promise<SimRe
     }
     const text: string = j.text ?? "";
     try {
-      return { ok: true, data: JSON.parse(extractJson(text)) as SimJson, model: j.model };
+      const data = JSON.parse(extractJson(text)) as SimJson;
+      data.concept = coerceConcept(data.concept); // D4-42: bilinmeyen slug'ı güvenli kovaya indir
+      return { ok: true, data, model: j.model };
     } catch {
       return { ok: false, raw: text, model: j.model, error: "JSON ayrıştırılamadı" };
     }
-  } catch {
-    // Bağlantı yok / zaman aşımı → proxy kapalı. Çevrimdışı, kitaptan türeyen quiz'e yönlendir.
+  } catch (e) {
+    // D5-49: zaman aşımı = model yavaş demek, sunucu kapalı demek değil — offline'a sayma.
+    const name = (e as DOMException | null)?.name;
+    if (name === "TimeoutError" || name === "AbortError") {
+      return { ok: false, error: "Model yavaş kaldı — tekrar dene." };
+    }
+    // Bağlantı yok → proxy kapalı. Çevrimdışı, kitaptan türeyen quiz'e yönlendir.
     return { ok: false, offline: true, error: "Sunucu kapalı — çevrimdışı Aralık Quiz'i kitaptan çalışır." };
   }
 }

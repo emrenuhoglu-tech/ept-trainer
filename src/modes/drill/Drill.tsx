@@ -1,10 +1,29 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FIRST_QUESTION } from "../../data/karne_seed";
 import { karneForModel, journalForModel, recordResult } from "../../lib/karne";
 import { recordPractice } from "../../lib/progress";
 import { drillTurn, type ChatMsg, type DrillJson } from "../../lib/drillClient";
 
 const MAX_QUESTIONS = 8;
+
+// Yarım seans sekme değişiminde uçmasın: turns + messages sessionStorage'da yaşar,
+// özet gelince temizlenir. (localStorage değil — seans sekme ömrüyle sınırlı.)
+const SESSION_KEY = "drill:session";
+
+interface SavedSession {
+  turns: Turn[];
+  messages: ChatMsg[];
+}
+
+function loadSession(): SavedSession | null {
+  try {
+    const raw = sessionStorage.getItem(SESSION_KEY);
+    const s = raw ? (JSON.parse(raw) as SavedSession) : null;
+    return s && Array.isArray(s.turns) && Array.isArray(s.messages) ? s : null;
+  } catch {
+    return null;
+  }
+}
 
 interface Turn {
   question: string;
@@ -39,7 +58,8 @@ const EVAL_LABEL: Record<string, { text: string; cls: string }> = {
 };
 
 export function Drill() {
-  const [turns, setTurns] = useState<Turn[]>([{ question: FIRST_QUESTION }]);
+  const saved = useMemo(() => loadSession(), []);
+  const [turns, setTurns] = useState<Turn[]>(saved?.turns ?? [{ question: FIRST_QUESTION }]);
   const [input, setInput] = useState("");
   const [conf, setConf] = useState(0.8);
   const [loading, setLoading] = useState(false);
@@ -48,13 +68,45 @@ export function Drill() {
     null,
   );
   // Anthropic biçimli geçmiş (proxy başına KITAP ekler). İlk sor(S6) sabit tohum.
-  const messages = useRef<ChatMsg[]>([
-    { role: "assistant", content: firstAssistantJson() },
-  ]);
+  const messages = useRef<ChatMsg[]>(
+    saved?.messages ?? [{ role: "assistant", content: firstAssistantJson() }],
+  );
+  const endRef = useRef<HTMLDivElement>(null);
   const answered = useMemo(
     () => turns.filter((t) => t.answer !== undefined).length,
     [turns],
   );
+
+  // Seansı sakla (özet gelince temizle) — sekme değişimi 8 soruluk seansı silmesin.
+  useEffect(() => {
+    try {
+      if (summary) sessionStorage.removeItem(SESSION_KEY);
+      else sessionStorage.setItem(SESSION_KEY, JSON.stringify({ turns, messages: messages.current }));
+    } catch {
+      /* best-effort */
+    }
+  }, [turns, summary]);
+
+  // Yeni soru/değerlendirme gelince akışın sonuna kaydır.
+  useEffect(() => {
+    endRef.current?.scrollIntoView({
+      block: "end",
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  }, [turns]);
+
+  const newSession = () => {
+    try {
+      sessionStorage.removeItem(SESSION_KEY);
+    } catch {
+      /* best-effort */
+    }
+    messages.current = [{ role: "assistant", content: firstAssistantJson() }];
+    setTurns([{ question: FIRST_QUESTION }]);
+    setSummary(null);
+    setRawError(null);
+    setInput("");
+  };
 
   const send = async (answer: string, retryLastAnswer = false) => {
     setRawError(null);
@@ -98,6 +150,7 @@ export function Drill() {
         kavram: d.concept || "kök-hata",
         soru_ozeti: currentQuestion,
         sonuc: d.evaluation,
+        not: d.lesson || undefined,
         severity: d.severity ?? undefined,
         confidence: conf,
       });
@@ -216,13 +269,24 @@ export function Drill() {
         )}
 
         {summary && (
-          <div className="rounded-xl border-l-4 border-accent bg-accent-soft p-4">
-            <div className="mb-1 text-sm font-semibold">Seans özeti</div>
-            <div className="whitespace-pre-wrap text-sm leading-relaxed">
-              {summary}
+          <>
+            <div className="rounded-xl border-l-4 border-accent bg-accent-soft p-4">
+              <div className="mb-1 text-sm font-semibold">Seans özeti</div>
+              <div className="whitespace-pre-wrap text-sm leading-relaxed">
+                {summary}
+              </div>
             </div>
-          </div>
+            <div className="flex flex-col gap-2">
+              <button onClick={newSession} className="btn-accent w-full py-3">
+                Yeni seans başlat →
+              </button>
+              <a href="#/ilerleme" className="btn-ghost w-full py-3 text-center">
+                İlerlemeye git
+              </a>
+            </div>
+          </>
         )}
+        <div ref={endRef} />
       </div>
 
       {!summary && (
@@ -234,7 +298,7 @@ export function Drill() {
                 key={c.v}
                 onClick={() => setConf(c.v)}
                 className={
-                  "rounded-full px-2.5 py-1 text-xs " +
+                  "min-h-[44px] rounded-full px-3.5 py-2.5 text-xs " +
                   (conf === c.v
                     ? "bg-accent text-black font-semibold"
                     : "bg-surface-2 text-neutral-400")

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { moduleById } from "../../data/modules";
 import type { Slide, SlideTableRef } from "../../data/modules";
 import { tableFromSection } from "../../content/curriculum";
-import { getSpeaker, prefetchHd } from "../../lib/speech";
+import { getSpeaker, prefetchHd, sentencesOf } from "../../lib/speech";
 import { load, save } from "../../lib/storage";
 import { DataTable } from "../../components/DataTable";
 import { SlideVisuals } from "../../components/SlideVisual";
@@ -12,12 +12,6 @@ import { ColdOpen, MODULE_PRETEST } from "./ColdOpen";
 const speaker = getSpeaker();
 const RATES = [0.8, 1.0, 1.25, 1.5];
 const ALL = 999; // "hepsi açık" sözde-sayacı
-
-// Anlatımı cümlelere böl (lookbehind YOK — geniş uyum). Poker terimlerindeki
-// tire/rakamlar cümle sonu değil; yalnız . ! ? böler.
-function sentencesOf(text: string): string[] {
-  return (text.match(/[^.!?]+[.!?]*/g) || [text]).map((s) => s.trim()).filter(Boolean);
-}
 
 // Bir slaytta kaç "odak" var: her bullet + görsel + tablo + matris + kural.
 function focusCount(s: Slide): number {
@@ -225,7 +219,7 @@ export function LessonPlayer({
                 key={r}
                 onClick={() => setRate(r)}
                 className={
-                  "px-2.5 py-2 text-xs " +
+                  "min-h-[44px] px-3.5 py-2.5 text-xs " +
                   (r === rate ? "bg-accent text-black" : "bg-surface-2 text-neutral-400")
                 }
               >

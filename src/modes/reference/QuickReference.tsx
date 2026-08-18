@@ -40,6 +40,42 @@ export function QuickReference() {
         </section>
       )}
 
+      {qr.postflop && (
+        <section>
+          <h2 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
+            Postflop boyutlar (Bölüm 11)
+          </h2>
+          <DataTable table={qr.postflop} />
+        </section>
+      )}
+
+      {qr.icm && (
+        <section>
+          <h2 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
+            ICM / Final Table kartı (Bölüm 12)
+          </h2>
+          <DataTable table={qr.icm} />
+        </section>
+      )}
+
+      {qr.multiway && (
+        <section>
+          <h2 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
+            Multiway kartı (Bölüm 13)
+          </h2>
+          <DataTable table={qr.multiway} />
+        </section>
+      )}
+
+      {qr.tilt && (
+        <section>
+          <h2 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
+            Tilt kartı (Bölüm 16)
+          </h2>
+          <DataTable table={qr.tilt} />
+        </section>
+      )}
+
       <section>
         <h2 className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
           Kırmızı bayraklar

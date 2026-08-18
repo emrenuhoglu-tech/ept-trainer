@@ -11,19 +11,35 @@ import {
   riverBluffCatch,
   riverThinValue,
   badRiverCatalog,
+  openRanges,
+  jamRanges,
+  jamCallRange,
+  fourBetRanges,
+  squeezeRange,
+  quickReference,
+  bridgeBand,
+  multiwayMatrix,
+  ploStackOff,
+  ploModes,
 } from "../src/content/curriculum";
 import { parseRange } from "../src/lib/handgrid";
-import { flatText, flatScope } from "../src/modes/quiz/quizEngine";
+import { buildPools } from "../src/modes/quiz/quizEngine";
 import { postflopQuestion, betType } from "../src/modes/quiz/postflopEngine";
+import { SCENARIOS } from "../src/modes/quiz/scenarios";
+import { KARNE_SEED } from "../src/data/karne_seed";
+import { computeDue, capDue, migrate, computeMastery } from "../src/lib/karne";
+import { localIsoDay } from "../src/lib/date";
 
+// D4-43: motorun KENDİ havuz kurulumunu kullan (mantık kopyalanmaz — kopya motor değişince
+// eski davranışı sessizce test ederdi). buildPools quizEngine.nextQuestion ile aynı fonksiyon.
 function poolsFor(opener: string, position: string) {
-  const g = rangeGroups().find((x) => x.opener === opener)!;
-  const applicable = g.flats.filter((fl) => flatScope(fl).includes(position));
-  const ft = flatText(applicable);
-  const cells = parseRange(ft).cells;
-  // HAM flat metnini test et (flatText "…ve tüm 65s+ suited connector'lar" kuyruğunu atar).
-  const flatWide = /geniş|tüm|çoğu/i.test(applicable.join(" "));
-  return { ft, cells, flatWide };
+  const p = buildPools(opener, position);
+  return {
+    ft: p?.ft ?? "",
+    cells: p?.flatCells ?? new Set<string>(),
+    flatWide: p?.flatWide ?? false,
+    poolFold: p?.poolFold ?? [],
+  };
 }
 
 const out: string[] = [];
@@ -128,6 +144,80 @@ for (const n of [11, 12, 13, 14, 15, 16, 17]) {
   check("postflop turn Q üretiliyor", !!postflopQuestion("turn"));
   check("postflop river Q üretiliyor", !!postflopQuestion("river"));
 }
+
+// D1-1: BB'nin ayrı flat listesi olmayan açılışında fold havuzu üretilmez (JJ/TT/AQs 'fold' notlanmasın).
+check("D1-1 UTG→BB fold havuzu boş (BB flat geniş)", poolsFor("UTG/UTG+1", "BB").poolFold.length === 0);
+
+// D4-41: buildPools geçersiz grup/pozisyonda null; her gerçek satır en az bir kategori havuzu üretir.
+check("D4-41 buildPools geçersiz grupta null", buildPools("YOK", "XX") === null);
+for (const g of groups) {
+  for (const row of g.table.rows) {
+    const p = buildPools(g.opener, row[0]);
+    check(
+      `D4-41 ${g.opener}→${row[0]} havuz üretiyor`,
+      !!p && (p.set3.size > 0 || p.setFlat.size > 0 || p.poolFold.length > 0),
+    );
+  }
+}
+
+// D4-37: Aralık Rehberi / RangeRecall parser'ları — kitap ifadesi değişirse sessizce boşalmasın.
+check("D4-37 openRanges dolu", openRanges().length > 0);
+check("D4-37 jamRanges dolu", jamRanges().length > 0);
+{
+  const jc = jamCallRange();
+  check("D4-37 jamCallRange dolu + el token", jc !== "" && parseRange(jc).cells.size > 0, jc);
+}
+check("D4-37 fourBetRanges parse", fourBetRanges() !== null);
+check("D4-37 squeezeRange parse", squeezeRange() !== null);
+{
+  const qr = quickReference();
+  check(
+    "D4-37 quickRef 4 baz alan dolu",
+    qr.decisionOrder.length > 0 && !!qr.sizes && !!qr.band2530 && qr.redFlags.length > 0,
+  );
+  // D6-55: v5 Hızlı Referans'ın 8 kartından eksik 4'ü (Postflop/ICM/Multiway/Tilt) yüzeyde.
+  check("D6-55 quickRef Postflop kartı", !!qr.postflop && qr.postflop.rows.length > 0);
+  check("D6-55 quickRef ICM kartı", !!qr.icm && qr.icm.rows.length > 0);
+  check("D6-55 quickRef Multiway kartı", !!qr.multiway && qr.multiway.rows.length > 0);
+  check("D6-55 quickRef Tilt kartı", !!qr.tilt && qr.tilt.rows.length > 0);
+}
+
+// D1-9 / D1-7 / D6-63: yeni postflop/PLO/köprü tabloları parse ediliyor ve motor soru üretiyor.
+check("D1-9 bridgeBand (B14.1) parse", !!bridgeBand() && bridgeBand()!.rows.length > 0);
+check("D1-7 multiwayMatrix (B13.1) parse", !!multiwayMatrix() && multiwayMatrix()!.rows.length > 0);
+check("D1-7 postflop multiway Q üretiliyor", !!postflopQuestion("multiway"));
+check("D6-63 ploStackOff (B15.2) parse", !!ploStackOff() && ploStackOff()!.rows.length > 0);
+check("D6-63 ploModes (B15.1) parse", !!ploModes() && ploModes()!.rows.length > 0);
+check("D6-63 postflop PLO Q üretiliyor", !!postflopQuestion("plo"));
+
+// D4-38: 57 senaryonun yapısal bütünlüğü — correct sınırda, source dolu, kavram dolu, sayı sabit.
+{
+  const badCorrect = SCENARIOS.filter((s) => !(s.correct >= 0 && s.correct < s.options.length));
+  const badSource = SCENARIOS.filter((s) => !s.source || !s.source.trim());
+  const badKavram = SCENARIOS.filter((s) => typeof s.kavram !== "string" || !s.kavram);
+  check("D4-38 senaryo sayısı 57 (TR=EN parite)", SCENARIOS.length === 57, String(SCENARIOS.length));
+  check("D4-38 tüm correct options sınırında", badCorrect.length === 0, badCorrect.map((s) => s.q.slice(0, 24)).join("|"));
+  check("D4-38 tüm source dolu", badSource.length === 0, String(badSource.length));
+  check("D4-38 tüm kavram dolu", badKavram.length === 0, String(badKavram.length));
+}
+
+// D7-73: karne veri katmanının saf fonksiyonları (DUE_CAP tam bu boşluktan sessizce geçmişti).
+check("D7-73 P0: correct cevabın due'su geçmişte değil", computeDue("correct", 1) >= localIsoDay(0), computeDue("correct", 1));
+check("D7-73 capDue geçmiş tarihi ileri itmez", capDue("2000-01-01") === "2000-01-01");
+check("D7-73 capDue farFuture <= farFuture", capDue(localIsoDay(365)) <= localIsoDay(365));
+check("D7-73 mastery: 3 streak + 3 gün = saglam", computeMastery(3, ["a", "b", "c"]) === "saglam");
+check("D7-73 mastery: 2 streak + 2 gün = yetkin", computeMastery(2, ["a", "b"]) === "yetkin");
+check("D7-73 mastery: 1 streak = asina", computeMastery(1, ["a"]) === "asina");
+check("D7-73 mastery: 0 = gorundu", computeMastery(0, []) === "gorundu");
+{
+  const mig = migrate([{ kavram: "x", due: "2030-01-01" }, { kavram: "x" }, { kavram: "y" }]);
+  const x = mig.find((e) => e.kavram === "x");
+  check("D7-73 migrate v1 çok-satır → konsolide (x reps=2)", mig.length === 2 && x?.reps === 2, String(mig.length));
+  check("D7-73 migrate malformed alan çökmez (correctDays dizi)", Array.isArray(x?.correctDays));
+}
+
+// KARNE_SEED slug'ları da yapısal kontrol (drift göstergesi).
+check("KARNE_SEED slug'ları dolu", KARNE_SEED.every((k) => typeof k.kavram === "string" && k.kavram.length > 0));
 
 console.log(out.join("\n"));
 console.log(`\nRESULT: ${failed === 0 ? "ALL PASS" : failed + " FAIL"}`);

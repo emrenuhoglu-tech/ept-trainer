@@ -41,8 +41,8 @@ export const SCENARIOS: Scenario[] = [
     options: ["Check-raise all-in", "Check-call — bluff-catcher"],
     correct: 1,
     explain:
-      "Senden zayıf el all-in'i ödemez: her 10 kicker'ını geçer, boat'lar önde. Trip'in bu runout'ta bluff-catcher → check-call. Raise blöfleri fold ettirir, seni yalnız geçen el öder (cümle 2). Senin gerçek elenmen — Vaka 2'nin aynısı.",
-    source: "Bölüm 0.2 / Vaka 2",
+      "Senden zayıf el all-in'i ödemez: her 10 kicker'ını geçer, boat'lar önde. Trip'in bu runout'ta bluff-catcher → check-call. Raise blöfleri fold ettirir, seni yalnız geçen el öder (cümle 2). Senin gerçek elenmen (B7 Vaka 4).",
+    source: "Bölüm 7 / Vaka 4",
     kavram: "kök-hata",
   },
   {
@@ -259,9 +259,9 @@ export const SCENARIOS: Scenario[] = [
     options: ["3-bet (value); jam gelirse FOLD — bubble'da cover'a karşı tüm stack aralığı ~KK+; QQ, {KK+, AK} jam'ine karşı ICM'li eşiği tutmaz", "3-bet ve jam'e call — QQ bubble'da fold edilmez, adam üst üste 3. kez açıyor", "Sadece call — cover'a karşı 3-bet tamamen yasak, potu küçük tut", "Fold — chip lideriyle hiçbir pot oynama, ondan uzak dur"],
     correct: 0,
     explain:
-      "MW.9 ICM eşikleri: QQ, cover'ın {KK+, AK} jam'ine ~%40 equity alır; bubble ICM primi %6–10 ile gereken ~%48–50 → FOLD. MW.8: 'Bubble'da cover'a karşı QQ bile 4-bet-call olmayabilir'; pratik kural tüm stack için KK+. QQ yine de value 3-bet'tir (MW.4: BB'den 99+, çok açan reg hedef); hata 3-bet'te değil jam'e call'dadır. Cover'dan tamamen kaçmak da strateji değildir (MW.9B).",
-    source: "Bölüm 17",
-    kavram: "kök-hata",
+      "MW.9 ICM eşikleri: QQ, cover'ın {KK+, AK} jam'ine ~%40 equity alır; bubble ICM primi %6–10 ile gereken ~%48–50 → FOLD. MW.8: 'Bubble'da cover'a karşı QQ bile 4-bet-call olmayabilir'; pratik kural tüm stack için KK+. QQ yine de value 3-bet'tir (MW.4: BB'den 99+, çok açan reg hedef); hata 3-bet'te değil jam'e call'dadır. Cover'dan tamamen kaçmak da strateji değildir (MW.9B). (17.4 'cover edene 3-bet YAPMA' BLÖF 3-bet içindir; value 3-bet — QQ, jam'e devam KK+ — serbest.)",
+    source: "Bölüm 17 / 17.4",
+    kavram: "icm-cover",
   },
   {
     q: "Derin ITM'desin. 3-bet potunda IP olarak TT ile oynuyorsun. Flop 8-6-2 rainbow'da c-bet'ine check-call geldi; turn 8 (board 8-6-2-8) check-check geçti. River A geldi ve rakip POT büyüklüğünde DONK bet attı. İçinden 'overpair'im vardı, A sadece korkutmaca' geçiyor. Kararın?",
@@ -306,7 +306,7 @@ export const SCENARIOS: Scenario[] = [
     explain:
       "MW.8 Faz 2: cover'lara karşı tek fren 'bir kademe dar' oynamaktır; MW.9B: 'cover'dan kaçış strateji değil'. KQo, MW.3 BTN %40–44 aralığının daraltılmış halinde bile net open'dır. Asıl disiplin 3-bet gelince: MW.6 — 3-bet'e karşı offsuit broadway (KQo, AJo) çöptür, 'en pahalı güzel görünen el'; cover'dan 3-bet'e bir kademe daha dar devam edilir. Limp MW.3'te yoktur.",
     source: "Bölüm 17",
-    kavram: "kök-hata",
+    kavram: "icm-cover",
   },
   {
     q: "Faz 2, stack'in 60 BB. SB'deki 22 BB'lik stack open yaptı; sen BB'de A5s tutuyorsun (postflop IP olacaksın). En kârlı hat?",
@@ -369,6 +369,142 @@ export const SCENARIOS: Scenario[] = [
     explain:
       "MW.9 kök hata korkuluğu: 'AA river jam: senden kötü el ödemiyorsa jam değersiz — check.' MW.6 river kuralı aynı tek soruyu sorar. Board 2-4-5-9-6'da her 3 ve her 7-8 straight yapar; şişmiş potta bet'ine aksiyon verecek aralık ağırlıkla seni yenen bölgededir, kötü eller zaten fold eder. MW.9: şişmiş potta tek pair = pot kontrolü, value üretme yeri değil.",
     source: "Bölüm 17",
+    kavram: "kök-hata",
+  },
+  // === Bölüm 11–16 senaryoları (v5 turnuva-kazanma bölümleri; cevaplar birebir kitap tablolarından) ===
+  {
+    q: "3-bet potundasın (SPR ~2.5), elinde overpair KK. Flop geldi, tek per'in hâlâ en iyisi görünüyor. İçinden 'şişmiş pot, bağlıyım' geçiyor. Kitabın 'şişmiş pot' ölçüsü nedir?",
+    options: ["Bahis sayısı — 3-bet'liyse pot şişmiştir", "SPR (stack ÷ pot); SPR 1–4 = bluff-catcher, büyük pot BAŞLATMA", "Efektif stack — 100bb+ ise derin", "Board dokusu — ıslaksa şişmiş"],
+    correct: 1,
+    explain:
+      "B11.0: 'Derinde şişmiş potu bet sayısı değil SPR tanımlar.' SPR 1–4 bandında tek per bluff-catcher'dır — büyük pot başlatma. Önce SPR'yi oku, sonra rolü ver; SPR<1 commit, SPR>8 ince value alınabilir ama re-raise gören pot aniden 1–4'e düşer.",
+    source: "Bölüm 11.0",
+    kavram: "kök-hata",
+  },
+  {
+    q: "River geldi, elinde güçlü tek per (overpair). Rakip POT ÜSTÜ (overbet) bahis attı. Kararın?",
+    options: ["Call — overpair bluff-catcher, overbet'te blöf de var", "Fold — overbet polarize (nut ya da hava); tek per fold, yalnız bloker tutan bluff-catcher call eder", "Raise — polarize aralığı blöfe zorla", "Duruma göre — board'a bak"],
+    correct: 1,
+    explain:
+      "B11.2: 'Boyut büyüdükçe rakip aralığı value'ya kayar; overbet = polarize oku, tek per netleşerek bluff-catcher'dan FOLD'a döner. Sadece bloker tutan bluff-catcher call eder.' Panik hero-call buranın hatasıdır (Vaka 1).",
+    source: "Bölüm 11.2",
+    kavram: "kök-hata",
+  },
+  {
+    q: "River kuru board, top pair iyi kicker'ın var. Karşında rec/station (fold etmeyen) tip; sana check geldi. Bahis var mı?",
+    options: ["Check — showdown'a git, ince value riskli", "Küçük value BET — 'benden zayıf hangi el öder?' cevabı VAR (rec öder); kaçan thin value chip kaybıdır", "Pot bet — maksimum value", "Check-raise'e hazırlan"],
+    correct: 1,
+    explain:
+      "B11.3: 'Ödeyen varsa İNCE value BET ET.' Filtre pozitif yönde: 'benden zayıf hangi el ödüyor?' cevabı varsa (rec/station öder), ince de olsa bet. Rec-ağırlıklı Main'de kaçan thin value doğrudan chip kaybıdır.",
+    source: "Bölüm 11.3",
+    kavram: "boyut",
+  },
+  {
+    q: "Overpair'in var, pot şişmiş. River board 2-4-5'e 6 geldi (2-4-5-6). Rakip büyük bahis attı. Kitabın 'kötü river' kataloğunda bu kart hangi sınıfta ve kararın?",
+    options: ["Nötr kart — call", "Kötü river (kent/set tamamlayan); büyük pota check-fold, JAM ASLA — jam value ancak senden zayıf el öderse vardır", "Korkutmaca — raise", "Küçük value bet"],
+    correct: 1,
+    explain:
+      "B11.4 kötü river kataloğu: 'alt kartların dördüncüsü / kent tamamlayan' (2-4-5'e 6 → 3'lü, kent, set hepsi seni geçmiş). Bu kartlarda küçük pota check-call, büyük pota check-fold; JAM ASLA. (Vaka 3.)",
+    source: "Bölüm 11.4",
+    kavram: "kök-hata",
+  },
+  {
+    q: "Sert baloncuk. Seni COVER eden büyük stack geniş bir BvB jam attı (~22bb efektif), elinde A9s. Call?",
+    options: ["Call — A9s suited, baloncukta bile yeterince önde", "Fold — cover + baloncuk: CALL = 88+/AJs+/AQo; A9s ters-domine, KQs ile birlikte fold", "Jam'i sen yap — inisiyatif al", "Duruma göre"],
+    correct: 1,
+    explain:
+      "B12.1 Emre kalibrasyonu (2026-08-10): sert baloncuk + seni cover eden geniş jam, ~22bb → CALL = 88+ · AJs+ · AQo; A9s/KQs FOLD. Sürücü: cover + baloncuk = kaybedersen bust €0, marjinal edge tournament life'a değmez (A9s ters-domine). İLK soru 'baloncuk mu' değil 'cover ediliyor muyum'.",
+    source: "Bölüm 12.1",
+    kavram: "icm-cover",
+  },
+  {
+    q: "Baloncuk, 22bb BB'desin. Seni cover ETMEYEN kısa bir stack (senden kısa; kaybetsen de bust olmazsın) geniş 13bb BTN jam attı; elinde KTo. Refleksin 'range yetersiz, fold'. Doğrusu?",
+    options: ["Fold — baloncukta KTo çöp", "Call — cover EDİLMİYORSAN çizgi çok daha geniş; KTo geniş 13bb jam'ine ~%54 alır, ~%44 gerekir", "Jam'e re-jam", "Yalnız premium call"],
+    correct: 1,
+    explain:
+      "B12.1 drill eklentisi (2026-08-10): leak'in yapışkan yarısı COVER EDİLMEYEN tarafta fold refleksi. Cover edilmiyorsan (jammer senden kısa) A9s ve KTo CALL — KTo ~%54 vs gereken ~%44. Cue: 'jam'e fold basmadan önce cover ediliyor muyum? Hayır ise call sandığından çok geniş.'",
+    source: "Bölüm 12.1",
+    kavram: "icm-cover",
+  },
+  {
+    q: "FT, herkes birbirini kilitlemiş (masada senden kısa YOK, sen fiilen en kısasın, <15bb). 'ICM'de daralt' refleksin devrede. Doğru oyun?",
+    options: ["Daralt — ICM her zaman daraltır", "GENİŞLET — herkes kilitliyken kimse seni ödemek istemez; 'genel daralt' bu bandda aktif olarak yanlış", "Katlan, bust'ları bekle", "Yalnız premium jam"],
+    correct: 1,
+    explain:
+      "B12.5 kısa stack ICM istisnası: '⚠ ICM'de daralt HER ZAMAN doğru değil. Herkes kilitliyken kısa stack'in doğru oyunu GENİŞLETMEKtir — kimse seni ödemek istemez.' 12.2: 'fiilen en kısasın → jam aralığını genişlet, katlanma.'",
+    source: "Bölüm 12.5 / 12.2",
+    kavram: "icm",
+  },
+  {
+    q: "Bubble, sen büyük (cover eden) stack'sin. Masada kilitlenmiş bir orta stack ve birkaç kısa var. En kârlı hedefin kim?",
+    options: ["Kısa stack'ler — kolay fold", "Kilitlenmiş orta stack — masadaki en kârlı hedef; open genişlet + 3-bet baskısı", "Diğer büyük stack — çok chip'te", "Kimse — bubble'da bekle"],
+    correct: 1,
+    explain:
+      "B12.4 bubble av haritası: 'kilitlenmiş orta stack masadaki en kârlı hedeftir.' Büyük stack olarak onu soy (open genişlet + 3-bet baskısı). Bubble savunma değil, DOĞRU tarafındaysan turnuvanın en yüksek chipEV penceresidir.",
+    source: "Bölüm 12.4",
+    kavram: "icm",
+  },
+  {
+    q: "3+ kişilik (multiway) potta top pair'in var, flop'a birkaç kişi geldi. HU refleksinle value düşünüyorsun. Kitabın multiway kuralı?",
+    options: ["Value bet — top pair her zaman value", "Bir sınıf düşer → check / pot kontrol; multiway her ek oyuncu value barını yükseltir", "Fold — multiway'de top pair çöp", "Overbet — kalabalığı at"],
+    correct: 1,
+    explain:
+      "B13.1 HU→3+ yollu geçiş: multiway'de top pair 'bir sınıf düşer → check/pot kontrol.' B13.0: 'her ek oyuncu value'nun barını YÜKSELTİR.' C-bet frekansı çöker (sadece güçlü value + gerçek nut-draw).",
+    source: "Bölüm 13.1",
+    kavram: "multiway",
+  },
+  {
+    q: "Multiway potta blöf düşünüyorsun; elinde iyi bir bloker var. Pot kaç yollu olduğunda blöf hâlâ meşru? (kitabın 4. kriteri)",
+    options: ["4+ yollu bile — bloker yeter", "3 yollu: sadece nut-bloker semi-bluff; 4+ yollu: blöf YOK; tek station bile blöfü öldürür", "Her multiway'de standart blöf", "Yalnız HU'da blöf"],
+    correct: 1,
+    explain:
+      "B13.3 dördüncü kriter: 'rakip sayısı = blöfün geçmesi gereken kapı sayısı.' HU=üç kriter, 3-yollu=sadece nut-bloker semi-bluff, 4+ yollu=YOK. B1.4 'kime blöf yapılmaz' listesine 'multiway pot (kim olursa olsun)' eklenir.",
+    source: "Bölüm 13.3",
+    kavram: "multiway",
+  },
+  {
+    q: "40–60bb bandındasın (köprü band), 3-bet düşünüyorsun. Kitabın blöf 3-bet yönü ne?",
+    options: ["Blöfü genişlet — derinlik var", "Blöfü NEREDEYSE KES — canlıda kimse fold etmiyor; 3-bet edeceğin el 4-bet/jam'e devam edebilmeli", "Standart B4 aralığı — değişmez", "Yalnız suited connector blöf"],
+    correct: 1,
+    explain:
+      "B14.1: '40–60bb: BLÖF neredeyse kes — canlıda kimse fold etmiyor.' Kural: 3-bet edeceğin el 4-bet/jam'e devam edebilmeli; edemiyorsa flat (IP/BB) ya da fold. '3-bet edip fold' yapısı 60bb altında zayıflar, 40bb'de biter (commit).",
+    source: "Bölüm 14.1",
+    kavram: "3bet-aralik",
+  },
+  {
+    q: "€25K PLO HR, elinde 30bb ve çıplak AA. NLH refleksin '30bb altı → Bölüm 5 → 3-bet=JAM' diyor. PLO'da geçerli mi?",
+    options: ["Evet — 30bb her oyunda jam bandı", "Hayır — PLO'da B5 GEÇERSİZ: jam yok, pot-raise var; çıplak AA postflop oynamaz, değeri pre-commit'te (3-bet→SPR≤1)", "Fold — 30bb PLO'da AA oynanmaz", "Limp-call"],
+    correct: 1,
+    explain:
+      "B15.1/15.0: 'B5'in NLH jam/fold refleksi PLO'da geçersiz — pot-limit'te jam yok, max pot-raise var.' 25–60bb PLO'da çıplak AA postflop oynamaz; değeri pre-commit'tedir (3-bet → SPR≤1). '30bb PLO ≠ 30bb NLH.'",
+    source: "Bölüm 15.1 / 15.0",
+    kavram: "plo",
+  },
+  {
+    q: "Kısa PLO (<25bb), pot-raise yaptın. Bunun anlamı ne?",
+    options: ["Standart raise — flop'ta devam kararı ayrı", "Pot-raise = COMMIT: kalan stack flop'ta otomatik gider; aralığı 'flop'ta stack ortaya girecek' varsayımıyla seç, dangler'lı her şeyi kes", "Bilgi raise'i — ucuz", "Fold'a hazır ol"],
+    correct: 1,
+    explain:
+      "B15.1: 'Kısa PLO'da pot-raise = commit. Aralığını flop'ta stack ortaya girecek varsayımıyla seç: çift-suited rundown, güçlü AAxx; dangler'lı her şeyi KES.' B15.2: PLO'da commit kararı flop'ta değil, potu şişirdiğin sokakta verilir.",
+    source: "Bölüm 15.1 / 15.2",
+    kavram: "plo",
+  },
+  {
+    q: "SHR Day 1'de bust ettin, 5 dakika geçti, tilt hafif. Hemen re-entry (aynı event'e ikinci mermi) mantıklı mı?",
+    options: ["Evet — hemen gir, momentum kaybetme", "Hayır — zorunlu 20 dk bekle, karar kartını doldur; SHR'de re-entry YOK (max 1 bullet); tilt hâlinde otomatik re-entry = kök hatanın bankroll ölçeği", "Başka event'e geç", "Günü bitir, yarın karar"],
+    correct: 1,
+    explain:
+      "B16.1: 'Serinin en pahalı tek kararı bustout sonrası 5 dakikada verilen re-entry.' Zorunlu bekleme: bustout → 20 dk masadan uzak → karar kartını doldur. SHR max 1 bullet (re-entry yok); tilt hâlinde otomatik re-entry = şişmiş 'seri yatırımında' tek bullet'a value muamelesi.",
+    source: "Bölüm 16.1",
+    kavram: "kök-hata",
+  },
+  {
+    q: "Gün sonu otopsisi: bir eli kitabın kuralına UYARAK oynadın ama kaybettin (doğru jam, kötü sonuç). Yarın o spotta aralığını değiştirir misin?",
+    options: ["Evet — kaybettiysem bir şey yanlıştı, daralt", "Hayır — 'uydum + kaybettim' = doğru karar, kötü sonuç; ARALIK DEĞİŞMEZ (aksi halde SHR ortasında B4-B5 tablolarını bozarsın)", "Duruma göre — sonuca bak", "Aralığı genişlet — daha agresif ol"],
+    correct: 1,
+    explain:
+      "B16.3 otopsi kuralı: 'Uydum + kaybettim → vaka defterine doğru karar/kötü sonuç, ARALIK DEĞİŞMEZ.' Bu filtre kalibrasyonu korur: SHR'de doğru jam'ler sık kaybedilir; filtre olmadan özenli tabloları turnuva ortasında bozarsın. (Yalnız kurala UYDUYSAN geçerli — kendini aklama kapısı değil.)",
+    source: "Bölüm 16.3",
     kavram: "kök-hata",
   },
 ];

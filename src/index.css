@@ -9,8 +9,11 @@
   }
   body {
     @apply bg-surface-0 text-neutral-100 antialiased;
-    /* iPhone safe-area: alt tab bar centik altina inmesin */
-    padding-bottom: env(safe-area-inset-bottom);
+  }
+  /* klavye ile gezinirken odak halkasi gorunsun */
+  :focus-visible {
+    outline: 2px solid theme(colors.accent.DEFAULT);
+    outline-offset: 2px;
   }
   /* poker terimleri satir icinde bolunmesin */
   .term {

@@ -189,6 +189,10 @@ export interface QuickRef {
   decisionOrder: string[];
   sizes: MdTable | null;
   band2530: MdTable | null; // 25–30bb kartı (v4)
+  postflop: MdTable | null; // Postflop boyutlar (Bölüm 11, v5)
+  icm: MdTable | null; // ICM / Final Table kartı (Bölüm 12, v5)
+  multiway: MdTable | null; // Multiway kartı (Bölüm 13, v5)
+  tilt: MdTable | null; // Tilt kartı (Bölüm 16, v5)
   redFlags: string[];
 }
 
@@ -198,6 +202,10 @@ export function quickReference(): QuickRef {
     decisionOrder: listItems(findSub(block, "Karar sırası"), true),
     sizes: firstTable(findSub(block, "Boyutlar")),
     band2530: firstTable(findSub(block, "25")),
+    postflop: firstTable(findSub(block, "Postflop")),
+    icm: firstTable(findSub(block, "ICM")),
+    multiway: firstTable(findSub(block, "Multiway")),
+    tilt: firstTable(findSub(block, "Tilt")),
     redFlags: listItems(findSub(block, "Kırmızı bayraklar"), false),
   };
 }
@@ -285,6 +293,18 @@ export function stackLayer(): MdTable | null {
   return tableFromSection("Bölüm 4", "4.7");
 }
 
+/** Köprü bandı 3-bet çerçevesi (Bölüm 14.1) — B4'ten YÖN tablosu; kombo listesi değil. */
+export function bridgeBand(): MdTable | null {
+  return tableFromSection("Bölüm 14", "14.1");
+}
+
+/** Köprü bandı "Kural" cümlesi (Bölüm 14.1) — (kalibre et) yer tutucusu aynen korunur. */
+export function bridgeRule(): string {
+  const body = findSub(sectionBlock("Bölüm 14"), "14.1");
+  const m = body.match(/\*\*Kural:\*\*\s*(.+)/);
+  return m ? stripInline(m[1]) : "";
+}
+
 // ---- Bölüm 6 & 11 — Turn/River karar tabloları (Postflop drill) ----
 // Bunlar kitabın YÖN tablolarıdır. Kitapta boyutlar (kalibre et) olduğundan drill yalnız YÖNÜ
 // (bet/check/call/fold) sorar — asla uydurma boyut. Her hücre doğru cevabın kendisidir; elle
@@ -313,4 +333,19 @@ export function riverThinValue(): MdTable | null {
 /** Kötü river kataloğu (Bölüm 11.4): overpair'in value'sunu öldüren kartlar. */
 export function badRiverCatalog(): string[] {
   return listItems(findSub(sectionBlock("Bölüm 11"), "11.4"), false);
+}
+
+/** HU → 3+ yollu geçiş matrisi (Bölüm 13.1): durum × HU/3+ kolonu → aksiyon. */
+export function multiwayMatrix(): MdTable | null {
+  return tableFromSection("Bölüm 13", "13.1");
+}
+
+/** PLO stack modları (Bölüm 15.1): mod × NLH'den fark × karakter. */
+export function ploModes(): MdTable | null {
+  return tableFromSection("Bölüm 15", "15.1");
+}
+
+/** PLO SPR × stack-off matrisi (Bölüm 15.2): commit eşiği. */
+export function ploStackOff(): MdTable | null {
+  return tableFromSection("Bölüm 15", "15.2");
 }

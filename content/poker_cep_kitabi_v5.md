@@ -420,7 +420,7 @@ Chip leader'ın jam'e fold ettiğini bir kez gördüysen, o oyuncunun açılış
 
 ## Bölüm 7 — Vaka Otopsileri
 
-> **Üç vakanın kök hatası aynı:**
+> **Dört vakanın kök hatası aynı:**
 > Tek per'in (AA dahil) şişmiş veya multiway potta yanlış sınıflandırılması.
 
 ### Vaka 1 — A4s river call ($50K High Roller, WSOP 2026)
@@ -451,6 +451,14 @@ Chip leader'ın jam'e fold ettiğini bir kez gördüysen, o oyuncunun açılış
 > Kötü river'da overpair: küçük pota check-call, büyük pota check-fold.
 
 *Bölüm 4 bağlantısı: bu elin şişmiş pot olma sebebi preflop'ta doğdu. 3-bet aralığını doğru kurmak, bu vakanın tekrar etme olasılığını doğrudan düşürüyor.*
+
+### Vaka 4 — T6s trip-ten river check-raise all-in (WSOP Online ME Day 2 hazırlığı)
+
+**Ne oldu:** BB'de T6s, BTN min-raise'ine call. Flop A-T-3, 1/3 pot call. Turn 5 check-check. River T (board A-T-3-5-T) → trip 10, kicker 6. Check ettin, BTN ince (thin) bet attı, sen check-raise all-in.
+
+**Doğru oyun:** Check-call. Bu runout'ta trip'in bluff-catcher: senden zayıf el all-in'i ödemez (her 10 senin kicker'ını geçer, boat'lar önde); raise blöfleri fold ettirir, seni yalnız geçen el öder.
+
+**Kural:** İyi görünen tek/güçlü el (trip dahil), eşleşmiş/şişmiş board'da bluff-catcher'a döner — Vaka 2'nin (KTo) aynısı. (B9.2 protokolü: masadan gelen bu el vakaya işlendi.)
 
 ---
 
@@ -1053,7 +1061,7 @@ Online sahada rakipler blind savunmasını daha doğru yapar; erken pozisyon bir
 | BB'den BTN/SB'ye | 99+, AQ+ | A5s tipi + KTs/QTs/JTs; geri kalanla defend (call) |
 
 - **Kime 3-bet:** 30–50 BB'lik orta stackler (bubble baskısını en çok onlar hisseder) ve çok açan regler.
-- **Kime 3-bet YAPMA:** Seni cover eden büyük stackler (bubble yaklaşırken) ve 20 BB altı — tek cevabı jam'dir, bluff 3-bet'in yanar.
+- **Kime BLUFF 3-bet YAPMA:** Seni cover eden büyük stackler (bubble yaklaşırken) ve 20 BB altı — tek cevabı jam'dir, bluff 3-bet'in yanar. **Value 3-bet serbesttir** (QQ+/AK 3-bet); cover'ın jam'ine devam yalnız KK+, QQ ise 3-bet-fold (bkz. 17.10 ICM eşikleri). Yasak olan bluff 3-bet, value değil.
 
 ### 17.5 3-Bet boyutları (IP ve OOP)
 

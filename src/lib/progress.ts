@@ -1,5 +1,7 @@
 // İlerleme: pratik günleri (streak) + quiz istatistiği. localStorage.
 import { load, save } from "./storage";
+import { EVENTS, nextEvent, daysUntil } from "../data/events";
+import { localIsoDay as isoDay } from "./date";
 
 interface ProgressData {
   days: string[]; // pratik yapılan ISO günler
@@ -8,12 +10,6 @@ interface ProgressData {
 }
 
 const KEY = "progress";
-
-function isoDay(plus = 0): string {
-  const d = new Date();
-  d.setDate(d.getDate() + plus);
-  return d.toISOString().slice(0, 10);
-}
 
 function read(): ProgressData {
   return load<ProgressData>(KEY, { days: [], quizTotal: 0, quizCorrect: 0 });
@@ -52,17 +48,17 @@ export function streak(): number {
   return n;
 }
 
-// EPT Day-1'e (2026-08-16) kalan gün.
+// Sıradaki event'in başlangıcına kalan gün (event kalmadıysa EPT Day-1 2026-08-16'ya düşer).
 export function daysUntilEPT(): number {
-  const day1 = new Date("2026-08-16T00:00:00");
-  const today = new Date(isoDay(0) + "T00:00:00");
-  return Math.round((day1.getTime() - today.getTime()) / 86400000);
+  const t = isoDay(0);
+  return daysUntil(nextEvent(t)?.start ?? "2026-08-16", t);
 }
 
-// Cornerman modu: EPT serisi boyunca (15–29 Ağu) app öğretmenden köşe-adamına döner.
+// Cornerman modu: herhangi bir event penceresinde (başlangıç−6 gün → bitiş) app
+// öğretmenden köşe-adamına döner.
 export function cornermanActive(): boolean {
   const t = isoDay(0);
-  return t >= "2026-08-15" && t <= "2026-08-29";
+  return EVENTS.some((e) => daysUntil(e.start, t) <= 6 && t <= e.end);
 }
 
 export interface Stats {

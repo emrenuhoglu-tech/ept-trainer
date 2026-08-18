@@ -1,8 +1,11 @@
 // Drill karnesi 2.0 — localStorage. Kavram BAŞINA tek kayıt (konsolide).
-// Aralıklar başarıyla genişler (wrong+1 / half+2 / correct 3→7→14), EPT Day-1'e
-// (2026-08-16) geri-planlı olarak Ağu 14'ü geçmez. Severity + confidence + mastery.
+// Aralıklar başarıyla genişler (wrong+1 / half+2 / correct 3→7→14→30). due, bir sonraki
+// hedef event gününe (events.ts nextEvent) DİNAMİK olarak sıkıştırılır — sabit geçmiş tarih
+// yok, böylece etkinlik yoksa aralıklı tekrar tam çalışır. Severity + confidence + mastery.
 import { KARNE_SEED } from "../data/karne_seed";
-import { load, save } from "./storage";
+import { load, save, peek } from "./storage";
+import { localIsoDay as isoDay } from "./date";
+import { nextEvent } from "../data/events";
 
 export type Sonuc = "wrong" | "half" | "correct";
 export type Severity = "minor" | "major" | "tournament_life";
@@ -25,28 +28,31 @@ export interface KarneEntry {
 }
 
 const KEY = "karne";
-const DUE_CAP = "2026-08-14"; // hiçbir tekrar bunu geçmez (Day-1 öncesi son retrieval)
+const CORRUPT_KEY = "karne:corrupt-backup"; // bozuk veri seed ile ezilmeden buraya kopyalanır
 
-function isoDay(plusDays = 0): string {
-  const d = new Date();
-  d.setDate(d.getDate() + plusDays);
-  return d.toISOString().slice(0, 10);
+// due cap = bir sonraki hedef event günü (retrieval etkinlikten önce yoğunlaşsın). Etkinlik
+// yoksa ya da bugüne/geçmişe düşmüşse cap YOK → aralıklar (3/7/14/30) doğal genişler.
+function dueCap(): string {
+  return nextEvent(isoDay(0))?.start ?? "";
 }
 
-function capDue(iso: string): string {
-  return iso > DUE_CAP ? DUE_CAP : iso;
+export function capDue(iso: string): string {
+  const cap = dueCap();
+  if (!cap || cap <= isoDay(0)) return iso; // cap yok / bugüne düşmüş → kırpma
+  return iso > cap ? cap : iso;
 }
 
 // Doğru için genişleyen aralık; severity ağır olan yanlışlar ertesi güne çekilir.
-function computeDue(sonuc: Sonuc, streak: number, severity?: Severity): string {
+// streak 1/2/3/4+ → 3/7/14/30 gün (30 = saglam bakım tekrarı).
+export function computeDue(sonuc: Sonuc, streak: number, severity?: Severity): string {
   if (sonuc === "wrong") return capDue(isoDay(1));
   if (sonuc === "half") return capDue(isoDay(severity === "tournament_life" ? 1 : 2));
-  const steps = [3, 7, 14];
+  const steps = [3, 7, 14, 30];
   const off = steps[Math.min(Math.max(streak, 1) - 1, steps.length - 1)];
   return capDue(isoDay(off));
 }
 
-function computeMastery(streak: number, correctDays: string[]): Mastery {
+export function computeMastery(streak: number, correctDays: string[]): Mastery {
   const days = new Set(correctDays).size;
   if (streak >= 3 && days >= 3) return "saglam";
   if (streak >= 2 && days >= 2) return "yetkin";
@@ -70,8 +76,25 @@ function fresh(kavram: string, base?: Partial<KarneEntry>): KarneEntry {
   };
 }
 
+// v2 kaydını fresh() üzerine normalize et — eksik/bozuk alanları doldur (correctDays dizi
+// değilse [] olur; yoksa upsert'teki .includes çöker → beyaz ekran).
+function normalizeEntry(r: Record<string, unknown>): KarneEntry {
+  const kavram = String(r.kavram || r.id || "kök-hata");
+  const cd = (r as { correctDays?: unknown }).correctDays;
+  return {
+    ...fresh(kavram),
+    ...(r as Partial<KarneEntry>),
+    id: kavram,
+    kavram,
+    correctDays: Array.isArray(cd) ? (cd as string[]) : [],
+    reps: typeof r.reps === "number" ? (r.reps as number) : 0,
+    streak: typeof r.streak === "number" ? (r.streak as number) : 0,
+    due: capDue(String(r.due || isoDay(0))),
+  };
+}
+
 // Eski (v1, kavram-başına-çok-satır) veriyi kavrama göre KONSOLİDE et.
-function migrate(rows: Record<string, unknown>[]): KarneEntry[] {
+export function migrate(rows: Record<string, unknown>[]): KarneEntry[] {
   const byK = new Map<string, KarneEntry>();
   for (const r of rows) {
     const kavram = String(r.kavram || "kök-hata");
@@ -88,13 +111,27 @@ function migrate(rows: Record<string, unknown>[]): KarneEntry[] {
 }
 
 export function loadKarne(): KarneEntry[] {
-  const existing = load<Record<string, unknown>[] | null>(KEY, null);
-  if (existing && existing.length) {
-    // v2 mi (reps alanı var)? değilse migrate et.
-    if (typeof existing[0].reps === "number") return existing as unknown as KarneEntry[];
-    const migrated = migrate(existing);
-    save(KEY, migrated);
-    return migrated;
+  const raw = peek(KEY);
+  if (raw !== null) {
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      parsed = undefined;
+    }
+    if (Array.isArray(parsed) && parsed.length) {
+      const rows = parsed as Record<string, unknown>[];
+      // v2 mi (reps alanı var)? Her iki durumda da normalize et.
+      const out =
+        typeof rows[0].reps === "number" ? rows.map(normalizeEntry) : migrate(rows);
+      save(KEY, out);
+      return out;
+    }
+    // Anahtar var ama bozuk (parse hatası / dizi değil / boş değil): ham veriyi YEDEKLE,
+    // ASLA sessizce seed ile ezme (yarım-yazılmış kayıt = aylarca birikmiş veri kaybı).
+    if (raw.trim() && !(Array.isArray(parsed) && parsed.length === 0)) {
+      save(CORRUPT_KEY, raw);
+    }
   }
   const seeded = migrate(KARNE_SEED as unknown as Record<string, unknown>[]);
   save(KEY, seeded);
@@ -104,6 +141,7 @@ export function loadKarne(): KarneEntry[] {
 function upsert(
   kavram: string,
   patch: { soru_ozeti: string; sonuc: Sonuc; not?: string; severity?: Severity; confidence?: number },
+  opts?: { resetConfidence?: boolean },
 ): void {
   const k = loadKarne();
   let e = k.find((x) => x.kavram === kavram);
@@ -116,7 +154,9 @@ function upsert(
   e.sonuc = patch.sonuc;
   e.not = patch.not ?? e.not;
   e.severity = patch.severity ?? e.severity;
-  e.confidence = patch.confidence ?? e.confidence;
+  // Review'daki self-grade taze güven taşımaz; bayat 0.95'i geçirirsek kalibrasyon şişer →
+  // sıfırla (kalibrasyon yalnızca cevap-anı güvenli kayıtları saysın).
+  e.confidence = opts?.resetConfidence ? undefined : patch.confidence ?? e.confidence;
   e.streak = patch.sonuc === "correct" ? e.streak + 1 : 0;
   if (patch.sonuc === "correct") {
     const today = isoDay(0);
@@ -139,19 +179,22 @@ export function recordResult(r: {
   upsert(r.kavram, r);
 }
 
-// Review döngüsü — kavrama göre yerinde günceller (id = kavram).
+// Review döngüsü — kavrama göre yerinde günceller (id = kavram). Self-grade olduğu için
+// güveni sıfırlar (bkz. upsert resetConfidence).
 export function reviewEntry(id: string, sonuc: Sonuc): void {
   const e = loadKarne().find((x) => x.id === id || x.kavram === id);
   if (!e) return;
-  upsert(e.kavram, { soru_ozeti: e.soru_ozeti, sonuc, not: e.not, severity: e.severity });
+  upsert(e.kavram, { soru_ozeti: e.soru_ozeti, sonuc, not: e.not, severity: e.severity }, { resetConfidence: true });
 }
 
 const SEV_RANK: Record<Severity, number> = { tournament_life: 0, major: 1, minor: 2 };
 
+// due gelmiş kavramlar. saglam kavramlar 30-günlük bakım tekrarı için due geldiğinde geri
+// döner (kalıcı çıkarılmaz — aksi halde bilgi çürür ama karne yeşil gösterir).
 export function dueEntries(): KarneEntry[] {
   const today = isoDay(0);
   return loadKarne()
-    .filter((e) => e.due <= today && e.mastery !== "saglam")
+    .filter((e) => e.due <= today)
     .sort(
       (a, b) =>
         (SEV_RANK[a.severity ?? "minor"] - SEV_RANK[b.severity ?? "minor"]) ||
@@ -183,7 +226,7 @@ export function masteryCounts(): Record<Mastery, number> {
 // Karar günlüğünden (cornerman) son 2 günün elleri — drill/sim'e "ertesi-gün tohumu"
 // olarak gider (kitabın Bölüm 9 protokolü: masadan gelen eller vaka olur). Yalnız Emre'nin
 // kendi elleri; değerlendirme yine kitap-temelli LLM prompt'unda kalır. Kayıt yoksa boş.
-interface JournalRow { day: string; el: string; aksiyon: string; gerekce?: string }
+interface JournalRow { day: string; el: string; aksiyon: string; gerekce?: string; guven?: number }
 export function journalForModel(): string {
   const rows = load<JournalRow[]>("journal", []);
   if (!rows.length) return "";
@@ -193,7 +236,10 @@ export function journalForModel(): string {
   return (
     "\n\nMasadan getirdiği son eller (ertesi-gün tohumu — bu spotları yeni bir kılıkta tekrar sor):\n" +
     recent
-      .map((r) => `- [${r.day}] ${r.el} → ${r.aksiyon}${r.gerekce ? " (" + r.gerekce + ")" : ""}`)
+      .map((r) => {
+        const g = typeof r.guven === "number" ? ` [%${Math.round(r.guven * 100)} güven]` : "";
+        return `- [${r.day}] ${r.el} → ${r.aksiyon}${r.gerekce ? " (" + r.gerekce + ")" : ""}${g}`;
+      })
       .join("\n")
   );
 }

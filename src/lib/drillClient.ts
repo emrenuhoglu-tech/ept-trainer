@@ -1,6 +1,7 @@
 // Drill proxy istemcisi. /api/drill'e POST atar, modelin JSON çıktısını ayrıştırır.
 // Model düz metin dönerse çökmez: {ok:false, raw} döner, UI "tekrar dene" gösterir.
 import { KITAP } from "../data/kitap_summary";
+import { coerceConcept } from "../data/kavramlar";
 
 export interface DrillJson {
   evaluation: "correct" | "half" | "wrong" | null;
@@ -51,12 +52,18 @@ export async function drillTurn(
     const text: string = j.text ?? "";
     try {
       const data = JSON.parse(extractJson(text)) as DrillJson;
+      data.concept = coerceConcept(data.concept); // D4-42: bilinmeyen slug'ı güvenli kovaya indir
       return { ok: true, data, model: j.model };
     } catch {
       return { ok: false, raw: text, model: j.model, error: "JSON ayrıştırılamadı" };
     }
-  } catch {
-    // Bağlantı yok / zaman aşımı → proxy kapalı. Çevrimdışı, kitaptan türeyen quiz'e yönlendir.
+  } catch (e) {
+    // D5-49: zaman aşımı = model yavaş demek, sunucu kapalı demek değil — offline'a sayma.
+    const name = (e as DOMException | null)?.name;
+    if (name === "TimeoutError" || name === "AbortError") {
+      return { ok: false, error: "Model yavaş kaldı — tekrar dene." };
+    }
+    // Bağlantı yok → proxy kapalı. Çevrimdışı, kitaptan türeyen quiz'e yönlendir.
     return { ok: false, offline: true, error: "Sunucu kapalı — çevrimdışı Aralık Quiz'i kitaptan çalışır." };
   }
 }

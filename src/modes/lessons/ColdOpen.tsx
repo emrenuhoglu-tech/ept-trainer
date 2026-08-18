@@ -19,7 +19,11 @@ export const MODULE_PRETEST: Record<string, string> = {
 };
 
 function pickByKavram(kavram: string): Scenario | null {
-  const pool = SCENARIOS.filter((s) => s.kavram === kavram);
+  // Bölüm 17 (WSOP) senaryoları pretest havuzuna girmez — pretest sorusunu
+  // hemen ardından gelen ders cevaplayabilmeli.
+  const pool = SCENARIOS.filter(
+    (s) => s.kavram === kavram && !s.source.includes("Bölüm 17"),
+  );
   return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
 }
 

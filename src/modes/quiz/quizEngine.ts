@@ -1,5 +1,5 @@
 // Range Quiz motoru — TAMAMEN offline, kitaba sadık. Doğru cevap rangeGroups()'tan
-// (yani content/poker_cep_kitabi_v4.md 4.3) türetilir; hiçbir el uydurulmaz.
+// (yani content/poker_cep_kitabi_v5.md 4.3) türetilir; hiçbir el uydurulmaz.
 import { rangeGroups } from "../../content/curriculum";
 import { parseRange, cellCode } from "../../lib/handgrid";
 
@@ -53,24 +53,13 @@ function pick<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export function nextQuestion(weak?: { opener: string; position: string }[]): Question | null {
-  const groups = rangeGroups().filter((g) => g.table && g.table.rows.length > 0);
-  if (!groups.length) return null;
-
-  let g = pick(groups);
-  let row = pick(g.table.rows);
-
-  // adaptif: %55 ihtimalle zayıf bir (opener, pozisyon) eşleşmesine yönel
-  if (weak && weak.length && Math.random() < 0.55) {
-    const w = pick(weak);
-    const mg = groups.find((x) => x.opener === w.opener);
-    const mr = mg?.table.rows.find((r) => r[0] === w.position);
-    if (mg && mr) {
-      g = mg;
-      row = mr;
-    }
-  }
-  const [position, value, blof] = row;
+// (opener, position) için soru havuzlarını kur. TEK kaynak: nextQuestion VE selfcheck bunu
+// çağırır (mantık kopyalanmaz — kopya, motor değişince sessizce eski davranışı test ederdi).
+export function buildPools(opener: string, position: string) {
+  const g = rangeGroups().find((x) => x.opener === opener);
+  const row = g?.table.rows.find((r) => r[0] === position);
+  if (!g || !row) return null;
+  const [, value, blof] = row;
 
   const mix = new Set<string>();
   const v = parseRange(value || "", mix);
@@ -89,17 +78,48 @@ export function nextQuestion(weak?: { opener: string; position: string }[]): Que
   // geniş flat ellerini yanlışlıkla "fold" olarak notlar → fold sorusu üretme (yalnız 3-bet/blöf).
   // HAM flat metnini test et: flatText, "…ve tüm 65s+ suited connector'lar" gibi kuyruğu
   // parse'tan ÖNCE atar; ft'ye bakmak o eli fold sanıp yanlış notlardı (CO→BTN).
-  const flatWide = /geniş|tüm|çoğu/i.test(applicableFlats.join(" "));
+  // BB'nin ayrı flat listesi olmayan açılışlarında (UTG/LJ-HJ/CO→BB) kitap "BB flat çok geniş:
+  // tüm çiftler, tüm suited" der — fold üretme (JJ/TT/AQs 'fold' notlanmasın). Tek kayıp blind SB.
+  const flatWide =
+    (position === "BB" && applicableFlats.length === 0) ||
+    /geniş|tüm|çoğu/i.test(applicableFlats.join(" "));
+  const poolFold = flatWide ? [] : ALL.filter((c) => !set3.has(c) && !setFlat.has(c));
+
+  return { g, value, blof, mix, v, b, set3, setFlat, poolFold, flatWide, ft, flatCells: f.cells };
+}
+
+export function nextQuestion(weak?: { opener: string; position: string }[]): Question | null {
+  const groups = rangeGroups().filter((g) => g.table && g.table.rows.length > 0);
+  if (!groups.length) return null;
+
+  let g = pick(groups);
+  let row = pick(g.table.rows);
+
+  // adaptif: %55 ihtimalle zayıf bir (opener, pozisyon) eşleşmesine yönel
+  if (weak && weak.length && Math.random() < 0.55) {
+    const w = pick(weak);
+    const mg = groups.find((x) => x.opener === w.opener);
+    const mr = mg?.table.rows.find((r) => r[0] === w.position);
+    if (mg && mr) {
+      g = mg;
+      row = mr;
+    }
+  }
+  const [position] = row;
+
+  const pools = buildPools(g.opener, position);
+  if (!pools) return null;
+  const { value, blof, mix, v, b, set3, setFlat, poolFold, ft } = pools;
 
   const pool3 = [...set3];
   const poolFlat = [...setFlat];
-  const poolFold = flatWide ? [] : ALL.filter((c) => !set3.has(c) && !setFlat.has(c));
 
   // ağırlıklı kategori seçimi (boş havuzları atla)
   const bag: QAction[] = [];
   if (pool3.length) bag.push("3bet", "3bet", "3bet");
   if (poolFlat.length) bag.push("call", "call");
   if (poolFold.length) bag.push("fold", "fold");
+  if (!bag.length) return null; // üç havuz da boşsa soru üretilemez (undefined el kartı yerine null)
   const cat = pick(bag);
 
   const hand =

@@ -1,17 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import { SCENARIOS, type Scenario } from "./scenarios";
-import { recordResult } from "../../lib/karne";
+import { recordResult, dueEntries, confidentWrong } from "../../lib/karne";
 import { recordQuiz } from "../../lib/progress";
 import { load, save } from "../../lib/storage";
 
 const SHOT_SECS = 20; // masa modu karar saati
-// Masa-modu atmosfer çerçeveleri — stack derinliği KASTEN yok: her senaryo kendi
-// derinliğini metninde söylüyor, buraya bb yazmak onunla çelişirdi.
+// Masa-modu atmosfer çerçeveleri — stack derinliği KASTEN yok (her senaryo kendi derinliğini
+// söyler). ICM de KASTEN yok: "bubble/final table/chip leader" çerçevesi chipEV cevap-anahtarlı
+// bir soruya (Bölüm 5/12) rastgele yapışıp kitapla çelişiyordu — yalnız saat/baskı atmosferi kalsın.
 const FRAMES = [
-  "Day 2 · bubble'a 2 kişi",
-  "Final table · göz önündesin",
-  "Day 1 · derin masa",
-  "ITM sonrası · chip leader solunda",
+  "Karar saati işliyor · net ol",
+  "Canlı masa · göz önündesin",
+  "Standart masa · ante açık",
+  "Turnuva günü · fokus",
 ];
 
 // Senaryo quiz: kitabın tüm bölümlerinden karar soruları.
@@ -26,11 +27,31 @@ const CONF = [
 
 type SeenMap = Record<string, number>;
 
-function pickScenario(biasKavram?: string): Scenario {
+// Karne'de due + emin-ama-yanlış kavramlar (spaced-review sinyali quiz seçimine aksın).
+function dueKavramSet(): Set<string> {
+  const set = new Set<string>();
+  for (const e of dueEntries()) set.add(e.kavram);
+  for (const e of confidentWrong()) set.add(e.kavram);
+  return set;
+}
+
+function pickScenario(biasKavram?: string, excludeQ?: string): Scenario {
   const seen = load<SeenMap>(SEEN_KEY, {});
   const count = (s: Scenario) => seen[s.q] ?? 0;
   let pool = biasKavram ? SCENARIOS.filter((s) => s.kavram === biasKavram) : SCENARIOS;
   if (!pool.length) pool = SCENARIOS;
+  // Range Quiz'deki zayıf-nokta adaptasyonu (Quiz.tsx %55 bias) senaryo tarafına taşındı:
+  // %55 ihtimalle havuzu due/emin-ama-yanlış kavramlara daralt (boşsa tam havuz kalır).
+  if (!biasKavram && Math.random() < 0.55) {
+    const dueSet = dueKavramSet();
+    const narrowed = pool.filter((s) => dueSet.has(s.kavram));
+    if (narrowed.length) pool = narrowed;
+  }
+  // Aynı soruyu hemen tekrar sorma (tek-senaryolu kavramda sahte 'correct' üretiyordu).
+  if (excludeQ) {
+    const ex = pool.filter((s) => s.q !== excludeQ);
+    if (ex.length) pool = ex;
+  }
   const min = Math.min(...pool.map(count));
   const fresh = pool.filter((s) => count(s) === min);
   return fresh[Math.floor(Math.random() * fresh.length)];
@@ -53,8 +74,11 @@ export function ScenarioQuiz() {
 
   const answered = chosen !== null;
   const correct = chosen === s.correct;
-  const confWrong = answered && !correct && conf >= 0.8;
   const timedOut = answered && chosen === -1;
+  // Süre dolması emin-ama-yanlış SAYILMAZ (kullanıcı güven beyan etmeden zaman aşımına uğradı).
+  const confWrong = answered && !correct && conf >= 0.8 && !timedOut;
+  // Bu kavramda başka senaryo yoksa hypercorrection aynı soruyu tekrar sorardı → Drill'e yönlendir.
+  const soloConcept = useMemo(() => SCENARIOS.filter((x) => x.kavram === s.kavram).length <= 1, [s]);
   const overseen = useMemo(() => {
     const seen = load<SeenMap>(SEEN_KEY, {});
     return SCENARIOS.every((x) => (seen[x.q] ?? 0) >= 2);
@@ -90,13 +114,14 @@ export function ScenarioQuiz() {
       soru_ozeti: s.q,
       sonuc: ok ? "correct" : "wrong",
       not: s.explain,
-      confidence: conf,
+      // Süre dolması (idx=-1) = karar verememe; aşırı-güven verisi üretme (confidence gönderme).
+      ...(idx === -1 ? {} : { confidence: conf }),
     });
   }
 
   function again() {
-    // emin-ama-yanlışsa aynı kavramı farklı kılıkta tekrar sor (hypercorrection)
-    const next = pickScenario(confWrong ? s.kavram : undefined);
+    // emin-ama-yanlışsa aynı kavramı farklı kılıkta tekrar sor; aynı soruyu dışla (hypercorrection)
+    const next = pickScenario(confWrong ? s.kavram : undefined, s.q);
     setChosen(null);
     setS(next);
     setFrameI((x) => (x + 1) % FRAMES.length);
@@ -206,9 +231,15 @@ export function ScenarioQuiz() {
               <b> Drill</b>'de farklı kılıkta çalış (yeni spot üretir).
             </div>
           )}
-          <button onClick={again} className="btn-accent py-3 text-base">
-            {confWrong ? "Aynı kavram, yeni spot →" : "Sonraki soru →"}
-          </button>
+          {confWrong && soloConcept ? (
+            <button onClick={() => (window.location.hash = "#/drill")} className="btn-accent py-3 text-base">
+              Bu kavramı Drill'de çalış →
+            </button>
+          ) : (
+            <button onClick={again} className="btn-accent py-3 text-base">
+              {confWrong ? "Aynı kavram, yeni spot →" : "Sonraki soru →"}
+            </button>
+          )}
         </>
       )}
     </div>

@@ -207,6 +207,13 @@ export function getSpeaker(): Speaker {
   return instance;
 }
 
+// Anlatımı cümlelere böl (lookbehind YOK — geniş uyum). Poker terimlerindeki
+// tire/rakamlar cümle sonu değil; yalnız . ! ? böler. Oynatma (LessonPlayer) ve
+// prefetch (Progress) AYNI bölücüyü kullanmalı → önbellek anahtarları birebir eşleşir.
+export function sentencesOf(text: string): string[] {
+  return (text.match(/[^.!?]+[.!?]*/g) || [text]).map((s) => s.trim()).filter(Boolean);
+}
+
 // Tüm anlatımları HD sese çevirip IndexedDB'ye önbelle (çevrimdışı Ders için).
 // speak() ile aynı anahtarı kullanır → sonra oynatırken API'ye gitmez.
 export async function prefetchHd(

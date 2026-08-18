@@ -35,38 +35,70 @@ function loadPrompt(rel) {
 
 const PRIMARY = process.env.ANTHROPIC_MODEL || "claude-fable-5";
 const FALLBACK = process.env.ANTHROPIC_FALLBACK_MODEL || "claude-opus-4-8";
-const MAX_TOKENS = Number(process.env.ANTHROPIC_MAX_TOKENS || 3000);
+const MAX_TOKENS = Number(process.env.ANTHROPIC_MAX_TOKENS || 10000);
 const PORT = Number(process.env.PORT || 8787);
 
 if (!process.env.ANTHROPIC_API_KEY) {
   console.warn("[proxy] UYARI: ANTHROPIC_API_KEY yok — /api/drill 500 dönecek.");
 }
 
-// timeout: uzun Fable turlarında UI'yi süresiz kilitlememek için istek başına üst sınır.
-// maxRetries düşük (SDK varsayılanı 2 → toplam bekleme süresini şişirir).
-const REQ_TIMEOUT_MS = Number(process.env.ANTHROPIC_TIMEOUT_MS || 45000);
-const client = new Anthropic({ maxRetries: 1, timeout: REQ_TIMEOUT_MS }); // ANTHROPIC_API_KEY env'den
+// timeout: istemci 60 sn'de abort ediyor → primary 25 sn + fallback 25 sn o bütçenin içinde
+// kalır (D5-49). maxRetries 0: SDK retry'ları toplam süreyi istemci bütçesinin üstüne şişirir.
+const REQ_TIMEOUT_MS = Number(process.env.ANTHROPIC_TIMEOUT_MS || 25000);
+const client = new Anthropic({ maxRetries: 0, timeout: REQ_TIMEOUT_MS }); // ANTHROPIC_API_KEY env'den
 
 const app = express();
 app.use(express.json({ limit: "1mb" }));
 
 app.get("/api/health", (_req, res) =>
-  res.json({ ok: true, primary: PRIMARY, fallback: FALLBACK }),
+  res.json({ ok: true, primary: PRIMARY, fallback: FALLBACK, hasKey: !!process.env.ANTHROPIC_API_KEY }),
 );
+
+// D5-52: KITAP sunucu tarafında da mevcut — istemci boş/eksik gönderirse buradan beslenir.
+// kitap_summary.ts tek, interpolasyonsuz template literal: ilk ve son backtick arası metnin
+// kendisidir. mtime-cache loadPrompt'tan gelir; dosya değişince otomatik tazelenir.
+function serverKitap() {
+  const src = loadPrompt("src/data/kitap_summary.ts");
+  const a = src.indexOf("`");
+  const b = src.lastIndexOf("`");
+  return a >= 0 && b > a ? src.slice(a + 1, b) : "";
+}
 
 // Ortak koç çağrısı: KITAP primer'ı (cache_control ile) + fallback zinciri.
 async function runCoach(res, systemRel, { messages = [], karne = "", kitap = "" }, primerNote) {
   const system = loadPrompt(systemRel);
-  const primer = [
-    { type: "text", text: kitap, cache_control: { type: "ephemeral" } },
-    {
-      type: "text",
-      text:
-        `KARNE (due olanlar öncelikli; aynı kavramı FARKLI kılıkta sor, ` +
-        `hangi eski soruyu test ettiğini önceden söyleme):\n${karne}\n\n${primerNote}`,
-    },
-  ];
-  const finalMessages = [{ role: "user", content: primer }, ...messages];
+  // D5-52/D7-72b: istemci kitap göndermediyse sunucudaki özete düş; yine de boşsa bloğu hiç
+  // ekleme — boş {type:'text'} bloğu her iki modelde 400 döndürüyor.
+  const bookText = kitap && kitap.trim() ? kitap : serverKitap();
+  const karneText =
+    `KARNE (due olanlar öncelikli; aynı kavramı FARKLI kılıkta sor, ` +
+    `hangi eski soruyu test ettiğini önceden söyleme):\n${karne}\n\n${primerNote}`;
+  // D5-51: KARNE her turda değişir; ilk mesajda durursa KITAP prompt-cache'ini her turda kırar.
+  // İlk mesajda yalnız KITAP kalır (1. breakpoint), KARNE son user turuna ayrı blok olarak
+  // biner; son history bloğuna 2. breakpoint (limit 4) → geçmiş turlar cache'ten okunur.
+  const finalMessages = [];
+  if (bookText.trim()) {
+    finalMessages.push({
+      role: "user",
+      content: [{ type: "text", text: bookText, cache_control: { type: "ephemeral" } }],
+    });
+  }
+  const last = messages[messages.length - 1];
+  if (last && last.role === "user" && typeof last.content === "string" && last.content) {
+    finalMessages.push(...messages.slice(0, -1), {
+      role: "user",
+      content: [
+        { type: "text", text: last.content, cache_control: { type: "ephemeral" } },
+        { type: "text", text: karneText },
+      ],
+    });
+  } else if (finalMessages.length > 0) {
+    // history boş ya da user ile bitmiyor → KARNE, primer mesajının ikinci bloğu olur (eski şekil)
+    finalMessages[0].content.push({ type: "text", text: karneText });
+    finalMessages.push(...messages);
+  } else {
+    finalMessages.push({ role: "user", content: [{ type: "text", text: karneText }] }, ...messages);
+  }
   const base = {
     max_tokens: MAX_TOKENS,
     system,
@@ -125,6 +157,8 @@ const ELEVEN_VOICE = process.env.ELEVENLABS_VOICE_ID || "";
 app.post("/api/tts", async (req, res) => {
   const { text = "", provider = TTS_PROVIDER } = req.body || {};
   if (!text.trim()) return res.status(400).json({ error: "boş metin" });
+  // D8-82: speech.ts zaten kısa parçalar gönderir; sınırsız gövdeyi TTS sağlayıcıya iletme.
+  if (text.length > 4000) return res.status(400).json({ error: "metin çok uzun" });
 
   try {
     if (provider === "openai") {
@@ -176,6 +210,7 @@ app.post("/api/tts", async (req, res) => {
   }
 });
 
-app.listen(PORT, () =>
+// D8-75: yalnız loopback'e bağlan — telefon erişimi vite dev proxy üzerinden sürer.
+app.listen(PORT, "127.0.0.1", () =>
   console.log(`[proxy] http://localhost:${PORT}  (${PRIMARY} → ${FALLBACK}, tts=${TTS_PROVIDER})`),
 );

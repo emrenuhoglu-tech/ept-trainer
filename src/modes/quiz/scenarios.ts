@@ -507,6 +507,69 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 16.3",
     kavram: "kök-hata",
   },
+  {
+    q: "PLO'da elinde çıplak AA var (çift suited değil, board'a bağlanmadı). Şişmiş pota tüm stack'i sürer misin?",
+    options: ["Evet — AA overpair, stack-off", "Hayır — çıplak AA tek per muamelesi"],
+    correct: 1,
+    explain:
+      "Çıplak AA nut potansiyeli yoksa PLO'da sadece bir çifttir; büyük pot oynamaz. AA'yı NLH gözüyle görmek klasik tuzak — iki per bile neredeyse hiç nut değil.",
+    source: "Bölüm 8.2 / 8.3",
+    kavram: "plo-aa",
+  },
+  {
+    q: "PLO el seçimi: AA72 (dördüncü kart bağlantısız 'dangler'). Nasıl değerlendirilir?",
+    options: ["Güçlü — çift as var", "Zayıf — dangler, pratikte üç kartlı el"],
+    correct: 1,
+    explain:
+      "Dördüncü kart bağlantısızsa el pratikte üç kartlıdır; AA72 oynanmaz. Öncelik rundown ve çift suited ellerde (JT98, wrap + flush draw).",
+    source: "Bölüm 8.2",
+    kavram: "plo",
+  },
+  {
+    q: "PLO'da flopta top two pair yaptın, rakip şişmiş pota itiyor. Stack-off doğru mu?",
+    options: ["Evet — top two güçlü", "Hayır — PLO'da iki per neredeyse hiç nut değil"],
+    correct: 1,
+    explain:
+      "PLO'da ikinci en iyi el pahalıdır; iki per neredeyse hiç nut değildir. Equity'ler de yakın koşar (%60/%40 iyi favori) — NLH stack-off refleksini taşıma.",
+    source: "Bölüm 8.1 / 8.3",
+    kavram: "plo",
+  },
+  {
+    q: "PLO'da pozisyon DIŞI 3-bet potu oynamak en zor spot. Elin marjinal, şüphedesin. Ne yaparsın?",
+    options: ["3-bet — inisiyatif al", "Flat et — OOP 3-bet potu en zor spot"],
+    correct: 1,
+    explain:
+      "PLO'da OOP 3-bet potu en zor spottur; şüphe hâlinde flat et. İki pot bet = stack ortada, üçüncü sokakta geri dönüş yok — pot şişmesini kontrol et.",
+    source: "Bölüm 8.3",
+    kavram: "plo",
+  },
+  {
+    q: "Köprü bandında (40–70bb) '3-bet edip fold' yapısı ne zaman biter?",
+    options: ["70bb'de biter", "≈60bb altında zayıflar, 40bb'de tam commit'e döner"],
+    correct: 1,
+    explain:
+      "≈60bb altında '3-bet-fold' zayıflar, 40bb'de commit'e döner (tam eşik kalibrasyonda). 3-bet edeceğin el 4-bet/jam'e devam edebilmeli — edemiyorsa flat (IP/BB) ya da fold.",
+    source: "Bölüm 14.1",
+    kavram: "3bet-aralik",
+  },
+  {
+    q: "45bb'ye düştün. Köprü bandının bir numaralı 'en pahalı alışkanlık'ı nedir?",
+    options: ["Çok fold etmek", "45bb'de 130bb aralığı oynamak"],
+    correct: 1,
+    explain:
+      "'45bb'de 130bb aralığı oynamak en pahalı alışkanlık.' Mod-önce-aralık; yanlış-mod-aralığı şişmiş pot üretiminin bir numaralı kaynağıdır. İlk çıkanlar: SC 3-bet blöfü, küçük çift spekülatif flat, offsuit broadway coldcall.",
+    source: "Bölüm 14.2",
+    kavram: "stack-modu",
+  },
+  {
+    q: "Köprü bandında bir eli 3-bet mi flat mı diye seçerken tek belirleyici kural nedir?",
+    options: ["Her zaman 3-bet — inisiyatif", "3-bet edeceğin el 4-bet/jam'e devam edebilmeli"],
+    correct: 1,
+    explain:
+      "Bantta 3-bet giderek commit'e yaklaşır; 3-bet edeceğin el 4-bet/jam'e devam edebilmeli. Edemiyorsa IP/BB'de dar flat ya da fold. Offsuit broadway ve dominate edilebilir eller bu bantta düşer.",
+    source: "Bölüm 14.1",
+    kavram: "3bet-aralik",
+  },
 ];
 
 export function randomScenario(): Scenario {

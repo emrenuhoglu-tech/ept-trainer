@@ -809,6 +809,94 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M16",
+    title: "WSOP Day 2 — 56bb restart planı",
+    chapter: "Bölüm 17",
+    minutes: 8,
+    slides: [
+      {
+        title: "Bu turnuva neden ayrı bir modül",
+        table: { section: "Bölüm 17", sub: "17.1", caption: "Day 2 profili — 56bb, freezeout, re-entry yok" },
+        bullets: [
+          "Freezeout + re-entry yok — tek mermin var, bustout kesin.",
+          "25 dakikalık seviye hızlı: 56bb, üç saat pasif oyunla 25bb'ye erir.",
+          "El sayısında geniş, stack riskinde dar.",
+        ],
+        ruleBox: "Pasiflik bu yapıda güvenli değil — yavaş elenmedir.",
+        narration:
+          "Bu senin turnuvan: WSOP Online Main Event, day two restart, elli altı big blind. Neden genel doktrinin dışında ayrı bir modül? Çünkü üç yapısal gerçek her kararı büker. Bir: bu bir freezeout ve re-entry yok — elenirsen bittin, ikinci mermi yok. İki: seviyeler yirmi beş dakika, yani çok hızlı; blindler saatte yaklaşık iki buçuk kat artıyor, elli altı big blind sadece üç saat pasif oyunla yirmi beş big blind'e eriyor. Yani bu yapıda hiçbir şey yapmadan beklemek güvenli değil, tersine yavaş bir elenmedir. Üç: para henüz garantide değil, bubble öncesi bir masaya oturur gibi oturuyorsun. Bu üçünün toplamı tek bir profil veriyor: el sayısında geniş, stack riskinde dar. Yani küçük potlarda sürekli aktif olacaksın — çalacaksın, baskı yapacaksın — ama tüm stack'ini yalnızca net bir planla ve güçlü bir el kombinasyonuyla ortaya süreceksin. Şişmiş potta tek per, as as dahil, hâlâ bir bluff-catcher; kök hata kuralı bu turnuvada da bire bir geçerli.",
+      },
+      {
+        title: "Açılış aralıkları (8-handed, ~50bb)",
+        table: { section: "Bölüm 17", sub: "17.3", caption: "Pozisyona göre open — 2.1–2.3x, ante var" },
+        bullets: [
+          "Ante olduğu için çalmak hâlâ çok kârlı.",
+          "Erken pozisyon dar (%13–15); button geniş (%40–44).",
+          "35bb altına düşersen bu tablo geçmez → stack modları.",
+        ],
+        visuals: [
+          {
+            kind: "range",
+            value: "22+, A2s+, K5s+, Q7s+, J7s+, T7s+, 96s+, 86s+, 75s+, 65s, 54s, A4o+, K9o+, Q9o+, J9o+, T9o",
+            valueLabel: "Button açılış",
+            caption: "Button ~%40 open aralığı",
+            compact: true,
+          },
+        ],
+        narration:
+          "Açılış aralıkların; boyut iki nokta bir ile iki nokta üç kat arası, daha büyük açmanın bu derinlikte anlamı yok. Tabloyu pozisyon pozisyon oku. Erken pozisyonda, yani yu ti ci ve yu ti ci artı birde, dar açarsın: yedi yedi ve üstü çiftler, as on suited ve üstü, kral jek suited, kız jek suited, as jek offsuit ve üstü, kral kız offsuit. Orta ve geç pozisyonda aralık genişler; button'da neredeyse bütün suited as'leri, geniş suited kralları ve bağlı elleri açarsın, yaklaşık yüzde kırk. Online sahada rakipler blind savunmasını daha doğru yapıyor, o yüzden erken pozisyonu biraz daha dar tut; ama ante ortada durduğu için çalmak hâlâ çok kârlı. Bir masa ayarı: büyük körde çok sık fold eden sıkı bir oyuncu varsa button ve cut-off aralığını yüzde on genişlet. Ve şu eşiği unutma: otuz beş big blind altına düşersen bu tablo geçerliliğini yitirir, bir sonraki slaytın stack modlarına geçersin.",
+      },
+      {
+        title: "3-bet: kime evet, kime asla",
+        table: { section: "Bölüm 17", sub: "17.4", caption: "3-bet value + blöf; boyut IP 3x, OOP 4x" },
+        bullets: [
+          "Kime 3-bet: 30–50bb orta stackler (bubble baskısını en çok onlar hisseder) + çok açan regler.",
+          "Kime BLUFF 3-bet YAPMA: seni cover eden büyük stackler + 20bb altı.",
+          "Value 3-bet her zaman serbest — yasak olan sadece bluff 3-bet.",
+        ],
+        ruleBox: "Cover'a karşı yanan şey bluff 3-bet'tir; value 3-bet (kuvöz+/AK) serbest.",
+        narration:
+          "3-bet aralıkların. Boyut: pozisyondayken open'ın üç katı, pozisyon dışındayken dört katı; elli altı big blind'de 3-bet potları zaten stack'in yarısını görür, o yüzden aralığın polarize. Asıl mesele kime 3-bet, kime asla. Bluff 3-bet'i iki hedefe yönelt: otuz ile elli big blind arasındaki orta stackler, çünkü bubble baskısını en çok onlar hisseder ve fold ederler; ve masayı çok açan regler. Kime bluff 3-bet YAPMA: bir, seni cover eden büyük stackler — bubble yaklaşırken onların tek cevabı jam'dir ve bluff'un yanar; iki, yirmi big blind altındaki kısalar, onların da tek cevabı jam. Ama dikkat: burada yasaklanan bluff 3-bet, value değil. Kuvöz kuvöz ve üstü ile as krala her zaman value 3-bet atarsın; cover eden birinin jam'ine devam etmek ayrı bir karar, onu ICM eşikleri slaytında konuşacağız. Boyutunu da elden ele değiştirme: as as ile de as beş suited ile de aynı boyut, çünkü boyut-tell online sahada canlıdan bile pahalıdır.",
+      },
+      {
+        title: "4-bet ve commit eşiği",
+        table: { section: "Bölüm 17", sub: "17.6", caption: "4-bet = 3-bet'in ~2.2–2.4x'i; 56bb'de ~20bb = commit" },
+        bullets: [
+          "56bb'de 4-bet ~20–22bb = commit eşiği; 4-bet'e devam eden artık fold edemez.",
+          "4-bet value: KK+; AK karışık; QQ rakibe göre.",
+          "3-bet yersen: QQ–99/AQs/AJs/KQs call; A9o tipi offsuit kenar fold.",
+        ],
+        ruleBox: "4-bet ettiğin her el, 5-bet jam'e karşı planı önceden belli olmalı. \"4-bet edip bakarız\" yok.",
+        narration:
+          "4-bet ve 3-bet yediğinde ne yapacağın. Önce boyut: 4-bet, 3-bet'in yaklaşık iki nokta iki ile iki nokta dört katı. Elli altı big blind'de bu yaklaşık yirmi, yirmi iki big blind eder — ve bu bir commit eşiğidir; 4-bet'e devam eden artık fold edemez, o yüzden 4-bet ettiğin her elin beş-bet jam'e karşı planı önceden belli olmalı, dört-bet edip bakarız diye bir şey yok. Value tarafı: kral kral ve üstü net value; as kral karışık, jam ve dört-bet arası; kuvöz kuvöz rakibe göre — nit bir oyuncuya kuvözü fold edebilirsin, agresif birine jam. Şimdi ters durum, sen açtın ve arkadan 3-bet geldi. Pozisyondaysan: kral kral ve üstü ile dört-bet value; as beş, as dört suited ile düşük frekans bluff dört-bet, çünkü as'i blokluyorsun. Call edeceğin bant: kuvöz kuvözden dokuz dokuza, as kız suited, as jek suited, kral kız suited. Fold: as dokuz offsuit gibi dominate edilen offsuit kenarlar ve düşük suited gapper'lar. Pozisyon dışındaysan tüm bu bandı bir kademe daralt.",
+      },
+      {
+        title: "Stack modları A–E",
+        table: { section: "Bölüm 17", sub: "17.8", caption: "Her elden önce: hangi moddayım?" },
+        bullets: [
+          "Mod A (45bb+): tam aralıklar, postflop manevra.",
+          "Mod B (30–45bb): flat daralır, commit yaklaşır, value artar.",
+          "Mod C/D (12–30bb): 3-bet çoğu jam; A5s–A2s jam cephanesine döner.",
+        ],
+        ruleBox: "45bb'de 130bb aralığı oynamak en pahalı alışkanlık — mod-önce-aralık.",
+        narration:
+          "Her elden önceki ilk soru bir el sorusu değil, bir mod sorusu: hangi stack modundayım? Aralığı ondan sonra seçersin. Mod A, kırk beş big blind ve üstü: tam aralıklar, postflop manevra, suited connector ve küçük çiftler tam değer. Mod B, otuz ile kırk beş arası: açılış korunur ama flat call daralır çünkü set-mining bozulur, commit eşiği yaklaşır, bluff 3-bet düşer, value artar. Mod C, yirmi ile otuz arası: açılış yüzde on beş, yirmiye iner, 3-bet çoğunlukla jam ya da küçük-commit, ve as beşten as ikiye suited aslar artık jam cephanesine döner. Mod D, on iki ile yirmi arası: bazı pozisyonlardan direkt jam, açtıysan 3-bet'e ya jam ya fold, Nash'e yakın. Mod E, on ikinin altı: saf jam ya da fold. En pahalı hatanın adı burada: kırk beş big blind'de yüz otuz big blind aralığı oynamak. Geçişleri ezberle — elli altıdan otuz beşe inince flat call alışkanlığını bırak, otuz beşten yirmiye inince commit eşiği öne kayar.",
+      },
+      {
+        title: "Faz planı, ICM eşikleri, guardraillar",
+        bullets: [
+          "Faz 2 (bubble yakın) = en kârlı faz: kısalar taş kesilir, sen 3-bet/float ile ez.",
+          "ICM eşiği: bubble'da cover'ın 4-bet jam'ine karşı tüm stack aralığın = KK+.",
+          "AK: cover'ın sıkı jam'ine fold; ≤20bb jam'ine her zaman call.",
+        ],
+        ruleBox: "Şişmiş potta tek pair = alarm — AA dahil. Pot 40bb'yi geçtiyse: pot kontrolü + bluff-catcher.",
+        visuals: [{ kind: "hand", cards: "AA", label: "Şişmiş potta tek per — alarm" }],
+        narration:
+          "Son slayt: faz planı, ICM eşikleri ve kök hata korkulukları. Faz olarak dört evre var. Bubble uzakken Mod A'da kal, stack'i elli big blind üstünde tut, büyüklerle gereksiz savaşma. Bubble yaklaşırken — en kârlı fazın bu — on beş ile yirmi beş big blind'likler taş kesilir; onların açılışına 3-bet, blindlerine open, c-bet'lerine float. Tek frenin: seni cover edenler, onlara karşı bir kademe dar. Para girdiği an üç dört el sıkı oyna, kısalar kamikaze jam atar, premium ile karşıla, sonra normale dön. Derin para içinde ve final table'da ladder devasa: ICM chip-EV'yi geçer, kısaları ez, eşitlerden kaç, büyüklere premium. Şimdi sayısal ICM eşiği, ezberle: bubble'da seni cover eden birinin dört-bet jam'ine karşı kuvöz kuvöz bile fold — çünkü kral kral ve as krala karşı yaklaşık yüzde kırk equity'n var, üstüne bubble ICM primi biner, gereken equity yüzde kırk sekize çıkar. Pratik kural: bubble'da cover'a karşı tüm stack için aralığın kral kral ve üstü. As kral, cover'ın sıkı jam'ine fold ama yirmi big blind altı bir jam'e her zaman call. Ve değişmeyen korkuluk: şişmiş potta tek pair, as as dahil, alarmdır — pot kırk big blind'i geçtiyse varsayılanın pot kontrolü ve bluff-catcher, stack yarışı değil.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

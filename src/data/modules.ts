@@ -597,6 +597,18 @@ export const modules: Module[] = [
           "Kök hatanın teşhisini önceki modüllerde koyduk: tek per'i şişmiş potta yanlış sınıflandırmak. Bu modül teşhisten sonrasını verir — icra. İlk mesele: 'şişmiş pot' nedir, nasıl ölçülür? Cevap bet sayısı değil, stack pot oranı. Flopta kalan stack'i pota böl. Oran küçükse pot şişmiştir, büyükse değil. Bir'in altında karar zaten preflop verildi, commit'sin. Bir ile dört arası — mesela yüz big blind derinlikte üç bet'li pot — tek per'in bir bluff-catcher'dır; burada büyük pot başlatma. Dört ile sekiz arası iki sokak value alıp kontrol edersin, üçüncü sokakta dikkat. Sekizin üstünde ince value alınabilir, ama biri re-raise ederse pot aniden bir-dört bandına düşer ve tek per yine bluff-catcher olur. Kural tek cümle: önce stack pot oranını oku, sonra tek per'e rol ver. Derinde tek per'i erken bluff-catcher'a düşürüp value kaçırmak da hata; orta-sığda eski derin refleksle tüm stack'i ortaya sürmek de.",
       },
       {
+        title: "SPR'yi say — örnek + committed matematiği",
+        bullets: [
+          "SPR = en küçük kalan stack ÷ pot (flop anında yuvarla).",
+          "Single-raised pot ~SPR 8–10; 3-bet'li pot ~SPR 3.",
+          "Commitment his değil, orandır.",
+        ],
+        ruleBox:
+          "Flop'a her girişte SPR'ı yuvarla; 3+ ise tek pair'le büyük pot yok — karar ağacın baştan sadeleşir.",
+        narration:
+          "Bandları öğrendik; şimdi tek bakışta saymayı öğrenelim. Stack pot oranı, en küçük kalan stack'i pota bölmektir — ikinizden kısa olanın stack'i, çünkü ortaya en fazla o kadar girebilir. Somut örnek: iki bin, dört bin blindde sen iki buçuk kat açtın, büyük kör call etti, pot yaklaşık yirmi dört bin. İkinizin de arkasında iki yüz kırk bin varsa oran on — yani derin, tek pair'le büyük pot yok. Ama aynı el 3-bet'li potta oynansaydı, pot altmış bin ve arkada yüz seksen bin kalsaydı, oran üçe iner — işte as as'in 3-bet'li potta stack koyması bu yüzden doğru. Ve buradan kök hatanın matematiksel tanımı çıkıyor: senin 'pot büyüdü, artık committed'im' hissin aslında bir stack pot oranı okuma hatasıdır. Diyelim on on'un var, flopta oran yaklaşık yedi, sekizdi; o derinlikte çift artı draw bile jam için marjinaldi, tek pair olsa net fold bölgesiydi. His 'pot büyük' diyor, ama oran 'hayır, stack hâlâ pota göre derin' diyor. Şunu kafana kaz: committed olmak bir his değil, bir orandır. Pratikte flop'a her girişte oranı kabaca yuvarla; üçün üstündeyse tek pair'le büyük pot oynamayacaksın ve karar ağacın daha başında sadeleşir.",
+      },
+      {
         title: "Turn disiplini — ikinci fıçı",
         table: { section: "Bölüm 11", sub: "11.1", caption: "Boyutlar kalibre; yön sabit." },
         ruleBox:
@@ -894,6 +906,63 @@ export const modules: Module[] = [
         visuals: [{ kind: "hand", cards: "AA", label: "Şişmiş potta tek per — alarm" }],
         narration:
           "Son slayt: faz planı, ICM eşikleri ve kök hata korkulukları. Faz olarak dört evre var. Bubble uzakken Mod A'da kal, stack'i elli big blind üstünde tut, büyüklerle gereksiz savaşma. Bubble yaklaşırken — en kârlı fazın bu — on beş ile yirmi beş big blind'likler taş kesilir; onların açılışına 3-bet, blindlerine open, c-bet'lerine float. Tek frenin: seni cover edenler, onlara karşı bir kademe dar. Para girdiği an üç dört el sıkı oyna, kısalar kamikaze jam atar, premium ile karşıla, sonra normale dön. Derin para içinde ve final table'da ladder devasa: ICM chip-EV'yi geçer, kısaları ez, eşitlerden kaç, büyüklere premium. Şimdi sayısal ICM eşiği, ezberle: bubble'da seni cover eden birinin dört-bet jam'ine karşı kuvöz kuvöz bile fold — çünkü kral kral ve as krala karşı yaklaşık yüzde kırk equity'n var, üstüne bubble ICM primi biner, gereken equity yüzde kırk sekize çıkar. Pratik kural: bubble'da cover'a karşı tüm stack için aralığın kral kral ve üstü. As kral, cover'ın sıkı jam'ine fold ama yirmi big blind altı bir jam'e her zaman call. Ve değişmeyen korkuluk: şişmiş potta tek pair, as as dahil, alarmdır — pot kırk big blind'i geçtiyse varsayılanın pot kontrolü ve bluff-catcher, stack yarışı değil.",
+      },
+    ],
+  },
+  {
+    id: "M17",
+    title: "Preflop mantığı: boyut ve rol",
+    chapter: "Bölüm 3 + Bölüm 4",
+    minutes: 7,
+    slides: [
+      {
+        title: "Neden küçük aç (2.2–2.5x)",
+        bullets: [
+          "Ante potun tabanını şişirir — potta zaten büyük ölü para var.",
+          "Küçük open = ucuz pozisyonel savaş; kâr preflop fold'dan değil, postflop pozisyondan gelir.",
+          "Büyüt (2.8–3.5x): pasif saha fold etmiyorsa, limpli isolate, ya da 25–35bb'de SPR'ı tek karara indirmek.",
+        ],
+        ruleBox:
+          "Küçük open, BB'nin call'ını engellemek için değil — ucuz pozisyonel savaş satın almak için.",
+        narration:
+          "Preflop'un iki ayrı sorusu var; bu modül ikisini ayırıyor. Birincisi boyut. Neden herkes iki nokta iki, iki nokta beş kat gibi küçük açıyor? Cevap ante. Ante potun tabanını baştan şişirir; iki bin, dört bin blindde ante'yle potta zaten on bir bin civarı ölü para durur. Küçük bir open bile o potu almaya değer kılar — yani risk ödül oranını sen belirlersin: on bin riske atıp on bir binlik potu kovalarsın. Üç buçuk kat açsan aynı potu on dört bin riskle kovalarsın; blindler zaten savunacaksa fazladan koyduğun her chip kötü fiyata yatırımdır. Peki büyük kör her elde call ediyorsa bu open'ı bozmaz mı? Bozmaz, çünkü pozisyon sende. Büyük kör geniş bir aralıkla giriyor ama floptan sonra her sokakta pozisyonsuz ve zayıf ortalama elle oynuyor; senin kârın preflop fold'dan değil, postflop pozisyon avantajından geliyor. Küçük boyut sayesinde onun call'ı hata olmaktan çıkar ama senin yatırımın da küçük kalır — kimse büyük hata yapmaz, kâr marjı postflop beceriye kayar. Boyutu ne zaman büyütürsün? Üç durumda: masada zayıf ve pasif oyuncular flopa çok gelip fold etmiyorsa value ellerinde potu erken şişirmek için; limpli bir potta isolate ederken; ve stack yirmi beş, otuz beş big blind'e inince stack pot oranını tek karara indirmek için. Bunun dışında, özellikle elit bir masada, sabit kal — büyük open bu seviyede anında value ağırlıklı diye okunur, boyut deviasyonun bilgi sızdırır.",
+      },
+      {
+        title: "Open range = lineer",
+        table: { section: "Bölüm 3", caption: "Açılış: moda göre eşik kayar, yapı hep tepeden aşağı." },
+        bullets: [
+          "Open sorusu tek: 'bu el kârlı açılır mı?' — lineer, en iyiden aşağı kesintisiz iner.",
+          "AA'dan başlar, pozisyona göre 87s / A9o gibi kenarlarda biter.",
+        ],
+        ruleBox: "Open = 'elim yeter mi?' Kesintisiz, tepeden aşağı.",
+        narration:
+          "İkinci soru rol; önce open range'i netleştirelim. Open range, önünde kimse yokken sorduğun 'bu el kârlı oynanır mı' sorusudur ve lineerdir: en iyi elden başlar, kesintisiz aşağı iner. As astan başlar, pozisyona göre sekiz yedi suited ya da as dokuz offsuit gibi kenarlarda biter. Lineer demek, aradan el atlamazsın demek — belli bir eşiğin üstündeki her şeyi açarsın, altındaki her şeyi atarsın. Tablodaki modlara bak: seksen big blind üstünde geniş açarsın, derinlik azaldıkça eşik yukarı kayar ama yapı hep aynı, tepeden aşağı kesintisiz. Open'ın tek sorusu şu: elim yeter mi? Rakibin ne yaptığıyla ilgilenmezsin çünkü henüz kimse aksiyon almadı.",
+      },
+      {
+        title: "3-bet range = polarize",
+        table: { section: "Bölüm 4", sub: "4.3", caption: "Value + blöf; ortası flat'e gider." },
+        bullets: [
+          "3-bet çoğu pozisyonda polarize: value (kuvöz+, AK) + blöf (A5s–A2s); ortası call.",
+          "KQs, 99, AJs open'ın göbeğinde ama 3-bet'te YOK — onlar flat (100bb+).",
+          "A5s bluff seçilir: A blocker + fold'a kıyılmaz + call'da wheel/suited potansiyel. A9o daha güçlü ama playability kötü → bluff değil.",
+        ],
+        ruleBox:
+          "3-bet = rakibin range'ine karşı elin en kârlı rolü: value mı, blöf mü, call mı, fold mu?",
+        narration:
+          "Şimdi kritik fark. 3-bet range, birinin açılışına verdiğin cevaptır ve çoğu pozisyonda polarizedir: en üstte value oynarsın — kuvöz kuvöz ve üstü ile as kral — en altta blöf oynarsın — as beşten as ikiye gibi eller — ve ortayı 3-bet etmezsin, flat call edersin. İşte can alıcı nokta burada: kral kız suited, dokuz dokuz, as jek suited gibi eller open range'inin tam göbeğindedir, ama 3-bet range'inde yoktur; onlar yüz big blind derinlikte flat call'dır. Peki as beş suited neden hem open'da hem 3-bet blöfünde? Sebepler farklı. Open olarak yeterince equity ve oynanabilirliği var, kârlı açılır. 3-bet blöfü olarak ise üç nedenle seçilir: as'i blokluyor, yani rakibin as as ve as kral kombinasyonlarını azaltıyor; fold edince kaybın az çünkü el zaten marjinal; ve call yersen suited ve wheel potansiyeliyle oynanabilir. Yani as beş iyi bir el olduğu için değil, fold etmeye kıyamadığın ama flat'i de tatsız olan, üstelik blocker taşıyan bir el olduğu için blöfe seçilir. Buna karşılık as dokuz offsuit ondan daha güçlüdür ama 3-bet blöfüne girmez: blocker aynı ama oynanabilirliği kötü ve dominasyon riski yüksek. Demek ki 3-bet'in sorusu open'ınkinden bambaşka: elim yeter mi değil, rakibin aralığına karşı bu elin en kârlı rolü ne — value mı, blöf mü, call mı, fold mu?",
+      },
+      {
+        title: "Aynı el, farklı rol",
+        table: { section: "Bölüm 4", sub: "4.7", caption: "Derinlik rolü kaydırır: polarize → merged/lineer." },
+        bullets: [
+          "Pratik kural: open = 'elim yeter mi', 3-bet = 'bu elin en kârlı rolü ne'.",
+          "İstisna: BB vs SB lineer kurulur (AJs, KQs value'ya döner) — SB range'i geniş.",
+          "Derinlik/rakip kaydırır: 40–60bb'de merged; geniş açan agresif rege karşı AQo/99–TT value 3-bet olur.",
+        ],
+        ruleBox:
+          "Aynı el pozisyona, derinliğe ve rakibe göre rol değiştirir — ezber değil, rol düşün.",
+        narration:
+          "Toparlayalım. Aynı el, iki listede farklı rol oynar çünkü sorular farklı. Open'da soru 'elim yeter mi', 3-bet'te soru 'bu elin bu rakibe karşı en kârlı rolü ne'. Ters örnek de aydınlatıcı: button'dan yedi altı suited açarsın, ama erken pozisyonun açılışına karşı aynı yedi altı suited çoğu zaman fold ya da flat'tir, 3-bet değil. İki istisnayı da bil. Birincisi, büyük kör smol blind'e karşı 3-bet'i polarize değil lineer kurar — as jek suited, kral kız suited gibi eller de value'ya döner — çünkü smol blind'in aralığı çok geniş ve ortadaki eller ona karşı value kazanır. İkincisi derinlik ve rakip rolü kaydırır: kırk ile altmış big blind arası aralık merged'e döner, flat neredeyse kalmaz; ve masada çok geniş açan agresif bir reg varsa ona karşı da linearleşirsin — as kız offsuit, dokuz dokuz, on on bile value 3-bet olur. Kısacası ezberleme, rol düşün: aynı el pozisyona, derinliğe ve rakibe göre rolünü değiştirir.",
       },
     ],
   },

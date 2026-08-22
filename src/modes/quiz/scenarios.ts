@@ -570,6 +570,33 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 14.1",
     kavram: "3bet-aralik",
   },
+  {
+    q: "Ante'li yapıda BB her elde defend ediyor. Neden yine de küçük (2.2–2.5x) açarsın?",
+    options: ["Büyük aç — BB'yi fold'a zorla", "Küçük aç — kâr postflop pozisyondan gelir, yatırımın küçük kalır"],
+    correct: 1,
+    explain:
+      "Küçük open BB'nin call'ını engellemek için değil; ucuz pozisyonel savaş satın alır. Ante potu şişirdiği için küçük open bile potu almaya değer; kâr preflop fold'dan değil postflop pozisyondan gelir. Büyüt: pasif saha fold etmiyorsa / limp isolate / 25–35bb SPR.",
+    source: "Bölüm 4.8 / 3",
+    kavram: "boyut",
+  },
+  {
+    q: "100bb'de birinin open'ına karşı elinde KQs var — open range'inin göbeğinde bir el. 3-bet mi?",
+    options: ["3-bet — güçlü el", "Flat call — KQs 3-bet range'inin ortası, value da değil bluff da"],
+    correct: 1,
+    explain:
+      "3-bet range çoğu pozisyonda polarize: value (QQ+, AK) + bluff (A5s–A2s), ortası flat. KQs/99/AJs open'ın göbeğinde ama 3-bet'te yok — 100bb+ flat call. İstisna: BB vs SB lineer, orada KQs value'ya döner.",
+    source: "Bölüm 4.3",
+    kavram: "3bet-aralik",
+  },
+  {
+    q: "TT'n var, single-raised pot, flopta SPR ~8. His 'pot büyüdü, committed'im' diyor. Doğru mu?",
+    options: ["Evet — committed", "Hayır — SPR 8'de tek pair'le büyük pot yok; committed his değil orandır"],
+    correct: 1,
+    explain:
+      "Committed olmak his değil, orandır. SPR = en küçük kalan stack ÷ pot. SPR 3+ ise tek pair'le büyük pot yok; 8'de çift+draw bile jam için marjinal, tek pair net fold. 3-bet potta (SPR ~3) ise AA stack koyar.",
+    source: "Bölüm 11.0",
+    kavram: "kök-hata",
+  },
 ];
 
 export function randomScenario(): Scenario {

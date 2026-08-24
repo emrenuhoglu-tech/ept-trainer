@@ -1188,37 +1188,49 @@ export const modules: Module[] = [
       {
         title: "4-handed: rol + ICM hâlâ dişli",
         table: { section: "Bölüm 12", sub: "12.4", caption: "Kilitli orta stack = en kârlı hedef." },
+        visuals: [
+          { kind: "range", value: "22+, A2s+, K4s+, Q7s+, J7s+, T7s+, 96s+, 86s+, 75s+, 65s, 54s, A2o+, K8o+, Q9o+, J9o+, T9o", valueLabel: "4-handed BTN ~%45", caption: "Baseline — tam Nash molada kalibre" },
+        ],
         bullets: [
+          "Baseline açılış: 4-handed BTN ~%45, ilk pozisyon (CO) ~%25.",
           "Masa küçüldü, blindler daha sık vurur → açılış aralığı genişler.",
           "Ama ICM hâlâ dişli: pay-jump'lar yakın, cover edilirken marjinal flip = fold.",
           "Hedef: kilitlenmiş orta stack (soy); cover edenle ego savaşı yok.",
         ],
         ruleBox: "Genişle ama rol-gated: cover ediliyorsan daralt, cover ediyorsan ez.",
         narration:
-          "Dört kişi kaldığında ne değişir? İki şey aynı anda. Bir: masa küçüldüğü için blindler ve ante sana çok daha sık vurur, her orbit'te daha büyük bir stack yüzdesi ödersin; bu yüzden hayatta kalmak için açılış aralığını genişletmek zorundasın, bekleyerek erirsin. İki: buna rağmen ICM hâlâ dişli, çünkü pay-jump'lar, yani ödeme sıçramaları artık çok yakın ve büyük. Bu ikisini birlikte yönetirsin: genişlersin ama rol-gated, yani rolüne göre. Seni cover eden biri varsa marjinal spotları daraltırsın, çünkü kaybedersen bust olursun; sen cover ediyorsan ezersin. En kârlı hedef sabit: kilitlenmiş, yani ödeme atlamayı korumak için sıkılaşmış orta stack — onu soyarsın. Ve eşit derin büyük stack'lerle ego savaşına girmezsin; dört kişide bir yanlış flip seni dördüncülüğe gönderir.",
+          "Dört kişi kaldığında ne değişir? İki şey aynı anda. Bir: masa küçüldüğü için blindler ve ante sana çok daha sık vurur, her orbit'te daha büyük bir stack yüzdesi ödersin; bu yüzden hayatta kalmak için açılış aralığını genişletmek zorundasın, bekleyerek erirsin. İki: buna rağmen ICM hâlâ dişli, çünkü pay-jump'lar, yani ödeme sıçramaları artık çok yakın ve büyük. Bu ikisini birlikte yönetirsin: genişlersin ama rol-gated, yani rolüne göre. Seni cover eden biri varsa marjinal spotları daraltırsın, çünkü kaybedersen bust olursun; sen cover ediyorsan ezersin. En kârlı hedef sabit: kilitlenmiş, yani ödeme atlamayı korumak için sıkılaşmış orta stack — onu soyarsın. Ve eşit derin büyük stack'lerle ego savaşına girmezsin; dört kişide bir yanlış flip seni dördüncülüğe gönderir. Somut bir baseline: dört kişide button açılışın yaklaşık yüzde kırk beş, ilk pozisyon yaklaşık yüzde yirmi beş; grid'de button aralığını görüyorsun. Tam Nash bu derinlikte molada, drill'de kalibre edilir — bu bir başlangıç çizgisi.",
       },
       {
         title: "3-handed: pozisyon patlar",
+        visuals: [
+          { kind: "range", value: "22+, A2s+, K2s+, Q6s+, J7s+, T7s+, 96s+, 85s+, 75s+, 64s+, 54s, A2o+, K7o+, Q8o+, J8o+, T8o+, 98o", valueLabel: "3-handed BTN ~%50", caption: "Baseline — SB ~%45 raise" },
+        ],
         bullets: [
+          "Baseline: 3-handed BTN ~%50, SB ~%45 (raise).",
           "Pozisyon değeri patlar — button çok güçlü, blind savaşı sıklaşır.",
           "Aralıklar iyice geniş: button'dan agresif aç, SB/BB'yi bas.",
           "ICM yumuşar ama pay-jump varsa hâlâ rol-gated; kısaysan ilk jam'ci ol.",
         ],
         ruleBox: "3-handed'de button = kâr merkezi; geniş aç, ama pay-jump dişliyse cover'a saygı.",
         narration:
-          "Üç kişi kaldığında oyun bir kez daha hızlanır ve pozisyonun değeri patlar. Artık her elde ya button'dasın, ya smol blind, ya büyük kör; button son derece güçlü çünkü iki rakibin de önünde aksiyon alıyorsun ve postflop pozisyon sende. Aralıkların iyice genişler: button'dan agresif açarsın, blind savaşları sıklaşır, ve baskıyı sen kurarsın. ICM bu noktada yumuşamaya başlar çünkü daha az oyuncu kaldı ve herkes zaten iyi para kilitledi; ama eğer büyük bir pay-jump hâlâ varsa — mesela birincilik ikinciliğin çok üstündeyse — karar hâlâ rol-gated kalır. Kısaysan ilk jam'ci olma prensibin sürer; derinsen iki rakibini de basarsın. Özet: üç kişide button senin kâr merkezin, geniş ve agresif oyna, ama pay-jump dişliyse cover edilene saygı göster.",
+          "Üç kişi kaldığında oyun bir kez daha hızlanır ve pozisyonun değeri patlar. Artık her elde ya button'dasın, ya smol blind, ya büyük kör; button son derece güçlü çünkü iki rakibin de önünde aksiyon alıyorsun ve postflop pozisyon sende. Aralıkların iyice genişler: button'dan agresif açarsın, blind savaşları sıklaşır, ve baskıyı sen kurarsın. ICM bu noktada yumuşamaya başlar çünkü daha az oyuncu kaldı ve herkes zaten iyi para kilitledi; ama eğer büyük bir pay-jump hâlâ varsa — mesela birincilik ikinciliğin çok üstündeyse — karar hâlâ rol-gated kalır. Kısaysan ilk jam'ci olma prensibin sürer; derinsen iki rakibini de basarsın. Özet: üç kişide button senin kâr merkezin, geniş ve agresif oyna, ama pay-jump dişliyse cover edilene saygı göster. Somut baseline: üç kişide button yaklaşık yüzde elli, smol blind yaklaşık yüzde kırk beş raise; grid button'ı gösteriyor. Yine tam aralık drill'de kalibre.",
       },
       {
         title: "Heads-up: ICM biter, chipEV başlar",
+        visuals: [
+          { kind: "range", value: "22+, A2s+, K2s+, Q2s+, J2s+, T3s+, 94s+, 84s+, 74s+, 63s+, 53s+, 43s, A2o+, K2o+, Q4o+, J6o+, T6o+, 96o+, 85o+, 75o+, 64o+, 54o", valueLabel: "HU button aç ~%82", caption: "Neredeyse her el" },
+          { kind: "range", value: "77+, A9s+, KTs+, QTs+, JTs, ATo+, KJo+", valueLabel: "HU BB 3-bet value", caption: "re-steal çekirdek ~%15" },
+        ],
         bullets: [
           "Button = smol blind: ilk aksiyon + postflop pozisyon sende.",
           "İki ödül kilitli → ICM çözüldü, saf chipEV oyna.",
-          "Button çok geniş aç (~%80+), BB çok geniş defend; agresyon + postflop beceri belirler.",
-          "Tam aralık drill/kalibrasyon (kitap 12.5 felsefesi: Nash molada bakılır).",
+          "Button çok geniş aç (~%82), BB defend ~%65 (call+3-bet), 3-bet value 77+/A9s+/KTs+/ATo+.",
+          "Bunlar baseline — tam Nash bu derinlikte molada/drill'de kalibre (kitap 12.5).",
         ],
         ruleBox: "HU'da ICM biter, chipEV başlar; button = SB, inisiyatif + pozisyon sende.",
         narration:
-          "Ve son perde: heads-up, iki kişi. Burada mekanik tümüyle değişir. Birincisi, button artık smol blind'dir; yani hem preflop ilk aksiyonu sen alırsın, hem de postflop pozisyon sende olur — button devasa bir avantaj. İkincisi ve en önemlisi: sadece iki ödül kaldığı için ICM pratikte çözülmüştür; ikinci ödül garanti, birincilik için oynuyorsun, o yüzden artık saf chipEV oynarsın, ICM daralması biter. Bunun sonucu agresif bir oyun: button'dan çok geniş açarsın, yaklaşık yüzde seksen ve üstü; büyük körden de çok geniş defend edersin; ve kazanan, en iyi eli bekleyen değil, postflop en iyi oynayan ve baskıyı sürekli kuran olur. Tam sayısal aralıkları buraya yazmıyorum, çünkü kitabın felsefesi bu derinlikte nettir: heads-up ve kısa-el Nash aralıkları molada, drill'de kalibre edilir, ezber tablo değil. Aklında kalması gereken tek cümle: heads-up'ta ICM biter, chipEV başlar; button smol blind'dir, inisiyatif ve pozisyon sende.",
+          "Ve son perde: heads-up, iki kişi. Burada mekanik tümüyle değişir. Birincisi, button artık smol blind'dir; yani hem preflop ilk aksiyonu sen alırsın, hem de postflop pozisyon sende olur — button devasa bir avantaj. İkincisi ve en önemlisi: sadece iki ödül kaldığı için ICM pratikte çözülmüştür; ikinci ödül garanti, birincilik için oynuyorsun, o yüzden artık saf chipEV oynarsın, ICM daralması biter. Bunun sonucu agresif bir oyun: button'dan çok geniş açarsın, yaklaşık yüzde seksen ve üstü; büyük körden de çok geniş defend edersin; ve kazanan, en iyi eli bekleyen değil, postflop en iyi oynayan ve baskıyı sürekli kuran olur. Sana somut bir baseline veriyorum: button'dan yaklaşık yüzde seksen iki açarsın, yani neredeyse her el; büyük körden yaklaşık yüzde altmış beş savunursun, call ve 3-bet karışık; 3-bet value çekirdeğin yedi yedi ve üstü, as dokuz suited ve üstü, kral on suited ve üstü, as on offsuit ve üstü. Grid'lerde button açılışını ve büyük kör 3-bet value'sunu görüyorsun. Ama şu notu unutma: bunlar başlangıç çizgisi; tam Nash aralıkları bu derinlikte molada, drill'de kalibre edilir — kitabın on iki nokta beş felsefesi bu, ezber tablo değil. Aklında kalması gereken tek cümle: heads-up'ta ICM biter, chipEV başlar; button smol blind'dir, inisiyatif ve pozisyon sende.",
       },
     ],
   },

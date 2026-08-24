@@ -1281,3 +1281,124 @@ OOP c-bet, station'a value keser ama agresöre kapıyı kapatmaz; marjinal eller
 4. **F4.** 3 yollu pot, IP, top pair iyi kicker, board J-9-4 iki renk. Frekans ve boyut nasıl değişir (B13)?
 
 *Kök hata bağı: bu bölüm hatanın DOĞDUĞU sokağı disipline eder. B4 hatanın frekansını preflop düşürür; B18 flop c-bet kararıyla şişmiş potun tohumunu keser; B11 hata anına gelinirse icrayı verir. Üçü bir zincir.*
+
+
+---
+
+## Bölüm 19 — İnisiyatif Hatları: Lead Belirsizken Kim Bet Atar
+
+*★ v6. B18 flop c-bet'in "lead sende" hâlini verdi. Bu bölüm lead'in BELİRSİZ olduğu altı hattı toplar: donk, gecikmiş c-bet, probe, stab, turn float, river blocker-bet. Hepsi kitabın bilerek hafif tuttuğu ileri agresyon bölgesi; o yüzden hepsi DAR çerçeveyle, ortak bir teşhisle ve sert bir "ne zaman DEĞİL" ile verilir. Doğru inisiyatif potu ucuza bitirir (anti-bloat); yanlış inisiyatif kök hatanın yeni kapısıdır.*
+
+### 19.0 Ortak teşhis
+
+Altı hat da tek soruya iner: lead belirsizken potu almak mı, yoksa elimi bedavaya realize etmek mi?
+
+> **Rec sahada varsayılan = uydurma agresyon YOK. İnisiyatif ancak (a) biri zayıflık gösterdiyse VE (b) board senin aralığına yarıyorsa VE (c) elini check'le realize etmek daha kârlı değilse alınır. Üçü birden yoksa: check.**
+
+Her hattın "ne zaman DEĞİL" sütunu "ne zaman"dan önemlidir. Ortak tuzak: marjinal bir yapılı eli (check'le showdown'a götürmen gerekeni) inisiyatif diye bet'e sokmak — bu float/probe/stab'ı kök hataya çevirir.
+
+### 19.1 Donk bet — OOP, PFR'a önden çıkış
+
+Donk: OOP, preflop açana check yerine önden bet. "PFR bet atar" konvansiyonunu kırar.
+
+> **Varsayılan: donk ATMA — PFR'a check standarttır. Donk çoğu zaman telegraf eder ve OOP pot şişirir (kök hata arazisi).**
+
+| Değişken | Donk AÇIK | Donk KAPALI (→ check) |
+|---|---|---|
+| **Board** | SENİN aralığına çarpan: düşük, bağlantılı, düşük-eşleşmiş (BB savunduğun 7-6-4, 5-5-2) | Yüksek-kart board (PFR'ın aralığı) |
+| **Rakip** | Board'u ıskaladığında check-fold eden | Donk'a asla fold etmeyen station |
+| **Elim** | İki-per/set/kent avantajı + küçük boyut | Tek per (büyük donk = kök hata) |
+| **Oyuncu sayısı** | HU | Multiway |
+
+**Mantık:** düşük-bağlantılı board senin BB savunma aralığına PFR'ın yüksek-kart aralığından çok daha fazla çarpar; küçük donk PFR'a bedava check-back'i vermez, equity'sini fiyatlar. Yüksek board'da donk PFR'ın arazisine bet'tir — atma.
+
+### 19.2 Gecikmiş c-bet — PFR flop check, turn bet
+
+Gecikmiş c-bet: PFR'sın, flop'u check-back ettin (pot kontrol / bıraktın / tuzak), turn'de bet. Bu, B18'in otomatik c-bet refleksinin DİSİPLİNLİ zıddıdır: geniş flop c-bet'i atlayıp turn'de bir SEBEP çıkınca bet edersin.
+
+| Turn'de bet et — sebep | Bet etme |
+|---|---|
+| Turn'de geliştin (per/draw yakaladın) | Sebepsiz — flop give-up'ını turn'de bloat'a çevirme |
+| Villain ikinci kez check etti (zayıflık) | Villain turn'de lead/check-raise eğilimli |
+| Turn kartı senin aralığına yaradı | Equity yok + fold equity yok |
+
+Marjinal yapılı elle: flop check → turn ince value bet (sana check gelirse). Küçük boyut.
+
+### 19.3 Probe bet — flop check-check sonrası OOP bet
+
+Probe: flop check-check gitti (OOP'sun, PFR flop'u check-back etti = zayıflık, aralığı capped). Turn'de (ya da river'da) sen bet atarsın.
+
+> **PFR flop'u bıraktıysa güçlü ellerin çoğu flop'ta bet ederdi → aralığı capped. Turn'de bu capped aralığa OOP bet ile inisiyatifi al.**
+
+| Probe AÇIK | KAPALI (→ check) |
+|---|---|
+| PFR check-back'i zayıflık (rec norm) | PFR güçlüyle tuzak için check-back (nadir, kurnaz reg) |
+| Turn kartı senin aralığına yaradı | Turn kötü, aralığını ıskaladı |
+| Elin showdown value'suz (bet en iyi kullanım) | Marjinal yapılı el → check-call ile realize et |
+
+Boyut: küçük-orta. "Flop check-check → turn/river çalınır mı" sorusunun cevabı: evet, capped aralığa karşı.
+
+### 19.4 Stab — IP, check gelince potu al
+
+Stab: IP'sin, herkes sana check etti (flop ya da turn). Kimsenin istemediği potu küçük bet ile al. En temel, en düşük riskli inisiyatif aracı — sana check geldiyse herkes zaten zayıflık gösterdi.
+
+| Stab AÇIK | KAPALI |
+|---|---|
+| HU, sana check geldi, herhangi equity/fold equity | Multiway (biri tuzakta) |
+| Checker'ların ıskaladığı board | Checker'ların aralığına çarpan board |
+| Boyut küçük | Check-raise eğilimli villain / SD value'lu el bedava showdown istiyor |
+
+### 19.5 Turn float — pozisyonel gecikmiş agresyon
+
+Float: flop c-bet'ini pozisyonda call edip, villain turn'ü check ettiğinde potu almak. Amaç showdown değil, gecikmiş blöf.
+
+| Değişken | Float ET | Float ETME |
+|---|---|---|
+| **Pozisyon** | IP (temiz alma) | OOP — asla |
+| **Rakip** | Flop'u geniş c-bet'leyip turn'ü bırakan | İkinci fıçıyı atan (station/agresif reg) |
+| **Elim** | Backdoor draw / overcard / bloker — planlı | Saf hava, plansız |
+| **Board** | Villain'in range-bet'lediği kuru-ımsı flop | Islak — villain barrel atar |
+| **Oyuncu sayısı** | HU | Multiway |
+
+**İcra:** turn'de check gelirse bet at al; villain ikinci fıçı atarsa BIRAK.
+
+> **Float turn'de biter: ya bet atıp alırsın ya bırakırsın. Sürüklenip ödemek float değil, kök hatadır.**
+
+### 19.6 River blocker-bet — istisna, default değil
+
+Blocker-bet: river'da OOP, ince bir bluff-catcher'la KÜÇÜK bet — villain'in büyük polarize bet'ini engelle, ucuz showdown al.
+
+> **UYARI: bu spotun varsayılanı 11.2'dir — check-call / check-fold. Blocker-bet dar bir sapmadır. Station'a karşı check-call daha iyidir; station küçük bet'e indirim yapmaz, seni yine value'yla öder, raise ederse batarsın.**
+
+| Değişken | Pencere AÇIK | KAPALI (→ 11.2) |
+|---|---|---|
+| **Rakip** | Capped + agresif/bluffy | Station |
+| **Elim** | İnce bluff-catcher (blöfü yener, value'ya kaybeder) | Net güçlü ya da net çöp |
+| **River** | Kuru/statik, range belli | Islak/dinamik, villain uncapped |
+| **Boyut** | Küçük (~%20–33) | Büyük blocker = çelişki |
+
+### 19.7 Kalibrasyon
+
+*(kalibre et: her hat bir rakip-etiketine bağlıdır. Donk & probe & float: villain'in "zayıflık gösterip bırakma" oranı yüksek olanlara aç. Blocker-bet: yalnız capped+agresif etiketli rakibe, station'a ASLA. Stab & delayed c-bet: düşük risk, HU'da serbest. Etiket yoksa hepsinde default = pasif hat / 11.2.)*
+
+### 19.8 Cheat kartı
+
+| Hat | Kim zayıf gösterdi | Aç | Kapat (default) |
+|---|---|---|---|
+| **Donk** | — (board avantajı) | Senin board'un + küçük | Yüksek board / station / multiway |
+| **Delayed c-bet** | PFR flop'u bıraktı (sen) | Turn'de sebep + küçük | Sebepsiz / lead eden villain |
+| **Probe** | PFR flop check-back | Capped aralığa turn bet | PFR tuzak / kötü turn / SD value |
+| **Stab** | Herkes check | Küçük bet al | Multiway / check-raise / SD value |
+| **Turn float** | Villain turn check | IP + plan | OOP / barrel / multiway |
+| **River blocker** | Villain check gelince basardı | Capped+agresif + ince BC + küçük | Station / uncapped → 11.2 |
+
+### 19.9 Drill (6 soru)
+
+1. **F5.** BB savundun, flop 7-6-4 iki renk, PFR sende değil. Donk mı check mi? Board neden fark eder?
+2. **F6.** IP PFR, flop A-9-4, KJ'in var, check-back ettin. Turn K. Bet mi? Bunun adı ne, sebep sütunun hangisi?
+3. **F7.** OOP, flop check-check, turn'de PFR hâlâ capped, elin QJ (gutshot'a döndü). Çalar mısın, boyut?
+4. **F8.** IP, flop herkes check, turn sana yine check geldi, elinde ace-high. Stab mı check mi?
+5. **F9.** IP, kuru flop, villain c-bet, sende backdoor flush + overcard. Float; turn'de check ve ikinci fıçı ayrı ayrı planın?
+6. **F10.** OOP river, ince bluff-catcher, villain agresif reg + kuru/capped board. Blocker mı check-call mı? Villain station olsa ne değişir?
+
+*Kök hata bağı: altı hat da inisiyatif araçlarıdır — doğru kullanıldığında potu ucuza bitirir ya da capped aralığı cezalandırır (anti-bloat). Yanlış kullanıldığında hepsi aynı kapıya çıkar: marjinal eli inisiyatif diye şişirip bluff-catcher olarak kalmak. Guard: kim zayıf gösterdi + board kimin + elimi realize mi etmeliyim. Üçü yoksa check.*

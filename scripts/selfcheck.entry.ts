@@ -107,7 +107,7 @@ check("BTN→SB fold geçerli", poolsFor("BTN", "SB").flatWide === false);
 
 // v5 yeni bölümleri (B11–B16) ChapterView tarafından sectionBlock ile render edilir.
 // Boş dönerse veya tablo kaybolursa yeni Referans görünümü sessizce boşalır → build'i durdur.
-for (const n of [11, 12, 13, 14, 15, 16, 17, 18]) {
+for (const n of [11, 12, 13, 14, 15, 16, 17, 18, 19]) {
   const body = sectionBlock("Bölüm " + n);
   check(`B${n} sectionBlock dolu`, body.trim().length > 0, String(body.length));
   check(`B${n} en az bir tablo içeriyor`, body.includes("|"));
@@ -195,7 +195,7 @@ check("D6-63 postflop PLO Q üretiliyor", !!postflopQuestion("plo"));
   const badCorrect = SCENARIOS.filter((s) => !(s.correct >= 0 && s.correct < s.options.length));
   const badSource = SCENARIOS.filter((s) => !s.source || !s.source.trim());
   const badKavram = SCENARIOS.filter((s) => typeof s.kavram !== "string" || !s.kavram);
-  check("D4-38 senaryo sayısı 74 (TR=EN parite)", SCENARIOS.length === 74, String(SCENARIOS.length));
+  check("D4-38 senaryo sayısı 80 (TR=EN parite)", SCENARIOS.length === 80, String(SCENARIOS.length));
   check("D4-38 tüm correct options sınırında", badCorrect.length === 0, badCorrect.map((s) => s.q.slice(0, 24)).join("|"));
   check("D4-38 tüm source dolu", badSource.length === 0, String(badSource.length));
   check("D4-38 tüm kavram dolu", badKavram.length === 0, String(badKavram.length));

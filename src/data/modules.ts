@@ -1311,6 +1311,108 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M23",
+    title: "İnisiyatif hatları: donk, probe, stab, float, blocker",
+    chapter: "Bölüm 19 ★",
+    minutes: 11,
+    slides: [
+      {
+        title: "İnisiyatif: lead belirsizken kim bet atar",
+        bullets: [
+          "Altı akraba hat: donk, gecikmiş c-bet, probe, stab, turn float, river blocker.",
+          "Hepsi lead belirsizken çıkar: potu al mı, elimi bedavaya realize mi et?",
+          "İnisiyatif 3 şart birdense: (a) biri zayıf gösterdi + (b) board senin + (c) check daha kârlı değil.",
+          "Ortak tuzak: marjinal yapılı eli inisiyatif diye şişirmek = kök hata.",
+        ],
+        ruleBox: "Guard: kim zayıf gösterdi + board kimin + elimi realize mi etmeliyim — üçü yoksa check.",
+        narration:
+          "Bu modül dağınık ama akraba altı hattı tek çatı altında topluyor: donk, gecikmiş c-bet, probe, stab, turn float ve river blocker-bet. Ortak noktaları şu: hepsi lead'in, yani inisiyatifin belirsiz olduğu anlarda çıkar — kimse potu net sahiplenmemiştir ve soru şudur, potu ben mi alayım yoksa elimi bedavaya showdown'a mı taşıyayım? Rec-ağırlıklı sahanda varsayılan cevap net: uydurma agresyon yok. İnisiyatif ancak üç şart birden varsa alınır. Bir: biri zayıflık gösterdi. İki: board senin aralığına yarıyor. Üç: elini check'le realize etmek daha kârlı değil. Üçü birden yoksa check edersin. Ve her hattın 'ne zaman yapılmaz' sütunu, 'ne zaman yapılır'dan daha önemli, çünkü ortak tuzak hep aynı: check'le showdown'a götürmen gereken marjinal bir eli inisiyatif diye bet'e sokmak. Bu, float'ı da probe'u da stab'ı da kök hataya çevirir. Guard cümlesi bu modülün omurgası: kim zayıflık gösterdi, board kimin, elimi realize mi etmeliyim — üçü yoksa check.",
+      },
+      {
+        title: "Donk bet — OOP, PFR'a önden çıkış",
+        table: { section: "Bölüm 19", sub: "19.1", caption: "Sadece SENİN board'unda; yüksek board'da yasak." },
+        visuals: [
+          { kind: "board", cards: "7h 6s 4d", label: "Senin board'un (7-6-4) — donk adayı" },
+          { kind: "board", cards: "As Kd 8c", label: "PFR'ın board'u (A-K-8) — donk atma" },
+        ],
+        bullets: [
+          "Varsayılan: donk ATMA — açana check standart; donk telegraf + OOP bloat.",
+          "Pencere: düşük-bağlantılı BB board'u (7-6-4, 5-5-2) → senin aralığın çarpar.",
+          "Küçük donk PFR'a bedava check-back'i vermez, equity'sini fiyatlar.",
+          "Değil: yüksek board / station / multiway / tek per'le büyük donk (kök hata).",
+        ],
+        ruleBox: "Donk sadece senin board'unda + küçük; yüksek board açanın arazisidir.",
+        narration:
+          "Birinci hat: donk bet. Donk, OOP'ken preflop açana check yerine önden bet atmaktır; 'PFR bet atar' konvansiyonunu kırar. Varsayılan nettir: donk atma, açana check standarttır — donk çoğu zaman elini telegraf eder ve seni pozisyonsuz şişmiş pota sokar, yani kök hata arazisine. Peki pencere ne zaman açılır? Tek şey: board senin aralığına çarpıyorsa. Somut olarak, büyük körden savunduğun düşük ve bağlantılı board'lar, mesela yedi altı dört ya da beş beş iki. Bu board'lar senin savunma aralığına, açanın yüksek-kart aralığından çok daha fazla çarpar; sende daha çok iki-per, set, kent vardır. Küçük bir donk, açana bedava check-back hakkını vermez ve equity'sini fiyatlar. Görselde iki board var: yedi altı dört senin board'un, donk adayı; as kral sekiz ise açanın board'u, orada donk açanın arazisine bet'tir, atma. Ne zaman değil: yüksek board, donk'a asla fold etmeyen station, multiway, ve tek per'le büyük donk — sonuncusu doğrudan kök hata.",
+      },
+      {
+        title: "PFR zayıflık gösterdi: gecikmiş c-bet & probe",
+        table: { section: "Bölüm 19", sub: "19.3", caption: "PFR flop'u bıraktı = capped; turn'de al." },
+        bullets: [
+          "Gecikmiş c-bet (sen PFR): flop check-back → turn'de SEBEP varsa bet.",
+          "Sebep: geliştin / villain 2. kez check / turn kartı sana yaradı.",
+          "Probe (sen OOP): flop check-check → açan capped → turn/river'da bet.",
+          "'Flop cc → çalınır mı' = EVET, capped aralığa. Değil: tuzak / kötü turn / SD value.",
+        ],
+        ruleBox: "PFR flop'ta güçlüyle bet ederdi; check-back = capped → capped'a inisiyatif al.",
+        narration:
+          "İkinci ve üçüncü hat aynı temaya bağlı: PFR zayıflık gösterdiğinde onun capped aralığını cezalandırmak. İki versiyonu var. Bir, gecikmiş c-bet: sen açansın, flop'u check-back ettin — pot kontrol ya da vazgeçtin — ve turn'de bet ediyorsun. Bu, otomatik flop c-bet refleksinin disiplinli zıddıdır: geniş c-bet'i atlarsın, turn'de bir sebep çıkınca bet edersin. Sebep üç tanedir: turn'de geliştin, ya da villain ikinci kez check edip zayıflık gösterdi, ya da turn kartı senin aralığına yaradı. Sebepsizse, flop'taki vazgeçişi turn'de bloat'a çevirme. İki, probe bet: bu senin sorduğun spot — flop check-check gitti. Sen OOP'sun, açan flop'u check-back etti; bu ne demek? Güçlü ellerin çoğu flop'ta bet ederdi, demek ki açanın aralığı capped, tavanlı. O yüzden turn'de bu capped aralığa OOP bet atıp inisiyatifi alırsın. Cevap net: evet, flop check-check sonrası turn ve river çalınır, capped aralığa karşı. Ne zaman değil: açan tuzak için güçlüyle check-back ediyorsa, turn senin aralığını ıskaladıysa, ya da elinde check-call ile realize edilecek marjinal bir yapılı el varsa — onu şişirme.",
+      },
+      {
+        title: "Stab — IP, check gelince potu al",
+        table: { section: "Bölüm 19", sub: "19.4", caption: "En düşük riskli inisiyatif; sana check = herkes zayıf." },
+        bullets: [
+          "IP'sin, herkes sana check etti (flop/turn) → küçük bet ile al.",
+          "Herhangi equity/fold equity yeter; sana check geldiyse herkes zayıf gösterdi.",
+          "Değil: multiway (tuzak) / check-raise eğilimli villain.",
+          "Değil: board checker'lara çarpıyor / SD value'lu el bedava showdown istiyor.",
+        ],
+        ruleBox: "Stab küçük; kimsenin sahiplenmediği potu ucuza topla, HU'da serbest.",
+        narration:
+          "Dördüncü hat: stab. En temel ve en düşük riskli inisiyatif aracı. IP'sin ve herkes sana check etti, flop'ta ya da turn'de. Sana check geldiyse zaten herkes zayıflık gösterdi; kimsenin istemediği potu küçük bir bet ile alırsın. Herhangi bir equity ya da fold equity yeter. Ne zaman değil: multiway, çünkü biri tuzakta olabilir; check-raise eğilimli bir villain varsa; board checker'ların aralığına sert çarpıyorsa; ya da elinde showdown value olan bir el varsa ve bedava showdown senin lehineyse. Boyut küçük — stab pahalı olmak zorunda değil, amaç kimsenin sahiplenmediği potu ucuza toplamak.",
+      },
+      {
+        title: "Turn float — pozisyonel gecikmiş agresyon",
+        table: { section: "Bölüm 19", sub: "19.5", caption: "IP + planlı; float turn'de biter." },
+        bullets: [
+          "Flop c-bet'i IP call → villain turn'ü check ederse potu al (gecikmiş blöf).",
+          "IP + backdoor/overcard/bloker (planlı) + turn'ü bırakan villain + kuru-ımsı flop.",
+          "İcra: turn check gelirse bet al; villain 2. fıçı atarsa BIRAK.",
+          "Değil: OOP / barrel atan villain / ıslak board / multiway.",
+        ],
+        ruleBox: "Float turn'de biter: ya bet atıp alırsın ya bırakırsın; sürüklenip ödemek kök hatadır.",
+        narration:
+          "Beşinci hat: turn float. Float, flop c-bet'ini pozisyonda call edip villain turn'ü check ettiğinde potu almaktır — amaç showdown değil, gecikmiş blöf. Şartlar dar. Pozisyon: sadece IP, çünkü ancak pozisyonda potu temiz alırsın; OOP float asla. Rakip: flop'u geniş c-bet'leyip turn'ü bırakan tip; ikinci fıçıyı atan station ya da agresif reg'e float atma. Elin: saf hava değil, planlı — backdoor draw, overcard ya da bloker. Board: villain'in range-bet'lediği kuru-ımsı flop; ıslak board'da villain barrel atar, orada float ölür. Ve icranın altın kuralı: float turn'de biter. Turn'de sana check gelirse bet atıp alırsın; villain ikinci fıçıyı atarsa bırakırsın. Sen check için float'ladın, iki fıçı ödemek için değil. Float'ı call-call-call'a sürüklersen, o artık float değil, kök hatadır.",
+      },
+      {
+        title: "River blocker-bet — istisna, default 11.2",
+        table: { section: "Bölüm 19", sub: "19.6", caption: "Varsayılan check-call/check-fold; blocker dar sapma." },
+        bullets: [
+          "Varsayılan = 11.2 (check-call/check-fold). Blocker DAR bir sapma.",
+          "Station'a check-call daha iyi: indirim yapmaz, value'yla öder, raise ederse batarsın.",
+          "Pencere: capped+agresif villain + ince bluff-catcher + kuru/statik river + küçük boyut.",
+          "Bunların hepsi yoksa blocker YOK → 11.2. Büyük blocker çelişkidir.",
+        ],
+        ruleBox: "Blocker yalnız capped+agresif rakibe; station'a ASLA — default 11.2.",
+        narration:
+          "Altıncı hat: river blocker-bet, ve buna en sert uyarıyla giriyoruz. Bu spotun varsayılanı bu modül değil, on bir nokta iki'dir: check-call ya da check-fold. Blocker-bet, river'da OOP küçük bir bluff-catcher'la küçük bet atıp villain'in büyük polarize bet'ini engellemek, ucuz bir showdown satın almaktır. Ama station'a karşı neredeyse her zaman check-call daha iyidir; station küçük bet'e indirim yapmaz, seni yine value'yla öder, üstelik raise ederse batarsın. Pencere sadece şu dar durumda açılır: villain capped ve agresif, yani check gelseydi polarize basardı; senin elin ince bir bluff-catcher, blöfü yenen ama value'ya kaybeden; river kuru ve statik, villain'in aralığı belli; ve boyut küçük, yüzde yirmi ile otuz üç arası. Bunların hepsi yoksa blocker yok, on bir nokta iki'ye dön, check-call ya da check-fold. Büyük blocker zaten bir çelişkidir.",
+      },
+      {
+        title: "Özet: 6 hat tek kartta",
+        table: { section: "Bölüm 19", sub: "19.8", caption: "Kim zayıf gösterdi → aç → kapat (default)." },
+        bullets: [
+          "Donk: senin board'un + küçük. Gecikmiş c-bet: turn'de sebep.",
+          "Probe: capped'a turn bet. Stab: herkes check → küçük al.",
+          "Turn float: IP + plan. River blocker: capped+agresif, yoksa 11.2.",
+          "Hepsini tek guard yönetir: kim zayıf + board kimin + realize mi.",
+        ],
+        ruleBox: "İnisiyatif bir hak değil kazanılan fırsattır; doğru alınırsa anti-bloat, yanlış alınırsa kök hata.",
+        narration:
+          "Son olarak altı hattı tek kartta topluyoruz. Her satırda önce 'kim zayıflık gösterdi', sonra 'ne zaman aç', sonra 'ne zaman kapat' var. Donk: board avantajı senin — senin board'unda küçük aç, yüksek board'da ya da station'a kapat. Gecikmiş c-bet: sen flop'u bıraktın — turn'de sebep varsa aç. Probe: açan flop'u check-back etti — capped aralığa turn'de bet. Stab: herkes check etti — küçük bet ile al. Turn float: villain turn'ü check etti — IP ve planlıysan al. River blocker: villain check gelseydi basardı — capped ve agresifse, ince bluff-catcher'la, küçük; değilse on bir nokta iki. Hepsini tek guard cümlesi yönetir: kim zayıflık gösterdi, board kimin, elimi realize mi etmeliyim — üçü birden yoksa check. İnisiyatif bir hak değil, kazanılan bir fırsattır; doğru alınırsa potu ucuza bitirir, yanlış alınırsa kök hatanın yeni kapısıdır.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

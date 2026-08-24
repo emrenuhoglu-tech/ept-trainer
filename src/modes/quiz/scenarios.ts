@@ -660,6 +660,60 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 18.6 / 13.1",
     kavram: "c-bet",
   },
+  {
+    q: "BB savundun, flop 7-6-4 iki renk, PFR karşında. Donk bet mi check mi?",
+    options: ["Check — donk her zaman telegraf eder", "Küçük donk: bu board (7-6-4) senin BB aralığına PFR'ın yüksek-kart aralığından çok çarpar"],
+    correct: 1,
+    explain:
+      "Donk varsayılanı check'tir AMA istisna board avantajı: düşük-bağlantılı 7-6-4 senin savunma aralığına (iki-per/set/kent) PFR'ın yüksek-kart aralığından çok daha fazla çarpar → küçük donk equity'sini fiyatlar. Yüksek board'da (A-K-x) donk atma.",
+    source: "Bölüm 19.1",
+    kavram: "donk",
+  },
+  {
+    q: "IP PFR, flop A-9-4, KJ ile check-back ettin. Turn K (top pair). Bet mi, adı ne?",
+    options: ["Yine check — inisiyatif riskli", "Gecikmiş c-bet: turn'de geliştin (sebep var) → ince value bet"],
+    correct: 1,
+    explain:
+      "Gecikmiş c-bet: flop'u check-back edip turn'de bir SEBEP çıkınca bet. Turn K ile top pair'e geliştin (sebep = geliştin). Sebepsiz turn bet flop give-up'ını bloat'a çevirir; sebepli bet inisiyatifi alır.",
+    source: "Bölüm 19.2",
+    kavram: "gecikmis-cbet",
+  },
+  {
+    q: "OOP, flop check-check gitti (PFR capped), turn kartıyla QJ gutshot'a döndü. Probe bet mi?",
+    options: ["Check — OOP bet riskli", "Evet, probe: PFR check-back = capped; capped aralığa turn bet + equity var"],
+    correct: 1,
+    explain:
+      "Flop check-check → PFR güçlüyle bet ederdi, check-back = capped aralık. OOP turn probe ile capped'a inisiyatifi al; gutshot equity + fold equity var. Değil: PFR tuzağı / kötü turn / check-call'la realize edilecek yapılı el.",
+    source: "Bölüm 19.3",
+    kavram: "probe",
+  },
+  {
+    q: "IP, flop herkes check, turn sana yine check geldi, elinde ace-high (SD value düşük). Stab mı check mi?",
+    options: ["Check — ace-high showdown'a gitsin", "Stab: sana check = herkes zayıf; küçük bet ile potu al (fold equity yüksek)"],
+    correct: 1,
+    explain:
+      "Stab en düşük riskli inisiyatif: sana check geldiyse herkes zayıflık gösterdi. Ace-high'ın showdown value'su zayıf, en iyi kullanımı fold equity → küçük stab. Değil: multiway / check-raise villain / board checker'lara çarpıyor.",
+    source: "Bölüm 19.4",
+    kavram: "stab",
+  },
+  {
+    q: "IP, kuru flop, villain c-bet, sende backdoor flush + overcard. Float call ettin. Turn planın?",
+    options: ["Turn ne gelirse call devam", "Turn check gelirse bet al; villain 2. fıçı atarsa BIRAK"],
+    correct: 1,
+    explain:
+      "Float turn'de biter: check gelirse bet atıp al (villain turn'ü bıraktı = capped), 2. fıçı gelirse bırak — sen check için float'ladın, iki fıçı ödemek için değil. Call-call sürüklenmesi float değil kök hatadır.",
+    source: "Bölüm 19.5",
+    kavram: "float",
+  },
+  {
+    q: "OOP river, ince bluff-catcher, villain agresif reg + kuru/capped board. Blocker-bet mi check-call mı?",
+    options: ["Her durumda check-call (11.2)", "Bu dar pencerede küçük blocker OK; ama villain station olsa → check-call (11.2)"],
+    correct: 1,
+    explain:
+      "Default 11.2 (check-call/check-fold). Blocker yalnız capped+agresif villain + ince bluff-catcher + kuru river + küçük boyutta açılır (villain check gelseydi polarize basardı). Villain STATION ise pencere kapanır → check-call; station indirim yapmaz, raise ederse batarsın.",
+    source: "Bölüm 19.6",
+    kavram: "blocker-bet",
+  },
 ];
 
 export function randomScenario(): Scenario {

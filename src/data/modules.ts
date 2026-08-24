@@ -1043,10 +1043,11 @@ export const modules: Module[] = [
           "HJ ~%20: 55+, A8s+, A4s–A5s, K9s+, Q9s+, J9s+, T8s+, 98s, 87s, ATo+, KJo+, QJo",
           "CO ~%26: 44+, A2s+, K8s+, Q9s+, J8s+, T8s+, 97s+, 87s, 76s, A9o+, KTo+, QTo+, JTo",
           "BTN ~%40: 22+, suited Ax, K5s+, Q7s+, J7s+, T7s+, 96s+, 86s+, 75s+, 65s, 54s, A4o+, K9o+, Q9o+, J9o+, T9o · SB %35 raise-only",
+          "Exploit: yetkin sahaya karşı EP'den offsuit broadway'i (AJo, KQo) kes — domine olur, realize zor. SB: fold'a kadar gelirse ~%40 3x; tight BB'ye genişle, manyak BB'ye ~%30 daralt.",
         ],
         ruleBox: "Erken dar-güçlü, geç genişler. 35bb altına düşersen bu tablo geçmez (→ M18 stack trigger).",
         narration:
-          "Bu bir tekrar ve referans modülü: elli big blind day two için açılış, flat, 3-bet ve büyük kör savunması aralıklarını pozisyon pozisyon ayrı ayrı topluyoruz — çünkü aynı aralığı farklı bir çerçevede tekrar görmek onu ezbere değil, sezgiye çevirir. Önce açılış. Tek prensip: erken pozisyon dar ve güçlü, pozisyon geç indikçe aralık genişler. Erken pozisyonda, yani yu ti ci ve artı birde, yaklaşık yüzde on üç: yedi yedi ve üstü çiftler, as on suited ve üstü, kral jek suited ve üstü, birkaç bağlı suited ve üstteki offsuit broadway'ler. Buradaki her el bir 3-bet'e ya da flop baskısına devam edebilir — açtığın hiçbir şey seni zor durumda bırakmamalı. Orta pozisyonlarda aralık kademe kademe açılır; as beş suited, suited connector'lar, alt offsuit broadway'ler sırayla eklenir. Button'da yaklaşık yüzde kırk: bütün suited as'ler, geniş suited krallar ve dallar, bağlı eller — çünkü arkanda sadece iki kör var ve pozisyon senin. Smol blind folda kadar gelirse yüzde otuz beş sadece raise, limp yok. Grid'lere bak: solda dar erken aralık, sağda geniş button — ikisi arasındaki fark tüm açılış mantığını özetliyor. Ve şu eşiği unutma: otuz beş big blind altına düşersen bu tablo geçmez, stack trigger'larına geçersin.",
+          "Bu bir tekrar ve referans modülü: elli big blind day two için açılış, flat, 3-bet ve büyük kör savunması aralıklarını pozisyon pozisyon ayrı ayrı topluyoruz — çünkü aynı aralığı farklı bir çerçevede tekrar görmek onu ezbere değil, sezgiye çevirir. Önce açılış. Tek prensip: erken pozisyon dar ve güçlü, pozisyon geç indikçe aralık genişler. Erken pozisyonda, yani yu ti ci ve artı birde, yaklaşık yüzde on üç: yedi yedi ve üstü çiftler, as on suited ve üstü, kral jek suited ve üstü, birkaç bağlı suited ve üstteki offsuit broadway'ler. Buradaki her el bir 3-bet'e ya da flop baskısına devam edebilir — açtığın hiçbir şey seni zor durumda bırakmamalı. Orta pozisyonlarda aralık kademe kademe açılır; as beş suited, suited connector'lar, alt offsuit broadway'ler sırayla eklenir. Button'da yaklaşık yüzde kırk: bütün suited as'ler, geniş suited krallar ve dallar, bağlı eller — çünkü arkanda sadece iki kör var ve pozisyon senin. Smol blind folda kadar gelirse yüzde otuz beş sadece raise, limp yok. Grid'lere bak: solda dar erken aralık, sağda geniş button — ikisi arasındaki fark tüm açılış mantığını özetliyor. İki exploit ayarını da ekle. Bir: yetkin, blindini doğru savunan bir sahaya karşı erken pozisyonun offsuit broadway'lerini — as jek offsuit, kral kız offsuit — kes; bunlar kolay domine olur ve pozisyonsuz realize etmesi zordur, kitap aralığının en zayıf açılışlarıdır. İki: smol blind açılışını rakibe göre ayarla — folda kadar geldiğinde yaklaşık yüzde kırk, üç kat aç; büyük körde sıkı ve çok fold eden biri varsa daha da genişle, agresif ve manyak biri varsa yaklaşık yüzde otuza daralt. Ve şu eşiği unutma: otuz beş big blind altına düşersen bu tablo geçmez, stack trigger'larına geçersin.",
       },
       {
         title: "3-bet: kime, nasıl (value + blöf)",
@@ -1095,6 +1096,129 @@ export const modules: Module[] = [
         ruleBox: "Fiyat equity'yi kurtarır, oynanabilirliği kurtarmaz — zayıf offsuit'i fiyat olsa bile at.",
         narration:
           "Son kart: büyük kör savunması, ve burası matematiğin en cömert yeri. Ante olduğu için potta zaten çok para var, senin eklemen az; iki nokta yirmi beş katlık bir açışa karşı yaklaşık yüzde yirmi bir equity yeter, ki neredeyse her iki kart bu eşiği geçer. O yüzden büyük körden defend aralığın çok geniş: tüm suited eller, tüm çiftler, bağlı ve tek boşluklu offsuit'ler, bütün as'ler, kralların çoğu — kabaca elinin yüzde elli beş, altmışı call. Neyi atarsın? Hem kopuk hem domine çöpü: jek üç offsuit, kız dört offsuit, kral iki'den kral beşe offsuit, dokuz iki offsuit. Fiyat equity'yi kurtarır ama oynanabilirliği kurtarmaz — o yüzden zayıf offsuit'i fiyat cazip olsa bile at. Üstteki elleri call yerine 3-bet'e yükseltirsin; grid'de gösterilen dokuz dokuz ve üstü, as on suited ve üstü value, bloker blöfler. Ama en kritik uyarı şu: ucuz girmek ucuz devam etmek değildir. İki bin beş yüze girip flopta ikinci per yakalayınca 'zaten pottayım' moduna geçmek, kök hatanın büyük kör versiyonudur; giriş fiyatın flop sonrası kararlarını etkilemez, her sokak yeni bir karardır. Ve multiway'de bu geniş defend'i daralt — domine eller çok yollu potta değer kaybeder.",
+      },
+    ],
+  },
+  {
+    id: "M20",
+    title: "20–30bb: jam ya da fold",
+    chapter: "Bölüm 5",
+    minutes: 7,
+    slides: [
+      {
+        title: "Bandın karakteri: değer fold equity'den",
+        bullets: [
+          "Değer kart tamamlamaktan değil, FOLD EQUITY'den gelir.",
+          "Aranan el 'gelişebilen' değil, ŞİMDİDEN İYİ: as, broadway, çift.",
+          "Karar sırası 2 saniyede: MOD → POZİSYON → EL. Suited connector'da 3. adıma bile geçme.",
+        ],
+        ruleBox: "Soru 'bu el yeterince iyi mi' değil — 'bu el bu stack'te oynanabilir mi'.",
+        narration:
+          "Bu modül yirmi ile otuz big blind bandı, yani jam ya da fold bölgesi — ve turnuvada en çok bu bantta kalıyorsun, o yüzden tekrar da olsa netleştiriyoruz. Bandın tek cümlelik karakteri şu: bu derinlikte değer, kart tamamlamaktan değil, fold equity'den gelir. Yani parayı, rakibi preflop fold ettirerek kazanırsın, flopta el yaparak değil. Bunun sonucu el seçimini baştan değiştirir: aradığın el gelişebilen bir el değil, şimdiden iyi olan bir el — as, broadway, ya da çift. Spekülatif ellerin motoru olan implied odds bu derinlikte çalışmaz; set ya da kent yaptığında ödetecek stack yok, tamamlamadığın seksen beş durumda ise çaresizsin. O yüzden karar sıran iki saniyede işler: önce mod, sonra pozisyon, sonra el. Yirmi sekiz big blind'de elinde suited connector gördüğünde üçüncü adıma, yani ele bakmaya bile geçmiyorsun — mod ve pozisyon zaten cevabı vermiş oluyor. Kısacası bu bantta soru 'bu el yeterince iyi mi' değil, 'bu el bu stack'te oynanabilir mi'.",
+      },
+      {
+        title: "Açılış (open) aralıkları",
+        table: { section: "Bölüm 5", sub: "5.1", caption: "Boyut 2–2.2x; daha büyük açmanın anlamı yok." },
+        visuals: [
+          { kind: "range", value: "77+, ATs+, AJo+, KQs", valueLabel: "UTG/UTG+1", caption: "Erken: dar" },
+          { kind: "range", value: "22+, A2s+, A2o+, K7s+, K9o+, Q9s+, J9s+, T9s", valueLabel: "BTN", caption: "Button: geniş çal" },
+        ],
+        bullets: [
+          "UTG/UTG+1: 77+, ATs+, AJo+, KQs",
+          "LJ/HJ: 55+, A8s+, ATo+, KTs+, QJs",
+          "CO: 33+, A5s+, A9o+, K9s+, QTs+, JTs",
+          "BTN: 22+, tüm A-x, K7s+, K9o+, Q9s+, J9s+, T9s",
+          "SB: 22+, A2s+, A7o+, K9s+, KTo+, QTs+",
+        ],
+        ruleBox: "İlk giren avantajı senin — açtığında blindleri toplamayı hedefle.",
+        narration:
+          "Açılış aralıkları, önünde kimse yokken. Boyut iki ile iki nokta iki kat; bu derinlikte daha büyük açmanın anlamı yok çünkü zaten stack'inin büyük kısmını ortaya koyuyorsun. Tabloyu pozisyon pozisyon oku, ama mantık tek: erken dar, geç geniş. Erken pozisyonda yedi yedi ve üstü, as on suited ve üstü, as jek offsuit ve üstü, kral kız suited — dar ve güçlü. Orta pozisyonlarda as sekiz suited, as on offsuit, kral on suited gibi eller eklenir. Cut-off'ta üç üç ve üstü çiftler, as beş suited, as dokuz offsuit, kral dokuz suited. Button'da en geniş: iki iki ve üstü tüm çiftler, bütün as'ler, kral yedi suited ve üstü, geniş offsuit krallar, ve birkaç bağlı el — çünkü arkanda sadece iki kör var. Smol blind'den de yirmi iki ve üstü, tüm suited as'ler, as yedi offsuit ve üstü, doğrudan raise. Grid'lerde solda dar erken, sağda geniş button. İlk giren avantajı senin; açtığında amacın showdown değil, blindleri ve ante'yi toplamak.",
+      },
+      {
+        title: "3-bet = JAM (flat yok)",
+        table: { section: "Bölüm 5", sub: "5.2", caption: "3-bet commit demek; doğrudan all-in." },
+        visuals: [
+          { kind: "range", value: "88+, ATs+, AQo+, KQs", valueLabel: "3-bet JAM", caption: "CO/BTN açışına karşı" },
+        ],
+        bullets: [
+          "vs EP açılış: TT+, AQs+, AKo jam.",
+          "vs CO/BTN açılış: 88+, ATs+, AQo+, KQs jam.",
+          "vs chip leader / jam'e fold eden: 77+, A9s+, AJo+, KQs (genişletilmiş).",
+          "FLAT YOK — ne SB'den, ne BB'den, ne IP'den. Geniş flat 100bb+ dünyası.",
+        ],
+        ruleBox: "Bu bantta 3-bet = commit = all-in. '3-bet edip fold' diye bir yapı yok.",
+        narration:
+          "Şimdi en kritik fark: bu bantta 3-bet, commit demektir. Yani birinin açışına 3-bet'liyorsan, doğrudan all-in gidiyorsun; 'üç-bet edip fold' diye bir yapı bu derinlikte yok, çünkü 3-bet'e koyduğun chip zaten stack'ine göre commit seviyesinde. Kime jam'liyorsun? Erken pozisyon açışına karşı dar: on on ve üstü, as kız suited ve üstü, as kral offsuit. Cut-off ya da button açışına karşı biraz geniş: sekiz sekiz ve üstü, as on suited ve üstü, as kız offsuit ve üstü, kral kız suited. Ve masada jam'e fold ettiğini gördüğün bir chip leader ya da sıkı oyuncuya karşı aralığı genişlet: yedi yedi ve üstü, as dokuz suited ve üstü, as jek offsuit ve üstü. En önemli kural: bu bantta flat yok — ne smol blind'den, ne büyük körden, ne pozisyondan. Dördüncü bölümün o geniş flat tabloları yüz big blind ve üstü dünyasına ait; burada geçersiz. Ya jam, ya fold, ya da açan sensen open.",
+      },
+      {
+        title: "Jam'e call + kayıtsız fold + 20bb altı",
+        visuals: [
+          { kind: "range", value: "99+, AJs+, AQo+", valueLabel: "jam'e call", caption: "Bundan aşağısı 28bb'de call değil" },
+        ],
+        bullets: [
+          "Rakip all-in geldiyse call: 99+, AJs+, AQo+. Aşağısı: ya sen jam, ya fold.",
+          "Kayıtsız fold: tüm suited connector (T9s–54s), suited gapper, zayıf offsuit broadway (KJo, QJo, JTo), küçük çiftle FLAT.",
+          "20bb altı (Mod D): jam-first ağacı — açılışın bir kısmı direkt jam, BB dışı flat yok.",
+          "12bb altı (Mod E): saf jam/fold; ilk giren avantajı, limp üstüne izole jam.",
+        ],
+        ruleBox: "Spekülatif eli fold etmek, gerçek elle jam yapacağın cephaneyi korur.",
+        narration:
+          "Son olarak jam'e karşı call ve kayıtsız fold listesi. Rakip sana all-in geldiyse call aralığın dar: dokuz dokuz ve üstü, as jek suited ve üstü, as kız offsuit ve üstü. Bunun aşağısı yirmi sekiz big blind'de call değildir — o eli ya sen jam'leyeceksin, ya fold edeceksin; jam ve call ayrı kararlardır, çünkü jam'de fold equity'n var, call'da yok. Kayıtsız şartsız fold listesi: bütün suited connector'lar, yani on dokuz suited'den beş dört suited'e kadar; tüm suited gapper'lar; zayıf offsuit broadway'ler, yani kral jek offsuit, kız jek offsuit, jek on offsuit; ve küçük çiftle flat — çiftle jam ayrı konu ama flat yok. Yirmi big blind altına indiğinde Mod D'ye geçersin: jam-first ağacı, yani açılışın bir kısmı direkt jam ve büyük kör dışında flat yok. On iki big blind altında ise saf jam ya da fold, ilk giren avantajı ve limp üstüne izole jam. Tek cümle: spekülatif eli fold etmek, gerçek elle jam yapacağın cephaneyi korur.",
+      },
+    ],
+  },
+  {
+    id: "M21",
+    title: "Final masası: 4/3/HU nasıl oynanır",
+    chapter: "Bölüm 12",
+    minutes: 8,
+    slides: [
+      {
+        title: "FT omurgası: el değil, stack rolü",
+        table: { section: "Bölüm 12", sub: "12.2", caption: "Doğru davranış EL'e değil STACK ROLÜNE bağlı." },
+        bullets: [
+          "Kısa (<15bb): ilk jam'ci ol, ladder'ı gözle; kilitlenmek de bir busttur.",
+          "Orta: en kırılgan — kimin bust'ını beklediğini bil, cover edenle pot açma.",
+          "Cover eden derin: agresyon serbest, cezasız ez; ama chip-leader'la ego savaşı yok.",
+        ],
+        ruleBox: "FT'de soru 'elim ne' değil, 'stack rolüm ne'. ICM açıksa jam ≠ call (asimetri).",
+        narration:
+          "Turnuvanın son aşaması: final masası, ve giderek küçülen masa — dört kişi, üç kişi, ve heads-up. Önce değişmeyen omurga: final masasında doğru davranış elinle değil, stack rolünle belirlenir. Aynı el, kısa stack'te bir şey, cover eden derin stack'te başka bir şeydir. Tabloya bak, üç rol var. Kısaysan, on beş big blind altında: ilk jam'ci sen ol, hamle başlatanın avantajını al, ve ladder'ı yani ödeme merdivenini gözle; ama şunu unutma, kilitlenip blindlere erimek de bir bust'tır, katlanmak her zaman doğru değil. Orta stack'sen: masanın en kırılgan pozisyonundasın — ne kısa gibi rahat jam edebilirsin, ne büyük gibi baskı kurabilirsin; kimin bust'ını beklediğini bil ve seni cover eden biriyle gereksiz pot açma. Cover eden derin stack'sen: agresyonun serbest, kısaları ve orta stackleri cezasız ez; tek yasak, eşit derin bir chip-leader'la ego savaşına girmek. Ve ICM açıkken kritik asimetri: jam etmek call etmekten çok daha ucuzdur, çünkü jam'de fold equity'n var, call'da yok — o yüzden jam ve call aralıkların ayrışır.",
+      },
+      {
+        title: "4-handed: rol + ICM hâlâ dişli",
+        table: { section: "Bölüm 12", sub: "12.4", caption: "Kilitli orta stack = en kârlı hedef." },
+        bullets: [
+          "Masa küçüldü, blindler daha sık vurur → açılış aralığı genişler.",
+          "Ama ICM hâlâ dişli: pay-jump'lar yakın, cover edilirken marjinal flip = fold.",
+          "Hedef: kilitlenmiş orta stack (soy); cover edenle ego savaşı yok.",
+        ],
+        ruleBox: "Genişle ama rol-gated: cover ediliyorsan daralt, cover ediyorsan ez.",
+        narration:
+          "Dört kişi kaldığında ne değişir? İki şey aynı anda. Bir: masa küçüldüğü için blindler ve ante sana çok daha sık vurur, her orbit'te daha büyük bir stack yüzdesi ödersin; bu yüzden hayatta kalmak için açılış aralığını genişletmek zorundasın, bekleyerek erirsin. İki: buna rağmen ICM hâlâ dişli, çünkü pay-jump'lar, yani ödeme sıçramaları artık çok yakın ve büyük. Bu ikisini birlikte yönetirsin: genişlersin ama rol-gated, yani rolüne göre. Seni cover eden biri varsa marjinal spotları daraltırsın, çünkü kaybedersen bust olursun; sen cover ediyorsan ezersin. En kârlı hedef sabit: kilitlenmiş, yani ödeme atlamayı korumak için sıkılaşmış orta stack — onu soyarsın. Ve eşit derin büyük stack'lerle ego savaşına girmezsin; dört kişide bir yanlış flip seni dördüncülüğe gönderir.",
+      },
+      {
+        title: "3-handed: pozisyon patlar",
+        bullets: [
+          "Pozisyon değeri patlar — button çok güçlü, blind savaşı sıklaşır.",
+          "Aralıklar iyice geniş: button'dan agresif aç, SB/BB'yi bas.",
+          "ICM yumuşar ama pay-jump varsa hâlâ rol-gated; kısaysan ilk jam'ci ol.",
+        ],
+        ruleBox: "3-handed'de button = kâr merkezi; geniş aç, ama pay-jump dişliyse cover'a saygı.",
+        narration:
+          "Üç kişi kaldığında oyun bir kez daha hızlanır ve pozisyonun değeri patlar. Artık her elde ya button'dasın, ya smol blind, ya büyük kör; button son derece güçlü çünkü iki rakibin de önünde aksiyon alıyorsun ve postflop pozisyon sende. Aralıkların iyice genişler: button'dan agresif açarsın, blind savaşları sıklaşır, ve baskıyı sen kurarsın. ICM bu noktada yumuşamaya başlar çünkü daha az oyuncu kaldı ve herkes zaten iyi para kilitledi; ama eğer büyük bir pay-jump hâlâ varsa — mesela birincilik ikinciliğin çok üstündeyse — karar hâlâ rol-gated kalır. Kısaysan ilk jam'ci olma prensibin sürer; derinsen iki rakibini de basarsın. Özet: üç kişide button senin kâr merkezin, geniş ve agresif oyna, ama pay-jump dişliyse cover edilene saygı göster.",
+      },
+      {
+        title: "Heads-up: ICM biter, chipEV başlar",
+        bullets: [
+          "Button = smol blind: ilk aksiyon + postflop pozisyon sende.",
+          "İki ödül kilitli → ICM çözüldü, saf chipEV oyna.",
+          "Button çok geniş aç (~%80+), BB çok geniş defend; agresyon + postflop beceri belirler.",
+          "Tam aralık drill/kalibrasyon (kitap 12.5 felsefesi: Nash molada bakılır).",
+        ],
+        ruleBox: "HU'da ICM biter, chipEV başlar; button = SB, inisiyatif + pozisyon sende.",
+        narration:
+          "Ve son perde: heads-up, iki kişi. Burada mekanik tümüyle değişir. Birincisi, button artık smol blind'dir; yani hem preflop ilk aksiyonu sen alırsın, hem de postflop pozisyon sende olur — button devasa bir avantaj. İkincisi ve en önemlisi: sadece iki ödül kaldığı için ICM pratikte çözülmüştür; ikinci ödül garanti, birincilik için oynuyorsun, o yüzden artık saf chipEV oynarsın, ICM daralması biter. Bunun sonucu agresif bir oyun: button'dan çok geniş açarsın, yaklaşık yüzde seksen ve üstü; büyük körden de çok geniş defend edersin; ve kazanan, en iyi eli bekleyen değil, postflop en iyi oynayan ve baskıyı sürekli kuran olur. Tam sayısal aralıkları buraya yazmıyorum, çünkü kitabın felsefesi bu derinlikte nettir: heads-up ve kısa-el Nash aralıkları molada, drill'de kalibre edilir, ezber tablo değil. Aklında kalması gereken tek cümle: heads-up'ta ICM biter, chipEV başlar; button smol blind'dir, inisiyatif ve pozisyon sende.",
       },
     ],
   },

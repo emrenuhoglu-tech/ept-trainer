@@ -624,6 +624,42 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 17.8",
     kavram: "stack-modu",
   },
+  {
+    q: "IP, tek-raise'li pot, kuru board A-7-2 rainbow. Aralığının tamamıyla flop planın?",
+    options: ["2/3 pot polarize c-bet", "1/3 pot yüksek frekans range-bet (aralığın çoğu)"],
+    correct: 1,
+    explain:
+      "Kuru yüksek-kart board = range avantajı sende (PFR). Küçük boyut (1/3) yüksek frekans range-bet; ucuz, bilgi taşımaz, river'da check-fold lüksünü korur. 2/3 polarize ıslak board içindir.",
+    source: "Bölüm 18.2",
+    kavram: "c-bet",
+  },
+  {
+    q: "IP, 3-bet potu, KK, ıslak board 9-8-7 iki renk (SPR ~3). C-bet mi, boyut ne?",
+    options: ["Check — board çok tehlikeli", "2/3 value bet: ıslak board + güçlü value + düşük SPR = potu şişir, commit"],
+    correct: 1,
+    explain:
+      "Islak bağlantılı board polarize oynanır: güçlü value (overpair) 2/3 ile şişirir. SPR ~3 zaten commit bölgesi (B11.0). Check pasif oynar, value kaçırır; ama turn'de kent/flush tamamlayan scare kartta fren (B11.1).",
+    source: "Bölüm 18.2 / 18.3",
+    kavram: "c-bet",
+  },
+  {
+    q: "OOP (SB'den 3-bet, BTN call), AK, kuru board Q-6-3 rainbow — hiçbir şey yakalamadın. Hat?",
+    options: ["Havayla 1/3 range c-bet at", "Check — OOP havayla range-bet tuzak; check-call/check-fold, iki overcard showdown value"],
+    correct: 1,
+    explain:
+      "OOP havayla otomatik range-bet TUZAK (B18.5): seni pozisyonsuz şişmiş pota sokar. AK'da iki overcard + backdoor equity var; check-call ya da check-fold hattı station'a value kesmez ama kendini bloated pota atmaz.",
+    source: "Bölüm 18.5",
+    kavram: "c-bet",
+  },
+  {
+    q: "3 yollu pot, IP, top pair iyi kicker (AJ), board J-9-4 iki renk. Frekans/boyut nasıl değişir?",
+    options: ["HU gibi 2/3 value bet", "Frekans çöker (B13): tek per bir sınıf aşağı; küçük value/kontrol, şişirme yok"],
+    correct: 1,
+    explain:
+      "Multiway'de flop c-bet frekansı çöker (B13.1). Top pair HU'da value; 3 yollu bir sınıf düşer → pot kontrol, küçük value ya da check. İki oyuncuyu birden geçmesi gereken value barı yükselir; havayla range-bet yok.",
+    source: "Bölüm 18.6 / 13.1",
+    kavram: "c-bet",
+  },
 ];
 
 export function randomScenario(): Scenario {

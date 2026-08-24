@@ -1234,6 +1234,83 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M22",
+    title: "C-bet & barreling: flop → turn → river",
+    chapter: "Bölüm 18 ★",
+    minutes: 9,
+    slides: [
+      {
+        title: "Tez: c-bet bir sebep için — value ya da fold equity",
+        table: { section: "Bölüm 18", sub: "18.1", caption: "Rec sahada ağırlık value'ya kayar." },
+        bullets: [
+          "Preflop boyut (B4.2): IP 3-bet 3×, OOP 4×, coldcaller başına +1×, squeeze 4.5–5×.",
+          "C-bet iki nedenden atılır: value (öderler) VEYA fold equity (atarlar).",
+          "Rec sahada fold equity düşük → default c-bet GTO'nun ~%10–15 altı.",
+          "İkisi de 'hayır' ise check. Havayla range-bet refleksi para yakar.",
+        ],
+        ruleBox: "Rec sahada c-bet bir SEBEP için atılır — otomatik range-bet refleksi için değil.",
+        narration:
+          "Bu modül dağınık bir konuyu tek yere topluyor: bahis boyutları ve c-bet, yani süreklilik bahsi. Önce boyut haritası. Preflop tarafı kitapta net ve ezber: pozisyon içindeyken 3-bet açılışın üç katı, pozisyon dışındayken dört katı, her cold-caller için bir açılış boyutu ekle, squeeze dört buçuk beş kat. Şimdi asıl kafa karıştıran taraf: flop c-bet. Buradaki tek soru şu, c-bet neden atılır? İki neden var. Bir: value, yani senden zayıf bir el ödeyecek. İki: fold equity, yani daha iyi bir el atacak ya da bir draw call'ı bırakacak. Tabloya bak. Senin sahanda, yani rec-ağırlıklı Main ve EPT masalarında rakip çoğu zaman station'dır, kolay kolay fold etmez. Bu da fold equity'yi düşürür. Sonuç: senin default c-bet frekansın çözücünün önerdiğinin yaklaşık yüzde on, yüzde on beş altında olmalı; çözücü dengeli bir rakibe göre konuşur, senin rakibin dengeli değil. Pusula tek cümle: c-bet bir sebep için atılır, öderler mi yoksa gerçekten atarlar mı? İkisinin de cevabı hayırsa check et. Havayla otomatik range-bet refleksi station'a karşı para yakmaktır; üstelik call yiyince kendi şişirdiğin pota bluff-catcher olarak girersin, kök hatanın ta kendisi.",
+      },
+      {
+        title: "Flop: board dokusu frekansı ve boyutu belirler",
+        table: { section: "Bölüm 18", sub: "18.2", caption: "Board setler boyutu, elin değil." },
+        visuals: [
+          { kind: "board", cards: "As 7d 2c", label: "Kuru — üçte bir, range-bet" },
+          { kind: "board", cards: "9s 8s 7d", label: "Islak — üçte iki polarize / gerisi check" },
+        ],
+        bullets: [
+          "Kuru yüksek-kart (A-7-2): range avantajı sende → 1/3 yüksek frekans range-bet.",
+          "Islak bağlantılı (9-8-7): range avantajı BB'de → 2/3 polarize, gerisi check.",
+          "Kuru eşleşmiş (8-8-3): ucuz fold equity → küçük bet.",
+          "Multiway her board: frekans çöker (B13).",
+        ],
+        ruleBox: "Kuru = küçük boyut, geniş aralık. Islak = büyük boyut, dar aralık.",
+        narration:
+          "Flop c-bet'in birinci belirleyicisi board dokusudur, elin değil board. Çünkü boyutu ve frekansı board belirler. Anahtar kavram range avantajı: preflop açan sensin, o yüzden yüksek kartlı kuru bir board senin aralığına yarar, düşük ve bağlantılı bir board ise call eden büyük körün aralığına yarar. Üç ana durumu ayır. Bir: kuru, yüksek kartlı, bağlantısız board, mesela as yedi iki ya da kral sekiz üç. Range avantajı sende, o yüzden aralığının tamamıyla küçük bir c-bet atarsın, üçte bir pot, yüksek frekans; buna range-bet denir, ucuzdur ve elin hakkında bilgi taşımaz. İki: ıslak, bağlantılı board, mesela dokuz sekiz yedi ya da yedi altı beş. Burada range avantajı sende değil, herkes bir şey yakalar; o yüzden seçici ol, polarize oyna, güçlü value ve gerçek nut-draw'la üçte iki pot at, gerisini check et, havayla barrel atma. Üç: kuru eşleşmiş board, mesela sekiz sekiz üç. Kimse eşleşmeyi çok tutmaz, fold equity ucuzdur, küçük bir bet yüksek frekans çalışır. Ve şu istisnayı unutma: üç ya da daha çok kişilik potta bu bölüm askıya alınır, c-bet frekansı çöker, bunu on üçüncü bölümde işledik. Tek cümle: kuru board küçük boyut geniş aralık, ıslak board büyük boyut dar aralık.",
+      },
+      {
+        title: "Hangi elle c-bet — dört sınıf, üç boyut",
+        table: { section: "Bölüm 18", sub: "18.3", caption: "Value / draw / hava / marjinal × kuru / ıslak." },
+        bullets: [
+          "Value (top pair+/overpair/set): kuru 1/3, ıslak 2/3 — şişirmek istediğin el.",
+          "Gerçek/nut draw: semi-bluff bet, ıslakta büyük (tamamlanınca ödenir).",
+          "Hava + bloker: SADECE kuru board range-bet parçası; ıslakta check-fold.",
+          "Marjinal showdown (2. per): ıslakta check-back, pot kontrol.",
+        ],
+        ruleBox: "Boyut = river planının fiyatı. 2/3 attıysan havayla o yola girme (B11.1).",
+        narration:
+          "Board'u okuduktan sonra ikinci soru: hangi elle c-bet atarım ve hangi boyutta? Dört sınıfa ayır. Birinci sınıf, value: top pair ve üstü, overpair, set, iki per. Bunlarla bet atarsın; kuru board'da üçte bir, ince value dahil; ıslak board'da üçte iki, çünkü bunlar potu şişirmek istediğin ellerdir. İkinci sınıf, gerçek ya da nut draw: nut flush draw, iki uçlu açık draw artı overcard. Bunlarla semi-bluff bet atarsın; ıslak board'da büyük, çünkü tamamlanınca çok ödenir. Üçüncü sınıf, hava artı bloker: bunu sadece kuru board'da, range-bet'in bir parçası olarak küçük atarsın; ıslak board'da bırak, check-fold, çünkü board rakibe yaradı ve havanın fold equity'si yok. Dördüncü sınıf, marjinal showdown value: ikinci per, zayıf top pair. Bunları ıslak board'da check-back edersin, pot kontrolü için; kuru board'da öderse küçük bir value bet, ödemezse check. Ve buradaki köprü kuralı on birinci bölüme bağlanır: attığın boyut river planının fiyatıdır. Flop'ta üçte iki attıysan turn ve river'ın stack-pot oranını daralttın; havayla o yola girme.",
+      },
+      {
+        title: "2. fıçı (turn): river planım var mı?",
+        table: { section: "Bölüm 11", sub: "11.1", caption: "Elim × turn kartı — yön sabit, boyut kalibre." },
+        bullets: [
+          "Overpair: boş turn kontrollü bet; overcard SPR say; board eşleşti/draw geldi → check.",
+          "Top pair iyi kicker: ince bet / check-call; kötü kartta check-fold.",
+          "Hava + bloker: boş turn barrel adayı; korkutucu kart gelince BIRAK.",
+          "Potu her büyüttüğünde river'da check-fold lüksün azalır.",
+        ],
+        ruleBox: "İkinci fıçıyı atmadan sor: river planımı söyleyebiliyor muyum?",
+        narration:
+          "C-bet atıldı, call geldi. Şimdi ikinci fıçı, turn. Kök hata çoğu zaman tam burada doğar: potu ikinci fıçıyla kendin şişirir, river'a bluff-catcher olarak kalırsın. Tabloya bak, elin ve gelen turn kartına göre. Overpair'in varsa: boş ya da düşük turn'de kontrollü bet; sana overcard geldiyse stack-pot oranını say ve dikkatli ol; board eşleştiyse ya da draw tamamlandıysa check eğilimi. Top pair iyi kicker: ince bet ya da check-call, kötü kartta check-fold. Hava artı bloker: boş turn'ler barrel adayı, ama korkutucu bir kart gelince bırak. Boyutlar senin icra verinle kalibre; ama yön sabittir, potu her büyüttüğünde river'da check-fold etme lüksünü satın alma gücün azalır. İkinci fıçıyı atmadan önce iki soruyu cevapla: river planımı şimdiden söyleyebiliyor muyum, ve kötü bir river geldiğinde check-fold edebileceğim bir pot boyutu bırakıyor muyum? Turn'de attığın boyut, river'da vereceğin kararın fiyatıdır.",
+      },
+      {
+        title: "3. fıçı (river): value mı, bırak mı",
+        table: { section: "Bölüm 11", sub: "11.2", caption: "Boyut büyüdükçe rakip value'ya kayar." },
+        bullets: [
+          "Bluff-catch: ≤%50 call yönü; overbet polarize → tek per fold.",
+          "Thin value (11.3): senden zayıf el ödüyorsa ince de olsa BET.",
+          "Kötü river (11.4): alt kartın 4.'sü / 3. flush / board eşleşme → jam ASLA.",
+          "Multiway (13.1): blöf yok, tek per bir sınıf aşağı — sadece value/nut.",
+        ],
+        ruleBox: "River'da jam ancak senden zayıf bir el ödeyecekse value'dur.",
+        narration:
+          "Ve üçüncü fıçı, river. Burada iki farklı koltuk var. Birincisi, rakip bet attı ve elin bir bluff-catcher: karar rakibin boyutuna bağlı. Yüzde elli ve altı boyutlar daha çok blöf ve ince value içerir, call yönü; overbet ise polarizedir, ya nut ya hava, ve orada tek per fold yönüne döner, panik hero-call değil. İkincisi, sıra sende ve value için mi bet atmalısın? Kural: senden zayıf bir el ödeyecekse, ince de olsa bet et; rec-ağırlıklı sahada kaçan thin value doğrudan chip kaybıdır. Ama bir alarm listesi var, kötü river kataloğu: alt kartların dördüncüsü ya da kenti tamamlayan kart, üçüncü flush kartı, board'un eşleşmesi, ya da üstüne gelen overcard. Bu kartlarda value hedefin yoktur; küçük pota check-call, büyük pota check-fold, ve jam asla, çünkü jam ancak senden zayıf bir el ödeyecekse value'dur. Son olarak multiway: üç ya da daha çok kişilik potta blöf yok, tek per heads-up'takinden bir sınıf aşağı, sadece güçlü value ve gerçek nut için bet. Bu üç sokak bir zincir: flop c-bet kararı şişmiş potun tohumunu ya keser ya eker, turn onu büyütür ya da frenler, river icrayı verir.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

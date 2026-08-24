@@ -966,6 +966,64 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M18",
+    title: "Day 2 icra: 50bb dinamikleri",
+    chapter: "Bölüm 14 + Bölüm 17",
+    minutes: 8,
+    slides: [
+      {
+        title: "50bb = B/C sınırı: ne açılır, ne kapalı",
+        table: { section: "Bölüm 14", sub: "14.1", caption: "40–60bb köprü: 3-bet yeniden açılır, commit'e yaklaşır." },
+        bullets: [
+          "YENİDEN AÇILAN: normal 3-bet (~7bb, jam değil) value + A5s bluff; IP flat/set-mine; gerçek SPR postflop.",
+          "KAPALI KALAN: şişmiş potta tek pair stack-off ASLA (hiçbir derinlikte açılmaz).",
+          "50bb'de 4-bet ≈ commit — 4-bet bluff'a dikkat.",
+        ],
+        ruleBox:
+          "50bb en esnek bölge: 3-bet ve set-mine geri gelir; ama tek-pair stack-off ve pervasız 4-bet bluff kapalı.",
+        narration:
+          "Bu modül ikinci aşamaya, yani day two'ya ve elli big blind civarı oyuna odaklanıyor. Önce stack modun: elli big blind seni B ile C modunun sınırına, yani kırk ile altmış big blind bandına geri koyuyor. Bu aslında turnuva pokerinin en esnek bölgesi, çünkü kısa stack kısıtları henüz yok ama derin stack lüksü de yok. Neler yeniden açılıyor? Bir: normal 3-bet'ler. Artık her şey jam değil; value ellerinle ve as beş tipi blöflerinle yaklaşık yedi big blind'e 3-bet atabilirsin. İki: pozisyonda flat call'lar; çiftlerle ve suited broadway'lerle set-mining matematiği bu derinlikte yine çalışıyor. Üç: gerçek stack pot oranı kararlarıyla postflop oyun. Peki neler kapalı kalıyor? Birincisi ve en önemlisi: şişmiş potta tek pair'le stack-off. Bu hiçbir derinlikte açılmaz, elli big blind'de de açılmaz — kök hata kuralı sabit. İkincisi: 4-bet blöflerine dikkat. Elli big blind'de bir 4-bet seni pratikte commit eder; devam edersen artık geri dönüşün yok. Yani elli big blind özgürleştiren bir derinlik ama iki kapı hâlâ kilitli.",
+      },
+      {
+        title: "Day 2 üç faz + savaşçı/hayatta-kalan ayrımı",
+        bullets: [
+          "Erken: masa yeniden çekildi, kimsede okuma yok. İlk saat sağlam ABC; ilk 30 dk'da masayı savaşçı/hayatta-kalan diye ayır.",
+          "Paraya yaklaşırken: orta stackler taş kesilir — onlara karşı neredeyse her iki kartla aç; büyüklerle kavga etme, kaptandan kaç.",
+          "ITM: bubble sonrası saha anında gevşer, min-casher'lar püskürür — value ağırlıklı dön, daha hafif call'la.",
+        ],
+        ruleBox:
+          "Hayatta-kalanlardan çal; savaşçılara karşı sadece malla otur. Bag koruyanlar senin steal hedefin.",
+        narration:
+          "Day two üç fazda oynanır ve her fazın farklı bir modu var. Erken faz, yani şimdi: masalar yeniden çekildi, kimsede henüz okuma yok. İlk bir saat sağlam, standart ABC oyna ve bu sırada asıl işini yap — ilk otuz dakikada masanı ikiye ayır: savaşçılar ve hayatta-kalanlar. Hayatta-kalanlar bag'ini, yani günü kapattığı stack'ini korumaya oynayan, sıkılaşan oyunculardır; onlar senin steal hedefin, blindlerine acımasızca saldır. Savaşçılar karşılık verenlerdir; onlara karşı sadece gerçek elle, malla ortaya çık. İkinci faz, paraya yaklaşırken: işte elli big blind burada bir silaha dönüşür. Orta stackler bubble'a yakın dramatik biçimde sıkılaşır; onlara karşı neredeyse her iki kartla açabilirsin. Ama büyük stackler karşılık verir — kavgayı orta stacklerle seç, masanın kaptanından uzak dur. Üçüncü faz, para içinde: bubble patlayınca saha anında gevşer, sadece min-cash için bekleyenler püskürmeye başlar. O an value ağırlıklı oyuna dön ve daha hafif ellerle call'a in. Tek meta kural: hayatta-kalandan çal, savaşçıya karşı malla otur.",
+      },
+      {
+        title: "Postflop 50bb: doku + SPR kontrastı",
+        table: { section: "Bölüm 11", sub: "11.0", caption: "SPR kararı: 3-bet potta commit, SRP'de derin." },
+        bullets: [
+          "Single-raised PFR: kuru boardda 33% c-bet neredeyse hep; ıslak orta boardda (T87, 976) havayla check-back, value+draw ile büyük bet (66–75%).",
+          "3-bet pot SPR ~2.5–3: TPTK artık stack-off eli — düşük-SPR commit, kök hatanın istisnası DEĞİL.",
+          "SRP SPR 8+: eski kural aynen — tek pair asla stack-off.",
+        ],
+        ruleBox:
+          "Tek fark derinlik: 3-bet potta (SPR ~3) TPTK commit; SRP'de (SPR 8+) tek pair bluff-catcher.",
+        narration:
+          "Elli big blind'de postflop icra. Önce single-raised pot, sen açan taraf. Kuru boardlarda, yani bağlantısız kartlarda, neredeyse her zaman üçte bir pot c-bet at; bu ucuz ve range'in için baskı kurar. Islak orta boardlarda ise — on sekiz yedi, dokuz yedi altı gibi — havayla check-back et, ama value ve draw'larınla büyük bas, üçte iki ile dörtte üç pot arası. Şimdi kritik kısım, stack pot oranı kontrastı. 3-bet'li bir potta stack pot oranı yaklaşık iki buçuk, üç olur; bu derinlikte top pair iyi kicker artık bir stack-off elidir. Dikkat: bu kök hatanın istisnası değil — düşük stack pot oranı commit matematiğinin ta kendisi; pot zaten stack'e göre büyük olduğu için top pair'le girmek doğru. Buna karşılık single-raised potta stack pot oranı sekiz ve üstüdür; orada eski kural birebir geçerli, tek pair asla stack-off etmez, bluff-catcher kalır. Yani tek değişken derinlik: aynı top pair, 3-bet potta commit, single-raised potta fren. Bir de check-raise: single-raised potta check-raise yersen, draw'suz tek pair'i at, çift artı draw'la devam et, top pair iyi kicker'ı bluff-catcher'a düşür — flop'ta call, turn'de yeniden değerlendir, büyük river'a fold. Ve korku kartları: c-bet'in call yediyse, turn'de gelen as ya da kral gibi overcard'ları hayatta-kalanlara karşı yaklaşık yüzde yetmiş beş barrel et, savaşçılara karşı kapat.",
+      },
+      {
+        title: "Stack trigger noktaları (ezberle)",
+        table: { section: "Bölüm 17", sub: "17.8", caption: "Derinlik düştükçe karar ağacı sadeleşir." },
+        bullets: [
+          "60bb+ tam playbook · 40bb: 4-bet bluff'ı öldür, EP'yi iki kademe daralt.",
+          "30bb: dünkü Mod C — resteal jam (77+/AT+/KQ geç açışlara) · 20bb: jam-first, BB dışı flat yok.",
+          "12bb ve altı: sadece push/fold.",
+        ],
+        ruleBox: "Her elden önce trigger'a bak: stack hangi bandda, karar ağacı ona göre kısalır.",
+        narration:
+          "Son olarak stack trigger noktaları — bunları ezberle, çünkü hangi bandda olduğun bütün karar ağacını belirler. Altmış big blind üstünde yukarıdaki tam playbook geçerli. Kırk big blind'e inince: 4-bet blöflerini tamamen öldür ve erken pozisyon aralığını iki kademe daralt, çünkü bu derinlikte 4-bet zaten commit. Otuz big blind: dünkü Mod C'ye dön — resteal jam'ler devrede, yani yedi yedi ve üstü, as on ve üstü, kral kız gibi ellerle geç açışlara yeniden-jam. Yirmi big blind: jam-first ağacına geç, büyük kör dışında flat yok. On iki big blind ve altı: sadece push fold chartları, başka hamle yok. Pratik hedef: day two başında ortalama muhtemelen altmış ile seksen big blind arası olacak; sen ortalamaya yakınsın, aceleye ve paniğe gerek yok. Bir double seni ilk yüzde yirmiye taşır. Kendi oyununu oyna, önce fazı sonra stack'i oku.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

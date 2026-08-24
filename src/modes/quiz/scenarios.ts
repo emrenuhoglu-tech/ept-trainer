@@ -597,6 +597,33 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 11.0",
     kavram: "kök-hata",
   },
+  {
+    q: "Day 2 ilk 30 dakikada masayı nasıl kullanırsın?",
+    options: ["Herkese eşit baskı yap", "Savaşçı/hayatta-kalan diye ayır: hayatta-kalandan çal, savaşçıya malla otur"],
+    correct: 1,
+    explain:
+      "İlk 30 dk masayı ikiye ayır. Hayatta-kalanlar (bag koruyan, sıkılaşan) steal hedefin — blindlerine saldır. Savaşçılara sadece gerçek elle ortaya çık. Paraya yaklaşırken 50bb silaha döner: orta stacklere neredeyse her iki kartla aç, kaptandan kaç.",
+    source: "Bölüm 17.9",
+    kavram: "rakip-okuma",
+  },
+  {
+    q: "3-bet potta SPR ~3, top pair iyi kicker'ın var. Stack-off doğru mu? Ya single-raised potta (SPR 8+)?",
+    options: ["İkisinde de fold — tek pair asla", "3-bet potta stack-off DOĞRU (düşük-SPR commit); SRP'de (SPR 8+) tek pair asla"],
+    correct: 1,
+    explain:
+      "Tek fark derinlik. 3-bet potta SPR ~2.5–3 → TPTK stack-off eli; bu kök hatanın istisnası değil, düşük-SPR commit matematiği. Single-raised potta SPR 8+ → eski kural aynen, tek pair bluff-catcher, asla stack-off.",
+    source: "Bölüm 11.0",
+    kavram: "kök-hata",
+  },
+  {
+    q: "50bb'de A5s ile 4-bet bluff cephaneliğin var. 40bb'ye düşünce ne değişir?",
+    options: ["Aynı kalır", "40bb'de 4-bet bluff'ı öldür + EP'yi iki kademe daralt (4-bet = commit)"],
+    correct: 1,
+    explain:
+      "Stack trigger: 60bb+ tam playbook; 40bb'de 4-bet bluff'ı öldür ve EP'yi iki kademe daralt çünkü 4-bet zaten commit; 30bb Mod C resteal jam; 20bb jam-first (BB dışı flat yok); 12bb altı push/fold.",
+    source: "Bölüm 17.8",
+    kavram: "stack-modu",
+  },
 ];
 
 export function randomScenario(): Scenario {

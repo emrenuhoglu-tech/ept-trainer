@@ -1024,6 +1024,80 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M19",
+    title: "50bb aralık kartı: aç / flat / 3-bet / BB savun",
+    chapter: "Bölüm 17 + Bölüm 4",
+    minutes: 8,
+    slides: [
+      {
+        title: "Açılış: pozisyona göre (dar → geniş)",
+        table: { section: "Bölüm 17", sub: "17.3", caption: "8-handed ~50bb open, 2.1–2.3x." },
+        visuals: [
+          { kind: "range", value: "77+, ATs+, KJs+, QJs, JTs, T9s, AJo+, KQo", valueLabel: "UTG/UTG+1", caption: "Erken ~%13: dar + güçlü" },
+          { kind: "range", value: "22+, A2s+, K5s+, Q7s+, J7s+, T7s+, 96s+, 86s+, 75s+, 65s, 54s, A4o+, K9o+, Q9o+, J9o+, T9o", valueLabel: "BTN", caption: "Button ~%40: geniş steal" },
+        ],
+        bullets: [
+          "UTG/UTG+1 ~%13: 77+, ATs+, KJs+, QJs, JTs, T9s, AJo+, KQo",
+          "LJ/MP ~%17: 66+, A9s+, A5s, KTs+, QTs+, J9s+, T9s, 98s, ATo+, KJo+",
+          "HJ ~%20: 55+, A8s+, A4s–A5s, K9s+, Q9s+, J9s+, T8s+, 98s, 87s, ATo+, KJo+, QJo",
+          "CO ~%26: 44+, A2s+, K8s+, Q9s+, J8s+, T8s+, 97s+, 87s, 76s, A9o+, KTo+, QTo+, JTo",
+          "BTN ~%40: 22+, suited Ax, K5s+, Q7s+, J7s+, T7s+, 96s+, 86s+, 75s+, 65s, 54s, A4o+, K9o+, Q9o+, J9o+, T9o · SB %35 raise-only",
+        ],
+        ruleBox: "Erken dar-güçlü, geç genişler. 35bb altına düşersen bu tablo geçmez (→ M18 stack trigger).",
+        narration:
+          "Bu bir tekrar ve referans modülü: elli big blind day two için açılış, flat, 3-bet ve büyük kör savunması aralıklarını pozisyon pozisyon ayrı ayrı topluyoruz — çünkü aynı aralığı farklı bir çerçevede tekrar görmek onu ezbere değil, sezgiye çevirir. Önce açılış. Tek prensip: erken pozisyon dar ve güçlü, pozisyon geç indikçe aralık genişler. Erken pozisyonda, yani yu ti ci ve artı birde, yaklaşık yüzde on üç: yedi yedi ve üstü çiftler, as on suited ve üstü, kral jek suited ve üstü, birkaç bağlı suited ve üstteki offsuit broadway'ler. Buradaki her el bir 3-bet'e ya da flop baskısına devam edebilir — açtığın hiçbir şey seni zor durumda bırakmamalı. Orta pozisyonlarda aralık kademe kademe açılır; as beş suited, suited connector'lar, alt offsuit broadway'ler sırayla eklenir. Button'da yaklaşık yüzde kırk: bütün suited as'ler, geniş suited krallar ve dallar, bağlı eller — çünkü arkanda sadece iki kör var ve pozisyon senin. Smol blind folda kadar gelirse yüzde otuz beş sadece raise, limp yok. Grid'lere bak: solda dar erken aralık, sağda geniş button — ikisi arasındaki fark tüm açılış mantığını özetliyor. Ve şu eşiği unutma: otuz beş big blind altına düşersen bu tablo geçmez, stack trigger'larına geçersin.",
+      },
+      {
+        title: "3-bet: kime, nasıl (value + blöf)",
+        table: { section: "Bölüm 4", sub: "4.3", caption: "Pozisyon eşleşmeleri: value + blöf." },
+        visuals: [
+          { kind: "range", value: "TT+, AJs+, AQo+, KQs", blof: "A5s-A2s, KTs, QTs, J9s, T8s", valueLabel: "value", blofLabel: "blöf", caption: "CO açışına karşı (BTN'den)" },
+          { kind: "range", value: "99+, ATs+, AQo+, KQs, KJs", blof: "A5s-A3s, K9s-K7s, QTs, J9s, T8s, 76s", valueLabel: "value", blofLabel: "blöf", caption: "BTN açışına karşı (BB'den) — sert döv" },
+        ],
+        bullets: [
+          "Boyut: IP open'ın 3x'i (~7bb), OOP 4x'i (~8.5bb).",
+          "vs EP: QQ+/AK value; A5s ara sıra blöf. Hepsi bu.",
+          "vs LJ/HJ: TT+/AQs+/AKo value; blöf A5s–A3s, KJs, QJs.",
+          "vs SB (BB'den) lineer+geniş: 88+, A9s+, ATo+, KTs+, QTs+, JTs value; K7s+, Q8s+, J8s+ blöf.",
+        ],
+        ruleBox: "3-bet edeceğin el 4-bet/jam'e devam edebilmeli; edemiyorsa flat (IP/BB) ya da fold.",
+        narration:
+          "Şimdi 3-bet: kime ve nasıl. Boyut önce: pozisyondayken açılışın üç katı, yaklaşık yedi big blind; pozisyon dışındayken dört katı, yaklaşık sekiz buçuk. Kime 3-bet, kimin aralığına göre değişir. Erken pozisyon açışına karşı disiplin bölgesindesin: kuvöz kuvöz ve üstü ile as kral value, ve sadece ara sıra as beş suited blöf — hepsi bu, erken pozisyondan blöf 3-bet'i zorlamıyorsun. Açan pozisyon geç indikçe hem value hem blöf genişler. Cut-off açışına button'dan: on on ve üstü, as jek suited ve üstü, as kız offsuit ve üstü, kral kız suited value; blöf tarafı as beşten as ikiye, kral on suited, kız on suited, jek dokuz suited, on sekiz suited. Button açışına büyük körden: burada button'ı sert dövüyorsun çünkü day two steal'cileri orada yaşıyor — dokuz dokuz ve üstü, as on suited ve üstü value, geniş suited bloker blöfleri. Ve smol blind açışına büyük körden aralık lineerleşir ve genişler, çünkü onun aralığı çok geniş. Grid'lerdeki yeşil value ve turuncu blöf ayrımını gözünle gör. Altın kural sabit: 3-bet edeceğin el gelen 4-bet ya da jam'e devam edebilmeli; edemiyorsa o eli flat et ya da at.",
+      },
+      {
+        title: "Flat call: yalnız IP, set-mine matematiği",
+        visuals: [
+          { kind: "range", flat: "99-22, AJs, ATs, KQs, KJs, KTs, QJs, QTs, JTs, T9s, 98s, 87s, 76s", caption: "IP flat (CO/BTN) — LJ/HJ açışına karşı" },
+        ],
+        bullets: [
+          "IP (CO/BTN) flat: 99-22 set-mine (50bb'de implied odds geri geldi) + AJs, ATs, KQs, KJs, KTs, QJs, QTs, JTs, T9s, 98s, 87s, 76s.",
+          "SB'den ASLA cold-call — 3-bet ya da fold (100bb'de flat kayıp pozisyon).",
+          "Coldcall'un 3 şartı (Bölüm 4.4): pozisyon (IP/BB) + derinlik (call'un 15x'i arkada) + ödeyen rakip. Üçü yoksa flat etme.",
+          "Domine offsuit broadway (AJo, KQo, KJo) UTG açışına coldcall YOK — 3-bet ya da fold.",
+        ],
+        ruleBox: "Flat sadece pozisyondayken; OOP tek per 3-bet potta zaten bluff-catcher.",
+        narration:
+          "Üçüncü kart: flat call, yani 3-bet etmeden sadece call. İki temel kural. Bir: flat yalnızca pozisyondayken. Cut-off ya da button'da, senden erken açan birine karşı, iki iki'den on on'a kadar çiftlerle set-mining yaparsın — ve elli big blind bu matematiği geri getiriyor, çünkü set çektiğinde ödeyecek yeterli derinlik var; yüz big blind kadar olmasa da implied odds yeniden çalışıyor. Bunun üstüne as jek suited, as on suited, kral kız suited gibi oynanabilir suited eller ekleyebilirsin, özellikle gevşek açanlara karşı. İki: smol blind'den asla cold-call yok — oradan ya 3-bet ya fold, çünkü flat seni kalıcı olarak pozisyonsuz bırakır. Coldcall'un üç şartını hatırla: pozisyon, derinlik, ve ödeyen rakip; üçü aynı anda yoksa flat etme. Ve domine edilen offsuit broadway'leri — as jek offsuit, kral kız offsuit, kral jek offsuit — erken açışa coldcall etme; bunlar ya 3-bet ya fold elleridir, ortada oynanan hâlleri tam da kök hatayı yaşatan ellerdir.",
+      },
+      {
+        title: "BB savunması: ante'li fiyat",
+        table: { section: "Bölüm 4", sub: "4.8", caption: "Ante potu şişirir → geniş defend, ~%21 equity yeter." },
+        visuals: [
+          { kind: "range", value: "99+, ATs+, AQo+, KQs, KJs", blof: "A5s-A3s, K9s-K7s, QTs, J9s, T8s, 76s", valueLabel: "3-bet value", blofLabel: "3-bet blöf", caption: "BB'den BTN'ye 3-bet (üstü); gerisi call" },
+        ],
+        bullets: [
+          "Fiyat: 2.25x açışa ~%21 equity yeter (2500/12000) — neredeyse her iki kart geçer.",
+          "Call (defend): tüm suited (T3s dahil), bağlı/1-gap offsuit (86o, 97o, J8o), tüm Ax, Kx'in çoğu, 22+ → ~%55-60.",
+          "Fold: J3o, Q4o, K2o–K5o, 92o — hem kopuk hem domine çöp.",
+          "Ucuz girmek ≠ ucuz devam: flopta ikinci per 'zaten pottayım' = kök hatanın BB versiyonu. Multiway'de daralt.",
+        ],
+        ruleBox: "Fiyat equity'yi kurtarır, oynanabilirliği kurtarmaz — zayıf offsuit'i fiyat olsa bile at.",
+        narration:
+          "Son kart: büyük kör savunması, ve burası matematiğin en cömert yeri. Ante olduğu için potta zaten çok para var, senin eklemen az; iki nokta yirmi beş katlık bir açışa karşı yaklaşık yüzde yirmi bir equity yeter, ki neredeyse her iki kart bu eşiği geçer. O yüzden büyük körden defend aralığın çok geniş: tüm suited eller, tüm çiftler, bağlı ve tek boşluklu offsuit'ler, bütün as'ler, kralların çoğu — kabaca elinin yüzde elli beş, altmışı call. Neyi atarsın? Hem kopuk hem domine çöpü: jek üç offsuit, kız dört offsuit, kral iki'den kral beşe offsuit, dokuz iki offsuit. Fiyat equity'yi kurtarır ama oynanabilirliği kurtarmaz — o yüzden zayıf offsuit'i fiyat cazip olsa bile at. Üstteki elleri call yerine 3-bet'e yükseltirsin; grid'de gösterilen dokuz dokuz ve üstü, as on suited ve üstü value, bloker blöfler. Ama en kritik uyarı şu: ucuz girmek ucuz devam etmek değildir. İki bin beş yüze girip flopta ikinci per yakalayınca 'zaten pottayım' moduna geçmek, kök hatanın büyük kör versiyonudur; giriş fiyatın flop sonrası kararlarını etkilemez, her sokak yeni bir karardır. Ve multiway'de bu geniş defend'i daralt — domine eller çok yollu potta değer kaybeder.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

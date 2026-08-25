@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ept-trainer/solver-pipeline/schema.json",
+  "title": "SolvedSpot",
+  "description": "Dual-lens solver spot: solver truth + book doctrine + live exploit.",
+  "type": "object",
+  "required": ["id", "provenance", "spot", "solver", "doctrine"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "provenance": {
+      "type": "object",
+      "required": ["engine", "version", "calculatedAt", "format", "mode", "icmContext", "effectiveStackBB", "treeConfigId", "validation"],
+      "additionalProperties": false,
+      "properties": {
+        "engine": { "enum": ["HRC", "PioSOLVER"] },
+        "version": { "type": "string" },
+        "calculatedAt": { "type": "string", "format": "date" },
+        "format": { "type": "string" },
+        "mode": { "enum": ["chipEV", "ICM"] },
+        "icmContext": { "enum": ["chipEV", "bubble", "final_table"] },
+        "effectiveStackBB": { "type": "number", "exclusiveMinimum": 0 },
+        "treeConfigId": { "type": "string" },
+        "validation": {
+          "type": "object",
+          "required": ["status"],
+          "additionalProperties": false,
+          "properties": {
+            "crossCheckedWith": { "type": "string" },
+            "status": { "enum": ["passed", "pending", "flagged"] }
+          }
+        }
+      }
+    },
+    "spot": {
+      "type": "object",
+      "required": ["seat", "action"],
+      "additionalProperties": false,
+      "properties": {
+        "seat": { "enum": ["UTG", "UTG1", "LJ", "HJ", "CO", "BTN", "SB", "BB"] },
+        "action": { "enum": ["RFI", "vs_open", "3bet", "4bet", "squeeze", "BvB"] },
+        "vs": { "type": "string" }
+      }
+    },
+    "solver": {
+      "type": "object",
+      "required": ["strategy", "sizings"],
+      "additionalProperties": false,
+      "properties": {
+        "strategy": {
+          "type": "object",
+          "description": "hand (e.g. AKs, TT, A5o) -> mixed strategy + per-action EV",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["freq", "ev"],
+            "additionalProperties": false,
+            "properties": {
+              "freq": { "type": "object", "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 } },
+              "ev": { "type": "object", "additionalProperties": { "type": "number" } }
+            }
+          }
+        },
+        "sizings": { "type": "object", "additionalProperties": { "type": "number" } }
+      }
+    },
+    "doctrine": {
+      "type": "object",
+      "required": ["bookSlot"],
+      "additionalProperties": false,
+      "properties": {
+        "bookSlot": { "type": "string" },
+        "taughtRange": { "type": "string" },
+        "exploitNote": { "type": "string" }
+      }
+    },
+    "liveExploit": {
+      "type": "object",
+      "required": ["pool", "note"],
+      "additionalProperties": false,
+      "properties": {
+        "pool": { "type": "string" },
+        "note": { "type": "string" },
+        "handHistoryRef": { "type": "string" }
+      }
+    }
+  }
+}

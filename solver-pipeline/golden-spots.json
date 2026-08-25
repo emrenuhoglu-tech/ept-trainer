@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "format": "NLHE_MTT_8MAX_BB_ANTE",
+    "count": 50,
+    "depths": [100, 60, 40, 25, 15],
+    "note": "HRC solve listesi. Her spot bir SolvedSpot üretecek (schema.json). icm: chipEV|bubble|final_table. bookSlot = dolduracağı (kalibre et) slotu.",
+    "curatedAt": "2026-08-25"
+  },
+  "spots": [
+    { "id": "rfi_utg_100_chipev", "stackBB": 100, "seat": "UTG", "action": "RFI", "icm": "chipEV", "bookSlot": "B3" },
+    { "id": "rfi_lj_100_chipev", "stackBB": 100, "seat": "LJ", "action": "RFI", "icm": "chipEV", "bookSlot": "B3" },
+    { "id": "rfi_hj_100_chipev", "stackBB": 100, "seat": "HJ", "action": "RFI", "icm": "chipEV", "bookSlot": "B3" },
+    { "id": "rfi_co_100_chipev", "stackBB": 100, "seat": "CO", "action": "RFI", "icm": "chipEV", "bookSlot": "B3" },
+    { "id": "rfi_btn_100_chipev", "stackBB": 100, "seat": "BTN", "action": "RFI", "icm": "chipEV", "bookSlot": "B3" },
+    { "id": "rfi_sb_100_chipev", "stackBB": 100, "seat": "SB", "action": "RFI", "icm": "chipEV", "bookSlot": "B3" },
+    { "id": "rfi_co_60_chipev", "stackBB": 60, "seat": "CO", "action": "RFI", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "rfi_btn_60_chipev", "stackBB": 60, "seat": "BTN", "action": "RFI", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "rfi_sb_60_chipev", "stackBB": 60, "seat": "SB", "action": "RFI", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "rfi_co_40_chipev", "stackBB": 40, "seat": "CO", "action": "RFI", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "rfi_btn_40_chipev", "stackBB": 40, "seat": "BTN", "action": "RFI", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "rfi_sb_40_chipev", "stackBB": 40, "seat": "SB", "action": "RFI", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "rfi_btn_25_chipev", "stackBB": 25, "seat": "BTN", "action": "RFI", "icm": "chipEV", "bookSlot": "B5" },
+    { "id": "rfi_sb_25_chipev", "stackBB": 25, "seat": "SB", "action": "RFI", "icm": "chipEV", "bookSlot": "B5" },
+    { "id": "rfi_co_15_jam_chipev", "stackBB": 15, "seat": "CO", "action": "RFI", "vs": "jam", "icm": "chipEV", "bookSlot": "B5" },
+    { "id": "rfi_btn_15_jam_chipev", "stackBB": 15, "seat": "BTN", "action": "RFI", "vs": "jam", "icm": "chipEV", "bookSlot": "B5" },
+    { "id": "rfi_sb_15_jam_chipev", "stackBB": 15, "seat": "SB", "action": "RFI", "vs": "jam", "icm": "chipEV", "bookSlot": "B5" },
+
+    { "id": "bb_vs_btn_open_100_chipev", "stackBB": 100, "seat": "BB", "action": "vs_open", "vs": "BTN_open", "icm": "chipEV", "bookSlot": "B4.3" },
+    { "id": "bb_vs_co_open_100_chipev", "stackBB": 100, "seat": "BB", "action": "vs_open", "vs": "CO_open", "icm": "chipEV", "bookSlot": "B4.3" },
+    { "id": "bb_vs_lj_open_100_chipev", "stackBB": 100, "seat": "BB", "action": "vs_open", "vs": "LJ_open", "icm": "chipEV", "bookSlot": "B4.3" },
+    { "id": "bb_vs_btn_open_40_chipev", "stackBB": 40, "seat": "BB", "action": "vs_open", "vs": "BTN_open", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "bb_vs_btn_open_25_chipev", "stackBB": 25, "seat": "BB", "action": "vs_open", "vs": "BTN_open", "icm": "chipEV", "bookSlot": "B5" },
+    { "id": "btn_vs_co_open_100_chipev", "stackBB": 100, "seat": "BTN", "action": "vs_open", "vs": "CO_open", "icm": "chipEV", "bookSlot": "B4.3" },
+    { "id": "sb_vs_btn_open_40_chipev", "stackBB": 40, "seat": "SB", "action": "vs_open", "vs": "BTN_open", "icm": "chipEV", "bookSlot": "B14" },
+
+    { "id": "3bet_btn_vs_co_100_chipev", "stackBB": 100, "seat": "BTN", "action": "3bet", "vs": "CO_open", "icm": "chipEV", "bookSlot": "B4.3" },
+    { "id": "3bet_sb_vs_btn_100_chipev", "stackBB": 100, "seat": "SB", "action": "3bet", "vs": "BTN_open", "icm": "chipEV", "bookSlot": "B4.3" },
+    { "id": "3bet_bb_vs_btn_40_chipev", "stackBB": 40, "seat": "BB", "action": "3bet", "vs": "BTN_open", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "3bet_co_vs_lj_100_chipev", "stackBB": 100, "seat": "CO", "action": "3bet", "vs": "LJ_open", "icm": "chipEV", "bookSlot": "B4.3" },
+    { "id": "3bet_bb_vs_co_25_chipev", "stackBB": 25, "seat": "BB", "action": "3bet", "vs": "CO_open", "icm": "chipEV", "bookSlot": "B5" },
+
+    { "id": "4bet_co_vs_btn3bet_100_chipev", "stackBB": 100, "seat": "CO", "action": "4bet", "vs": "BTN_3bet", "icm": "chipEV", "bookSlot": "B4.5" },
+    { "id": "4bet_btn_vs_bb3bet_100_chipev", "stackBB": 100, "seat": "BTN", "action": "4bet", "vs": "BB_3bet", "icm": "chipEV", "bookSlot": "B4.5" },
+    { "id": "4bet_lj_vs_bb3bet_40_chipev", "stackBB": 40, "seat": "LJ", "action": "4bet", "vs": "BB_3bet", "icm": "chipEV", "bookSlot": "B4.5" },
+
+    { "id": "squeeze_btn_co+1caller_100_chipev", "stackBB": 100, "seat": "BTN", "action": "squeeze", "vs": "CO_open+1caller", "icm": "chipEV", "bookSlot": "B4.4" },
+    { "id": "squeeze_bb_open+1caller_40_chipev", "stackBB": 40, "seat": "BB", "action": "squeeze", "vs": "MP_open+1caller", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "squeeze_sb_open+1caller_60_chipev", "stackBB": 60, "seat": "SB", "action": "squeeze", "vs": "CO_open+1caller", "icm": "chipEV", "bookSlot": "B14" },
+
+    { "id": "bvb_sb_rfi_40_chipev", "stackBB": 40, "seat": "SB", "action": "BvB", "vs": "rfi", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "bvb_bb_vs_sb_40_chipev", "stackBB": 40, "seat": "BB", "action": "BvB", "vs": "SB_open", "icm": "chipEV", "bookSlot": "B14" },
+    { "id": "bvb_sb_rfi_25_chipev", "stackBB": 25, "seat": "SB", "action": "BvB", "vs": "rfi", "icm": "chipEV", "bookSlot": "B5" },
+    { "id": "bvb_bb_vs_sb_25_chipev", "stackBB": 25, "seat": "BB", "action": "BvB", "vs": "SB_open", "icm": "chipEV", "bookSlot": "B5" },
+    { "id": "bvb_sb_jam_15_chipev", "stackBB": 15, "seat": "SB", "action": "BvB", "vs": "jam", "icm": "chipEV", "bookSlot": "B5" },
+
+    { "id": "rfi_btn_25_bubble", "stackBB": 25, "seat": "BTN", "action": "RFI", "icm": "bubble", "bookSlot": "B12.4" },
+    { "id": "bb_vs_btn_open_25_bubble", "stackBB": 25, "seat": "BB", "action": "vs_open", "vs": "BTN_open", "icm": "bubble", "bookSlot": "B12.4" },
+    { "id": "resteal_bb_vs_btn_25_bubble", "stackBB": 25, "seat": "BB", "action": "3bet", "vs": "BTN_open_jam", "icm": "bubble", "bookSlot": "B12.4" },
+    { "id": "rfi_co_15_jam_bubble", "stackBB": 15, "seat": "CO", "action": "RFI", "vs": "jam", "icm": "bubble", "bookSlot": "B12.4" },
+    { "id": "call_vs_jam_bb_15_bubble", "stackBB": 15, "seat": "BB", "action": "vs_open", "vs": "SB_jam", "icm": "bubble", "bookSlot": "B12.4" },
+
+    { "id": "rfi_btn_40_ft", "stackBB": 40, "seat": "BTN", "action": "RFI", "icm": "final_table", "bookSlot": "B12.2" },
+    { "id": "rfi_sb_25_ft", "stackBB": 25, "seat": "SB", "action": "RFI", "icm": "final_table", "bookSlot": "B12.2" },
+    { "id": "resteal_bb_vs_co_40_ft", "stackBB": 40, "seat": "BB", "action": "3bet", "vs": "CO_open", "icm": "final_table", "bookSlot": "B12.2" },
+    { "id": "call_vs_shortjam_ft_ip", "stackBB": 40, "seat": "BTN", "action": "vs_open", "vs": "short_jam", "icm": "final_table", "bookSlot": "B12.2" },
+    { "id": "hu_btn_rfi_ft", "stackBB": 40, "seat": "BTN", "action": "RFI", "vs": "heads_up", "icm": "final_table", "bookSlot": "B12.5" }
+  ]
+}

@@ -1413,6 +1413,77 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M24",
+    title: "Risk Premium: ICM'in sayısı",
+    chapter: "Bölüm 20 ★",
+    minutes: 8,
+    slides: [
+      {
+        title: "ICM'in fiyatı bir sayıdır",
+        bullets: [
+          "Risk premium = chipEV eşiğine ICM'in eklediği ekstra gereken equity.",
+          "'Cover ediliyorsan daralt' = 'gereken equity'ye risk primini ekle.'",
+          "B12 ne yapacağını söyler; B20 neden ve ne kadarını ölçer.",
+          "chipEV'de rahat call olan el, ICM baskısında fold'a dönebilir.",
+        ],
+        ruleBox: "ICM'in fiyatı bir sayıdır: chipEV eşiğine eklenen ekstra gereken equity.",
+        narration:
+          "Bu modül kitabın en soyut disiplinini somut bir sayıya bağlıyor: risk premium, yani risk primi. Şimdiye kadar ICM'i hisle verdik: cover ediliyorsan daralt, bubble'da kuvöz kuvöz bile fold olabilir. Ama 'ne kadar daraltayım' sorusunun sayısal bir cevabı var. ICM'in fiyatı bir sayıdır: chipEV'de gereken equity'nin üstüne ICM'in eklediği ekstra yüzde. Yani 'cover ediliyorsan daralt' cümlesinin matematiksel karşılığı şudur: gereken equity'ye risk primini ekle. On ikinci bölüm sana ne yapacağını söyledi; bu bölüm neden ve ne kadar olduğunu ölçüyor. Çünkü chipEV'de rahat call olan bir el, ICM baskısı altında fold'a dönebilir, ve aradaki fark attığın her fold'un gizli fiyatıdır.",
+      },
+      {
+        title: "İki tanım + worked example",
+        table: { section: "Bölüm 20", sub: "20.1", caption: "Bubble factor ve risk premium." },
+        bullets: [
+          "Bubble factor = chip kaybının maliyeti ÷ kazancının değeri (chipEV'de 1.0).",
+          "chipEV: call için pot odds %37.5 → %37.5 equity yeter.",
+          "Bubble'da aynı call (kayıp=bust): ~%47 gerekir (temsili) → prim ~%9–10.",
+          "Sonuç: A9s (B12.4'te not-cover call'dı) cover EDENE karşı bubble'da fold.",
+        ],
+        ruleBox: "chipEV'de yeten equity, ICM'de yetmez; aradaki fark risk primidir (kesin sayı kalibre).",
+        narration:
+          "İki tanımla başlayalım. Birincisi bubble factor: chip kaybının maliyetinin, chip kazancının değerine oranı. chipEV'de, yani cash oyununda, bu oran birdir — kaybettiğin chip kazandığınla aynı değerde. İkincisi risk premium: chipEV eşiğinin üstüne ICM'in eklediği ekstra gereken equity; cash'te sıfırdır. Şimdi somut örnek. chipEV'de jam'e call için pot odds diyelim yüzde otuz yedi buçuk gerektiriyor, yani yüzde otuz yedi buçuk equity yeterli. Aynı call'ı bubble'da düşün, kaybetmek bust demek: gereken equity yaklaşık yüzde kırk yediye çıkar. Bu temsili bir sayı, kesin değeri kalibre edilir. Aradaki fark, yaklaşık yüzde dokuz on, işte risk primidir. Sonucu gör: chipEV'de rahat call olan bir el, mesela as dokuz suited, ki on iki nokta dört bölümünde cover edilmeyene geniş call'dı, seni cover eden birine karşı bubble'da fold'a döner. En yüksek primde kuvöz kuvöz bile marjinalleşir.",
+      },
+      {
+        title: "Prim ne zaman büyür",
+        table: { section: "Bölüm 20", sub: "20.3", caption: "Asimetri = risk premium." },
+        bullets: [
+          "Payout sıçraması yakın (bubble/FT basamağı) → büyür.",
+          "Rakip seni COVER ediyor (kaybedince bust) → EN BÜYÜK.",
+          "Rakip cover ETMİYOR (kısa jam, 0'lanmıyorsun) → küçük → geniş call.",
+          "Bu, B12.4 cover/not-cover asimetrisinin ta kendisi.",
+        ],
+        ruleBox: "Cover edene prim yüksek → daral; cover etmeyene prim ~0 → genişle.",
+        narration:
+          "Prim sabit değil; neye göre büyür? Tabloya bak. Bir: payout sıçraması yakınsa, bubble ya da final table basamağı, prim büyür çünkü elenmek çok pahalı. İki, ve en önemlisi: rakip seni cover ediyorsa, yani kaybedince bust oluyorsan, prim en yüksek seviyededir. Üç: rakip seni cover etmiyorsa, mesela kısa bir stack sana jam etti ve kaybetsen de sıfırlanmıyorsun, prim küçüktür ya da ihmal edilir ve geniş call edersin. Dört: az oyuncu ve sığ para primi sertleştirir. Şunu fark et: bu tablo aslında on iki nokta dört bölümündeki cover, not-cover asimetrisinin ta kendisi. Asimetri, risk premium'un kendisidir. Cover edene karşı prim yüksek, daralırsın; cover etmeyene karşı prim sıfıra yakın, genişlersin.",
+      },
+      {
+        title: "Masada nasıl kullanılır",
+        bullets: [
+          "1) chipEV'de kaç equity gerekiyordu (pot odds).",
+          "2) Üstüne risk primini ekle (cover mu? bubble mı? → yüksek).",
+          "3) Elim ICM eşiğini geçiyor mu? Geçmiyorsa fold.",
+          "JAM primden az etkilenir (fold equity var) → jam kalır, call daralır.",
+        ],
+        ruleBox: "Jam aralığın KALIR, call aralığın DARALIR (B17); risk premium bu asimetrinin temelidir.",
+        narration:
+          "Masada üç adımda uygula. Bir: chipEV'de kaç equity gerekiyordu, pot odds'u oku. İki: üstüne risk primini ekle, cover ediliyor muyum, bubble mı sorusuna göre prim yüksekse eşiği yukarı çek. Üç: elim bu ICM eşiğini geçiyor mu? Geçmiyorsa fold. Ve kritik bir asimetri: jam atmak, call etmekten primden çok daha az etkilenir, çünkü jam'de fold equity'n var, rakip fold edebilir. Bu yüzden jam aralığın kalır ama call aralığın daralır. On yedinci bölümde gördüğün 'jam kalır, call daralır' kuralının sayısal temeli tam olarak budur. Risk premium, o asimetrinin altındaki matematiktir.",
+      },
+      {
+        title: "İki yönlü leak + cheat",
+        table: { section: "Bölüm 20", sub: "20.7", caption: "Durum → prim → aksiyon." },
+        bullets: [
+          "Cover edilmeyeni cover edilen sanmak = fazla fold (B12.4 A9s/KTo leak'i).",
+          "Cover edeni cover edilmeyen sanmak = primi atla = fazla call → bust.",
+          "Doğru soru: cover ediliyor muyum + payout sıçraması ne kadar yakın?",
+          "B12 yönü verir, B20 fiyatı ölçer — nitel + nicel.",
+        ],
+        ruleBox: "Cover ediliyor muyum? Cevap primi, prim eşiği, eşik kararı verir.",
+        narration:
+          "Son olarak iki yönlü tuzak, çünkü prim iki yöne de hata yaptırır. Birinci yön: cover edilmeyeni cover edilen sanmak, olmayan bir primi eklersin, fazla fold edersin. On iki nokta dört bölümündeki as dokuz suited ve kral on offsuit leak'i tam buydu, kısa jam'e karşı gereksiz fold. İkinci yön: cover edeni cover edilmeyen sanmak, primi atlarsın, fazla call edersin ve bust olursun. Doğru soru hep aynı: cover ediliyor muyum, ve payout sıçraması ne kadar yakın? Cheat kartını aklında tut: para uzaksa prim sıfır, normal pot odds. Cover etmeyen kısa jam'e prim sıfır, geniş call. Bubble'da nötr, orta prim, marjinali kes. Cover eden artı bubble ya da final table, yüksek prim, sert daral, kuvöz kuvöz bile marjinal olabilir. Özet: on ikinci bölüm ICM'in yönünü verir, yirminci bölüm fiyatını ölçer; ikisi aynı disiplinin nitel ve nicel yarılarıdır.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

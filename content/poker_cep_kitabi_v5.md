@@ -1402,3 +1402,77 @@ Blocker-bet: river'da OOP, ince bir bluff-catcher'la KÜÇÜK bet — villain'in
 6. **F10.** OOP river, ince bluff-catcher, villain agresif reg + kuru/capped board. Blocker mı check-call mı? Villain station olsa ne değişir?
 
 *Kök hata bağı: altı hat da inisiyatif araçlarıdır — doğru kullanıldığında potu ucuza bitirir ya da capped aralığı cezalandırır (anti-bloat). Yanlış kullanıldığında hepsi aynı kapıya çıkar: marjinal eli inisiyatif diye şişirip bluff-catcher olarak kalmak. Guard: kim zayıf gösterdi + board kimin + elimi realize mi etmeliyim. Üçü yoksa check.*
+
+
+---
+
+## Bölüm 20 — Risk Premium: ICM'in Sayısı
+
+*★ v6. B12 ICM'i NİTEL verdi ("cover ediliyorsan daralt", "bubble'da QQ bile fold"). Bu bölüm o disiplinin SAYISINI verir: risk premium. B12 "ne yapacağını" söyler; B20 "neden ve ne kadar"ı ölçer. chipEV'de yeten el ICM'de yetmez — aradaki fark, her fold'un gizli fiyatı.*
+
+### 20.0 Tez
+
+> **ICM'in fiyatı bir sayıdır: risk premium. chipEV'de gereken equity'nin üstüne ICM'in eklediği ekstra yüzde. "Cover ediliyorsan daralt" = "gereken equity'ye risk primini ekle."**
+
+Kitap şimdiye kadar ICM'i his ve yönle verdi. Ama "ne kadar daraltayım?" sorusunun sayısal bir cevabı var ve masada kademeyle tahmin edilebilir.
+
+### 20.1 İki tanım
+
+| Kavram | Tanım | chipEV'de |
+|---|---|---|
+| **Bubble factor** | Chip kaybının maliyeti ÷ kazancının değeri | 1.0 |
+| **Risk premium** | chipEV eşiğine ICM'in eklediği ekstra gereken equity | 0 |
+
+Bubble factor 1.0'ın üstüne çıktıkça (bubble, FT ladder, seni cover eden rakip) risk primi büyür. İkisi aynı gerçeği söyler: ICM'de chip kaybı kazançtan pahalıdır.
+
+### 20.2 Worked example — primi gör
+
+- **chipEV (cash gibi):** jam'e call için pot odds %37.5 → **%37.5 equity** yeter.
+- **Bubble'da aynı call** (kayıp = bust): gereken equity ~**%47**'ye çıkar *(temsili — kesin sayı 20.6 / kalibre et)* → **risk primi ~%9–10.**
+
+Sonuç: chipEV'de rahat call olan bir el — mesela A9s (B12.4'te cover EDİLMEYENE geniş call'dı) — cover EDENE karşı bubble'da **fold**'a döner; en yüksek primde QQ bile marjinalleşir. B12.4 ve 17.10'un sayısal örneği budur.
+
+### 20.3 Prim ne zaman büyür
+
+| Faktör | Prim |
+|---|---|
+| **Payout sıçraması yakın** (bubble, FT basamağı) | Büyür |
+| **Rakip seni COVER ediyor** (kaybedince bust) | **En büyük** |
+| **Rakip cover ETMİYOR** (kısa jam, 0'lanmıyorsun) | Küçük/ihmal → **geniş call** |
+| **Az oyuncu, sığ para** | Sertleşir |
+
+Bu tablo B12.4'ün cover/not-cover asimetrisinin ta kendisi: **asimetri = risk premium.** Cover edene karşı prim yüksek (daral); cover etmeyene karşı prim ~0 (genişle).
+
+### 20.4 Masada nasıl kullanılır
+
+1. chipEV'de kaç equity gerekiyordu? (pot odds)
+2. Üstüne risk primini ekle (cover mu? bubble mı? → yüksek).
+3. Elim bu ICM eşiğini geçiyor mu? Geçmiyorsa fold.
+
+> **JAM atmak primden daha az etkilenir — fold equity'n var. Bu yüzden jam aralığın KALIR, call aralığın DARALIR (B17 asimetrisi). Risk premium bu asimetrinin sayısal temelidir.**
+
+### 20.5 İki yönlü leak (kök hata bağı)
+
+- **Cover edilmeyeni cover edilen sanmak** = olmayan primi eklemek = **fazla fold** (B12.4 drill'deki A9s/KTo leak'i).
+- **Cover edeni cover edilmeyen sanmak** = primi atlamak = **fazla call → bust.**
+
+### 20.6 Kalibrasyon
+
+*(kalibre et: kesin risk primini ICMIZER/HRC verir — stack dağılımı, payout, kalan oyuncuya göre. App'te bu slot solver pipeline ICM modundan dolar; masada "yüksek/orta/düşük prim" üç kademeyle tahmin et, tam sayıyı molada doğrula.)*
+
+### 20.7 Cheat kartı
+
+| Durum | Prim | Aksiyon |
+|---|---|---|
+| **chipEV / para uzak** | ~0 | Normal pot odds |
+| **Cover ETMEYEN kısa jam** | ~0 / negatif | Geniş call |
+| **Bubble, nötr** | Orta | Eşiğe ekle, marjinali kes |
+| **Cover EDEN + bubble/FT** | Yüksek | Sert daral; QQ bile marjinal olabilir |
+
+### 20.8 Drill (3 soru)
+
+1. **R1.** chipEV'de %37.5 gereken bir call; bubble'da cover eden bir stack jam etti. Eşiğin nasıl değişir, A9s call mı?
+2. **R2.** Aynı bubble, ama jam eden seni cover ETMİYOR (sen daha derinsin). Prim ne olur, aralığın nasıl değişir?
+3. **R3.** FT'de sen chip lidersin, kısa stack sana jam etti. Primin ne (kaybetsen de lidersin)? Call aralığın genişler mi daralır mı?
+
+*Kök hata bağı: risk premium, "cover ediliyor muyum" leak'inin (B12.4) sayısal motorudur. B12 yönü verir, B20 fiyatı ölçer. İkisi ICM disiplininin nitel ve nicel yarılarıdır.*

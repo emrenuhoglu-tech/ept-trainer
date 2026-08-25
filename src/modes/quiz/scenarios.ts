@@ -714,6 +714,33 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 19.6",
     kavram: "blocker-bet",
   },
+  {
+    q: "chipEV'de %37.5 gereken bir call; bubble'da seni COVER eden bir stack jam etti. A9s call mı?",
+    options: ["Evet, %37.5'i geçiyor → call", "Fold: risk primi eşiği ~%47'ye çeker; cover edende prim en yüksek, A9s marjinal → fold"],
+    correct: 1,
+    explain:
+      "Cover edende risk primi en yüksek: chipEV %37.5 eşiği ICM'de ~%47'ye çıkar (temsili). A9s bu eşiği geçmez → fold. Prim = 'cover ediliyorsan daralt'ın sayısı.",
+    source: "Bölüm 20.2",
+    kavram: "risk-premium",
+  },
+  {
+    q: "Aynı bubble, ama jam eden seni COVER ETMİYOR (sen daha derinsin, kaybetsen 0'lanmıyorsun). Prim ve aralık?",
+    options: ["Yine daralt, bubble = sıkı", "Prim ~0 → geniş call; cover edilmeyen jam'e bubble'da bile genişle"],
+    correct: 1,
+    explain:
+      "Cover edilmiyorsan kaybetsen de bust olmazsın → risk primi ~0/ihmal → GENİŞ call. Bubble'ı otomatik 'sıkı' sanmak B12.4 leak'i; asıl soru cover mı.",
+    source: "Bölüm 20.3",
+    kavram: "risk-premium",
+  },
+  {
+    q: "FT'de sen chip lidersin, kısa stack sana jam etti (kaybetsen de lidersin). Primin ne, call aralığın?",
+    options: ["Yüksek prim, daralt", "Prim düşük (bust yok) → call aralığın GENİŞLER; lider olarak kısa jam'leri ez"],
+    correct: 1,
+    explain:
+      "Kaybetsen de elenmiyorsun (lidersin) → senin risk primin düşük → geniş call. Cover EDEN sensin, prim baskısı kısa stack'te. Lider = cover eden derin, agresyon serbest.",
+    source: "Bölüm 20.3",
+    kavram: "risk-premium",
+  },
 ];
 
 export function randomScenario(): Scenario {

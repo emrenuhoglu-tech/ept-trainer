@@ -741,6 +741,33 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 20.3",
     kavram: "risk-premium",
   },
+  {
+    q: "Bubble, seni COVER eden villain'e karşı river; elinde ince bir bluff-catcher, villain küçük bet. chipEV'de call'du. ICM'de?",
+    options: ["chipEV'de call'du → yine call", "Fold: cover ediliyorsun → bir kademe indir; call-off fold equity'siz en pahalı aksiyon"],
+    correct: 1,
+    explain:
+      "ICM baskısında (cover ediliyorken) her agresif hattı bir kademe indir; call-off en ICM-vergili aksiyondur (fold equity yok, tüm chip showdown'a bağlı). İnce bluff-catcher hero-call'dan fold'a düşer. Villain cover ETMESEYDİ call'a dönerdi.",
+    source: "Bölüm 21.1",
+    kavram: "postflop-icm",
+  },
+  {
+    q: "FT'de sen chip lidersin; orta stack flop check-call, turn'de sana check geldi, elin iyi ama nut değil. Kademe hangi yöne?",
+    options: ["Cover ediliyor gibi indir → check", "Cover EDİYORsun → bir kademe YUKARI: value/baskı için bet (lider baskıyı satar)"],
+    correct: 1,
+    explain:
+      "Cover EDEN sensin (kaybetsen de lidersin) → primin düşük/negatif → bir kademe yukarı. Chip lider baskıyı satar; rakip için her pot bust riski. 'Bir kademe indir' cover EDİLENin kuralı; sen tersini yaparsın.",
+    source: "Bölüm 21.3",
+    kavram: "postflop-icm",
+  },
+  {
+    q: "Cover edildiğin spotta villain ⅔ pot bet; MDF ~%60 diyor ama para sıçraması çok yakın, elin savunma sınırında. Fold leak mi?",
+    options: ["Evet, MDF altında fold = blöfe açık = leak", "Doğru: MDF chipEV kavramı, para sıçramasında çöker → MDF altında fold doğru"],
+    correct: 1,
+    explain:
+      "MDF bir chipEV kavramıdır (cash + ICM-baskısız MTT); para sıçraması yakınken çöker. Cover edildiğin ICM spotunda over-fold exploit değil doğru oyundur — villain'in blöf çalması ICM primini geri ödemez.",
+    source: "Bölüm 21.4",
+    kavram: "postflop-icm",
+  },
 ];
 
 export function randomScenario(): Scenario {

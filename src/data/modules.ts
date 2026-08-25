@@ -1484,6 +1484,77 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M25",
+    title: "ICM altında postflop: bir kademe indir",
+    chapter: "Bölüm 21 ★",
+    minutes: 8,
+    slides: [
+      {
+        title: "Tez: cover ediliyorsan bir kademe indir",
+        bullets: [
+          "ICM baskısında (cover ediliyorken) her agresif hattı bir kademe İNDİR.",
+          "bet→check, raise→call, büyük→küçük, thin-value→check-back, hero-call→fold.",
+          "Cover EDİYORSAN (lider) tersi: bir kademe YUKARI (barrel, baskı).",
+          "Yön = cover haritasının işareti; risk primi (B20) postflop'a taşınır.",
+        ],
+        ruleBox: "Cover ediliyorsan bir kademe indir; cover ediyorsan bir kademe yukarı.",
+        narration:
+          "Bu modül iki disiplini birleştiriyor: on sekiz ve on dokuzuncu bölümlerin postflop inisiyatifi ile on iki ve yirminci bölümlerin ICM'i. Kesişim tek cümle: ICM baskısı altındayken, yani seni cover eden birine karşı, her agresif postflop hattını bir kademe indir. Bet yerine check, raise yerine call, büyük boyut yerine küçük, ince değer yerine check-back, hero-call yerine fold. Ama dikkat, bu başlık cover EDİLENin kuralıdır. Eğer sen cover ediyorsan, yani chip lidersin ve kaybetsen de yaşıyorsan, tersini yaparsın: bir kademe yukarı, daha çok barrel, daha çok baskı. Yön her zaman cover haritasının işaretidir. Yirminci bölümde risk primini preflop call ve jam'de gösterdik; bu bölüm onu flop, turn ve river'a taşıyor, çünkü prim her sokakta yeniden birikir.",
+      },
+      {
+        title: "Neden call-off en pahalı — kural tablosu",
+        table: { section: "Bölüm 21", sub: "21.2", caption: "chipEV hattı → ICM baskısında (cover ediliyorken)." },
+        bullets: [
+          "En çok chip riske atan hat: büyük bet/raise'e call/hero-call.",
+          "Bet/barrel'ın fold equity'si var → prim onu az cezalandırır.",
+          "Call-off'un fold equity'si yok → tüm chip showdown'a bağlı, tam ICM cezası.",
+          "Sonuç: bluff-catch aralığın DARALIR; value bet aynı kalır.",
+        ],
+        ruleBox: "Call-off en ICM-vergili aksiyon: fold equity yok → şişmiş potta chip'i bağlama.",
+        narration:
+          "Neden postflop'ta call-off en pahalı aksiyon? Çünkü chip'i en çok riske atan hat, büyük bir bet'e ya da raise'e call ya da hero-call yapmaktır — potun şiştiği, kaybın bust'a yaklaştığı yer. Prim en çok burayı vurur. Karşılaştır: bet ya da barrel'ın fold equity'si vardır, rakip fold edebilir, o yüzden prim onu daha az cezalandırır. Ama call-off'un fold equity'si yoktur; tüm chip'ini showdown'a bağlarsın ve ICM cezası tam gelir. Sonuç şu: ICM baskısında blöf-yakalama aralığın daralır, fazla per'i bırakırsın, ama değer için bet'lemen aynı kalır. On bir nokta iki'deki 'tek per eşittir bluff-catcher' kuralı ICM'de daha da fold-eğilimlidir. Tablodaki her satır aynı yönü söylüyor: potu küçült, chip'i showdown'a bağlama, marjinali kes. O kademe, risk priminin kendisidir.",
+      },
+      {
+        title: "İki koltuk — cover asimetrisi",
+        table: { section: "Bölüm 21", sub: "21.3", caption: "Cover ediliyorsun → indir; cover ediyorsun → yukarı." },
+        bullets: [
+          "Cover EDİLİYORsun (kaybedince bust) → prim yüksek → bir kademe İNDİR.",
+          "Cover EDİYORsun (lider, yaşarsın) → prim düşük/negatif → bir kademe YUKARI.",
+          "Chip lider baskıyı SATAR; kısa/orta stack baskıyı YER.",
+          "Başlık 'indir' cover EDİLENin kuralı; cover EDEN tersini yapar.",
+        ],
+        ruleBox: "Aynı spot iki oyuncuya zıt talimat verir; işaret = cover haritası.",
+        narration:
+          "Kritik nokta: yön mutlak değildir, cover haritasının işaretine bağlıdır, ve aynı spot iki oyuncuya tam zıt talimat verir. Eğer cover ediliyorsan, yani kaybedince bust oluyorsan, primin yüksektir, bir kademe indirirsin: check, call, küçük, fold. Ama eğer cover ediyorsan, yani chip lidersin ve kaybetsen bile yaşıyorsan, primin düşük hatta negatiftir, bir kademe yukarı çıkarsın: barrel, baskı, büyük boyut. Bu yirmi nokta üç tablosunun postflop yüzüdür. Chip lider baskıyı satar, çünkü rakip için her pot bir bust riskidir; kısa ya da orta stack o baskıyı yer ve daralır. O yüzden başlıktaki 'bir kademe indir' cümlesi cover EDİLENin kuralıdır; cover EDEN tam tersini yapar. Masada ilk soru hep şu: bu potta ben mi cover ediyorum, ben mi cover ediliyorum?",
+      },
+      {
+        title: "MDF ICM'de çöker + korunma",
+        bullets: [
+          "MDF bir chipEV kavramı; cash + ICM-baskısız MTT'de geçer, para sıçramasında çöker.",
+          "chipEV: ⅔ pot bet → MDF ~%60 savun; ICM'de savunma oranın çok düşebilir.",
+          "Para sıçraması yakınken MDF altında fold LEAK değil, doğru.",
+          "Protection-first: ince değeri bırak (check); kırılgan value'yu KORU (bet).",
+        ],
+        ruleBox: "ICM'de MDF çöker: yakın payout'ta MDF altında fold doğrudur; kırılgan value yine bet.",
+        narration:
+          "Şimdi önemli bir ince ayar: minimum savunma frekansı, yani MDF, ICM'de çöker. MDF bir chipEV kavramıdır; cash oyununda ve ICM baskısı olmayan MTT spotlarında geçerlidir, ama para sıçraması yakınken çöker. Örnek: villain üçte iki pot bet'lerse chipEV'de MDF yaklaşık yüzde altmıştır, aralığının yüzde altmışını savunman gerekir yoksa blöfe açıksın. Ama cover edildiğin bir ICM spotunda, aynı bet'e karşı savunma oranın çok daha düşük olabilir; buradaki over-fold bir exploit değil, doğru oyundur. Yani 'MDF altında fold eşittir leak' kuralı ICM'de tersine döner: para sıçraması yakınken MDF'in altında fold etmek doğrudur, çünkü villain'in blöfle çalması senin ICM primini geri ödemez. İkinci refleks: önce korunma. ICM'de ince değeri bırakırsın, check-back edersin; ama kırılgan value'yu, yani önde olduğun ama board'un tehdit ettiği eli, korumak için yine bet'lersin. İnce ile kırılganı ayır: ince, zaten öndesin ve kartı umursamıyorsun, check; kırılgan, öndesin ama board seni tehdit ediyor, bet — ucuz kart vermemek için, showdown'u bağlamak için değil.",
+      },
+      {
+        title: "Cheat kartı + drill",
+        table: { section: "Bölüm 21", sub: "21.7", caption: "Spot → cover ediliyorsun / cover ediyorsun." },
+        bullets: [
+          "Thin value: cover ediliyorsan check-back, ediyorsan bet.",
+          "Marjinal bluff-catch: ediliyorsan fold, ediyorsan call.",
+          "Boyut: ediliyorsan küçük, ediyorsan büyük/polarize.",
+          "Kırılgan value İKİ tarafta da bet — korunma primden bağımsız.",
+        ],
+        ruleBox: "Tek guard: cover ediliyor muyum? Evetse indir + call-off'u en sert kes; hayırsa yukarı.",
+        narration:
+          "Son olarak cheat kartı ve drill. Kartı satır satır oku: ince değer, cover ediliyorsan check-back, cover ediyorsan bet ile ince değeri al. Marjinal bluff-catch, cover ediliyorsan fold, cover ediyorsan call, çünkü baskıyı yiyebilirsin. Barrel kararı, cover ediliyorsan tek fıçı ya da vazgeç, cover ediyorsan iki üç fıçı ile baskı. Boyut, cover ediliyorsan küçük, cover ediyorsan büyük ya da polarize. Ve tek istisna: kırılgan value her iki tarafta da bet, çünkü korunma primden bağımsızdır. Hepsini tek guard yönetir: cover ediliyor muyum? Evetse her agresif hattı bir kademe indir ve call-off'u en sert kes. Hayır, ben cover ediyorsam, bir kademe yukarı. Drill için üç spot: birinci, bubble'da seni cover eden villain'e karşı river'da ince bluff-catcher, chipEV'de call'du, ICM'de ne yaparsın? İkinci, final table'da chip lidersin, turn'de sana check geldi, iyi ama nut olmayan el, kademe hangi yöne? Üçüncü, cover edildiğin spotta villain üçte iki pot bet attı, MDF yüzde altmış diyor ama para sıçraması çok yakın, fold leak mi doğru mu?",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

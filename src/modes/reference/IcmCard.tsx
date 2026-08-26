@@ -9,8 +9,25 @@ import { load, save } from "../../lib/storage";
 interface LadderRow {
   sira: string;
   odul: string;
-  fark: string;
 }
+
+// Ödül metnini sayıya çevir ($, K/M/B, virgül, "+" toleranslı) — yalnız SENİN girdiğin değerler.
+function money(s: string): number | null {
+  const m = s.replace(/[\s,$€]/g, "").match(/^([0-9]*\.?[0-9]+)([kmb]?)\+?$/i);
+  if (!m) return null;
+  let n = parseFloat(m[1]);
+  const suf = m[2].toLowerCase();
+  if (suf === "k") n *= 1e3;
+  else if (suf === "m") n *= 1e6;
+  else if (suf === "b") n *= 1e9;
+  return n;
+}
+function fmtMoney(n: number): string {
+  if (n >= 1e6) return "$" + (n / 1e6).toFixed(n >= 1e7 ? 1 : 2).replace(/\.?0+$/, "") + "M";
+  if (n >= 1e3) return "$" + Math.round(n / 1e3) + "K";
+  return "$" + Math.round(n);
+}
+
 interface JamRow {
   poz: string;
   chipev: string;
@@ -30,7 +47,7 @@ const INPUT =
 
 export function IcmCard({ onDone }: { onDone: () => void }) {
   const [ladder, setLadder] = useState<LadderRow[]>(() =>
-    load<LadderRow[]>("icm:ladder", [{ sira: "", odul: "", fark: "" }]),
+    load<LadderRow[]>("icm:ladder", [{ sira: "", odul: "" }]),
   );
   const [jam, setJam] = useState<JamRow[]>(() => load<JamRow[]>("icm:jam", JAM_SEED));
 
@@ -68,29 +85,44 @@ export function IcmCard({ onDone }: { onDone: () => void }) {
         <h2 className="text-sm font-semibold text-neutral-100">Ödeme merdiveni (12.3)</h2>
         <p className="text-xs text-neutral-500">
           Jump stack'ine oranla BÜYÜKSE ve masada senden kısa varsa: bekle, ladder'la. Mikroysa chipEV.
+          Ödülleri sırayla gir (üst = yüksek); bir üst sıraya sıçrama ($ + %) otomatik hesaplanır.
         </p>
-        <div className="grid grid-cols-[1fr_1.4fr_1.4fr_auto] gap-1.5 text-xs text-neutral-500">
+        <div className="grid grid-cols-[0.8fr_1.3fr_1.5fr_auto] gap-1.5 text-xs text-neutral-500">
           <span>Sıra</span>
           <span>Ödül</span>
-          <span>Fark</span>
+          <span>↑ Sıçrama</span>
           <span className="w-6" />
         </div>
-        {ladder.map((r, i) => (
-          <div key={i} className="grid grid-cols-[1fr_1.4fr_1.4fr_auto] items-center gap-1.5">
-            <input value={r.sira} onChange={(e) => upL(i, "sira", e.target.value)} placeholder="(doldur)" className={INPUT} />
-            <input value={r.odul} onChange={(e) => upL(i, "odul", e.target.value)} placeholder="(doldur)" className={INPUT} />
-            <input value={r.fark} onChange={(e) => upL(i, "fark", e.target.value)} placeholder="(doldur)" className={INPUT} />
-            <button
-              aria-label="Satırı sil"
-              onClick={() => setL(ladder.filter((_, j) => j !== i))}
-              className="w-6 text-neutral-500"
-            >
-              ✕
-            </button>
-          </div>
-        ))}
+        {ladder.map((r, i) => {
+          // Bu sıra ile bir üst sıra (daha yüksek ödül) arasındaki sıçrama = yukarı çıkmanın $ değeri.
+          const cur = money(r.odul);
+          const up = i > 0 ? money(ladder[i - 1].odul) : null;
+          const jump = cur != null && up != null ? Math.abs(up - cur) : null;
+          const base = cur != null && up != null ? Math.min(cur, up) : null;
+          const pct = jump != null && base ? Math.round((jump / base) * 100) : null;
+          return (
+            <div key={i} className="grid grid-cols-[0.8fr_1.3fr_1.5fr_auto] items-center gap-1.5">
+              <input value={r.sira} onChange={(e) => upL(i, "sira", e.target.value)} placeholder="(doldur)" className={INPUT} />
+              <input value={r.odul} onChange={(e) => upL(i, "odul", e.target.value)} placeholder="(doldur)" className={INPUT} />
+              <span
+                className={
+                  "px-1 text-xs tabular-nums " + (jump == null ? "text-neutral-600" : "text-neutral-300")
+                }
+              >
+                {jump == null ? "—" : `+${fmtMoney(jump)} (+${pct}%)`}
+              </span>
+              <button
+                aria-label="Satırı sil"
+                onClick={() => setL(ladder.filter((_, j) => j !== i))}
+                className="w-6 text-neutral-500"
+              >
+                ✕
+              </button>
+            </div>
+          );
+        })}
         <button
-          onClick={() => setL([...ladder, { sira: "", odul: "", fark: "" }])}
+          onClick={() => setL([...ladder, { sira: "", odul: "" }])}
           className="btn-ghost w-full py-2 text-sm"
         >
           + Satır ekle

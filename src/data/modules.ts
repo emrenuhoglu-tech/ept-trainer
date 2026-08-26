@@ -1555,6 +1555,147 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M26",
+    title: "ICM ne zaman ve kime: zaman çizelgesi + laddering",
+    chapter: "Bölüm 22 ★",
+    minutes: 8,
+    slides: [
+      {
+        title: "Prim bir eğri — kişi ekseni faz'ın önünde",
+        bullets: [
+          "Risk primi sabit değil, eğri: bubble'da tavan, ITM'de dip, FT'de tekrar yükselir.",
+          "Kişiye: seni cover eden derine yüksek; cover ETMEYEN alt stack'e ~0.",
+          "Kişi ekseni faz ekseninin ÖNÜNE geçer.",
+          "Faz primin tavanını belirler; cover haritası kime uygulanacağını.",
+        ],
+        ruleBox: "Faz tavanı verir, cover haritası kime'yi verir — kişi ekseni önce.",
+        narration:
+          "Yirminci bölüm risk primini bir tanım ve yön olarak verdi: cover edende en yüksek, cover etmeyen kısaya sıfıra yakın. Bu modül o primin ne zaman ve kime değiştiğini ekliyor. Önce şunu kavra: prim bir sabit değil, bir eğridir. Zamanla değişir: bubble'a yaklaşırken tavan yapar, para geçilince gevşer, final table'a yaklaşırken yeniden yükselir, her para sıçramasından sonra bir tık düşer. Ama daha kritik ikinci eksen kişidir: seni cover eden derin bir stack'e karşı prim yüksek, seni cover etmeyen bir alt stack'e karşı sıfıra yakın. Ve altın kural: kişi ekseni faz ekseninin önüne geçer. Yani faz primin tavanını belirler, ama cover haritası o primin kime uygulanacağını belirler. Bubble'da bile, seni cover etmeyen kısa bir stack'e karşı primin sıfırdır.",
+      },
+      {
+        title: "Primin dört fazı",
+        table: { section: "Bölüm 22", sub: "22.2", caption: "Faz → prim (cover edene) → mod." },
+        bullets: [
+          "Onset: kalan oyuncu ≈ ödenen yer sayısının ~3 katına indiğinde ICM başlar.",
+          "Bubble yaklaşımı: prim tavan → sıkı call, cover ETMEYENlere agresif steal.",
+          "Bubble patladı/erken ITM: prim dip → gaz, biriktir.",
+          "FT yaklaşımı: prim yüksek → ikinci fren; her sıçramadan sonra bir tık gevşe.",
+        ],
+        ruleBox: "Öncelik kuralı: faz primi yalnız seni COVER edenlere; cover etmeyen kısa jam'e her fazda ~0.",
+        narration:
+          "Primin dört fazını gör. ICM hissedilmeden önce, turnuvanın derininde, para uzakken prim zaten sıfırdır. Kaba onset kuralı: kalan oyuncu sayısı, ödenen yer sayısının yaklaşık üç katına indiğinde ICM hissedilmeye başlar. Bu bir kalibre değeri, yapıya bağlı. Birinci faz, bubble yaklaşımı: prim tavanda. Kısa'ların call aralığı kilitlenir ama jam'i kalır, on yedinci bölüm. Büyük stack'ler en çok baskıyı satar, orta stack'ler en çok yer. Sıkı call, ama cover etmeyenlere agresif steal. İkinci faz, bubble patladı ya da erken ITM: prim döngüde en düşük, chipEV'ye en yakın oynadığın pencere, gaz ver ve chip biriktir. Üçüncü faz, final table yaklaşımı: prim yeniden yükselir, ikinci fren. Ve dördüncü: her elemeden sonra prim bir tık düşer, sonra masa kısaldıkça yeniden gaz. Kritik öncelik kuralı: faz primi yalnızca seni cover edenlere uygulanır. Seni cover etmeyen kısa bir jam'e karşı prim her fazda sıfıra yakındır, bubble'da bile geniş call edersin.",
+      },
+      {
+        title: "Laddering + short stack: call daralır, jam kalır",
+        bullets: [
+          "Laddering orta-stack disiplini: lider özgür, orta cover ediliyor (ladder equity en yüksek).",
+          "Cover ETMEYEN alt stack'e saldır, lidere değil.",
+          "Short stack: CALL'ı daralır, JAM'i KALIR (B17) — nit olma.",
+          "'Paraya fold'la girme' yalnız uç spotta (başka mikro bust olurken).",
+        ],
+        ruleBox: "Short stack jam'i geniş kalır (fold equity); daralan CALL aralığıdır — jam'i kesme.",
+        narration:
+          "Laddering, yani basamak atlama, her eleme bir para sıçramasıyken sırf hayatta kalarak üst basamağa tırmanmaktır. Bir orta-stack disiplinidir: lider için prim düşük, özgürdür; orta stack cover edilir ve ladder equity'si en yüksektir. Stack taramasında iki refleks. Bir: cover etmeyen bir alt stack'e saldır, lidere değil; senden kısa olan seni cover etmiyor, ona baskı ucuz. İki, ve bu kritik: short stack'in call aralığı daralır ama jam aralığı kalır, on yedinci bölüm. Kısa olmak her şeyi atmak değil ama nit olmak da değil. Cover baskısında sert daralan şey call aralığındır; unopened jam aralığın fold equity sayesinde geniş kalır, cover edenlere karşı yalnız bir tık sıkılır. Paraya fold'la girme, yani jam'i kesme, yalnızca uç bir spotta doğrudur: başka bir mikro tam da bust olmak üzereyken. Onun dışında jam'lemesi gereken eli fold eden kısa stack blind-out olur, ladder'ını yakar.",
+      },
+      {
+        title: "İki yönlü leak",
+        table: { section: "Bölüm 22", sub: "22.5", caption: "Over/under-ladder + short-panik/short-nit." },
+        bullets: [
+          "Over-ladder: sağlıklı stack'i nitlemek → biriktirmeyi kaçır, blind'e eri.",
+          "Under-ladder: seni cover eden mega ile flip → cover edilirken bust.",
+          "Short-panik: jam'i kalibresiz şişir → fold equity ziyan; düzelt: jam'i KORU, call'ı daralt.",
+          "Short-nit: jam'lemesi gereken eli fold → blind-out; düzelt: jam'i geniş tut.",
+        ],
+        ruleBox: "Homojen stack'te asimetri kaybolur ama prim kaybolmaz — herkes herkesi cover eder, masa sıkı.",
+        narration:
+          "Dört leak tablosu. Over-ladder: sağlıklı bir stack'i sırf ladder için nitlersin, chip biriktirme fırsatını kaçırır blind'lere erirsin; düzeltmesi primin olmadığı yerde gaz vermek. Under-ladder: seni cover eden bir mega ile gereksiz flip'e girersin, cover edilirken bust olursun; düzeltmesi cover haritasını okuyup primi eklemek. Short-panik: jam aralığını kalibresiz şişirirsin, fold equity'yi ziyan eder bust olursun; düzeltmesi jam'i korumak, call'ı daraltmak. Short-nit: jam'lemesi gereken eli fold edersin, blind-out olur ladder'ı yakarsın; düzeltmesi jam aralığını geniş tutmak. Ve bir uyarı: masadaki bir outlier, mega ya da mikro, ICM'i keskinleştirir ve asimetri yaratır. Ama homojen stack'lerde asimetri kaybolur, prim kaybolmaz: herkes herkesi cover ettiği için çatışma primi karşılıklı yüksektir. Klasik eşit-stack satellite spotu, as as bile fold, tam olarak budur; homojen bubble masası herkes için sıkı oynanır.",
+      },
+      {
+        title: "Cheat + Day 2 uygulaması",
+        table: { section: "Bölüm 22", sub: "22.8", caption: "Sinyal → oku → aksiyon." },
+        bullets: [
+          "Bubble + seni cover eden → prim tavan → sıkı call, saygı.",
+          "Bubble + cover ETMEYEN kısa jam → prim ~0 → geniş call.",
+          "~12-15 kala restart (WSOP Online Main Day 2) = FT-yaklaşımı, prim yüksek.",
+          "Steal hedefin: seni cover ETMEYEN oyuncular; her sıçramadan sonra bir tık gevşe.",
+        ],
+        ruleBox: "Sinyali cover haritasıyla oku: aynı bubble, cover edene sıkı, cover etmeyene geniş.",
+        narration:
+          "Cheat kartını ve senin somut durumunu bağlayalım. Kartı cover haritasıyla oku: bubble yakın ve rakip seni cover ediyorsa prim tavandadır, sıkı call ve saygı. Ama bubble yakın ve seni cover ETMEYEN kısa bir stack jam ettiyse prim sıfıra yakındır, geniş call, yirminci bölüm. Yeni ITM'de prim dip, gaz ve biriktir. Final table yaklaşımında prim yüksek, daral ve ladder'ı koru. Sen liderken bir alt stack karşındaysa primin düşük, baskı sat. Şimdi senin durumun: yaklaşık on iki on beş kala restart ediyorsan, örneğin WSOP Online Main Day 2 gibi, online yapıda alan birkaç masaya iner, kalan oyuncu ödenen yerin çok altındadır, tam final table yaklaşımı fazındasın, prim yüksek. Seni cover etmeyen kısa ve orta stack'lere karşı ladder değerin büyük ve prim sıfıra yakın, geniş call ve steal; seni cover eden lidere karşı prim tavanda, saygı ve daral. Her para sıçramasından sonra bir tık gevşe. Steal hedefin her zaman: seni cover etmeyen oyuncular. Drill: bubble yeni patladı orta stack'sin, döngüde chipEV'ye en yakın faz hangisi; bubble'da senden kısa cover etmeyen jam etti artı seni cover eden lider de masada, kısa jam'e call eşiğin ne lidere karşı ne; kısa stack bubble, jam mı call mı daralır.",
+      },
+    ],
+  },
+  {
+    id: "M27",
+    title: "Saha okuma: rakip tipleri ve exploit",
+    chapter: "Bölüm 23 ★",
+    minutes: 8,
+    slides: [
+      {
+        title: "Default vs exploit — üç soru",
+        bullets: [
+          "GTO seni yenilmez yapar; exploit seni kârlı yapar.",
+          "Üç soru: tip ne? ICM'i hissediyor mu? hangi yöne hata (gevşek/sıkı/pasif)?",
+          "Sapma bu üç okumadan çıkar.",
+          "Okuma yoksa default'a (dengeli) dön.",
+        ],
+        ruleBox: "Exploit = default'tan bilinçli sapma; okuma yoksa dengeye dön.",
+        narration:
+          "Bu modül kitaba dağılmış exploit notlarını tek yere topluyor. Şunu kavra: GTO, yani dengeli oyun, seni yenilmez yapar; ama seni kârlı yapan şey exploittir, rakibin hatasından para almaktır. Sahada üç soru sorarsın. Bir: bu rakip hangi tip? İki: ICM'i hissediyor mu? Üç: hangi yöne hata yapıyor, çok mu gevşek, çok mu sıkı, çok mu pasif? Sapma bu üç okumadan çıkar. Ve en önemli guard: okuma yoksa default'a, yani dengeli oyuna dönersin. Exploit bir bilinçli sapmadır, dengeden ayrılmaktır; okuman yoksa dengede kal, çünkü yanlış okumada exploit geri teper.",
+      },
+      {
+        title: "Beş rakip tipi",
+        table: { section: "Bölüm 23", sub: "23.2", caption: "Tip → hatası → exploit yön." },
+        bullets: [
+          "Nit: fazla fold → çal + agresyonuna saygı (nadiren blöf).",
+          "Station: fazla call → blöf YOK + value'yu büyüt/overbet.",
+          "LAG: fazla agresyon → bluff-catch aç + value şişir.",
+          "Reg: dengeli oyna, baskı sat; Whale: value-ağır, göster ödesin.",
+        ],
+        ruleBox: "Her tip bir yöne hata yapar; exploit o hatanın tersine yaslanmaktır.",
+        narration:
+          "Beş rakip tipi ve her birine tek-satır exploit. Nit, aşırı sıkı oyuncu: açarsa ya da raise ederse nuts'a yakındır. Exploit: bet ve raise'ine saygı göster, nadiren blöftür, bluff-catch'i bırak; ama pot'larını sık çal çünkü fold eder. Station, çağıran: her şeyle call eder, fold etmez. Exploit: asla blöf yapma, blöf station'a para vermektir; güçlü value'yu büyük boyut ya da overbet ile boz, çünkü boyuta duyarsızdır, her şeyle öder; yalnız en ince value elinde boyutu küçült. LAG, gevşek-agresif: çok açar çok barrel'lar, aralığı zayıftır. Exploit: daha çok call ve bluff-catch, value'yu şişir, blöfüne fold etme. TAG ya da reg: dengeli ve düşünür, exploit azdır; dengeli oyna, ICM'i o hisseder, ona baskı sat. Whale ya da rec, eğlence oyuncusu: öngörülemez ama büyük ellerle büyük öder. Exploit: value-ağırlıklı oyna, ince blöfü az tut, elini göster ki ödesin.",
+      },
+      {
+        title: "ICM hissediyor mu — ama kendi primin bakidir",
+        bullets: [
+          "ICM baskısı SATMAK yalnız rakip ICM'i hissediyorsa işe yarar.",
+          "ICM-körü rec/whale: baskı satma (fold etmez) → value al.",
+          "AMA kendi risk primin (B17/B20/B21) rakip ICM-körü olsa da bakidir.",
+          "Sapma = value BET'i genişlet; cover'lıyken call-off gevşetmek DEĞİL.",
+        ],
+        ruleBox: "Whale'e baskı satma, value al — ama cover ediliyorken call-off eşiğin yine yüksek.",
+        narration:
+          "Kritik bir ayrım: ICM baskısı satmak yalnız rakip ICM'i hissediyorsa işe yarar. Bir reg bubble'da doğru daralır, ona baskı satabilirsin, steal ve üç-bet blöfü çalışır. Ama bir rec ya da whale ICM'i bilmez, bubble'da bile fold etmez. Ona karşı baskı satmak boşadır; onun yerine value alırsın, geniş value. Ama şimdi çok dikkat: kendi risk primin, on yedi, yirmi ve yirmi birinci bölümler, rakip ICM-körü olsa bile bakidir. Yani sapma yönü sadece şudur: baskı satma, onun yerine value bet'ini genişlet. Sapma, cover ediliyorken call-off'unu ya da stack-off'unu gevşetmek değildir. Whale bile olsa, sen cover ediliyorken bubble'da hafif stack-off yapmazsın. Onun ICM'i bilmemesi, senin kendi bust riskini ortadan kaldırmaz. Cheat: ICM-körü rec'e baskı satma value al, ama cover'lıyken call-off eşiğin yine yüksek kalır.",
+      },
+      {
+        title: "Station playbook — boyut ve pasif river",
+        bullets: [
+          "Blöf YOK, sıfır. İnce value ez (check'leyeceğin ellerle bet al).",
+          "Boyut: güçlü value BÜYÜK/overbet (boyuta duyarsız); yalnız en ince value'da küçült.",
+          "River RAISE ≈ nuts → ince value fold.",
+          "River LEAD boyuta bağlı: küçük lead'e iyi top pair genelde call; büyük/tuhaf lead'e daral.",
+        ],
+        ruleBox: "Station'a value'yu BÜYÜLT; raise ≈ nuts (fold) ama küçük lead'e iyi top pair call.",
+        narration:
+          "Station en sık ve en kârlı hedeftir, playbook'u net. Bir: blöf yok, sıfır blöf, çünkü blöf station'a para vermektir. İki: ince value ez, normalde check'leyeceğin ellerle bile bet al. Üç, ve burası önemli: boyut. Güçlü value'yu büyük boyut ya da overbet ile boz, çünkü station boyuta duyarsızdır, büyük bet call'ını sıkmaz, her şeyle öder; küçük boyut sadece boyuta duyarlı rakiplerde mantıklı, station değil. Yalnız en ince value elinde boyutu küçültmeyi düşün. Dört: pasif river ayrımı, ve bu iki ayrı durum. Station'ın river raise'i neredeyse her zaman nuts'tır, ince value'nu fold et. Ama river lead, yani donk bet, boyuta bağlıdır: station'lar river'ı zayıf ve merged ellerle sık donk'lar, o yüzden küçük bir lead'e iyi bir top pair çoğu zaman call'dır; büyük ya da tuhaf bir lead'e ise daral.",
+      },
+      {
+        title: "Cheat + drill",
+        table: { section: "Bölüm 23", sub: "23.8", caption: "Okuma → default'tan sapma." },
+        bullets: [
+          "Station: blöfü kes, value'yu büyüt. Nit: çal, hero-call bırak.",
+          "LAG: bluff-catch aç, value şişir. Reg: dengeye dön, baskı sat.",
+          "ICM-körü rec: baskı satma, value al (call-off eşiği yüksek kalır).",
+          "Guard: tip + ICM-hissi + hata yönü — üçü netse sap, değilse dengede kal.",
+        ],
+        ruleBox: "Guard: tip + ICM-hissi + hata yönü net → sap; değilse default (denge).",
+        narration:
+          "Cheat kartıyla kapatalım. Station: blöfü kes, value'yu büyüt ya da overbet. Nit: çal, hero-call'u bırak. LAG: bluff-catch'i aç, value'yu şişir. ICM-körü rec: baskı satma, value al, ama cover'lıyken call-off eşiğin yüksek kalır. Reg: dengeye dön, ona baskı sat. Hepsini tek guard yönetir: tip, ICM-hissi ve hata yönü. Üçü de netse sap; net değilse default'a, dengeye dön. Drill için üç spot: bir, station her flop ve turn call etti, river'da küçük bir lead aldı, elinde iyi top pair, call mı fold mu, ya raise etseydi ne yapardın? İki, bubble'da rakip belli bir rec ya da whale, ICM umursamıyor, steal blöfü mü value mı, ve cover ediliyorsan call-off'un değişir mi? Üç, nit UTG açtı, sende orta el, exploit yön ne, call mı fold mu, ve neden onun pot'larını çalarsın?",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

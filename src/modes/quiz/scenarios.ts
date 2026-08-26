@@ -768,6 +768,60 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 21.4",
     kavram: "postflop-icm",
   },
+  {
+    q: "Bubble yeni patladı, orta stack'sin. Döngü içinde chipEV'ye en yakın (prim en düşük) faz hangisi ve ne yaparsın?",
+    options: ["FT yaklaşımı — daral", "Bubble patladı/erken ITM: prim döngüde en düşük → gaz, chip biriktir"],
+    correct: 1,
+    explain:
+      "Bubble patlayınca min-cash garanti, sıradaki sıçramalar stack değerine göre küçük → prim döngüde en düşük, chipEV'ye en yakın pencere. Gaz ver, biriktir. FT yaklaşımı tam tersi (ikinci fren).",
+    source: "Bölüm 22.1",
+    kavram: "icm-zaman",
+  },
+  {
+    q: "Bubble, senden kısa (seni cover ETMEYEN) bir stack jam etti; seni cover eden lider de masada. Kısa jam'e call eşiğin?",
+    options: ["Bubble = sıkı, ikisine de daralt", "Kısa jam'e prim ~0 → geniş call; lidere karşı prim tavan → daral"],
+    correct: 1,
+    explain:
+      "Öncelik kuralı: faz primi yalnız seni COVER edenlere. Cover ETMEYEN kısa jam'e prim her fazda ~0 → bubble'da bile geniş call (B20). Seni cover eden lidere karşı prim tavanda → saygı, daral. Faz tavanı, cover haritası kime'yi belirler.",
+    source: "Bölüm 22.2",
+    kavram: "icm-zaman",
+  },
+  {
+    q: "Kısa stack'sin, bubble, cover baskısı var. Jam aralığın mı call aralığın mı daralır; 'en iyi ellerle gir' hangisi için doğru?",
+    options: ["Jam daralır — sadece premiumla it", "CALL daralır, JAM KALIR (B17, fold equity); 'en iyi ellerle' CALL için"],
+    correct: 1,
+    explain:
+      "B17: kısa stack'in unopened JAM aralığı fold equity ile geniş kalır (cover edene bir tık sıkılır); sert daralan CALL aralığıdır. Jam'lemesi gereken eli fold etmek = short-nit leak (blind-out). 'Paraya fold'la girme' yalnız uç spotta (başka mikro bust olurken).",
+    source: "Bölüm 22.4",
+    kavram: "icm-zaman",
+  },
+  {
+    q: "Station her flop/turn call etti, river'da KÜÇÜK lead aldı; elinde iyi top pair. Call mı fold mu? Ya raise etseydi?",
+    options: ["Küçük lead ≈ nuts → fold", "Küçük lead'e call (station merged/zayıf donk); RAISE olsaydı ≈ nuts → fold"],
+    correct: 1,
+    explain:
+      "Station river'ı zayıf/merged ellerle sık donk'lar → küçük lead'e iyi top pair çoğu zaman call. Ama pasif station'ın RAISE'i ≈ nuts → orada ince value fold. Lead ≠ raise; boyut ve aksiyon ayrımı kritik.",
+    source: "Bölüm 23.5",
+    kavram: "saha-okuma",
+  },
+  {
+    q: "Bubble, rakip belli bir rec/whale, ICM umursamıyor. Steal blöfü mü value mı — ve cover ediliyorsan call-off'un değişir mi?",
+    options: ["Baskı sat, bubble'da fold eder", "Value al (baskı boşa); AMA cover'lıyken kendi call-off eşiğin yine yüksek"],
+    correct: 1,
+    explain:
+      "ICM-körü rec fold etmez → baskı satma, geniş value al. Ama kendi risk primin (B17/B20/B21) rakip ICM-körü olsa da bakidir: sapma value BET'i genişletmek, cover'lıyken call-off/stack-off gevşetmek DEĞİL. Whale'e bile cover edilirken hafif stack-off yok.",
+    source: "Bölüm 23.3",
+    kavram: "saha-okuma",
+  },
+  {
+    q: "Nit UTG açtı, sende orta el (KJo). Exploit yön ne — ve neden onun pot'larını çalarsın?",
+    options: ["Call/3-bet, aralığı geniş", "Fold (nit açılışı nuts'a yakın); ama sonraki pot'larını sık çal — fold eder"],
+    correct: 1,
+    explain:
+      "Nit açılışı/agresyonu nadiren blöf, nuts'a yakın → orta ele saygı, fold (bluff-catch bırak). Exploit onun fold-eğiliminde: pot'larını sık çal, steal'e fazla fold eder. Hata yönü (fazla fold) → çal.",
+    source: "Bölüm 23.1",
+    kavram: "saha-okuma",
+  },
 ];
 
 export function randomScenario(): Scenario {

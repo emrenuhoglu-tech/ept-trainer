@@ -36,9 +36,9 @@ const PAIRS: DepthPair[] = [
   {
     spot: "55, BTN. UTG (erken) 2.2bb açtı, sana geldi.",
     shallow: { bb: "15bb", tag: "sığ", options: ["Call (set ara)", "Jam ya da fold"], correct: 1, action: "JAM/FOLD" },
-    deep: { bb: "80bb", tag: "derin", options: ["Call (set ara)", "Jam ya da fold"], correct: 0, action: "CALL" },
-    flip: "Küçük per implied odds ister: derinde set-mine call; sığda implied odds yok → jam/fold (derinlik filtresi, B24.2).",
-    chapter: 24,
+    deep: { bb: "150bb", tag: "derin", options: ["Call (set ara)", "Jam ya da fold"], correct: 0, action: "CALL" },
+    flip: "Küçük çift implied odds ister: derinde (150bb) set-mine call — UTG açışına flat ancak 150bb+'da açılır (B4); sığda (15bb) implied odds yok → jam/fold.",
+    chapter: 4,
   },
 ];
 

@@ -103,8 +103,12 @@ function q3bet(sel: RecallSel): RecallQuestion | null {
   const setFlat = new Set<string>([...f.cells].filter((c) => !set3.has(c)));
   // Geniş-prose flat (ör. "…ve tüm 65s+ suited connector'lar") grid'e açılamaz ve flatText
   // tarafından atılır → kapsadığı eller yanlışlıkla fold havuzuna düşerdi. HAM flat metninde
-  // geniş işareti varsa fold sorusu üretme (ne parse edildiğine bakma) — sadakat.
-  const flatWide = /geniş|tüm|çoğu/i.test(applicableFlats.join(" "));
+  // geniş işareti varsa fold sorusu üretme. Ayrıca BB'nin ayrı flat listesi olmayan açılışlarda
+  // (UTG/LJ-HJ/CO→BB) kitap "BB flat çok geniş" der → fold üretme (JJ/TT/AQs 'fold' notlanmasın).
+  // quizEngine.buildPools ile birebir aynı guard — sadakat.
+  const flatWide =
+    (position === "BB" && applicableFlats.length === 0) ||
+    /geniş|tüm|çoğu/i.test(applicableFlats.join(" "));
   const poolFold = flatWide ? [] : ALL.filter((c) => !set3.has(c) && !setFlat.has(c));
 
   const kavram = `recall:derin:${g.opener}→${position}`;

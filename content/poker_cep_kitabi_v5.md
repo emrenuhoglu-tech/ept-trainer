@@ -1775,3 +1775,62 @@ Somut: €5.3K Main'de edge'in var (saha daha geniş/soft) → marjinal flip'ler
 3. **G3.** Orta-kısa stack: seni büyükler cover ediyor ama sen de altındakileri cover ediyorsun; edge yok, yapı hızlı. Pasif call-flip mi, fold-equity'li jam mı?
 
 *Kök hata bağı: risk premium (B20) "kaybı" tartar, edge premium "gelecekteki kazancı". İkisi de çoğu zaman "marjinali pas geç" der ama edge yoksa ve survival gerekiyorsa beklemenin değeri düşer. Guard: edge'im var mı + cover ediliyor muyum? İkisi de evetse pas; edge yok + mecbursam en iyi fold-equity spotunu al. -EV asla.*
+
+
+---
+
+## Bölüm 25 — Kafamdaki Hikaye: Kanıt mı Anlatı mı
+
+*★ v6. B16 tilt'i ve otopsiyi verdi (gün-sonu vaka defteri). Bu bölüm onların ÖNÜNE bir el-içi filtre koyar: büyük bir bluff-catch/fold'dan önce "bu okuma kanıta mı hikayeye mi dayanıyor". B23 rakip okumasını (kanıt) B16 otopsisine (sonuç-bağımsız puanlama) bağlayan köprü.*
+
+### 25.0 Tez
+
+> **Bir hero-call ya da büyük fold'dan önce sor: bu okuma KANITA mı (aksiyon dizisi, boyut, timing, pozisyon, tip — B23) yoksa kafamdaki HİKAYEye mi (duygu, momentum, ego) dayanıyor? Hikayeyse default'a dön (B11.2). Bu, B16 tilt-kartının bir el-içi versiyonu: tilt duyguyu yaralar, hikaye kararı çarpıtır.**
+
+### 25.1 "Kafamdaki hikaye" testi
+
+Büyük bir bluff-catch ya da ince fold'dan önce bir saniye dur. Gerekçen iki türden hangisi:
+
+- **Kanıt:** villain'in aksiyon dizisi (bet-bet-bet mi, check-call mi), boyutları (polarize/bloklu), timing, pozisyon, tipi (B23). Somut, masada gördüğün.
+- **Hikaye:** "bana blöf yapıyor gibi hissediyorum", "az önce beni soydu, şimdi yakalarım", "bu el hep kaybeder". Duygu ve anlatı.
+
+Kanıta dayanıyorsa güven — ama kanıt cover'ı yenmez: cover ediliyorken hero-call yine fold (B21.2). Hikayeye dayanıyorsa default'a dön: B11.2 (tek per = bluff-catcher, uncapped'e saygı). Hikaye seni hem gereksiz hero-call'a hem gereksiz fold'a sürükler; ikisi de aynı kök hatanın (duygu > aralık) yüzleri.
+
+### 25.2 Hikaye ↔ tilt bağı
+
+Hikaye çoğu zaman tilt'in ürünüdür: "az önce soydu, şimdi yakalarım" bir bad-beat/ego tetikleyicisinden gelir (B16.2). Sıralama B16'nın sıralamasıdır: önce belirtiyi FARK et (B16.2 — hızlanma, telefona sarılma, kovalama → fiziksel hamle: derin nefes / VPIP kilidi / su), sonra karar. Tilt'liyken "kanıt mı hikaye mi" testini bile güvenilir yapamazsın; önce yarayı etiketle (B16.2 kartı; yara kavramı B0 c.15), sonra kanıta bak.
+
+### 25.3 Sonuç-bağımsız puanlama = B16.3 otopsisi, hikaye merceğiyle
+
+El bittiğinde puanlama B16.3'te: **gün sonunda** (masada sadece not al), iki soru — karar anında kitaptaki kural neydi + uydum mu. Bu bölüm o otopsiye tek bir mercek ekler: **kararım kanıta mı hikayeye mi dayanıyordu?**
+
+- Doğru kural + kötü sonuç = İYİ karar — **ama yalnız kurala/range'e gerçekten uyduysan (B16.3); "doğruydu, varyanstı" kendini aklama kapısı değil.**
+- Hikayeye dayanıp kazanmak = LEAK (sonuç ödüllendirdi, süreç hatalıydı; tekrar edersen yakarsın).
+
+B25 yeni bir otopsi katmanı açmaz; B16.3 otopsisine "kanıt mı hikaye mi" sorusunu ekler.
+
+### 25.4 En pahalı kararlara dikkat
+
+Bir hikaye-hatası her yerde eşit pahalı değil. FT/ICM'de tek karar çok buy-in değerinde: şişmiş potta call-off en pahalı aksiyon (B21.1), cover edildiğin bluff-catch (B21.2 → fold). Mental enerjini oraya sakla: bubble/FT büyük potları, cover edildiğin call-off'lar. Ucuz kararlarda (küçük pot, para uzak) mükemmeli kovalama — rutinle oyna, enerjiyi pahalı spota biriktir.
+
+### 25.5 Kalibrasyon
+
+*(kalibre et: "kanıt mı hikaye mi" eşiği kişisel — kendi geçmiş hero-call'larını B16.3 otopsisinde gözden geçir, hangisi kanıttı hangisi hikaye. App karne'si sonuç-bağımsız puanlar: doğru kavramı seçtin mi, sonucu değil.)*
+
+### 25.6 Cheat kartı
+
+| Durum | Doğru refleks |
+|---|---|
+| **Hero-call öncesi** | Kanıt mı hikaye mi? Hikayeyse default'a dön (B11.2) |
+| **Büyük fold öncesi** | Aynı test — hikayeyle fold da leak |
+| **Tilt belirtisi** | Önce fiziksel hamle (B16.2), sonra karar |
+| **Gün sonu otopsi** | B16.3 iki soru + "kanıt mıydı hikaye mi" |
+| **Pahalı spot (FT/cover)** | Enerjini sakla; ucuz kararda mükemmeli kovalama |
+
+### 25.7 Drill (3 soru)
+
+1. **M1.** River'da büyük bir bet; "bu adam blöfçü" hissediyorsun ama aksiyon dizisi (bet-bet-bet, polarize) value'ye uyuyor. Hangi gerekçeye güvenirsin, call mı fold mu?
+2. **M2.** Bir bad beat yedin, eller hızlanıyor, telefona sarıldın. Sıradaki büyük hero-call kararında ÖNCE ne yaparsın (B16.2), sonra hangi test?
+3. **M3.** Gün sonu otopsi: cover EDİLİYORken bir hero-call yaptın, blöfü yakaladın, pot senin. B21.2 + B16.3 + hikaye merceğiyle bu kararı nasıl puanlarsın?
+
+*Kök hata bağı: hikaye-bazlı karar, aralık disiplinini (B11.2/B12) duyguyla ezer — tilt'in (B16.2) karar-katmanındaki yüzü. Guard: kanıt mı hikaye mi + kurala uydum mu (B16.3). B25, B16'nın önüne el-içi bir filtre, ardına bir otopsi merceği koyar; yeni bir kural değil, mevcut disiplinin tetikleyicisi.*

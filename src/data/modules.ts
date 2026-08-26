@@ -1766,6 +1766,75 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M29",
+    title: "Kafamdaki hikaye: kanıt mı anlatı mı",
+    chapter: "Bölüm 25 ★",
+    minutes: 7,
+    slides: [
+      {
+        title: "Tez: kanıt mı hikaye mi",
+        bullets: [
+          "Hero-call/büyük fold öncesi sor: okuma KANITA mı HİKAYEye mi dayanıyor?",
+          "Kanıt = aksiyon dizisi, boyut, timing, pozisyon, tip (B23).",
+          "Hikaye = duygu, momentum, ego. Hikayeyse default'a dön (B11.2).",
+          "B23 okumasını (kanıt) B16 otopsisine bağlayan köprü.",
+        ],
+        ruleBox: "Hero-call'dan önce: kanıt mı hikaye mi? Hikayeyse default'a dön (B11.2).",
+        narration:
+          "Bu bölüm kitabın en soyut ama en pahalı katmanına, mental oyuna, tek somut araç ekliyor. Teknik doğru olsa bile mental leak parayı geri verir. Araç şu: bir hero-call ya da büyük bir fold'dan önce bir saniye dur ve sor, bu okuma kanıta mı yoksa kafamdaki hikayeye mi dayanıyor? Kanıt somuttur: villain'in aksiyon dizisi, bet-bet-bet mi check-call mi, boyutları, timing'i, pozisyonu, tipi, yani yirmi üçüncü bölümün okuma araçları. Hikaye ise duygudur: bana blöf yapıyor gibi hissediyorum, az önce beni soydu şimdi yakalarım, bu el hep kaybeder. Kanıta dayanıyorsa güven; hikayeye dayanıyorsa default'a dön, on bir nokta iki bluff-catch disiplini. Bu bölüm yirmi üçüncü bölümün rakip okumasını, yani kanıtı, on altıncı bölümün otopsisine bağlayan köprüdür.",
+      },
+      {
+        title: "Test: kanıt cover'ı yenmez",
+        bullets: [
+          "Kanıta dayanıyorsa güven — AMA kanıt cover'ı yenmez.",
+          "Cover ediliyorken hero-call yine fold (B21.2), kanıt olsa bile.",
+          "Hikaye seni HEM gereksiz hero-call'a HEM gereksiz fold'a sürükler.",
+          "İkisi de aynı kök hatanın yüzü: duygu > aralık.",
+        ],
+        ruleBox: "Kanıt cover'ı yenmez: cover ediliyorken hero-call yine fold (B21.2).",
+        narration:
+          "Testin kritik bir sınırı var: kanıta dayanıyorsan güven, ama kanıt cover'ı yenmez. Yani okuman ne kadar sağlam olursa olsun, cover ediliyorken bir hero-call yine fold'dur, yirmi bir nokta iki. ICM primi kanıttan bağımsız çalışır; şişmiş potta cover edildiğin bir call-off en pahalı aksiyondur ve güçlü bir okuma bile onu haklı çıkarmaz. İkinci nokta: hikaye seni tek yöne değil, iki yöne birden sürükler. Hem gereksiz bir hero-call'a, blöfü yakalayacağım hikayesiyle, hem de gereksiz bir fold'a, bu el hep kaybeder hikayesiyle. İkisi de aynı kök hatanın iki yüzüdür: duygunun aralığın önüne geçmesi. O yüzden guard tek: kanıt mı hikaye mi.",
+      },
+      {
+        title: "Hikaye ↔ tilt: önce yarayı etiketle",
+        bullets: [
+          "Hikaye çoğu zaman tilt'in ürünü (bad-beat/ego tetikleyicisi, B16.2).",
+          "Sıralama B16'nın: önce belirtiyi FARK et → fiziksel hamle, sonra karar.",
+          "Fiziksel hamle: derin nefes / 1 orbit VPIP kilidi / su iç (B16.2).",
+          "Tilt'liyken 'kanıt mı hikaye mi' testini bile güvenilir yapamazsın.",
+        ],
+        ruleBox: "Tilt belirtisinde önce fiziksel hamle (B16.2), sonra karar — yarayı etiketle.",
+        narration:
+          "Hikaye çoğu zaman tilt'in ürünüdür. Az önce beni soydu şimdi yakalarım cümlesi bir bad-beat ya da ego tetikleyicisinden gelir, on altı nokta iki tilt kartı. O yüzden sıralama on altıncı bölümün sıralamasıdır: önce belirtiyi fark et, hızlanıyor musun, telefona mı sarıldın, kötü ellerle mi kovalıyorsun, sonra fiziksel hamleyi uygula, derin nefes, bir orbit VPIP kilidi, su iç ya da ayağa kalk, ve ancak ondan sonra karar ver. Çünkü tilt'liyken kanıt mı hikaye mi testini bile güvenilir yapamazsın; önce yarayı etiketlersin, sonra kanıta bakarsın. Yaranın kavramı sıfırıncı bölüm cümle on beş, uygulama kartı on altı nokta iki.",
+      },
+      {
+        title: "Puanlama = B16.3 otopsisi, hikaye merceğiyle",
+        bullets: [
+          "El bitince puanlama B16.3'te: GÜN SONUNDA (masada sadece not).",
+          "İki soru: kural neydi + uydum mu. Bu bölüm 'kanıt mı hikaye mi'yi ekler.",
+          "Doğru kural + kötü sonuç = İYİ karar — ama yalnız kurala UYDUYSAN.",
+          "Hikayeye dayanıp kazanmak = LEAK (sonuç ödüllendirdi, süreç hatalı).",
+        ],
+        ruleBox: "İYİ karar etiketi yalnız kurala uyduysan geçerli (B16.3) — kendini aklama kapısı değil.",
+        narration:
+          "El bittiğinde puanlamayı nasıl yaparsın? Yeni bir sistem değil, on altı nokta üç otopsisi. Zamanı kritik: el bittiği an değil, gün bittikten sonra; masada sadece eli not al. İki soru sorarsın: karar anında bildiklerimle kitaptaki kural neydi, ve o kurala uydum mu. Bu bölüm o otopsiye tek bir mercek ekler: kararım kanıta mı hikayeye mi dayanıyordu? Doğru kural artı kötü sonuç eşittir iyi karar, aralık değişmez; ama dikkat, bu etiket yalnız kurala gerçekten uyduysan geçerlidir. Doğruydu, varyanstı cümlesi kendini aklama kapısına dönüşmesin. Tersi de var: hikayeye dayanıp kazanmak bir leak'tir, çünkü sonuç seni ödüllendirdi ama süreç hataliydi, tekrar edersen yakarsın.",
+      },
+      {
+        title: "En pahalı kararlar + cheat + drill",
+        table: { section: "Bölüm 25", sub: "25.6", caption: "Durum → doğru refleks." },
+        bullets: [
+          "Hikaye-hatası her yerde eşit pahalı değil; FT/ICM'de tek karar çok buy-in.",
+          "Enerjini pahalı spota sakla: bubble/FT büyük pot, cover edildiğin call-off (B21).",
+          "Ucuz kararda mükemmeli kovalama — rutinle oyna.",
+          "Guard: kanıt mı hikaye mi + kurala uydum mu (B16.3).",
+        ],
+        ruleBox: "Guard: kanıt mı hikaye mi + kurala uydum mu — enerjini pahalı spota sakla.",
+        narration:
+          "Son slayt: enerjiyi nereye harcayacağın. Bir hikaye-hatası her yerde eşit pahalı değildir. Final table'da ya da ICM baskısında tek bir karar çok buy-in değerindedir; şişmiş potta call-off en pahalı aksiyondur, yirmi bir nokta bir, ve cover edildiğin bluff-catch fold'dur, yirmi bir nokta iki. O yüzden mental enerjini oraya sakla: bubble ve final table'ın büyük potları, cover edildiğin call-off'lar. Ucuz kararlarda, küçük pot, para uzak, mükemmeli kovalama, rutinle oyna ve enerjiyi pahalı spota biriktir. Hepsini iki soruluk guard yönetir: kanıt mı hikaye mi, ve kurala uydum mu. Drill: river'da büyük bet, blöfçü hissediyorsun ama aksiyon dizisi value'ye uyuyor, hangi gerekçe; bad beat yedin eller hızlanıyor telefona sarıldın, sıradaki hero-call'da önce ne yaparsın sonra hangi test; ve gün sonu otopsi, cover ediliyorken hero-call yaptın blöfü yakaladın, yirmi bir nokta iki artı on altı nokta üç merceğiyle nasıl puanlarsın.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

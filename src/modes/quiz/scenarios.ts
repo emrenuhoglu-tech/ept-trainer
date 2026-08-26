@@ -849,6 +849,33 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 24.4",
     kavram: "edge-premium",
   },
+  {
+    q: "River'da büyük bet; 'bu adam blöfçü' hissediyorsun ama aksiyon dizisi (bet-bet-bet, polarize) value'ye uyuyor. Hangi gerekçe?",
+    options: ["His → hero-call (blöfçü gibi)", "Kanıt kazanır: aksiyon dizisi value → fold; 'blöfçü' bir HİKAYE, default'a dön (B11.2)"],
+    correct: 1,
+    explain:
+      "Kanıt (aksiyon dizisi, polarize boyut) hikayeyi ('blöfçü gibi hissediyorum') yener. Kanıt value diyorsa fold; his değil kanıt. Hikaye seni gereksiz hero-call'a sürükler — default B11.2.",
+    source: "Bölüm 25.1",
+    kavram: "kafamdaki-hikaye",
+  },
+  {
+    q: "Bad beat yedin, eller hızlanıyor, telefona sarıldın. Sıradaki büyük hero-call kararında ÖNCE ne yaparsın?",
+    options: ["Hemen 'kanıt mı hikaye mi' testini yap", "ÖNCE fiziksel hamle (B16.2: nefes/VPIP kilidi/su), SONRA kanıt-hikaye testi"],
+    correct: 1,
+    explain:
+      "Sıralama B16'nın: tilt belirtisinde (hızlanma/telefon/kovalama) önce yarayı etiketle + fiziksel hamle (B16.2), çünkü tilt'liyken testi bile güvenilir yapamazsın. Yara sakinleşince kanıt mı hikaye mi testine geç.",
+    source: "Bölüm 25.2",
+    kavram: "kafamdaki-hikaye",
+  },
+  {
+    q: "Gün sonu otopsi: cover EDİLİYORken hero-call yaptın, blöfü yakaladın, pot senin. Kararı nasıl puanlarsın?",
+    options: ["İYİ karar — kazandım, okuma tuttu", "LEAK: B21.2 cover ediliyorken hero-call=fold olmalıydı; kazanmak süreci düzeltmez"],
+    correct: 1,
+    explain:
+      "Sonuç-bağımsız puanlama (B16.3): kural neydi + uydum mu. B21.2 → cover ediliyorken hero-call fold olmalıydı, kanıt olsa bile. Kurala uymadın → LEAK; kazanmak (iyi sonuç) kötü kararı gizler. Puanı sonuç değil kural belirler.",
+    source: "Bölüm 25.3",
+    kavram: "kafamdaki-hikaye",
+  },
 ];
 
 export function randomScenario(): Scenario {

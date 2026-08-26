@@ -26,6 +26,7 @@ import { parseRange } from "../src/lib/handgrid";
 import { buildPools } from "../src/modes/quiz/quizEngine";
 import { postflopQuestion, betType } from "../src/modes/quiz/postflopEngine";
 import { SCENARIOS } from "../src/modes/quiz/scenarios";
+import { WHY_WRONG } from "../src/modes/quiz/whyWrong";
 import { KARNE_SEED } from "../src/data/karne_seed";
 import { computeDue, capDue, migrate, computeMastery } from "../src/lib/karne";
 import { localIsoDay } from "../src/lib/date";
@@ -199,6 +200,25 @@ check("D6-63 postflop PLO Q üretiliyor", !!postflopQuestion("plo"));
   check("D4-38 tüm correct options sınırında", badCorrect.length === 0, badCorrect.map((s) => s.q.slice(0, 24)).join("|"));
   check("D4-38 tüm source dolu", badSource.length === 0, String(badSource.length));
   check("D4-38 tüm kavram dolu", badKavram.length === 0, String(badKavram.length));
+}
+
+// WHY_WRONG çeldirici gerekçeleri: anahtar gerçek bir senaryo q'su olmalı ve dizi options ile
+// hizalı (doğru şık "" boş, tüm yanlış şıklar dolu). Anahtar yazım hatası gerekçeyi sessizce
+// yutar; hizasızlık yanlış şıkka gerekçe basar → build kapısı.
+{
+  const qSet = new Set(SCENARIOS.map((s) => s.q));
+  const badKey = Object.keys(WHY_WRONG).filter((q) => !qSet.has(q));
+  check("WHY_WRONG anahtarları senaryoya bağlı", badKey.length === 0, badKey.map((q) => q.slice(0, 24)).join("|"));
+  const misaligned: string[] = [];
+  for (const [q, arr] of Object.entries(WHY_WRONG)) {
+    const sc = SCENARIOS.find((s) => s.q === q);
+    if (!sc) continue;
+    const okLen = arr.length === sc.options.length;
+    const okCorrectEmpty = arr[sc.correct] === "";
+    const okWrongFilled = arr.every((v, i) => i === sc.correct || (typeof v === "string" && v.trim().length > 0));
+    if (!(okLen && okCorrectEmpty && okWrongFilled)) misaligned.push(q.slice(0, 24));
+  }
+  check("WHY_WRONG dizileri options ile hizalı", misaligned.length === 0, misaligned.join("|"));
 }
 
 // D7-73: karne veri katmanının saf fonksiyonları (DUE_CAP tam bu boşluktan sessizce geçmişti).

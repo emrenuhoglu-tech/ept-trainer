@@ -2,7 +2,19 @@
 
 Kaynaklar: Dara O'Kearney, GTO Wizard blog, Jonathan Little/PokerCoaching, Pokercode/Holz, Galfond/RIO — **yalnız ücretsiz/public materyalden**. Hepsi standart teori (fikir, telifli ifade değil). **Kural: sıfır kopya** — özgün dil, Emre-kalibre, sayılar `(kalibre et)`; branded isimler (BRAIN, Bounty Factor, ICM Dial, Toy Games) app'e girmez.
 
-## BUILD — yüksek değer, yeni, EPT/Day2 ile ilgili
+## ✅ TAMAMLANDI (2026-08-26) — BUILD 6/6 canlı (TR+EN)
+
+Tüm BUILD kalemleri kitaba + modüle + quize işlendi, 3-lens adversarial verify'dan geçti (Fable), deploy edildi. 98 senaryo (TR=EN parite).
+
+- **Bölüm 21** — Postflop under ICM (bir kademe indir) · M25
+- **Bölüm 22** — ICM zaman çizelgesi + laddering (item 2+3 birleşik) · M26
+- **Bölüm 23** — Saha okuma: rakip tipleri + exploit (item 4) · M27
+- **Bölüm 24** — Edge premium: ne zaman gamble ETME (item 5) · M28
+- **Bölüm 25** — Kafamdaki hikaye: kanıt mı anlatı mı (item 6, mental) · M29
+
+Sıradaki: APP-MOTORU kalemleri (aşağıda) + LATER/koşullu. Solver pipeline EPT Barcelona sonrası (Emre HRC export verince).
+
+## BUILD — yüksek değer, yeni, EPT/Day2 ile ilgili (✅ hepsi ship — yukarı bak)
 
 **1. Postflop under ICM (yeni bölüm — en güçlü aday, çok-kaynak yakınsaması)**
 Dara + GTOW + Little üçü de HIGH işaretledi. B18/B19 (c-bet/barrel/bluff-catch) ile B12/B20 (ICM) ayrı ayrı var ama **kesişim yok**. Kural: ICM modunda her agresif hattı bir kademe indir — bet→check, raise→call, medium→small; cover eden daha çok barrel'lar, cover edilen daha az bluff-catch'ler (call-off en çok ICM-vergili aksiyon). Spine'ı sertleştirir: "şişmiş potta tek per" FT'de daha da fold-eğilimli. → **B18/B19 ↔ B12 köprüsü.** FT/Day2-kritik.

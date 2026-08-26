@@ -9,6 +9,7 @@ import {
 } from "../../lib/karne";
 import { getStats, daysUntilEPT, cornermanActive } from "../../lib/progress";
 import { modules } from "../../data/modules";
+import { kavramChapter } from "../quiz/scenarios";
 import { prefetchHd, sentencesOf, getTtsMode, setTtsMode, type TtsMode } from "../../lib/speech";
 import { exportAll, importAll } from "../../lib/storage";
 import { KarneTrend } from "../../components/KarneTrend";
@@ -158,11 +159,12 @@ export function Progress({ onReview, onJournal }: { onReview?: () => void; onJou
               <div className="mt-3 text-xs uppercase tracking-wide text-red-300">
                 Emin-ama-yanlış (en tehlikeli)
               </div>
+              <p className="mt-0.5 text-[11px] text-neutral-600">Kavrama dokun → o bölümü tekrar oku.</p>
               <ul className="mt-1 space-y-1.5">
                 {cwrong.map((e) => (
                   <li key={e.id} className="flex items-center gap-2 text-sm">
                     <span className="text-red-400">●</span>
-                    <span className="text-neutral-200">{e.kavram}</span>
+                    <KavramLink kavram={e.kavram} />
                     {e.severity === "tournament_life" && (
                       <span className="rounded-full bg-red-500/20 px-2 py-0.5 text-[10px] text-red-300">
                         turnuva-hayatı
@@ -190,7 +192,7 @@ export function Progress({ onReview, onJournal }: { onReview?: () => void; onJou
               <li key={e.id} className="flex gap-2 text-sm">
                 <span className={DOT[e.sonuc]}>●</span>
                 <span>
-                  <span className="text-neutral-200">{e.kavram}</span>
+                  <KavramLink kavram={e.kavram} />
                   <span className="text-neutral-500"> — {e.soru_ozeti}</span>
                 </span>
               </li>
@@ -265,6 +267,20 @@ export function Progress({ onReview, onJournal }: { onReview?: () => void; onJou
         {bkMsg && <p className="mt-2 text-xs text-red-300">{bkMsg}</p>}
       </section>
     </div>
+  );
+}
+
+// Tekrar-oku linki: zayıf kavramı kitap bölümüne bağlar (yoksa düz metin).
+function KavramLink({ kavram }: { kavram: string }) {
+  const ch = kavramChapter(kavram);
+  if (ch == null) return <span className="text-neutral-200">{kavram}</span>;
+  return (
+    <a
+      href={`#/referans/bolum/${ch}`}
+      className="text-neutral-200 underline decoration-dotted decoration-neutral-600 underline-offset-2 hover:text-accent hover:decoration-accent"
+    >
+      {kavram} <span className="text-[10px] text-neutral-500">Böl. {ch} ↗</span>
+    </a>
   );
 }
 

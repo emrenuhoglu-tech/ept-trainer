@@ -822,6 +822,33 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 23.1",
     kavram: "saha-okuma",
   },
+  {
+    q: "€5K Main, derin stack, erken seviye; marjinal bir flip (ince +EV) önünde. AL mı PAS mı, ne belirler?",
+    options: ["AL — +EV her spot alınır", "PAS: edge'in var (soft/derin) → marjinal flip'i pas geç, sonra daha iyi spot gelir"],
+    correct: 1,
+    explain:
+      "Edge premium: soft sahada + derin stack'te edge'in büyük → marjinal flip'i variance'a çevirme, pas geç. İki soru belirler: senin edge'in (soft=büyük) + derinlik (derin=outplay alanı). Sonra edge'in daha güvenli EV üretir.",
+    source: "Bölüm 24.2",
+    kavram: "edge-premium",
+  },
+  {
+    q: "€100K SHR, dünyanın en iyileri, sığ-orta; AYNI marjinal +EV flip. Karar değişir mi?",
+    options: ["Yine pas — flip variance'tır", "Değişir → AL: edge'in yok (underdog) → beklemenin değeri yok, ICM-ayarlı +$EV al"],
+    correct: 1,
+    explain:
+      "Edge yoksa (tough saha, underdog) beklemenin primi düşük → ICM düşülünce hâlâ +$EV olan marjinal spotu al, flip dahil. Aynı el, iki turnuvada zıt karar; fark senin edge'in. (-EV yine asla.)",
+    source: "Bölüm 24.5",
+    kavram: "edge-premium",
+  },
+  {
+    q: "Orta-kısa stack: seni büyükler cover ediyor ama sen de altındakileri cover ediyorsun; edge yok, yapı hızlı. Pasif call-flip mi, jam mı?",
+    options: ["Pasif call-flip — chip lazım", "Fold-equity'li JAM (B17): risk primi 'pas' derken edge primi 'chip lazım' der → en iyi FE spotu"],
+    correct: 1,
+    explain:
+      "Gerçek prim-çatışması: cover ediliyorsun (risk primi pas) + edge yok/hızlı (edge primi bekleme). Çözüm pasif flip değil, fold-equity'li JAM (B17: jam kalır, fold equity var). -EV asla; +EV FE spotunu al.",
+    source: "Bölüm 24.4",
+    kavram: "edge-premium",
+  },
 ];
 
 export function randomScenario(): Scenario {

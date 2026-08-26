@@ -1711,3 +1711,67 @@ Denge burada kalkan: reg dengesizliğini cezalandırır. Dengeli aralıkla oyna,
 3. **E3.** Nit UTG açtı, sende orta el. Exploit yön ne — call mı fold mu, ve neden pot'larını çalarsın?
 
 *Kök hata bağı: default (denge) seni kayıptan korur; sapma (exploit) kârı üretir ama YANLIŞ okumada geri teper. Guard: tip + ICM-hissi + hata yönü — üçü netse sap, değilse dengede kal. Station'a blöf (ve ona küçük value), rec'e baskı satmak: saha-okuma leak'inin klasik yüzleri.*
+
+
+---
+
+## Bölüm 24 — Edge Premium: Ne Zaman Gamble ETME (ve Ne Zaman Mecbursun)
+
+*★ v6. B20/B22 risk primini verdi — ICM'in primi. Bu bölüm ikinci bir prim ekler: edge premium (beceri primi). Edge'in varsa marjinal variance'tan kaçın; edge'in yoksa ICM-ayarlı +EV gamble'ı al. Risk premium kaybı, edge premium sonraki kazancı tartar.*
+
+### 24.0 Tez
+
+> **Marjinal bir gamble'da (flip, ince +EV) iki prim çalışır. Risk premium: kaybedersem ICM'de ne kaybederim. Edge premium: bu chip'leri riske atmasam edge'imle sonra daha fazlasını kazanır mıyım? Edge'in büyükse (soft saha, derin, yavaş yapı) marjinal flip'i PAS geç. Edge'in yoksa (tough saha, sığ, hızlı yapı) ICM-ayarlı +EV gamble'ı AL — beklemek işe yaramaz. -EV asla; edge primi yalnız +EV/marjinal spotları filtreler.**
+
+### 24.1 Edge premium nedir
+
+Soft bir sahada beceri edge'in büyükse, her elde otomatik olarak para kazanıyorsun demektir. Marjinal bir coin-flip bu edge'i variance'a çevirir: %50 kaybedip masayı terk edersin, oysa oynamaya devam etsen edge'in daha güvenli EV üretecekti. Bu yüzden edge'li oyuncu marjinal flip'i pas geçer — sonra daha iyi spot gelir. Tersi de doğru: edge'in yoksa (underdog'sun, ör. dünyanın en iyileriyle) beklemenin değeri yok; +EV (risk primi düşüldükten sonra, yani ICM-ayarlı $EV) her spotu, flip dahil, al — zaman senin aleyhine.
+
+### 24.2 4-soru filtresi
+
+Marjinal bir gamble'dan önce dört soru:
+
+1. **Stack derinliği:** Derin misin? Derin = outplay edecek alan = edge realize olur = PAS. Sığ = alan yok = AL.
+2. **Yapı hızı:** Yapı yavaş mı? Yavaş = edge zamana yayılır = PAS. Hızlı/turbo = edge erir = AL.
+3. **Senin edge'in:** Saha soft mu? Soft = büyük edge = marjinali PAS. Tough (underdog) = edge yok = +EV AL.
+4. **Cover haritası (ICM):** Cover mı ediliyorsun (B20/B22)? Evet = risk primi de PAS der (istisna: kimseyi cover etmeyen EN kısa stack'te prim ~0). Cover ediyorsan = agresif.
+
+### 24.3 Filtre tablosu
+
+| Soru | Gamble PAS | Gamble AL |
+|---|---|---|
+| **Derinlik** | Derin | Sığ |
+| **Yapı** | Yavaş | Hızlı/turbo |
+| **Edge** | Soft saha | Tough (underdog) |
+| **ICM** | Cover ediliyorsun | Cover ediyorsun |
+
+*(ICM istisnası: kimseyi cover etmeyen en kısa stack'te prim ~0 → o satırda "al".)*
+
+### 24.4 İki primin etkileşimi
+
+Edge premium ve risk premium çoğu zaman aynı yöne iter: soft saha + cover ediliyorken marjinal flip iki kez PAS. Gerçek çatışma dar bir spotta doğar: **orta-kısa stack'sin — büyük stack'ler seni cover ediyor (risk primi "pas" der) ama sen de altındaki kısaları cover ediyorsun, edge'in yok, yapı hızlı (edge primi "bekleme, chip lazım" der).** Çözüm: en iyi fold-equity'li spotu seç (jam, call değil; B17), pasif flip'ten kaçın, gerekli +EV riski al. Not: kimseyi cover ETMEYEN en kısa stack'te risk primi ~0'dır (B20) — orada çatışma yok, iki prim de "al" der, tek ders B17 spot-seçimidir. **-EV'yi survival gerekçesiyle bile alma.**
+
+### 24.5 Senin sidebar'ın (Barcelona)
+
+Somut: €5.3K Main'de edge'in var (saha daha geniş/soft) → marjinal flip'leri **PAS geç, sabırlı oyna** (edge'in sonra daha güvenli EV üretecek). €100K SHR'de edge'in yok/az (dünyanın en iyileri) → beklemenin primi düşük, +EV marjinal spotları (ICM düşülünce hâlâ +$EV ise) almaktan çekinme. Aynı el, iki turnuvada zıt karar: fark senin edge'in.
+
+### 24.6 Kalibrasyon
+
+*(kalibre et: edge'in ne kadar büyük — saha, stake, senin geçmişin — sayısal değil, üç kademe (büyük/orta/yok) tahmin et. Derinlik ve yapı hızı eşikleri turnuvaya bağlı. ICM katmanı B20/B22 primiyle birleşir.)*
+
+### 24.7 Cheat kartı
+
+| Durum | Karar |
+|---|---|
+| **Soft + derin + cover ediliyorsun** | Marjinal flip PAS (iki prim) |
+| **Tough + sığ + hızlı** | +EV AL (cover'a bak, $EV) |
+| **Edge yok + survival** | En iyi fold-equity jam'ı al |
+| **Edge var ama cover ediyorsun** | Seçici agresyon |
+
+### 24.8 Drill (3 soru)
+
+1. **G1.** €5K Main, derin stack, erken; marjinal bir flip. AL mı PAS mı, hangi iki soru belirler?
+2. **G2.** €100K SHR, dünyanın en iyileri, sığ-orta; aynı marjinal +EV flip. Karar değişir mi, neden?
+3. **G3.** Orta-kısa stack: seni büyükler cover ediyor ama sen de altındakileri cover ediyorsun; edge yok, yapı hızlı. Pasif call-flip mi, fold-equity'li jam mı?
+
+*Kök hata bağı: risk premium (B20) "kaybı" tartar, edge premium "gelecekteki kazancı". İkisi de çoğu zaman "marjinali pas geç" der ama edge yoksa ve survival gerekiyorsa beklemenin değeri düşer. Guard: edge'im var mı + cover ediliyor muyum? İkisi de evetse pas; edge yok + mecbursam en iyi fold-equity spotunu al. -EV asla.*

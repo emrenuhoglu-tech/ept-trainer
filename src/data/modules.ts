@@ -1696,6 +1696,76 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M28",
+    title: "Edge premium: ne zaman gamble ETME",
+    chapter: "Bölüm 24 ★",
+    minutes: 7,
+    slides: [
+      {
+        title: "İki prim: risk + edge",
+        bullets: [
+          "Risk premium: kaybedersem ICM'de ne kaybederim (B20).",
+          "Edge premium: riske atmasam edge'imle sonra daha fazla kazanır mıyım?",
+          "Edge büyükse (soft/derin/yavaş) marjinal flip'i PAS geç.",
+          "Edge yoksa (tough/sığ/hızlı) ICM-ayarlı +EV al — beklemek işe yaramaz. -EV asla.",
+        ],
+        ruleBox: "Edge var → marjinali pas; edge yok → ICM-ayarlı +EV al; -EV asla.",
+        narration:
+          "Yirminci ve yirmi ikinci bölüm risk primini verdi: ICM'in primi. Bu modül ikinci bir prim ekliyor: edge premium, yani beceri primi. Marjinal bir gamble'da, bir flip ya da ince artı-EV spotunda, iki prim aynı anda çalışır. Birincisi risk premium: kaybedersem ICM'de ne kaybederim? İkincisi edge premium: bu chip'leri şimdi riske atmasam, beceri edge'imle sonra daha fazlasını kazanır mıyım? Kural şu: edge'in büyükse, yani saha soft, stack derin, yapı yavaşsa, marjinal flip'i pas geç, çünkü sonra daha iyi spot gelecek. Edge'in yoksa, yani tough sahada underdog'san, sığsan, yapı hızlıysa, ICM-ayarlı artı-EV gamble'ı al, çünkü beklemek işe yaramaz. Ama tek mutlak kural: eksi-EV asla. Edge primi yalnızca artı-EV ve marjinal spotları filtreler, eksi-EV bir gamble'ı asla haklı çıkarmaz.",
+      },
+      {
+        title: "4-soru filtresi",
+        table: { section: "Bölüm 24", sub: "24.3", caption: "Soru → gamble PAS / AL." },
+        bullets: [
+          "Derinlik: derin=outplay alanı=PAS; sığ=AL.",
+          "Yapı: yavaş=edge zamana yayılır=PAS; hızlı/turbo=erir=AL.",
+          "Edge: soft saha=büyük edge=PAS; tough(underdog)=+EV AL.",
+          "ICM: cover ediliyorsun=PAS (istisna: kimseyi cover etmeyen en kısa stack ~0).",
+        ],
+        ruleBox: "Dört soru: derinlik + yapı hızı + senin edge'in + cover haritası.",
+        narration:
+          "Marjinal bir gamble'dan önce dört soru sor. Bir, stack derinliği: derin misin? Derinsen outplay edecek alanın var, edge'in realize olur, pas geç; sığsan alan yok, al. İki, yapı hızı: yapı yavaş mı? Yavaşsa edge'in zamana yayılır, pas; hızlı ya da turbo ise edge erir, al. Üç, senin edge'in: saha soft mu? Soft sahada edge'in büyük, marjinali pas geç; tough sahada underdog'san edge'in yok, artı-EV'yi al. Dört, cover haritası, yani ICM: cover mı ediliyorsun? Ediliyorsan risk primi de pas der. Ama bir istisna: kimseyi cover etmeyen en kısa stack'te prim sıfıra yakındır, o satırda al. Cover ediyorsan agresif ol. Dört soru: derinlik, yapı, edge ve cover.",
+      },
+      {
+        title: "İki primin etkileşimi + survival",
+        bullets: [
+          "Çoğu zaman aynı yön: soft + cover ediliyorken marjinal flip iki kez PAS.",
+          "Gerçek çatışma: orta-kısa (büyükler seni cover, sen de altını cover), edge yok, hızlı.",
+          "Çözüm: en iyi fold-equity spotu (JAM, call değil — B17); pasif flip'ten kaçın.",
+          "En kısa (kimseyi cover etmeyen) stack: prim ~0, çatışma yok — yine jam seç.",
+        ],
+        ruleBox: "Survival'da bile: fold-equity'li jam seç, pasif call-flip değil (B17); -EV asla.",
+        narration:
+          "İki prim çoğu zaman aynı yöne iter: soft sahada ve cover ediliyorken marjinal flip iki kez pastır. Ama çatışabilirler ve gerçek çatışma dar bir spotta doğar: orta-kısa stack'sin, büyük stack'ler seni cover ediyor, yani risk primi pas der; ama sen de altındaki kısaları cover ediyorsun, edge'in yok ve yapı hızlı, yani edge primi bekleme chip lazım der. Çözüm: en iyi fold-equity'li spotu seç, yani call değil jam, on yedinci bölüm; pasif bir flip'e sürüklenme. Bir de şu ince nokta: kimseyi cover etmeyen en kısa stack'te risk primi zaten sıfıra yakındır, orada çatışma yok, iki prim de al der, ama tek ders yine aynı: fold-equity'li jam'i seç. Ve mutlak sınır: survival gerekçesiyle bile eksi-EV bir gamble'a girme.",
+      },
+      {
+        title: "Senin sidebar'ın: Main vs SHR",
+        bullets: [
+          "€5.3K Main: edge'in VAR (saha geniş/soft) → marjinal flip'leri PAS geç, sabırlı.",
+          "€100K SHR: edge'in YOK (dünyanın en iyileri) → +EV marjinali almaktan çekinme.",
+          "Aynı el, iki turnuvada zıt karar — fark senin edge'in.",
+          "SHR'de bile ICM katmanı ayrı: +$EV (ICM düşülünce) şart.",
+        ],
+        ruleBox: "€5K Main: sabırlı, flip'i pas. €100K SHR: +$EV marjinali al — edge yok.",
+        narration:
+          "Şimdi bunu senin Barcelona programına bağlayalım. Beş bin üç yüz euroluk Main event'te edge'in var, çünkü saha daha geniş ve daha soft; orada marjinal flip'leri pas geç, sabırlı oyna, edge'in sonra daha güvenli EV üretecek. Ama yüz bin euroluk süper high roller'da edge'in yok ya da çok az, çünkü karşında dünyanın en iyileri; orada beklemenin primi düşük, ICM düşüldükten sonra hâlâ artı-dolar-EV olan marjinal spotları almaktan çekinme. Aynı el, iki turnuvada tam zıt karar verir, ve aradaki tek fark senin edge'in. Tabii süper high roller'da bile ICM katmanı ayrı çalışır: bir spot ancak risk primi düşüldükten sonra hâlâ artı-EV ise alınır.",
+      },
+      {
+        title: "Cheat + drill",
+        table: { section: "Bölüm 24", sub: "24.7", caption: "Durum → karar." },
+        bullets: [
+          "Soft+derin+cover ediliyorsun → marjinal flip PAS (iki prim).",
+          "Tough+sığ+hızlı → +EV AL (cover'a bak, $EV).",
+          "Edge yok+survival → en iyi fold-equity jam'ı al.",
+          "Guard: edge'im var mı + cover ediliyor muyum? İkisi evetse pas.",
+        ],
+        ruleBox: "Guard: edge var mı + cover ediliyor muyum? İkisi evet → pas; edge yok+mecbur → jam.",
+        narration:
+          "Cheat kartıyla kapatalım. Soft saha, derin ve cover ediliyorsan marjinal flip'i pas geç, iki prim de pas der. Tough saha, sığ ve hızlıysa artı-EV'yi al, ama cover'a bak, dolar-EV pozitif olmalı. Edge'in yok ve survival gerekiyorsa en iyi fold-equity'li jam'i al. Edge'in var ama cover ediyorsan seçici agresif ol. Hepsini tek guard yönetir: edge'im var mı ve cover ediliyor muyum? İkisi de evetse marjinali pas geç; edge yok ve mecbursan en iyi fold-equity spotunu al; ama eksi-EV asla. Drill: beş bin euroluk Main, derin, erken, marjinal flip, al mı pas mı ve hangi iki soru belirler; yüz bin süper high roller, sığ-orta, aynı flip, karar değişir mi neden; orta-kısa stack seni büyükler cover ediyor ama sen de altını cover ediyorsun, edge yok hızlı yapı, pasif call-flip mi fold-equity jam mı?",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

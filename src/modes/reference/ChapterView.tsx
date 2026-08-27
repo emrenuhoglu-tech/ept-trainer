@@ -8,6 +8,7 @@ import { sectionBlock, stripInline } from "../../content/curriculum";
 
 // Yalnız NAVIGASYON etiketleri (poker içeriği değil) — başlıklar kitapta da aynen var.
 export const NEW_CHAPTERS: { n: number; short: string }[] = [
+  { n: 4, short: "Pozisyon 3-bet/Call + Marjinal El Aralıkları" },
   { n: 7, short: "Vaka Otopsileri (+WSOP Day 1A)" },
   { n: 11, short: "Şişmiş Pot · Turn · River" },
   { n: 12, short: "ICM & Final Table" },

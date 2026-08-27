@@ -43,6 +43,21 @@ Emre Nuhoğlu
 - Bölüm 15 — PLO Turnuva Katmanı: stack-modu, SPR, multiway **YENİ ★**
 - Bölüm 16 — Zihinsel Omurga: bustout/re-entry, tilt, otopsi, seri planı **YENİ ★**
 - Hızlı Referans — molada telefondan bakılacak sayfa
+- Bölüm 17 — ÖZEL MODÜL: WSOP Online Main Event Day 2 **YENİ ★**
+- Bölüm 18 — Flop C-bet: frekans, board dokusu, boyut **YENİ ★**
+- Bölüm 19 — İnisiyatif Hatları: donk / probe / stab / float **YENİ ★**
+- Bölüm 20 — Risk Premium: ICM'in sayısı **YENİ ★**
+- Bölüm 21 — ICM Altında Postflop: her agresif hattı bir kademe indir **YENİ ★**
+- Bölüm 22 — ICM Ne Zaman ve Kime: zaman çizelgesi + laddering **YENİ ★**
+- Bölüm 23 — Saha Okuma: rakip tipleri ve exploit **YENİ ★**
+- Bölüm 24 — Edge Premium: ne zaman gamble ETME (ve ne zaman mecbursun) **YENİ ★**
+- Bölüm 25 — Kafamdaki Hikaye: kanıt mı anlatı mı **YENİ ★**
+- Bölüm 26 — C-bet'e Karşı: caller disiplini ve eşik çalışması **YENİ ★**
+- Bölüm 27 — Solver'ı Çalışmak: drill'i ve otopsiyi solvere bağla **YENİ ★**
+- Bölüm 28 — PKO / Bounty: ödülü çipe çevir, aralığı koru **YENİ ★**
+- Bölüm 29 — Deep Stack ve Yüksek-SPR: kök hatanın en pahalı bandı **YENİ ★**
+- Bölüm 30 — Micro Stack 4-12bb: jam/fold inceltmeleri + eşitsiz-masa **YENİ ★**
+- Bölüm 31 — BB-Ante Heads-Up ve HU-vs-GTO **YENİ ★**
 
 ---
 
@@ -571,6 +586,12 @@ Chip leader'ın jam'e fold ettiğini bir kez gördüysen, o oyuncunun açılış
 
 ---
 
+### 9.3 Drill'in iki modu ve A-oyun günlüğü
+
+**Preflop hacim, postflop merak-kesmesi.** Preflop drill'i hacimle dön — telefon, düşük enerji, soru sorma. Postflop'ta kural ters: her yanlış VE her şaşırtan doğru drill'i DURDURUR — sınıf görünümünü aç, aksiyonun döndüğü eşiği bul, üç-parça formatında yaz (27.4), sonra devam et. "Kombom doğru oynamış, geçtim" drill'in kök hatasıdır — hiçbir şey öğrenmedin.
+
+**A-oyun günlüğü.** Seri boyunca her seansın sonunda iki satır: nasıl oynadım (not artı bir sayı), o gün ne yaptım (uyku, seans öncesi kafa yükü, saat). Amaç sağlık takibi değil, A-oyununun girdilerini yakalamak — birkaç günde tekrarlayan iki-üç değişken kalır *(kalibre et: sende farklı çıkabilir)*. Bulduğun yasayı seri planına (B16.4) yaz ve ihlal etme.
+
 ## Bölüm 10 — Soru Bankası
 
 *Cevaplar kasten yazılmadı. Drill sırasında sözlü işlenir.*
@@ -707,6 +728,10 @@ Kitabın tüm value filtreleri şimdiye kadar NEGATİF idi ("ödemezse jam etme"
 | **İki per, küçük board** | Value bet | Check-call — reg bu boyutu daha iyisiyle öder |
 
 **Kural:** "Benden zayıf hangi el ödüyor?" sorusunun cevabı VARSA — ince de olsa — bet. Rec-ağırlıklı Main'de kaçan thin value doğrudan chip kaybıdır.
+
+### 11.3-EK Katman-hedefli boy: nut katmanı rakipteyse küçül
+
+Value kütlen orta katmandaysa ve nut katmanı rakipteyse boyu KÜÇÜLT: küçük boy rakibin zayıf-per/çekiliş katmanından ödeme alır, set/iki-per (nut) katmanına karşı kaybı sınırlar ve raise kaldıracını keser — şişmiş potu sen BAŞLATMAMIŞ olursun. Bu boyu nut'un dahil tüm bet aralığına TEK boy olarak uygula ki aralığın raise'e karşı korunsun. Ezber değil pusula: boy, rakip aralığının hangi katmanını kayıtsızlığa itmek istediğini seçer *(kalibre et)*.
 
 ### 11.4 Kötü river kataloğu
 
@@ -1304,6 +1329,10 @@ B18.0 "otomatik range-bet yasak" der; bu doğru ama eksik okunursa solver-onayl�
 
 Rec sahada c-bet'in ağırlık merkezi value'ya kayar. "Fold equity için" c-bet'i yalnız gerçek katlanabilir eller (agresör reg, kuru board, sıkı BB) için sakla.
 
+### 18.1-EK İnşa sırası: boyu value seçer — ve koruma paradoksu
+
+Aralığı hep aynı sırayla kur: önce hangi eller value'lar, sonra o value'nun istediği boy, sonra coverage, EN SON blöfler — blöfler value'nun seçtiği boya biner, boyu asla blöfler seçmez. 18.1'in iki-neden tablosuna sokulmaya çalışılan üçüncü sahte nedeni de bu sıra süzer: "koruma için bet". Koruma betleyebilen her eli betlersen korumasız kalan aralık CHECK aralığındır — kök hata orada doğar.
+
 ### 18.2 Board dokusu → frekans ve boyut
 
 Sen preflop açansın (PFR), IP. Board'un kime yaradığını "range avantajı" belirler: yüksek kartlı kuru board senin açış aralığına yarar; düşük-bağlantılı board call eden BB'ye yarar.
@@ -1340,6 +1369,10 @@ B18.2 sağlam bir başlangıç kuralı ama iki yerde ters çalışır:
 
 Islak board'a havayla barrel = kök hatanın flop tohumu. Board rakibin aralığına yaradıysa, senin havanın fold equity'si yoktur; küçük value + gerçek draw dışında check.
 
+### 18.3-EK İnce value eşiği rakip-aralıktan türetilir — sınıf adına değil dağılımına bak
+
+İnce value kararı his değil geriye-sarımdır: boyunun dayattığı devam-yüzdesini yaz, son çağıran aralığın yarısından iyisini yenmen gerektiğini kabul et, bunu turn eşiğine geri çevir *(kalibre et)*. Ve sınıf İÇİNDE say: tipik aralıklar AXs'i her kicker'la oynadığından rakip aralığındaki flush sınıfının üst ucu kombinatorik olarak kalabalıktır — A-high kombolar düşük flush'lardan belirgin fazladır — rakip "her flush'la öder" olsa bile ortalamasını yenemeyebilirsin. Kök hata burada doğar: sınıf adına bakıp bet'lersin, sınıf-içi dağılıma bakıp check etmeliydin.
+
 ### 18.4 Boyut mantığı — 1/3, 2/3, check-back
 
 - **1/3 (küçük):** kuru board range-bet; ucuz fold equity + ince value; **river'da check-fold lüksünü korur** (B11: potu her büyüttüğünde bu lüksü satın alma gücün azalır — bu B11 kuralı flop'ta başlar).
@@ -1347,6 +1380,10 @@ Islak board'a havayla barrel = kök hatanın flop tohumu. Board rakibin aralığ
 - **Check-back:** marjinal showdown value; ıslak/multiway board; pot kontrol + bedava kart hakkı.
 
 > **Boyut = river planının fiyatı. Flop'ta 2/3 attıysan turn'de ikinci fıçının ve river'ın SPR'ını daralttın; havayla o yola girme (B11.1).**
+
+### 18.4-EK Boy ailesi eklemenin gizli maliyeti
+
+Boy ailesi eklemek bedava değildir: en güçlü ellerini overbet hattına taşıdığında küçük bet'in korumasız kalır — rakip ince value ve blöf raise'ini o hatta açar, ince value EV'in oradan sızar. Tek-boy sadeleştirmesinin gizli faydası budur: her sınıf aynı hatta durduğu için raise caydırılmıştır. 18.2-EK'in overbet ailesini açacaksan maliyetiyle aç *(kalibre et)* — kazandığın polar EV, küçük bete kestiğin korumadan büyük olmalı.
 
 ### 18.5 IP vs OOP
 
@@ -2053,6 +2090,10 @@ C-bet'e karşı doğru soru "aralığımın yüzde kaçını savunayım" değil,
 
 > **Devam ve value-raise eşiğini oku; blöf-raise'i ilk birkaç board'dan sonra ezberden uygula. Çalışma zamanı eşik çizgisine harcanır, kombo-seçimine değil.**
 
+### 26.0-EK Eşik neden sağlam — ve drill'i buna göre puanla
+
+26.0'ın "frekans değil eşik" emrinin gerekçesi şudur: sim'de aralığı ve stack'i oynat — kombolar raise'le call arasında savrulur, devam çizgisi az kıpırdar. Karşılaştığın boy büyüdükçe eşik pot-odds gereği daralır *(kalibre et)*, ama raise-mi-call-mı ondan çok daha gürültülüdür. Öğrenilecek sağlam nesne ÇİZGİDİR, aksiyon-etiketi değil. B9 drill'ini de böyle puanla: doğru tarafta devam = doğru; aksiyon ıskasına üzülmek, hata bütçeni gürültüye harcamaktır.
+
 ### 26.1 Eşik, KENDİ aralık kompozisyonunla kalibre olur
 
 "Her per call, her draw devam" ezberi bağlantılı board'da otomatik over-defense üretir — ve sebep yalnız rakibin güçlenmesi değil, SENİN devam edebilir kombolarının çoğalmasıdır. Bağlantı arttıkça eşik yükselir çünkü kendi draw sayın artar; eşik kalibrasyonunun yarısı rakip, yarısı kendi kompozisyonun.
@@ -2064,6 +2105,14 @@ Check-raise büyük pot kurar; büyük pot net-kararlı runout ister:
 - Domine EDEN draw'lar (üstten çift + FD tipleri) call'da kalır — pahalı pot kurmadan realize eder.
 - Per yakalayınca no-man's land'e düşecek marjinal adaylar raise'lenmez.
 - Dezavantaj board'unda hiçbir el value-raise'e hevesli değilse raise düğümünü komple kapat (rakip fark edip uyum yapana dek) — B18-tarafındaki "boyu ağaçtan at"ın savunma yüzü.
+
+### 26.2-EK Raise düğümünün üç kuralı: call kıtlığı, raise-sonrası, bloker kilidi
+
+**Call kıtlığı yasası.** Call edecek el bulamadığın board'da çıktıyı yanlış okuma: hem hedefin ÜSTÜNDE fold edersin (savunman MDF hedefinin altında kalır) hem geniş raise'lersin — ikisi aynı yasanın iki yüzüdür. Doğal call kıtsa savunma frekansı raise'den toplanır: value tanımını orta per sınıflarına kadar indir, blöfü o genişliğe oranla ekle *(oranı kalibre et)*. Tersi de yasadır: büyük boya karşı value-raise aralığın daraldıkça blöf-raise sayın onunla birlikte düşer. Value bütçesine bakmadan blöf-raise eklemek, over-bluff'un savunma-tarafı kök hatasıdır.
+
+**Raise'i seçtiysen raise-SONRASINI da çalış.** Raise'in call yediği düğümü ileri oynat: turn value eşiğini oku, sonra check kolonuna bak — en güçlü sınıflarının önemli bir payının orada durduğunu gör *(payı kalibre et)*. "Geniş raise elimi açık eder" korkusu bu kolonda ölür: check aralığın korunmuşsa küçük betlere per sınıflarınla devam edersin, kimse seni cezalandıramaz. Korunmamışsa raise aralığını değil check aralığını onar.
+
+**Bloker kilit-testi.** Hiçbir bloker kuralı test edilmeden ezbere alınmaz; soru tek: rakip value çekirdeğini senin kilit-kartından arındırabilir mi? Çekirdeği yapısal olarak o karttan geçiyorsa kural kilitlidir — ezberle ve uygula. Arındırabiliyorsa raf ömrü kısadır: blokere değil sınıf-yüzdesine yaslan (26.4), read'i onun üstüne koy.
 
 ### 26.3 Notları board'a göre değil YÜZLEŞİLEN BOYA göre tut
 
@@ -2142,6 +2191,76 @@ Kendi kombonun solver'la eşleşmesi mix'li node'da yanıltıcıdır — kombo s
 - **Stack-bandı koruma (B24/B22):** edge belirli bir derinlik bandında yaşıyorsa (flats-vs-open oynayabilmek), blind artışı öncesi 2bb spekülatif flat bile seni bandın altına düşürebilir → yakın kararda fold edip bandı garanti et. B24 edge-premium'a somut mekanik: edge soyut değil, derinlik-bandı.
 
 ---
+
+### 27.9 Çıktıyı okuma protokolü: eşik önce, check kolonu önce
+
+Solver çıktısını ilk okuyuşta frekans OKUMA — eşik oku. Her boy için tek soru: bu boyla value'lanabilen en zayıf el ne; bete karşı: fold etmeyen en zayıf el ne? Mix yüzdeleri dengede eş-EV'dir, ezberi taşımaz — eşik taşır; eşiğin üstü "yapabilir"dir, sıklığı sonra sınıf seviyesinde kalibre edersin *(kalibre et)*.
+
+Agresör flop çıktısında sıra da bellidir: bet kolonundan değil CHECK kolonundan başla. En çok check isteyen sınıfı bul — o bile bet'e mix ediyorsa o sınıf için check ve bet eş-EV'dir, kalan sınıflar bet'i zaten tercih eder: tam aralığı tek küçük boyla bet etmek flop'ta EV kaybettirmez ama bedava değildir — tam-aralık bet de turn'e borç yazar (27.13); istisna turn range-bet'idir, turn planını buna göre kur. Bet frekansının düştüğü yerde sınırı tek okunabilir kart özelliğine bağla — "en düşük kart şu rankın üstündeyse bet, altındaysa check" *(rankı kalibre et)*. Çizginin keyfî olması kusur değil özelliktir: sınır elleri zaten eş-EV ve keyfî çizgi masada icra edilir.
+
+> **Frekans ezberi taşınmaz; eşik taşınır. Okumaya check kolonundan başla, sınırı tek kart-özelliğine bağla.**
+
+### 27.10 Aralık aritmetiği: kombodan yüzdeye, sokak katlanması, river'dan geri sarım
+
+Kombodan yüzdeye üç adım: sınıfın kombo sayısını yaz, 1326'ya böl, rakibin aralık-genişliğinin tersiyle çarp (%20 aralıkta ×5). Sokak ilerledikçe yeniden say: aralığın zayıf yarısı düşüyor ve güçlü sınıf hep kalıyorsa, o sınıfın payı sokak başına kabaca ikiye katlanır *(kalibre et)*. Dar aralıkta bu yüzdeler board'dan board'a savrulur, geniş aralıkta stabildir — ezber bütçeni dar-aralık düğümlerine harca. Solver ezberi seni yalnız gördüğün board'da taşır; bu aritmetik her board'da.
+
+Çalışmaya river'dan başla ve geriye sar: river'da neyin value'landığı turn aralığını, turn flop'u belirler. River eşiği aritmetiktir: pot betine rakip yaklaşık yarısını savunur → value bet için aralığının ÇOĞUNU geçmen gerekir; raise ihtimali ve bloker payı eşiği yukarı iter *(kalibre et)*. Katlanma kuralı: her pot-bet call'u aralığı yarılar, seni yenen payın oranı kabaca İKİYE katlanır — iki büyük sokak value istiyorsan turn'de yenilme payın buna göre küçük olmalı *(kalibre et)*.
+
+*Kök hata bağı: şişmiş potta tek per'in neden bluff-catcher'a düştüğünün aritmetiği bu katlanmadır — sokak başına ikiye katlanan yenilme payını saymayan el, potu kendi büyütür.*
+
+### 27.11 Strateji değil ARALIK ezberle — ve kendi-aralık imkânsızlık testi
+
+Strateji ezberleme; ARALIK ezberle. Doku ailesi başına rakip aralığındaki draw, set, iki-per paylarını ballpark çıkar ve ezberle *(kalibre et: kendi sim'lerinden)*; masada her call'da haritayı kabaca yarıla, fold/raise'e giden sınıfları düş. Dar aralıklarda paylar sert oynar, geniş aralıklarda az — sıkı pozisyonlar için ayrı harita tut. 27.10'un eşik aritmetiği bu haritayla çalışır; haritasız eşik, pusulasız harita gibidir.
+
+Aynı haritayı kendi aralığına da tut — imkânsızlık testi (27.5 teşvik testinin aritmetik hali): elinden iyisi aralığının kabaca yarısındaysa ve büyük boy atıyorsan, blöf payıyla toplam bet frekansın aralığının büyük kısmına dayanır — rakibin daha kötü elle CALL teşviki ölür (eşikteki "value" betlerini yalnız senden iyiler öder, yani value değildir), böyle bir çıktı dengede yoktur. Kural: rakibin bet opsiyonu olan düğümde aralığının yarıdan fazlasıyla büyük boy atıyorsan value eşiğin düşüktür — yükselt *(kalibre et)*.
+
+### 27.12 Karışık strateji: mix = kayıtsızlık = bedava karar
+
+Solver bir eli karıştırıyorsa o iki aksiyon arasında kayıtsızdır; karışım ancak EV farkı sıfıra yakınken meşrudur. Masa çevirisi: mix'li el BEDAVA karardır — tek tarafa sabitle; hangi tarafa, read'in söyler, read yoksa EV-kaynağı filtresi (27.8). Sabitlemeni node-lock ile sına (27.3): mix'i tek tarafa kilitle, EV kaybını ölç *(kalibre et)* — küçükse masaya taşınır, kural budur.
+
+Karıştırmanın kapısı rakip kalitesidir: frekansını saymayan rec'e karşı saf oyna, exploit'i al. Denge yalnız seni izleyen iyi rakibe karşı gerekir — ve orada seyrek doz yeter: pasif hattında ara sıra güçlü el göster ki karşı-uyum kapısı kapansın. Canlıda araca dikkat: saate yalnız sınır elde bakıyorsan, saat elini anons eder — karıştırman gerekiyorsa kart-özelliği kuralı kullan ("bugünün agresif rengi") ve kuralı gün başına değiştir.
+
+> **Mix ancak eş-EV'de meşrudur; eş-EV karar bedavadır. Rec'e karşı sabitle ve exploit'i al; dengeyi yalnız sayana sakla.**
+
+### 27.13 Sokak-bazlı prosedür: turn kovaları ve sadeleştirme borç-defteri
+
+Turn'ü board olarak değil GELEN KART olarak çalış (27.1'in sokak hali): dört kova — flush-tamamlayan, blank, board-eşleyen, straight/üst-kart — artı en fazla BİR özel kart. Aykırı görünen kartı ayırmadan önce test et: kovanın tek boyuna zorla ve check-frekansını kovayla kıyasla; yakınsıyorsa yut, farkı bilinçli maliyet olarak yaz *(EV farkını kalibre et)*. Ve ezberle: flop'ta var olan tam-aralık lüksü turn'de istisnadır — varsayılan bölünmedir; aralığı sert kayıran nadir turn'ler dışında turn aralığı böler, çalışman da bölünmüş aralığın eşiğini aramakla başlar.
+
+Sadeleştirme bedava değildir; faturası bir sonraki sokakta kesilir — her kısayolun yanına borcunu yaz. Tam-aralık check'e indirdiğin doku, turn'de solver'dan güçlü bir check aralığı bırakır: probe'a fazladan savunma borçlusun. Tam-aralık bet'e indirdiğin doku da borç yazar: turn bet aralığın solver'ınkinden sulanmış olduğundan barrel eşiğini sıkılaştırman gerekir; bu borç yalnızca solver'ın zaten neredeyse tam bet ettiği dokularda ihmal edilebilir *(frekans eşiğini kalibre et)*. Borcu yazılmayan sadeleştirme, iki sokak sonra kaynağı unutulmuş bir kaçak olur — kök hatanın çalışma-masası versiyonu.
+
+> **Turn'de tam-aralık bet istisnadır; ve her sadeleştirme sonraki sokağa borç yazar — borcu defterine işle.**
+
+### 27.14 Çalışma iş-akışı: teşhis merdiveni, kontrast çifti, kuluçka, zorluk ayarı
+
+Anlaşılmayan çıktıya bakmayı bırak, merdivene gir: **Bir** — aksiyonu stratejiden ÇIKAR: hangi aralık hangi runout'ta çıplak kalıyor? **İki** — aynı hattı komşu board'da aç: strateji tutuyorsa mekanizma board'dan bağımsızdır; değişiyorsa neden, iki board arasındaki avantaj farkıdır. **Üç** — bu boy kimin gücünü kaldıraçlıyor, kimin boşluğunu hedefliyor? **Dört** — teşvik testi (27.5).
+
+Kural çekerken tek node'a bakma — asgari-kontrast çifti kur: TEK değişken değiştir (aynı board farklı hat / aynı hat farklı board / aynı boy farklı düğüm), deltayı oku. "Neden"i sana düğüm değil, iki düğüm arasındaki fark söyler; kontrastın öbür yarısı 27.4'ün üçüncü satırını — sınır koşulunu — doldurur.
+
+Anlamadığın node'a tavan koy *(kalibre et — dakika)*; tavan dolunca bırak. Bırakmak pes değil kuluçkadır: birkaç gün sonra dön, çoğu kilit kendiliğinden açılır. Ölçeri oku: karışıklık arada olur; SIK oluyorsa eksik node'da değil temelindedir — yalnız çalışmayı bırak, düğümü bir ortakla çöz. İlerleme mükemmellikten önce gelir.
+
+Seans hedefini beceri seviyene ayarla (27.6'ya ek): ne rutin kadar kolay, ne ilk-kez-görülen kadar ağır — çok kolay dalgınlık, çok zor donma üretir. Ve iki-seçenek kuralı: bu iş ya da hiçbir şey — boş oturmak serbesttir, üçüncü seçenek yoktur. Kaçacak kapı bulamayan dikkat derinleşir.
+
+### 27.15 Cheat kartı
+
+*(kalibre et: seans süresi, node-lock EV-kayıp eşiği, karışım frekansları, eşik yüzdeleri — hepsi kendi çalıştırmandan.)*
+
+| İlke | Kural |
+|---|---|
+| **Duruş** | Mekanizma çıkar, kopyalama; her kural = desen + neden + SINIR KOŞULU — sınırsız heuristic yanlış genellenir |
+| **Kova** | Board'ları doku-kovasıyla çalış (paired / monotone / bağlantılı / kuru-yüksek); kovaya TEK strateji, yalnız farklı davranan alt-sınıfı ayır |
+| **Blöf sayımı** | River'da value kombolarını say, boyun oranına kadar blöf ekle — düz aritmetik, kendi elinle; hazır tablodan değil |
+| **Node-lock** | Sadeleştirmeyi EV kaybıyla SINA *(kalibre et)*: az kayıp → masaya, çok kayıp → taşınmaz; başkasının iddiasını olgu alma |
+| **Öz-denetim** | "Buna karşı rakibin en kârlı cevabı ne?" — cevap dejenereyse strateji yanlış; teşvikle test, MDF ezberiyle değil |
+| **Seans** | Kısa, zaman-kutulu, TEK önceden tanımlı hedef; oyun günü seans öncesi yoğun solver YASAK — yalnız oynanmayan günün sabahına |
+| **Otopsi** | Tek kombo mix'li node'da yanıltır — üçüncü soru: "SINIFIM ne yapıyordu?" Ders sınıf seviyesinden |
+| **Okuma** *(27.9)* | Eşik oku, frekans değil; agresör-flopta CHECK kolonundan başla, sınırı tek kart-özelliğine bağla |
+| **Aritmetik** *(27.10)* | Kombo/1326 × aralık-genişliği tersi; sokak başına yenilme payı ~ikiye katlanır; river'dan geri sar |
+| **Aralık haritası** *(27.11)* | Strateji değil ARALIK ezberle (doku başına draw/set/iki-per payı); yarıdan fazlasıyla büyük-bet = value değil |
+| **Karışık** *(27.12)* | Mix = eş-EV = bedava karar → rec'e karşı sabitle+exploit; dengeyi yalnız sayana sakla; canlıda araç tell'dir |
+| **Sokak** *(27.13)* | Turn'de tam-aralık bet istisna (dört-kova çalış); her sadeleştirme sonraki sokağa BORÇ yazar |
+| **İş-akışı** *(27.14)* | Anlamadığına teşhis merdiveni + asgari-kontrast çifti; konfüzyon bütçesi/kuluçka; iki-seçenek kuralı |
+
+Dört filtre (27.8): **EV-kaynağı** ("sim'de izinli" ≠ iyi — EV'nin geldiği rakip-cevap düğümü senin havuzunda var mı?) · **Kaçınılmazlık** (beni ezen el her hatta zaten stack'liyorsa o dal düşer → çoğu kez raise) · **3-bet kimliği** (flat varsa polar-BÜYÜK, flat kapalıysa lineer-KÜÇÜK) · **Stack-bandı** (edge'in yaşadığı derinlik bandını yakın kararda fold'la garanti et).
 
 ## Bölüm 28 — PKO / Bounty: Ödülü Çipe Çevir, Aralığı Koru
 
@@ -2226,6 +2345,24 @@ Kök hata: her mystery'yi aynı agresyonla oynamak — zarfın fiyatı çekiliş
 
 Kök hata: "kelle var, genişle" ezberi — genişleyen taraf, oranın lehine döndüğü taraftır, sen değil. Kelle kural değil soru verir: kimin kellesi, kimin yığınına göre büyük? Kellen kendi yığınına yaklaştıysa fold equity'n öldü, herkes seni geniş öder: jam'i daralt, yüksek-kart ağırlıklı kur — masadaki oran ne derse desin any-two jam yok. Çok yönlü spotta da denklemi sadeleştir: parası gerçekten sayılan tek rakibi bul, spotu ona indirge, aralığını ona karşı fiyatla.
 
+### 28.18 Cheat kartı
+
+*(kalibre et: kelle→BB çevrimini her büyük kararda tazele; tüm eşikler kendi sahandan.)*
+
+| Durum | Kural |
+|---|---|
+| **Net prim** | Tek sayı: ICM primi − kelle indirimi; indirim yalnız cover edende. Negatif prim ÇAĞRI primidir, blöf primi değil — genişlemeyi lineer + call'la yap |
+| **Cover ediyorsan** | Eşik DÜŞER: limp-ağırlıklı geniş VPIP, aralığı NUT'la koru (AA/KK/AK); kısaya karşı suited-bağlantılı jam altın — dar call onu domine edemez |
+| **Kapsanıyorsan** | Ağaç ikiye iner: ya jam ya call. Jam DAR (fold equity çökük), stack-off eşiği GENİŞ; küçük 3-bet bağıştır, trap kök hatadır |
+| **Kelle sabit değil** | Aynı kelle geç fazda daha çok chip eder — çevrimi tazele. Dev sahada geç faz: kelle birkaç BB → terimi sil, kellesiz ICM oyna |
+| **Balon paradoksu** | Kellen rakiplerin call'ını genişletir → fold equity erir: balonda kelleli kısa, kellesizden DAHA SIKI jam'ler *(kalibre et)* |
+| **Cover kalitesi** | Cover × pozisyon: arkada pozisyonlu tek coverer aralığı kısar, blind'daki iki coverer kısmaz. Kıl-payı cover kırılgan — ince jam'leri kes |
+| **Cold-call kapısı** | Açanı ya da 3-bet'çiyi cover etmiyorsan girme. Açıcı squeezer'ı cover ediyorsa squeeze kelepçeli → flat genişler |
+| **Ölü-ante limp** | Kellesi şişmiş kısayı raise'le izole ETME — herkes fiyat alır. Limp'le, multiway'i kucakla, kısa ittiğinde sürüyle çök; kendi primin stack'ine eşitlenince saf jam-ya-fold |
+| **Multiway all-in** | Yalnız SENİN cover ettiğin kelleleri ölü para olarak pota yaz. Çok yelpazeye karşı suited-bağlantılı/küçük çift nefes alır, offsuit yüksek kart boğulur |
+| **Mikro fold-opsiyonu** | İlk soru stack değil opsiyon: mikro katlanabiliyor mu? Zorunlu all-in'se basamak herkese bedava → jam'i kes; jam hakkın kellenle TERS orantılı |
+| **Mystery** | Zarfı yapı sayfası fiyatlar (faz başlangıcı / kelle payı / overlay); faz öncesi normal turnuva oyna. Kellen stack'ine yaklaştıysa any-two jam yok — yüksek-kart ağırlıklı daralt |
+
 *Kök hata bağı: PKO geniş VPIP'i kök hatayı DAVET eder — geniş girip korunmasız aralıkla şişmiş pota düşmek. Guard: geniş gir ama (a) nut'la koru, (b) postflop'ta hâlâ "tek per = bluff-catcher".*
 
 ---
@@ -2260,6 +2397,20 @@ Derinde seni bluff-catcher pocket pair değil, düz tamamlamayan / cooler'lanmay
 
 Zayıf/nitty deep rakibin flop c-bet'ini call'la (float); turn check-check geldiğinde ve rakip preflop çok sıkı savunmuşsa (orta-el check-call'ları yok → river'da overfold'a yatkın) river'da küçük IP stab (delayed stab) kötü-kurulmuş savunmaya over-perform eder. *(kalibre et — genel prensip; spesifik el kopyalanmaz.)*
 
+### 29.6 Cheat kartı
+
+*(kalibre et: hangi el hangi hatta pure/mix, orta-cep bandı, "temiz iki-per" tanımı — kendi solver'ından.)*
+
+| Konu | Kural |
+|---|---|
+| **Preflop** | Aralık GENİŞLEMEZ, KARIŞIR — flat yine en geniş; güçlü eller flat/3-bet mix'e, implied-odds spekülatifleri sınırlı ekler *(kalibre et)* |
+| **3-bet kurulumu** | Orta CEP'leri karışıma koy — düşük board kapsaman yoksa rakip seni lead'le soyar; preflop boşluk postflop'a cascade eder |
+| **Tek per / boy** | SPR>8: top pair/overpair = pot-kontrol, stack-off DEĞİL. Overbet yalnız nut avantajında — geometrik overbet deep'in ANA silahı |
+| **C-bet** | İyi rakibe AZ (aralığın ortasını polar check-raise'e sokma); zayıf rakibe ÇOK (deep check-raise bulamaz) |
+| **Check-raise** | Equity-güdümlü ellerden: pair+FD, combo draw — ince tek-pair'den değil; set slowplay = range koruması, numara değil |
+| **Savunma** | Seni cep çifti değil TEMİZ iki-per korur — turn/river sorusu: "bu iki-per temiz mi?" *(kalibre et)* |
+| **Exploit** | Nitty deep rakibe: flop c-bet'ini float et → turn check-check → river küçük IP stab (overfold'a over-perform eder) |
+
 *Kök hata bağı: derin oyun kök hatanın en pahalı sürümüdür — yüksek SPR'de tek perle stack-off, en çok chip'i en yanlış yere bağlar. Guard: SPR>8'de top per/overpair varsayılanı pot-kontrol.*
 
 ---
@@ -2289,6 +2440,20 @@ Jam et, biri call diğerleri fold → tek aralığa karşı büyük pot. Caller 
 ### 30.4 Bu bantta flat/trap YOK
 
 4-12bb'de flat-call ağaca girmediği için flat>3-bet trap'i de yoktur (trap/flat hatları 30bb+ derin oyuna aittir; B5'in 25-30bb bandı da jam/fold'dur). Arkanda kısa bir jam-happy stack olsa bile plan jam-or-fold'dur; "yem yutulsun diye" flat'lemek kök-hatanın micro sürümüdür (fold-equity'siz çip bağlama).
+
+### 30.5 Cheat kartı
+
+*(kalibre et: küçük-çift jam derinliği, BB re-jam eşiği — sizing'e bağlı.)*
+
+| Durum | Kural |
+|---|---|
+| **Açış** | JAM ya da fold — bu bantta küçük-RFI tablosu YOK |
+| **Küçük çiftler (22-66)** | Bandın en derin yaşayan JAM'lerinden *(kalibre et)*; DEFEND edilmez |
+| **Raise+'a karşı fringe** | Jam-or-fold, flat DEĞİL: yeterli derinlikte re-jam gerçek fold-equity taşır, çok kısada jam canlı equity + ölü parayla çalışır *(bant sınırları: kalibre et)* |
+| **BB savunması** | Min-raise'e geniş savun: sığ uçta re-jam/fold ekseni; derin uçta (min-raise'e kapatan) preflop flat izinli — ama flatleyip postflop sokak-sokak oynama *(kalibre et)* |
+| **Eşitsiz masa** | Arkadaki reopen/squeeze tehdidi caller'ı sıkar → jam aralığın GENİŞLER; etki derinlikle büyür |
+| **Trap-flat** | YOK — jam-happy kısaya karşı bile premium'u "yem" diye flat'leme: jam aralığın zaten geniş, premium jam'le ödenir; flat, jam gelmezse şişmiş/çok-yönlü pota döner (kök hatanın micro sürümü). BB'nin min-raise'e kapatan flat'i ayrı — o savunma |
+| **Asıl leak** | Fazla stack-off değil fazla FOLD + fringe flat-call; fringe-JAM doktrindir, spew değil |
 
 *Kök hata bağı: micro bantta tehlike fazla stack-off değil, fazla FOLD (jam/re-jam yeterince geniş değil) ve fringe'le flat-call. Fringe-JAM standart jam/fold doktrinidir, leak değil — leak flat-call/limp hatlarıdır.*
 
@@ -2331,5 +2496,20 @@ VPIP ~%100 olduğu için eğilimler birkaç elde açığa çıkar; TEK data-poin
 ### 31.7 Küçük çift jam derinde yaşar + orta boy yasağı
 
 BB'den open'a karşı küçük çiftler HU'da beklenenden derin stack'lerde jam adayı kalır — rejam-vs-open hesaplarında şaşırtıcı derinliğe kadar +EV *(hangi çift hangi derinliğe kadar — kendi solver'ında kalibre et)*; ama tam stratejide ~20-25bb üstünde jam yerine raise standarttır *(kalibre et)*. Yine de MTT refleksiyle "bu derinlikte çiftle jam mi?" şaşkınlığı HU push/fold bandında leak. "Kabiliyetli ama ileri olmayan" oyuncunun sık görülen bir teli makul-orta boy (yarım-pot): ya minik (geniş zayıf-value) ya büyük/polar (nut+blöf) — ortası iki işlevi de öldürür.
+
+### 31.8 Cheat kartı
+
+*(kalibre et: limp/raise geçiş derinlikleri, küçük-çift jam eşiği — kendi solver'ından.)*
+
+| Konu | Kural |
+|---|---|
+| **BTN preflop** | %100 VPIP — hiçbir el fold yok; derinleştikçe raise, sığlaştıkça limp, ~15-16bb üstü IP jam kaybolur *(kalibre et)*. Rakibin BTN fold'u başlı başına tell |
+| **Pasife karşı** | Dengeyi bırak: çöpü limp'le, iyiyi raise'le |
+| **Capped kalma** | Ceza çift kanal: rakip value hacmini VE boyunu büyütür + yanına blöf ekler → trips/nut'un bir kısmı check-call'da (uncapped kal) |
+| **Check-back** | Bilinçli sıfır-showdown aday koy — yoksa rakip sana blöfü keser, value'n ödeme bulamaz; gecikmiş blöfü rakibin fold'larını unblock eden ellerden seç |
+| **Lead/donk** | YOK — aralıklar simetrik, "senin board'un" kurulamaz; ICM-lead istisnaları ring içindir, HU'ya taşınmaz |
+| **Boy** | Rainbow/statik board = büyük-polar boy evi; "kuru=1/3" ezberi HU'da equity-edge'i masada bırakır |
+| **Tell döngüsü** | Tek data-point'ten projeksiyon meşru: timing / sizing / hat üçlüsünü oku; makul-orta boy (yarım-pot) acemi telidir — boylar ya minik ya büyük/polar |
+| **Küçük çift** | BB'den open'a karşı rejam şaşırtıcı derinliğe kadar +EV *(kalibre et)*; tam stratejide ~20-25bb üstü jam yerine raise standart |
 
 *Kök hata bağı: HU/short-handed FT kitabın en büyük yapısal boşluğuydu; komple yeni bölüm. Kök hata omurgası burada da geçerli (capped kalma + tek per disiplini), yalnız aralıklar HU-geniş.*

@@ -367,6 +367,56 @@ Ante'li yapıda BB savunması matematiğin en cömert yeridir: potta zaten çok 
 
 Stack 40bb altına düşünce (Mod C/D) bu geniş defend kısılır — ucuz flop görüp fold etmeye stack dayanmaz, "call'dan jam'e" geçiş başlar. 56bb restart'ında bu tablo geçerli.
 
+### 4.9 Marjinal suited/offsuit gruplar (Kx/Qx/Jx): aç ya da fold, flat yalnız BB
+
+Düşük suited grup — K3s–K6s, Q3s–Q6s, J3s–J6s — turnuva NLH'de tek pratik kural taşır: **açılır ya da fold; flat yalnız BB'den.** Pozisyonda bir raise'e karşı bu elleri flat'lemek en kötü kullanımlarıdır. *(Yaklaşık baseline: ante'li 8-max, 30–60bb, ağır ICM yok — ICM ve büyük sizing sınırı daha da sıkar; bunlar solver kanunu değil, güvenli çalışma sınırı.)*
+
+| Spot | Suited (düşük Kx/Qx/Jx) | Offsuit (aynı) |
+|---|---|---|
+| BTN first-in | Mix/açılır: K2s+, Q4s+, J5s+ (Q2s/Q3s, J3s/J4s sınırda) | K6o açılır, K5o sınırda; K3o-K4o ve Qxo/Jxo çoğu fold |
+| CO first-in | K5s/K6s, Q6s (Q7s/Q8s daha güvenli sınır), J7s+ açılır; gerisi fold | Tamamı fold |
+| HJ ve öncesi | K6s sınırda, gerisi fold | Fold |
+| SB first-in | Hepsi limp/raise (fold yok); dip Qxs/Jxs ICM'de fold | K3o-K6o limp/raise; Q5o/Q6o, J5o/J6o mix; dip fold/mix |
+| BTN/CO raise'ine karşı | **Flat YOK:** K5s/K6s bir kısmı 3-bet bluff (K blocker), gerisi fold | Neredeyse pure fold — suited kadar iyi 3-bet bluff değiller |
+| BB vs BTN/CO 2x | Büyük kısmı savunulur (call) | K3o-K6o çoğu call (vs BTN); Qxo/Jxo daralır (opener/sizing/ICM) |
+| BB vs erken/UTG-HJ | Sizing büyüdükçe Q3s/Q4s, J3s/J4s fold olabilir | Tamamı default fold |
+
+**Neden offsuit çok daha sert:** suited versiyon flush + güçlü draw üretir, equity realization yüksek, K-blocker + oynanabilirlik onu makul 3-bet bluff yapar. Offsuit bunların hiçbirini taşımaz; en sık ürettiği el domine edilmeye açık zayıf top pair'dir. **Kısa stack:** 20bb altı BTN/SB'den jam adayı (suited daha derin yaşar) — ama 15bb BTN'de düşük Kxs'leri OTOMATİK jam yapma (çoğunlukla minraise/fold + bazı jam); Q3s/J3s 10bb'de bile otomatik jam değil.
+
+**Postflop — kök hatanın adresi:** bu eller flush-draw ve bluff elleridir, top pair elleri değil. K6s ile K-high flopta tek pair 100bb potuna GİTMEZ — otomatik stack-off değil, ama her zaman bluff'a da çevrilmez (küçük pot, pot-control, bluff-catch). Suited olmayan versiyon doğal bluff adayı bile değildir.
+
+### 4.10 Ax ayrımı: suited erken açılır, offsuit AJo+/ATo+
+
+Temel fark: **erken pozisyonda düşük suited Ax açılabilir; düşük offsuit Ax çoğunlukla fold.** A2s erken pozisyonda A8o'dan çoğu zaman daha değerlidir — nut flush, wheel ve 3-bet/4-bet bluff imkânı taşır; offsuit bunları taşımaz.
+
+| Pozisyon (first-in) | Suited Ax | Offsuit Ax |
+|---|---|---|
+| UTG | A2s-A5s open/mix, A6s-A8s mix, A9s+ open | AJo+ open, ATo mix; A9o ve altı fold |
+| UTG+1/LJ | A2s+ açılır | ATo+ açılır, A9o sınırda |
+| HJ | A2s+ açılır | A9o+ açılır, A8o mix |
+| CO | A2s+ açılır | A8o+ açılır (A7o mix, altı rakibe bağlı) |
+| BTN | Bütün suited Ax | Neredeyse bütün Ax (A2o-A5o bazı çözümde mix) |
+| SB | Tamamı limp/raise | Tamamına yakını; en zayıflar ICM'de fold |
+
+**Raise karşısında:** düşük suited Ax (özellikle A2s-A5s) en iyi 3-bet bluff adaylarıdır — ace blocker + nut-flush + wheel; BTN'de bazen flat de. Düşük OFFSUIT Ax raise karşısında BB dışında çoğunlukla fold — flat edilmez. AQo 3-bet/call mix, AK value 3-bet. **Kısa stack:** 10-15bb'de güçlü offsuit Ax'in ham equity + blocker değeri artar, solver bir kısmını jam'ler — ama "UTG'den her Ax jam" yanlış.
+
+**Postflop:** A-high flopta düşük kicker'lı Ax çoğunlukla küçük bet/check ve pot-control elidir; zayıf Ax ile otomatik üç sokak veya 100bb stack-off yok. Day 1A'deki **A5o, AT2-J boardda %75 flop + %75 turn** tam kaçınılması gereken örnekti (B7 Vaka 9): top pair var ama kicker zayıf, iki büyük bahisle pot gereksiz şişti.
+
+**Kısa kural:** CO: A2s+ / A8o+. BTN/SB: bütün Ax. Raise karşısında düşük suited Ax call/3-bet mix, düşük offsuit Ax BB dışında fold. Top pair düşük kicker ile potu kontrollü büyüt.
+
+### 4.11 Suited broadway'ler (KQs/KJs/QJs) ve PLO-6 KQJ notu
+
+**Açılış:** KQs, KJs, QJs üçü de HER pozisyondan açılır (8-max UTG dahil; QJs UTG'de sınırda ama solver hâlâ açar). Pozisyon açıp-açmamayı değil, açtıktan sonra 3-bet'e cevabı belirler.
+
+**Raise karşısında — pozisyon her şey:**
+- **BTN/CO'da erken açışa karşı:** KQs/KJs 3-bet–flat mix, QJs çoğunlukla flat. 100bb'de KQs'i 3-bet'e ağırlık ver (AK/AQ'ya domine olsa da fold-equity + pozisyon karşılar). KJs/QJs pozisyonda flat için en iyi eller: pot kontrolü, implied odds, board coverage.
+- **Blind'lardan:** BB'de üçü de savunulur (KQs 3-bet/call, KJs/QJs call). SB'de flat YOK — KQs 3-bet, KJs sınır, QJs erken açışa fold / BTN açışına 3-bet.
+- **OOP erken açışa karşı (MP/HJ, UTG açtı):** KQs 3-bet-ya-fold (flat en zayıf), KJs/QJs genelde fold. Bu, WSOP AQs bust'ının (B7 Vaka 8) alt versiyonu: OOP flat "bir flop göreyim" elidir, o flop nadiren kolaydır.
+
+**3-bet'e cevap (sen açtın):** pozisyondaysan üçüyle de call (100bb). OOP'de KQs call, KJs/QJs boyuta göre call/fold; 4-bet hiçbiriyle yok — 4-bet bluff rolü A-blocker'lı ellerde (A5s/A4s). **Turnuva ayarı (<40bb):** flat kaybolur, KQs 3-bet/jam'e döner, KJs/QJs pozisyonda call, OOP fold.
+
+**PLO-6 notu:** tek başına KQJ'nin suit'i olması bir şey ifade etmez; kalan üç kartın ne yaptığı belirler. KQJ + iki ds + bağlı kart CO/BTN açılış, 3-bet'e call; **KQJ + dangler'lar CO'dan bile fold** — CO'da −$13.5K'yı yapan tam bu "yarısı güzel" ellerdir (B15.5 L1/L2).
+
 ---
 
 ## Bölüm 5 — 25–30bb Bandı: Savaş Planı
@@ -533,6 +583,35 @@ Chip leader'ın jam'e fold ettiğini bir kez gördüysen, o oyuncunun açılış
 **Doğru oyun:** Postflop kusursuzdu (eşleşen turn'de check-fold = B11.2 modeli, fren çalıştı). Hata PREFLOP: 60bb OOP'ta TT vs 3-bet flat, şişmiş-pot-tek-per kurulumunu davet eder. Doğrusu 4-bet-jam ya da fold (B14).
 
 **Kural:** Kök hata "yok" değil, FRENLİ. Fren (turn fold) seni yüksek-şiddetten korur ama kurulum pahalı — orta çiftle OOP 3-bet'e flat'i azalt; kaçan para frende değil, KURULUMDA.
+
+### Vaka 8 — AQs 4-bet/call → 5-bet jam'e call → bust (WSOP Online ME Day 1B)
+
+**Ne oldu:** 68bb, UTG+1 AQs açış → HJ call → 287bb chip leader 3-bet → Hero 4-bet 24.3K → leader 5-bet all-in → Hero call 56.7K. Villain KK, board 8-3-8-T-6, eleniş. Pot oranı 2.2:1, gereken equity %31; 5-bet jam aralığına (QQ+/AK) karşı AQs ~%30, KK'ya karşı %18 — sınırda bile değil.
+
+**Doğru oyun:** Tercih sırası: (1) 3-bet'e fold — UTG+1, OOP, 68bb, 287bb'lik rakip; (2) 3-bet'e call, flopta pot kontrolü; (3) 4-bet edildiyse 5-bet'e fold, 24K'yı kabul et. Call hiçbir sıralamada yok. 68bb'de AQs OOP = 4-bet/**fold** elidir, 4-bet/call değil. 4-bet ile stack'in %30'u masaya konur; jam gelince "pot oranı var" hissi call'a iter.
+
+**Kural:** AQ bir high-card elidir; 3-bet potunda güçlü görünür, 5-bet potunda tek pair'e bile ulaşmamıştır — Vaka 1 (A4s river) ve Vaka 3 (AA river jam) ile aynı sınıflandırma hatası: potun büyüklüğü elin sınıfını değiştirmez. 287bb'lik chip leader'ın 5-bet jam'i, 30bb'lik oyuncunun jam'inden farklıdır (aralığı dar: KK+, belki AK; kaybedecek şeyi yok) — ona karşı 4-bet zaten gereksizdi. 4-bet yalnız fold edebileceğin miktarla yapılır.
+
+| Stack | AQs/AJs/KQs vs 3-bet (OOP) | vs 4-bet | vs 5-bet jam |
+|---|---|---|---|
+| 25–40bb | 3-bet'e jam veya fold | — | — |
+| 40–60bb | call veya fold; 4-bet = jam (AK/QQ+) | fold | — |
+| 60–80bb | call veya fold; 4-bet/fold mümkün | fold | **fold (bu el)** |
+| 80bb+ | call; 4-bet/fold | fold | fold |
+
+Bu el sınıfı hiçbir stack derinliğinde 5-bet jam'e call etmez.
+
+### Vaka 9 — Seans-düzeyi bulgular: WSOP ME 1A + 1B (387 + 84 el)
+
+**Ne oldu:** Day 1A 60K→784K (+724K, karar notu B+); Day 1B 60K→116K zirve→eleniş (karar notu B−). İki büyük jam call (KQs, AQs) toplam kaliteyi düşürdü; rutin kararlar temizdi. Day 1A all-in koşusu ~+50K EV, Day 1B ~−59K — varyans yönü sert döndü, ama esas mesele varyans değil, birkaç yapısal eğilim.
+
+**Tekrar eden leak'ler (iki seans ortak):**
+- **River ince value eksiği** — pozisyonda check edildiğinde value bet frekansı çok düşük. Düzeltme: check-back öncesi "hangi daha kötü el call eder?" sorusu; uygun spotlarda %25–40 pot ince value.
+- **Multiway c-bet fazlalığı** — otomatik multiway c-bet + düşük-equity elle büyük sizing. Düzeltme: multiway otomatik c-bet'i azalt, büyük sizing'i polar value + güçlü draw'a ayır.
+- **Flop raise sizing** — flopta bahisle karşılaşınca çok sık ve çok büyük raise (dört-altı kat). Düzeltme: top pair/set dahil standart raise'lerde üç-dört kat bandı; daha büyüğü özel exploit'e sakla.
+- **30–70bb jam disiplini** — suited broadway'i (KQs/AQs) etiketiyle otomatik stack-off. Düzeltme: her call'da önce pot odds, sonra rakip range'i.
+
+**Kural:** Sonuca bakıp yanlış etiketleme — 88'in shove'a call'ı 66'ya kaybetmesi tam doğru cooler; AK ile river'da 82'ye kaybedilen call standart (top pair/top kicker fold edilemez). Leak ile cooler'ı ayır: leak tekrar eden yapısal eğilimdir, cooler tek elin varyansı (B25 kanıt vs hikaye).
 
 ---
 
@@ -943,9 +1022,35 @@ El-sınıfı eşikleri B8 doktrinine ("nut potansiyeli yoksa büyük pot yok") d
 
 PLO'da ham out yanıltır; stack-off eşiği NUT out'la ölçülür. "Wrap + FD: 13+ out" iskonto edilmeden tehlikeli — 13 out'un yarısı non-nut ise gerçek silah değil, tuzaktır. B8'in "gerçek silah" etiketi NUT-FD'li wrap için geçerli KALIR — buradaki kural yalnız stack-off eşiğini nut-out sayımına bağlar.
 
-**Kural:** Stack-off için ham out değil, NUT out say. *(Örnek el: Emre'nin kendi PLO elinden vaka gelince işlenecek — uydurma yok.)*
+**Kural:** Stack-off için ham out değil, NUT out say. *(Örnek eller artık var — 15.4-15.6 PLO-6 cash katmanı, Emre'nin 2.100 el verisinden; uydurma yok.)*
 
-*NOT: Pozisyona göre PLO açılış/3-bet chartı BİLİNÇLİ yazılmadı — Emre'nin PLO icra verisi yok, generic chart de-kalibre eder. Bu katman drill'de sınıf-bazlı kalibre edilir.*
+*NOT: Tam frekans-bazlı PLO açılış chartı hâlâ yazılmadı, ama icra verisi GELDİ (2.100 el) — sınıf-bazlı açılış disiplini artık var (15.6: CO = UTG + %10, dangler'lı el UTG/CO'dan açılmaz). Kalan çizelge drill'de kalibre edilir.*
+
+### 15.4 Kök hatanın PLO-6 versiyonu
+
+*(Kaynak: Emre'nin $10/$20 6-kart 5-max cash verisi, 2.100 el — 15.3'ün beklediği icra verisi.)*
+
+NLH kök hatası: bloated potta tek pair'i (AA dahil) yanlış sınıflandırma. PLO-6'da aynı hata üç biçimde çıkar: (1) **turn fold** — flopta pair/zayıf draw ile call, turn pot bet'e fold; (2) **river non-nut call** — non-nut straight / alt flush / bottom straight ile ödeme; (3) **naked AA / top-two stack-off** — derin stack'te AA 4-bet + pot c-bet, ya da 3-way check-raise'e top-two ile jam. Üçünün ortak noktası: el gücü flopta okunur, turn/river'da güncellenmez. Altı kartlı oyunda her villain'in elinde ortalama on beş iki-kart kombinasyonu var; flopta "iyi" olan el turn'de nadiren hâlâ iyidir.
+
+**Kural:** PLO-6'da orta el yoktur. Bir el ya nut'tur (veya nut redraw'ı vardır) ya da bloated potta chip koymaz. Turn'de fold etmek ile river'da non-nut ile call etmek aynı hatanın iki yüzüdür.
+
+### 15.5 Yedi leak, yedi kural (PLO-6 cash)
+
+| # | Leak | Kural |
+|---|---|---|
+| L1 | 3-bet call → flop call → turn fold | 3-bet'e call = yalnız nut potansiyeli: AAxx, KK ds, bağlı 4+ rundown+suit. Dangler'lı el fold. Flop call'dan önce "turn'de hangi kartta devam?" — somut cevap yoksa call da yok. |
+| L2 | Preflop genişlik (CO/BB açık) | CO aralığı = UTG + %10 (BTN değil — arkanda üç oyuncu, 3-bet oradan). BB'de call yok: 3-bet ya fold; sebep el gücü olmalı, "OOP oynamak istemiyorum" değil. |
+| L3 | Non-AA ile 4-bet/5-bet savaşı | 100bb'de 4-bet ≈ AA. 4-bet'e karşı KKxx / A-rundown: call veya fold, 5-bet değil. 5-bet jam yalnız AAxx. |
+| L4 | Redraw'suz nut = call | 6-kartta turn'de redraw'suz çıplak nut straight ile derin yığın koyma; villain neredeyse hep aynı straight + redraw. "Villain aynı ele sahipse ne kazanıyorum?" → "hiçbir şey" ise call. |
+| L5 | Derin stack'te naked AA | Stack 300bb'yi geçince AA 4-bet'ten çıkar, call'a geçer; 3-bet potunda flopta pot c-bet yok. Daha iyi: 300bb'de masadan kalk, yeni masaya 100bb otur. |
+| L6 | River'da non-nut call | River'da pot bet'e non-nut = fold. Call için iki şart birden: (1) villain'in somut bluff aralığı var, (2) elin o aralığı yeniyor. "Belki bluff'luyordur" bir aralık değildir. |
+| L7 | Kendi kartın kendi outunu öldürür | Elde üçlü/dörtlü kart varsa el bir kademe aşağı: AAA = AA değil, tek pair. Monoton flopta flush'suz pair ile barrel yok. |
+
+Yedi leak'in ortak matematiği 15.4: hepsi el gücünü flopta dondurup turn/river'da güncellememekten doğar — bu, kök hatanın PLO formudur.
+
+### 15.6 PLO-6 masa-öncesi kontrol listesi
+
+Oturmadan önce dokuz satır: (1) açılış — UTG dar, CO = UTG + %10, BTN geniş, dangler'lı el UTG/CO'dan açılmaz; (2) 3-bet'e call yalnız AAxx / KK ds / bağlı rundown; (3) 4-bet'e 5-bet yalnız AAxx; (4) BB: call yok, 3-bet veya fold; (5) flop call'dan önce turn planı — "hangi kartta devam?" cevabı yoksa fold; (6) turn'de redraw'suz nut = call, raise için redraw şart; (7) river'da pot bet'e non-nut = fold; (8) elde üçlü kart = bir kademe aşağı; (9) stack > 300bb: AA call'a düşer, c-bet yok, tercihen masa değiştir. Seans kuralı: gece geç saat kapanışı sabit tut, iki büyük kayıp üst üste = on beş dakika ara (bkz. B16.5).
 
 *Kök hata bağı: B0 c.10 ("PLO'da çıplak AA = tek per") draw'lara ve derinliğe genişletilmiş hâli — non-nut'la şişirilen pot, kök hatanın PLO formudur.*
 
@@ -1024,6 +1129,12 @@ Bu filtre kalibrasyonu KORUR: SHR'de doğru jam'ler sık kaybedilecek; filtre ol
 - Main'de derinken HR başlarsa → Main'de ort. üstü + ödemeye yakınsam Main'de kal, HR'yi atla; Main kısaysa HR'ye taze gir.
 
 **Mola rutini:** her molada 3 madde — (1) yürü, (2) ye/su, (3) Hızlı Referans'a bak. Telefonda sosyal medya YOK.
+
+### 16.5 Büyük kayıp sonrası 5-el kuralı
+
+Otopsi #4'ün (AQs bust, B7 Vaka 8) asıl bulgusu zamanlama: yaklaşık 34K chip kaybeden 88 elinden İKİ DAKİKA sonra, seansta ilk kez stack'in %70'iyle preflop call-off geldi. Ondan önceki seksen elde benzer spot yok. Aynı kalıp cash serisinde de görünür: altı dakikada üç büyük pot, birkaç bin dolar. Mekanizma aynı — büyük kayıptan hemen sonra karar kalitesi düşer ve düşüş en pahalı elde gerçekleşir.
+
+**Kural:** Büyük bir pot kaybettikten sonraki 5 el: yalnız premium (QQ+, AK) ile preflop all-in; 4-bet yapılmış her el 5-bet'e fold edilir. "Büyük pot" turnuvada = stack'in %25'i, cash'te = 100bb. Bu, 16.2 tilt kartının el-sayacı somutlaması: tilt'i hissetmeyi beklemez, kayıptan sonra otomatik devreye girer — hikâye-bazlı "telafi" kararını (B25) doğmadan keser.
 
 *Kök hata bağı: yorgunluk ve tilt kök hatanın frekans ÇARPANIDIR — B4'ün "frekansı preflop'ta düşür" mantığının gün-planı ölçeğindeki paraleli (hatayı el içinde değil, takvimde önle).*
 

@@ -24,6 +24,12 @@ export const NEW_CHAPTERS: { n: number; short: string }[] = [
   { n: 23, short: "Saha Okuma & Exploit" },
   { n: 24, short: "Edge Premium" },
   { n: 25, short: "Kanıt mı Anlatı mı" },
+  { n: 26, short: "C-bet'e Karşı: Caller Disiplini" },
+  { n: 27, short: "Solver'ı Çalışmak" },
+  { n: 28, short: "PKO / Bounty Doktrini" },
+  { n: 29, short: "Deep Stack & Yüksek-SPR" },
+  { n: 30, short: "Micro Stack 4-12bb" },
+  { n: 31, short: "BB-Ante Heads-Up" },
 ];
 
 type Block =

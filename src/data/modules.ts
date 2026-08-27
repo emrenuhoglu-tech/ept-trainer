@@ -2181,6 +2181,95 @@ export const modules: Module[] = [
           }
         ],
         narration: "Son olarak mystery bounty ve büyük uyarı. Mystery formatta varyans devasa, büyük bir roll şart; ama popülasyon postflop'ta çaresiz. Ana edge'in pozisyonda geniş limp artı korunmuş aralık — insanlar limp düğümünü çok kötü oynar. Kelle değeri de sabit değil: büyük kelleler çekildikçe ortalama düşer; kaba hesap, canlı kelle toplamını kalan oyuncu sayısına bölmek. Ve işte kitabın omurgasına bağlanıyoruz: PKO'nun geniş VPIP'i kök hatayı davet eder — geniş girip korunmasız aralıkla şişmiş pota düşersin ve orada elindeki tek per'le kahraman olmaya kalkarsın. Guard iki adım: geniş gir ama nut'la koru, ve postflop'ta kural değişmedi — şişmiş potta tek per hâlâ sadece bluff-catcher'dır."
+      },
+      {
+        title: "Net Prim: İki Primi Tek Sayıya İndir",
+        bullets: [
+          "Net prim = ICM primi − kelle indirimi",
+          "Negatif prim ÇAĞRI primidir, blöf primi değil",
+          "İndirim yalnız cover edende — kapsanan indirim almaz"
+        ],
+        ruleBox: "Kelle indirimi yalnız cover edende işler; negatif prim call'ı genişletir, blöfü değil.",
+        narration: "ICM'i ve kelleyi iki ayrı ders gibi öğrenip masada ayrı ayrı hissetme; tek sayı tut. Net prim, ICM priminden kelle indirimini çıkardığında elinde kalan sayıdır: hedefin kellesini güncel çevrimle büyük kör cinsine çevir ve efektif stack'le kıyasla. Kelle stack'e yaklaştıysa net prim derin negatiftir ve herhangi-iki bölgesindesin; kelle birkaç büyük köre eridiyse el kellesiz ICM'dir, standart matrisin aynen geçerli. İşareti de doğru oku: negatif prim çağrı primidir, blöf primi değil. Çünkü indirim yalnız cover edende olur — kelleli kısaya üç-bet-fold yoktur, jam'ine karşı kelle oddsuyla sen hep ödersin. Blöf fold equity'n ise yalnız seni cover eden rakiplere karşı düşer: cover ettiğinde genişlemeni lineer ellerle ve call'la yap, blöf-jam'i kellesiz turnuvaya sakla."
+      },
+      {
+        title: "Cover Yönü Jam Dokusunu Seçer",
+        bullets: [
+          "Kapsanan: lineer jam, yüksek kart it — suited connector çöpe",
+          "Cover eden: suited-bağlantılı jam altın, kısa dar öder",
+          "3-bet boyutu yalnız derinliğe değil cover yönüne DE bağlı"
+        ],
+        ruleBox: "Jam listesi sabit değildir: kapsanıyorsan yüksek kartı, cover ediyorsan suited-bağlantılıyı it.",
+        visuals: [
+          {
+            kind: "hand",
+            cards: "Ah Kc",
+            label: "Kapsananın jam'i: domine eden yüksek kart"
+          },
+          {
+            kind: "hand",
+            cards: "8s 7s",
+            label: "Cover edenin jam'i: suited connector"
+          }
+        ],
+        narration: "Her all-in'e aynı el listesiyle gitme; jam yelpazesinin dokusu cover yönüne göre tersine döner. Kapsanıyorsan rakip kellen için zaten ödeyecek — jam'i doğrusallaştır, geniş call menzilini domine eden yüksek kartı it; flip satın alan suited connector'ı ve kimseyi katlatmayan blöf jam'ini çöpe at. Cover edensen ayna döner: kısa senin kelleni kazanamaz, o yüzden dar öder — yüksek kartla gelir, iyi suited'larını katlar. Şimdi suited-bağlantılı jam altındır: dar call menzilinin yüksek kartları suited-bağlantılıyı domine edemez, çağrıldığında equity'n canlı kalır; arkandaki çöp ise katlanıp ölü para bırakır ve jam'in tam o parayı toplar. Üç-bet boyutunu da yalnız derinliğe değil cover yönüne de bağla: seni cover eden açıcıya karşı büyük git, sen cover ediyorsan küçük ve lineer kur. Son kural kompozisyon: jam'e karşı katlayacağın eli hiç üç-bet'leme — üç-bet'i, kısa ittiğinde tereddütsüz ödeyeceğin ellerden kur."
+      },
+      {
+        title: "Kapsananın Ağacı: Ya Jam Ya Call",
+        bullets: [
+          "Jam aralığı DAR — kellen fold equity'ni çökertti",
+          "Stack-off eşiği GENİŞ — ödediğin ICM primi normalin altında",
+          "Non-all-in 3-bet ve tuzak ölür; ağaç ikiye iner"
+        ],
+        ruleBox: "Kapsanan kısa dar jam'ler ama geniş öder: kelle jam'i elinden alır, karşılığında çağrıyı verir.",
+        narration: "Kapsanan kısanın en pahalı cümlesi şudur: baskım düşük, öyleyse geniş jam'lerim. Yön ters: kellen rakiplerin ödeme eşiğini düşürür, fold equity çöker ve jam aralığın kellesiz balondakinden bile dar olmalı. Makasın öbür ağzı ise lehine işler: biri sana jam'lediğinde ödediğin ICM primi normalin altındadır, yani stack-off eşiğin geniştir. Kelle elinden jam'i alır, karşılığında çağrıyı verir. Ağaç da ikiye iner: kapsananın küçük üç-bet'i blöf değil bağıştır, çünkü kimse kelleni masada bırakıp katlanmaz; arkadan squeeze gelecek masada canavarla tuzak kurmak da aynı kök hatanın süslüsüdür. Tepeni doğrusal jam'le, kalanını call defterine yaz — kapsananın lüksü yok, tahsilatı var."
+      },
+      {
+        title: "Kelle Enflasyonu ve Balon Paradoksu",
+        bullets: [
+          "Aynı kelle geç fazda daha çok chip eder — çevrimi her büyük kararda tazele",
+          "Saha hakem: dev sahada kelle silinir, küçük sahada konuşur",
+          "Balonda kelleli kısa DAHA SIKI jam'ler — kellen fold equity'ni eritir"
+        ],
+        ruleBox: "Kelleyi bir kez çevirip taşıma; kafandaki kelle seni genişletmez, rakibin call'ını genişletir.",
+        narration: "Kelleyi çipe bir kez çevirip turnuva boyunca sabit taşımak kök hatadır. Kelle havuzu sahadan yavaş erir; aynı kelle geç fazda erken fazdan daha çok chip eder, çünkü havuz dağıldıkça chip'in doları düşer — çevrimi her büyük kararda tazele. Saha büyüklüğü iki primin hakemidir: dev sahada geç aşamada en şişkin kelle bile birkaç büyük kördür, terimi sil ve kellesiz ICM oyna; küçük sahada kelle ortalama stack'in ciddi parçasıdır, net prim aşağı iner, kelle konuşur. Balonda ise paradoksu ezberle: risk primim düşük, öyleyse geniş jam çıkarımı yanlıştır. Primi düşüren mekanizmanın kendisi — kafandaki kelle — rakiplerin call aralığını genişletir; fold equity'n erir, seni her zamankinden çok öderler. Sonuç net: balonda kelleli kısa, kellesiz turnuvadakinden daha sıkı jam'ler; marjinal spotu ancak double-up sonrası ekstra oyuncuları cover edecek olman haklı çıkarır."
+      },
+      {
+        title: "Cover'ın Kalitesi ve Cold-Call Kapısı",
+        bullets: [
+          "Cover skaler değil: cover × pozisyon — arkadaki tek coverer, blind'daki ikiden ağır basar",
+          "Kıl payı cover kaybedilebilir statü — en ince jam'leri kes",
+          "Cold-call kapısı: açanı ya da 3-bet'çiyi cover etmiyorsan girme"
+        ],
+        ruleBox: "Kimsenin kellesini alamıyorsan aynı el fold'dur; kapı açıksa el konuşur.",
+        narration: "Cover'ı kaç kişinin kapsadığını sayarak ölçme; cover çarpı pozisyondur. Arkanda pozisyonlu tek coverer açılış aralığını kısar; blind'lardaki iki coverer neredeyse hiç kısmaz, çünkü flop'u pozisyonda oynarsın. İkinci test kalınlık: masayı kıl payı kapsıyorsan cover kaybedilebilir bir statüdür — tek all-in'de söner ve prim ödeyen tarafa düşersin; en ince jam'leri marjinal cover'da kes, tam genişliği kalın cover'a sakla. Üç-bet'li potta ise karara elinden değil stack'lerden başla: açanı ya da üç-bet'çiyi, en az birini cover etmiyorsan girme — kimsenin kellesini alamıyorsan aynı el fold'dur. Flat kararında arka zinciri oku: açıcı arkandaki muhtemel squeezer'ı cover ediyorsa squeezer kelepçelidir, squeeze gelmez, flat aralığın genişler. Blöfü de fold equity'nin öldüğü yere taşıma: seni cover eden rakip geniş öder — blocker'lı çöple değil, flop'ta bir şeye dönüşen suited-bağlantılı ellerle blöfle."
+      },
+      {
+        title: "Ölü Ante Limp'i ve Multiway Matematiği",
+        bullets: [
+          "Ultra-kısa kelle = ölü ante: izolasyon ölür, range-limp gelir",
+          "Multiway: yalnız SENİN cover ettiğin jam'lerin kellesini pota yaz",
+          "El seçimi yelpaze sayısına bağlı: teke karşı yüksek kart, çoka karşı suited-bağlantılı"
+        ],
+        ruleBox: "Kazanamayacağın kelle hesaba girmez; kazanabildiğini ölü para olarak pota yaz, oranı ondan sonra kur.",
+        visuals: [
+          {
+            kind: "hand",
+            cards: "7d 6d",
+            label: "Çok yelpazeye karşı nefes alan el"
+          }
+        ],
+        narration: "Primi stack'inin katlarına varmış kısayı büyük raise'le izole etmeye çalışma; o kelle ölü antedir ve hangi boyutu seçersen seç yarım düzgün el tutan herkes fiyat alır. Rejimi değiştir: bütün oynanabilir aralığını limp'le, multiway'i kucakla, kısa ittiğinde sürüyle üstüne çök. Multiway all-in'de oranı sadece çiplerle kurma: yalnız senin cover ettiğin jam'lerin kellesini güncel çevrimle büyük kör cinsine çevir — seni cover eden yığının kellesini kazanamazsın, o hesaba girmez. Kazanabildiğin kelleleri ölü para olarak pota yaz, oranı ondan sonra hesapla; o fark orta suited elleri fold'dan call'a taşır. El seçiminde soru elim güçlü mü değil, kaç yelpazeye karşıyım sorusudur: tek yelpazeye karşı yüksek kart öder, suited connector atarsın. Birden çok yelpazeye karşı ise denge döner: offsuit yüksek kart ve zayıf as sürekli domine edilir, suited-bağlantılılar ve küçük çiftler nefes alır."
+      },
+      {
+        title: "Mystery: Fiyat Yapı Sayfasında",
+        bullets: [
+          "Üç kalem: faz başlangıcı, havuz bölüşümü, overlay — faz öncesi zarf yok",
+          "Çekiliş rejimi: sonda açılıyorsa beklenen kelle sabit, canlı açılıyorsa panoyu izle",
+          "Genişleyen taraf = oranın lehine döndüğü taraf; kellen büyükse jam'i daralt"
+        ],
+        ruleBox: "Zarfın fiyatı çekilişte değil yapı sayfasında belirlenir; genişleme hakkı oranı taşıyanındır.",
+        narration: "Her mystery'yi aynı agresyonla oynama; zarfın fiyatı çekilişte değil yapı sayfasında belirlenir. Üç kalemi oku: faz ne zaman başlıyor, havuzun ne kadarı kelleye gidiyor, overlay var mı — aynı buy-in'de ortalama zarfı katlara varan farkla oynatırlar. Faz başlamadan zarf yoktur ve eleme hiçbir şey ödemez: faz öncesini normal turnuva gibi oyna, kelle agresyonunu faz kapısında aç. Sonra çekiliş rejimini oku: zarflar sonda açılıyorsa beklenen kelle bitişe kadar sabittir, hesabı bir kez yap; canlı açılıyorsa panoya bak — büyük zarflar çekildikçe kalan ortalama düşer, küçükler süpürüldükçe yükselir, hiç çekiliş yoksa yerinden oynamaz. Son kural yön kuralıdır: kelle var diye genişleyen sen değilsin; genişleyen taraf, oranın lehine döndüğü taraftır. Kellen kendi yığınına yaklaştıysa fold equity'n öldü ve herkes seni geniş öder — jam'i daralt, yüksek-kart ağırlıklı kur; çok yönlü spotta parası gerçekten sayılan tek rakibi bul, spotu ona indirge, aralığını ona karşı fiyatla."
       }
     ]
   },

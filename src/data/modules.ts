@@ -2004,6 +2004,26 @@ export const modules: Module[] = [
         ],
         ruleBox: "Fiyat \"ne kadar savunmam gerek\"i, frekans \"elimin neresinden keseceğim\"i söyler.",
         narration: "River'da devam kararı iki eksenlidir. Fiyat eksenini zaten biliyorsun: bet boyu sana toplamda ne kadar savunman gerektiğini söyler. Eksik olan ikinci eksen frekans: o gereken yüzdeyi kendi aralığındaki sınıf yüzdelerine eşlersin. Mesela top-pair ve üstü, elinin yarısıysa hepsiyle call edersin; ama aralığının üçte ikisiyse bir sınıf budarsın. Frekansı sınıf yüzdesiyle tuttur; sınıfın içinde hangi komboyla devam edeceğini ise bloker kuralı söyler: rakibin value'sunu bloke ediyorsan call, blöfünü bloke ediyorsan fold. Read ancak bunun üstüne gelir. Şişmiş potta tek per'le kararsız kalmanın panzehiri de bu: fiyat kaç savunacağını, frekans nereden keseceğini söyler — tahmin değil, sistem."
+      },
+      {
+        title: "Eşik neden sağlam — çizgiyi puanla, etiketi değil",
+        bullets: [
+          "Sim'de aralığı oynat: kombolar raise ile call arasında savrulur ama DEVAM çizgisi az kıpırdar.",
+          "Öğrenilecek sağlam nesne ÇİZGİDİR (devam mı, değil mi), aksiyon-etiketi (raise mı call mı) değil.",
+          "Drill'i buna göre puanla: doğru tarafta devam = doğru; aksiyon ıskasına üzülmek hata bütçeni gürültüye harcar."
+        ],
+        ruleBox: "Sağlam nesne çizgidir, etiket değil — drill'de devam yönü doğruysa puanı ver.",
+        narration: "Frekans değil eşik çalış emrinin arkasındaki gerekçe şudur. Simülatörde aralığı ve stack'i oynattığında, tek tek kombolar raise ile call arasında sürekli savrulur; ama devam edip etmeme çizgisi çok az kıpırdar. Karşılaştığın boy büyüdükçe eşik biraz daralır, fakat raise mı call mı sorusunun cevabı bundan çok daha gürültülüdür. Bu yüzden öğrenilecek sağlam nesne çizgidir, yani devam mı ediyorum etmiyor muyum; aksiyon etiketi, yani raise mı call mı, kaygan zemindir. Hazırlık drill'ini de böyle puanla: doğru tarafta devam ettiysen bu doğrudur. Solver bu eli raise ederken sen call ettin diye üzülmek, hata bütçeni gürültüye harcamaktır."
+      },
+      {
+        title: "Raise düğümünün üç kuralı",
+        bullets: [
+          "Call kıtlığı yasası: call bulamadığın board'da hem hedefin ÜSTÜNDE fold hem geniş raise edersin — value'yu orta per'e indir, blöfü ona oranla ekle.",
+          "Raise-sonrasını çalış: raise'in call yediği düğümde turn value eşiğini + CHECK kolonunu oku — güçlü sınıfların bir payı orada durur, korunmamışsa check aralığını onar.",
+          "Bloker kilit-testi: rakip value çekirdeğini senin kilit-kartından arındırabiliyorsa kural raf-ömürsüzdür → sınıf-yüzdesine yaslan."
+        ],
+        ruleBox: "Call kıtsa savunma raise'den toplanır; ama value bütçesine bakmadan blöf-raise eklemek over-bluff'un savunma-tarafı kök hatasıdır.",
+        narration: "Bir raise düğümünde üç kural işler. Birincisi call kıtlığı yasası. Call edecek doğal bir el bulamadığın bir board'da çıktıyı yanlış okumak kolaydır: hem savunma hedefinin üstünde fold edersin, hem de aşırı geniş raise'lersin; bunlar aynı yasanın iki yüzüdür. Doğal call kıtsa savunma frekansını raise'den toplarsın: value tanımını orta per sınıflarına kadar indir ve blöfü o genişliğe oranla ekle. Tersi de yasadır; büyük boya karşı value-raise aralığın daraldıkça blöf-raise sayın da onunla düşer. Value bütçesine bakmadan blöf-raise eklemek, aşırı blöfün savunma tarafındaki kök hatasıdır. İkinci kural: raise'i seçtiysen raise sonrasını da çalış. Raise'in call yediği düğümü ileri oynat, turn value eşiğini oku, sonra check kolonuna bak; en güçlü sınıflarının önemli bir payının orada durduğunu göreceksin. Geniş raise elimi açık eder korkusu bu kolonda ölür: check aralığın korunmuşsa küçük betlere per sınıflarınla devam edersin ve kimse seni cezalandıramaz; korunmamışsa raise aralığını değil, check aralığını onar. Üçüncü kural: bloker kilit testi. Hiçbir bloker kuralını test etmeden ezbere alma; tek soru şu: rakip value çekirdeğini senin kilit kartından arındırabilir mi. Çekirdeği yapısal olarak o karttan geçiyorsa kural kilitlidir, ezberle ve uygula. Arındırabiliyorsa kuralın raf ömrü kısadır; blokere değil sınıf yüzdesine yaslan ve okumayı onun üstüne koy."
       }
     ]
   },
@@ -2094,6 +2114,66 @@ export const modules: Module[] = [
         ],
         ruleBox: "Eş-EV hattın EV'si SENİN havuzunda gerçekleşmeyen bir rakip cevabından geliyorsa, o hat pratikte kaybeder.",
         narration: "Kapanışta dört karar filtresi var. Bir: EV-kaynağı takibi — sim'de izinli olmak iyi oynadığın anlamına gelmez; eş-EV bir hattın EV'si hangi rakip-cevap düğümünden geliyor ve senin havuzun o cevabı gerçekten veriyor mu? Limp-reraise'in EV'si rakibin çöple dört-bet jam yapmasından geliyorsa ve havuzun bunu yapmıyorsa, jam üstündür. İki: kaçınılmazlık ilkesi — beni ezen el zaten her hatta beni stack'liyorsa o dal karardan düşer; karar kalan aralığa karşı verilir ve çoğu kez korku call'u değil, equity reddi için raise çıkar. Üç: üç-bet boy kimliği — aralığında anlamlı flat varsa üç-bet polar'dır ve büyük olur; flat kapalıysa tüm oynanabilir eller üç-bet'e gider, lineer'dir ve küçük olur; iki kısa stack belirince de orta stack'ler lineer-küçükten polar-büyüğe kayar. Dört: stack bandı koruması — edge'in belirli bir derinlik bandında yaşıyorsa, blind artışı öncesi iki big blind'lik spekülatif bir flat bile seni o bandın altına düşürebilir; yakın kararda fold edip bandı garanti et. Bu dört filtre, sınır-koşullu heuristic'lerinle birlikte kök hatayı daha çalışma masasındayken öldürür."
+      },
+      {
+        title: "Çıktıyı okuma protokolü: eşik önce",
+        bullets: [
+          "İlk okuyuşta frekans değil EŞİK oku: bu boyla value'lanan en zayıf el / bete fold etmeyen en zayıf el ne?",
+          "Agresör flop çıktısında CHECK kolonundan başla — en çok check isteyen sınıf bile bet'e mix ediyorsa gerisi zaten bet'i tercih eder.",
+          "Bet frekansının düştüğü yeri tek okunabilir kart-özelliğine bağla; keyfî çizgi kusur değil, masada icra edilebilir olması."
+        ],
+        ruleBox: "Frekans ezberi taşınmaz, eşik taşınır — okumaya check kolonundan başla, sınırı tek kart-özelliğine bağla.",
+        narration: "Solver çıktısını ilk açtığında frekansları ezberlemeye çalışma; eşiği oku. Her boy için tek bir soru sor: bu boyla value'lanabilen en zayıf el hangisi, ya da bir bete karşı fold etmeyen en zayıf el hangisi. Karışım yüzdeleri dengede eş değerdir, ezberi taşımaz; taşınan şey eşiktir. Eşiğin üstü yapabilirdir, sıklığını sonra sınıf seviyesinde ayarlarsın. Agresörün flop çıktısında okuma sırası da bellidir: bet kolonundan değil, check kolonundan başla. En çok check isteyen sınıfı bul; o sınıf bile bete karışıyorsa onun için check ile bet eş değerdir, kalan sınıflar zaten beti tercih eder. Bet frekansının düştüğü yeri tek bir okunabilir kart özelliğine bağla, mesela en düşük kart şu rankın üstündeyse bet, altındaysa check. Çizginin biraz keyfî olması bir kusur değil, tam tersine bir özelliktir; sınır elleri zaten eş değerdir ve keyfî bir çizgi masada gerçekten uygulanabilir."
+      },
+      {
+        title: "Aralık aritmetiği ve imkânsızlık testi",
+        bullets: [
+          "Kombodan yüzdeye: sınıfın kombo sayısını topla, toplam kombinasyona böl, rakip aralığının genişliğinin tersiyle ölçekle.",
+          "Her pot-bet call'u aralığı yarılar → seni yenen pay sokak başına kabaca ikiye katlanır; çalışmaya river'dan başlayıp geri sar.",
+          "İmkânsızlık testi: aralığının yarısından fazlasıyla büyük boy atıyorsan value eşiğin DÜŞÜKTÜR — rakibin daha kötü elle CALL teşviki ölmüştür."
+        ],
+        ruleBox: "Strateji değil ARALIK ezberle; yarıdan fazlasıyla büyük-bet dengede value değildir — eşiği yükselt.",
+        narration: "Solver ezberi seni yalnız gördüğün board'da taşır; aralık aritmetiği her board'da taşır. Bir sınıfın payını çıkarmak üç adımdır: o sınıfın kombinasyon sayısını topla, tüm kombinasyonların sayısına böl, sonra rakip aralığının genişliğinin tersiyle ölçekle; aralık ne kadar darsa pay o kadar büyür. Sokak ilerledikçe yeniden say: aralığın zayıf yarısı düşüp güçlü sınıf hep kalıyorsa, o sınıfın payı her sokakta kabaca ikiye katlanır. Çalışmaya river'dan başla ve geriye sar, çünkü river'da neyin value'landığı turn aralığını, turn de flop'u belirler. Şimdi kendi aralığına aynı haritayı tut ve imkânsızlık testini uygula: elinden iyisi aralığının aşağı yukarı yarısındaysa ve büyük boy atıyorsan, blöf payıyla birlikte toplam bet frekansın aralığının büyük kısmına yayılır. O zaman rakibin daha kötü bir elle seni ödeme teşviki ölür; eşikteki value betlerini yalnız senden iyi eller öder, yani onlar value değildir. Böyle bir çıktı dengede yoktur. Kural nettir: rakibin bet etme opsiyonu olan bir düğümde aralığının yarısından fazlasıyla büyük boy atıyorsan value eşiğin çok düşüktür, onu yükselt."
+      },
+      {
+        title: "Karışık strateji: mix = bedava karar",
+        bullets: [
+          "Solver bir eli karıştırıyorsa iki aksiyon arası KAYITSIZDIR — mix ancak EV farkı sıfıra yakınken meşru.",
+          "Masa çevirisi: mix'li el bedava karardır → tek tarafa sabitle; yönü read söyler, read yoksa EV-kaynağı filtresi.",
+          "Denge yalnız seni izleyen iyi rakibe; rec'e karşı saf oyna, exploit'i al. Sabitlemeyi node-lock ile sına."
+        ],
+        ruleBox: "Mix eş-EV'dir, eş-EV karar bedavadır — rec'e karşı sabitle ve exploit'i al; dengeyi yalnız sayana sakla.",
+        narration: "Solver bir eli karıştırıyorsa, o el iki aksiyon arasında kayıtsız demektir; karışım ancak iki hattın beklenen değeri neredeyse eşitken meşrudur. Masaya çevirisi çok pratiktir: karışık bir el bedava karardır. Onu tek bir tarafa sabitle. Hangi tarafa sabitleyeceğini okuman söyler; okuman yoksa beklenen değerin kaynağı filtresine dön. Sabitlemeni node-lock ile sına: karışımı tek tarafa kilitle ve beklenen değer kaybını ölç; kayıp küçükse masaya taşınır, kural budur. Karıştırmanın kapısı rakip kalitesidir. Frekansını saymayan zayıf rakibe karşı saf oyna ve sömürüyü al. Denge yalnız seni gerçekten izleyen iyi rakibe karşı gerekir, ve orada bile seyrek doz yeter; pasif hattında ara sıra güçlü el göster ki karşı uyum kapısı kapansın. Canlı oyunda araca da dikkat et: saate yalnız sınır ellerinde bakıyorsan, o bakış elini ele verir. Karıştırman gerekiyorsa bir kart özelliği kuralı kullan, mesela bugünün agresif rengi, ve kuralı her gün değiştir."
+      },
+      {
+        title: "Turn kovaları ve sadeleştirme borç-defteri",
+        bullets: [
+          "Turn'ü board değil GELEN KART olarak çalış: dört kova — flush-tamamlayan / blank / board-eşleyen / straight-üstkart — artı en fazla bir özel kart.",
+          "Flop'taki tam-aralık lüksü turn'de istisnadır; varsayılan bölünmüş aralıktır — çalışman bölünmüş aralığın eşiğini aramakla başlar.",
+          "Her sadeleştirme sonraki sokağa BORÇ yazar: tam-aralık check probe savunması borçlar, tam-aralık bet barrel eşiğini sıkılaştırır."
+        ],
+        ruleBox: "Turn'de tam-aralık bet istisnadır; her kısayolun borcunu yanına yaz, yoksa iki sokak sonra kaynağı unutulmuş kaçak olur.",
+        narration: "Turn'ü bir board olarak değil, gelen kart olarak çalış; bu, flop kova mantığının sokak halidir. Turn kartını dört kovaya ayır: flush tamamlayan kartlar, tamamen boş kartlar, board'u eşleyen kartlar, ve straight ya da üst kart getirenler; buna en fazla bir özel kart ekle. Aykırı görünen bir kartı ayrı bir plana bağlamadan önce test et: onu kovanın tek boyuna zorla ve check frekansını kovayla karşılaştır; yakınsıyorsa yut, aradaki farkı bilinçli bir maliyet olarak yaz. Ve şunu ezberle: flop'ta sahip olduğun tam aralık lüksü turn'de bir istisnadır. Varsayılan bölünmüş aralıktır; aralığı sert kayıran nadir turn'ler dışında turn aralığı böler, ve çalışman bölünmüş aralığın eşiğini aramakla başlar. Son olarak sadeleştirme bedava değildir; faturası bir sonraki sokakta kesilir. Her kısayolun yanına borcunu yaz. Bir dokuyu tam aralık check'e indirdiysen turn'de güçlü bir check aralığı bırakırsın ve probe'a fazladan savunma borçlusun. Tam aralık bete indirdiğin dokuda ise turn bet aralığın sulanır, o yüzden barrel eşiğini sıkılaştırman gerekir. Borcu yazılmayan sadeleştirme, iki sokak sonra kaynağı unutulmuş bir kaçağa dönüşür; bu, kök hatanın çalışma masası versiyonudur."
+      },
+      {
+        title: "İş-akışı: teşhis merdiveni ve kontrast çifti",
+        bullets: [
+          "Anlaşılmayan çıktıya bakakalma, merdivene gir: aksiyonu stratejiden ÇIKAR → komşu board'da aç → boy kimi kaldıraçlıyor → teşvik testi.",
+          "Kural çekerken tek node'a bakma; asgari-kontrast çifti kur: TEK değişkeni değiştir, deltayı oku — 'neden'i iki düğüm arası fark söyler.",
+          "Anlamadığın node'a tavan koy, dolunca bırak — bırakmak pes değil kuluçkadır. İki-seçenek kuralı: bu iş ya da hiçbir şey; boş oturmak serbest, üçüncü seçenek yok."
+        ],
+        ruleBox: "'Neden'i düğüm değil iki düğüm arasındaki fark söyler; ilerleme mükemmellikten önce gelir.",
+        narration: "Anlamadığın bir çıktıya dakikalarca bakakalma; onun yerine bir teşhis merdivenine gir. Birinci basamak: aksiyonu stratejiden çıkar ve sor, hangi aralık hangi runout'ta çıplak kalıyor. İkinci basamak: aynı hattı komşu bir board'da aç; strateji tutuyorsa mekanizma board'dan bağımsızdır, değişiyorsa nedeni iki board arasındaki avantaj farkıdır. Üçüncü basamak: bu boy kimin gücünü kaldıraçlıyor, kimin boşluğunu hedefliyor. Dördüncü basamak: teşvik testi, yani rakibin en kârlı cevabı ne. Bir kural çekerken de tek bir düğüme bakma; asgari kontrast çifti kur. Tek bir değişkeni değiştir, mesela aynı board'da farklı hat, ya da aynı hatta farklı board, ve iki sonucun farkını oku. Nedeni sana düğümün kendisi değil, iki düğüm arasındaki fark söyler; ve bu kontrastın öbür yarısı, kuralının sınır koşulunu doldurur. Anlamadığın bir düğüme zaman tavanı koy; tavan dolunca bırak. Bırakmak pes etmek değil, kuluçkaya yatırmaktır; birkaç gün sonra döndüğünde çoğu kilit kendiliğinden açılır. Bir de iki seçenek kuralını benimse: bu iş ya da hiçbir şey; boş oturmak serbesttir ama üçüncü bir seçenek yoktur, çünkü kaçacak kapı bulamayan dikkat derinleşir. Ölçerini de oku: arada bir karışıklık normaldir, ama sık oluyorsa sorun eksik bir düğümde değil temelindedir, o zaman yalnız çalışmayı bırak ve düğümü bir ortakla çöz. İlerleme her zaman mükemmellikten önce gelir."
+      },
+      {
+        title: "Cheat: Solver çalışma kartı",
+        bullets: [
+          "Duruş: mekanizma çıkar, kopyalama. Kova: board'ları doku-kovasıyla çalış. Okuma: eşik önce, check kolonu önce.",
+          "Aritmetik: kombo→pay, sokak başına yenilme ~ikiye katlanır. Aralık ezberle, strateji değil. Mix = bedava karar → sabitle+exploit.",
+          "Node-lock EV-kaybıyla sına; her sadeleştirme sonraki sokağa borç yazar; otopside soru 'SINIFIM ne yapıyordu?'"
+        ],
+        ruleBox: "Dört filtre: EV-kaynağı · kaçınılmazlık · 3-bet kimliği (flat var→polar-büyük) · stack-bandı.",
+        narration: "Kapanış özeti, bölümün cep kartı. Duruş: solver'dan mekanizma çıkar, çıktı kopyalama. Board'ları tek tek değil doku kovalarıyla çalış. Okumaya eşikten ve check kolonundan başla. Aritmetik tarafında bir sınıfın payını kombinasyonlardan çıkar, ve her sokakta seni yenen payın kabaca ikiye katlandığını unutma. Strateji değil aralık ezberle. Karışık el bedava karardır; tek tarafa sabitle ve zayıf rakibi sömür, dengeyi yalnız seni sayana sakla. Her sadeleştirmeyi node-lock ile beklenen değer kaybına vurarak sına, ve her kısayolun bir sonraki sokağa yazdığı borcu defterine işle. Otopside üçüncü soruyu sor: benim sınıfım ne yapıyordu. Ve dört karar filtresini elinde tut: beklenen değerin kaynağı, kaçınılmazlık, üç-bet kimliği; aralığında flat varsa polar ve büyük, yoksa lineer ve küçük; ve stack bandı koruması."
       }
     ]
   },
@@ -2270,6 +2350,16 @@ export const modules: Module[] = [
         ],
         ruleBox: "Zarfın fiyatı çekilişte değil yapı sayfasında belirlenir; genişleme hakkı oranı taşıyanındır.",
         narration: "Her mystery'yi aynı agresyonla oynama; zarfın fiyatı çekilişte değil yapı sayfasında belirlenir. Üç kalemi oku: faz ne zaman başlıyor, havuzun ne kadarı kelleye gidiyor, overlay var mı — aynı buy-in'de ortalama zarfı katlara varan farkla oynatırlar. Faz başlamadan zarf yoktur ve eleme hiçbir şey ödemez: faz öncesini normal turnuva gibi oyna, kelle agresyonunu faz kapısında aç. Sonra çekiliş rejimini oku: zarflar sonda açılıyorsa beklenen kelle bitişe kadar sabittir, hesabı bir kez yap; canlı açılıyorsa panoya bak — büyük zarflar çekildikçe kalan ortalama düşer, küçükler süpürüldükçe yükselir, hiç çekiliş yoksa yerinden oynamaz. Son kural yön kuralıdır: kelle var diye genişleyen sen değilsin; genişleyen taraf, oranın lehine döndüğü taraftır. Kellen kendi yığınına yaklaştıysa fold equity'n öldü ve herkes seni geniş öder — jam'i daralt, yüksek-kart ağırlıklı kur; çok yönlü spotta parası gerçekten sayılan tek rakibi bul, spotu ona indirge, aralığını ona karşı fiyatla."
+      },
+      {
+        title: "Cheat: PKO / kelle kartı",
+        bullets: [
+          "Net prim: ICM primi eksi kelle indirimi; indirim yalnız COVER edende. Negatif prim çağrı primidir, blöf değil.",
+          "Cover ediyorsan eşik düşer (nut'la koru); kapsanıyorsan ağaç ikiye iner — jam DAR, stack-off eşiği GENİŞ, küçük 3-bet bağıştır.",
+          "Kelle sabit değil, çevrimi tazele; balonda kelleli kısa DAHA SIKI jam'ler (fold-equity erir); mystery'yi yapı sayfası fiyatlar."
+        ],
+        ruleBox: "İki primi tek sayıya indir: net prim. Geniş gir ama nut'la koru — postflop'ta tek per hâlâ bluff-catcher.",
+        narration: "PKO cep kartı. Önce iki para birimini tek sayıya indir: net prim, yani ICM primi eksi kelle indirimi; ve o indirim yalnızca cover eden tarafta çalışır. Net prim negatifse bu bir çağrı primidir, blöf primi değil; genişlemeyi lineer ve call ağırlıklı yap. Cover ediyorsan call eşiğin düşer, ama aralığını en güçlü ellerle koru. Kapsanıyorsan ağacın ikiye iner, ya jam ya call; jam'in dar olur çünkü fold equity çöker, stack-off eşiğin ise genişler, ve küçük bir üç-bet burada bağıştır. Kelleyi sabit sanma; aynı kelle geç fazda daha çok chip eder, o yüzden çevrimini her büyük kararda tazele. Balon paradoksunu hatırla: kellen rakiplerin çağrısını genişlettiği için fold equity erir, bu yüzden balonda kelleli kısa, kellesizden daha sıkı jam'ler. Ve mystery bounty'de agresyonu çekiliş değil, yapı sayfası fiyatlar."
       }
     ]
   },
@@ -2374,6 +2464,16 @@ export const modules: Module[] = [
         ],
         ruleBox: "SPR>8'de top per/overpair varsayılanı pot-kontrol — deep'te tek per'le stack-off, en çok chip'i en yanlış yere bağlar.",
         narration: "Son olarak deep'e özel bir exploit ve kapanış. Zayıf ya da nitty bir deep rakibin flop c-bet'ini call'la — buna float diyoruz. Turn check-check geçtiyse ve rakip preflop çok sıkı savunmuşsa, elinde orta güçte check-call elleri yoktur; river'da overfold'a yatkındır. Orada pozisyondan küçük bir gecikmeli stab, kötü kurulmuş savunmaya karşı fazlasıyla iş görür. Ama bunu bir prensip olarak al, ezber bir el olarak değil; rakibe göre kalibre et. Ve büyük resim: derin oyun kök hatanın en pahalı sürümüdür. Yüksek SPR'de tek per'le stack-off, en çok chip'i en yanlış yere bağlar. Guard'ın net: SPR sekizin üstündeyse top per ve overpair'in varsayılanı pot-kontroldür."
+      },
+      {
+        title: "Cheat: Deep / yüksek-SPR kartı",
+        bullets: [
+          "Preflop aralık GENİŞLEMEZ, karışır — flat yine en geniş. 3-bet'e orta cepleri kat (düşük board kapsaması).",
+          "Yüksek SPR: top pair/overpair = pot-kontrol, stack-off DEĞİL; overbet yalnız nut avantajında (geometrik overbet deep'in ana silahı).",
+          "C-bet: iyi rakibe AZ, zayıfa ÇOK. Check-raise equity-güdümlü ellerden. Seni cep çifti değil TEMİZ iki-per korur."
+        ],
+        ruleBox: "SPR ne kadar yüksekse tek per o kadar erken bluff-catcher — derinde varsayılan pot-kontrol.",
+        narration: "Deep ve yüksek SPR cep kartı. Derinlikte aralık genişlemez, karışır; flat aralığın yine en geniştir, güçlü eller flat ile üç-bet arasına dağılır. Üç-bet aralığına orta cepleri kat, yoksa düşük board'da kapsaman olmaz ve rakip seni lead'le soyar. Yüksek SPR'de top pair ve overpair pot kontrol elidir, stack-off eli değil; overbet'i yalnız gerçek nut avantajında kullan, ve unutma ki geometrik overbet deep oyunun ana silahıdır. C-bet'i iyi rakibe az, zayıf rakibe çok yap: iyi oyuncu seni polar check-raise'le cezalandırır, zayıf oyuncu deep check-raise'i bulamaz. Check-raise'lerini equity güdümlü ellerden kur, ince tek perlerden değil. Ve derinde seni bir cep çifti değil, temiz bir iki-per korur; her turn ve river'da sor, bu iki-per hâlâ temiz mi."
       }
     ]
   },
@@ -2446,6 +2546,16 @@ export const modules: Module[] = [
         ],
         ruleBox: "'Yem yutulsun' diye flat'leme — fold-equity'siz çip bağlamak kök hatanın micro sürümüdür.",
         narration: "Son ders kitabın omurgasına bağlanıyor. Dört ila on iki big blind'da flat-call ağaca hiç girmediği için trap diye bir hat da yok; flat'leyip üç-bet bekleyen tuzak hatları otuz big blind ve üzeri derin oyuna aittir — yirmi beş ila otuz big blind bandı bile jam-fold'dur. Arkanda jam'lemeye meraklı kısa bir stack var diye yem yutulsun hesabıyla flat'lemek, kök hatanın micro sürümüdür: fold-equity'siz çip bağlarsın. Şişmiş potta tek per'le bluff-catcher'a dönüşen oyuncuyla aynı filmdesin; inisiyatifsiz, plansız para yatırıyorsun. Ve şunu iyi kavra: bu bantta asıl tehlike fazla stack-off etmek değil, fazla fold etmek. Jam ve re-jam aralığını dar tutmak ile fringe'le flat call'lamak — leak bunlar. Fringe elle jam'lemek leak değil; standart doktrinin ta kendisi."
+      },
+      {
+        title: "Cheat: Micro 4-12bb kartı",
+        bullets: [
+          "Açış JAM ya da fold — küçük-RFI tablosu YOK. Küçük çiftler bandın en derin yaşayan jam'lerinden, DEFEND edilmez.",
+          "Raise+'a karşı fringe: jam-or-fold, flat değil (yeterli derinlikte re-jam fold-equity taşır, çok kısada canlı equity+ölü para).",
+          "Eşitsiz masa: arkadaki reopen/squeeze caller'ı sıkar → jam aralığın GENİŞLER. Asıl leak fazla stack-off değil, fazla FOLD."
+        ],
+        ruleBox: "Fringe-JAM doktrindir, spew değil — trap-flat yok; BB'nin min-raise'e kapatan flat'i ayrı, o savunma.",
+        narration: "Micro stack cep kartı, dört ile on iki büyük kör arası. Bu bantta açış jam ya da fold'dur; ince boy açış tablosu yoktur. Küçük çiftler bu bandın en derin yaşayan jam'lerindendir ve defend edilmez. Bir raise ya da üstüyle karşılaşınca fringe ellerin cevabı da flat değil, jam ya da fold'dur: yeterli derinlikte re-jam gerçek fold equity taşır, çok kısada ise jam canlı equity ve ölü parayla çalışır. Eşitsiz masada, arkadaki yeniden-açış ya da squeeze tehdidi caller'ı sıktığı için jam aralığın genişler, ve bu etki derinlikle büyür. Bu bantta asıl leak fazla stack-off değil, fazla fold etmek ve fringe ellerle flat-call'dur. Fringe jam bir doktrindir, spew değil. Trap için flat de yoktur; büyük körün min-raise'e karşı aksiyonu kapatan flat'i ise bundan ayrıdır, o bir savunmadır."
       }
     ]
   },
@@ -2576,6 +2686,16 @@ export const modules: Module[] = [
           }
         ],
         narration: "Son parça, hızlandırılmış okuma döngüsü. VPIP yüzde yüz olduğu için eğilimler birkaç elde açığa çıkar; tek data-point'ten agresif projeksiyon burada meşru. Telleri üç kanaldan oku: timing, sizing ve hat. Derin stack'te bir çifti düşünmeden flat'leyen rakip pot kontrolü ilan etmiştir; river'da seni pota iten snap-call ise 'raise menümde yok' itirafıdır, pozisyonsuz ince value boyunu büyüt. Preflop tarafında bir MTT refleksini kır: küçük çiftler open'a karşı şaşırtıcı derinliğe kadar rejam adayı kalır, ama yirmi ila yirmi beş big blind üstünde jam yerine raise standarttır; eşiği kendi solver'ında kalibre et. Bir tell daha: yarım-pot orta boyu seven oyuncu genelde kabiliyetli ama ileri değildir — doğru boylar ya miniktir ya büyük ve polardır, ortası iki işlevi de öldürür. Son uyarı: MTT eliti bile heads-up'ta göreli acemidir; ama senin basitleştirmelerini de senden tecrübelisi aynı şekilde avlar."
+      },
+      {
+        title: "Cheat: BB-ante HU kartı",
+        bullets: [
+          "BTN preflop %100 VPIP — hiç fold yok: derinleştikçe raise, sığlaştıkça limp. Pasife karşı dengeyi bırak (çöpü limp, iyiyi raise).",
+          "Capped kalma çift-cezalı → check-back adayı koy (uncapped kal). Lead/donk YOK — aralıklar simetrik, 'senin board'un' kurulamaz.",
+          "Boy: rainbow/statik = büyük-polar boy evi; makul-orta boy acemi telidir. Küçük çift BTN-açışına karşı BB'den şaşırtıcı derinliğe rejam."
+        ],
+        ruleBox: "HU'da 'kuru = üçte bir' ezberi equity-edge'i masada bırakır; boylar ya minik ya büyük-polar.",
+        narration: "Heads-up ve büyük kör ante cep kartı. Buton'da preflop yüzde yüz VPIP oynarsın, hiçbir el fold değildir: derinleştikçe raise'e, sığlaştıkça limp'e kayarsın. Pasif rakibe karşı dengeyi bırak, çöpü limp'le, iyi eli raise'le. Capped kalmak çift cezalıdır, çünkü rakip hem value hacmini hem boyunu büyütür ve yanına blöf ekler; bu yüzden bilinçli bir check-back adayı koy ve uncapped kal. Lead ya da donk yoktur, çünkü aralıklar simetriktir ve senin board'un diye bir şey kurulamaz. Boy tarafında rainbow ve statik board'lar büyük ve polar boyun evidir; makul orta boy, yani yaklaşık yarım pot, çoğu zaman acemi telidir, boylar ya minik ya büyük ve polar olur. Ve küçük çiftler, buton açışına karşı büyük körden şaşırtıcı derinliklere kadar yeniden jam adayıdır."
       }
     ]
   },

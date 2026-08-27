@@ -2178,6 +2178,54 @@ Herkes planını onu izole etmek üzere kurar. Kısa stack'in POZİSYONU stratej
 
 Devasa varyans (büyük roll şart), popülasyon postflop clueless. Ana edge: IP geniş limp + korunmuş aralık; insanlar limp düğümünü kötü oynar. Kelle değeri ITM boyunca DEĞİŞİR (büyük kelleler çekildikçe düşer); kaba hesap = canlı kelle toplamı / kalan oyuncu.
 
+### 28.6 Net prim: iki primi tek sayıya indir
+
+Kök hata, ICM'i ve kelleyi iki ayrı ders gibi öğrenip masada ayrı ayrı "hissetmek". Tek sayı tut: net prim = ICM-primi − kelle indirimi; indirimi ölçmek için hedefin kellesini güncel çevrimle BB'ye çevir ve efektif stack'le kıyasla (kalibre et). Kelle stack'e yaklaştıysa net prim derin negatiftir, herhangi-iki bölgesindesin; kelle birkaç BB'ye eridiyse (kalibre et) el kellesiz ICM'dir, standart matrisin aynen geçerli. İşareti de doğru oku: negatif prim ÇAĞRI primidir, blöf primi değil — indirim yalnız cover edende olur: kelleli kısaya 3-bet-fold yoktur çünkü jam'ine karşı kelle oddsuyla sen hep ödersin, ama blöf fold equity'n yalnız SENİ cover eden rakiplere karşı düşer. Cover ettiğinde genişlemeni lineer ve call'la yap; blöf-jam'i kellesiz turnuvaya sakla.
+
+### 28.7 Cover yönü preflop malzemesini seçer
+
+Kök hata, her all-in'e aynı el listesiyle gitmek: jam yelpazesinin dokusu cover yönüne göre tersine döner. Kapsanıyorsan rakip kellen için zaten ödeyecek — jam'i doğrusallaştır: geniş call menzilini domine eden yüksek kartı it; flip satın alan suited connector'ı ve kimseyi katlatmayan blocker-jam'i çöpe at. Cover edensen ayna döner: kısa senin kelleni kazanamaz, o yüzden dar öder — yüksek kartla gelir, iyi suited'larını katlar; şimdi suited-bağlantılı jam altındır, seni domine eden yüksek kartlar zaten call'da, arkandaki çöp ise katlanıp ölü para bırakır — jam'in tam o ölü parayı toplar. 3-bet'te boyutu stack derinliğine değil cover yönüne bağla: seni cover eden açıcıya küçük boyut bedava kârdır, büyük git; sen cover ediyorsan küçük-lineer kur (kalibre et). Kompozisyon da yön ister: jam'e karşı katlayacağın eli hiç 3-bet'leme — suited asları call defterine geçir, 3-bet'i kısa ittiğinde tereddütsüz ödeyeceğin ellerden kur.
+
+### 28.8 Kapsananın çöken ağacı: ya jam ya call
+
+Kök hata: kapsanan kısanın "baskım düşük, geniş jam'lerim" demesi — yön ters. Kellen rakiplerin ödeme eşiğini düşürür; fold equity çökünce jam aralığın kellesiz bubble'dakinden bile DAR olmalı (kalibre et). Makasın öbür ağzı lehine işler: biri sana jam'lediğinde ödediğin ICM-primi normalin altındadır — stack-off eşiğin GENİŞ; kelle elinden jam'i alır, karşılığında çağrıyı verir. Ağaç da ikiye iner: kapsananın küçük 3-bet'i blöf değil bağıştır — kimse kelleni masada bırakıp katlanmaz — ve arkadan squeeze gelecek masada canavarla tuzak kurmak kök hatanın kendisidir. Tepeni doğrusal jam'le, kalanını call defterine yaz; kapsananın lüksü yok, tahsilatı var.
+
+### 28.9 Kelle sabit değil: enflasyon, saha, çevrim
+
+Kök hata: kelleyi çipe bir kez çevirip turnuva boyunca sabit taşımak. Kelle havuzu sahadan yavaş erir; aynı kelle geç fazda erken fazdan daha çok chip eder (kalibre et) — çevrimi her büyük kararda tazele, çünkü havuz dağıldıkça chip'in doları düşer. Saha büyüklüğü iki primin hakemidir: dev sahada geç aşamada en şişkin kelle bile birkaç BB'dir (kalibre et) — terimi sil, kellesiz ICM oyna; küçük sahada kelle ortalama stack'in ciddi parçasıdır — net prim aşağı iner, kelle konuşur. Kısa jam'e karşı eşik ayrıca kayar: aynı kelle daha az riskle alınır, oran lehine döner — call eşiğini düz-ortalama hesabın söylediğinden de aşağı çek (kalibre et). Oturmadan önce tek kontrol: en büyük kelle kaç BB ve ortalama stack'in ne kadarı?
+
+### 28.10 Balon paradoksu: kellen fold equity'ni eritir
+
+Kök hata: "risk primim düşük, öyleyse balonda geniş jam" çıkarımı. Primi düşüren mekanizmanın kendisi — kafandaki kelle — rakiplerin call aralığını genişletir; fold equity'n erir, seni her zamankinden çok öderler. Sonuç paradoks ama net: balonda kelleli kısa stack, kellesiz turnuvadakinden DAHA SIKI jam'ler (kalibre et). Marjinal spotu ancak double-up sonrası ekstra oyuncuları cover edecek olman haklı çıkarır.
+
+### 28.11 Cover'ın kalitesi: pozisyon çarpanı, kırılgan statü
+
+Kök hata: cover'ı skaler sanmak — kaç kişinin kapsadığını saymak. Cover çarpı pozisyondur: arkanda pozisyonlu tek coverer açılış aralığını kısar (kalibre et); blind'lardaki iki coverer neredeyse hiç kısmaz, flop'u pozisyonda oynarsın. İkinci kalite testi kalınlık: masayı kıl payı kapsıyorsan cover kaybedilebilir bir statüdür — tek all-in'de söner ve prim ödeyen tarafa düşersin; solver future-game'i görmez diye sen de görmezlik etme. Marjinal cover'da en ince jam'leri kes, tam genişliği kalın cover'a sakla (kalibre et); kelleler stack'lere göre sığken bu tartışma zaten kapanır.
+
+### 28.12 Cold-call kapısı ve kelepçeli squeeze
+
+Kök hata: 3-bet'li potta karara elinden başlamak — önce stack'lere bak. Cold-call kapısı: açanı ya da 3-bet'çiyi, en az birini cover etmiyorsan girme; kimsenin kellesini alamıyorsan aynı el fold'dur, kapı açıksa el konuşur. Flat kararında arka zinciri oku: açıcı arkandaki muhtemel squeezer'ı cover ediyorsa squeezer kelepçelidir — squeeze gelmez, flop'u ucuza görürsün, flat aralığın genişler (kalibre et). Blöf malzemesi de buradan çıkar: seni cover eden rakip geniş call verir, fold gelmeyecek — blocker'lı offsuit çöple değil, flop'ta bir şeye dönüşen suited-bağlantılı ellerle blöfle; polar blöf refleksini fold equity'nin öldüğü yere taşıma.
+
+### 28.13 Kelle ölü antedir: limp rejimi
+
+Kök hata: primi stack'inin katlarına varmış kısayı büyük raise'le "izole etmeye" çalışmak — o kelle ölü antedir, hangi boyutu seçersen seç yarım düzgün el tutan herkes fiyat alır. Rejimi değiştir: bütün oynanabilir aralığını limp'le, multiway'i kucakla, kısa ittiğinde sürüyle üstüne çök; senden sonra limp'ler yığıldıkça value-jam aralığını genişlet (kalibre et). Kendi kellen için ayna eşik var: prim stack'inin küçük parçasıyken limp yaşar, prim stack'e yaklaştıkça limp her seferinde jam yer — kes; eşitlendiği an saf jam-ya-fold (kalibre et), geç pozisyonda cover altındayken de raise jam mıknatısıdır — limp'le ya da direkt it. Masanın öbür yanındaysan panzehiri bil: limp yelpazesi çöp değil, suited ve yapışkandır — küçük iso kimseyi katlatmaz, cezalandıracaksan büyük bas (kalibre et); rakipler limp'lere küçük iso basıyorsa limp senin için bedava paradır, frekansı aç.
+
+### 28.14 Multiway all-in: önce kelleleri pota yaz
+
+Kök hata: multiway all-in'de oranı sadece çiplerle kurmak. Prosedür: yalnız SENİN cover ettiğin jam'lerin kellesini güncel çevrimle BB'ye çevir — seni cover eden yığının kellesini kazanamazsın, o hesaba girmez (kalibre et); kazanabildiğin kelleleri ölü para olarak pota yaz, oranı ondan sonra hesapla — "öde-kazan" sandığın yer "öde, artı senin alabileceğin kelleler kazan"dır ve o fark orta suited elleri fold'dan call'a taşır. El seçiminde soru "elim güçlü mü" değil, "kaç yelpazeye karşıyım": tek yelpazeye karşı yüksek kart öder, suited connector atarsın; birden çok yelpazeye karşı tersine döner — offsuit yüksek kart ve zayıf Ax sürekli domine edilir, suited-bağlantılılar ve küçük çiftler nefes alır (kalibre et). Tek istisna ezber: mikro yığınların üstüne bir dev cover jam'i geldiyse mikroların yalnız YELPAZELERİNİ equity hesabından çıkar (elini devin yelpazesine karşı fiyatla) — ama çiplerini ve kazanabileceğin kellelerini ölü para olarak potta tut, hepsini yenersen o kelleler senindir; equity'de yine yüksek kart kazanır.
+
+### 28.15 Mikronun fold opsiyonu senin jam hakkını çevirir
+
+Kök hata: "masada mikro var, herkes basamağa sıkıştı, ben jam'lerim" ezberi. Mikro zorunlu all-in'se basamak herkese bedavadır ve orta stack'ler seni rahat öder — jam'i kes, aralığını daralt. Mikro hâlâ katlanabiliyorsa (kalibre et) denge döner: seni ödeyecek oyuncu kaybederse basamağı mikroya kaptıracağı için daha dar ödemeye iter — ama bu "dar ödeme" mutlak değil; ancak basamak/ICM riski senin kelle-primini aştığında geçerli. Seni kaplayan oyuncu kelleni de kazanacağından jam hakkın kellenin büyüklüğüyle TERS orantılıdır — kellen ne kadar büyükse seni o kadar geniş öderler. Karar ağacının ilk sorusu yine de stack değil, opsiyon: mikro katlanabiliyor mu?
+
+### 28.16 Mystery'yi yapı sayfası fiyatlar
+
+Kök hata: her mystery'yi aynı agresyonla oynamak — zarfın fiyatı çekilişte değil, yapı sayfasında belirlenir. Üç kalemi oku: faz ne zaman başlıyor, havuzun ne kadarı kelleye gidiyor, overlay var mı — aynı buy-in'de ortalama zarfı katlara varan farkla oynatırlar (kalibre et); faz başlamadan zarf yoktur, eleme hiçbir şey ödemez — faz öncesini normal turnuva gibi oyna, kelle agresyonunu faz kapısında aç. Sonra çekiliş rejimini oku: zarflar sonda açılıyorsa beklenen kelle bitişe kadar sabittir, hesabı bir kez yap; canlı açılıyorsa panoya bak — büyük zarflar çekildikçe kalan ortalama düşer, küçükler süpürüldükçe yükselir, hiç çekiliş yoksa yerinden oynamaz. Geç kayıt da aynı fiyat okumasıdır: normal kelleli turnuvada erimiş havuza tam fiyat ödersin — saha belirli ölçüde eridiyse oturma (kalibre et); mystery'de zarf fazı başlamadıysa havuz tamdır, ceza büyük ölçüde silinir.
+
+### 28.17 Mystery aralıkları: oranı kim taşıyor
+
+Kök hata: "kelle var, genişle" ezberi — genişleyen taraf, oranın lehine döndüğü taraftır, sen değil. Kelle kural değil soru verir: kimin kellesi, kimin yığınına göre büyük? Kellen kendi yığınına yaklaştıysa fold equity'n öldü, herkes seni geniş öder: jam'i daralt, yüksek-kart ağırlıklı kur — masadaki oran ne derse desin any-two jam yok. Çok yönlü spotta da denklemi sadeleştir: parası gerçekten sayılan tek rakibi bul, spotu ona indirge, aralığını ona karşı fiyatla.
+
 *Kök hata bağı: PKO geniş VPIP'i kök hatayı DAVET eder — geniş girip korunmasız aralıkla şişmiş pota düşmek. Guard: geniş gir ama (a) nut'la koru, (b) postflop'ta hâlâ "tek per = bluff-catcher".*
 
 ---

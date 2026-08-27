@@ -1835,6 +1835,101 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M30",
+    title: "WSOP Day 1A — Kendi Ellerin (Pasiflik Aynası)",
+    chapter: "Bölüm 7 ★",
+    minutes: 6,
+    slides: [
+      {
+        title: "Ayna sızıntı: az oynamak",
+        bullets: [
+          "İlk dört vaka kök hatanın 'fazla oyna' yüzüydü; bunlar tersi.",
+          "Kök hata bu turnuvada yüksek-şiddette YOK — frenlerin çalıştı.",
+          "Asıl kaçan para: güçlü eli AZ oynamak (değer almamak).",
+        ],
+        ruleBox:
+          "İyi elde son sokakta check'leme: 'benden kötü bir el bu bahsi öder mi?' — Evet ise BET.",
+        narration:
+          "Bu modül senin kendi oyunun; WSOP Online Main Event birinci gününden. Yetmiş beş karar elini baştan sona taradık, bağımsız bir ikinci göz de teyit etti. Önce iyi haber: agresif tarafın çok sağlam. Blöflerin, üç-bet'lerin, büyük premium'ları oynayışın ve zor yerlerdeki büyük fold'ların neredeyse hep doğru. Kök hatan, yani şişmiş potta tek per'le batmak, bu turnuvada yüksek şiddette yok; frenlerin çalışmış. Ama tekrar eden bir sızıntı var ve bu kök hatanın tam tersi: güçlü eli az oynamak. Top pair, iki per, hatta set ve full house yaptığın ellerde son sokakta bahis atmak yerine check'liyorsun. Masada tek soru şu olmalı: benden kötü bir el bu bahsi öder mi? Cevap evet ise bahis at. Şimdi üç ele tek tek bakalım.",
+      },
+      {
+        title: "Vaka 5 — Set'i üç sokak check'lemek",
+        bullets: [
+          "5-bet potu, SPR bir buçuk. Flop J-T-Q → orta set (TT).",
+          "Flop check, turn check, river Q → tens full → yine check.",
+          "Villain iki per ile showdown'a bedava geldi. ~30-80K bırakıldı.",
+        ],
+        visuals: [
+          { kind: "hand", cards: "TT", label: "Elin — set floplandı" },
+          { kind: "board", cards: "Jd Ts Qh Ac Qs", label: "River: tens full (TTT+QQ)" },
+        ],
+        ruleBox:
+          "Set ve full house küçük-SPR'li 4-bet/5-bet potunda ASLA check'lenmez.",
+        narration:
+          "Birinci el. Beş-bet'li bir pot; stack'e göre pot oranı bir buçuk, yani çok sığ, para ortada. Flop jack-ten-queen geliyor, elinde onlu çift, ortada set floplamışsın. Bu neredeyse en güçlü el. Ama flop check, turn check, river queen ile tens full yapıyorsun ve yine check. Sonunda kazandın ama postflop sıfır çip aldın; villain iki per ile showdown'a bedava geldi. Doğrusu: bu SPR'de set ile flop'ta bet ya da jam şart, çünkü as-as bile fold etmez. En geç river'da tens full ile jam'lersin; ace-king, as-as, king-king, queen-queen ve iki per öder. Benden kötü el öder mi? Kesinlikle evet. Bu tek elde tahminen otuz ila seksen bin çip masada bıraktın; batch'in en pahalı eli. Kural: set ve full house, küçük SPR'li potta asla check'lenmez.",
+      },
+      {
+        title: "Vaka 6 — Nut kenti check'leyip potu bırakmak",
+        bullets: [
+          "BB defend, flop A-4-3 → floplanan tekerlek (nut düz).",
+          "Flop call, turn check (bedava kart), river A → check-FOLD.",
+          "Nut elden sıfır değer VE pot terk edildi — Vaka 5'in beteri.",
+        ],
+        visuals: [
+          { kind: "hand", cards: "5h 2c", label: "52o — nut düz floplandı" },
+          { kind: "board", cards: "Ac 4d 3s 5s Ah", label: "Turn 5 bedava, river A" },
+        ],
+        ruleBox: "Nut/çok güçlü elle turn'de MUTLAKA bahis — bedava kart verme.",
+        narration:
+          "İkinci el, ve bu birincisinden bile beter. Büyük blind'de beş-iki elini savunmuşsun, flop as-dört-üç geliyor; elinde floplanan tekerlek, yani nut düz. Bundan güçlüsü neredeyse yok. Flop'ta sadece call, turn'de check; rakip de check ediyor, yani ona bedava bir kart vermiş oldun. River as geliyor ve sen check-fold yapıyorsun. Bir düşün: turnuvanın en güçlü ellerinden birini floplayıp önce sıfır değer aldın, sonra o eli bluff-catcher'a çevirip potu da attın. Pasif hat bu felaketi kendi üretti. Doğrusu: flop'ta check-raise ya da en geç turn'de yüzde altmış-yetmiş value bet; her as, her dörtlü ve üçlü, karo draw'lar öder, ve river'da inisiyatif sende kalır. Nut elle bedava kart verme; değeri kendin al.",
+      },
+      {
+        title: "Vaka 7 — Kök hata KURULUMU (frenli, 183K)",
+        bullets: [
+          "60bb OOP, 3-bet'e TT ile FLAT → şişmiş-pot-tek-per kurulumu.",
+          "Postflop kusursuz: eşleşen turn'de check-fold (fren çalıştı).",
+          "Ama flat'in kendisi 183K'ya mal oldu — günün en büyük kaybı.",
+        ],
+        visuals: [
+          { kind: "hand", cards: "TT", label: "60bb OOP, 3-bet'e flat" },
+          { kind: "board", cards: "7s Ks 8s 7h", label: "Monoton flop, eşleşen turn" },
+        ],
+        ruleBox:
+          "Kök hata 'yok' değil FRENLİ. Frene güvenme, KURULUMU engelle: orta çiftle OOP flat'i azalt.",
+        narration:
+          "Üçüncü el, ve bu senin en pahalı kaybın: yüz seksen üç bin çip. Elli üç big blind derinlikte, cutoff üç-bet'ine onlu çift ile pozisyon dışı flat call yapıyorsun. Monoton yedi-king-eight flop'unda çift artı floş draw ile check-call, board eşleşen turn'de ikinci barrel'a fold. Şunu net söyleyeyim: postflop oyunun kusursuzdu; eşleşen turn'de check-fold, kitabın on bir nokta iki modelinin ta kendisi. Fren çalıştı ve seni daha büyük kayıptan kurtardı. Hata preflop'ta: altmış big blind pozisyon dışında onlu çift ile üç-bet'e flat, tam da kitabın uyardığı şişmiş-pot-tek-per kurulumunu davet ediyor. Doğrusu dört-bet-jam ya da fold. Ders şu: kök hata bu turnuvada yok değil, frenli. Frenlerin mükemmel ama frene güvenme; kurulumu engelle. Kaçan para frende değil, kurulumda.",
+      },
+      {
+        title: "Böyle devam — model eller",
+        bullets: [
+          "78o: flopta trips → check-raise → turn pot → river overbet (kusursuz value).",
+          "AA ×2: 4-bet/5-bet all-in, ikisi de doğru.",
+          "Büyük ve DOĞRU fold'lar (TT 406K pot turn check-fold).",
+        ],
+        visuals: [
+          { kind: "hand", cards: "7h 8d", label: "78o — value merdiveni" },
+          { kind: "hand", cards: "AA", label: "Premium stack-off" },
+        ],
+        ruleBox:
+          "Value merdivenin (78o) zaten kusursuz — o refleksi güçlü made-hand'lerin HEPSİNE taşı.",
+        narration:
+          "Şimdi iyi haberi pekiştirelim, çünkü çoğu elini kusursuz oynadın; yetmiş beş elin kırk yedisi model. En güzeli: büyük blind'de yedi-sekiz offsuit savunmuşsun, flop yedi-üç-yedi, trips. Check-raise, turn'de pot boyu bahis, river'da overbet. Kusursuz bir value merdiveni. İşte mesele tam bu: draw'lı ve trips'li ellerde bu agresyonu zaten yapıyorsun, ama set, full house, top pair gibi sessiz güçlü ellerde check'e kayıyorsun. As-as'leri iki kez kusursuz batırdın, büyük ve doğru fold'lar yaptın; onlu çift ile dört yüz altı bin çipli potta turn'de check-fold, kitabın kalbi. Yani disiplinin de agresyonun da var. Tek yapman gereken: yedi-sekiz offsuit ile gösterdiğin o value refleksini, güçlü made-hand'lerinin hepsine taşımak.",
+      },
+      {
+        title: "Tek kural — masada tek soru",
+        bullets: [
+          "Soru: 'Benden kötü bir el bu bahsi öder mi?'",
+          "Evet → BET (top pair, iki per, set, full house — hepsi).",
+          "Hayır → check (sadece o zaman).",
+        ],
+        ruleBox:
+          "İyi elde son sokakta elini kontrol etmeyi bırak, DEĞERİNİ AL. Kök-hatanın tersi de leak.",
+        narration:
+          "Kapanış. Bu turnuvadan tek bir alışkanlık değişecek: iyi elde son sokakta elini kontrol etmeyi bırak, değerini al. Masada tek soru: benden kötü bir el bu bahsi öder mi? Evet ise bahis at; top pair, iki per, set, full house, hepsi. Hayır ise, ancak o zaman check. Bunu bir alışkanlık yaparsan Day birinci günündeki kaçan parayı doğrudan geri kazanırsın, üstelik sıfır ek riskle, çünkü bu ellerin hiçbiri seni riske atmıyordu. Ve unutma: kök hata da yok değil, frenli; o yüzden orta çiftle pozisyon dışı flat gibi kurulumları azalt. Disiplin artı bu tek value düzeltmesi, seni ikinci güne çok daha keskin götürür.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

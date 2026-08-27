@@ -32,7 +32,7 @@ Emre Nuhoğlu
 - Bölüm 4 — Pozisyona göre 3-bet ve call aralıkları (100–150bb)
 - Bölüm 5 — 25–30bb Bandı: Savaş Planı
 - Bölüm 6 — Turn'de draw ile: bet mi, bedava river mı
-- Bölüm 7 — Vaka otopsileri: A4s, KTo, AA river jam
+- Bölüm 7 — Vaka otopsileri: A4s, KTo, AA river jam + WSOP Day 1A (pasiflik aynası)
 - Bölüm 8 — PLO temelleri
 - Bölüm 9 — Antrenman protokolü ("beni hazırla")
 - Bölüm 10 — Soru bankası
@@ -478,6 +478,35 @@ Chip leader'ın jam'e fold ettiğini bir kez gördüysen, o oyuncunun açılış
 **Doğru oyun:** Check-call. Bu runout'ta trip'in bluff-catcher: senden zayıf el all-in'i ödemez (her 10 senin kicker'ını geçer, boat'lar önde); raise blöfleri fold ettirir, seni yalnız geçen el öder.
 
 **Kural:** İyi görünen tek/güçlü el (trip dahil), eşleşmiş/şişmiş board'da bluff-catcher'a döner — Vaka 2'nin (KTo) aynısı. (B9.2 protokolü: masadan gelen bu el vakaya işlendi.)
+
+---
+
+> **Vaka 5–7: AYNA sızıntı — WSOP Online Main Event Day 1A (kendi oyunun, 2026).**
+> İlk dört vaka kök hatanın "FAZLA oyna" yüzü (tek per'i şişmiş potta batırmak). Aşağıdaki üç vaka TERS yüz: güçlü eli AZ oynamak. 75 karar eli tarandı (bağımsız grader teyidi); kök hata bu turnuvada yüksek-şiddette YOKtu — frenlerin çalıştı. Asıl kaçan para (a) pasiflikte ve (b) bir kök-hata KURULUMUNDA.
+
+### Vaka 5 — TT ile 5-bet potunda set→full house, üç sokak check (WSOP Online ME Day 1A)
+
+**Ne oldu:** 5-bet potunda (SPR ~1.4) J-T-Q flop → orta SET. Flop check, turn check, river T → TENS FULL → yine check. Villain A3s iki per ile showdown'a bedava geldi; kazandın ama postflop sıfır çip aldın.
+
+**Doğru oyun:** SPR 1.4'te set ile flop bet/jam şart (AA/KK asla fold etmez). En geç river'da tens-full ile jam — AK/AA/KK/QQ/iki per öder. "Benden kötü el bu bahsi öder mi?" → EVET. Tahmini 30–80K bırakıldı.
+
+**Kural:** Set ve full house küçük-SPR'li 4-bet/5-bet potunda ASLA check'lenmez. Kök hatanın tersi de bir leak: değerini almamak.
+
+### Vaka 6 — 52o floplanan nut kent, check + potu bırakma (WSOP Online ME Day 1A)
+
+**Ne oldu:** BB defend, flop A-4-3 → floplanan tekerlek (nut düz). Flop sadece call, turn check (bedava kart), river A → check-fold. Nut elden sıfır değer VE pot terk edildi.
+
+**Doğru oyun:** Flopta check-raise ya da en geç turn'de %60–70 value bet (Ax/44/33/karo draw öder) + river'da inisiyatifi koru. Nut elle bedava kart verme.
+
+**Kural:** Nut/çok güçlü elle turn'de MUTLAKA bahis. Pasif hat, nut eli önce değersizleştirir sonra bluff-catcher'a çevirip elden çıkartır — Vaka 5'in daha beteri.
+
+### Vaka 7 — TT'yi 60bb OOP, 3-bet'e flat → 183K (kök-hata KURULUMU, frenli)
+
+**Ne oldu:** 53bb efektif, CO 3-bet'ine TT ile OOP FLAT. Monoton 7-K-8 flopta pair+FD ile check-call, board eşleşen turn'de ikinci barrel'a fold. 183K kayıp — turnuvanın en büyük tek kaybı.
+
+**Doğru oyun:** Postflop kusursuzdu (eşleşen turn'de check-fold = B11.2 modeli, fren çalıştı). Hata PREFLOP: 60bb OOP'ta TT vs 3-bet flat, şişmiş-pot-tek-per kurulumunu davet eder. Doğrusu 4-bet-jam ya da fold (B14).
+
+**Kural:** Kök hata "yok" değil, FRENLİ. Fren (turn fold) seni yüksek-şiddetten korur ama kurulum pahalı — orta çiftle OOP 3-bet'e flat'i azalt; kaçan para frende değil, KURULUMDA.
 
 ---
 

@@ -1159,6 +1159,109 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 15.5",
     kavram: "plo",
   },
+
+  // --- M39: marjinal eller (Bölüm 4.9-4.11) ---
+  {
+    q: "BTN'desin, CO açtı, elinde K5s. Doğru hamle?",
+    options: ["Flat — pozisyonum var, ucuza görürüm", "3-bet blöfü ya da fold", "Sizing'e bakmadan pure fold"],
+    correct: 1,
+    explain:
+      "Pozisyonda bir raise'e karşı düşük suited Kx'i flat'lemek bu elin EN KÖTÜ kullanımıdır. K bloker + renk potansiyeli onu makul bir 3-bet blöfü yapar; blöf slotu doluysa fold. Ara yol yok.",
+    source: "Bölüm 4.9",
+    kavram: "marjinal-el",
+  },
+  {
+    q: "Aynı spot, ama elin K5o. Suited versiyondan farkı ne?",
+    options: ["Fark yok, ikisi de 3-bet blöfü", "Neredeyse saf fold", "Offsuit daha ucuz, flat edilebilir"],
+    correct: 1,
+    explain:
+      "Offsuit versiyon renk ve düz potansiyelini taşımaz, equity realization'ı düşüktür ve iyi bir 3-bet blöfü bile değildir. En sık ürettiği el domine edilmeye açık zayıf top pair'dir.",
+    source: "Bölüm 4.9",
+    kavram: "marjinal-el",
+  },
+  {
+    q: "UTG'desin. Hangisi daha değerli: A2s mi, A8o mu?",
+    options: ["A8o — kicker'ı belirgin şekilde daha güçlü", "A2s — nut renk, wheel ve blöf potansiyeli", "İkisi de fold, karşılaştırma anlamsız"],
+    correct: 1,
+    explain:
+      "Sezgiye ters ama doğru: A2s erken pozisyondan açılabilir, A8o çoğunlukla fold. Suited olan nut renk + wheel + 3-bet/4-bet blöf malzemesi taşır; offsuit bunların hiçbirini taşımaz.",
+    source: "Bölüm 4.10",
+    kavram: "marjinal-el",
+  },
+  {
+    q: "Biri açtı, pozisyondasın, elinde A4s. Bu elin asıl işi ne?",
+    options: ["Flat — implied odds için ucuza flop gör", "3-bet blöfü — as bloker + nut renk", "Fold — raise karşısında değeri yok"],
+    correct: 1,
+    explain:
+      "Düşük suited Ax raise karşısında en iyi 3-bet blöf adaylarındandır: ace blocker rakibin AA/AK'sını keser, nut renk ve wheel devam değeri verir. BTN'de bazı çözümde flat de var, ama varsayılan blöftür.",
+    source: "Bölüm 4.10",
+    kavram: "marjinal-el",
+  },
+  {
+    q: "BB'desin, BTN 2x açtı, elinde Q5s. Karar neye dayanır?",
+    options: ["El gücüne — Q5s zayıf bir el, atılır", "Fiyata — küçük boya karşı savunulur", "Pozisyona — BB'de OOP olduğun için atılır"],
+    correct: 1,
+    explain:
+      "BB'de zaten para koymuşsun; soru 'bu el iyi mi' değil 'bu fiyat iyi mi'. BTN/CO'nun küçük açışına karşı bu gruplar büyük ölçüde savunulur; aynı el erken pozisyon açışına ve büyük boya karşı fold olur.",
+    source: "Bölüm 4.9 / 4.8",
+    kavram: "marjinal-el",
+  },
+  {
+    q: "K6s ile K-yüksek flopta top pair yaptın, derin stack'te pot şişmeye başladı.",
+    options: ["Stack-off — top pair yaptım, gidilir", "Pot kontrolü — bu top pair eli değil", "Blöfe çevir — zaten bu eller blöf elleri"],
+    correct: 1,
+    explain:
+      "Bu eller renk çekilişi ve blöf elleridir; çift yapmak yan üründür. K6s ile K-high flopta tek perle büyük pota gidilmez. Ama otomatik blöf de değil — küçük pot, pot kontrolü ve bluff-catch de meşru seçenektir.",
+    source: "Bölüm 4.9",
+    kavram: "marjinal-el",
+  },
+  {
+    q: "KQs, KJs, QJs — açılış tarafında pozisyon ne kadar önemli?",
+    options: ["Çok önemli, sadece geç pozisyondan açılır", "Hepsi her pozisyondan açılır", "Sadece blind'lardan oynanır"],
+    correct: 1,
+    explain:
+      "Üçü de her pozisyondan açılır (8-max UTG dahil; QJs UTG'de sınırda). Pozisyon bu ellerde açıp açmamayı değil, gelen 3-bet'e cevabı belirler.",
+    source: "Bölüm 4.11",
+    kavram: "marjinal-el",
+  },
+
+  // --- M40: polarize vs merged (Bölüm 18 / 11) ---
+  {
+    q: "Polarize aralık ne demek?",
+    options: ["Elimin çok güçlü olması durumu", "Aralıkta nut ve blöf var, orta el yok", "Rakibi katlatmak için büyük oynamak"],
+    correct: 1,
+    explain:
+      "Polarize bir EL sıfatı değil, ARALIK sıfatıdır: o bahsi yaptığın ellerin listesi iki uçta toplanmıştır. Orta güçteki eller bahiste değil, check/call tarafındadır.",
+    source: "Bölüm 18.2 / 11.1",
+    kavram: "polarize",
+  },
+  {
+    q: "Rakip bu düğümde çok geniş call ediyor. Boy ve aralık dokusu?",
+    options: ["Polarize ve büyük — fold equity'yi kullan", "Merged ve küçük — değer al", "Check — geniş call'a karşı bahis yok"],
+    correct: 1,
+    explain:
+      "Polarlığı senin elin değil rakibin devam aralığı seçer. Çok call eden rakibe karşı blöf işlemez; iş değer almaktır → merged aralık, küçük boy. Az call ediyorsa polar-büyük.",
+    source: "Bölüm 18.2",
+    kavram: "polarize",
+  },
+  {
+    q: "Overbet hangi aralık dokusuyla gider?",
+    options: ["Merged — geniş bir değer aralığıyla", "Polarize — ya nut ya blöf", "Boy ile aralık birbirinden bağımsızdır"],
+    correct: 1,
+    explain:
+      "Overbet polar, downbet merged. Büyük boy orta eli taşımaz; büyük boyla orta el gösterirsen sadece senden iyi eller öder — kendi kendine tuzak.",
+    source: "Bölüm 18.2 / 11.1",
+    kavram: "polarize",
+  },
+  {
+    q: "'Standart oynuyorum ama elim açık oluyor.' Asıl teşhis ne?",
+    options: ["Blöf oranım düşük, daha çok blöf yapmalıyım", "Her boyla tek tip aralık gösteriyorum", "Ellerim kötü, daha iyi el beklemeliyim"],
+    correct: 1,
+    explain:
+      "Büyük boy hep nut, küçük boy hep orta el anlamına geliyorsa rakip elini bedavaya okur. Çözüm 'daha çok blöf' değil: her boyun içine hem değer hem blöf koymak — boy ile aralık arasındaki sabit eşleşmeyi kırmak.",
+    source: "Bölüm 18.2",
+    kavram: "polarize",
+  },
 ];
 
 export function randomScenario(): Scenario {
@@ -1196,6 +1299,8 @@ const KAVRAM_BOLUM: Record<string, number> = {
   icm: 12,
   "icm-cover": 12,
   multiway: 13,
+  "marjinal-el": 4,
+  polarize: 18,
 };
 
 export function kavramChapter(kavram: string): number | null {

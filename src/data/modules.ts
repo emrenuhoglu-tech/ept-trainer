@@ -3550,7 +3550,191 @@ export const modules: Module[] = [
         "narration": "Blind'a karşı blind cep kartı. Katmanı efektif big blind ve SPR seçer; üç soru katman içi eşikleri ve geçiş bandını ayarlar. Derinde premium'un gövdesi raise-first'te kalır, aralık capped olmaz; bir dilimi limp'lenir, iso'ya büyük value ağırlıklı reraise. Ortada premium ve papaz-kız suited raise ister: big blind'ın iso'su polarize, limp-reraise hedefi dar; ince premium kapağı ve blocker blöfü limp-reraise'de kalır. Sığda büyük çift yine raise, as-papaz sınırda; limp-jam malzemesi en zayıf offsuit as ve alt-orta papazlarla küçük çift. Suited limp'e tek iso'ya çoğunlukla fold yok; big blind iso'sunda offsuit broadway pahalı. Limp'e jam geldiğinde ham equity ve pot oranı karar verir: dar value yoğun jam'e dokuz-sekiz suited iyi, papaz-on offsuit kötü; geniş jam'e yüksek kart öne geçer. Havuz derinde small blind'dan fold yok, küçük raise-fold, value limp-reraise daralır. Kısa açıcıya derin pozisyonda call daralır, küçük commit üç-bet. Kök hata preflop'ta doğar: derinde premium'u raise edip pozisyon dışı tek pere yapışmak, sığda raise-fold'u big blind'ın jam'ine hediye etmek."
       }
     ]
-  }
+  },
+  {
+    id: "M39",
+    title: "Marjinal eller: biri açtı mı, açmadı mı",
+    chapter: "Bölüm 4 ★",
+    minutes: 7,
+    slides: [
+      {
+        title: "Masadaki gerçek soru chart değil",
+        bullets: [
+          "Chart ezberi masada donduruyor: aynı el, iki farklı spotta iki farklı karar.",
+          "Önce TEK soru sor: önümde fold mu var, raise mi var?",
+          "Cevap değişince el aynı kalsa bile doğru hamle değişir — bu kafa karışıklığı değil, oyunun kendisi.",
+          "Üçüncü durum ayrı tutulur: BB'deysen karar el gücü değil FİYAT işidir.",
+        ],
+        ruleBox: "İki soru: (1) önümde raise var mı? (2) BB'de miyim? Bu ikisi cevaplanmadan el sınıfı tek başına bir şey söylemez.",
+        narration:
+          "Masada chart'ı hatırlamaya çalışmak seni donduruyor, çünkü chart tek bir spotu anlatır ama sen her el farklı bir spotta oturuyorsun. Bunun yerine tek bir soruyla başla: önümde fold mu var, yoksa biri açtı mı? Cevap değiştiğinde elin aynı kalsa bile doğru hamle tamamen değişir. Bu senin kafanın karışması değil, oyunun kendisi. Üçüncü bir durum daha var, onu ayrı tut: big blind'daysan karar elin gücüyle değil fiyatla ilgilidir, çünkü zaten paranın bir kısmını koymuşsun. Yani önce iki soruyu cevapla: önümde raise var mı, big blind'da mıyım. Bu ikisi netleşmeden elin sınıfı tek başına sana bir şey söylemez.",
+      },
+      {
+        title: "Kimse açmadıysa: as suited ile as offsuit aynı el değil",
+        bullets: [
+          "As suited erken pozisyondan bile açılır; as offsuit çoğunlukla açılmaz.",
+          "A2s, UTG'den A8o'dan daha değerlidir — sezgiye ters ama doğru.",
+          "Sebep: suited olan renk yapar, wheel yapar, sonradan blöf malzemesi olur.",
+          "Offsuit as bunların hiçbirini taşımaz; en sık ürettiği şey domine edilmiş zayıf top pair.",
+        ],
+        ruleBox: "Kısa hali: CO'da A2s ve üstü, A8o ve üstü. BTN ve SB'de bütün as'lar.",
+        narration:
+          "Kimse açmadıysa, elindeki as'ın renkli olup olmaması her şeyi değiştirir. As suited erken pozisyondan bile açılabilir; as offsuit çoğunlukla açılmaz. Şunu duymak sezgiye ters gelir ama doğrudur: as-iki suited, en erken pozisyonda, as-sekiz offsuit'ten daha değerlidir. Sebebi basit. Suited olan el renk yapar, tekerlek düzü yapar, ve elin gücü tutmadığında bile sana blöf malzemesi verir; as'ı elinde tuttuğun için rakibin en güçlü ellerini bloklarsın. Offsuit as bunların hiçbirini taşımaz. Onun en sık ürettiği şey, domine edilmeye açık zayıf bir top pair'dir; yani en çok kazandığını sandığın anda en çok kaybettiğin el. Kısa hali şu: cut-off'ta as-iki suited ve üstü, as-sekiz offsuit ve üstü açılır. Buton ve small blind'da as'ların hepsi oynanır.",
+      },
+      {
+        title: "Kimse açmadıysa: düşük papaz, kız, vale grupları",
+        bullets: [
+          "K3s–K6s, Q3s–Q6s, J3s–J6s: tek pratik kural — AÇILIR ya da FOLD.",
+          "Buton'dan geniş açılır, CO'dan daralır, HJ ve öncesinden çoğu fold.",
+          "SB'de fold yok: hepsi limp ya da raise (ağır ICM ayrı konu).",
+          "Offsuit versiyonları çok daha sert: CO ve öncesinden tamamı fold.",
+        ],
+        ruleBox: "Bu gruplarda ara yol yoktur: ya açarsın ya atarsın. Ortada 'idare eder' diye bir kutu yok.",
+        narration:
+          "Şimdi düşük papaz, kız ve vale gruplarına gelelim; papaz-üç suited'dan papaz-altı suited'a, aynı şekilde kız ve vale için. Bu ellerin turnuvada tek pratik kuralı var: ya açarsın ya atarsın. Butondan geniş açılır, cut-off'tan daralır, hijack ve daha erken pozisyonlardan çoğu fold'dur. Small blind bir istisna: orada fold yok, hepsi ya limp'lenir ya raise edilir, çünkü sadece bir kişi kaldı arkanda. Ağır ICM varsa en dipteki elleri orada da atarsın. Offsuit versiyonları çok daha serttir; cut-off ve daha erken pozisyonlardan tamamı fold. Buradaki kritik nokta şu: bu gruplarda ara yol yoktur. Kafan karıştığında akla gelen o üçüncü seçenek, yani idare eder deyip flat geçmek, tam olarak yapılmaması gereken şeydir.",
+      },
+      {
+        title: "Biri açtıysa: flat YOK — en pahalı hata bu",
+        bullets: [
+          "Pozisyonda bir raise'e karşı düşük Kx/Qx/Jx'i flat'lemek en kötü kullanımlarıdır.",
+          "Doğru ayrım: suited olanların bir kısmı 3-bet BLÖFÜ, gerisi fold.",
+          "Offsuit versiyonları neredeyse saf fold — iyi 3-bet blöfü bile değiller.",
+          "Yani fold etmen yanlış değil; flat etmen yanlış.",
+        ],
+        ruleBox: "Biri açtıysa düşük suited grup ya 3-bet blöfüdür ya çöptür. Arada flat kutusu yoktur.",
+        narration:
+          "Şimdi en pahalı hataya geldik. Biri açtı, sen pozisyondasın ve elinde düşük bir suited papaz ya da kız var. Bunu call etmek, yani flat geçmek, o elin en kötü kullanımıdır. Sebebi şu: flat ettiğinde eli sadece izleyici yaparsın; ne rakibi katlatırsın ne de yeterince sık iyi el yaparsın. Doğru ayrım ikili: bu ellerin bir kısmı üç-bet blöfü olur, çünkü papazı elinde tutmak rakibin en güçlü ellerini bloklar; geri kalanı fold'dur. Offsuit versiyonları için durum daha da net, onlar neredeyse tamamen fold, çünkü iyi bir üç-bet blöfü bile değiller. Buradan çıkması gereken cümle şu: bu spotta fold etmen yanlış değil. Yanlış olan flat etmen. Kafan karıştığında en güvenli hareket fold'dur, orta yol değil.",
+      },
+      {
+        title: "Biri açtıysa: düşük as suited senin blöf malzemen",
+        bullets: [
+          "Düşük suited as, raise karşısında EN İYİ 3-bet blöf adayı.",
+          "Üç sebep birden: as bloker + nut renk + tekerlek düzü.",
+          "Düşük OFFSUIT as, BB dışında çoğunlukla fold — flat edilmez.",
+          "AQo 3-bet/call karışımı, AK value 3-bet'tir; bunlar ayrı sınıf.",
+        ],
+        ruleBox: "Aynı görünen iki el: A5s raise'e karşı silah, A5o çöp. Fark tek harf değil, tüm plan.",
+        narration:
+          "Biri açtığında düşük as'lar ikiye ayrılır. Düşük suited as, özellikle as-iki'den as-beş'e kadar olanlar, elindeki en iyi üç-bet blöf adaylarıdır. Üç sebep aynı anda çalışır: as'ı tuttuğun için rakibin as-as ve as-papaz gibi ellerini bloklarsın, renk geldiğinde en üstteki rengi yaparsın, ve tekerlek düzü ihtimalin vardır. Düşük offsuit as ise tam tersi. O, big blind dışında çoğunlukla fold'dur ve asla flat edilmez, çünkü saydığım üç özelliğin hiçbirini taşımaz. Burada dikkat et: as-kız offsuit ve as-papaz bambaşka bir sınıftır; as-kız üç-bet ile call arasında karışır, as-papaz zaten değer için üç-bet'lenir. Yani aynı görünen iki el, as-beş suited ve as-beş offsuit, senin için tamamen farklı iki plandır.",
+      },
+      {
+        title: "BB'deysen kural değişir: bu bir fiyat kararı",
+        bullets: [
+          "BB'de zaten para koymuşsun — bedava görmüyorsun ama indirimli görüyorsun.",
+          "Butona ve CO'ya karşı küçük açışta düşük gruplar büyük ölçüde savunulur.",
+          "Erken pozisyon açışına ve büyük boya karşı aynı eller fold olur.",
+          "Yani BB'de 'bu el iyi mi' değil, 'bu fiyat iyi mi' diye sor.",
+        ],
+        ruleBox: "BB savunması el sınıfı işi değil fiyat işidir: açan kim, boy ne kadar, ICM var mı.",
+        narration:
+          "Big blind bambaşka bir dünyadır ve karışıklığın büyük kısmı burada doğar. Big blind'da zaten paranın bir kısmını koymuşsun, yani eli bedava görmüyorsun ama indirimli görüyorsun. Bu yüzden soru değişir. Butondan ya da cut-off'tan küçük bir açış geldiyse, o düşük papaz ve kız grupları büyük ölçüde savunulur; hatta offsuit olanların çoğu bile butona karşı call edilir. Ama aynı eller, erken pozisyondan gelen bir açışa ya da büyük bir boya karşı fold olur. Dikkat et, elin değişmedi; açan kişi ve fiyat değişti. Yani big blind'da kendine bu el iyi mi diye sorma. Bu fiyat iyi mi diye sor. Açan kim, boy ne kadar, masada ICM baskısı var mı. Cevap bu üçünden çıkar.",
+      },
+      {
+        title: "Suited broadway ayrı bir sınıftır",
+        bullets: [
+          "KQs, KJs, QJs: üçü de HER pozisyondan açılır — burada tereddüt yok.",
+          "Pozisyon açılışı değil, açılıştan SONRAKİ cevabı belirler.",
+          "BTN/CO'da erken açışa karşı: KQs/KJs 3-bet ile flat karışır, QJs çoğunlukla flat.",
+          "SB'de flat yok: KQs 3-bet, QJs erken açışa fold.",
+        ],
+        ruleBox: "Bunları düşük gruplarla karıştırma: suited broadway açılış sorusu değil, 3-bet'e cevap sorusudur.",
+        narration:
+          "Papaz-kız suited, papaz-vale suited ve kız-vale suited üçlüsünü diğerlerinden ayrı tut. Bunlar her pozisyondan açılır, sekiz kişilik masada en erken koltuk dahil. Yani açılış tarafında tereddüt etmene gerek yok. Pozisyon bu ellerde açıp açmayacağını değil, açtıktan sonra gelen üç-bet'e ne diyeceğini belirler. Biri açtığında ise pozisyon her şeydir. Butonda ya da cut-off'ta, erken bir açışa karşı papaz-kız ve papaz-vale suited üç-bet ile flat arasında karışır; kız-vale suited çoğunlukla flat kalır, çünkü pozisyonda ucuza görüp iyi board'larda para kazanır. Small blind'da ise flat yoktur: papaz-kız suited üç-bet'lenir, kız-vale suited erken açışa atılır. Kural olarak aklında şu kalsın: bu eller açılış sorusu değil, üç-bet'e cevap sorusudur.",
+      },
+      {
+        title: "Postflop kimliği: bunlar top pair eli DEĞİL",
+        bullets: [
+          "Düşük suited gruplar renk çekilişi ve blöf elleridir — çift yapmak asıl işleri değil.",
+          "K6s ile K-yüksek flopta tek çiftle büyük pota gitmezsin.",
+          "Ama her zaman blöfe de çevrilmez: küçük pot, pot kontrolü, bluff-catch de seçenek.",
+          "Zayıf kicker'lı as ile A-yüksek flopta üç sokak para koymak klasik kök hata.",
+        ],
+        ruleBox: "Bu ellerle kazanılan potlar ya küçüktür ya renk gelmiştir. Ortada büyük pot arıyorsan yanlış elle arıyorsun.",
+        narration:
+          "Şimdi en çok para kaybettiren kısma geldik: bu elleri flop'tan sonra ne sanıyorsun. Düşük suited gruplar renk çekilişi ve blöf elleridir. Çift yapmak onların asıl işi değildir, yan üründür. Papaz-altı suited ile papaz yüksek bir flopta tek çift yaptın diye yüz big blind'lık potun ortasına gitmezsin. Ama dikkat, bunun tersi de yanlış: bu eller her zaman blöfe de çevrilmez. Küçük potta pot kontrolü yapmak, hatta bluff-catch etmek de meşru seçeneklerdir. Aynı şey zayıf kicker'lı as için de geçerli. As yüksek bir flopta zayıf kicker'la üç sokak boyunca para koymak klasik kök hatadır; top pair var ama kicker zayıf, ve iki büyük bahisle pot gereksiz şişer. Aklında kalsın: bu ellerle kazandığın potlar ya küçüktür ya renk gelmiştir. Büyük pot arıyorsan yanlış elle arıyorsun.",
+      },
+      {
+        title: "Cheat: masada iki soru, üç kutu",
+        bullets: [
+          "Soru 1 — önümde raise var mı? Yoksa: pozisyona göre aç ya da at, flat kutusu yok.",
+          "Soru 2 — BB'de miyim? Evetse: fiyat kararı; açan kim, boy ne, ICM var mı.",
+          "Raise varsa: suited düşük = 3-bet blöfü ya da fold; offsuit düşük = fold.",
+          "Düşük suited as = en iyi blöf malzemesi. Düşük offsuit as = BB dışında fold.",
+        ],
+        ruleBox: "Kafan karıştığında kaçınacağın tek hamle flat'tir. Fold ya da agresyon; ikisi de flat'ten iyidir.",
+        narration:
+          "Cep kartı. Masada iki soru sor, üç kutudan birine düş. Birinci soru: önümde raise var mı? Yoksa pozisyonuna göre ya aç ya at; bu gruplarda flat diye bir kutu yok. İkinci soru: big blind'da mıyım? Evetse bu bir fiyat kararıdır; açan kim, boy ne kadar, masada ICM baskısı var mı, ona bak. Eğer önünde raise varsa ayrım şu: düşük suited eller ya üç-bet blöfüdür ya fold; düşük offsuit eller neredeyse tamamen fold. As'larda düşük suited as senin en iyi blöf malzemen, düşük offsuit as ise big blind dışında fold. Hepsinin altında tek bir cümle var: kafan karıştığında kaçınman gereken tek hamle flat'tir. Fold da agresyon da flat'ten iyidir. Şunu unutma, bu sınırlar ante'li sekiz kişilik masada, otuz ile altmış big blind arasında, ağır ICM yokken geçerli güvenli çalışma sınırlarıdır; solver kanunu değil. ICM ve büyük boy hepsini daha da sıkar.",
+      },
+    ],
+  },
+  {
+    id: "M40",
+    title: "Polarize ne demek — ve neden elin açık oluyor",
+    chapter: "Bölüm 18 + Bölüm 11",
+    minutes: 5,
+    slides: [
+      {
+        title: "Polarize, elin değil ARALIĞIN özelliğidir",
+        bullets: [
+          "Soru şu değil: 'elim polarize mi?' Öyle bir şey yok.",
+          "Soru şu: bu bahsi yaptığım TÜM eller listesinde ne var?",
+          "Polarize = uçlar var, orta yok. Merged = tepeden aşağı süreklilik var.",
+          "Tek bir eli görüp polarize diyemezsin; bahsin içindeki listeye bakarsın.",
+        ],
+        ruleBox: "Polarize bir el sıfatı değil, aralık sıfatıdır. 'Bu elle polarize oynuyorum' cümlesi anlamsızdır.",
+        narration:
+          "Önce en sık yapılan kavram hatasını temizleyelim. Polarize bir elin özelliği değildir. Elim polarize mi diye soramazsın, öyle bir şey yok. Polarize, senin o bahsi yaptığın tüm ellerin listesinin özelliğidir. Şöyle düşün: bu boyu bu spotta hangi ellerle yapıyorum diye bir liste çıkar. O listede sadece çok güçlü eller ve blöfler varsa, ortada hiçbir şey yoksa, aralığın polarizedir. Yani iki uçta toplanmıştır. Eğer listede en güçlüden aşağı doğru bir süreklilik varsa, iyi eller, orta iyi eller, biraz da blöf, o zaman aralığın merged'dir; Türkçesiyle birleşik ya da lineer. Bu ayrımı bir kez oturttuğunda boyut seçimi kendiliğinden gelir, çünkü ikisi ayrı ayrı seçilen şeyler değil, aynı kararın iki yüzüdür.",
+      },
+      {
+        title: "Polarize → büyük boy. Sebebi mekanik.",
+        bullets: [
+          "Aralığında sadece nut'lar ve blöfler varsa orta eli bahse koymamışsındır.",
+          "Orta eller check/call tarafında kalır — orası onların doğru yeri.",
+          "Rakibe pahalı bir soru sorarsın: nut'a mı blöfe mi bakıyorum?",
+          "Overbet bunun uç örneğidir: pottan büyük bahis, ortada el yok.",
+        ],
+        ruleBox: "Büyük boy orta eli taşımaz. Büyük boyla orta el gösterirsen kendi kendine tuzak kurmuş olursun.",
+        narration:
+          "Polarize aralık büyük boyla gider ve bunun sebebi tamamen mekaniktir. Aralığında sadece çok güçlü eller ve blöfler varsa, orta güçteki ellerini o bahse koymamışsın demektir. Onlar check ve call tarafında kalır, ki zaten doğru yerleri orasıdır; orta el ne rakibin daha iyisini katlatır ne daha kötüsünden para alır. Bahsi büyük yaptığında rakibe pahalı bir soru sorarsın: karşımda nut mu var, blöf mü? Yanlış cevap ona çok pahalıya patlar. Overbet, yani pottan büyük bahis, bunun uç örneğidir; orada ortada hiç el yoktur. Buradan çıkan pratik kural şu: büyük boy orta eli taşımaz. Eğer büyük boyla orta güçte bir el gösteriyorsan kendi kendine tuzak kurmuşsundur, çünkü sadece senden iyi eller ödeyecektir.",
+      },
+      {
+        title: "Merged → küçük boy. Amaç ucuza geniş ödetmek.",
+        bullets: [
+          "Merged aralıkta blöf dilimi incedir; iyi ellerin çoğunluktadır.",
+          "Küçük boy rakibin geniş aralığından ucuz ödeme toplar.",
+          "Downbet, yani küçük bahis, merged aralığın işaretidir.",
+          "Küçük boyla saf nut oynarsan masada para bırakırsın.",
+        ],
+        ruleBox: "Kitabın kısa hali: overbet polarize, downbet merged. Boyu görünce aralığın adını koyabilirsin.",
+        narration:
+          "Merged aralık ise tam tersidir. Blöf dilimi incedir, ellerin çoğunluğu gerçekten iyidir ama nut değildir. Bu aralık küçük boyla gider, çünkü amaç rakibi katlatmak değil, geniş aralığından ucuza para toplamaktır. Küçük bahis, yani downbet, merged aralığın tipik işaretidir. Burada da simetrik bir hata var: küçük boyla saf nut oynarsan masada para bırakırsın, çünkü rakip ucuza görüp kurtulur. Kitabın kısa hali şu iki kelimeyle akılda kalır: overbet polarize, downbet merged. Bu cümlenin güzelliği şu, tersten de çalışır. Masada rakibin boyunu gördüğünde onun aralığının adını koyabilirsin: büyük bahis geldiyse karşındaki ya çok güçlü ya blöf; küçük bahis geldiyse karşında geniş ve orta ağırlıklı bir aralık var.",
+      },
+      {
+        title: "Hangisini seçerim? Rakibin call oranına bak.",
+        bullets: [
+          "Az call eden rakibe karşı: polarize ve büyük — fold equity çalışıyor.",
+          "Çok call eden rakibe karşı: merged ve küçük — blöf işlemez, değer al.",
+          "Board da konuşur: nut avantajı sende ve rakip capped ise polarize.",
+          "Islak, bağlantılı board ve multiway'de merged tarafa kay.",
+        ],
+        ruleBox: "Polarlığı senin elin değil rakibin devam aralığı seçer. Önce 'bu adam ne kadar call ediyor?' diye sor.",
+        narration:
+          "Peki masada hangisini seçeceğine nasıl karar verirsin? Tek soruyla: bu rakip bu spotta ne kadar call ediyor? Az call eden birine karşı polarize ve büyük oynarsın, çünkü fold equity'n gerçekten çalışıyor; blöflerin para kazanıyor. Çok call eden birine karşı merged ve küçük oynarsın, çünkü blöf işlemez, orada işin değer almaktır. Board da konuşur. Nut avantajı sendeyse, yani senin aralığın o board'un en güçlü ellerini içeriyor ve rakibinki içermiyorsa, polarize oynayabilirsin. Islak ve bağlantılı board'da ya da çok kişili potlarda merged tarafa kayarsın, çünkü orada rakip geniş devam eder. Aklında tutulacak cümle şu: polarlığı senin elin seçmez, rakibin devam aralığı seçer.",
+      },
+      {
+        title: "'Standart oynuyorum, elim açık oluyor' — asıl teşhis",
+        bullets: [
+          "Sorun ellerin değil; her boyla tek tip aralık göstermen.",
+          "Büyük boy hep nut, küçük boy hep orta el olursa rakip elini bedavaya okur.",
+          "Çözüm: aynı boyda hem değer hem blöf taşı — o zaman doğru fold edemez.",
+          "Bu 'daha çok blöf yap' demek değil; her boyun içine iki taraf da koy demek.",
+        ],
+        ruleBox: "Okunabilirlik el seçiminden değil, boy-aralık eşleşmenin sabitlenmesinden doğar.",
+        narration:
+          "Şimdi asıl derdine gelelim. Standart oynuyorum, elim açık oluyor diyorsun. Teşhis şu: sorun oynadığın eller değil, her boyla tek tip aralık göstermen. Eğer büyük bahsin her zaman gerçekten güçlü bir el, küçük bahsin her zaman orta güçte bir el anlamına geliyorsa, rakip elini bedavaya okur. Hiçbir şeyi yanlış oynamıyor olabilirsin ve yine de tahmin edilebilirsin, çünkü boyların bilgi sızdırıyor. Çözüm de basit ama disiplin ister: aynı boyun içine hem değer ellerini hem blöflerini koy. Büyük bahis yaptığında bunu bazen nut'la bazen blöfle yap. O zaman rakip doğru fold edemez, çünkü hangi tarafta olduğunu bilemez. Dikkat, bu daha çok blöf yap demek değil. Her boyun içine iki tarafı da koy demek. Blöf oranını board ve rakip belirler; senin işin, boy ile aralık arasındaki sabit eşleşmeyi kırmak.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

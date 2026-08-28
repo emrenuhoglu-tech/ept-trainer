@@ -20,6 +20,9 @@ const QuickReference = lazy(() =>
 );
 const Sentences = lazy(() => import("./modes/cards/Sentences").then((m) => ({ default: m.Sentences })));
 const RangeAtlas = lazy(() => import("./modes/ranges/RangeAtlas").then((m) => ({ default: m.RangeAtlas })));
+const SqueezeCard = lazy(() =>
+  import("./modes/reference/SqueezeCard").then((m) => ({ default: m.SqueezeCard })),
+);
 const HandClasses = lazy(() =>
   import("./modes/reference/HandClasses").then((m) => ({ default: m.HandClasses })),
 );
@@ -165,6 +168,8 @@ export default function App() {
             <Sentences onDone={() => nav("#/referans")} />
           ) : segs[1] === "araliklar" ? (
             <RangeAtlas onDone={() => nav("#/referans")} />
+          ) : segs[1] === "squeeze" ? (
+            <SqueezeCard onDone={() => nav("#/referans")} />
           ) : segs[1] === "eller" ? (
             <HandClasses onDone={() => nav("#/referans")} />
           ) : segs[1] === "equity" ? (
@@ -216,6 +221,12 @@ export default function App() {
                   className="btn-accent py-2.5"
                 >
                   🃏 El Sınıfı Danışmanı →
+                </button>
+                <button
+                  onClick={() => nav("#/referans/squeeze")}
+                  className="btn-accent py-2.5"
+                >
+                  🗜️ Squeeze Kartı →
                 </button>
                 <button
                   onClick={() => nav("#/referans/cumleler")}

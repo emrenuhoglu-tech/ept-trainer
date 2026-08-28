@@ -31,6 +31,8 @@ export const NEW_CHAPTERS: { n: number; short: string }[] = [
   { n: 29, short: "Deep Stack & Yüksek-SPR" },
   { n: 30, short: "Micro Stack 4-12bb" },
   { n: 31, short: "BB-Ante Heads-Up" },
+  { n: 32, short: "3-bet Pot Postflop" },
+  { n: 33, short: "Blind-vs-Blind" },
 ];
 
 type Block =

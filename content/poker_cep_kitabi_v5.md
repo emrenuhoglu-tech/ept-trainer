@@ -58,6 +58,8 @@ Emre Nuhoğlu
 - Bölüm 29 — Deep Stack ve Yüksek-SPR: kök hatanın en pahalı bandı **YENİ ★**
 - Bölüm 30 — Micro Stack 4-12bb: jam/fold inceltmeleri + eşitsiz-masa **YENİ ★**
 - Bölüm 31 — BB-Ante Heads-Up ve HU-vs-GTO **YENİ ★**
+- Bölüm 32 — 3-bet Pot Postflop: boyu board değil, el sınıfı ve ıskalayan blok seçer **YENİ ★**
+- Bölüm 33 — Blind-vs-Blind: limp, raise ve jam'in derinlik katmanları + asimetrik stack **YENİ ★**
 
 ---
 
@@ -221,6 +223,9 @@ Kök hatan şişmiş potta tek per'i yanlış sınıflandırmak. O hata river'da
 
 1. 3-bet edip flop görürsem, tek per yaptığımda rahat olacak mıyım? Olmayacaksam 3-bet etmiyorum — flat ediyorum veya atıyorum.
 2. OOP mu kalacağım? OOP 3-bet potunda tek per tanım gereği bluff-catcher'dır. OOP aralıkları bu yüzden IP aralıklarından belirgin daha sıkıdır.
+
+### 4.0-EK 3-bet potunda "tek per bluff-catcher" sınırı
+"OOP 3-bet potunda tek per tanım gereği bluff-catcher'dır" cümlesi preflop aralık-inşa kuralıdır (OOP 3-bet aralığını sıkı tutar). Postflop'ta bluff-catcher sınırı pozisyonu değil ROLÜ izler: capped/call eden taraf için SPR ≳2'de geçerlidir (SPR ≲1.5'te onun top pair'i de çoğunlukla call-off sınıfına iner — potu başlatmaz ama jam'e katlamaz; bkz. 11.0-EK-2) — 3-bettor OOP iken (blind vs geç pozisyon, en sık durum) call eden IP'dir ve sınır ona uygulanır. Aralık + nut avantajıyla potu şişiren 3-bettor'ın overpair/TPTK'sı ise sığ SPR'de (30-45bb, SPR ≲2; orta-bağlantılı, nut avantajının sende olduğu dokular) çoğunlukla jam sınıfıdır *(kalibre et)*; underpair bu sınıfa girmez. SPR ~3-4 ve üstünde (100bb'de ≳4-5) flop-jam sınıfı çoğunlukla yoktur; kuru/düşük dokularda (8-6-2 / K-7-2 tipi) overpair çoğunlukla hâlâ stack-off elidir *(kalibre et)*, bağlantılı iki-broadway dokularda nut avantajı erir → overpair/TPTK bet + yeniden değerlendirme / pot-kontrol sınıfıdır *(stack-off eşiği: kalibre et)*. Kök hata bozulmaz ve şişirenindir: lisans SPR'ye ve dokuya bağlıdır; derinde, nut avantajının eridiği dokuda tek perle dokudan bağımsız stack-off eden 3-bettor kök hatayı yapar (bkz. B32.1, B32.3).
 
 ### 4.1 Canlı turnuva düzeltmesi
 
@@ -442,6 +447,10 @@ Karar sırası iki saniyede: MOD → POZİSYON → EL. 28bb'de suited connector 
 | **BTN** | 22+, tüm A-x, K7s+, K9o+, Q9s+, J9s+, T9s |
 | **SB** | 22+, A2s+, A7o+, K9s+, KTo+, QTs+ |
 
+### 5.1-EK SB satırı BvB'de şartlıdır: zayıf Ax/Kx ve küçük çift fold değil, limp malzemesi
+
+5.1'in SB satırı (22+, A2s+, A7o+, K9s+, KTo+, QTs+) raise-or-fold okunur; BvB düğümünde tablonun altında kalan en zayıf offsuit Ax (tekerlek kicker'lı) ve alt-orta offsuit Kx fold değil, **limp** malzemesidir *(kalibre et)*. Bandın 25–30bb'si B33.1'in sığ katmanının üst ucudur: alt ucunda (~25bb) blocker limp-jam'i yaşar; üst ucunda limp-jam potun çok katı overbet olur, malzeme limp-call'a döner — limp-jam kabaca ≤25bb'ye aittir *(kalibre et)*. Limp-3-bet bu bantta da commit'tir: ya jam ya fold edilmeyecek boy (arkada kalan ≈ pot) *(kalibre et)* — fold edilebilir küçük limp-3-bet yok, 5.2'nin "3-bet = JAM" doktrini limp düğümünde de geçerli. Limp-call ise 5.2'nin "flat yok" kuralının BvB-limp düğümüne özgü istisnasıdır (aksiyonu kapatan son karar + küçük iso'ya fiyat); açılışa karşı flat yasağı aynen geçerli. Küçük çiftler satırda raise görünür ama bu derinlikte BvB'de kısmen limp'e kayar *(kalibre et)*. Premium çoğunlukla raise'de kalır; limp aralığını korumak için düşük frekansta tuzak limp sınırda *(kalibre et)*. Satırı "raise aralığı" olarak oku, "SB'nin tüm oyunu" olarak değil; limp'in içeriği için bkz. B33.1 sığ katman ve B33.2.
+
 ### 5.2 3-bet = JAM
 
 Bu bantta 3-bet commit demektir. "3-bet edip fold" diye bir yapı yok — doğrudan all-in gidiyorsun.
@@ -453,6 +462,12 @@ Bu bantta 3-bet commit demektir. "3-bet edip fold" diye bir yapı yok — doğru
 | **Chip leader / jam'e fold eden** | 77+, A9s+, AJo+, KQs (genişletilmiş) |
 
 **Bu bantta FLAT YOK.** Ne SB'den, ne BB'den, ne IP'den. Bölüm 4'ün geniş flat tabloları 100bb+ dünyasına aittir.
+
+### 5.2-EK Rakip jam'lemediyse: SB'nin BÜYÜK non-all-in 3-bet'ine BTN'den 4-bet jam
+
+~30bb efektifte SB'nin doğru 3-bet'i çoğunlukla ALL-IN'dir (5.2); büyük boylu non-all-in 3-bet dengede seyrek olmalı. Havuz tersini yapar: jam'lemesi gereken elleri büyük 3-bet'ler. O aralık polar ve çoğunlukla **tepesizdir** — value tarafı AK/orta-yüksek çift, blöf tarafı offsuit broadway/suited Kx; AA-KK çoğunlukla ya jam'lenmiş ya küçük boy gitmiştir *(sınırda — bazıları AA'yı da büyük 3-bet'ler, gözle)*. Boy büyüdükçe ölü para artar ama SB de bağlanır — kalan stack/pot düşer, fold equity küçük 3-bet'e göre AZALIR ama sıfırlanmaz; kâr, blöf yarısının fold'u + ölü para + ödendiğinde AA/KK'sız (tepesiz) aralığa karşı canlı equity'nin toplamından gelir — tepesizlik iddiası şartlı, gözlemle *(sınırda — kalibre et)*. Aralıkta AA/KK/QQ azsa elindeki K ve Q canlı overcard'dır; suited Kx/Qx beklenenden iyi jam'ler.
+
+**Kural:** 30bb bandında SB'den büyük non-all-in 3-bet gördüğünde BTN'den 4-bet jam aralığını geniş kur — suited Ax/Kx, çiftler, broadway'ler *(sınır: kalibre et)*. SB'nin 3-bet'i küçük boy ya da jam'se 5.3'e dön. Havuz exploitidir: SB'nin büyük non-all-in 3-bet'inde AA/KK'yı tam frekansla gördüğün an genişlemeyi geri al.
 
 ### 5.3 Jam'e karşı call
 
@@ -505,6 +520,15 @@ Chip leader'ın jam'e fold ettiğini bir kez gördüysen, o oyuncunun açılış
 | **Düşük flush draw (97s)** | Check ağırlıklı | Tamamlansa bile üstün flush'a ödeme riski |
 | **Açık kent (OESD), düz board** | İkisi de meşru | Gizli güç — tamamlanınca çok ödenir. Rakibe göre seç |
 | **Gutshot** | Check | Neredeyse hiç semi-bluff yakıtı değil |
+
+### 6.2-EK Gutshot satırı iki polar düğümde ASKIDA — draw'ın işi tamamlamak değil, bloklamak
+
+6.2'nin "gutshot → check" kuralı genel turn-draw kararı içindir: fold equity belirsiz, draw tek başına yakıt değil. İki düğümde askıya alınır; ilkinde gutshot'un işi rakibin devam sınıfını bloklamak (TPGK/overpair), ikincisinde zayıf per/overcard/zayıf draw'ları katlatarak fold equity taşımak — ikisinde de kentini tamamlamak değil:
+
+- **Efektif-nut overbet (11.1-EK):** overcard'lı gutshot rakibin top-pair-iyi-kicker ve overpair kombolarını bloklar (iki-per'i BLOKLAMAZ — onun için board rank'i tutman gerekir), per'lerini ve zayıf draw'larını katlatır — polar overbet aralığının doğal blöfü.
+- **x/r sonrası akışkan turn (26.6):** semi-blöf jam adayı — zayıf per/overcard/zayıf draw'ları katlatıp equity reddeder; seni domine eden draw'ı ancak SPR yeterince yüksekken katlatır *(sınırda)*.
+
+Şart: düğüm gerçekten polar ve rakibin fold'a giden katmanı geniş olmalı *(kalibre et)*. Station'a karşı ve orta boylu bet düğümünde 6.2 aynen durur: gutshot check.
 
 ### 6.3 IP / OOP ayrımı
 
@@ -758,6 +782,17 @@ Turn'de potu büyütmenin kendisi hata değil — hangi river'da ne yapacağın�
 
 Ayrım şu soruyla test edilir (B11.1 ikinci fıçı kriteri): *"River planımı ŞİMDİ söyleyebiliyor muyum?"* Cevap IP'de "check gelirse check-back, lead gelirse şu boya call / şu boya fold", OOP'de "şu boya call / şu boya fold" ise büyük tek boy meşrudur; cevap "duruma bakarım" ise potu şişirme.
 
+### 11.0-EK-2 SPR 1-4 satırı capped taraf içindir; 3-bettor'ın top pair'i derinlikle sokak sayar
+B11.0 tablosunun "SPR 1-4: tek per bluff-catcher, büyük pot BAŞLATMA" satırı potu şişirilen, capped taraf için SPR ≳2'de geçerlidir; SPR ≲1.5'te (30-60bb baseline'ında 3-bet potları çoğunlukla SPR ~1.5-3 bandına iner; ≲1.5 yalnız ~30-40bb ve OOP 3-bet boyunda — *kalibre et*) capped tarafın top pair'i de çoğunlukla call-off sınıfına iner — eşik iki taraf için düşer; capped taraf yine potu BAŞLATMAZ ama jam'e karşı katlamaz *(kalibre et)*. Aralık + nut avantajlı 3-bettor için SPR ≲2'de orta-bağlantılı board'da top pair/overpair çoğunlukla jam sınıfıdır (bkz. B32.1); 100bb'de (SPR ≳4-5 OOP 3-bet boyunda — satırın üst sınırında; IP 3-bet potunda ~5'i aşar ve satırın dışına çıkabilir — *kalibre et*) A-high 3-bet potunda top pair çoğunlukla "iki sokak + river kontrol" elidir (en iyi kicker + capped rakipte üç sokak sınırdadır) — üç sokak, stack'i tek perle içeri sokmaktır ve B11.4 kataloğu üç sokak boyunca uygulanır (bkz. B32.2). Bluff-catcher tanımı şişirenin top pair'ine B11.4 kartının düştüğü sokakta (turn dahil) ya da raise yediği anda geri döner; river'da ise plan gereği zaten kontrol/bluff-catch modundadır.
+
+### 11.0-EK-3 SPR≈1 satırının TURN hâli: value ile JAM değil, yarı-stack bet
+
+11.0 tablosu SPR<1'de "commit" der — doğru, ama boyu söylemez. Turn'de SPR 1 civarında overpair/güçlü top-pair ile "zaten committed'im" diye jam'lemek hatadır; özellikle tek başına overcard açıldı ya da bir draw açıldı diye "korkutucu kart, hemen koy" refleksi. Commit, paranın eninde sonunda gireceğini söyler; HANGİ sokakta, HANGİ boyla girdiği rakibin devam aralığını değiştirir. Flop bet'ine call eden aralık alt per, zayıf orta per (bet küçükse gutshot ve overcard-high da) ile doludur; jam'e bu eller snap katlanır — tam senin ezdiğin sınıf. Potun yarısı–üçte-ikisi *(kalibre et)* o sınıfı kayıtsızlığa iter: bir kısmı öder (value'n), bir kısmı katlanır (blöflerin için fold equity). Koruma kaybı sınırda: yarı-pot draw'a jam'den daha iyi direkt oran verir; implied odds'u ise geride yalnız yarı-stack kaldığı için zaten küçük — river'da o kalanı ona ödersin ama toplam sınırlı; flush draw çoğunlukla kayıtsız kalır — stack'in yarısı turn'de girince river'da her kartta jam'sin, geometri seni zaten bağladı. Overcard turn'ü de bozmaz: o aralık o kartı çoğunlukla taşımaz.
+
+Korkutucu turn'de de varsayılan yarı-stack (koruma + ince value). Jam yalnız tek gerekçeyle: rakibin devam aralığı draw-AĞIRLIKLI ve yarı-pot o aralığa direkt oran verecek — tipik olarak turn aralığa BİRDEN FAZLA canlı draw eklediğinde (flush + çift kent), OOP + SPR≤1'de daha sık; turn flush'ı TAMAMLIYORSA 11.1 tablosu: check / boy düşür, jam değil. Azınlık *(sınırda — kalibre et)*. Blöf tarafı: rakibin devam aralığına karşı en çok equity taşıyan overcard+draw kombolar — SPR 1'de sık ödenirsin, bloker değil equity seç; turn kartını tutan el zaten top-pair'dir, value hattında.
+
+**Kapsam:** B21.5'in "sığ SPR'de ara boyut chip bağlar → jam ya fold" kuralı ICM + savunma/float bağlamı içindir; bu madde chipEV'de value-agresörün turn'üdür. Farklı koltuk, çelişki yok.
+
 ### 11.1 Turn disiplini — ikinci fıçı kriteri
 
 B6 turn'ü sadece DRAW için işledi. Value/marjinal ellerin turn kararı buraya. Kök hata çoğu zaman turn'de doğar: potu ikinci fıçıyla kendin şişirir, river'da bluff-catcher olarak kalırsın (Vaka 3'te turn bet DOĞRUYDU — B7; ama o bet'le pot şişti — ikinci fıçıyı atarken river planın önceden hazır olmalı).
@@ -774,6 +809,12 @@ Boyutlar *(kalibre et)* — ama yön sabit: potu her büyüttüğünde river'da 
 > **İkinci fıçıyı atmadan önce sor: river planımı söyleyebiliyor muyum? Kötü river'da check-fold edebileceğim pot boyutu bırakıyor muyum?**
 
 **B0 c.12:** *Turn'de attığın boyut, river'da vereceğin kararın fiyatıdır.*
+
+### 11.1-EK Turn overbet — PFR IP, flop c-bet call yedikten sonra: EFEKTİF nut ve blöf seçimi
+
+18.2-EK "nut avantajı + capped → overbet" dedi; bu madde turn-kart mekaniğini verir. Overbet'in kaldıracı gerçek nut değil efektif nut'tur — rakibin aralığında seni yenen elin yapısal olarak bulunmadığı el. BB, preflop'ta 3-bet'lediği ve flop'ta check-raise'lediği kombolardan büyük ölçüde arınmış gelir (bir kısım set/iki-per slow-play'de, bir kısım büyük çift flat'te kalır — efektif nut mutlak değil, aralık-göreli); senin AK/AQ'n, overpair'in, üst per'in o boşluğu dolduran turn'de "yenilmez" oynar. Tek kural: **overbet kartı, rakipte 3-bet'e/x-r'a gitmiş sınıfı tamamlayan, kalan (capped) sınıfına ise bir şey eklemeyen karttır.** Örn.: yüksek+düşük kopuk flop'a kent tamamlamayan ikinci yüksek kart (K-8-x'e A: AA/AK sende — BB'ninki çoğunlukla 3-bet'e gitti; BB'de Ax yalnız top-pair, kent yok); düşük flop'a rakibin ıskaladığı yüksek kart (o kartla flop'ta katlandı, sen c-bet attın); orta-yüksek flop'a düşük blank (rakibin o kartla iki-per'i yok, overpair'i çoğunlukla 3-bet'te) *(derin, tek-raise'li pot, IP PFR; kalibre et)*. Aynı kuralın negatifi kapatan karttır — rakibin capped OLMAYAN sınıfını tamamlayan kart: iki yüksek kartlı flop'a üçüncü Broadway — K-Q-x'e A/J/T dahil (BB'nin flat'lediği JT/QT/AT/KJ tipi kombolar kent ya da iki-per olur; A bile JT'nin Broadway'ini tamamlar; yalnız 3-bet-aralığı kombosuyla nut kent yapılan hâl sınırdadır), A-x-x'e düşük kent-tamamlayıcı, flush-tamamlayıcı, eşleşmiş flop'ta eşleşmemiş düşük kartın eşleşmesi (9-9-4'e 4: check-call'daki 4x full olur; K-7-7'ye K ise PFR'ın AK/KQ'sünü büyük full yapar — kapatan değil). Kapatan kartta frekansı VE boyu düşür — çok check; bahis kalırsa aralık MERGED olur: nut + hâlâ önde olan set/iki-per/güçlü top-pair değeri + rakibin tamamlanan sınıfını bloklayan az blöfle küçük/orta boy *(kalibre et)* — boy küçüldükçe polar değil merged (18.2-EK'in overbet-polar / küçük-merged ekseni); 11.3-EK'in turn hâli. Frekans yalnız aralık avantajının sürdüğü brick'te korunur.
+
+**Blöfü nut değil BOŞLUK seçer.** Overbet polar: orta-kuvvet el (turned ikinci per, zayıf top-pair) ne katlatır ne öndedir — küçük boya ya da check'e. Blöf adayı rakibin katlayacağı elleri bloklamasın, tuttuğu güçlü sınıfı bloklasın, call yiyince temiz out'u olsun — en iyi sınıf **turned alt-per** ve overcard'lı gutshot (6.2-EK). Tek büyük boy yeter *(kalibre et)*; makas equity'den değil fold ettirilen equity'den açılır.
 
 ### 11.2 River — bluff-catch: hangi fiyata call
 
@@ -796,6 +837,9 @@ B11.2 boyut→call-yönü tablosu tek bir varsayıma dayanır: rakibin BAHİS ar
 
 > **Fiyat eşiği "bu boyu atan bir blöf sınıfı var" varsayar. Rakibin bahsi blöfsüzse (tükenmiş) ya da blöfleri senin call'ını blokluyorsa, ucuz fiyat bile tuzaktır.**
 
+### 11.2-EK-2 Bloker mekaniğinin saldırı yüzü
+B11.2-EK'in ikinci düğümü (rakibin blöfleri senin call aralığını bloklar) savunma tarafını anlatır. Aynı mekanik saldırıda "kart-eşleme"dir: overbet blöfünü rakibin premium bluff-catcher'ının taşıdığı kartla at — o kartı tutmak rakibin "eşleşen" call kombinasyonlarını azaltır, kalan aralığın katlanma payını çoğunlukla yükseltir (fold equity artar, garanti değil). Flush GELEN mono board'da alt cep + flush kartı bu yüzden doğal overbet blöfüdür; kaçan flush'ta flush kartı taşıyan blöfler çoğunlukla listenin sonundadır — rakibin katlanacak kaçmış draw'larını bloklar; önce bloklamayan aday varsa onu seç (bkz. B32.6).
+
 ### 11.3 River — thin value: kim öder
 
 Kitabın tüm value filtreleri şimdiye kadar NEGATİF idi ("ödemezse jam etme"). Pozitif komut eksikti: ödeyen varsa İNCE value BET ET. Bu, B0 c.2'nin öbür yüzü — filtre aynı, yön ters.
@@ -811,6 +855,9 @@ Kitabın tüm value filtreleri şimdiye kadar NEGATİF idi ("ödemezse jam etme"
 ### 11.3-EK Katman-hedefli boy: nut katmanı rakipteyse küçül
 
 Value kütlen orta katmandaysa ve nut katmanı rakipteyse boyu KÜÇÜLT: küçük boy rakibin zayıf-per/çekiliş katmanından ödeme alır, set/iki-per (nut) katmanına karşı kaybı sınırlar ve raise kaldıracını keser — şişmiş potu sen BAŞLATMAMIŞ olursun. Bu boyu nut'un dahil tüm bet aralığına TEK boy olarak uygula ki aralığın raise'e karşı korunsun. Ezber değil pusula: boy, rakip aralığının hangi katmanını kayıtsızlığa itmek istediğini seçer *(kalibre et)*.
+
+### 11.3-EK-2 Katman-hedefli boyun flop ikizi
+"Boy, rakip aralığının hangi katmanını kayıtsızlığa itmek istediğini seçer" kuralı 3-bet potunun flop'unda da geçerlidir: önce "hangi sınıfı katlatmak istiyorum?", sonra "o sınıf hangi boyda kayıtsız?" Caller'da trips olası eşleşmiş board'da (9-7-7 tipi) caller'ın orta katmanı küçük bete çoğunlukla call eder, yarım pot civarında *(kalibre et)* kayıtsızlığa yaklaşır; yüksek tek kartı senin aralığında olan eşleşmiş board'da (A-J-J tipi) küçük boya çoğunlukla zaten katlanır (bkz. B32.4).
 
 ### 11.4 Kötü river kataloğu
 
@@ -873,6 +920,14 @@ FT'de doğru davranış EL'e değil STACK ROLÜNE bağlıdır.
 | **Kısa (<15bb)** | İlk jam'ci ol, ladder'ı gözle | Katlanma — doğru jam; kilitlenme de bir busttur (blind'lere) |
 | **Orta** | En kırılgan — kimin bust'ını beklediğini bil, cover edenle pot açma | Fiilen en kısasın — 12.5: herkes kilitliyse jam aralığını GENİŞLET, katlanma |
 | **Cover eden derin** | Agresyon serbest — cezasız ez | Chip-leader'la ego savaşına girme |
+
+### 12.2-EK Kısa-orta BB'nin en kârlı FT spotu: soğuk 4-bet jam penceresi
+
+"Açan var, 3-bet eden var, ben kısayım → fold" refleksi bu üçlüde para bırakır. Pencere üç bacaklı: (1) açıcı orta stack ve ICM baskısı altında — en güçlü ellerini büyük stack'in 3-bet'ine karşı zaten open-jam'liyor, açılış aralığı **tepesiz**; (2) 3-bet'çi onu cover eden büyük stack, büyük boy ve polar — value azınlık, offsuit çöp çoğunluk; (3) sen BB'de kısa-orta: ölü para stack'ine göre büyük, ama stack'in 3-bet'çinin blöfle "nasılsa ucuz" diye ödeyemeyeceği kadar uzun *(alt eşik: kalibre et)*. Jam'inle 3-bet'çi blöflerini atar, açıcı neredeyse hiç ödemez — tepesi zaten open-jam'e gitti, kalan aralık arkasında 3-bet'çi varken sandviçte katlanır. Bir kademe uzun stack'te pencere kapanır: ölü para küçülür, jam value'ya döner *(üst eşik: kalibre et)*.
+
+Malzeme: suited Ax/Kx (A/K bloker 3-bet'çinin az value kombosunu inceltir), çiftler (blöflerde çift yok, açıcının call'ı dar), güçlü broadway'ler. 3-bet'çi küçük boy/lineer ise ya da çok kısaysan pencere yok.
+
+**Kapsam:** 22.8-EK'in "küçük ICM 3-bet'e jam-or-fold, QQ+" satırı kapsanan AÇICI'nın cevabıdır; burada sen üçüncü koltuktasın ve 3-bet BÜYÜK-polar — "3-bet gördüm → dar" refleksi bu pencereyi öldürmesin. Dengeden sapmadır: gözlenen dinamik (büyük stack aynı orta stack'e üst üste 3-bet VE orta stack'in premium'larını open-jam'lediği — raise aralığının tepesiz olduğu — görülmüş) yoksa uygulama; ikinci gözlem eksikse açıcı QQ+/AK'yı hâlâ raise'liyor olabilir ve soğuk jam'i öder → malzemeyi suited Ax/Kx blokerlerine indir, küçük/orta çiftleri ve broadway'leri düş (QQ+/AK zaten value, jam kalır).
 
 ### 12.3 Ladder — ne zaman gerçek para
 
@@ -975,6 +1030,17 @@ B0 c.7'nin ("her elden önce stack modu") iki uç arasındaki tamamlanması. Bu 
 | **40–60bb** | B4 VALUE − zayıf uçlar | Neredeyse kes — canlıda kimse fold etmiyor | commit'e YAKLAŞIR; tam commit 40bb altında (B4.7) | Neredeyse yok |
 
 **Kural:** ≈60bb altında "3-bet edip fold" yapısı zayıflamaya başlar, 40bb'de biter — tam eşik drill'de *(kalibre et)*. 3-bet edeceğin el 4-bet/jam'e devam edebilmeli — edemiyorsa flat (IP/BB) ya da fold.
+
+### 14.1-EK Köprü bandında 3-bet'in postflop tehdidi
+Bu bantta 3-bet'in commit'e yaklaşması preflop'ta kalmaz: 40bb civarı 3-bet potunda flop SPR ≲2'dir, flop call çoğunlukla fiilen stack-off'tur ve flop bet + turn jam tehdidi caller'ın çekilişlerini kayıtsız bırakabilir. 100bb'de bu tehdit ortadan kalkmaz, gecikir: turn jam overbet olur (turn SPR ≳1.5) ve caller çekilişini flop'ta commit olmadan taşıyabilir. Aynı dinamik yüksek board'da (J-T-x tipi) 40bb büyük boy bu yüzdendir, 100bb'de pot-boy; üç-broadway'de ise caller'ın yoğun iki-per/düz payı (ince nut avantajı) boyu her derinlikte küçüğe iter *(kalibre et)* (bkz. B32.3, B32.5). 3-bet edeceğin el postflop'ta jam/check ağacını taşıyabilmeli.
+
+### 14.1-EK 40bb squeeze-jam: bloker HANGİ aralığı kesiyor — ve polar squeeze'e karşı 4-bet
+
+Squeeze-jam'in EV'si iki kaynaktan gelir: fold ettirilen eller + ödenince equity. **A/K bloker** ödeyen aralığı (AA/AK/AQ/KK) inceltir → fold equity yükselir, ödenince suited Ax canlı — iyi çalışır. **J/T bloker** rakiplerin ZATEN katlayacağı elleri (JTs/QJs/KJs) siler → kalan aralıkta ödeyen payı büyür, fold equity düşer; ödenince AK/AQ/JJ+ domine eder. Aynı As iki zıt karar üretir: suited düşük Ax jam, offsuit AJ sınırda/karışık — A-blokeri jam'e iter, J-blokeri frenler; pozisyon ve açıcı aralığına göre *(kalibre et)*. Omurga orta-yüksek çiftler + AK/AQ, blöf tarafı suited düşük Ax; A/K-yüksek suited broadway (AKs/AQs/KQs) jam'e girer, J/T'li suited broadway (KJs/QJs/JTs) bu bantta çoğunlukla jam değil call/fold; suited düşük Kx sınırda *(kalibre et)*. Test: "kartım rakibin CALL aralığından mı, FOLD aralığından mı kombo siliyor?" Call'dan siliyorsa jam.
+
+**Açıcı olarak polar squeeze'e karşı:** 40bb'de squeezer koyduğu paraya göre jam'e iyi fiyat alır (kabaca 2:1'e yakın — kendi boyunla hesapla) → fiyattan geniş öder: 99+/AQ/AJs/KQs tipi *(kalibre et)*; o ödeyen aralığa karşı TT–JJ favori DEĞİL, kabaca coinflip/hafif altında *(kalibre et)*; jam'i çoğunlukla +EV yapan, ödenince önde olmak değil, polar squeeze'in blöf yarısının fold'u + potta biriken ölü paradır — sınırda, kalibre et. "Yalnız senden iyiler öder, yendiğin blöfler katlanır" 100bb mantığıdır, bu banda taşıma. Call daha çok orta çiftler (88–99 tipi) ve sınırda TT için *(kalibre et)* — squeeze blind'lerden geldiyse (squeezer'a IP) ve sandviç caller'ın overcall olasılığı düşükse; sandviç caller hâlâ arkada olduğundan call aksiyonu hiçbir senaryoda kapatmaz, geç pozisyon squeeze'ine karşı OOP'sen jam/fold ağırlığı artar. A-blokerli suited Ax ve AK jam. Küçük çiftler karışık.
+
+**Boy:** sandviç caller aksiyonu kapatır ama 40bb'de squeeze boyu stack'e göre büyük ve aralığı kapaklı; call, SPR≈1–2 çok-yönlü pot bırakır → çoğunlukla fold/jam'e düşer, flat nadir → onu fiyattan mahrum etmek için büyümene gerek yok; açıcıya göre orta boy *(kalibre et)*. B4.2'nin "her coldcaller +1 boy" kuralı 100bb+ içindir, 40bb'de gevşer.
 
 ### 14.2 60bb → 40bb geçiş işaretleri
 
@@ -1273,6 +1339,10 @@ Online sahada rakipler blind savunmasını daha doğru yapar; erken pozisyon bir
 - **Masa ayarı:** BB'de tight bir oyuncu (fold %60+) varsa BTN/CO aralığını %10 genişlet. Solunda 3-bet'çi bir reg varsa CO'yu daralt, BTN'yi koru.
 - **Stack düşerse:** 35 BB altında bu tablo geçerliliğini yitirir — 17.8'deki stack modlarına geç.
 
+### 17.3-EK "SB raise-only" bu turnuvanın bağlam şartıdır, BvB doktrini değil
+
+17.3'ün "SB %35 (raise-only), limp yok, 3x aç" satırı ~50bb online sahaya özeldir: BB limp'e seyrek/pasif iso yapıyorsa tuzak (limp-reraise) payı düşer ama marjinal ellerin ucuz flop görme değeri artar — bu rejim raise-only'yi haklı çıkarmaz; BB limp'e yüksek oranda iso/jam yapıyorsa zayıf limp'ler kesilir ama premium'un limp-reraise payı büyür — o sahada da raise-only EV bırakır. Raise-only ancak BB raise'e belirgin over-fold ediyorsa (raise'in fold-equity'si limp'in ucuz-flop değerini aşar, *kalibre et*) ya da oyuncu limp ağacını yönetemiyorsa kabul edilebilir bir sadeleştirmedir. Genel BvB'de aynı derinlik derin/orta katman sınırındadır ve SB'nin limp payı hangi motorun çalıştığına (SPR kapanı / polarize iso / jam) göre değişir — premium'un limp-reraise dilimi dahil. Hangi rejimin çalıştığını tablo etiketine değil BB'nin iso/jam davranışına göre seç (bkz. B33.1, B33.7).
+
 ### 17.4 3-Bet aralıkları
 
 **Boyut:** Pozisyonda (IP) open'ın ~3x'i, pozisyon dışı (OOP) ~4x. 56 BB derinlikte 3-bet potları zaten stack'in yarısını görür — 3-bet aralığın polarize ama bluff tarafı "iyi bloker + oynanabilirlik" ister.
@@ -1431,6 +1501,9 @@ B18.0 "otomatik range-bet yasak" der; bu doğru ama eksik okunursa solver-onayl�
 
 > **Yasak olan solver-onaylı baseline değil, board'a bakmadan REFLEKS range-bet. Rec sahada default ASLA otomatik range-bet değildir — baseline'ı tek-boyla kur, sonra B18.7 gereği frekansı %10-15 ALTINA çek. İki katmanı karıştırmak, iki kuralın birbirini iptal ettiği hissini verir.**
 
+### 18.0-EK-2 3-bet potu istisnası: caller küçük bete over-fold eder
+"Rec sahada fold equity düşük, station atmaz" tek-raise'li potun kuralıdır. 3-bet potunda teori küçük bete karşı geniş savunma ister (ucuz fiyat); ama sahada caller'ın dar, orta-güçte aralığı flop'u ıskalayınca ÇOĞUNLUKLA fazla atar *(kalibre et)* — bu bir popülasyon sapmasıdır, teori değil. Hava-c-bet kısıtlamasının 3-bet potunda gevşemesinin teorik gerekçesi ise aralık avantajı + düşük SPR'dir (düşük SPR'de küçük bet bile stack-off baskısı kurar ve caller'ın raise'le cezalandırması commit anlamına geldiği için zorlaşır); tam-aralık küçük bet'in koşulları B32.3'te (bkz. B32.0, B32.3).
+
 ### 18.1 İki neden — c-bet neden atılır
 
 | Neden | Ne zaman geçerli | Rec sahada |
@@ -1443,6 +1516,9 @@ Rec sahada c-bet'in ağırlık merkezi value'ya kayar. "Fold equity için" c-bet
 ### 18.1-EK İnşa sırası: boyu value seçer — ve koruma paradoksu
 
 Aralığı hep aynı sırayla kur: önce hangi eller value'lar, sonra o value'nun istediği boy, sonra coverage, EN SON blöfler — blöfler value'nun seçtiği boya biner, boyu asla blöfler seçmez. 18.1'in iki-neden tablosuna sokulmaya çalışılan üçüncü sahte nedeni de bu sıra süzer: "koruma için bet". Koruma betleyebilen her eli betlersen korumasız kalan aralık CHECK aralığındır — kök hata orada doğar.
+
+### 18.1-EK-2 "Koruma sahte nedendir"in sınırı + alt-çift pusulası
+Koruma paradoksu yüksek SPR'de (tek-raise'li pot, commit uzak) geçerlidir; nut avantajı bu sınırın ekseni değildir — sığ 3-bet potunda sınırı SPR çizer. 3-bettor'ın ARALIK (overpair) avantajlı ama nut'u çoğunlukla CALLER'da olan (set/iki-per) kırılgan overpair kütlesinde — düşük kopuk board'da 77-JJ tipi — koruma-value gerçek nedendir: nut avantajından değil, sığ SPR'de erimeden önce paranın girmesinden; adı "erimeden önce alınan value"dur (bkz. B32.4). Boyu ise kırılganlık değil SPR büyütür: bu kütle merged'dır, 100bb'de boy küçülür, frekans büyür; sığda büyüklük geometrik/commit boyundan gelir *(kalibre et)*. "Boyu value seçer" cümlesinin 3-bet-pot uygulaması da buradadır: alt çiftler boyun TAVANINI koyar, tabanını değil — alt çift bet istiyorsa lineer küçük, istemiyorsa polar büyük + alt çift check; pusula boyu seçer, frekansı aralık avantajı seçer (bkz. B32.2).
 
 ### 18.2 Board dokusu → frekans ve boyut
 
@@ -1468,6 +1544,9 @@ B18.2 sağlam bir başlangıç kuralı ama iki yerde ters çalışır:
 2. **Rainbow = büyük boy evi (geniş-aralıklı potlarda).** EN BÜYÜK (overbet/geometrik) c-bet boyları en çok RAINBOW/statik board'da toplanır, flush-draw'lu board'da değil — çoğu oyuncu tersini sanır (ıslak→2/3 varsayılanı dinamik dokularda geçerli kalır; statik board'a taşınan aile overbet sınıfıdır). Geniş-aralıklı potlarda (HU, blind savaşları, BB defense) overpair/en-iyi-Tx avantajın büyükse kuru rainbow board'da büyük-polar boy doğrudur; "kuru = 1/3" ezberi bu potlarda equity-edge'i masada bırakır.
 
 > **Kuru board'da küçük boy varsayılan KALIR — ama sebebi "board kuru" değil "avantaj aralığın geneline yayılmış, nut'ta yoğunlaşmamış"; nut avantajın büyük VE rakip capped ise kuru board dev (overbet) boyun evidir.**
+
+### 18.2-EK-2 3-bet potunda A-high ve monotone satırları
+B18.2 tablosu tek-raise'li pot içindir. 3-bet potunda A-high tek kova değildir: kopuk A-high tam-aralık küçük, A + ikinci broadway alt-çift pusulasıyla büyük/küçük ayrımı, wheel-bağlantılı A-high'da 100bb'de check payı artar, küçük-bet sıklığı düşer *(kalibre et)* — caller'ın wheel/set payı derinlikte değerlenir (bkz. B32.3). Monotone satırı ("belirsiz / küçük-check") 3-bet potunda (3-bettor OOP) üç kovaya açılır ve ayırıcı NUT-flush sahipliğidir: A + iki düşük mono check ağırlıklı / küçük karışık *(kalibre et)*; A-yok kopuk orta mono, 3-bettor'da A♠x nut-flush/fd payı var → çoğunlukla küçük; caller'ın yapılı non-nut flush + düz/kombo-çekiliş yoğunluğunun arttığı (T-9-8 tipi bağlantılı orta; A♠x nut-fd payı yine sende) → check ağırlıklı, sınırda küçük dürtme; K-high mono'da nut-fd/nut-flush payı sende kalır, caller'ın non-nut flush yoğunluğu + overpair'in değer kaybı yine check ağırlıklı tutar *(kalibre et)* (bkz. B32.3).
 
 ### 18.3 Hangi elle c-bet — dört sınıf
 
@@ -1505,6 +1584,9 @@ Boy ailesi eklemek bedava değildir: en güçlü ellerini overbet hattına taş�
 | **Kök hata riski** | Düşük | Yüksek — OOP şişmiş pot en kötü bluff-catcher noktası |
 
 OOP c-bet, station'a value keser ama agresöre kapıyı kapatmaz; marjinal ellerle check-call, güçlülerle check-raise daha sağlamdır. OOP havayla c-bet, seni pozisyonsuz şişmiş pota sokar — kök hatanın ta kendisi.
+
+### 18.5-EK OOP range-bet tuzağının sınırı: 3-bet potunda 3-bettor
+"OOP havayla range-bet TUZAK" satırı tek-raise'li potta PFR OOP içindir. 3-bet potunda aralık avantajlı OOP 3-bettor kopuk A-high'da tam-aralık küçük bet atar — orada tuzak değil, baseline'dır; A-yok kopuk orta mono board'da ÇOĞUNLUKLA küçük bet (bağlantı arttıkça, caller'ın flush yoğunluğu (non-nut dahil) büyüdükçe check payı büyür — nut-flush payı Axs ile çoğunlukla sende kalır — *kalibre et*). Ayna yüzü de geçerlidir: düşük bağlantılı board'da (7-6-5) OOP 3-bettor çoğunlukla check eder (overpair'lerin bir kısmı hâlâ bet), IP caller'ın nut avantajı olduğu için stab frekansı yükselir (bkz. B32.5).
 
 ### 18.6 Multiway istisnası
 
@@ -1562,6 +1644,15 @@ Donk: OOP, preflop açana check yerine önden bet. "PFR bet atar" konvansiyonunu
 
 **Mantık:** düşük-bağlantılı board senin BB savunma aralığına PFR'ın yüksek-kart aralığından çok daha fazla çarpar; küçük donk PFR'a bedava check-back'i vermez, equity'sini fiyatlar. Yüksek board'da donk PFR'ın arazisine bet'tir — atma.
 
+### 19.1-EK Sığ istisna (≤15bb): yüksek board'da KÜÇÜK donk, düşük board'da JAM
+
+19.1 varsayılanı 30bb+ içindir. ≤15bb BB'de (rakip daha derin açtı) iki şey değişir:
+
+- **Yüksek-kart KURU board'da donk VAR, jam DEĞİL.** K-9-4 rainbow tipi board'da top-pair'in kırılgan değildir; koruma değil VALUE ister. Sorun IP'nin cevabı: rakip sığda ikinci per, alt per, alt cep ve A-high'la check-back ağırlıklıysa bu senin K-x'ine ödeyecek katmandır ve check ettiğinde bedava turn görür — jam o katmanı katlatır, yalnız seni geçen kalır; küçük-orta lead katmanı içeride tutar. Rakip sığda küçük range-bet atıyorsa lead gereksiz: check-call / check-jam *(kalibre et)*. Kombo: ödeyecek katmanı (9-x, orta cepler, A-high) BLOKLAMAYAN zayıf-kicker K-x lead, o katmanı bloklayan K-9/K-4 tipi check-tuzak *(kalibre et)*. Bağlantılı K-Q-9'da koruma ihtiyacı geri döner — bu satır oraya taşınmaz.
+- **Düşük/orta board'da lead çoğunlukla JAM ya da CHECK,** küçük lead sınırda *(kalibre et)* — mekanizma 30.7'de.
+
+19.1'in "tek per ile büyük donk = kök hata" satırı 30bb+'da aynen durur; sığda düşük/orta board'da orta per'in (sınırda alt per'in) jam'i kök hatanın anti-tezidir. Stack eşiği açıkça yazılı ki 30–60bb'ye sızmasın.
+
 ### 19.2 Gecikmiş c-bet — PFR flop check, turn bet
 
 Gecikmiş c-bet: PFR'sın, flop'u check-back ettin (pot kontrol / bıraktın / tuzak), turn'de bet. Bu, B18'in otomatik c-bet refleksinin DİSİPLİNLİ zıddıdır: geniş flop c-bet'i atlayıp turn'de bir SEBEP çıkınca bet edersin.
@@ -1597,6 +1688,9 @@ Stab: IP'sin, herkes sana check etti (flop ya da turn). Kimsenin istemediği pot
 | HU, sana check geldi, herhangi equity/fold equity | Multiway (biri tuzakta) |
 | Checker'ların ıskaladığı board | Checker'ların aralığına çarpan board |
 | Boyut küçük | Check-raise eğilimli villain / SD value'lu el bedava showdown istiyor |
+
+### 19.4-EK Stab tablosuna 3-bet-pot satırı
+3-bet potunda iki stab hattı vardır. (1) Caller IP, düşük board (7-6-5 / 6-5-4), 3-bettor check etti: küçük stab neredeyse tam-aralık — 3-bettor'ın broadway'leri hiçtir; sınır sorusu "3-bettor'ın overcard/broadway kesimi düz çekilişi alıyor mu?" (8-7-6 / 9-8-7 ve iki üst kartı ardışık 9-8-2 / 8-7-3 tipi — 9-8-2'de JT/QJ, 8-7-3'te T9/JT çekiliş alır — evet → seçici; 9-5-2 / 8-4-2 tipi gerçek kopuk hayır → serbest; *kalibre et*). (2) Yüksek-kart bağlantılı (K-Q-x tipi) board'da OOP check'ine karşı KÜÇÜK stab verimsizdir — check aralığının çoğunu (cep çiftleri, gutshot'lı broadway'ler) katlatmaz, yalnız zaten en zayıf eller düşer; yarım pot civarı + A taşımayan düşük suited bağlantılı / gutshot blöfler (düşük Ax katlanan A-high bloğunu bloklar, listenin sonunda) (bkz. B32.5). Tablonun "boyut küçük" hücresi ikinci hatta geçerli değildir *(kalibre et)*.
 
 ### 19.5 Turn float — pozisyonel gecikmiş agresyon
 
@@ -1677,6 +1771,14 @@ Kitap flop'ta c-bet → raise → **3-bet** düğümünü hiç işlemedi; iki y�
 - **Savunmada:** kendi c-bet'in raise yediğinde senin de bir flop-3-bet aralığın olmalı, yoksa aynı exploit'i sen yersin. Aralık: güçlü value + düşük-frekans düşük-equity blöfler; offsuit eller 12 kombo taşıdığı için düşük frekansta bile yük taşır — tam kompozisyon *(kalibre et)*.
 
 > **C-bet'ine raise yiyince "call veya fold" ikilisi eksiktir — flop-3-bet üçüncü seçenektir: havuz onu neredeyse hiç ATMADIĞI için hem rakibin c-bet'ine raise atmak hem de raise yediğinde kendi flop-3-bet aralığını kurmak kârlıdır. Ama havuzdan NADİREN gelen flop-3-bet aşırı value-ağırlıktır → ona karşı overfold et.**
+
+### 19.12 Turn lead (flop'ta bet-call SONRASI): avantajın TÜRÜ boyu seçer
+
+19.3 probe'dan farkı: flop'ta rakip BET attı, sen call ettin, turn'de OOP lead düşünüyorsun. **Equity avantajı** ile **nut avantajı** farklı boy ister.
+
+Flop'ta büyük bet'e call ettin → aralığının altı katlandı, rakip hâlâ blöflerini taşıyor. Orta-düşük turn (BB aralığının yoğunlaştığı bölge) orta-düşük kartla dolu aralığına yeni per/draw ekler (board eşleşirse trips/iki-per), onun overcard-blöflerine değil → equity sana kayar *(kalibre et)*; ama nut ONDA: overpair/set'leri aralığında bozulmadan duruyor, senin en güçlü ellerinin bir KISMI flop'ta x/r'a gitti — aralığın kısmen kapaklı, onunki değil. Büyük bet yanlış — havası katlanır, ödeyen seni geçer. Araç: ÇOK küçük lead *(kalibre et)*, GENİŞ aralık (orta per, zayıf top-pair, iyileşen draw). Test: rakip "küçük bete hiç katlanmam" dese memnun musun? Evet → küçük lead. "Her şeyle all-in olsak" dese? Hayır → büyük bet yok.
+
+**Lead aralığın = flop'ta RAISE'lemediklerin.** Büyük flop bet → call-ağırlıklı savunma → sınıfı bozulmamış geniş aralık → küçük-geniş lead alanı geniş. Küçük flop bet → çok raise'ledin (top-pair, kent draw, alt-per koruması) → elenmiş aralık → lead daralır; kent tamamlansa bile çoğunlukla lead vermez, kent draw'larının büyük kısmı flop'ta raise'e gitmişti *(kalibre et)*. Kalan lead yeri: raise'lemediğin ama turn'de NUT'a dönen sınıf — tipik olarak board'un alt/orta kartının eşleşmesi → daha büyük boy, daha dar aralık *(kalibre et)*. İkisi de yoksa check. Exploit: havuz küçük lead'e overcard-çöpünü katlar, nadiren raise eder.
 
 ## Bölüm 20 — Risk Premium: ICM'in Sayısı
 
@@ -1782,7 +1884,7 @@ Sonuç: ICM baskısında blöf-yakalama aralığın DARALIR (fazla per'i bırak)
 | **Hero-call / bluff-catch** | Fold |
 | **Check-raise blöf** | Düz call ya da fold |
 
-Her satır aynı yönü söyler: potu küçült, chip'i showdown'a bağlama, marjinali kes. Kademe = risk primi.
+Her satır aynı yönü söyler: potu küçült, chip'i showdown'a bağlama, marjinali kes. Kademe = risk primi. Bu tablo ICM içindir; PKO kelle katmanı için bkz. 21.3-EK.
 
 ### 21.2-EK "Bir kademe indir" MARJİNAL bölgenin kuralıdır — iki istisna
 
@@ -1803,6 +1905,12 @@ Yön mutlak değil; cover haritasının işaretine bağlıdır. Aynı spot iki o
 | **Cover EDİYORsun** (chip lider, kaybetsen de yaşarsın) | Düşük/negatif | Bir kademe YUKARI — barrel, baskı, büyük |
 
 Bu B20.3 tablosunun postflop yüzüdür. Chip lider baskıyı satar (rakip için her pot bust riski); kısa/orta stack baskıyı yer (daralır). **Başlık "bir kademe indir" cover EDİLENin kuralı; cover EDEN tersini yapar.**
+
+### 21.3-EK PKO ≠ ICM: kapsananın indirimi korku değil, fold equity kaybı
+
+21.2/21.7 satırları ICM içindir. PKO'da kapsanınca aynı refleksi (ince value → check-back, boy küçült) uygulamak yanlış: PKO'da kapsananın pozitif risk primi yoktur *(ICM bileşeni ayrı — kalibre et)*. Onu "pasif" yapan bust korkusu değil, karşısındaki cover edenin KELLE için geniş ödemesidir. Geniş ödeyen rakibe karşı blöf ölür, value yaşar — ince value daha çok ödenir; kapsananın value aralığı iki yönde de kabaca aynı, blöfü daha az *(çoğunlukla)*.
+
+**Kural:** kapsanınca blöf/barrel kademesini indir, value kademesini indirme; semi-blöfleri fold equity beklemeden equity'yle fiyatla. "Cover ediliyorum → thin value check-back" ICM kuralıdır, kelle kuralı değil. FT'de ikisi birlikteyse iki indirimi ayrı hesapla: ICM primi ince value'yu keser, kelle indirimi blöfü keser — tek "bir kademe indir"e çevirme. Cover eden tarafın flop'u için 28.20; kapsanan IP için 28.21.
 
 ### 21.4 MDF ICM'de çöker
 
@@ -1955,6 +2063,14 @@ ICM tek-el statik bir modeldir — kimin bir sonraki elde blind'e gireceğini g�
 
 *(kalibre et: genişleme/sıkışma eşikleri stack + blind mesafesi + payout'a bağlı; gelecek-eli modelleyebilen bir ICM simülatörüyle doğrula.)*
 
+### 22.11 Çarpışma etkisi: fold'un gizli EV'si açılışın EV'sini geçer
+
+Bağlam: FT/para yakını, ICM açık. "ChipEV'de kârlı açılış → açarım" arkanda kalan oyuncuların BİRBİRİYLE çarpışma olasılığını fiyatlamaz. Pota girersen çarpışma ya olmaz (geç pozisyondan blind'lar çoğunlukla sana fold eder) ya da seni içine alır; fold edersen arkadakiler birbirine kalır — en net hâli BvB: SB kısa/agresifse BB'ye geniş jam'ler, BB geniş öder, biri bust olur — basamak sana yazılır. Fold'un EV'si ≈ P(arkada çarpışma) × P(bust) × sıradaki basamağın değeri (BTN'den: P(SB jam) × P(BB call) × P(bust)); çarpım büyükse marjinal açılışın küçük EV'si altında kalır. Yalnız marjinal ellerde karar değişir. Etki her açık pozisyonda var ve büyüklüğü arkanda kalan oyuncu SAYISI ve profiliyle ölçeklenir: en yüksek erken pozisyondan (arkada çarpışabilecek çok oyuncu, çok yol), BTN'den tek yol kalır — doğrudan SB-BB savaşı — ama SB kısa/agresifken o tek yol kalındır; SB'den sıfır (BB'ye karşı tek başınasın, çarpışacak üçüncü yok). Üç soru: fold'lasam arkadakiler (geç pozisyonda: SB) itiyor mu? Ödeyen (BB) var mı? Basamak stack'ime göre büyük mü? Üçü evetse sınır elleri AÇMA *(eşikler: kalibre et)*.
+
+**Harita kısa stack değil, savunma genişliğidir.** Geniş savunup flop'ta çift/draw'la stack-off eden BB herkesle çarpışır → önünde marjinal açılışı kes; fold-fold-fold BB'nin önünde sınır elle bile aç (23.1: station = yüksek, nit = düşük çarpışma). Chip liderine marjinal 3-bet de aynı haritaya tabi — arkada aynı fırsatı gören 4-5 oyuncu varsa çarpışmayı onlara bırak.
+
+**Kaçış kapısı:** çarpışma masasında 3-bet'çinin aralığı da sıkışır → 3-bet'e devam eşiğini bir kademe yukarı *(sınırda)*. Orta-kısa stack'te *(≈15–25bb, kalibre et)*, raise stack'in küçük bir dilimi kalacak kadar küçükken, arkanda iki agresif/kısa oyuncu varken AK tipi güçlü-ama-nut-olmayan elle open-jam yerine fold opsiyonu satın alan RAISE: biri itip öbürü yeniden ittiğinde katlanıp basamağı alırsın (12.4, 22.10). Jam/fold bandında (≈≤12bb) bu kapı kapalı — AK'yı it ya da at.
+
 ## Bölüm 23 — Saha Okuma: Rakip Tipleri ve Exploit
 
 *★ v6. Kitap şimdiye kadar dengeli/GTO-yakını default verdi (B7-B21). Ama canlı sahada asıl para dengeden değil, rakibin hatasından gelir. Bu bölüm kitaba dağılmış exploit notlarını tek yere toplar: rakip tipini oku, onun ICM-hissini oku, default'tan sapma yönünü seç.*
@@ -2064,6 +2180,22 @@ Pasif/call-ağırlıklı (foldlamayan) havuz, B18'in bazı varsayılanlarını t
 - **B18.2 düşük-board ICM'de tersine döner:** para derinleştikçe BB düşük kartları aralığından siler → 7-5-3 tipi board artık açanındır, küçük c-bet açılır. "Düşük-bağlantılı = BB board → check" ancak chipEV'de; ICM derinliğinde açanın board'u.
 - **B3.2 "solunda büyük → daralt" soft sahada over-nit üretir:** düşük/orta stake'te cover-eden-sol teorinin öngördüğü baskıyı SATMAZ; kanıt gelmeden önlem-nitliği chip yakar. Varsayılan normal VPIP; daraltma gözlenen agresyona TEPKİ, ön-önlem değil.
 - **BvB "asla fold etme" yapışkanlığı pozisyon-çifti şartlıdır:** BvB'de yerleşik "pair/backdoor asla fold etme" doktrini GENİŞ-aralık düğümüne özgüdür; sıkı EP aralığına karşı orta boardda zayıf üçüncü per küçük bete disiplinli fold'dur. İki kural yan yana yazılmazsa BvB yapışkanlığı EP'ye karşı over-call üretir.
+
+### 23.13 Havuzun 3-bet açığı: geç açılışı GENİŞLET, 4-bet-jam blöfünü KAPAT
+
+Blind'lar geç açılışa dengeden belirgin az 3-bet eder *(oran: kalibre et; sığ bantta jam'ler farkı kapatır, derinde açılır)* — eksik olan hep mix'li kombolardır, "düşük frekans = sıfır" kısayolu. Solver'ın 3-bet frekansını rakibin de oynadığını varsayan iki hata: geç pozisyondan solver aralığını açmak ve 3-bet yiyince solver'ın 4-bet-jam blöflerini basmak.
+
+Üç sonuç: (1) BTN/CO açılışını solver'ın üstüne genişlet — blind'lar cezalandırmıyor, üstüne flop/turn'de overfold ediyor, sınır eller çoğunlukla postflop'ta EV toplar (havuz sapması yeterince büyükse) (B17.11 "BTN %40 open" ve B4.1 canlı düzeltmesinin mekanizması). (2) 3-bet yediğinde aralık nut-ağırlıklıdır → 4-bet-jam blöfünün (A5s tipi) fold equity'si çöker, blokerli suited Ax jam'i dengeden ağır kaybeder *(kalibre et)*; zayıf suited Kx/Qx ile 3-bet'e call da kötü. **Geniş aç, 3-bet'e DAR devam** — B4.5'in "4-bet blöf çok seyrek" satırı buradan. (3) Sen 3-bet ederken aynı kısayolu YAPMA — mix'li komboları 27.12'ye göre sabitle, sıfırlama.
+
+Sapma notu: havuz ortalamasıdır; agresif 3-bettor okuması varsa baseline'a dön. Stake yükseldikçe fark daralır. 22.11'in çarpışma filtresi ICM açıkken bu genişlemenin üstüne biner.
+
+### 23.14 BB'nin iki bant hatası: kısa bantta fazla JAM, orta bantta fazla PASİF
+
+Kök hata: BB'den geç açılışa "iyi el = jam" ezberi. İlke tek: **oynanabilir el CALL eder, equity'yi fold ettirmek isteyen el JAM'ler.** Kısa bantta *(kabaca 15–25bb; bant sınırı: kalibre et)* jam'lenince yalnız domine ettiğini katlatıp yalnız seni yenenden ödeme alan yüksek-kart eller — güçlü suited broadway: ATs/AJs, KQs/KJs tipi (AQs/AKs hariç — onlar daha kötüden ödeme aldığı için çoğunlukla value jam/3-bet) — çoğunlukla CALL'ı tercih eder: domine ettiği elleri potta tutar, flop'a küçük bete devam eder, yüksek-kart runout'ta rakibin blöfünü yakalar → equity'yi jam'den fazla realize eder. Zayıf suited Ax ve küçük çiftler ise çoğunlukla JAM: bloker + equity-reddi, ödenince canlı *(eşik: kalibre et)*. Bandın alt ucunda (≤~17bb, OOP düşük SPR) ATs/AJs/KQs tipi eller de çoğunlukla jam'e kayar; call tercihi ~20bb'den itibaren belirginleşir *(kalibre et)*. Orta bantta *(kabaca 25–30bb)* jam, birkaç bb'lik pot için tüm stack'i riske atmaktır — doğru agresyon küçük, all-in OLMAYAN 3-bet; orta suited connector burada agresyon değil CALL elidir (equity'yi en iyi realize eden sınıf), 3-bet malzemesi suited düşük Kx / offsuit broadway tipi blokerli eller *(kalibre et)*.
+
+**Havuz okuması (hipotez — showdown'la doğrula, kalibre et):** havuz BB'si kısa bantta call'ı tercih etmesi gereken yüksek-kart elleri jam'ler (fazla jam), orta bantta non-all-in 3-bet'i bulamaz (fazla pasif). Sen BB'deyken kısa bantta call'ı, orta bantta non-all-in 3-bet aralığını genişlet. Rakip BB'nin jam'ine karşı ezber yok: gördüğün showdown'lardan kalibre et.
+
+**Kapsam (B17.11):** "sen cover'ken 15–25bb BB'sine %60'a kadar open" bu okumayla gerilimli — havuz BB'si kısa bantta call yerine jam'i fazla buluyorsa geniş açılışın jam'lenme sıklığı beklenenden yüksek olur; BB'nin fold sıklığı (senin fold equity'n) değişmez, değişen şey açanın pozisyonla flop oynayıp equity realize etme şansının düşmesi ve raise-fold maliyetinin artmasıdır → sınır elleri raise-fold'a göre fiyatla: re-jam'e katlanacağın elleri daralt, re-jam'i ödeyebileceğin ellerle genişle; genişliği orta (pasif) banda kaydırmak daha güvenli, kısa bandı showdown'la kalibre et.
 
 ## Bölüm 24 — Edge Premium: Ne Zaman Gamble ETME (ve Ne Zaman Mecbursun)
 
@@ -2225,6 +2357,9 @@ Check-raise büyük pot kurar; büyük pot net-kararlı runout ister:
 
 **Bloker kilit-testi.** Hiçbir bloker kuralı test edilmeden ezbere alınmaz; soru tek: rakip value çekirdeğini senin kilit-kartından arındırabilir mi? Çekirdeği yapısal olarak o karttan geçiyorsa kural kilitlidir — ezberle ve uygula. Arındırabiliyorsa raf ömrü kısadır: blokere değil sınıf-yüzdesine yaslan (26.4), read'i onun üstüne koy.
 
+### 26.2-EK-2 Bloker kilit-testine 3-bet-pot örneği: yan kart
+40bb efektifte (3-bet potunda SPR ≲2, sığ) J-T-x'te 3-bettor'ın jam'ine karşı caller'ın ikinci peri (QT/KT) yan kartıyla karar verir — ama iki yönde: Q yan kart QQ'yu (value) ve AQ/KQ'yu (semi-blöf) keser; K yan kart KK'yı (value) ve KQ/AK'yı (semi-blöf) keser; iki etki çekişir. Bloker kilit-testi burada call'u "rahat" değil "sınırda" yapar; hangi yönün ağır bastığını kombo sayarak belirle, 3-bettor'ın jam aralığı değişince yeniden say *(kalibre et)*. J8 bu gruba girmez: top pair'dir, 8'in bloker etkisi ihmal edilebilir düzeydedir (yalnız ender 98 tipi 3-bet-blöf kombolarına dokunur), karar yan karttan değil el gücünden gelir. Kilit-testini B26.2-EK'in sorusuyla, dokuyu B32.3 ile kontrol et (bkz. B32.3).
+
 ### 26.3 Notları board'a göre değil YÜZLEŞİLEN BOYA göre tut
 
 Farklı c-bet boylarına karşı savunmalar birbiriyle kıyaslanamaz; desen ancak aynı boya karşı board'lar yan yana konunca çıkar. Flop'ta yüzleşilen boy turn eşiklerini belirlediğinden, notlar sokak değil HAT bazlı tutulur: "flop-1/3 → turn-2/3" ayrı bir kutu, "flop-2/3 → turn-jam" ayrı.
@@ -2238,6 +2373,23 @@ River'da devam kararı iki eksenlidir; B11.2 yalnız fiyat eksenini verdi, ikinc
 
 > **River'da fiyat "ne kadar savunmam gerek"i, frekans "elimin neresinden keseceğim"i söyler. B11.2'nin eksik yarısı ikincisidir.**
 
+### 26.6 Raise-sonrası turn (x/r + call): kilitli nut → DOWNBET, akışkan nut → JAM, orta boy çoğunlukla yok
+
+26.2-EK "raise-sonrasını çalış" dedi; mekanik budur. 11.1 tablosu IP PFR'ın value turn'üdür; bu bölüm OOP x/r'cının turn'ü. Flop x/r + call sonrası SPR düşüktür; turn ağacı iki boya iner: KÜÇÜK (potun küçük dilimi *(kalibre et)*) ya da JAM. Tek soru seçer: **x/r aralığımın nut sınıfı bu turn'de KİLİTLİ mi?**
+
+- **Kilitli** (river'ın geçmesi zor VE nut hâlâ sende: kent tamamlandı, flush draw yok ve x/r aralığın o kenti taşıyor — flop'ta OESD/gutshot semi-blöf x/r'ı vardıysa; yoksa kent call edene kaymıştır, kilitli değilsin → check ağırlıklı; alt kart eşleşti ve x/r'da alt per'ler vardı; A-x-x düşük board'a wheel'i TAMAMLAMAYAN düşük turn — tamamlıyorsa kent kuralı geçerli, x/r aralığın wheel-draw taşımıyorsa kilitli değilsin) → koruma isteyen de jam isteyen de yok → TÜM aralık downbet: overcard'lar, alt per'ler, tek-kart draw'lar ucuza ödemeye devam eder; ince value + blöf aynı boyda.
+- **Akışkan** (iki flush draw açıldı; orta-bağlantılı board'a bağlantılı turn; üst per kırılgan) → güçlü eller parayı river değişmeden koymak ister → jam ağırlığı artar; semi-blöf jam de buradan — ama SPR düştükçe fold equity düşer: seni domine eden draw düşük SPR'de fiyatını alıp çoğunlukla öder, jam'in hedefi zayıf per/overcard/zayıf draw'ları katlatıp equity reddetmektir, ödenince out'un vardır; domine eden draw'ı katlatmak ancak SPR yeterince yüksekken / yeterli fold equity varken mümkündür *(sınırda — kalibre et)*.
+
+Kilit FLOP x/r kompozisyonuna bağlıdır: alt kartla koruma-x/r'ı bulmuyorsan alt kart eşleşince kilitli değilsin. x/r aralığına alt-per/backdoor koruması eklemek turn kilidini satın alır. Kilitli → downbet ağırlıklı, jam nadir (SPR yükseldikçe orta boy açılır, kalibre et); değil → güçlü value + en iyi semi-blöfler jam, ortası check *(sınıf listesi: kalibre et)*.
+
+### 26.7 Turn kartını üç katmanda oku — ve kart KİMİ kilitledi
+
+**Üç katman:** (1) kart ne tamamladı; (2) board'da hâlâ canlı draw var mı; (3) tamamlanan draw rakibin aralığında da var mı. Kent tamamlayan düşük turn RAINBOW board'da saf downbet'e yakın. Aynı kart flop'ta canlı flush draw varsa kilidi açık bırakır: kent/iki-per/set river'da flush'a yenilir → jam payı görünür artar *(oran: kalibre et)*. Flush TAMAMLANDI, x/r aralığında flush'lar var ve x/r'ı CALL eden aralıkta da flush draw'lar vardı (flop'ta FD ile call standart) → iki taraf da kilitli; kilitliye kilitli jam ölü paradır (ödeyen yalnız flush) → aralık downbet'e döner, jam çok dar sınıfa *(kalibre et)*.
+
+**Kart rakibi kilitlediyse bet düğümü kapanır.** BB x/r aralığın A-x'ten görece fakirdir — güçlü A-x 3-bet'e, orta A-x flop call'a gitti, kalan A-x çoğunlukla gutshot/backdoor blöfü; açıcınınki A-x/K-x'le dolu. As turn'ü senin değil RAKİBİN aralığını kilitler: downbet'in ödeyeceği katman artık seni geçer. Üst kartı eşleyen turn'de de aynı: açıcının top-pair'i trips oldu, kimse küçük bete katlanmaz. Bu turn'lerde aralık çoğunlukla check/kontrol; As turn'ünde dar güçlü sınıf (set/iki-per) A-x top pair'den değer için büyük bet — downbet ancak MERGED kurulursa (nut + koruma isteyen orta el + az blöf), tek başına dar sınıfla değil *(kalibre et)*; üst-kart eşleşmesinde ise dar sınıf (boat/quads) trips'ten değer için büyük bet/jam — downbet oraya değer bırakır *(kalibre et)*. Alt kartı eşleyen turn tersidir — x/r'daki alt per trips, alt iki-per boat, alt set quads olur, kilit sende: o sınıf bet.
+
+**x/r'ın EV'si turn'de yaşar:** turn planı olmayan x/r, 11.0-EK "plansız şişirme"nin savunma yüzüdür — eşiği bilmediğin board'da x/r frekansını düşür. Exploit: havuz downbet'e overfold eder ve turn raise'i bulamaz → downbet ile check arasında kaldıysan downbet; rakip raise bulmuyorsa boyu ihtiyaç seçer — koruma isteyen el jam, orta el downbet.
+
 ### 26.5 Kalibrasyon + Cheat kartı
 
 *(kalibre et: üç eşik — devam / value-raise / blöf-raise — board-boy hattına göre solver'dan çıkar; kullandığın solver'da caller (savunan taraf) düğümünü locate et.)*
@@ -2248,6 +2400,9 @@ River'da devam kararı iki eksenlidir; B11.2 yalnız fiyat eksenini verdi, ikinc
 | **Flop 2/3 (polarize)** | Dar devam; check-raise dar/polarize; value-raise eşiği net | Hat bazlı ("2/3 → turn ?") |
 | **River (herhangi)** | Fiyat + frekans iki eksen | Sınıf-% eşleme |
 | **Dezavantaj board** | Raise düğümünü kapat | Bilinçli maliyet notu |
+
+### 26.5-EK Mono flop'ta küçük bete karşı (3-bet potu)
+3-bet potunda mono flop'ta 3-bettor'ın küçük bet'ini yedin: flush kartı TAŞIYAN per call sınıfı; overpair / top pair flush kartı olmasa da küçük bete call (turn'de dördüncü flush kartı gelince yeniden değerlendir); flush kartsız düşük/orta çift ve overcard'lar çoğunlukla fold. Raise adayı flopun rengindeki yüksek kartı (K/Q) taşıyan draw + bloker ellerdir; flush kartsız suited connector raise DEĞİL — 3-bettor'ın aralığında nut flush/nut fd PAYI yüksektir (toplam flush sayısı değil, nut oranı — caller aralığı çoğu kovada daha çok flush taşır) *(kalibre et)*. Önce hangi mono kovasında olduğunu oku (A + düşük / A-yok kopuk orta / caller'ın yapılı flush+düz kütlesi büyük) — 3-bettor'ın nut-flush payı ve caller'ın yapılı-el kütlesi kovaya göre değişir (bkz. B32.3).
 
 ---
 
@@ -2270,6 +2425,9 @@ River'da value kombolarını say, boyun gerektirdiği value:blöf oranına kadar
 ### 27.3 Node-lock ile sadeleştirmeyi SINA
 
 Node-locking bilinen bir solver özelliğidir: bir boyu/aksiyonu kilitleyip EV kaybını ölç. Basit bir sadeleştirme (tek boy) az EV kaybediyorsa masaya taşınabilir; çok kaybediyorsa taşınmaz. Sonucu KENDİ çalıştırmanda gör *(kalibre et)* — başkasının "aralık kovaya yakınsar" iddiasını olgu gibi alma.
+
+### 27.3-EK Node-lock'un 3-bet-pot uygulaması
+Sığ SPR 3-bet potunda "ara boyları at, jam/check'e indir" ve 100bb'de "iki boy (küçük + büyük)" sadeleştirmeleri bu prosedürün somut uygulamasıdır: ara boyu kilitle, EV kaybını ölç, ~sıfırsa masaya taşı (bkz. B32.1). Başkasının "EV kaybı sıfır" iddiasını olgu gibi alma.
 
 ### 27.4 Heuristic formatı: desen + neden + SINIR KOŞULU
 
@@ -2412,6 +2570,14 @@ Devasa varyans (büyük roll şart), popülasyon postflop clueless. Ana edge: IP
 
 Kök hata, ICM'i ve kelleyi iki ayrı ders gibi öğrenip masada ayrı ayrı "hissetmek". Tek sayı tut: net prim = ICM-primi − kelle indirimi; indirimi ölçmek için hedefin kellesini güncel çevrimle BB'ye çevir ve efektif stack'le kıyasla (kalibre et). Kelle stack'e yaklaştıysa net prim derin negatiftir, herhangi-iki bölgesindesin; kelle birkaç BB'ye eridiyse (kalibre et) el kellesiz ICM'dir, standart matrisin aynen geçerli. İşareti de doğru oku: negatif prim ÇAĞRI primidir, blöf primi değil — indirim yalnız cover edende olur: kelleli kısaya 3-bet-fold yoktur çünkü jam'ine karşı kelle oddsuyla sen hep ödersin, ama blöf fold equity'n yalnız SENİ cover eden rakiplere karşı düşer. Cover ettiğinde genişlemeni lineer ve call'la yap; blöf-jam'i kellesiz turnuvaya sakla.
 
+### 28.6-EK Yapısal PKO indirimi: prim HERKES için düşer — derin FT'de matris chipEV'ye yaklaşır
+
+28.6'nın kelle indirimi yalnız cover edende. İkinci, yapıdan gelen bir indirim daha var: havuzun bir kısmı kelle havuzudur ve ICM'le dağıtılmaz; bust'ın toplam $ maliyeti kelle equity'sini de içerir, ama chipEV üstü PRİM yalnız ICM'lenen havuz payından doğar — kelle payı kabaca chip-lineer olduğundan prim eklemez → aynı stack dağılımında prim kellesiz turnuvaya göre belirgin düşer — KAPSANAN için de, kimseyi elemese bile *(kabaca yarıya; kelle payına bağlı, kalibre et)*. Yön korunur: kapsanan hâlâ prim öder, daha az; cover eden iki indirimi üst üste alır. Net prim = (ICM primi × yapısal çarpan) − kelle indirimi.
+
+**Derin PKO FT'de sonuç:** preflop aralık şekilleri çoğunlukla chipEV'ye yakın kalır — 3-bet/flat/limp-raise dokusu dahil *(şekil ve bb bandı: kalibre et)*; "FT'deyim, sık" refleksi yok. Sapma yalnız kısa ve kelleli yığın çevresinde açılır; kendi kellen stack'ine yaklaştığında ICM refleksini aç. Seni cover eden blind 3-bet yerine flat'liyorsa açılışı genişlet — kapsananın tightlığının sebebi 3-bet baskısıdır.
+
+**Gelecek-oyun iki yönde:** solver double-up sonrası cover kazancını saymaz → sınırdaki cover-eden call'larda bir tık gevşek *(sınırda)*; ama masada şişkin kelleli kısa varken kaybedince cover'ını söndürecek marjinal gamble'dan pas (28.11) — "kazansam kimi cover ediyorum, kaybetsem kimi edemiyorum, bekleyen kelle var mı?" (B24.2'ye beşinci soru).
+
 ### 28.7 Cover yönü preflop malzemesini seçer
 
 Kök hata, her all-in'e aynı el listesiyle gitmek: jam yelpazesinin dokusu cover yönüne göre tersine döner. Kapsanıyorsan rakip kellen için zaten ödeyecek — jam'i doğrusallaştır: geniş call menzilini domine eden yüksek kartı it; flip satın alan suited connector'ı ve kimseyi katlatmayan blocker-jam'i çöpe at. Cover edensen ayna döner: kısa senin kelleni kazanamaz, o yüzden dar öder — yüksek kartla gelir, iyi suited'larını katlar; şimdi suited-bağlantılı jam altındır: dar call menzilinin yüksek kartları suited-bağlantılıyı domine edemez, çağrıldığında equity'n canlı kalır; arkandaki çöp ise katlanıp ölü para bırakır — jam'in tam o ölü parayı toplar. 3-bet'te boyutu yalnız derinliğe değil cover yönüne de bağla: seni cover eden açıcıya küçük boyut bedava kârdır, büyük git; sen cover ediyorsan küçük-lineer kur (kalibre et). Kompozisyon da yön ister: jam'e karşı katlayacağın eli hiç 3-bet'leme — suited asları call defterine geçir, 3-bet'i kısa ittiğinde tereddütsüz ödeyeceğin ellerden kur.
@@ -2438,7 +2604,7 @@ Kök hata: 3-bet'li potta karara elinden başlamak — önce stack'lere bak. Col
 
 ### 28.13 Kelle ölü antedir: limp rejimi
 
-Kök hata: primi stack'inin katlarına varmış kısayı büyük raise'le "izole etmeye" çalışmak — o kelle ölü antedir, hangi boyutu seçersen seç yarım düzgün el tutan herkes fiyat alır. Rejimi değiştir: bütün oynanabilir aralığını limp'le, multiway'i kucakla, kısa ittiğinde sürüyle üstüne çök; senden sonra limp'ler yığıldıkça value-jam aralığını genişlet (kalibre et). Kendi kellen için ayna eşik var: prim stack'inin küçük parçasıyken limp yaşar, prim stack'e yaklaştıkça limp her seferinde jam yer — kes; eşitlendiği an saf jam-ya-fold (kalibre et), geç pozisyonda cover altındayken de raise jam mıknatısıdır — limp'le ya da direkt it. Masanın öbür yanındaysan panzehiri bil: limp yelpazesi çöp değil, suited ve yapışkandır — küçük iso kimseyi katlatmaz, cezalandıracaksan büyük bas (kalibre et); rakipler limp'lere küçük iso basıyorsa limp senin için bedava paradır, frekansı aç.
+Kök hata: primi stack'inin katlarına varmış kısayı büyük raise'le "izole etmeye" çalışmak — o kelle ölü antedir, hangi boyutu seçersen seç yarım düzgün el tutan herkes fiyat alır. Rejimi değiştir: bütün oynanabilir aralığını limp'le, multiway'i kucakla, kısa ittiğinde sürüyle üstüne çök; senden sonra limp'ler yığıldıkça value-jam aralığını genişlet (kalibre et). Kendi kellen için ayna eşik var: prim stack'inin küçük parçasıyken limp yaşar, prim stack'e yaklaştıkça limp her seferinde jam yer — kes; eşitlendiği an saf jam-ya-fold (kalibre et), geç pozisyonda cover altındayken de raise jam mıknatısıdır — limp'le ya da direkt it. Tek monoton bant: prim stack'e yaklaştıkça limp azalır, hat jam-ya-fold'a gider; prim stack'i belirgin AŞIP stack de kısaysa aynı mıknatıs istenen şeye döner, hat min-raise'e kayar — limp küçük iso çeker ve flat'ler 1bb'yle ucuz kalır, min-raise izolatörü jam'e zorlar ve katlanan flat'lerin ölü parasını büyütür; raise-fold iki bantta da yok, geçiş sınırı kalibre et (28.23). Masanın öbür yanındaysan panzehiri bil: limp yelpazesi çöp değil, suited ve yapışkandır — küçük iso kimseyi katlatmaz, cezalandıracaksan büyük bas (kalibre et); rakipler limp'lere küçük iso basıyorsa limp senin için bedava paradır, frekansı aç.
 
 ### 28.14 Multiway all-in: önce kelleleri pota yaz
 
@@ -2450,11 +2616,51 @@ Kök hata: "masada mikro var, herkes basamağa sıkıştı, ben jam'lerim" ezber
 
 ### 28.16 Mystery'yi yapı sayfası fiyatlar
 
-Kök hata: her mystery'yi aynı agresyonla oynamak — zarfın fiyatı çekilişte değil, yapı sayfasında belirlenir. Üç kalemi oku: faz ne zaman başlıyor, havuzun ne kadarı kelleye gidiyor, overlay var mı — aynı buy-in'de ortalama zarfı katlara varan farkla oynatırlar (kalibre et); faz başlamadan zarf yoktur, eleme hiçbir şey ödemez — faz öncesini normal turnuva gibi oyna, kelle agresyonunu faz kapısında aç. Sonra çekiliş rejimini oku: zarflar sonda açılıyorsa beklenen kelle bitişe kadar sabittir, hesabı bir kez yap; canlı açılıyorsa panoya bak — büyük zarflar çekildikçe kalan ortalama düşer, küçükler süpürüldükçe yükselir, hiç çekiliş yoksa yerinden oynamaz. Geç kayıt da aynı fiyat okumasıdır: normal kelleli turnuvada erimiş havuza tam fiyat ödersin — saha belirli ölçüde eridiyse oturma (kalibre et); mystery'de zarf fazı başlamadıysa havuz tamdır, ceza büyük ölçüde silinir.
+Kök hata: her mystery'yi aynı agresyonla oynamak — zarfın fiyatı çekilişte değil, yapı sayfasında belirlenir. Üç kalemi oku: faz ne zaman başlıyor, havuzun ne kadarı kelleye gidiyor, overlay var mı — aynı buy-in'de ortalama zarfı katlara varan farkla oynatırlar (kalibre et); faz başlamadan zarf yoktur, eleme hiçbir şey ödemez — faz öncesini normal turnuva gibi oyna, kelle agresyonunu faz kapısında aç. Sonra çekiliş rejimini oku: zarflar sonda açılıyorsa beklenen kelle DOLAR olarak bitişe kadar sabittir — çip karşılığı değil: havuz ödendikçe çipin doları düşer, çevrimi tazele (28.24); canlı açılıyorsa panoya bak — büyük zarflar çekildikçe kalan ortalama düşer, küçükler süpürüldükçe yükselir, hiç çekiliş yoksa yerinden oynamaz. Geç kayıt da aynı fiyat okumasıdır: normal kelleli turnuvada erimiş havuza tam fiyat ödersin — saha belirli ölçüde eridiyse oturma (kalibre et); mystery'de zarf fazı başlamadıysa havuz tamdır, ceza büyük ölçüde silinir.
 
 ### 28.17 Mystery aralıkları: oranı kim taşıyor
 
 Kök hata: "kelle var, genişle" ezberi — genişleyen taraf, oranın lehine döndüğü taraftır, sen değil. Kelle kural değil soru verir: kimin kellesi, kimin yığınına göre büyük? Kellen kendi yığınına yaklaştıysa fold equity'n öldü, herkes seni geniş öder: jam'i daralt, yüksek-kart ağırlıklı kur — masadaki oran ne derse desin any-two jam yok. Çok yönlü spotta da denklemi sadeleştir: parası gerçekten sayılan tek rakibi bul, spotu ona indirge, aralığını ona karşı fiyatla.
+
+### 28.19 Kelle etkisi flop'ta yaşar; turn/river'da yalnız stack bağlanmıyorsa söner
+
+Kök hata: derin pot'ta cover haritasını her sokakta yeniden uygulamak — kapsanınca her fıçıyı kesmek, cover edince her fıçıyı büyütmek. Mekanizma: cover eden flop'u daha geniş devam eder (draw kovalar, nut peşindedir), bu yüzden turn'e daha çok otomatik-fold'la gelir; kapsanan, blöf isteksizliğine rağmen o fold'ların hesabıyla normal frekansta barrel'lar. Ayna da işler: cover edenin barrel iştahı yüksek ama kapsanan flop'u dar devam etti, turn aralığı yoğun → bulacak fold yok. İki kuvvet birbirini siler — ama yalnız bahis sonrası SPR'ın hâlâ yüksek kaldığı (~2+, kalibre et), stack'i BAĞLAMAYAN turn/river barrel'larında: orada bet frekansı, boyu ve bluff-catch eşiği iki yönde neredeyse aynıdır *(sapma birkaç puan — kalibre et)*. Kitabın 30–60bb baseline'ında flop bet-call sonrası turn barrel'ı çoğunlukla SPR'ı ~1 civarına ya da altına (60bb'de ~1.5) çeker (kalibre et) — yani turn bahsi fiilen stack'i bağlayan düğümdür ve orada sönme yok: kelle pot-odds'a girmeye devam eder, SPR düştükçe ağırlığı büyür — cover eden kapsananın jam'ine bir kademe geniş bluff-catch eder, kapsanan blöf-jam'ini bir kademe kısar, value-jam'i standart ya da bir kademe ince (geniş ödendiği için) *(kalibre et)*.
+
+**Kural:** PKO postflop ayarının tamamını flop c-bet / flop savunma düğümüne yükle (28.20–28.22); bahis sonrası SPR yüksek kalıyorsa (derin pot) turn ve river'ı kellesiz standardınla oyna — cover haritasını orada "yeniden uygulama", aralıklara zaten gömülü. Turn/river'da kalan fark stack'i bağlayan düğümlerdedir (30–60bb'de flop bet-call sonrası turn çoğunlukla budur): cover eden temiz runout'ta value-jam'i bir kademe inceltir ve kapsananın jam'ini geniş öder; kapsanan blöf-jam'ini kısar, value-jam'ini standart ya da bir kademe ince tutar *(kalibre et)* — cover edenin jam'ine kelle için değil el için katlanır. Postflop kelle çözücüsü yok; bunlar sınır koşullu prensiplerdir, solver kuralı değil.
+
+### 28.20 Cover eden flop'u: IP'de aralık-bet (blöf değil), OOP'de nut-potansiyeli devam
+
+**IP:** negatif prim "equity'ni pota daha çok it" demektir; check-back'ler aralık-bet'e, küçük boy orta boya, equity avantajı belirginse büyük boya kayar *(kademeler: kalibre et)*. Bu blöf artışı DEĞİL: kapsanan rakibin aralığı kelle teşviksizdir, normal katlanır; artan şey aralık-bet frekansı ve daha kalın value'dur — kellesizde check-back edilen elle üç sokak ince value. Soru "check-back mi" değil "hangi boy"; orta boy varsayılan, kuru yüksek-kart board'da bile *(kalibre et)*. Check-raise gelince ağaç bet-call/fold: geniş yüksek-kart+backdoor devamlarını koruyan yol call'dır, 3-bet değil — 3-bet'i nut'a sakla.
+
+**OOP (BB):** eklenen devamlar per değil, nut'a dönüşebilen çizgilerdir — gutshot, backdoor flush/straight, bunları taşıyan per'siz yüksek kartlar. Kelle ancak rakibi stack-off'a sokan bir el yaparsan tahsil edilir: daha az katla, daha çok check-raise, güçlü/kombo draw'la daha çok jam (kellesizde check-call'lanan combo draw burada stack'e gider *(eşik: kalibre et)*), yavaş oyunu azalt. Filtre: "nut yapabilir mi?" — kelleyi çekilişi olan ele bağla, bluff-catcher'a değil. Kapsanan taraf için 28.21.
+
+### 28.21 Kapsanan IP: nut avantajı equity avantajını ezer — aralık-bet çoğunlukla yok, bet-fold'u kabul et
+
+Kök hata: kapsanan olarak dar açtığın için equity avantajını hissedip düşük eşleşmiş / düşük bağlantılı board'da aralık-bet basmak. Cover eden OOP bu board'larda çok geniş check-raise eder — backdoor'lu suited eller, iki yüksek kart + backdoor, orta çiftler — çünkü kelleye giden yol oradan geçer; kapsanan IP ise o check-raise'e karşı aralığının büyük kısmıyla bet-fold'a düşer, daha dar check-raise'e bile daha çok katlanır *(fold oranı farkı: kalibre et)*. Equity avantajı büyük olsa da bet frekansı çoğunlukla DÜŞER.
+
+**Kural:** kapsanan IP olarak "nut kimde" sorusunu equity'den önce sor; nut rakipteyse check-back oranını yükselt *(kalibre et)*, bet'i polar tut, küçük aralık-bet'i çoğunlukla bırak, sınırda tut *(kalibre et)*; yüksek/kuru board'da (A/K-high, nut dar aralığında sende) aralık-bet'i geri getir, orta/bağlantılı board'da check-back'i koru. Check-raise yiyince bet-fold'u kabul et, offsuit broadway'i bet-call'a zorlama. Kesilen blöftür, value değil (21.3-EK): blöf hacmini düşür, value'yu koru, semi-blöfü equity'yle fiyatla. Cover eden OOP olarak aynı board'larda check-raise frekansını aç — hedefini bil: kapsanan IP katlanır, cover eden IP katlanmaz.
+
+### 28.22 Aralık dokusu cover yönünü ezer — kim nereyi bet'ler
+
+"Cover eden daha çok bet'ler" ezberini board'dan bağımsız uygulama. Cover ayarı preflop'ta aralığı yeniden biçimlendirir: kapsanan dar ve yüksek-kart ağırlıklı açar, cover eden geniş ve suited-bağlantılı ağırlıklı açar; cover eden derin caller "BB gibi" geniş flat'ler. Bu doku flop'ta cover yönünü tersine çevirebilir:
+
+- **A/K-yüksek board** dar-kapsanan aralığa daha iyi → kapsanan orada küçük boy aralık-bet; nut avantajı derinse frekansı düşürüp boyu büyüt (polar), blöf payını kapsanan olduğun için (ICM/PKO kesimi) kıs — polar boyun kendi blöf oranı değil, senin risk konumun kısıyor; cover edenin suited-bağlantılıları bricklemiştir → check artar.
+- **Düşük/orta-bağlantılı board** tam tersi: cover edenin geniş aralığı bağlanır → aralık-bet, kırılgan çift ve backdoor'lu yüksek kartla flop-jam'e kadar gider (kısa kapsanan caller'ın yüksek-kart/suited-A çöpünü katlatır); dar-kapsanan aynı board'da check'e yakın.
+- **Stab:** cover eden geniş caller polar-büyük, kapsanan yoğun caller sık-küçük *(kalibre et)*.
+
+**Kural:** iki soru sırayla — (1) aralığım bu board'a nasıl çarptı, (2) cover yönü. (1) frekansın ana sürücüsüdür; (2) boyu ve frekansı ikinci derecede ayarlar — blöf payını kapsananda kısar, cover edende (PKO) açar. "Cover ediyorum" bet hakkı vermez; aralığın verir. Aralıklar cover'a göre değiştiyse doku baskındır; aynı tutulduysa cover etkisi saftır (28.20).
+
+### 28.23 Kelle stack'ini aştıysa jam değil MIN-RAISE — ve BB'de bu kısanın jam'ine Ax'i geniş öde
+
+**Kısa olarak (kapsanan, kellen stack'ini aşmış):** "herkes beni öder → jam" refleksi potu çok yönlü yapar — herkes kelle oddsuyla re-jam/over-call eder, equity'n bölünür. Min-raise aynı parayı riske atar — raise-fold çoğunlukla yok, hemen hiçbir elle katlanmazsın — ama zinciri değiştirir: arkadan flat'ler gelir, biri jam'ler, flat'ler katlanır; o para pota ölü kalır, sen daha az rakibe karşı daha büyük pota oynarsın. Aralık çoğunlukla min-raise; solver karışımı bir dilimi jam'de bırakabilir — çok yönlü potta iyi tutan çiftler jam'e, izolasyon isteyen Ax/yüksek-kart min-raise'e eğilimli *(hangi el sınıfları / bölüm: kalibre et)*. İki parametre BİRLİKTE gerekir: kelle > stack VE kısa stack *(kaç kat / üst bant: kalibre et)*. Tek monoton bant (28.13): prim stack'e yaklaştıkça limp azalır, hat jam-ya-fold'a gider; prim stack'i belirgin AŞIP stack de kısaysa hat min-raise'e kayar — raise-fold iki bantta da yok, geçiş sınırı kalibre et; stack kısa değilse normal open (raise-fold var), jam değil. ICM'de bu rejim yok: kelle oddsu olmadığından çok yönlü over-call problemi doğmaz, kısa için jam (fold equity) varsayılan kalır; yalnız izolasyon dinamiği benzer (büyük izole eder, orta basamak korkusuyla çekilir). 28.13'ün "limp jam yer → kes; raise jam mıknatısıdır" satırıyla aynı rejim: limp küçük iso çeker ve flat'ler 1bb'yle ucuz kalır, min-raise izolatörü jam'e zorlar ve katlanan flat'lerin ölü parasını büyütür — mıknatıs burada tam istediğin şeydir; kelle > stack VE kısa bandında 28.13'ün jam-ya-fold satırının yerini bu min-raise alır, EV farkı küçük ama tutarlı *(kalibre et)*. 28.8'in kapsanan için "ya jam ya call" ağacına tek istisna budur: bu bantta kapsanan kısanın min-raise'i raise-fold değil, jam'in zincir-değiştiren varyantıdır — fold dalı yine yok; 28.8'in "küçük 3-bet bağıştır" satırı aynen durur (bu bir OPEN'dır).
+
+**BB olarak (cover ederken):** Ax'i ne kadar geniş ödeyeceğin kısanın JAM DOKUSUNA bağlıdır — önce dokuyu gözle. Kısa, aralığını yukarıdaki gibi bölüyorsa (oynanabilir Ax min-raise'e gitmiş, jam orta çift + seçili suited'a sıkışmış) zayıf Ax o jam'e karşı domine değildir: çifte karşı kicker çiftin üstündeyse ~flip, altındaysa belirgin geride *(kalibre et)*; suited'a önde; kelle pota ekli → Ax'i normalden geniş öde — HU'da kelle oddsu kicker'ı büyük ölçüde ezer; kicker'a göre bölme ancak pot çok yönlüyken (arkada over-caller varken) ya da kelle stack'e yakın-ama-küçükken *(kalibre et)*. "Ax'siz jam" showdown'da GÖRÜLMEDEN ezberi bozma: kısa jam'ine her Ax'i basıyorsa (dar-ama-Ax'li jam) standart savunma aynen durur *(sınırda — solver doğrulaması ister)*.
+
+### 28.24 Zarfın çip fiyatı sahayla katlanır — dolar sabit olsa bile
+
+Kök hata: kellenin dolar değerini bulup çip değerini de sabit sanmak. Havuz her elemeyle ödenip küçülür, oyundaki çip sabit kalır → bir çipin doları düşer → sabit dolarlı kelle daha çok çip eder. Sürücü kalan oyuncu sayısı değil, kalan saha YÜZDESİDİR: saha her yarılandığında zarfın çip-değeri bir basamak sıçrar (tek çipin doları düşer) *(basamak eşikleri ve çarpanları: kalibre et)*; canlı çekilişte büyük zarfların çekilmesi yavaşlatır, küçüklerin süpürülmesi hızlandırır. Büyük sahada aynı yüzde FT'den uzaktır → FT'ye gelindiğinde zarf daha çok başlangıç stack'i eder *(kalibre et)* — başlangıç-stack cinsinden; BB cinsinden ayrı soru: blind'lar hızlı büyüyorsa 28.9'un "birkaç BB" uyarısı geçerli kalır *(kalibre et)*.
+
+**Prosedür (molada, dört adım):** (1) kelle $ = kalan kelle havuzu ÷ kalan oyuncu (canlı çekilişte çekilenleri düş); (2) kalan toplam ödül = kalan normal havuz + kalan kelle havuzu; (3) çip $ = kalan toplam ÷ oyundaki toplam çip; (4) kelle çip = (1) ÷ (3), BB'ye böl. Masada yaklaşık: "saha yüzde kaç kaldı?" → kendi yapıların için önceden çıkardığın başlangıç-stack tablosundan oku *(kalibre et)*. 28.16'nın "hesabı bir kez yap"ı DOLAR içindir; 28.9'un "geç fazda daha çok chip" prensibinin mekanizması budur. PKO'da aynı etki var, büyüyen kellede daha silik.
 
 ### 28.18 Cheat kartı
 
@@ -2469,7 +2675,7 @@ Kök hata: "kelle var, genişle" ezberi — genişleyen taraf, oranın lehine d�
 | **Balon paradoksu** | Kellen rakiplerin call'ını genişletir → fold equity erir: balonda kelleli kısa, kellesizden DAHA SIKI jam'ler *(kalibre et)* |
 | **Cover kalitesi** | Cover × pozisyon: arkada pozisyonlu tek coverer aralığı kısar, blind'daki iki coverer kısmaz. Kıl-payı cover kırılgan — ince jam'leri kes |
 | **Cold-call kapısı** | Açanı ya da 3-bet'çiyi cover etmiyorsan girme. Açıcı squeezer'ı cover ediyorsa squeeze kelepçeli → flat genişler |
-| **Ölü-ante limp** | Kellesi şişmiş kısayı raise'le izole ETME — herkes fiyat alır. Limp'le, multiway'i kucakla, kısa ittiğinde sürüyle çök; kendi primin stack'ine eşitlenince saf jam-ya-fold |
+| **Ölü-ante limp** | Kellesi şişmiş kısayı raise'le izole ETME — herkes fiyat alır. Limp'le, multiway'i kucakla, kısa ittiğinde sürüyle çök; kendi primin stack'ine yaklaştıkça limp azalır, eşitlenince saf jam-ya-fold; prim stack'i belirgin AŞIP stack de kısaysa hat min-raise'e kayar (mıknatıs istenen) — raise-fold iki bantta da yok, geçiş sınırı kalibre et (28.13/28.23) |
 | **Multiway all-in** | Yalnız SENİN cover ettiğin kelleleri ölü para olarak pota yaz. Çok yelpazeye karşı suited-bağlantılı/küçük çift nefes alır, offsuit yüksek kart boğulur |
 | **Mikro fold-opsiyonu** | İlk soru stack değil opsiyon: mikro katlanabiliyor mu? Zorunlu all-in'se basamak herkese bedava → jam'i kes; jam hakkın kellenle TERS orantılı |
 | **Mystery** | Zarfı yapı sayfası fiyatlar (faz başlangıcı / kelle payı / overlay); faz öncesi normal turnuva oyna. Kellen stack'ine yaklaştıysa any-two jam yok — yüksek-kart ağırlıklı daralt |
@@ -2534,6 +2740,10 @@ Zayıf/nitty deep rakibin flop c-bet'ini call'la (float); turn check-check geldi
 
 Bu derinlikte ince-boy açış tablosu yoktur — açtığında ya jam'lersin ya fold. Küçük çiftler (22-66) bu bandın EN DERİN yaşayan JAM'lerindendir *(derinliği kalibre et)*, DEFEND edilmez. Fold-equity + çağrılınca canlı equity ikisi de gerçek; jam'i "polarize spew" sanmak MTT refleksi hatasıdır.
 
+### 30.0-EK "Küçük-RFI yok" cover-edilen-masa varsayımıdır — arkadakiler senden kısaysa ~12bb raise-fold sınırda yaşar
+
+30.0'ın "4–12bb açış = jam ya da fold" kuralı masanın seni cover ettiği varsayımıyla yazıldı. Arkandakiler belirgin KISA ise (sen cover ediyorsan) ~12bb'de küçük raise-fold ve AJs/AQs sınıfıyla raise (jam değil) sınırda tutar *(kalibre et)*: kısanın jam'i tüm stack'idir ve karşısında geniş call bulur (kalan stack'inle çoğu jam'i ödersin) → fold-equity düşük → rejam daralır, küçük raise-fold nefes alır. Arkandakiler derinse tersi: rejam onlara yalnız efektif ~12bb'ye mal olur, reshove genişler — jam-or-fold daha da sertleşir; ~20bb'deki "derin masa call'ı tercih eder" alanı (B33.6) burada kapanır, call seçeneği yoktur. İstisna bandın üst ucuna özgüdür; 4–8bb'de doktrin aynen. Cover eden rahat rejam'ler, cover edilen primli — B33.6'nın efektif-stack mekanizmasıyla aynı yön.
+
 ### 30.1 Raise+ ile karşılaşınca: jam-or-fold, flat DEĞİL
 
 Fringe eller (Q9s/J9s/QTo tipi orta-broadway/zayıf-suited sınır elleri) bu derinlikte CALL değil **jam-or-fold**'dur — ~10-12bb'de re-jam min-raise üstünde gerçek fold-equity taşır; 4-8bb'de jam canlı equity + ölü parayla çalışır, fold-equity beklenmez. Micro stack'in büyük bir kısmını "flop görmek için" fringe'le call etmek, jam/fold doktrininin tam önlediği klasik hatadır.
@@ -2551,6 +2761,22 @@ Jam et, biri call diğerleri fold → tek aralığa karşı büyük pot. Caller 
 ### 30.4 Bu bantta flat/trap YOK
 
 4-12bb'de flat-call ağaca girmediği için flat>3-bet trap'i de yoktur (trap/flat hatları 30bb+ derin oyuna aittir; B5'in 25-30bb bandı da jam/fold'dur). Arkanda kısa bir jam-happy stack olsa bile plan jam-or-fold'dur; "yem yutulsun diye" flat'lemek kök-hatanın micro sürümüdür (fold-equity'siz çip bağlama).
+
+### 30.6 ≤5bb BB, jam'e karşı: neredeyse her iki kart CALL
+
+Kök hata: 5bb'de BB'den jam'e "elim yok" diye fold — hele hızlı yapıda. Üç mekanizma üst üste biner:
+
+1. **Pot-odds:** BB + ante zaten pottadır, kalan stack'in küçük; gereken equity = kalan ÷ (2×(kalan + BB) + SB + ante) — rakip toplam stack'ini eşler, SB ve ante ölü para; jam'ci SB ise SB'nin 0.5bb'si eşlemenin içindedir, ayrıca ekleme — payda 2×(kalan + BB) + ante olur; kendi elinle hesapla.
+2. **Jam aralığı çoğunlukla tepesizdir (sınırda — bonus, taşıyıcı bacak değil):** jam'cinin arkasında hâlâ fold'a zorlanacak oyuncu varken (CO/BTN jam'i) raise opsiyonu olan stack *(kabaca 12–20bb, kalibre et)* en güçlü ellerini çoğunlukla non-all-in açar (QQ+ *(kalibre et)*); jam aralığı küçük çift + suited Ax + offsuit yüksek kart + bazı suited Kx/Qx → küçük suited connector/gapper ve bağlantılı offsuit'ler nadiren domine edilir, büyük çifte seyrek çarpar; küçük çifte karşı equity'leri canlı kalır *(kalibre et)* — tepenin non-all-in açılması fiyatını sınırda daha da iyileştirir. SB→BB ya da tek-rakip jam'inde bacak düşer: sen zaten her şeyle ödüyorsan jam'cinin primini jam dışında tutmasının maliyeti yok, aralık tepelidir; çok kısa jam'ciye (raise opsiyonu yok) karşı da düşer — karar 1 ve 3'e yaslanır.
+3. **Gelecek-oyun (22.10):** fold edersen sıradaki SB + ante seni 3bb altına iter, oradan double bile ölü stack üretir; call edip kazanırsan diri stack'e çıkarsın. Kazanç/kayıp oranı bandın üst ucunda kabaca 2–2.5:1, ~3.5bb ve altında 3:1'i geçer *(ante yapısına göre, bacak 1'in formülünden türet — kalibre et)*; gelecek-oyun ağırlığı bunu daha da yukarı iter, gereken equity daha da iner.
+
+**Kural:** ≤5bb BB'de jam'e varsayılan CALL; fold'u yalnız ölü offsuit çöpe sakla, önce "sıradaki BB'ye kaç bb'yle giriyorum?" diye sor. Min-raise'e karşı kalan stack'in pot-odds'unun çöktüğü bant — kabaca 3–4bb *(kalibre et)* — fold yok, jam. Bir bant üstte (~7bb) call aralığı sert daralır *(kırılma: kalibre et)*. Havuz bu bantta çok sıkı öder — jam tarafında bunu bil, BB'deyken kopyalama. 30.2'nin sayısal ucu.
+
+### 30.7 Postflop ≤15bb BB (bandın üst ucu): düşük board'da lead = JAM ya da CHECK
+
+≤15bb, rakip daha derin açtı, BB'de flat'ledin. Kök hata: 40–60bb refleksiyle alt/orta per'i check-call'a taşımak. Sığda flop potu stack'e göre o kadar büyüktür ki hesabı iki şey ele geçirir: equity'ni bedava kart vermeden KORUMAK ve rakibin equity'sini FOLD ETTİRMEK; alt per bile çoğunlukla stack-off sınıfına girer (10bb civarı), 15bb'de sınırda. Jam'in fold equity kaynağı: bare overcard'lar (kabaca çeyrek equity) ve gutshot / tek-overcard'lı zayıf draw'lar katlanır; overcard'lı üst kent draw'ları (çoğu per'e karşı önde) ödeyecektir — onlara karşı jam'in değeri fold değil, bedava kart vermeyip equity'yi anında realize etmektir. Flop jam aralığın YOKSA IP her eliyle bedava turn'e geçer — sığda ilk parayı koyan olmak pozisyondan değerlidir *(kalibre et)*.
+
+**Ağaç en fazla üç düğüm: jam / küçük / check.** BTN açıcıya karşı düşük-orta bağlantılı board: jam sınıfı = top/orta per, overcard'lı kent draw, gutshot+overcard. **Tuzak sığda:** iki per, kent, set, güçlü top-pair'in bir kısmı CHECK'te — jam aralığı zaten kırılgan ellerle dolu, nut'u eklersen check aralığın çıplak kalır; test: "bu el kötü turn kartından korkuyor mu?" — korkuyorsa jam. **10→15bb:** jam frekansı bir miktar düşer, küçük/check-jam pay alır; asıl değişim sınıfın kayması — dinamik dokuda alt per check'e, overcard'lı draw'lar jam'e *(kalibre et)*. **EP açıcı (dar aralık):** overpair-yoğun dar aralık düşük board'u ISKALAMAZ — equity avantajı overpair'lerle EP'de kalır; BB'nin avantajı NUT'tur (iki per/kent/alt set — EP'de yok). Overpair'ler katlanmaz (az fold equity) → küçük/sık lead değil, KONTROL: aralık çoğunlukla check, jam yalnız nut/nut'a yakın sınıf + en iyi kent draw'larına (semi-blöf) saklanır; küçük lead ancak nut-ağırlıklı ve seyrek *(kalibre et)*. Yüksek board için 19.1-EK.
 
 ### 30.5 Cheat kartı
 
@@ -2581,6 +2807,10 @@ Jam et, biri call diğerleri fold → tek aralığa karşı büyük pot. Caller 
 ### 31.1 Derinlik-orantılı limp/raise — orta-sığ derinliğin üstünde IP jam kaybolur
 
 HU BTN stratejisi derinlikle kayar: derinleştikçe raise payı büyür (çok derin ~raise-only), sığlaştıkça limp ağırlıklaşır *(kalibre et)*. Kritik sürpriz: orta-sığ derinliğin üstünde IP jam kaybolur, limp öne geçer *(eşiği kalibre et; ~15-16bb civarı)*; çok sığda bile polar limp aralığı var — trap + çöp *(derinliği kalibre et)*. Pasif rakibe karşı dengeyi bırak: çöpü limp'le, iyiyi raise'le.
+
+### 31.1-EK Pozisyon aynası: "derinleştikçe raise" yönü BvB SB'de de geçerlidir — aynalanan eğri değil, pozisyon ve motor
+
+31.1'in derinlik eğrisi IP limp içindir: HU-BTN limp'ini OOP rakip iso eder. 8-max BvB'de SB limp'i OOP'dir, iso IP'den (BB) gelir ve IP iso derinlikle çoğunlukla büyür — eğri BvB'de çoğunlukla tersine dönmez, aynı yönde kalır: derin uçta SB de limp payını küçültüp raise-first'e kayar, sığlaştıkça (kabaca 12–15bb'ye kadar) limp ağırlıklaşır; daha altında limp yerini open-jam'e bırakır *(kalibre et)*. Fark limp-reraise'in varlığı değil eğrinin seviyesi ve limp'in dokusu: raise-fold'un preflop maliyeti iki tarafta aynıdır, fark raise'in çağrıldığı dalda çıkar — OOP raise'i çağrılınca büyümüş potta pozisyon dışı kaldığı için SB aynı derinlikte HU-BTN'den çoğunlukla daha fazla limp'ler; fazlalık raise-fold'dan kaçan orta ellerdir, derin uçta SB'nin limp dilimi HU-BTN'e göre daha geniş ve daha merged'dir; limp-reraise dilimi korunur (premium'un bir kısmı + birkaç blocker) ama oransal payı büyük değildir, sınırda *(kalibre et)* — derin kolda limp sıfıra inmez, eğri çoğunlukla düzleşir. B33.1'in "U"su frekans değil içerik eğrisidir (limp'in limp-reraise/limp-jam dilimi: derinde premium tuzağı, sığda blocker yarı-blöfü). Değişen yön değil, motor ve seviye: IP'de "ucuz flop görme", OOP'ta "raise'in çağrılma dalından kaçınma + SPR kapanı". HU için bu satır, BvB için bkz. B33.1 (pozisyon aynası kutusu).
 
 ### 31.2 Capped kalmanın gerçek maliyeti
 
@@ -2624,3 +2854,215 @@ BB'den open'a karşı küçük çiftler HU'da beklenenden derin stack'lerde jam 
 | **Küçük çift** | BB'den open'a karşı rejam şaşırtıcı derinliğe kadar +EV *(kalibre et)*; tam stratejide ~20-25bb üstü jam yerine raise standart |
 
 *Kök hata bağı: HU/short-handed FT kitabın en büyük yapısal boşluğuydu; komple yeni bölüm. Kök hata omurgası burada da geçerli (capped kalma + tek per disiplini), yalnız aralıklar HU-geniş.*
+
+---
+
+## Bölüm 32 — 3-bet Pot Postflop: Boyu Board Değil, El Sınıfı ve Iskalayan Blok Seçer
+
+*B4 3-bet aralığını, B11 şişmiş potun icrasını, B18 tek-raise'li flop'u, B26 caller tarafını verdi; 3-bet EDENİN postflop hatları yoktu. Baseline: HU, 3-bettor OOP (SB/BB), caller IP (BTN); ante'li 8-max, ICM yok. İki kolon: SPR ≲2 (30-45bb) ve SPR ~3-4 (~55-70bb); metindeki "100bb" örnekleri ikinci ağacın derin ucudur — 100bb'de SPR ≳4-5, ağaç değişir (32.1) *(kalibre et)*. Sen caller'san B26/B11 geçerli; buradaki hatlar şişirenindir (32.5 stab hariç).*
+
+### 32.0 Tek cümlelik tez
+
+> **3-bet potunda boyu board dokusu tek başına değil; dokunun hangi bloğu ıskalattığı + el sınıfı seçer. Kök hata (şişmiş potta tek per) şişirenin — 3-bettor'ın — hatasıdır: aralık + nut avantajı ona sığ SPR'de jam, derin SPR'de polar boy lisansı verir; lisansı SPR'ye ve dokuya bakmadan kullanmak (100bb'de nut avantajının eridiği bağlantılı dokuda tek perle stack-off) kök hatanın ta kendisidir. Capped caller'ın tek peri zaten bluff-catcher'dır (B26).**
+
+"3-bet eden = Ax'i bol" eksiktir: 3-bettor'ın Ax'i oran olarak yoğun ama sınıf olarak dar ve uç-ağırlıklıdır (AA/AK/AQ + suited tekerlek blöfleri), caller'ınki orta-sınıf, geniş ve dominedir (AJ/AT/A9s tipi) — suited Ax'in çoğu ve offsuit AT-AJ caller'da kalır (AQo çoğunlukla 3-bettor'da, derin stack'te kısmen caller'da — *kalibre et*). Offsuit broadway kesiminin (KQ/KJ/QJ) büyük payı da caller'dadır; KT/QT/JT derin stack'te ya da küçük 3-bet'e karşı gelir, 30-40bb'de çoğunlukla fold *(kompozisyon: B4, kalibre et)*. İki sonuç: (1) hedeflediğin iki fold bloğu var — offsuit broadway ve suited Kx/Qx/Ax çöp; her flop'ta soru "hangi blok ıskaladı, hangi boy onu katlatır?" (2) A-high board'da caller'ın Ax'ini azımsama: küçük bet ucuz olduğu için verimlidir; büyük bet caller'ın Ax'ini yine katlatmaz, yalnız blöflerin fiyatını artırır ve senin dar/uç Ax'ini polar (nut vs hava) bir ağaca zorlar — A-high'da büyük boy çoğunlukla gereksiz *(kalibre et)*.
+
+### 32.1 Sığ SPR ağacı: jam ya da check
+
+40bb civarı, orta-bağlantılı board (T-9-x / J-9-x): iki aralık da neredeyse ıskalamaz. Caller'da orta/alt per + düz çekilişi; sende top pair + overpair + iki-overcard-çekiliş. Caller'ın "bir şeyi" seninkinden zayıftır ama katlanamayacak kadar equity taşır. Flop jam'i bunu paraya çevirir: kendi equity'ni tamamen realize edersin, geride-ama-equity'li elleri (suited Kx/Qx, offsuit broadway, düşük per) katlatırsın, çekilişleri geride call ettirirsin.
+
+Ağaç iki dallı: **jam** (top pair, overpair, iki-overcard + düz/backdoor-flush, güçlü draw) / **check** (para koymak istemeyen alt per ve zayıf Ax; çekilişsiz AK — check-call/check-jam; tuzak — top set). Ara boylar aynı elleri düşük frekansta oynatan kopyalardır; atıldığında EV kaybı ~sıfır *(node-lock — B27.3)*. A-high + fd + iki broadway'de (A-Q-T fd) de aynı ağaç: flush kartsız AK/AT hızlı oynar. **Sınır:** SPR ~3-4 ve üstünde (100bb'de ≳4-5) flop jam çoğunlukla hiçbir board'da sınıf olarak kalmaz — jam potun 3-4 katıdır; yerini iki-boy (küçük + büyük) alır. Jam'e en yakın doku, overcard'larının (AK/AQ) nut-gutshot aldığı en bağlantılı yüksek board'lardır (J-T-x tipi): büyük boy + turn stack-off ağırlığı, sınırda *(hangi board'lar, hangi frekans: kalibre et; 32.3)*. B11.0'ın "SPR 1-4: tek per bluff-catcher" satırı capped caller için SPR ≳2'de geçerlidir (SPR ≲1.5'te onun top pair'i de çoğunlukla call-off'a iner — potu başlatmaz ama jam'e katlamaz; 11.0-EK-2); nut avantajlı 3-bettor'da SPR ≲2'de top pair/overpair çoğunlukla jam sınıfıdır *(frekans: kalibre et)*, 100bb'de satır 3-bettor'a da geri döner (32.2).
+
+### 32.2 Mekanizma: derinlik ve alt-çift pusulası
+
+**Derinlik top pair'in sokak sayısını belirler.** 40bb'de Ax top pair hemen her runout'ta stack-off eder → flop'ta bet. 100bb'de üç sokak, stack'i river'da tek perle içeri sokmaktır; çoğu river'da (B11.4 kataloğu üç sokak boyunca çalışır) jam value değildir. Ama atlanan sokak flop değildir: Ax top pair flop'ta çoğunlukla bet ile devam eder (boyu alt-çift pusulası seçer, aşağıda), atlanan sokak river — bazen turn; zayıf kicker turn/river'da daha çok kontrol eder *(kalibre et)*. 100bb A-high potunda Ax top pair çoğunlukla "iki sokak + river kontrol" elidir; "bet-bet-jam" 40bb refleksidir.
+
+**Alt-çift pusulası.** Boyu value'nun en KIRILGAN katmanı seçer. Flop'ta sor: "alt çiftlerim (TT-QQ) bet istiyor mu?"
+
+- **A-K-x:** istemez — caller'ın Kx'i geçmiş, katlattığı zaten geride, çağırdığı daha iyi per → alt çift check; Ax/Kx + gutshot blöfler polar → büyük boy, frekans yine yüksek (aralık avantajı burada tepe yapar — yalnız alt çift katmanı düşer).
+- **A-J-x:** ister — Kx/Qx persiz overcard, küçük bete katlanır ya da geride call eder → alt çift küçük value, aralık eşlik eder → tek küçük boy, tam-aralık.
+- **A-J-x + fd:** bu kez istemez (A-K-x gibi) — turn'de blöf atabilecek çekiliş artar *(kalibre et)*.
+
+Kural: alt çift bet istiyorsa lineer küçük; istemiyorsa polar büyük + alt çift check — pusula boyu seçer, frekansı aralık avantajı seçer; alt çift boyun TAVANINI koyar, tabanını SPR koyar. B18.1-EK "boyu value seçer"in 3-bet-pot uygulaması.
+
+### 32.3 Board sınıfları
+
+*(boylar/frekanslar kalibre et; yön sabit)*
+
+Sınıfları ezberleme, üç sürücüden türet: **(a) nut avantajı kimde?** — aralık avantajı çoğu board'da 3-bettor'da, nut avantajı yalnız yüksek kartlı / A-high dokularda; nut caller'daysa boy küçülür ya da check artar. **(b) SPR** — ≲2'de jam/check ağacı; ~3-4'te iki-boy ağacı, flop jam çoğunlukla yok; 100bb'de SPR ≳4-5, ağaç değişir (32.1). **(c) Turn-jam tehdidi** — doku-koşulludur: sığda dinamik dokuda (J-T-x tipi) turn-jam tehdidi flop boyunun işini yapar, çıplak çekilişi kayıtsız bırakır → büyük boy / jam ağacı çalışır; derinde tehdit yalnız pot-boy flop'la korunur → J-T-x tipinde pot-boy; ince-nut dokuda (üç-broadway) her derinlikte küçük, gerisi turn'e (32.5). Aynı SPR'de iki dokuyu (c) değil (a) ayırır. Altı doku ailesi bu üç sürücünün işlenmiş örnekleridir:
+
+| Aile | SPR ≲2 (30-45bb) | SPR ~3-4 (baseline ~55-70bb; 100bb'de SPR ≳4-5, ağaç değişir — 32.1) | Sürücü / neden |
+|---|---|---|---|
+| **A-high kopuk** (A-6-2 r tipi) | Tam-aralık küçük | Tam-aralık küçük | (a) Nut + aralık sende; caller'ın broadway/suited Kx bloğu tutunmaz, alt cep ince value. Wheel-bağlantılı A-high (A-3-2 tipi) sınır: caller'da 22/33 + A5s-A4s/54s tipi wheel/set VAR; 100bb'de derinlik caller'ın nut payını değerli kılar → check payı artar, küçük-bet sıklığı düşer; sığda düşük SPR + aralık avantajı bunu bastırır → tam-aralık küçük *(kalibre et)* |
+| **A + broadway** (A-J-x, A-K-x tipi) | Alt-çift pusulası (32.2): A-K-x'te Ax polar büyük, alt çift check; A-J-x'te lineer küçük | Aynı; Ax'in bir kısmı check *(kalibre et)* | (a) Kx/Qx pere döndü → hedef katman değişti; A-K-x'te QQ/JJ/TT tipi alt cebin bir kısmı büyük BLÖF adayı (caller'ın KJ/QJ/JT'sini bloklar), 99 ve altı bloklamaz → check. Sticky rakipte tüm Ax büyük |
+| **İki yüksek bağlantılı kart / üç broadway** (K-Q-x, J-T-x, K-Q-T tipi) | Jam/check; J-T-x tipi dinamikte büyük — (c) turn jam çıplak çekilişi kayıtsız bırakır; üç-broadway'de (K-Q-T) küçük — (a) nut avantajı ince, büyük boy caller'ın iki-per/düz kesimine commit olmaktır *(kalibre et)* | Pot-boy polar (32.4). Flop jam yok; jam'e en yakın doku overcard'ların nut-gutshot aldığı J-T-x tipi: büyük boy + turn stack-off ağırlığı, sınırda *(kalibre et)*. Üç-broadway'de (K-Q-T) küçük — (a) caller'da AJ/JT/iki-per/set yoğun, nut avantajı ince *(kalibre et)* | (a) Nut avantajı ince: üst overpair'ler sende, caller'ın iki-per/düz kombinasyonları yoğun, overpair'i az (QQ hariç capped). İkinci-per yığını yarım pota tam call eder; domine ikinci per (QJ tipi) check |
+| **Orta bağlantılı** (T-9-x, J-9-x, 9-8-7 tipi) | Jam/check (32.1) | Pot-boy; 9-8-7 tipi tam bağlantılıda check/küçük | (b) İki aralık da ıskalamaz. Overcard'ların gutshot'ı yok, düz kartı (Q) caller'ın KJ'sini tamamlar → dikkat. 9-8-7'de caller'da düz/iki-per/set BOL; TT/JJ büyük bete yalnız kendini yenen elden call alır (koruma satın alınamaz) |
+| **Düşük kopuk** (6-5-2, 7-6-5 tipi) | Büyük / geometrik — SPR zaten commit ettirir, overpair erimeden value | Overpair kütlesi merged → küçük-orta, yüksek frekans; kırılgan overpair bir kademe büyük *(kalibre et)* | (a) Aralık/overpair avantajı sende, nut (set/iki-per: 22/55/66) CALLER'da → nut avantajı yok. Blöf: 99-JJ'yi bloklayan T9/J9 tipi. Bağlantılı düşükte (7-6-5) OOP çoğunlukla check, IP stab (32.5) |
+| **Eşleşmiş ve mono** — "trips/flush kimde?" | Caller'da trips olası eşleşmiş (9-7-7 tipi): jam/check. Yüksek tek kartı senin aralığında eşleşmiş (A-J-J tipi): küçük. Mono (3-bettor OOP): A + iki düşük check ağırlıklı / küçük karışık; A-yok kopuk orta (T-6-5 tipi; A♠x nut-fd payı sende) çoğunlukla küçük; caller'ın yapılı non-nut flush + düz/kombo-çekiliş yoğunluğunun arttığı (T-9-8 tipi; A♠x nut-fd payı yine sende) check ağırlıklı, sınırda küçük dürtme; K-high mono'da nut-fd payı sende kalır ama caller'ın non-nut flush yoğunluğu + overpair'in değer kaybı yine check ağırlıklı tutar *(kalibre et)* | Trips-olası eşleşmişte yarım pot civarı *(kalibre et)*; gerisi aynı | Kayıtsızlık fiyatı (32.4): orta katman küçüğe tam call eder / hedef katman küçüğe zaten katlanır. Mono'da ayırıcı nut-flush sahipliği: A + iki düşükte senin flush'ın az, caller'ın suited Kx-Tx'i flush; A-yok kopukta suited Ax'lerin nut flush/fd; caller'ın yapılı flush/düz kütlesi büyüdüğünde (suited non-nut flush + düz/kombo-çekilişleri yoğun; A♠x nut-fd payı sende kalsa da) yalnız overpair equity avantajı kalır → potu büyütme. Yüksek broadway mono (A-Q-T tipi) sınırda *(kalibre et)* |
+
+### 32.4 Boyut: kayıtsızlık fiyatı, polar/lineer, kırılgan value
+
+**Boyu hedef katmanın kayıtsızlık fiyatı seçer.** Önce "hangi sınıfı katlatmak istiyorum?", sonra "o sınıf hangi boyda kayıtsız?" Caller'da trips olası eşleşmiş board'da (9-7-7 tipi) caller'ın orta katmanı (offsuit broadway, backdoor Kx/Qx, gutshot, alt cep) küçüğe çoğunlukla call eder, yarım pot civarında kayıtsızlığa yaklaşır; yüksek tek kartı senin aralığında olan eşleşmiş board'da (A-J-J tipi) küçüğe zaten katlanır. B11.3-EK'in flop ikizi *(kalibre et)*.
+
+**İki-yüksek-kart board'da pot-boy polar — blöf ALT PERden gelir.** K-Q-6'da yarım pot orta çiftleri ve alt cepleri çoğunlukla içeride tutar; pot-boy alt cepleri katlatır, Qx'i sınıra iter *(kalibre et)*. **Value** = güçlü-kicker top pair + overpair; **blöf** = alt per + yüksek gutshot (AT/AJ) + fd; **check** = ikinci per ve alt cep — pot-boyla yalnız daha iyi ele izole olurlar. Alt per blöfü asız 6x'tir (65s/64s tipi, aralıkta varsa): 66/Q6/K6'yı bloklar, katlatmak istediğin 7-J ceplerini ve Ax'i bloklamaz. A6s ise katlanan Ax'i de devam eden AQ/AK'yi de bloklar — net etki sınırda. A-K-x aynı kova. Bet frekansını value sayısı tavanlar; fazla blöf adayı frekansı değil hangi blöfün seçildiğini değiştirir (en iyi blokerli) — A-K-6 ile A-K-4 farkı marjinaldir *(kalibre et)*.
+
+**Kırılgan overpair kütlesi: boyu SPR ve erime seçer, nut kıtlığı değil.** 6-5-2'de 77-JJ'ye karşı caller iki-overcard + backdoor ile call eder, her overcard turn'ü tehdittir. Caller'ın nut'u mutlak sayıda az ama seninkinden fazla — setler (22/55/66) onda; sende aralık/overpair avantajı var, nut avantajı yok. Sığda boyun büyüklüğü SPR'nin zaten commit ettirmesinden + erimeden önce alınan value'dan gelir; suited Tx/9x'i pot-boyla katlatırsın. 100bb'de aynı kütle merged'dır → boy küçülür, frekans büyür; kırılganlık boyu bir kademe yukarı iter, AA/KK'yı değil — korunma ihtiyacına göre böl *(kalibre et)*. B18.1-EK "koruma sahte nedendir" burada sınır bulur: bu kütlede koruma "erimeden önce alınan value"dur — boyun tabanını SPR koyar, tavanını alt çift (32.2).
+
+**Turn SPR:** pot-boy sonrası SPR <1 → turn jam/check; yarım pot sonrası SPR ~1.5 → turn yarım pot, river jam.
+
+### 32.5 IP/OOP ve check-node hatları
+
+**OOP 3-bettor'ın tam-aralık küçük bet'i meşrudur.** B18.5 "OOP havayla range-bet TUZAK" tek-raise'li PFR OOP içindir; aralık avantajlı 3-bettor kopuk A-high'da tam-aralık küçük atar; A-yok kopuk orta mono'da ÇOĞUNLUKLA küçük (bağlantı arttıkça, caller'ın flush yoğunluğu (non-nut dahil) büyüdükçe check payı büyür — nut-flush payı Axs ile çoğunlukla sende kalır — *kalibre et*).
+
+**Turn-jam tehdidi.** Çekilişi kayıtsız bırakan flop boyu değil turn JAM tehdididir. Dinamik dokuda (J-T-x tipi) 40bb'de flop bet + turn jam çıplak fd / tek gutshot'ı sınırda call-off'a zorlar → büyük boy çalışır. 100bb'de tehdit ortadan kalkmaz, gecikir: turn jam overbet olur (turn SPR ≳1.5), caller çekilişini flop'ta commit olmadan taşır → tehdit yalnız pot-boy flop'la korunur; J-T-x tipinde pot-boy bunu yapar. Üç-broadway'de (K-Q-T) ise her derinlikte KÜÇÜK: nut avantajı ince (32.3 a), büyük boy caller'ın iki-per/düz kesimine commit olmaktır — otomatik-fold bloğunu ucuza topla, gerisini turn'e taşı *(kalibre et)*.
+
+**Yüksek-kart bağlantılı board'da IP check-node: küçük stab az şey katlatır.** OOP 3-bettor'ın check aralığı nut'lar + korunmuş orta katman (ikinci per, orta cep çiftleri, gutshot'lı broadway) + give-up'lardır; küçük bet bu aralığın çoğunu katlatmaz, yalnız zaten en zayıf eller düşer. Boyu büyüt — yarım pot civarı *(kalibre et)*. Value = top pair; blöf adayı = orta perleri bloklamayan VE rakibin katlanan A-high bloğunu bloklamayan eller — A taşımayan düşük suited bağlantılı / gutshot; düşük Ax stab listesinin sonundadır (katlanan Ax'i bloklar; A runout'unda value-jam'e dönüşebilir ama A'nın düz tamamladığı iki-broadway dokuda (K-Q-x'e A → JT, Q-J-T'ye A) bu kapasite de düşer, *kalibre et*). Yüksek-equity açık çekiliş fold equity'ye muhtaç değildir: bedava realize eder, check-raise jam'e karşı kırılgandır → çoğunlukla check-back *(kalibre et)*.
+
+**Düşük board'da IP stab (sen caller'san).** 7-6-5 / 6-5-4'te 3-bettor'ın offsuit broadway'i hiç, 9x/8x az, overpair üç sokak istemez → çoğunlukla check eder ve check aralığı zayıftır (overpair'lerin bir kısmı hâlâ bet). "Tuzak" diye check-back etme; küçük stab neredeyse tam-aralık — pratikte 3-bettor bu elleri teoriden de sık atar *(kalibre et)*. Sınır sorusu: **3-bettor'ın overcard/broadway kesimi bu dokuda düz çekilişi alıyor mu?** 8-7-6 / 9-8-7 (ve 9-8-2 / 8-7-3 gibi iki üst kartı ardışık olanlar — 9-8-2'de JT/QJ, 8-7-3'te T9/JT çekiliş alır) evet → seçici; 9-5-2 / 8-4-2 tipi gerçek kopuk hayır → serbest *(sınır board'ları kalibre et)*. B19.4'ün 3-bet-pot satırı, B18.5'in aynası: DÜŞÜK/bağlantılı board'da OOP 3-bettor çoğunlukla check eder, IP stab eder (A-high kopuk'ta tam-aralık, A-yok kopuk mono'da çoğunlukla küçük bet kalır).
+
+### 32.6 Turn/river: polarlaşma ve kart-eşleme
+
+Küçük flop bet'i call yedikten sonra turn çoğu kartta polarlaşır (büyük boy, orta katman check); düz/orta-per ekleyen turn'de lineer küçüğe döner *(kalibre et)*. **Blöf seçimi = bugünkü fold equity + yarınki value-jam kapasitesi** — orta perleri bloklamayan düşük Ax tipi unblocker öne çıkar; yüksek-equity çekiliş fold equity'ye muhtaç değildir, bedava realize eder. River: OOP, blöfü Ax-ağırlıklı IP'ye karşı AQ'yu FOLD, QJ'yi CALL eder — AQ blöfleri bloklar (B26.4).
+
+**River overbet blöfünde kart-eşleme.** Blokeri yalnız "nut'u bloklar mı" diye seçme. Rakip bluff-catch kararını senin VALUE aralığınla eşleşen kartlara göre verir: flush GELEN board'da value'n orta kart + flush kartı taşıyorsa, o kartı tutan bluff-catcher (Ax + flush kartı) "eşleştirdim" diye CALL eder, tutmayan FOLD. Blöf adayının kritik özelliği rakibin premium bluff-catcher'ının kartını senin de taşımandır — "eşleşen" call sınıfını azaltır, kalanın katlanma payı çoğunlukla yükselir (fold equity artar, garanti değil). Alt cep + flush kartı bu yüzden flush gelen mono board'da doğal overbet blöfüdür; kaçan flush'ta flush kartı taşıyan blöfler çoğunlukla listenin sonundadır — rakibin zaten katlanacak ıskalamış çekilişini bloklarsın; bloklamayan aday varsa onu seç. Value iki boy: en üst Ax rakipteyse zayıf-orta Ax küçük, flush+ büyük. B11.2-EK'in saldırı yüzü *(kalibre et)*.
+
+### 32.7 Kalibrasyon
+
+*(kalibre et: kendi solver'ında 3-bettor düğümü — jam frekansı ve check sınıfı (40bb T-9-x); 100bb J-T-x'te büyük boy / turn stack-off payı; alt-çift bet/check EV farkı (A-K-x vs A-J-x); kayıtsızlık boyu (9-7-7); iki-boya indirmenin EV kaybı (B27.3); 100bb A-high top pair turn/river kontrol oranı; düşük kopuk board'da 100bb overpair boyu; IP check-node boyu. Saha: son 30 3-bet potunda caller'ın küçük bete fold oranı.)*
+
+### 32.8 Cheat kartı
+
+| Konu | Kural |
+|---|---|
+| **Tez + aralık** | Boyu doku tek başına değil, ıskalayan blok + el sınıfı seçer; 3-bettor'ın Ax'i oran olarak yoğun ama sınıf olarak dar/uç-ağırlıklı, caller'ınki orta-sınıf, geniş ve domine; iki fold bloğu: offsuit broadway + suited Kx/Qx/Ax çöp. Kök hata şişirenindir: lisans SPR + dokuya bağlı |
+| **Jam ağacı** | SPR ≲2 (30-45bb) orta-bağlantılı: jam ya da check, ara boy yok. SPR ~3-4 ve üstünde (100bb'de ≳4-5) flop jam yok; en bağlantılı yüksek board'larda (overcard'lar nut-gutshot alıyorsa) büyük boy + turn stack-off ağırlığı, bir kademe altı çoğunlukla pot-boy *(hangileri: kalibre et)* |
+| **100bb A-high** | Top pair çoğunlukla 2 sokak + river kontrol (atlanan sokak flop değil); wheel A-high'da check payı artar, küçük-bet sıklığı düşer — caller'ın wheel/set payı derinlikte değerlenir *(kalibre et)* |
+| **Alt-çift pusulası** | TT-QQ bet istiyorsa lineer küçük; istemiyorsa polar büyük + alt çift check (frekans yüksek kalır — pusula boyu, aralık avantajı frekansı seçer) — alt çift tavanı, SPR tabanı koyar |
+| **İki yüksek kart** | Çoğunlukla pot-boy polar *(kalibre et)*: value ≈ TPTK + overpair; blöf adayı ≈ alt per (showdown zayıf, cepleri bloklamaz) + yüksek gutshot; ikinci per / alt cep ağırlıkla check |
+| **Düşük kopuk** | Aralık/overpair avantajı sende, nut caller'da; sığda büyük (commit + erime), 100bb'de merged → küçük-orta, kırılgan overpair bir kademe büyük *(kalibre et)*; 9-8-7 tipi check/küçük |
+| **Eşleşmiş / mono** | Caller'da trips olası (9-7-7) → yarım pot civarı — nut onda ama orta katmanı küçüğe tam call eder, kayıtsızlık fiyatı (32.4); yüksek tek kart sende (A-J-J) → küçük, hedef katman küçüğe zaten katlanır; mono'da "nut flush kimde?" — A+düşük check ağırlıklı/küçük karışık, A-yok kopuk orta çoğunlukla küçük, caller'ın yapılı flush/düz kütlesi büyüdüyse (T-9-8 tipi; nut-fd payı yine sende) check ağırlıklı |
+| **Üç broadway** | Her derinlikte küçük (nut avantajı ince — caller'da iki-per/düz yoğun, büyük boy onların kesimine commit olmaktır; kalibre et). Büyük boy / jam ağacı dinamik yüksek dokunun (J-T-x tipi): sığda flop bet + turn jam çıplak çekilişi kayıtsız bırakır, 100bb'de pot-boy |
+| **IP check-node** | Yüksek/broadway board'da küçük stab verimsiz; yarım pot civarı, blöf adayı A taşımayan düşük suited bağlantılı / gutshot (rakibin katlanan A-high bloğunu bloklamaz); düşük Ax stab listesinin sonunda *(kalibre et)* |
+| **Düşük board stab** | Bağlantılı düşükte (7-6-5 tipi) 3-bettor'ın ıskalayan broadway bloğu + overpair'in bir kısmı check eder → check-node'da küçük stab; kopuk düşükte (6-5-2) varsayılan c-bet (Düşük kopuk satırı). "Overcard kesimi düz çekilişi alıyor mu?" evetse seçici |
+| **River overbet blöf** | Rakibin premium bluff-catcher'ının kartını taşı; alt cep — flush kartı yalnız flush GELEN river'da (kaçan flush'ta flush kartlı blöf listenin sonunda) |
+
+### 32.9 Drill (5 soru)
+
+1. 40bb, SB 3-bet, BTN call, flop T♠9♦4♣, elin A♠T♦. Hat?
+   → **Jam.** Sığ SPR + orta-bağlantılı board + aralık avantajı: geride-ama-equity'li elleri katlatırsın; ara boy kopya (32.1).
+2. Aynı el, aynı board, 100bb. Ne değişti?
+   → **Jam yok; pot-boy/check.** 100bb'de flop jam çoğunlukla sınıf değil (SPR ≳4-5; ~3-4'te de iki-boy ağacı). T-9-x'te AK/AQ'nun nut-gutshot'ı yok, Q'da caller'ın KJ'si düz → pot-boy. Büyük boya en yakın doku, overcard'ların nut-gutshot aldığı J-T-x tipi board'dur *(kalibre et)* (32.3).
+3. 100bb, A-K-4 rainbow'da TT: bet mi check mi? A-J-4'te?
+   → **A-K-4 check, A-J-4 küçük bet.** Kx seni geçmiş → alt çift check, aralık polar; A-J-x'te Kx/Qx persiz overcard → lineer küçük (32.2).
+4. 100bb, K-Q-6 rainbow, elin 7♥6♥. Blöf mü, hangi boy?
+   → **Pot-boy blöf adayı.** Asız 6x: 6, 66/K6/Q6'yı bloklar; katlatmak istediğin 88-JJ ceplerini bloklamaz (7, 77'yi yarı-bloklar — ihmal edilebilir); Qx check'te kalır (32.4).
+5. 3-bet'e call ettin, 100bb, flop 7-6-5 r, 3-bettor check, elin K♣J♦. Stab? 8-7-6 olsa?
+   → **7-6-5 küçük stab; 8-7-6 seçici.** 7-6-5'te 3-bettor'ın check aralığı zayıf; 8-7-6'da overcard/Tx kesimi düz çekilişi alır (32.5).
+
+*Kök hata bağı: B4 hatanın frekansını düşürür, B18 tek-raise'li flop'u, B11 şişmiş potun icrasını verir; B32 şişmiş potu KURANIN hatlarını verir. Kök hata değişmez ve şişirenindir: lisans sığ SPR + nut avantajlı dokuyla sınırlıdır, derinde, nut avantajının eridiği dokuda tek perle dokudan bağımsız stack-off eden 3-bettor kök hatayı yapar; capped caller'ın tek peri zaten bluff-catcher'dır. Guard: boyu board etiketine değil "hangi blok ıskaladı + alt çiftim bet istiyor mu + top pair'im kaç sokak taşıyor"a sor.*
+
+---
+
+## Bölüm 33 — Blind-vs-Blind: Limp, Raise ve Jam'in Derinlik Katmanları
+
+*Kitapta BvB satırı yoktu: B4.3, B5.1 ve B23.12 kenarlarına dokunur, SB limp'inin mekanizmasını hiçbiri vermez. Baseline: ante'li 8-max, 30–60bb, ICM yok. B28.13'ün limp rejimi kelle motoruyla çalışır; buradaki limp SPR ve polarizasyon motoruyla — "limp = kelle avı" ezberini BvB'ye taşıma.*
+
+### 33.0 Tez
+
+> **BvB masanın en geniş aralıklı ve derinlikle en çok şekil değiştiren düğümüdür. SB OOP, BB pozisyonda. Ezber "limp = zayıf, raise = güçlü" değil, "hangi motor çalışıyor"dur.**
+
+SB'nin limp'i derinlikle tek yönlü değişmez: ham limp payı HU'daki gibi jam/fold eşiğine kadar sığlaştıkça büyür, kabaca 12–15bb altında jam'e devrilerek küçülür *(kalibre et)*; limp'in İÇİ — limp-reraise/limp-jam dilimi — çoğunlukla U çizer *(kalibre et)*: derinde premium'un bir diliminin limp-reraise tuzağı, ortada incelir (ince premium kapağı + blocker blöfü), sığda blocker limp-jam'i. İki kolun içeriği farklıdır, her kolun motoru ayrıdır. HU-BTN'nin (B31.1) pozisyon-aynasıdır: orada limp IP'den yapılır, burada OOP'tan — oradaki "limp = ucuz flop görme" motoru burada çoğunlukla "OOP raise'in çağrılma dalından kaçınma + SPR kapanı" motoruna dönüşür. Gerekçe değişir ve eğri de kayar: yön aynıdır ama aynı derinlikte OOP SB, IP HU-BTN'den çoğunlukla daha fazla limp'ler. Raise-fold'un preflop maliyeti iki tarafta aynıdır; fark raise'in çağrıldığı ya da 3-bet yediği dalda çıkar: BTN raise'le pozisyonunu parayla büyütür (çağrılınca IP oynar), SB'nin raise'i çağrılınca büyümüş potta OOP kalır, 3-bet yediğinde fold pahalı, call pozisyon dışıdır — limp ise OOP'ye ucuz flop ve limp-reraise'le SPR kapanı verir. Fark derinde açılır, sığda kapanır *(kalibre et)*.
+
+### 33.1 Derinlik katmanları — U eğrisi ve üç motor
+
+| Katman *(kalibre et)* | Motor | SB premium | SB limp'in içeriği |
+|---|---|---|---|
+| **Derin** (kabaca 50–60bb üstü; 45–60bb orta→derin geçiş bandı) | SPR: limp-reraise kapanı premium'un bir dilimi için; gövde raise-first'te *(kalibre et)* | Karışık: çoğunlukla RAISE-first (aralık capped kalmaz), bir dilimi LIMP → iso'ya büyük reraise *(kalibre et)* | Derinleştikçe daralır ama sıfıra inmez; HU-BTN'e göre daha geniş ve merged (raise-fold'dan kaçan orta eller); limp-reraise dilimi korunur: premium'un bir kısmı + birkaç blocker blöfü *(kalibre et)* |
+| **Orta** (kabaca 30–50bb) | BB iso'su polarize → limp-reraise hedefi dar | Çoğunlukla RAISE; ince limp-reraise kapağı | Limp-call gövdesi (suited/bağlı/küçük çift/zayıf Ax — iso'ya karşı fiyatla devam) + limp-fold kuyruğu (çöp) + küçük limp-reraise dilimi (ince premium kapağı + blocker blöfü, non-all-in); tuzak dilimi dipte |
+| **Sığ** (kabaca 20–30bb) | BB'nin raise üstü jam'i ucuz → raise-fold pahalı | Büyük çift RAISE (yine); AK sınırda | Limp-call gövdesi (suited/bağlı/küçük çift/zayıf Ax — iso'ya karşı fiyatla devam) + limp-fold kuyruğu (çöp) + limp-jam dilimi (blocker Ax/Kx + küçük çift) buraya döner — derin kolun premium tuzağı değil, yarı-blöf; limp payı en kalın |
+
+Katmanı efektif bb/SPR seçer; üç soru katmanın İÇİNDEKİ eşikleri kaydırır ve geçiş bandında (45–60bb) hangi tarafta oynayacağını belirler: "BB limp-reraise'ime suited elle call eder mi?" (derin) · "BB limp'ime çöple mi, suited elle mi iso ediyor?" (orta) · "BB raise'ime jam'ler mi?" (sığ). Derinleştikçe SB limp payını küçültür, raise-first'e kayar — premium'un gövdesi raise-first'te kalır, aralık capped olmaz; kalan limp'in içinde limp-reraise payı büyür — OOP derin potu hem raise'le hem kapanla büyütür, kapan payı derinlikle artar *(kalibre et)*. Sığlaştıkça limp kalınlaşır: iyi el raise-ve-al (blind+ante stack'e oranla büyük ödül), gerisi limp / limp-jam. Dördüncü katman — çok sığ (kabaca ≤15bb): raise-fold yok, 3-bet = jam, premium raise-call/jam, limp = limp-jam ağırlıklı, çöp fold — B3/B30'un jam-fold doktrinidir, bu bölümün dışında kalır *(kalibre et)*.
+
+> **Pozisyon aynası (B31.1 ↔ B33.1).** Aynalanan pozisyondur, eğri değil. HU-BTN limp'i IP'dir, iso'yu OOP rakip yapar; BvB SB limp'i OOP'dir, iso'yu IP rakip (BB) yapar ve IP iso derinlikle çoğunlukla büyür. "Derinleştikçe raise, sığlaştıkça limp" yönü iki yerde de aynıdır; seviye ve içerik kayar: OOP raise'i çağrılınca büyümüş potta pozisyon dışı kaldığı için SB aynı derinlikte HU-BTN'den çoğunlukla daha fazla limp'ler — fazlalık raise-fold'dan kaçan orta ellerdir, limp dilimi daha geniş ve daha merged olur; limp-reraise dilimi korunur (premium'un bir kısmı + birkaç blocker), oransal payı HU-BTN'e göre sınırda *(kalibre et)* → eğri çoğunlukla düzleşir, derin kolda limp sıfıra inmez. Ters dönen yön değil; değişen motor ve eğrinin seviyesidir. HU için B31.1, BvB için burası.
+
+### 33.2 SB'nin eli: derinde limp-reraise, sığda limp-jam
+
+**Derin: premium'un bir dilimi limp'ler.** Gövde raise-first'te kalır (aralık capped olmaz); tuzağa giden dilimi kalibre et. Mekanizma: SB raise + BB call, flopa yüksek SPR'yle gider; BB'nin orta suited connector'ı üstüne vuran flopta tek per yakalar, kolayca uzaklaşır. Limp ise BB'yi raise'e çoğunlukla 3-bet etmeyen ama limp'i çoğunlukla izole eden **orta bant**la (orta suited connector, offsuit broadway) pozisyona davet eder; büyük limp-reraise *(kalibre et)* SPR'yi birkaç kat düşürür, aynı flopta aynı tek per çoğunlukla stack-off'a gider. EV çöpü katlatmaktan değil, o banttan gelir. Reraise'i value-ağırlıklı tut: hedef bant yapışkandır, yapışkanlık value'ya öder, blöfe değil.
+
+**Kova inşası.** Her eli limp sonrası iso'ya vereceği cevaba göre koy: limp-fold (en zayıf offsuit, en düşük suited) · limp-call (iso'ya rahat devam eden QT/QJ tipi, suited orta broadway) · tepe (limp-reraise ya da raise). Kovaya sığmayan grup — orta Qx/Jx offsuit, boşluklu orta suited — **raise-fold'un doğal malzemesi**dir. Limp aşağıdan yukarı kurulur: önce raise-EV'si en düşük offsuit'ler, sonra "oynanabilir ama 3-bet yemek istemeyen" kalkan katmanı (düşük suited Kx/Qx, boşluklu düşük suited). Kural: **suited limp'ledinse tek iso'ya çoğunlukla fold yok** — en düşük suited istisnadır *(kalibre et)*; onun dışında fold edeceksen raise-fold et. İki sınır eli 50/50 karıştırma: iyisi raise, zayıfı limp. OOP olduğun için kalkan katmanı HU-BTN'den kalın olmalı *(kalibre et)*.
+
+**Sığ: büyük çift raise'de kalır** *(kalibre et)*. BB limp'e sık ve küçük iso eder; limp-jam'i call ettiği aralık, raise'ime jam'lediği aralıktan dardır. Raise, BB'nin limp-jam'i call etmeyeceği elleri de jam'e getirir (jam aralığı > call aralığı) — büyük çift limp-jam'lerse o geniş çağrıyı kaybeder. AK sınırdadır: raise de olur, iso-üstü jam de (aşağıda). Limp-jam malzemesi en zayıf offsuit Ax (tekerlek kicker'lı), alt-orta offsuit Kx ve küçük çift *(sınırlar: kalibre et)*: iso'nun çöpünü katlatır, BB'nin call aralığını bloke eder, çağrılınca canlı equity taşır.
+
+**İso üstü jam.** Soru "elim güçlü mü" değil, "kim call eder, onu domine ediyor muyum". Büyük offsuit As (AJ/AQ; AK sınırda, iki yön de olur) altındır: iso'daki orta suited As / güçlü broadway sınıfı hem iso eder hem call eder, postflop oynanabilirliği düşük. Suited orta broadway (KTs/KQs) tersi: jam'lersen sadece üstün öder, domine ettiğin Kx katlanır → limp-call (ortada zaten raise, 33.3) *(sınırlar: kalibre et)*. Havuz iso'ya/reraise'e teoriden çok jam'ler *(kalibre et)* → jam'e katlayacağın orta elle non-all-in reraise yapma.
+
+### 33.3 Orta stack: BB'nin iso'su polarize olur — premium limp hedefi daralır, gövde raise'e kayar ("trap için fazla derin, reraise için fazla sığ")
+
+Derinde BB limp'e depolarize iso eder; büyük çoğunluğu limp-reraise'e call eder. Orta derinlikte aynı BB aralığı ikiye böler: en güçlüleri reraise üstüne JAM'ler, offsuit çöpü iso-fold eder, **ortadaki suited elleri iso etmeyip check eder**. Limp-reraise'in hedefi daralır — reraise'e çoğunlukla ya jam gelir ya fold; limp-call ise potu premium için çok küçük bırakır. Aynı sebeple KQs/QJs/QTs ortada çoğunlukla RAISE'e kayar: raise'e fold etmeyen ama limp'i iso etmeyen o "check eden suited orta" banda karşı para koymak zorundasın; limp'lersen bedava flop görür. Ortada limp-reraise dilimi küçülür ama value+blöf karışık kalır: birkaç non-all-in blocker Ax/Kx blöfüne kapak olarak ince bir premium dilimi (en büyük çiftlerin bir kısmı) limp-reraise'de kalır — aksi halde BB'nin reraise üstü jam'i sınırsızlaşır; premium'un gövdesi raise'e kayar *(kalibre et)*. Limp-jam bu derinlikte overbet olur, sığ katmana aittir (33.2). Offsuit büyük As fast-play; daha zayıf suited broadway/bağlantılı (QTs altı: JTs, J9s, T9s tipi) oynanabilirlik hattında — sınır karışık *(kalibre et)*.
+
+### 33.4 BB'nin limp'e yanıtı: iso, iso-jam — ve SB'nin jam'e call'ı
+
+**İso.** Her elle aynı boyla refleks iso etme. En pahalı grup offsuit broadway'lerdir (KJo/QTo): iso etmek doğal gelir ama limp-reraise'in hedefi tam bu banttır. Düşük suited eller ucuz iso'dur: reraise'e katlanır, iso tutarsa pozisyonla oynar. Rakibin limp-reraise sıklığı boyu ve genişliği seçer: az ve küçük reraise eden havuza DAHA KÜÇÜK ve DAHA GENİŞ iso *(kalibre et)*; yetkin limp-reraiser'a offsuit broadway iso'larını kırp. Ante potu şişirdikçe hem limp hem iso ucuzlar — iso genişliği ante'siz ezberden geniştir *(kalibre et)*. IP-BB iso'su HU-OOP iso'sundan (B31.4) belirgin geniştir; iki ezberi karıştırma.
+
+**İso-jam** *(~30bb, kalibre et)*. Malzeme 33.2'nin aynası: K5o/K6o tipi blocker (domine EDEN Kx'leri katlatır, çağrılınca yaşar) ve orta suited connector (non-all-in iso'ya limp-jam yemek istemez → direkt jam). Suited orta broadway jam'lenmez. Jam preflop all-in olduğu için pozisyondan bağımsızdır; non-all-in iso genişliği pozisyona bağlıdır.
+
+**SB'nin call'ı — limp'e jam geldi.** All-in'de yalnız aralığa karşı ham equity + pot oranı sayar; "domine" sezgisi ham equity'yi yenmez. BB'nin jam dokusu Ax/çift ağırlıklı ve dar (value-yoğun) ise canlı orta suited connector (98s tipi), domine edilebilen zayıf suited Ax / offsuit broadway'den daha iyi call adayıdır; doku broadway ve connector'la genişse yüksek kart equity'si öne geçer, zayıf Ax / offsuit broadway sınırda call'a döner — eşik pot-oddsa ve derinliğe bağlı *(kalibre et)*. Havuz jam'i zayıf offsuit Ax'ten başlar, suited connector'a geç gelir *(kalibre et)* → havuza karşı connector call'ı görece iyi, offsuit broadway call'ı görece kötü; dar value-yoğun jam'e karşı iki sınıf da çoğunlukla fold. Limp-call tuzağı yalnız jam aralığını DOMİNE eden elle: K7s civarı ve üstü olabilir *(kalibre et)*, K2s olamaz — "gitmesi sorun değil ama domine etmiyor" elleri kendin jam'le. Call eşiği her bb sığlaştıkça yaklaşık bir kademe genişler *(kalibre et)* — tek referans ezberle, kaydır.
+
+### 33.5 Popülasyon sapması — üç exploit
+
+Havuz derinde limp'e teorinin çok altında iso eder ve SB raise'ine boydan bağımsız aynı oranda katlanır *(kalibre et)* — fiyat okumuyor, "bu eli oynarım/oynamam" diyor. Üç sonuç:
+
+1. **SB'den derinde fold yok** — dip aralık cezalandırılmıyorsa her el oynanır.
+2. **Limp sonrası OOP en zor oynanan dip çöp küçük raise-fold'a döner** *(kalibre et)* — fold oranı boydan bağımsızsa pahalı blöfün anlamı yok; aynı sapma value raise'ini büyütmeyi de öder. Yalnız bilinmeyen/pasif rakibe; iyi oyuncuya kova mantığı aynen.
+3. **Value limp-reraise'i DARALT** — havuz güçlü elleri teoriden sık, zayıfları seyrek iso eder → limp-reraise'in karşısındaki devam aralığı da güçlü → yalnız premium (kabaca QQ+/AK, kalibre et) reraise-value. KQs/AJo/ATs sınıfı bu aralığa domine olur, reraise value değil ince blöf olur → limp'ten çıkar, açılış raise'ine taşı (limp seyrek iso yediği için tuzak da çalışmaz); limp'lendiyse limp-call kalır, reraise değil.
+
+BB aynası: havuz derinde pasif → küçük potları sen kap, image'i orada kur; büyük pot geldiğinde ödeme o image'den gelir.
+
+### 33.6 Asimetrik ve karışık stack
+
+ChipEV/efektif-stack mekanizması; kelle yoktur, B28 cover mantığı buraya taşınmaz. Ortak ilke: rejam efektif stack'le fiyatlanır — derinin rejam'i ne ucuzlar ne pahalanır, kısanın rejam'i tüm stack'idir. Spotlar açıcı-vs-arka içindir; BvB yansıması: efektif stack kısanınkidir — kısa SB 20bb chart'ıyla, derin BB ona karşı aynı derinlik mantığıyla oynar; derin SB kısa BB'ye küçük open yerine open-jam düşünür.
+
+**Kısa açıcıya karşı derin IP, arkada derin blind'lar → call DARALIR, çoğunlukla küçük commit-3-bet.** Kısa (~10–15bb, kalibre et) açtı, elin orta-iyi. Call'ı iki şey daraltır: kısayı commit eden 3-bet çok ucuz olduğu için flat'i domine eder; derin blind'lar ise non-all-in squeeze ile flat'i ezer ve kısaya karşı equity payını paylaşır. Kısanın aralığı polarizedir (nuts + raise-fold çöpü); onu commit eden küçük 3-bet *(kalibre et)* çöpü katlatır, value'suna karşı suited As/suited broadway'in equity'si yeter. Kısanın cevabı çoğunlukla fold, suited As'la jam, call neredeyse yok. Pozisyonda sınırda eller call kalır *(kalibre et)*. Hipotez: havuz burada çoğunlukla over-call eder *(showdown'la doğrula, kalibre et)* — over-call ediyorsa sapma senin lehine.
+
+**Kısa sensen, masa derin → RFI'ı sınırda GENİŞLET.** ~20bb *(kalibre et)* açıyorsun, arkadakiler derin. Rejam onlara yalnız efektif ~20bb'ye mal olur — ICM yokken derinin rejam'i ne ucuzlar ne pahalanır; iştahı düşüren, derinin pozisyonda call'ı ve postflop'u tercih etmesi + birden çok derin arkadayken rejam'cinin cold-4-bet/call tehdidiyle sıkışmasıdır *(kalibre et)*. Call'a kayan masa küçük çift, küçük suited connector, orta suited Kx/Qx'e realize alanı açar → open olarak EV kazanır. Masa derinken (ör. turnuva başı) sık düşer. Efektif ~12bb'ye inince call seçeneği kalkar, derinin efektif-stack fiyatlı reshove'u küçük raise-fold'u yaşatmaz → jam-or-fold (B30.0-EK).
+
+**Derin sensen, arkada kısalar → open daralt, open-JAM ekle.** Küçük open kısanın jam'ine açık → düşük suited Kx, boşluklu suited, zayıf offsuit broadway düşer; orta/küçük çift, suited Ax, suited broadway sınıfı open-jam olur *(sınırlar: kalibre et)* — open-jam kısanın fold-equity'li rejam'ini siler, raise-fold'u ortadan kaldırır; bedeli domine rejam'lerin value'sunu bilerek feda etmektir. O yüzden aralığın tepesi (büyük çift, büyük offsuit As) hâlâ min-raise-call oynar: domine rejam'i (domine offsuit broadway, orta Ax) katlatmak değil, indüklemek ister. Domine olabilen offsuit broadway min-raise'de kalır — kısa jam'lerse fold, call ederse pozisyonda oynanır *(kalibre et)*. Havuz kısa olarak açışa karşı call'ı neredeyse hiç, rejam'i tek hat olarak kullanır *(kalibre et)*.
+
+**Derin blind'lar + kısa açıcı → call rejimi ve küçük 3-bet-fold geri gelir.** BTN/SB/BB birbirine derin (~35–45bb), açıcı kısa (~20bb) *(kalibre et)*. Kısayı commit eden 3-bet artık pahalı (açıcı ~20bb → commit boyu flat'i domine etmez) ve blind'lar BTN'nin call'ı üstüne ucuza jam'leyemez → BTN call aralığı genişler; jam "domine çağrı bulan" ellere (büyük offsuit As, güçlü suited broadway) + ORTA çiftlere iner *(kalibre et)* — küçük çift jam'ini arkadaki her büyük çift öder. Non-all-in 3-bet KÜÇÜK boy ister *(kalibre et)*: büyük boy kısaya bedava 4-bet-jam fiyatı verir. 3-bet-fold = domine olabilen offsuit eller; 3-bet-call = suited As ve equity'si yeten suited broadway *(sınırlar: kalibre et)*. SB kısa açıcıya 20bb chart'ıyla değil, BB'ye karşı 40bb mantığıyla oynar. SB call ettikten sonra BB'nin squeeze boyu kısanın kalan stack'ine göre seçilir: kısayı fiilen commit eden bir boy (yaklaşık BB stack'inin yarısı, *kalibre et*) 4-bet-jam fold-equity'sini kaldırır ve SB'yi tuzağı olmayan call aralığıyla jam-ya-fold'a zorlar. Kısa için call fiilen stack-off'tur: küçük çift fold, orta çift sınırda; stack-off eşiği büyük çift + AK, güçlü suited broadway sınırda *(eşikler: kalibre et)*.
+
+### 33.7 Kalibrasyon
+
+Stratejiyi SEGMENT'lerde tut: derin / orta / sığ blok. Blok içinde her bb değişimine tepki verme; katman geçişini efektif bb/SPR tetiklesin (raise-fold/limp-fold'un stack'e maliyeti rakibin daha önce jam'lemiş olmasına bağlı değil), gözlem katman İÇİ eşikleri kaydırsın (limp-jam alt sınırı, jam'e call genişliği, iso boyu) — chart etiketini de gözlemi de bekleme (çoğunlukla). Havuz derinde çok az 3-bet, orta-sığda çok az jam eder *(kalibre et)* — iki katmanı neredeyse aynı oynar. Derin fazda küçük-potlu agresyon ucuzdur → ilk ellerde tester at (raise'e 3-bet geliyor mu, iso'ya hep fold mu), okumayı buradan al, parayı sığ fazın jam kararlarında kullan. Rakip erken fazda agresif/yapışkansa sığ fazda limp-jam ve jam-üstü call eşiklerini ona göre kaydır.
+
+| Slot | *(kalibre et)* |
+|---|---|
+| Katman eşikleri | derin / orta / sığ bb sınırları — kendi solver'ında |
+| Limp-reraise ve iso boyu | derinde SPR'yi kaç kat düşürüyor; az-reraise havuza küçük+geniş iso |
+| Limp-jam / iso-jam / jam'e call | blocker Ax/Kx alt sınırı, küçük çift eşiği, referans bb + kademe/bb kaydırma |
+| Commit-3-bet, kısayı commit eden squeeze boyu (33.6'nın çok-yönlü spotu; saf BvB'de squeeze yok) | kısa açıcının stack'ine oran |
+
+### 33.8 Cheat kartı
+
+| Konu | Kural |
+|---|---|
+| **Katman seçimi** | Efektif bb/SPR seçer; üç soru katman-içi eşikleri ve geçiş bandını (45–60bb) ayarlar: reraise'ime suited call var mı (derin) / limp'ime kim iso ediyor (orta) / raise'ime jam var mı (sığ) |
+| **Derin premium** | Çoğunlukla RAISE-first (aralık capped kalmaz); bir dilimi LIMP → iso'ya büyük reraise tuzağı *(kalibre et)*; küçük raise potu/SPR'yi yüksek bırakır, büyük reraise SPR'yi düşürür → reraise value-ağırlıklı |
+| **Orta premium + KQs/QJs** | Çoğunlukla RAISE — BB iso'su polarize, limp-reraise hedefi dar; ince premium kapağı + blocker blöfü limp-reraise'de kalır *(kalibre et)*; limp-jam sığ katmana ait |
+| **Sığ premium / limp-jam** | Büyük çift RAISE (jam aralığı > limp-jam'e call aralığı); AK sınırda — raise ya da iso-üstü jam; limp-jam malzemesi en zayıf offsuit Ax/Kx + küçük çift *(kalibre et)* |
+| **Suited limp** | Tek iso'ya çoğunlukla fold YOK (en düşük suited istisna, kalibre et) — fold edeceksen raise-fold et |
+| **Raise-fold / limp-fold malzemesi** | Kovaya sığmayan orta Qx/Jx offsuit, boşluklu suited → raise-fold; sınırdaki iki elden iyisi raise, zayıfı limp — karıştırma yok |
+| **BB iso** | Offsuit broadway pahalı, düşük suited ucuz; az-reraise havuza küçük+geniş; ante genişletir; HU-OOP iso'dan geniş |
+| **İso üstü jam** | Domine çağrı bulan (büyük offsuit As); suited orta broadway jam'lenmez |
+| **Limp'e jam geldi** | Ham equity + pot oranı karar verir *(kalibre et)*: Ax/çift-ağırlıklı dar (value-yoğun) jam'e canlı orta suited connector iyi, domine zayıf Ax / offsuit broadway kötü; geniş jam'e yüksek kart öne geçer; tuzak yalnız jam aralığını domine eden el |
+| **Havuz** | Derinde SB fold yok; dip çöp küçük raise-fold; value limp-reraise'i DARALT (yalnız premium), KQs/AJo/ATs açılış raise'ine |
+| **Kısa açıcı, sen derin IP** | Call DARALIR — çoğunlukla küçük commit-3-bet ya da fold; pozisyonda sınırda eller call kalır |
+| **Derin blind'lar + kısa açıcı** | Call rejimi + küçük 3-bet-fold; kısayı commit eden squeeze boyu (≈BB stack'inin yarısı, kalibre et) SB'yi jam-ya-fold'a zorlar, kısa için call = stack-off |
+
+### 33.9 Drill (5 soru)
+
+1. **BV1.** Derin BvB *(kalibre et; kabaca 70bb+)*, SB'de AA. Gövde raise-first'te kalırken hangi dilim limp-reraise tuzağına gider, neden aralık capped kalmamalı? BB'nin hangi bandı raise'e call, limp'e iso eder — EV oradan nasıl gelir?
+2. **BV2.** ~40bb, SB'de KQs. Limp mi raise mi? BB'nin iso aralığı bu derinlikte nasıl bölünür ve bu neden kararı belirler?
+3. **BV3.** ~25bb, SB'de A3o. Limp-call/limp-fold mu, limp-jam mi, raise-fold mu — fold masada yok? AA olsaydı hangi hatlar açık kalır; A3o'nun limp-jam'i neden sınırda bir hattır ve ağırlıkla fold-equity'ye yaslanır (çağrılınca yalnız canlı equity), raise-fold'u BB'nin jam sıklığı nasıl fiyatlar?
+4. **BV4.** SB'den limp'ledin, BB ~15–20bb ile jam'ledi *(kalibre et)*. 98s ve KTo — jam dokusu Ax/çift-ağırlıklı dar (value-yoğun) bir aralıksa hangisi call; doku broadway'le genişlerse karar nasıl döner? Ham equity + pot oranından çık.
+5. **BV5.** SB ~12bb min-raise açtı, sen BB'de derinsin, elinde ATs. Call mı jam mı? Kısanın polar aralığına (nuts + raise-fold çöpü) karşı jam çöpü katlatıp value'suna equity taşır; call açıcıyı her flopta commit bırakır — hangi hat, neden? (33.6'nın derin-IP mantığının BvB yansıması.)
+
+*Kök hata bağı: BvB'de kök hata preflop'ta doğar — derinde premium'u raise edip OOP şişmiş potta tek per'le stack-off etmek (raise'in kendisi değil, per'e yapışmak hatadır), ya da sığda "limp = zayıf" ezberiyle raise-fold'u BB'nin jam'ine hediye etmek. B31.1'in pozisyon-aynası, B5.1 ve B17.3'ün şartlandırması; postflop yapışkanlık B23.12'ye bağlanır.*

@@ -876,6 +876,138 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 25.3",
     kavram: "kafamdaki-hikaye",
   },
+  {
+    q: "68bb, UTG+1'den AQs açtın, HJ call, 287bb'lik chip leader 3-bet. Fold / call / 4-bet — ve 4-bet seçersen 5-bet'e planın ne?",
+    options: [
+      "4-bet; jam gelirse pot oranıyla call",
+      "Fold ya da call; 4-bet edersen 5-bet'e fold",
+      "Jam — 68bb'de AQs OOP commit eli",
+    ],
+    correct: 1,
+    explain:
+      "Tercih sırası: (1) fold — UTG+1, OOP, 287bb'lik rakip; (2) call, flopta pot kontrolü; (3) 4-bet edildiyse 5-bet'e fold — 4-bet yalnız fold edebileceğin miktarla yapılır. Call hiçbir sıralamada yok: chip leader'ın 5-bet jam aralığı dar (KK+, belki AK), kaybedecek şeyi yok, ona karşı 4-bet zaten gereksizdi. Bu el sınıfı hiçbir derinlikte 5-bet jam'e call etmez.",
+    source: "Bölüm 7 / Vaka 8",
+    kavram: "stack-modu",
+  },
+  {
+    q: "Az önce stack'inin %30'unu kaybettin. Sonraki elde AQs ile 4-bet ettin, 5-bet jam geldi; pot oranı 2,2:1 (gereken ekvite %31). Karar?",
+    options: ["Call — 2,2:1 var, %31 ekvite yeter", "Fold — bu el sınıfına pot oranı yetmez"],
+    correct: 1,
+    explain:
+      "5-bet jam aralığına (QQ+/AK) karşı AQs ~%30, KK'ya karşı %18 — sınırda bile değil; AQ high-card elidir, potun büyüklüğü sınıfını değiştirmez. Üstelik 5-el kuralı devrede: büyük kayıptan sonraki 5 elde yalnız QQ+/AK ile preflop all-in, 4-bet yapılmış her el 5-bet'e fold. Gerçek bust (2 dakika sonra, stack'in %70'i).",
+    source: "Bölüm 16.5",
+    kavram: "kök-hata",
+  },
+  {
+    q: "88 ile 3-bet ettin, CO'dan 28bb cold 4-bet jam geldi, açan oyuncu (UTG+1) jam'i CALL etti. Pot oranı 2,7:1. 88 ile ekviten kaç, açanın call'ı neyi değiştirdi?",
+    options: [
+      "~%45 — açanın call'ı jam aralığını genişletir",
+      "~%33 three-way — açanın call'ı ekviteni düşürür",
+    ],
+    correct: 1,
+    explain:
+      "Villain'ler AQs (jam) ve AK (call): 88 three-way ~%33 ile önde ama gereken %27'ye yakın — chip-EV marjinal, hata değil; fold da savunulabilirdi. Tehlike sinyali: açanın 31K'yı senden önce call etmesi jam'in aralığını genişletmez, senin ekviteni düşürür; sadece pot oranı büyür. Her call'da önce pot odds, sonra rakip aralığı.",
+    source: "Bölüm 7 / Vaka 9",
+    kavram: "3bet-aralik",
+  },
+  {
+    q: "PLO-6 cash: CO'dan Jh As 9s 2c 8s 5c ile açtın, BTN pot 3-bet. Karar?",
+    options: ["Call — A ve üç spade var, flop'a bak", "Fold — dangler, tek suit, A bağlantısız"],
+    correct: 1,
+    explain:
+      "3-bet'e call yalnız nut potansiyeli olan eller: AAxx, KK ds, bağlı 4+ rundown + suit; bu elin (2c dangler, tek suit) 3-bet potunda nut yapma yolu yok. Dangler'lı el 3-bet'e fold — L1'in tipik giriş kapısı: flop'ta pair ile call, turn'de pot bet'e fold (142 el, -$43.9K).",
+    source: "Bölüm 15.5",
+    kavram: "plo",
+  },
+  {
+    q: "PLO-6 cash, CO, 100bb. Hangisi açılır? (a) Tc 5h 6c 3c 8d Ac  (b) 9h 8h 7c 6c Ad Kd  (c) Kh Kc 7d 2s 9h 4c",
+    options: ["(b) ve (c) — KK de açılır", "Sadece (b) — ds rundown + AK"],
+    correct: 1,
+    explain:
+      "CO aralığı = UTG + %10, BTN aralığı değil — arkanda üç oyuncu var, 3-bet'ler oradan gelir. (a) dangler'lı ve düşük, (c) KK ama kalan dört kart kopuk: dangler'lı el UTG/CO'dan açılmaz, (c) CO'dan marjinal, UTG'den fold. CO'daki 119 açılışın neti -$10.6K; Seri 2'nin tüm kaybı bu 'yarısı güzel' ellerden.",
+    source: "Bölüm 15.6",
+    kavram: "plo",
+  },
+  {
+    q: "PLO-6: turn'de nut straight'in var, redraw yok, board iki renkli. Villain pot bet. Raise mi call mı?",
+    options: ["Raise — nut'un var, value al", "Call — villain'de aynı straight + redraw"],
+    correct: 1,
+    explain:
+      "Raise ile sadece redraw'lı elden para alırsın, redraw'suz elle chop — hiçbir senaryoda kazanç yok; 6 kartlı oyunda villain neredeyse her zaman aynı straight + redraw'a sahiptir, sen freeroll edilirsin. Yığın koymadan önce: 'villain aynı ele sahipse ben ne kazanıyorum?' — 'hiçbir şey' ise call. En büyük tek el kaybı (-$4.147, 415bb pot) jam'de değil turn'deki ilk raise'de doğdu.",
+    source: "Bölüm 15.5",
+    kavram: "plo",
+  },
+  {
+    q: "PLO-6 cash: 420bb derinsin, AAxx tek suit. UTG açtı, sen 3-bet ettin, 4-bet geldi. Karar?",
+    options: ["5-bet — AA, ekvite avantajı var", "Call — 420bb'de AA tek pair, flop'ta check"],
+    correct: 1,
+    explain:
+      "5-bet ile potu şişirmek villain'in AA/rundown+ds aralığına karşı ekvite avantajını sıfırlar: stack 300bb'yi geçince AA 4-bet'ten çıkar, call'a geçer; 3-bet potunda flop'ta pot c-bet yok, check-call/check-fold. AA'nın toplam neti +$10.9K ama 300bb+ derinlikte 3-bet/4-bet potlarındaki AA'lar -$5.4K. Daha iyisi: 300bb'de masadan kalk, yeni masaya 100bb otur.",
+    source: "Bölüm 15.5",
+    kavram: "plo-aa",
+  },
+  {
+    q: "PLO-6: river board Ks Jc Th 7d 5d, sende 98 (J-high straight). Villain pot bet. Villain'in bluff aralığını somut tarif edebiliyor musun? Edemiyorsan karar ne?",
+    options: ["Call — straight var, belki bluff'luyordur", "Fold — somut bluff kombosu sayılamıyor"],
+    correct: 1,
+    explain:
+      "Bluff adayları kaçan dd ve Q-high/9-high draw'lar; ama villain K-J-T board'da AQ'yu aralığında tutuyor ve pot bet ediyor. River'da pot bet'e non-nut = fold; call için iki şart birden: villain'in somut bluff aralığı var VE senin elin onu yeniyor — 'belki bluff'luyordur' bir aralık değildir. Gerçek el: villain AQ nut straight (-$1.603); iki seride 45 river call, 15 kazanç, -$14.4K.",
+    source: "Bölüm 15.5",
+    kavram: "plo",
+  },
+  {
+    q: "PLO-6: Ac 8c 7d Ah As Qd — bu elin gerçek sınıfı nedir?",
+    options: ["AA — premium, 3-bet/4-bet eli", "Tek pair — üçüncü As kendi outunu öldürür"],
+    correct: 1,
+    explain:
+      "Üçüncü As destede tek As bırakır: set ekvitesi ~%0, blocker değeri villain'i değil kendi aralığını daraltır. Elde üçlü/dörtlü kart varsa el preflop bir kademe aşağı (AAA = AA değil, tek pair). Gerçek el: 5s Ts 9s monoton flop'ta flush'sız pair ile üç sokak barrel, villain K-high flush (-$1.970) — monoton flop'ta flush'sız pair ile barrel yok.",
+    source: "Bölüm 15.5",
+    kavram: "plo",
+  },
+  {
+    q: "PLO-6, 3-way pot, flop A-T-2; sende A-T + zayıf yan kartlar (top two, redraw yok). Pot check-raise geldi. Jam / call / fold?",
+    options: [
+      "Jam — top two, 3-way'de inisiyatifi al",
+      "Call ya da fold; jam asla",
+      "Fold — top two PLO'da hiç devam etmez",
+    ],
+    correct: 1,
+    explain:
+      "Check-raise karşısında redraw'suz top two, set ve wrap+FD'nin gerisinde — NLH kök hatasının birebir kopyası: 3-way bloated potta top two'yu nut gibi sınıflandırma. Call ile turn'de bilgi alınır; jam ile sadece daha iyi ellerden call alınır (gerçek el: villain AAxx set, -$2.055). PLO-6'da orta el yoktur — ya nut/nut redraw, ya bloated potta chip yok.",
+    source: "Bölüm 15.4",
+    kavram: "plo",
+  },
+  {
+    q: "PLO-6 cash, 100bb, sende Kh Kc Ad 7d 7s Js. 3-bet ettin, 4-bet geldi. 5-bet'te AA'ya karşı ekviten kaç, karar ne?",
+    options: ["~%45 — KK + A blocker, 5-bet jam", "~%33–36 — fold ya da call, 5-bet değil"],
+    correct: 1,
+    explain:
+      "100bb'de 4-bet ≈ AA; 4-bet karşısında KKxx ve A-rundown call veya fold, 5-bet jam yalnız AAxx. Gerçek el: 5-bet $2.150, villain jam, AA99xx (-$2.208); ikinci örnek A-rundown ile 5-bet all-in, villain AA (-$2.399) — her ikisinde ekvite %30–38.",
+    source: "Bölüm 15.5",
+    kavram: "plo",
+  },
+  {
+    q: "PLO-6 cash: saat 23:10, stack $9.400 (470bb), son iki elde $3K kazandın. Ne yapıyorsun?",
+    options: ["Devam — seri sıcak, masa iyi", "Kalk — üç kural birden tetiklendi"],
+    correct: 1,
+    explain:
+      "Stack 300bb'yi geçti, saat 23:00'ü geçti, iki büyük pot üst üste — üçü de kalkma kuralı. 300bb üstünde AA bile call'a düşer ve give-back riski kanıtlı: 23 Ağustos'ta 22:52'de $13.047 (650bb), 23:56'da $2.000. 23:00 sonrası iki seri toplamı ≈ -$25K, sabah seansları pozitif; masa değiştirmenin maliyeti sıfır.",
+    source: "Bölüm 15.6",
+    kavram: "plo",
+  },
+  {
+    q: "PLO-6 cash: BB'de 8c Qd 6h 2h Ts 5d, BTN raise. 3-bet / call / fold — ve 3-bet'in bir sebebi olabilir mi?",
+    options: [
+      "3-bet — OOP call istemiyorum, inisiyatif",
+      "Call — BB'de indirim var, flop'a bak",
+      "Fold — 3-bet'in tek sebebi el gücüdür",
+    ],
+    correct: 2,
+    explain:
+      "BB'de call yok: 3-bet ya fold — ve 'OOP oynamak istemiyorum' bir 3-bet sebebi değildir, el gücü olmalı. Bu elle 3-bet potuna girip 8-high board'da pair + gutter ile turn pot call, river'da monoton board'da 6-high straight ile all-in call = L1 + L6'nın birleşimi (gerçek el, villain As Qs flush, -$2.000). Her sokakta fold doğruydu.",
+    source: "Bölüm 15.5",
+    kavram: "plo",
+  },
 ];
 
 export function randomScenario(): Scenario {

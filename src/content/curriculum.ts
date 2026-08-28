@@ -34,6 +34,22 @@ function parseTableLines(lines: string[]): MdTable {
 
 /** "## Baslik" ile baslayan bolumun ham govdesini dondurur (bir sonraki ## veya ### 'e kadar degil,
  *  tam o ## bloguna kadar; alt ### basliklar dahil). */
+/** Kitaptaki tum "## Bolum N — Baslik" H2'lerini dondurur (tek dogruluk kaynagi: MD). */
+export function chapterTitles(): { n: number; title: string; short: string }[] {
+  const out: { n: number; title: string; short: string }[] = [];
+  for (const line of raw.split("\n")) {
+    if (!line.startsWith("## ") || line.startsWith("### ")) continue;
+    const m = line.slice(3).trim().match(/^Bölüm\s+(\d+)\s*(?:[—-]\s*(.*))?$/);
+    if (!m) continue;
+    const title = stripInline(m[2] || "");
+    // Kisa etiket: ilk ":" oncesi, cok uzunsa kirp.
+    let short = title.split(":")[0].trim() || `Bölüm ${m[1]}`;
+    if (short.length > 44) short = short.slice(0, 41).trimEnd() + "…";
+    out.push({ n: Number(m[1]), title, short });
+  }
+  return out.sort((a, b) => a.n - b.n);
+}
+
 export function sectionBlock(headingStartsWith: string): string {
   const lines = raw.split("\n");
   const out: string[] = [];

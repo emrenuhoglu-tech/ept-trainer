@@ -268,7 +268,7 @@ export const modules: Module[] = [
     id: "M5",
     title: "3-bet & call aralıkları",
     chapter: "Bölüm 4 ★",
-    minutes: 8,
+    minutes: 10,
     slides: [
       {
         title: "Bu bölümün mantığı",
@@ -416,7 +416,7 @@ export const modules: Module[] = [
     id: "M7",
     title: "25–30bb bandı",
     chapter: "Bölüm 5 ★",
-    minutes: 6,
+    minutes: 10,
     slides: [
       {
         title: "Bandın karakteri",
@@ -544,7 +544,7 @@ export const modules: Module[] = [
     id: "M8",
     title: "Turn'de draw",
     chapter: "Bölüm 6",
-    minutes: 4,
+    minutes: 5,
     slides: [
       {
         title: "Fold equity var mı",
@@ -560,7 +560,7 @@ export const modules: Module[] = [
         title: "Draw'ın kalitesi",
         table: {
           section: "Bölüm 6",
-          sub: "5.2",
+          sub: "6.2",
           caption: "Tamamlanınca ödenir mi?",
         },
         visuals: [{ kind: "hand", cards: "97s", label: "Düşük flush draw — check ağırlıklı" }],
@@ -622,7 +622,7 @@ export const modules: Module[] = [
         title: "El seçimi",
         table: {
           section: "Bölüm 8",
-          sub: "7.2",
+          sub: "8.2",
           caption: "Dört kart birlikte çalışmalı.",
         },
         narration:
@@ -645,7 +645,7 @@ export const modules: Module[] = [
     id: "M10",
     title: "Şişmiş pot: SPR ve icra",
     chapter: "Bölüm 11 ★",
-    minutes: 7,
+    minutes: 11,
     slides: [
       {
         title: "Şişmiş potu SPR tanımlar",
@@ -808,7 +808,7 @@ export const modules: Module[] = [
     id: "M12",
     title: "Multiway pot doktrini",
     chapter: "Bölüm 13 ★",
-    minutes: 6,
+    minutes: 3,
     slides: [
       {
         title: "Çekirdek — her ek oyuncu ne değiştirir",
@@ -842,7 +842,7 @@ export const modules: Module[] = [
     id: "M13",
     title: "40–70bb köprü bandı",
     chapter: "Bölüm 14 ★",
-    minutes: 5,
+    minutes: 6,
     slides: [
       {
         title: "Bandın karakteri",
@@ -955,7 +955,7 @@ export const modules: Module[] = [
     id: "M15",
     title: "Zihinsel omurga: tilt, otopsi, re-entry",
     chapter: "Bölüm 16 ★",
-    minutes: 6,
+    minutes: 4,
     slides: [
       {
         title: "Bustout + re-entry kartı",
@@ -985,7 +985,7 @@ export const modules: Module[] = [
     id: "M16",
     title: "WSOP Day 2 — 56bb restart planı",
     chapter: "Bölüm 17",
-    minutes: 8,
+    minutes: 10,
     slides: [
       {
         title: "Bu turnuva neden ayrı bir modül",
@@ -1141,7 +1141,7 @@ export const modules: Module[] = [
     id: "M18",
     title: "Day 2 icra: 50bb dinamikleri",
     chapter: "Bölüm 14 + Bölüm 17",
-    minutes: 8,
+    minutes: 6,
     slides: [
       {
         title: "50bb = B/C sınırı: ne açılır, ne kapalı",
@@ -1342,7 +1342,7 @@ export const modules: Module[] = [
     id: "M21",
     title: "Final masası: 4/3/HU nasıl oynanır",
     chapter: "Bölüm 12",
-    minutes: 8,
+    minutes: 6,
     slides: [
       {
         title: "FT omurgası: el değil, stack rolü",
@@ -1409,7 +1409,7 @@ export const modules: Module[] = [
     id: "M22",
     title: "C-bet & barreling: flop → turn → river",
     chapter: "Bölüm 18 ★",
-    minutes: 9,
+    minutes: 10,
     slides: [
       {
         title: "Tez: c-bet bir sebep için — value ya da fold equity",
@@ -1520,7 +1520,7 @@ export const modules: Module[] = [
     id: "M23",
     title: "İnisiyatif hatları: donk, probe, stab, float, blocker",
     chapter: "Bölüm 19 ★",
-    minutes: 11,
+    minutes: 12,
     slides: [
       {
         title: "İnisiyatif: lead belirsizken kim bet atar",
@@ -1658,7 +1658,7 @@ export const modules: Module[] = [
     id: "M24",
     title: "Risk Premium: ICM'in sayısı",
     chapter: "Bölüm 20 ★",
-    minutes: 8,
+    minutes: 6,
     slides: [
       {
         title: "ICM'in fiyatı bir sayıdır",
@@ -1893,7 +1893,7 @@ export const modules: Module[] = [
     id: "M27",
     title: "Saha okuma: rakip tipleri ve exploit",
     chapter: "Bölüm 23 ★",
-    minutes: 8,
+    minutes: 9,
     slides: [
       {
         title: "Default vs exploit — üç soru",
@@ -2055,7 +2055,7 @@ export const modules: Module[] = [
     id: "M29",
     title: "Kafamdaki hikaye: kanıt mı anlatı mı",
     chapter: "Bölüm 25 ★",
-    minutes: 7,
+    minutes: 5,
     slides: [
       {
         title: "Tez: kanıt mı hikaye mi",
@@ -2219,7 +2219,7 @@ export const modules: Module[] = [
     id: "M31",
     title: "C-bet'e Karşı: Eşik Disiplini",
     chapter: "Bölüm 26 ★",
-    minutes: 6,
+    minutes: 12,
     slides: [
       {
         title: "Frekans Değil, Eşik Çalış",
@@ -2375,7 +2375,7 @@ export const modules: Module[] = [
     id: "M32",
     title: "Solver'ı Çalışmak",
     chapter: "Bölüm 27 ★",
-    minutes: 6,
+    minutes: 16,
     slides: [
       {
         title: "Temel duruş: kopyalama, sorgula",
@@ -2535,7 +2535,7 @@ export const modules: Module[] = [
     id: "M33",
     title: "PKO / Bounty: Ödülü Çipe Çevir, Aralığı Koru",
     chapter: "Bölüm 28 ★",
-    minutes: 6,
+    minutes: 25,
     slides: [
       {
         title: "Kelle ikinci para birimidir — her elde çipe çevir",
@@ -2931,7 +2931,7 @@ export const modules: Module[] = [
     id: "M35",
     title: "Micro Stack 4-12bb — Jam/Fold İnceltmeleri ve Eşitsiz Masa",
     chapter: "Bölüm 30 ★",
-    minutes: 6,
+    minutes: 10,
     slides: [
       {
         title: "4-12bb: Açış ya Jam ya Fold",
@@ -3058,7 +3058,7 @@ export const modules: Module[] = [
     id: "M36",
     title: "BB-Ante Heads-Up",
     chapter: "Bölüm 31 ★",
-    minutes: 6,
+    minutes: 9,
     slides: [
       {
         title: "BTN'den %100 VPIP — fiyatın hakkı",
@@ -3209,7 +3209,7 @@ export const modules: Module[] = [
     "id": "M37",
     "title": "3-bet Pot Postflop",
     "chapter": "Bölüm 32 ★",
-    "minutes": 7,
+    "minutes": 14,
     "slides": [
       {
         "title": "Tez: boyu board değil, el sınıfı seçer",
@@ -3377,7 +3377,7 @@ export const modules: Module[] = [
     "id": "M38",
     "title": "Blind-vs-Blind",
     "chapter": "Bölüm 33 ★",
-    "minutes": 8,
+    "minutes": 16,
     "slides": [
       {
         "title": "Tez: limp zayıf değil — hangi motor çalışıyor?",

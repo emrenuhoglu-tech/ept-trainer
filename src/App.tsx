@@ -75,7 +75,7 @@ export default function App() {
   // Sekme/bölüm değişince liste başa sarsın (ders içi slayt geçişlerinde değil).
   useEffect(() => {
     mainRef.current?.scrollTo(0, 0);
-  }, [segs[0], segs[1]]);
+  }, [segs[0], segs[1], segs[2]]);
 
   // storage.ts kayıt başarısız olunca tek seferlik uyarı bandı yayınlar.
   useEffect(() => {
@@ -178,11 +178,11 @@ export default function App() {
                 <button onClick={() => nav("#/referans")} className="text-neutral-400">
                   ← Referans
                 </button>
-                <span className="font-semibold text-neutral-100">📖 Yeni Bölümler (v5)</span>
+                <span className="font-semibold text-neutral-100">📖 Kitap bölümleri</span>
                 <span className="w-16" />
               </div>
               <p className="text-[13px] leading-relaxed text-neutral-400">
-                Turnuva-kazanma bölümleri — doğrudan kitaptan. Molada telefondan tabloya bak.
+                Kitabın tamamı — doğrudan MD kaynağından. Molada telefondan tabloya bak.
               </p>
               {NEW_CHAPTERS.map((c) => (
                 <button
@@ -240,7 +240,7 @@ export default function App() {
                   onClick={() => nav("#/referans/bolum")}
                   className="btn-accent col-span-2 py-2.5"
                 >
-                  📖 Yeni Bölümler v5 (ICM · River · Multiway…) →
+                  📖 Kitap bölümleri (33 bölüm) →
                 </button>
               </div>
               <QuickReference />

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { SCENARIOS, type Scenario } from "./scenarios";
+import { SCENARIOS, optionOrder, type Scenario } from "./scenarios";
 import { WHY_WRONG } from "./whyWrong";
 import { recordResult, dueEntries, confidentWrong } from "../../lib/karne";
 import { recordQuiz } from "../../lib/progress";
@@ -102,6 +102,8 @@ export function ScenarioQuiz() {
   // Süre dolması emin-ama-yanlış SAYILMAZ (kullanıcı güven beyan etmeden zaman aşımına uğradı).
   const confWrong = answered && !correct && conf >= 0.8 && !timedOut;
   // Bu kavramda başka senaryo yoksa hypercorrection aynı soruyu tekrar sorardı → Drill'e yönlendir.
+  // Şık sırası soru metninden türer: biçim tell'i yok, sıra deterministik (D-audit).
+  const order = useMemo(() => optionOrder(s.q, s.options.length), [s]);
   const soloConcept = useMemo(() => SCENARIOS.filter((x) => x.kavram === s.kavram).length <= 1, [s]);
   const overseen = useMemo(() => {
     const seen = load<SeenMap>(SEEN_KEY, {});
@@ -239,7 +241,8 @@ export function ScenarioQuiz() {
       )}
 
       <div className="flex flex-col gap-2">
-        {s.options.map((opt, idx) => {
+        {order.map((idx, pos) => {
+          const opt = s.options[idx];
           const isCorrect = idx === s.correct;
           const isChosen = idx === chosen;
           let cls = "btn-ghost";
@@ -249,7 +252,7 @@ export function ScenarioQuiz() {
           // Reveal'da her YANLIŞ şıkkın altında "neden kaybeder" satırı (varsa).
           const why = answered && !isCorrect ? WHY_WRONG[s.q]?.[idx] : undefined;
           return (
-            <div key={idx} className="flex flex-col gap-1">
+            <div key={pos} className="flex flex-col gap-1">
               <button
                 onClick={() => answer(idx)}
                 disabled={answered}

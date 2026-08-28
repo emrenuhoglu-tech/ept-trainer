@@ -22,10 +22,14 @@ import {
   ploStackOff,
   ploModes,
 } from "../src/content/curriculum";
+import { chapterTitles, tableFromSection, rawMarkdown } from "../src/content/curriculum";
+import { modules } from "../src/data/modules";
+import { hashKey, sentencesOf } from "../src/lib/speech";
+import { readFileSync } from "node:fs";
 import { parseRange } from "../src/lib/handgrid";
 import { buildPools } from "../src/modes/quiz/quizEngine";
 import { postflopQuestion, betType } from "../src/modes/quiz/postflopEngine";
-import { SCENARIOS } from "../src/modes/quiz/scenarios";
+import { SCENARIOS, optionOrder } from "../src/modes/quiz/scenarios";
 import { WHY_WRONG } from "../src/modes/quiz/whyWrong";
 import { KARNE_SEED } from "../src/data/karne_seed";
 import { computeDue, capDue, migrate, computeMastery } from "../src/lib/karne";
@@ -192,6 +196,73 @@ check("D6-63 ploModes (B15.1) parse", !!ploModes() && ploModes()!.rows.length > 
 check("D6-63 postflop PLO Q üretiliyor", !!postflopQuestion("plo"));
 
 // D4-38: 57 senaryonun yapısal bütünlüğü — correct sınırda, source dolu, kavram dolu, sayı sabit.
+// ---- D-audit kapıları: modül tablo referansları, bölüm kapsaması, başlık bütünlüğü, TTS ----
+// Bunlar canlıda "Tablo yüklenemedi." / sessiz slayt / kayıp bölüm olarak görünüyordu, kapısızdı.
+{
+  const broken: string[] = [];
+  for (const m of modules)
+    for (const sl of m.slides as { title: string; table?: { section: string; sub: string } }[])
+      if (sl.table && !tableFromSection(sl.table.section, sl.table.sub))
+        broken.push(`${m.id}/${sl.title.slice(0, 20)} → ${sl.table.section} ${sl.table.sub}`);
+  check("D-audit modül tablo referansları çözülüyor", broken.length === 0, broken.join(" | "));
+
+  // NEW_CHAPTERS artık chapterTitles()'tan türüyor → burada kaynağın kendisini doğrula.
+  const chapters = chapterTitles();
+  const h2 = rawMarkdown.split("\n").filter((l) => /^## Bölüm \d+/.test(l)).length;
+  check("D-audit chapterTitles tüm bölüm başlıklarını yakalıyor", chapters.length === h2, `${chapters.length}/${h2}`);
+  check("D-audit her bölümün kısa etiketi dolu", chapters.every((c) => c.short.trim().length > 0));
+  check("D-audit her bölüm sectionBlock dolu", chapters.every((c) => sectionBlock("Bölüm " + c.n).trim().length > 0));
+
+  const seen = new Set<string>();
+  const dupes: string[] = [];
+  for (const line of rawMarkdown.split("\n")) {
+    const mm = line.match(/^### (\d+\.\d+(?:-EK(?:-\d+)?)?)\s/);
+    if (!mm) continue;
+    if (seen.has(mm[1])) dupes.push(mm[1]);
+    seen.add(mm[1]);
+  }
+  check("D-audit çift alt-bölüm numarası yok", dupes.length === 0, dupes.join(","));
+
+  // TTS kapsaması: bake edilmemiş cümle = sessiz slayt. manifest yoksa kapı atlanır (ilk kurulum).
+  let manifest: string[] | null = null;
+  try {
+    manifest = JSON.parse(readFileSync("public/tts/manifest.json", "utf8"));
+  } catch {
+    manifest = null;
+  }
+  if (manifest) {
+    const have = new Set(manifest);
+    const silent: string[] = [];
+    for (const m of modules)
+      for (const sl of m.slides as { title: string; narration?: string }[])
+        for (const s of sentencesOf(sl.narration || ""))
+          if (!have.has(hashKey("v1|" + s))) silent.push(`${m.id}/${sl.title.slice(0, 18)}`);
+    check("D-audit tüm slayt anlatımları bake'li (sessiz slayt yok)", silent.length === 0, [...new Set(silent)].slice(0, 6).join(" | "));
+  }
+}
+
+// Senaryo "tell" kapısı: doğru şık sürekli en uzun ya da hep aynı indekste olursa quiz
+// pokerden değil biçimden çözülür (D-audit).
+{
+  // Gösterilen sıra optionOrder ile karışıyor → kapı VERİYİ değil EKRANI ölçer.
+  const shown = SCENARIOS.map((s) => optionOrder(s.q, s.options.length).indexOf(s.correct));
+  const twoOpt = SCENARIOS.filter((s) => s.options.length === 2);
+  const atOne = SCENARIOS.filter((s, i) => s.options.length === 2 && shown[i] === 1).length;
+  const longest = SCENARIOS.filter(
+    (s) => s.options[s.correct].length === Math.max(...s.options.map((o) => o.length)),
+  ).length;
+  check(
+    "D-audit 2-şıklıda gösterilen doğru-cevap indeks dengesi (≤%75)",
+    twoOpt.length === 0 || atOne / twoOpt.length <= 0.75,
+    `${atOne}/${twoOpt.length}`,
+  );
+  check(
+    "D-audit doğru şık 'en uzun' oranı (≤%75)",
+    longest / SCENARIOS.length <= 0.75,
+    `${longest}/${SCENARIOS.length}`,
+  );
+}
+
 {
   const badCorrect = SCENARIOS.filter((s) => !(s.correct >= 0 && s.correct < s.options.length));
   const badSource = SCENARIOS.filter((s) => !s.source || !s.source.trim());

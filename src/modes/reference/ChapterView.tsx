@@ -1,39 +1,22 @@
-import { useMemo } from "react";
-import { sectionBlock, stripInline } from "../../content/curriculum";
+import { useMemo, useRef } from "react";
+import { chapterTitles, sectionBlock, stripInline } from "../../content/curriculum";
 
 // Genel bölüm görüntüleyici — herhangi bir "## Bölüm N" bölümünü ham MD'den parse edip
 // mobilde okunur render eder. Poker içeriği ELLE yazılmaz; doğrudan
 // content/poker_cep_kitabi_v5.md'den gelir (fidelity). v5'te eklenen B11–B16 bu görünümle
 // yüzeye çıkar (app'te daha önce hiç görünmüyorlardı).
 
-// Yalnız NAVIGASYON etiketleri (poker içeriği değil) — başlıklar kitapta da aynen var.
-export const NEW_CHAPTERS: { n: number; short: string }[] = [
-  { n: 4, short: "Pozisyon 3-bet/Call + Marjinal El Aralıkları" },
-  { n: 7, short: "Vaka Otopsileri (+WSOP Day 1A)" },
-  { n: 11, short: "Şişmiş Pot · Turn · River" },
-  { n: 12, short: "ICM & Final Table" },
-  { n: 13, short: "Multiway Pot" },
-  { n: 14, short: "40–70bb Köprü" },
-  { n: 15, short: "PLO Turnuva Katmanı" },
-  { n: 16, short: "Zihinsel Omurga" },
-  { n: 17, short: "WSOP Online ME Day 2 ★" },
-  { n: 18, short: "Flop C-bet" },
-  { n: 19, short: "İnisiyatif Hatları" },
-  { n: 20, short: "Risk Premium" },
-  { n: 21, short: "ICM Postflop" },
-  { n: 22, short: "ICM Ladder & Zaman" },
-  { n: 23, short: "Saha Okuma & Exploit" },
-  { n: 24, short: "Edge Premium" },
-  { n: 25, short: "Kanıt mı Anlatı mı" },
-  { n: 26, short: "C-bet'e Karşı: Caller Disiplini" },
-  { n: 27, short: "Solver'ı Çalışmak" },
-  { n: 28, short: "PKO / Bounty Doktrini" },
-  { n: 29, short: "Deep Stack & Yüksek-SPR" },
-  { n: 30, short: "Micro Stack 4-12bb" },
-  { n: 31, short: "BB-Ante Heads-Up" },
-  { n: 32, short: "3-bet Pot Postflop" },
-  { n: 33, short: "Blind-vs-Blind" },
-];
+// Navigasyon listesi ARTIK kitaptan turetilir (elle liste = bolum dusme riski; D-audit).
+// Baslik metni kitabin kendi H2'sinden gelir, poker icerigi elle yazilmaz.
+export const NEW_CHAPTERS: { n: number; short: string }[] = chapterTitles().map((c) => ({
+  n: c.n,
+  short: c.short,
+}));
+
+/** Bolumun kitaptaki tam basligi (App/ChapterView alt-baslik olarak gosterir). */
+export function chapterHeading(n: number): string {
+  return chapterTitles().find((c) => c.n === n)?.title || "";
+}
 
 type Block =
   | { k: "h3"; text: string }
@@ -108,22 +91,60 @@ function Inline({ text }: { text: string }) {
 
 export function ChapterView({ title, onDone }: { title: string; onDone: () => void }) {
   const blocks = useMemo(() => parseBlocks(sectionBlock(title)), [title]);
+  const heading = useMemo(() => chapterHeading(Number(title.replace(/\D+/g, ""))), [title]);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const subs = useMemo(
+    () => blocks.map((b, i) => (b.k === "h3" ? { i, text: b.text } : null)).filter(Boolean) as { i: number; text: string }[],
+    [blocks],
+  );
+  const goto = (i: number) =>
+    rootRef.current?.querySelector(`#sec-${i}`)?.scrollIntoView({ block: "start", behavior: "smooth" });
+
+  if (blocks.length === 0)
+    return (
+      <div className="flex flex-col gap-3 p-4">
+        <button onClick={onDone} className="text-left text-sm text-neutral-400">
+          ← Bölümler
+        </button>
+        <p className="text-[13px] text-neutral-300">Bölüm bulunamadı: {title}</p>
+      </div>
+    );
 
   return (
-    <div className="flex flex-col gap-3 p-4">
-      <div className="flex items-center justify-between text-sm">
+    <div ref={rootRef} className="flex flex-col gap-3 p-4">
+      <div className="sticky top-0 -mx-4 -mt-4 flex items-center justify-between bg-surface-0 px-4 py-3 text-sm">
         <button onClick={onDone} className="text-neutral-400">
           ← Bölümler
         </button>
         <span className="font-semibold text-neutral-100">📖 Kitap</span>
         <span className="w-16" />
       </div>
-      <h1 className="text-base font-semibold leading-snug text-neutral-100">{title}</h1>
+      <h1 className="text-base font-semibold leading-snug text-neutral-100">
+        {title}
+        {heading && <span className="block text-[13px] font-normal text-neutral-400">{heading}</span>}
+      </h1>
+
+      {subs.length >= 4 && (
+        <details className="card p-3">
+          <summary className="cursor-pointer text-[13px] font-semibold text-neutral-200">
+            İçindekiler ({subs.length} başlık)
+          </summary>
+          <ul className="mt-2 space-y-1">
+            {subs.map((s) => (
+              <li key={s.i}>
+                <button onClick={() => goto(s.i)} className="text-left text-[12px] leading-snug text-accent">
+                  {s.text}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
 
       {blocks.map((b, i) => {
         if (b.k === "h3")
           return (
-            <h2 key={i} className="mt-2 text-sm font-semibold text-accent">
+            <h2 key={i} id={`sec-${i}`} className="mt-2 scroll-mt-14 text-sm font-semibold text-accent">
               {b.text}
             </h2>
           );
@@ -151,8 +172,10 @@ export function ChapterView({ title, onDone }: { title: string; onDone: () => vo
           );
         if (b.k === "table")
           return (
-            <div key={i} className="overflow-x-auto">
-              <table className="w-full border-collapse text-[12px]">
+            <div key={i} className="-mx-1 overflow-x-auto px-1">
+              <table
+                className={`border-collapse text-[12px] ${b.headers.length >= 4 ? "min-w-[640px]" : "w-full"}`}
+              >
                 <thead>
                   <tr>
                     {b.headers.map((h, j) => (
@@ -169,7 +192,12 @@ export function ChapterView({ title, onDone }: { title: string; onDone: () => vo
                   {b.rows.map((r, ri) => (
                     <tr key={ri}>
                       {r.map((c, ci) => (
-                        <td key={ci} className="border border-surface-3 px-2 py-1 align-top text-neutral-200">
+                        <td
+                          key={ci}
+                          className={`border border-surface-3 px-2 py-1 align-top text-neutral-200 ${
+                            ci === 0 && b.headers.length >= 4 ? "whitespace-nowrap" : ""
+                          }`}
+                        >
                           <Inline text={c} />
                         </td>
                       ))}

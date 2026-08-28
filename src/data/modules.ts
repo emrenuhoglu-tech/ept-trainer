@@ -2389,6 +2389,18 @@ export const modules: Module[] = [
         "ruleBox": "Kısa derinlikte en güçlü el raise etmek zorunda değildir — para zaten girer; raise, altındaki dilimden para koparan kırılgan value'nun işidir ve boyu bet'e değil pota göre kurulur.",
         "narration": "Final table derinliğinde preflop defterin yanına bir de postflop para defteri eklenir. Yirmi ile kırk büyük blind derinlikte check-raise value'su en güçlülerden kurulmaz. Düşük SPR'de para iki sokakta zaten girer ve rakip river'a kadar ince value basar, bu yüzden set ve en güçlü eller çoğunlukla call defterine, yani trap'e geçer. Check-raise malzemesi güçlü ama kırılgan ellerdir, iyi top pair tipi diyebilirsin. Senden bir per aşağıdaki dilim, orta çift ya da zayıf per, turn'de pasifleşir ve ondan parayı ancak raise ile koparırsın; senden iyisi zaten seni stack'ler, o kayıp sabittir. Rakibin bet'i küçüldükçe, yani SPR fiilen yükseldikçe, tepe el raise defterine geri girer; bu eşiği kitap kalibre edilecek diye işaretler, sert sayı vermez. Raise'i bet'in katıyla değil potla ölçekle: ICM masasında moda olan küçük c-bete büyük katsayılı raise fiilen bedava fiyat verir, küçük bete karşı raise pot cinsinden anlamlı olmalı. Havuz aynası tam tersini oynar, tepesini heyecanla raise'ler ortayı flat'ler; düşük SPR'de gelen flop raise'i dengeden value ağırdır, bir kademe kat."
       },
+      {
+        "title": "EK: Sığ BvB'de SB'nin birkaç puan fazla fold'u BB'nin blöfünü katlar",
+        "bullets": [
+          "Kısa BB'ye karşı SB primi tek haneye yakınken küçük (3x) üç-bet SB'ye ucuz fiyat bırakır — teorik devam geniştir, raise-fold dilimi küçüktür.",
+          "SB bu fiyata rağmen birkaç puan fazla fold ederse (zayıf offsuit dokuzlar + narin suited eller katlanır) BB'nin blöf üç-bet dilimi tek haneden onlu puanlara sıçrar; value tarafı yerinde kalır.",
+          "Etki orantısız: küçük bir fold artışı, blöf dilimini kat kat büyütür — bu sınıftaki exploitler bir-iki puanlık ayarla uçtan uca döner.",
+          "Sinyal birkaç elde net değilse teoriye yakın dur; fazladan fold'u tekrar gördüysen teoriye sadakat artık kâr değil kayıptır.",
+          "SB koltuğunda önlem tersten işler: küçük üç-bete fold'u dar tut, sıradan bir bağlantılı elle bile çoğunlukla devam et."
+        ],
+        "ruleBox": "Küçük üç-bete SB'nin birkaç puan fazla fold'u BB'nin blöf dilimini katlar — sinyal net değilse teoriye yakın dur, netse kâr oyna.",
+        "narration": "Sığ BvB'de, kısa büyük köre karşı küçük körün primi tek haneye yakınken, small blind'in küçük üç-bete karşı devamı teorik olarak çok geniştir: fiyat ucuzdur, orta güçteki bağlantılı ve suited eller çağırır, zayıf eller jam'lenir, raise-fold dilimi küçük kalır. Ama saha bu teoriden birkaç puan sapıp zayıf offsuit dokuzları ve narin suited elleri katlamaya başlarsa etki orantısız büyür: value tarafı aynı kalırken büyük körün blöf üç-bet dilimi birkaç kat genişler. Ders şu — bu sınıftaki exploitler küçücük bir ayarla uçtan uca zıplar, o yüzden sinyal net değilse teoriye yakın durmak daha güvenlidir; ama fazladan fold'u birkaç elde gördüysen teoriye sadık kalmak artık kâr değil kayıptır. Small blind koltuğundaysan tersini yap: küçük üç-bete fold'unu dar tut, sıradan bir çift yerine bağlantılı bir elle bile çoğunlukla devam et."
+      },
     ],
   },
   {

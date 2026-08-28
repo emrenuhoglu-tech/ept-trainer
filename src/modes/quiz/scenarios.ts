@@ -3421,6 +3421,17 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 9.6",
     kavram: "odeme-egrisi-masa-sayisi",
   },
+  {
+    "q": "Sığ BvB, kısa BB'ye karşı primin tek haneye yakın. BB'nin küçük (3x) üç-betine SB'nin fold'unun teoriden birkaç puan fazla olduğunu birkaç elde net gördün — zayıf offsuit dokuzlar ve narin suited eller artık katlanıyor, value tarafında değişiklik yok. BB olarak ne yaparsın?",
+    "options": [
+      "Blöf üç-bet dilimini sertçe aç, value tarafını aynı bırak",
+      "Küçük bir sapma olduğu için teorik dengeye yakın oynamaya devam et"
+    ],
+    "correct": 0,
+    "explain": "Bu sınıfta birkaç puanlık fazla fold, value sabit kalırken blöf üç-bet dilimini tek haneden onlu puanlara katlar — sinyal birkaç elde net görüldüğünde teoriye sadakat kâr değil kayıptır; dengeyi ancak sinyal belirsizken korursun.",
+    "source": "Bölüm 12.4-EK-5",
+    "kavram": "sb-fazla-fold-blof-3bet-patlamasi"
+  },
 ];
 
 export function randomScenario(): Scenario {

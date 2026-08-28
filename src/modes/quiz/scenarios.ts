@@ -1262,6 +1262,62 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 18.2",
     kavram: "polarize",
   },
+
+  // --- M41: SB'de multiway (Bölüm 4.4 + Bölüm 13) ---
+  {
+    q: "CO açtı, BTN ve BB-öncesi bir oyuncu call etti. SB'desin, elinde 76s. Fiyat iyi görünüyor.",
+    options: ["Call — üç kişi var, pot oranı iyi", "Fold — pozisyon şartı sağlanmıyor", "Call ama flop'ta hemen pes et"],
+    correct: 1,
+    explain:
+      "Coldcall'un birinci şartı: IP olmak ya da aksiyonu kapatmak. SB ikisini de sağlamaz — üç rakibe OOP'sin ve BB hâlâ arkanda squeeze edebilir. Pot oranı call'un fiyatıdır, elin tamamının değil.",
+    source: "Bölüm 4.4",
+    kavram: "sb-multiway",
+  },
+  {
+    q: "Aynı spot. 'İyi fiyat' ile 'iyi karar' arasındaki fark tam olarak nedir?",
+    options: ["Fark yok — fiyat iyiyse karar iyidir", "Equity realization — pozisyon dışı en düşük", "Sadece stack derinliği belirler"],
+    correct: 1,
+    explain:
+      "Pot oranı sadece call'un fiyatını söyler. Equity realization, o equity'nin kaçını tahsil edebildiğindir; üç rakibe OOP'yken masadaki en düşük olan sensin. İyi fiyat × kötü realizasyon = kötü karar.",
+    source: "Bölüm 4.4 / 13.1",
+    kavram: "sb-multiway",
+  },
+  {
+    q: "40bb'sin, SB'de 3bb call düşünüyorsun (66 elin var). Derinlik şartı tutuyor mu?",
+    options: ["Evet — 40bb set-mining için yeterli", "Hayır — arkada ~12× kalıyor, 15× gerek", "Şart sadece 100bb üstünde geçerli"],
+    correct: 1,
+    explain:
+      "Set-mining için call'un en az 15 katı arkanda kalmalı. 40bb'de 3bb call sonrası 37bb kalır; 37/3 ≈ 12 → şart tutmaz. Turnuva bandında bu şart çoğu zaman düşer.",
+    source: "Bölüm 4.4",
+    kavram: "sb-multiway",
+  },
+  {
+    q: "Multiway potta connector ve düşük Jx suited'in ürettiği el tipi ne?",
+    options: ["Nut eller — bu yüzden multiway iyidirler", "İkinci en iyi el ve nut olmayan çekiliş", "Top pair — multiway'de değer eli"],
+    correct: 1,
+    explain:
+      "3+ yollu potta top pair bir sınıf düşer, non-nut FD ve gutshot check'e döner ya da ölür. Multiway'de değerini koruyan tek çekiliş NUT çekilişidir — o yüzden suited Ax istisna, connector değil.",
+    source: "Bölüm 13.1",
+    kavram: "sb-multiway",
+  },
+  {
+    q: "SB'de güçlü elin var (QQ), açan + iki caller. Doğru hamle?",
+    options: ["Flat — kalabalık pota tuzak kur", "Squeeze — coldcaller aralığı sıkı ama zayıf", "Min-raise — ucuz bilgi al"],
+    correct: 1,
+    explain:
+      "Coldcaller 4-bet edemez ve çoğu elini fold eder; potta üç kişinin ölü parası var. Kitap squeeze'i 'canlıda en kârlı tek hamle' sayar — blind'lardan 5×+ boy. SB'de üçüncü kutu flat değil squeeze'dir.",
+    source: "Bölüm 4.6",
+    kavram: "sb-multiway",
+  },
+  {
+    q: "Coldcaller'lar balık — para koyduktan sonra fold etmiyorlar. Squeeze planın ne olur?",
+    options: ["Blöfü genişlet — balığa daha çok baskı", "Blöfü tamamen kes, sadece value squeeze", "Boyu küçült ki call alsın"],
+    correct: 1,
+    explain:
+      "Squeeze'in yakıtı fold equity'dir. Fold etmeyen rakibe karşı blöf squeeze'i yanar; sadece value kalır. Pratik sonuç: blöf de call de çalışmıyorsa o spot senin spotun değildir → fold.",
+    source: "Bölüm 4.6",
+    kavram: "sb-multiway",
+  },
 ];
 
 export function randomScenario(): Scenario {
@@ -1301,6 +1357,7 @@ const KAVRAM_BOLUM: Record<string, number> = {
   multiway: 13,
   "marjinal-el": 4,
   polarize: 18,
+  "sb-multiway": 4,
 };
 
 export function kavramChapter(kavram: string): number | null {

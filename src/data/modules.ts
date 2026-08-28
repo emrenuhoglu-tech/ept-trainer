@@ -3735,6 +3735,124 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M41",
+    title: "SB'de multiway: biri açtı, iki kişi gördü",
+    chapter: "Bölüm 4.4 + Bölüm 13",
+    minutes: 7,
+    slides: [
+      {
+        title: "Spot: açan var, iki caller var, sen SB'desin",
+        bullets: [
+          "Bu masadaki en kötü koltuktasın — üç rakibe karşı da pozisyon dışısın.",
+          "Üstelik aksiyonu KAPATMIYORSUN: BB hâlâ arkanda ve squeeze edebilir.",
+          "Fiyat cazip görünür çünkü zaten yarım blind koymuşsun.",
+          "'Fold ediyordum ama görmek lazım' hissi tam burada doğar — ve çoğunlukla yanlıştır.",
+        ],
+        ruleBox: "SB'de multiway flat, pokerdeki en pahalı 'ucuz' karardır: iyi fiyat, en kötü koltuk.",
+        narration:
+          "Spotu netleştirelim. Biri açtı, arkasından iki kişi call etti, sıra sana geldi ve sen small blind'dasın. Şunu baştan gör: bu el boyunca masadaki en kötü koltuktasın. Üç rakibin de arkanda oturuyor, yani flop, turn ve river'da her zaman ilk sen konuşacaksın. Dahası, aksiyonu kapatmıyorsun; big blind hâlâ arkanda ve senin call'ını görüp squeeze edebilir. Buna rağmen fiyat cazip görünür, çünkü zaten yarım blind koymuşsun ve potta üç kişinin parası var. İşte fold ediyordum ama görmek lazım hissi tam buradan doğar. O his gerçek, matematiğin bir kısmı da gerçek, ama sonuç çoğunlukla yanlış. Şimdi neden yanlış olduğuna bakalım.",
+      },
+      {
+        title: "Kitabın üç şartı: SB burada BİRİNCİ şartta çakılıyor",
+        bullets: [
+          "Coldcall'un üç şartı: pozisyon, derinlik, ödeyen rakip. Üçü birden yoksa flat yok.",
+          "1. Pozisyon: ya IP olacaksın ya aksiyonu kapatacaksın (BB). SB ikisini de sağlamıyor.",
+          "2. Derinlik: set-mining için call'un en az on beş katı arkanda kalmalı.",
+          "3. Ödeyen rakip: tutturduğunda sana parayı verecek biri masada olmalı.",
+          "SB multiway spotu birinci şartı YAPISAL olarak sağlayamaz — el ne olursa olsun.",
+        ],
+        ruleBox: "Üç şart bir 've' listesidir, 'veya' değil. Biri eksikse el ne kadar güzel görünürse görünsün flat yok.",
+        narration:
+          "Kitap coldcall'u üç şarta bağlar ve bunlar bir ve listesidir, veya listesi değil. Üçü aynı anda sağlanmıyorsa flat etmezsin. Birinci şart pozisyon: ya pozisyonda olacaksın ya da aksiyonu kapatacaksın, yani big blind olacaksın. İkinci şart derinlik: set için oynuyorsan, koyduğun paranın en az on beş katı arkanda kalmalı. Üçüncü şart ödeyen rakip: elini tutturduğunda sana para verecek biri olmalı, sıkı bir rege karşı set aramak kârsızdır. Şimdi bak: small blind'da multiway bir potta birinci şartı sağlaman mümkün değil. Pozisyonda değilsin ve aksiyonu da kapatmıyorsun. Bu bir el seçimi meselesi değil, koltuğun yapısal özelliği. Yani elin ne olursa olsun o şart açık kalıyor.",
+      },
+      {
+        title: "Derinlik şartı da genelde tutmaz",
+        bullets: [
+          "Turnuva bandında (30–60bb) call'un on beş katı çoğu zaman arkanda kalmaz.",
+          "Örnek: kırk big blind'sın, üç big blind'lık call yapıyorsun → arkanda otuz yedi kalır.",
+          "Otuz yedi bölü üç yaklaşık on iki — on beş şartının altında.",
+          "Yani sadece pozisyon değil, derinlik de çoğu zaman 'hayır' diyor.",
+        ],
+        ruleBox: "Yüz big blind'de üç big blind call için kırk beş big blind arkada olmalı. Kırk big blind'de aynı call bu şartı sağlamaz.",
+        narration:
+          "İkinci şarta bakalım, çünkü çoğu oyuncu burada da kendini kandırır. Set-mining için call'un en az on beş katı arkanda kalmalı. Yüz big blind derinlikte üç big blind'lık bir call yapıyorsan, arkanda kırk beş big blind ve üstü kalmalı; bu tamam. Ama sen turnuvadasın ve sık sık otuz ile altmış big blind arasındasın. Kırk big blind'ken üç big blind call edersen arkanda otuz yedi kalır; otuz yedi bölü üç yaklaşık on iki eder, yani on beş şartının altında. Sonuç şu: küçük çiftle set aramak için gereken derinlik bile çoğu zaman yok. Yani small blind'daki bu spotta sadece pozisyon şartı değil, derinlik şartı da genellikle hayır diyor. İki şart birden düştüğünde geriye tartışacak bir şey kalmaz.",
+      },
+      {
+        title: "İyi fiyat, kötü realizasyon: ikisi aynı şey değil",
+        bullets: [
+          "Pot oranı sana sadece CALL'ın fiyatını söyler — elin tamamının fiyatını değil.",
+          "Equity realization = o equity'nin kaçını gerçekten tahsil edebildiğin.",
+          "Üç rakibe karşı pozisyon dışıyken realizasyonun masadaki EN DÜŞÜK olanıdır.",
+          "İyi fiyat çarpı kötü realizasyon, yine kötü bir karardır.",
+        ],
+        ruleBox: "Pot oranı 'girmeye değer mi' sorusunun yarısıdır. Diğer yarısı: girdikten sonra bu eli oynayabilecek miyim?",
+        narration:
+          "Şimdi görmek lazım hissinin altındaki matematiği düzeltelim. Pot oranı sana bir şey söyler: bu call'ın fiyatı nedir. Ama sana elin tamamının fiyatını söylemez. Aradaki fark equity realization'dır, yani kâğıt üstündeki equity'nin ne kadarını gerçekten tahsil edebildiğin. Pozisyon dışıyken ve üç rakibe karşıyken realizasyonun masadaki en düşük olanıdır. Her sokakta ilk sen konuşursun, blöf yapman zorlaşır, orta güçteki ellerinle kaç sokak ödeyeceğini bilemezsin ve arkanda hâlâ bir big blind vardır. Yani formül şu: iyi fiyat çarpı kötü realizasyon, yine kötü bir karar eder. Üç kişi potta diye girdiğin el, tam da üç kişi potta olduğu için oynanamaz hale gelir. Bu iki cümleyi ayırdığın gün bu spot senin için biter.",
+      },
+      {
+        title: "Multiway matrisi: tam da o eller değer kaybediyor",
+        bullets: [
+          "Üç+ yollu potta top pair BİR SINIF düşer → check / pot kontrol.",
+          "Blöf neredeyse yok olur — sadece nut-bloker'lı semi-bluff yaşar.",
+          "Non-nut renk çekilişi ve gutshot: check'e döner ya da ölür.",
+          "Connector ve Jx suited'in ürettiği şey tam olarak bunlar: ikinci en iyi el ve nut olmayan çekiliş.",
+        ],
+        ruleBox: "Multiway'de yaşayan tek çekiliş NUT çekilişidir. İkinci en iyi renk multiway'de kâr değil, gider kalemidir.",
+        narration:
+          "Şimdi işin asıl acı kısmına gelelim: multiway'de tam olarak senin görmek istediğin eller değer kaybeder. Kitabın heads-up'tan üç yollu potlara geçiş matrisi şunu söylüyor. Üç ya da daha çok kişi varken top pair bir sınıf düşer, artık değer eli değil check ve pot kontrol elidir. Blöf neredeyse tamamen ortadan kalkar; sadece nut bloker taşıyan semi-blöfler yaşar. Nut olmayan renk çekilişi ve gutshot ya check'e döner ya tamamen ölür. Şimdi kendine sor: connector ve düşük vale suited eller sana ne üretir? İkinci en iyi el ve nut olmayan çekiliş. Yani multiway'de en çok değer kaybeden iki kategori. Nut renk çekilişi ise matriste yerini korur, bet edilmeye devam eder, çünkü tamamlandığında çok ödenir. Bu ayrımı aklında tut, birazdan istisnanın temeli bu olacak.",
+      },
+      {
+        title: "Kaçırdığın hamle call değil: SQUEEZE",
+        bullets: [
+          "Coldcaller'ın aralığı sıkı AMA zayıftır: 4-bet edemez, çoğu eli fold eder.",
+          "Kitap squeeze'i 'canlıda en kârlı tek hamle' diye tanımlar.",
+          "Blind'lardan boyut: açılışın beş katı ve üstü — iki caller varsa daha da yukarı.",
+          "Value: JJ+, AQs+, AKo. Blöf: A5s–A4s, KQs, AJs (bloker + oynanabilirlik).",
+        ],
+        ruleBox: "SB'de üçüncü kutu flat değil squeeze'dir. Potta iki caller'ın ölü parası varken en çok kazanan hamle budur.",
+        narration:
+          "Şimdi asıl cevaba geliyoruz. Sen bu spotta iki seçenek görüyorsun, fold ya da call. Kaçırdığın üçüncü seçenek call değil, squeeze. Kitap squeeze'i canlı oyunda en kârlı tek hamle diye tanımlar ve sebebi şu: coldcaller'ların aralığı sıkı ama zayıftır. O iki kişi call ettiyse dört-bet edebilecek elleri yok demektir; büyük bir raise gördüklerinde çoğu elini atarlar. Üstelik potta artık üç kişinin ölü parası var ve sen o parayı tek hamlede alabilirsin. Boyut önemli: blind'lardan squeeze açılışın beş katı ve üstüdür, iki caller varken daha da yukarı çıkarsın. Değer tarafı vale-vale ve üstü, as-kız suited ve üstü, as-papaz offsuit. Blöf tarafı as-beş ve as-dört suited, papaz-kız suited, as-vale suited; bunlar hem bloker taşır hem çağrıldığında oynanabilir. Yani cevabın fold ya da squeeze; ortadaki flat kutusu yine yok.",
+      },
+      {
+        title: "Squeeze'i NE ZAMAN kesersin — tek soru",
+        bullets: [
+          "Coldcaller sıkıysa: blöf tarafını genişlet, fold equity yüksek.",
+          "Coldcaller balıksa (fold etmiyorsa): blöfü TAMAMEN kes, sadece value squeeze.",
+          "Yani squeeze otomatik değil; rakibin fold etme yeteneğine bağlı.",
+          "Fold etmeyen iki kişi varsa spot geri fold'a döner — çünkü blöf de call de çalışmıyor.",
+        ],
+        ruleBox: "Squeeze'in yakıtı fold equity'dir. Karşındakiler fold etmiyorsa squeeze blöfü değil, sadece value kalır.",
+        narration:
+          "Squeeze'i otomatik bir refleks yapma; tek bir soruya bağlı. O coldcaller'lar fold ediyor mu? Sıkı oyunculara karşı blöf tarafını genişletirsin, çünkü fold equity'n yüksek ve zaten kaybedecekleri bir şey olmadığı için kolay atarlar. Ama karşındakiler balıksa, yani bir kere para koyduktan sonra fold etmiyorlarsa, blöf tarafını tamamen kesersin; geriye sadece değer squeeze'i kalır. Bu ayrımın pratik sonucu şu: masada fold etmeyen iki kişi varsa bu spot senin için tekrar fold'a döner. Çünkü blöf çalışmıyor, call zaten pozisyon yüzünden çalışmıyor, geriye sadece gerçek elle değer almak kalıyor. Bu kötü bir haber değil; bu, o elleri neden atman gerektiğinin ikinci sebebi. Bir spotta hem blöfün hem call'ın çalışmıyorsa, o spot senin spotun değildir.",
+      },
+      {
+        title: "Peki hiç mi görmüyorum? İstisna dar ve şartlı",
+        bullets: [
+          "Nut potansiyeli olan suited Ax: multiway'de yaşayan tek çekiliş sınıfı.",
+          "Küçük çift: SADECE derinlik on beş katı sağlıyorsa ve ödeyen rakip varsa.",
+          "İki şart daha: BB'nin squeeze'i tehdit değilse ve boy gerçekten küçükse.",
+          "Connector ve düşük Jx suited bu istisnanın İÇİNDE değil — onlar nut yapmaz.",
+        ],
+        ruleBox: "İstisnanın testi 'ucuz mu' değil, 'nut yapabiliyor muyum'. Nut yapamayan el multiway'de ikinci olmak için para koyar.",
+        narration:
+          "Peki hiç mi flop görmüyorsun? Görüyorsun ama istisna dar ve şartlı. Birinci sınıf, nut potansiyeli olan suited as'lar. Bunlar multiway'de yaşayan tek çekiliş sınıfıdır, çünkü renk geldiğinde en üstteki rengi yaparsın; matris de nut renk çekilişinin değerini koruduğunu söylüyor. İkinci sınıf küçük çiftler, ama sadece derinlik on beş katı şartını gerçekten sağlıyorsa ve masada tutturduğunda ödeyecek biri varsa. Bunlara iki şart daha eklenir: big blind'ın squeeze'i ciddi bir tehdit olmamalı ve açılış boyu gerçekten küçük olmalı. Şimdi dikkat: connector'lar ve düşük vale suited eller bu istisnanın içinde değil. Sebebi basit, onlar nut yapmaz. Testin ucuz mu değil, nut yapabiliyor muyum. Nut yapamayan bir el multiway pota ikinci en iyi olmak için para koyar.",
+      },
+      {
+        title: "Cheat: SB multiway kartı",
+        bullets: [
+          "Varsayılan FOLD. Bu bir zayıflık değil, koltuğun matematiği.",
+          "Güçlü elle: squeeze (beş kat ve üstü) — flat değil.",
+          "Nut potansiyeli + iyi fiyat + BB sakin + derinlik tamam → dar bir flat penceresi.",
+          "Coldcaller'lar fold etmiyorsa: blöfü kes, spot fold'a döner.",
+          "Connector / düşük Jx suited: bu spotun eli değil. Onları BTN ve CO'da oyna.",
+        ],
+        ruleBox: "SB multiway'de üç kutu var: fold, squeeze, ve çok dar bir nut-potansiyelli flat. Ortada 'ucuz gördüm' kutusu yok.",
+        narration:
+          "Cep kartı. Small blind'da biri açtı ve arkasından call'lar geldiyse varsayılanın fold. Bu zayıf oynamak değil, koltuğun matematiği; pozisyon dışısın ve aksiyonu kapatmıyorsun. Elin gerçekten güçlüyse hamlen squeeze, açılışın beş katı ve üstü; flat değil. Flat penceresi çok dar ve dört şartı birden ister: elin nut potansiyeli olacak, yani suited as; fiyat gerçekten iyi olacak; big blind squeeze tehdidi olmayacak; ve derinlik on beş katı sağlayacak. Coldcaller'lar fold etmeyen tiplerse blöf squeeze'ini kes, spot yine fold'a döner. Son olarak şunu net söyleyeyim: connector'lar ve düşük vale suited eller bu spotun eli değildir. Onlar pozisyonda parlar; butonda ve cut-off'ta oyna. Small blind'da onlarla flop görmek, üç rakibe karşı pozisyon dışı ikinci en iyi eli aramak demektir.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

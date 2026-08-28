@@ -8040,6 +8040,115 @@ var modules = [
         narration: "\u015Eimdi as\u0131l derdine gelelim. Standart oynuyorum, elim a\xE7\u0131k oluyor diyorsun. Te\u015Fhis \u015Fu: sorun oynad\u0131\u011F\u0131n eller de\u011Fil, her boyla tek tip aral\u0131k g\xF6stermen. E\u011Fer b\xFCy\xFCk bahsin her zaman ger\xE7ekten g\xFC\xE7l\xFC bir el, k\xFC\xE7\xFCk bahsin her zaman orta g\xFC\xE7te bir el anlam\u0131na geliyorsa, rakip elini bedavaya okur. Hi\xE7bir \u015Feyi yanl\u0131\u015F oynam\u0131yor olabilirsin ve yine de tahmin edilebilirsin, \xE7\xFCnk\xFC boylar\u0131n bilgi s\u0131zd\u0131r\u0131yor. \xC7\xF6z\xFCm de basit ama disiplin ister: ayn\u0131 boyun i\xE7ine hem de\u011Fer ellerini hem bl\xF6flerini koy. B\xFCy\xFCk bahis yapt\u0131\u011F\u0131nda bunu bazen nut'la bazen bl\xF6fle yap. O zaman rakip do\u011Fru fold edemez, \xE7\xFCnk\xFC hangi tarafta oldu\u011Funu bilemez. Dikkat, bu daha \xE7ok bl\xF6f yap demek de\u011Fil. Her boyun i\xE7ine iki taraf\u0131 da koy demek. Bl\xF6f oran\u0131n\u0131 board ve rakip belirler; senin i\u015Fin, boy ile aral\u0131k aras\u0131ndaki sabit e\u015Fle\u015Fmeyi k\u0131rmak."
       }
     ]
+  },
+  {
+    id: "M41",
+    title: "SB'de multiway: biri a\xE7t\u0131, iki ki\u015Fi g\xF6rd\xFC",
+    chapter: "B\xF6l\xFCm 4.4 + B\xF6l\xFCm 13",
+    minutes: 7,
+    slides: [
+      {
+        title: "Spot: a\xE7an var, iki caller var, sen SB'desin",
+        bullets: [
+          "Bu masadaki en k\xF6t\xFC koltuktas\u0131n \u2014 \xFC\xE7 rakibe kar\u015F\u0131 da pozisyon d\u0131\u015F\u0131s\u0131n.",
+          "\xDCstelik aksiyonu KAPATMIYORSUN: BB h\xE2l\xE2 arkanda ve squeeze edebilir.",
+          "Fiyat cazip g\xF6r\xFCn\xFCr \xE7\xFCnk\xFC zaten yar\u0131m blind koymu\u015Fsun.",
+          "'Fold ediyordum ama g\xF6rmek laz\u0131m' hissi tam burada do\u011Far \u2014 ve \xE7o\u011Funlukla yanl\u0131\u015Ft\u0131r."
+        ],
+        ruleBox: "SB'de multiway flat, pokerdeki en pahal\u0131 'ucuz' karard\u0131r: iyi fiyat, en k\xF6t\xFC koltuk.",
+        narration: "Spotu netle\u015Ftirelim. Biri a\xE7t\u0131, arkas\u0131ndan iki ki\u015Fi call etti, s\u0131ra sana geldi ve sen small blind'das\u0131n. \u015Eunu ba\u015Ftan g\xF6r: bu el boyunca masadaki en k\xF6t\xFC koltuktas\u0131n. \xDC\xE7 rakibin de arkanda oturuyor, yani flop, turn ve river'da her zaman ilk sen konu\u015Facaks\u0131n. Dahas\u0131, aksiyonu kapatm\u0131yorsun; big blind h\xE2l\xE2 arkanda ve senin call'\u0131n\u0131 g\xF6r\xFCp squeeze edebilir. Buna ra\u011Fmen fiyat cazip g\xF6r\xFCn\xFCr, \xE7\xFCnk\xFC zaten yar\u0131m blind koymu\u015Fsun ve potta \xFC\xE7 ki\u015Finin paras\u0131 var. \u0130\u015Fte fold ediyordum ama g\xF6rmek laz\u0131m hissi tam buradan do\u011Far. O his ger\xE7ek, matemati\u011Fin bir k\u0131sm\u0131 da ger\xE7ek, ama sonu\xE7 \xE7o\u011Funlukla yanl\u0131\u015F. \u015Eimdi neden yanl\u0131\u015F oldu\u011Funa bakal\u0131m."
+      },
+      {
+        title: "Kitab\u0131n \xFC\xE7 \u015Fart\u0131: SB burada B\u0130R\u0130NC\u0130 \u015Fartta \xE7ak\u0131l\u0131yor",
+        bullets: [
+          "Coldcall'un \xFC\xE7 \u015Fart\u0131: pozisyon, derinlik, \xF6deyen rakip. \xDC\xE7\xFC birden yoksa flat yok.",
+          "1. Pozisyon: ya IP olacaks\u0131n ya aksiyonu kapatacaks\u0131n (BB). SB ikisini de sa\u011Flam\u0131yor.",
+          "2. Derinlik: set-mining i\xE7in call'un en az on be\u015F kat\u0131 arkanda kalmal\u0131.",
+          "3. \xD6deyen rakip: tutturdu\u011Funda sana paray\u0131 verecek biri masada olmal\u0131.",
+          "SB multiway spotu birinci \u015Fart\u0131 YAPISAL olarak sa\u011Flayamaz \u2014 el ne olursa olsun."
+        ],
+        ruleBox: "\xDC\xE7 \u015Fart bir 've' listesidir, 'veya' de\u011Fil. Biri eksikse el ne kadar g\xFCzel g\xF6r\xFCn\xFCrse g\xF6r\xFCns\xFCn flat yok.",
+        narration: "Kitap coldcall'u \xFC\xE7 \u015Farta ba\u011Flar ve bunlar bir ve listesidir, veya listesi de\u011Fil. \xDC\xE7\xFC ayn\u0131 anda sa\u011Flanm\u0131yorsa flat etmezsin. Birinci \u015Fart pozisyon: ya pozisyonda olacaks\u0131n ya da aksiyonu kapatacaks\u0131n, yani big blind olacaks\u0131n. \u0130kinci \u015Fart derinlik: set i\xE7in oynuyorsan, koydu\u011Fun paran\u0131n en az on be\u015F kat\u0131 arkanda kalmal\u0131. \xDC\xE7\xFCnc\xFC \u015Fart \xF6deyen rakip: elini tutturdu\u011Funda sana para verecek biri olmal\u0131, s\u0131k\u0131 bir rege kar\u015F\u0131 set aramak k\xE2rs\u0131zd\u0131r. \u015Eimdi bak: small blind'da multiway bir potta birinci \u015Fart\u0131 sa\u011Flaman m\xFCmk\xFCn de\u011Fil. Pozisyonda de\u011Filsin ve aksiyonu da kapatm\u0131yorsun. Bu bir el se\xE7imi meselesi de\u011Fil, koltu\u011Fun yap\u0131sal \xF6zelli\u011Fi. Yani elin ne olursa olsun o \u015Fart a\xE7\u0131k kal\u0131yor."
+      },
+      {
+        title: "Derinlik \u015Fart\u0131 da genelde tutmaz",
+        bullets: [
+          "Turnuva band\u0131nda (30\u201360bb) call'un on be\u015F kat\u0131 \xE7o\u011Fu zaman arkanda kalmaz.",
+          "\xD6rnek: k\u0131rk big blind's\u0131n, \xFC\xE7 big blind'l\u0131k call yap\u0131yorsun \u2192 arkanda otuz yedi kal\u0131r.",
+          "Otuz yedi b\xF6l\xFC \xFC\xE7 yakla\u015F\u0131k on iki \u2014 on be\u015F \u015Fart\u0131n\u0131n alt\u0131nda.",
+          "Yani sadece pozisyon de\u011Fil, derinlik de \xE7o\u011Fu zaman 'hay\u0131r' diyor."
+        ],
+        ruleBox: "Y\xFCz big blind'de \xFC\xE7 big blind call i\xE7in k\u0131rk be\u015F big blind arkada olmal\u0131. K\u0131rk big blind'de ayn\u0131 call bu \u015Fart\u0131 sa\u011Flamaz.",
+        narration: "\u0130kinci \u015Farta bakal\u0131m, \xE7\xFCnk\xFC \xE7o\u011Fu oyuncu burada da kendini kand\u0131r\u0131r. Set-mining i\xE7in call'un en az on be\u015F kat\u0131 arkanda kalmal\u0131. Y\xFCz big blind derinlikte \xFC\xE7 big blind'l\u0131k bir call yap\u0131yorsan, arkanda k\u0131rk be\u015F big blind ve \xFCst\xFC kalmal\u0131; bu tamam. Ama sen turnuvadas\u0131n ve s\u0131k s\u0131k otuz ile altm\u0131\u015F big blind aras\u0131ndas\u0131n. K\u0131rk big blind'ken \xFC\xE7 big blind call edersen arkanda otuz yedi kal\u0131r; otuz yedi b\xF6l\xFC \xFC\xE7 yakla\u015F\u0131k on iki eder, yani on be\u015F \u015Fart\u0131n\u0131n alt\u0131nda. Sonu\xE7 \u015Fu: k\xFC\xE7\xFCk \xE7iftle set aramak i\xE7in gereken derinlik bile \xE7o\u011Fu zaman yok. Yani small blind'daki bu spotta sadece pozisyon \u015Fart\u0131 de\u011Fil, derinlik \u015Fart\u0131 da genellikle hay\u0131r diyor. \u0130ki \u015Fart birden d\xFC\u015Ft\xFC\u011F\xFCnde geriye tart\u0131\u015Facak bir \u015Fey kalmaz."
+      },
+      {
+        title: "\u0130yi fiyat, k\xF6t\xFC realizasyon: ikisi ayn\u0131 \u015Fey de\u011Fil",
+        bullets: [
+          "Pot oran\u0131 sana sadece CALL'\u0131n fiyat\u0131n\u0131 s\xF6yler \u2014 elin tamam\u0131n\u0131n fiyat\u0131n\u0131 de\u011Fil.",
+          "Equity realization = o equity'nin ka\xE7\u0131n\u0131 ger\xE7ekten tahsil edebildi\u011Fin.",
+          "\xDC\xE7 rakibe kar\u015F\u0131 pozisyon d\u0131\u015F\u0131yken realizasyonun masadaki EN D\xDC\u015E\xDCK olan\u0131d\u0131r.",
+          "\u0130yi fiyat \xE7arp\u0131 k\xF6t\xFC realizasyon, yine k\xF6t\xFC bir karard\u0131r."
+        ],
+        ruleBox: "Pot oran\u0131 'girmeye de\u011Fer mi' sorusunun yar\u0131s\u0131d\u0131r. Di\u011Fer yar\u0131s\u0131: girdikten sonra bu eli oynayabilecek miyim?",
+        narration: "\u015Eimdi g\xF6rmek laz\u0131m hissinin alt\u0131ndaki matemati\u011Fi d\xFCzeltelim. Pot oran\u0131 sana bir \u015Fey s\xF6yler: bu call'\u0131n fiyat\u0131 nedir. Ama sana elin tamam\u0131n\u0131n fiyat\u0131n\u0131 s\xF6ylemez. Aradaki fark equity realization'd\u0131r, yani k\xE2\u011F\u0131t \xFCst\xFCndeki equity'nin ne kadar\u0131n\u0131 ger\xE7ekten tahsil edebildi\u011Fin. Pozisyon d\u0131\u015F\u0131yken ve \xFC\xE7 rakibe kar\u015F\u0131yken realizasyonun masadaki en d\xFC\u015F\xFCk olan\u0131d\u0131r. Her sokakta ilk sen konu\u015Fursun, bl\xF6f yapman zorla\u015F\u0131r, orta g\xFC\xE7teki ellerinle ka\xE7 sokak \xF6deyece\u011Fini bilemezsin ve arkanda h\xE2l\xE2 bir big blind vard\u0131r. Yani form\xFCl \u015Fu: iyi fiyat \xE7arp\u0131 k\xF6t\xFC realizasyon, yine k\xF6t\xFC bir karar eder. \xDC\xE7 ki\u015Fi potta diye girdi\u011Fin el, tam da \xFC\xE7 ki\u015Fi potta oldu\u011Fu i\xE7in oynanamaz hale gelir. Bu iki c\xFCmleyi ay\u0131rd\u0131\u011F\u0131n g\xFCn bu spot senin i\xE7in biter."
+      },
+      {
+        title: "Multiway matrisi: tam da o eller de\u011Fer kaybediyor",
+        bullets: [
+          "\xDC\xE7+ yollu potta top pair B\u0130R SINIF d\xFC\u015Fer \u2192 check / pot kontrol.",
+          "Bl\xF6f neredeyse yok olur \u2014 sadece nut-bloker'l\u0131 semi-bluff ya\u015Far.",
+          "Non-nut renk \xE7ekili\u015Fi ve gutshot: check'e d\xF6ner ya da \xF6l\xFCr.",
+          "Connector ve Jx suited'in \xFCretti\u011Fi \u015Fey tam olarak bunlar: ikinci en iyi el ve nut olmayan \xE7ekili\u015F."
+        ],
+        ruleBox: "Multiway'de ya\u015Fayan tek \xE7ekili\u015F NUT \xE7ekili\u015Fidir. \u0130kinci en iyi renk multiway'de k\xE2r de\u011Fil, gider kalemidir.",
+        narration: "\u015Eimdi i\u015Fin as\u0131l ac\u0131 k\u0131sm\u0131na gelelim: multiway'de tam olarak senin g\xF6rmek istedi\u011Fin eller de\u011Fer kaybeder. Kitab\u0131n heads-up'tan \xFC\xE7 yollu potlara ge\xE7i\u015F matrisi \u015Funu s\xF6yl\xFCyor. \xDC\xE7 ya da daha \xE7ok ki\u015Fi varken top pair bir s\u0131n\u0131f d\xFC\u015Fer, art\u0131k de\u011Fer eli de\u011Fil check ve pot kontrol elidir. Bl\xF6f neredeyse tamamen ortadan kalkar; sadece nut bloker ta\u015F\u0131yan semi-bl\xF6fler ya\u015Far. Nut olmayan renk \xE7ekili\u015Fi ve gutshot ya check'e d\xF6ner ya tamamen \xF6l\xFCr. \u015Eimdi kendine sor: connector ve d\xFC\u015F\xFCk vale suited eller sana ne \xFCretir? \u0130kinci en iyi el ve nut olmayan \xE7ekili\u015F. Yani multiway'de en \xE7ok de\u011Fer kaybeden iki kategori. Nut renk \xE7ekili\u015Fi ise matriste yerini korur, bet edilmeye devam eder, \xE7\xFCnk\xFC tamamland\u0131\u011F\u0131nda \xE7ok \xF6denir. Bu ayr\u0131m\u0131 akl\u0131nda tut, birazdan istisnan\u0131n temeli bu olacak."
+      },
+      {
+        title: "Ka\xE7\u0131rd\u0131\u011F\u0131n hamle call de\u011Fil: SQUEEZE",
+        bullets: [
+          "Coldcaller'\u0131n aral\u0131\u011F\u0131 s\u0131k\u0131 AMA zay\u0131ft\u0131r: 4-bet edemez, \xE7o\u011Fu eli fold eder.",
+          "Kitap squeeze'i 'canl\u0131da en k\xE2rl\u0131 tek hamle' diye tan\u0131mlar.",
+          "Blind'lardan boyut: a\xE7\u0131l\u0131\u015F\u0131n be\u015F kat\u0131 ve \xFCst\xFC \u2014 iki caller varsa daha da yukar\u0131.",
+          "Value: JJ+, AQs+, AKo. Bl\xF6f: A5s\u2013A4s, KQs, AJs (bloker + oynanabilirlik)."
+        ],
+        ruleBox: "SB'de \xFC\xE7\xFCnc\xFC kutu flat de\u011Fil squeeze'dir. Potta iki caller'\u0131n \xF6l\xFC paras\u0131 varken en \xE7ok kazanan hamle budur.",
+        narration: "\u015Eimdi as\u0131l cevaba geliyoruz. Sen bu spotta iki se\xE7enek g\xF6r\xFCyorsun, fold ya da call. Ka\xE7\u0131rd\u0131\u011F\u0131n \xFC\xE7\xFCnc\xFC se\xE7enek call de\u011Fil, squeeze. Kitap squeeze'i canl\u0131 oyunda en k\xE2rl\u0131 tek hamle diye tan\u0131mlar ve sebebi \u015Fu: coldcaller'lar\u0131n aral\u0131\u011F\u0131 s\u0131k\u0131 ama zay\u0131ft\u0131r. O iki ki\u015Fi call ettiyse d\xF6rt-bet edebilecek elleri yok demektir; b\xFCy\xFCk bir raise g\xF6rd\xFCklerinde \xE7o\u011Fu elini atarlar. \xDCstelik potta art\u0131k \xFC\xE7 ki\u015Finin \xF6l\xFC paras\u0131 var ve sen o paray\u0131 tek hamlede alabilirsin. Boyut \xF6nemli: blind'lardan squeeze a\xE7\u0131l\u0131\u015F\u0131n be\u015F kat\u0131 ve \xFCst\xFCd\xFCr, iki caller varken daha da yukar\u0131 \xE7\u0131kars\u0131n. De\u011Fer taraf\u0131 vale-vale ve \xFCst\xFC, as-k\u0131z suited ve \xFCst\xFC, as-papaz offsuit. Bl\xF6f taraf\u0131 as-be\u015F ve as-d\xF6rt suited, papaz-k\u0131z suited, as-vale suited; bunlar hem bloker ta\u015F\u0131r hem \xE7a\u011Fr\u0131ld\u0131\u011F\u0131nda oynanabilir. Yani cevab\u0131n fold ya da squeeze; ortadaki flat kutusu yine yok."
+      },
+      {
+        title: "Squeeze'i NE ZAMAN kesersin \u2014 tek soru",
+        bullets: [
+          "Coldcaller s\u0131k\u0131ysa: bl\xF6f taraf\u0131n\u0131 geni\u015Flet, fold equity y\xFCksek.",
+          "Coldcaller bal\u0131ksa (fold etmiyorsa): bl\xF6f\xFC TAMAMEN kes, sadece value squeeze.",
+          "Yani squeeze otomatik de\u011Fil; rakibin fold etme yetene\u011Fine ba\u011Fl\u0131.",
+          "Fold etmeyen iki ki\u015Fi varsa spot geri fold'a d\xF6ner \u2014 \xE7\xFCnk\xFC bl\xF6f de call de \xE7al\u0131\u015Fm\u0131yor."
+        ],
+        ruleBox: "Squeeze'in yak\u0131t\u0131 fold equity'dir. Kar\u015F\u0131ndakiler fold etmiyorsa squeeze bl\xF6f\xFC de\u011Fil, sadece value kal\u0131r.",
+        narration: "Squeeze'i otomatik bir refleks yapma; tek bir soruya ba\u011Fl\u0131. O coldcaller'lar fold ediyor mu? S\u0131k\u0131 oyunculara kar\u015F\u0131 bl\xF6f taraf\u0131n\u0131 geni\u015Fletirsin, \xE7\xFCnk\xFC fold equity'n y\xFCksek ve zaten kaybedecekleri bir \u015Fey olmad\u0131\u011F\u0131 i\xE7in kolay atarlar. Ama kar\u015F\u0131ndakiler bal\u0131ksa, yani bir kere para koyduktan sonra fold etmiyorlarsa, bl\xF6f taraf\u0131n\u0131 tamamen kesersin; geriye sadece de\u011Fer squeeze'i kal\u0131r. Bu ayr\u0131m\u0131n pratik sonucu \u015Fu: masada fold etmeyen iki ki\u015Fi varsa bu spot senin i\xE7in tekrar fold'a d\xF6ner. \xC7\xFCnk\xFC bl\xF6f \xE7al\u0131\u015Fm\u0131yor, call zaten pozisyon y\xFCz\xFCnden \xE7al\u0131\u015Fm\u0131yor, geriye sadece ger\xE7ek elle de\u011Fer almak kal\u0131yor. Bu k\xF6t\xFC bir haber de\u011Fil; bu, o elleri neden atman gerekti\u011Finin ikinci sebebi. Bir spotta hem bl\xF6f\xFCn hem call'\u0131n \xE7al\u0131\u015Fm\u0131yorsa, o spot senin spotun de\u011Fildir."
+      },
+      {
+        title: "Peki hi\xE7 mi g\xF6rm\xFCyorum? \u0130stisna dar ve \u015Fartl\u0131",
+        bullets: [
+          "Nut potansiyeli olan suited Ax: multiway'de ya\u015Fayan tek \xE7ekili\u015F s\u0131n\u0131f\u0131.",
+          "K\xFC\xE7\xFCk \xE7ift: SADECE derinlik on be\u015F kat\u0131 sa\u011Fl\u0131yorsa ve \xF6deyen rakip varsa.",
+          "\u0130ki \u015Fart daha: BB'nin squeeze'i tehdit de\u011Filse ve boy ger\xE7ekten k\xFC\xE7\xFCkse.",
+          "Connector ve d\xFC\u015F\xFCk Jx suited bu istisnan\u0131n \u0130\xC7\u0130NDE de\u011Fil \u2014 onlar nut yapmaz."
+        ],
+        ruleBox: "\u0130stisnan\u0131n testi 'ucuz mu' de\u011Fil, 'nut yapabiliyor muyum'. Nut yapamayan el multiway'de ikinci olmak i\xE7in para koyar.",
+        narration: "Peki hi\xE7 mi flop g\xF6rm\xFCyorsun? G\xF6r\xFCyorsun ama istisna dar ve \u015Fartl\u0131. Birinci s\u0131n\u0131f, nut potansiyeli olan suited as'lar. Bunlar multiway'de ya\u015Fayan tek \xE7ekili\u015F s\u0131n\u0131f\u0131d\u0131r, \xE7\xFCnk\xFC renk geldi\u011Finde en \xFCstteki rengi yapars\u0131n; matris de nut renk \xE7ekili\u015Finin de\u011Ferini korudu\u011Funu s\xF6yl\xFCyor. \u0130kinci s\u0131n\u0131f k\xFC\xE7\xFCk \xE7iftler, ama sadece derinlik on be\u015F kat\u0131 \u015Fart\u0131n\u0131 ger\xE7ekten sa\u011Fl\u0131yorsa ve masada tutturdu\u011Funda \xF6deyecek biri varsa. Bunlara iki \u015Fart daha eklenir: big blind'\u0131n squeeze'i ciddi bir tehdit olmamal\u0131 ve a\xE7\u0131l\u0131\u015F boyu ger\xE7ekten k\xFC\xE7\xFCk olmal\u0131. \u015Eimdi dikkat: connector'lar ve d\xFC\u015F\xFCk vale suited eller bu istisnan\u0131n i\xE7inde de\u011Fil. Sebebi basit, onlar nut yapmaz. Testin ucuz mu de\u011Fil, nut yapabiliyor muyum. Nut yapamayan bir el multiway pota ikinci en iyi olmak i\xE7in para koyar."
+      },
+      {
+        title: "Cheat: SB multiway kart\u0131",
+        bullets: [
+          "Varsay\u0131lan FOLD. Bu bir zay\u0131fl\u0131k de\u011Fil, koltu\u011Fun matemati\u011Fi.",
+          "G\xFC\xE7l\xFC elle: squeeze (be\u015F kat ve \xFCst\xFC) \u2014 flat de\u011Fil.",
+          "Nut potansiyeli + iyi fiyat + BB sakin + derinlik tamam \u2192 dar bir flat penceresi.",
+          "Coldcaller'lar fold etmiyorsa: bl\xF6f\xFC kes, spot fold'a d\xF6ner.",
+          "Connector / d\xFC\u015F\xFCk Jx suited: bu spotun eli de\u011Fil. Onlar\u0131 BTN ve CO'da oyna."
+        ],
+        ruleBox: "SB multiway'de \xFC\xE7 kutu var: fold, squeeze, ve \xE7ok dar bir nut-potansiyelli flat. Ortada 'ucuz g\xF6rd\xFCm' kutusu yok.",
+        narration: "Cep kart\u0131. Small blind'da biri a\xE7t\u0131 ve arkas\u0131ndan call'lar geldiyse varsay\u0131lan\u0131n fold. Bu zay\u0131f oynamak de\u011Fil, koltu\u011Fun matemati\u011Fi; pozisyon d\u0131\u015F\u0131s\u0131n ve aksiyonu kapatm\u0131yorsun. Elin ger\xE7ekten g\xFC\xE7l\xFCyse hamlen squeeze, a\xE7\u0131l\u0131\u015F\u0131n be\u015F kat\u0131 ve \xFCst\xFC; flat de\u011Fil. Flat penceresi \xE7ok dar ve d\xF6rt \u015Fart\u0131 birden ister: elin nut potansiyeli olacak, yani suited as; fiyat ger\xE7ekten iyi olacak; big blind squeeze tehdidi olmayacak; ve derinlik on be\u015F kat\u0131 sa\u011Flayacak. Coldcaller'lar fold etmeyen tiplerse bl\xF6f squeeze'ini kes, spot yine fold'a d\xF6ner. Son olarak \u015Funu net s\xF6yleyeyim: connector'lar ve d\xFC\u015F\xFCk vale suited eller bu spotun eli de\u011Fildir. Onlar pozisyonda parlar; butonda ve cut-off'ta oyna. Small blind'da onlarla flop g\xF6rmek, \xFC\xE7 rakibe kar\u015F\u0131 pozisyon d\u0131\u015F\u0131 ikinci en iyi eli aramak demektir."
+      }
+    ]
   }
 ];
 
@@ -9539,6 +9648,55 @@ var SCENARIOS = [
     explain: "B\xFCy\xFCk boy hep nut, k\xFC\xE7\xFCk boy hep orta el anlam\u0131na geliyorsa rakip elini bedavaya okur. \xC7\xF6z\xFCm 'daha \xE7ok bl\xF6f' de\u011Fil: her boyun i\xE7ine hem de\u011Fer hem bl\xF6f koymak \u2014 boy ile aral\u0131k aras\u0131ndaki sabit e\u015Fle\u015Fmeyi k\u0131rmak.",
     source: "B\xF6l\xFCm 18.2",
     kavram: "polarize"
+  },
+  // --- M41: SB'de multiway (Bölüm 4.4 + Bölüm 13) ---
+  {
+    q: "CO a\xE7t\u0131, BTN ve BB-\xF6ncesi bir oyuncu call etti. SB'desin, elinde 76s. Fiyat iyi g\xF6r\xFCn\xFCyor.",
+    options: ["Call \u2014 \xFC\xE7 ki\u015Fi var, pot oran\u0131 iyi", "Fold \u2014 pozisyon \u015Fart\u0131 sa\u011Flanm\u0131yor", "Call ama flop'ta hemen pes et"],
+    correct: 1,
+    explain: "Coldcall'un birinci \u015Fart\u0131: IP olmak ya da aksiyonu kapatmak. SB ikisini de sa\u011Flamaz \u2014 \xFC\xE7 rakibe OOP'sin ve BB h\xE2l\xE2 arkanda squeeze edebilir. Pot oran\u0131 call'un fiyat\u0131d\u0131r, elin tamam\u0131n\u0131n de\u011Fil.",
+    source: "B\xF6l\xFCm 4.4",
+    kavram: "sb-multiway"
+  },
+  {
+    q: "Ayn\u0131 spot. '\u0130yi fiyat' ile 'iyi karar' aras\u0131ndaki fark tam olarak nedir?",
+    options: ["Fark yok \u2014 fiyat iyiyse karar iyidir", "Equity realization \u2014 pozisyon d\u0131\u015F\u0131 en d\xFC\u015F\xFCk", "Sadece stack derinli\u011Fi belirler"],
+    correct: 1,
+    explain: "Pot oran\u0131 sadece call'un fiyat\u0131n\u0131 s\xF6yler. Equity realization, o equity'nin ka\xE7\u0131n\u0131 tahsil edebildi\u011Findir; \xFC\xE7 rakibe OOP'yken masadaki en d\xFC\u015F\xFCk olan sensin. \u0130yi fiyat \xD7 k\xF6t\xFC realizasyon = k\xF6t\xFC karar.",
+    source: "B\xF6l\xFCm 4.4 / 13.1",
+    kavram: "sb-multiway"
+  },
+  {
+    q: "40bb'sin, SB'de 3bb call d\xFC\u015F\xFCn\xFCyorsun (66 elin var). Derinlik \u015Fart\u0131 tutuyor mu?",
+    options: ["Evet \u2014 40bb set-mining i\xE7in yeterli", "Hay\u0131r \u2014 arkada ~12\xD7 kal\u0131yor, 15\xD7 gerek", "\u015Eart sadece 100bb \xFCst\xFCnde ge\xE7erli"],
+    correct: 1,
+    explain: "Set-mining i\xE7in call'un en az 15 kat\u0131 arkanda kalmal\u0131. 40bb'de 3bb call sonras\u0131 37bb kal\u0131r; 37/3 \u2248 12 \u2192 \u015Fart tutmaz. Turnuva band\u0131nda bu \u015Fart \xE7o\u011Fu zaman d\xFC\u015Fer.",
+    source: "B\xF6l\xFCm 4.4",
+    kavram: "sb-multiway"
+  },
+  {
+    q: "Multiway potta connector ve d\xFC\u015F\xFCk Jx suited'in \xFCretti\u011Fi el tipi ne?",
+    options: ["Nut eller \u2014 bu y\xFCzden multiway iyidirler", "\u0130kinci en iyi el ve nut olmayan \xE7ekili\u015F", "Top pair \u2014 multiway'de de\u011Fer eli"],
+    correct: 1,
+    explain: "3+ yollu potta top pair bir s\u0131n\u0131f d\xFC\u015Fer, non-nut FD ve gutshot check'e d\xF6ner ya da \xF6l\xFCr. Multiway'de de\u011Ferini koruyan tek \xE7ekili\u015F NUT \xE7ekili\u015Fidir \u2014 o y\xFCzden suited Ax istisna, connector de\u011Fil.",
+    source: "B\xF6l\xFCm 13.1",
+    kavram: "sb-multiway"
+  },
+  {
+    q: "SB'de g\xFC\xE7l\xFC elin var (QQ), a\xE7an + iki caller. Do\u011Fru hamle?",
+    options: ["Flat \u2014 kalabal\u0131k pota tuzak kur", "Squeeze \u2014 coldcaller aral\u0131\u011F\u0131 s\u0131k\u0131 ama zay\u0131f", "Min-raise \u2014 ucuz bilgi al"],
+    correct: 1,
+    explain: "Coldcaller 4-bet edemez ve \xE7o\u011Fu elini fold eder; potta \xFC\xE7 ki\u015Finin \xF6l\xFC paras\u0131 var. Kitap squeeze'i 'canl\u0131da en k\xE2rl\u0131 tek hamle' sayar \u2014 blind'lardan 5\xD7+ boy. SB'de \xFC\xE7\xFCnc\xFC kutu flat de\u011Fil squeeze'dir.",
+    source: "B\xF6l\xFCm 4.6",
+    kavram: "sb-multiway"
+  },
+  {
+    q: "Coldcaller'lar bal\u0131k \u2014 para koyduktan sonra fold etmiyorlar. Squeeze plan\u0131n ne olur?",
+    options: ["Bl\xF6f\xFC geni\u015Flet \u2014 bal\u0131\u011Fa daha \xE7ok bask\u0131", "Bl\xF6f\xFC tamamen kes, sadece value squeeze", "Boyu k\xFC\xE7\xFClt ki call als\u0131n"],
+    correct: 1,
+    explain: "Squeeze'in yak\u0131t\u0131 fold equity'dir. Fold etmeyen rakibe kar\u015F\u0131 bl\xF6f squeeze'i yanar; sadece value kal\u0131r. Pratik sonu\xE7: bl\xF6f de call de \xE7al\u0131\u015Fm\u0131yorsa o spot senin spotun de\u011Fildir \u2192 fold.",
+    source: "B\xF6l\xFCm 4.6",
+    kavram: "sb-multiway"
   }
 ];
 function optionOrder(q, n) {
@@ -10040,7 +10198,7 @@ check("D6-63 postflop PLO Q \xFCretiliyor", !!postflopQuestion("plo"));
   const badCorrect = SCENARIOS.filter((s) => !(s.correct >= 0 && s.correct < s.options.length));
   const badSource = SCENARIOS.filter((s) => !s.source || !s.source.trim());
   const badKavram = SCENARIOS.filter((s) => typeof s.kavram !== "string" || !s.kavram);
-  check("D4-38 senaryo say\u0131s\u0131 122 (TR; EN paritesi bekliyor)", SCENARIOS.length === 122, String(SCENARIOS.length));
+  check("D4-38 senaryo say\u0131s\u0131 128 (TR; EN paritesi bekliyor)", SCENARIOS.length === 128, String(SCENARIOS.length));
   check("D4-38 t\xFCm correct options s\u0131n\u0131r\u0131nda", badCorrect.length === 0, badCorrect.map((s) => s.q.slice(0, 24)).join("|"));
   check("D4-38 t\xFCm source dolu", badSource.length === 0, String(badSource.length));
   check("D4-38 t\xFCm kavram dolu", badKavram.length === 0, String(badKavram.length));

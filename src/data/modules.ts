@@ -3853,6 +3853,240 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M42",
+    title: "BB savunması: 'zaten ante koydum' nerede biter",
+    chapter: "Bölüm 4.8 ⊕ kitap dışı sentez",
+    minutes: 7,
+    slides: [
+      {
+        title: "Sezgin kısmen DOĞRU — fiyat gerçekten iyi",
+        bullets: [
+          "BB-ante formatında 2x'e karşı aksiyonu KAPATIYORSUN: son sözü sen söylüyorsun.",
+          "Kabaca yüzde on sekiz ile yirmi iki arası equity yeter — neredeyse her iki kart ham olarak bunu taşır.",
+          "Butonun min-raise'ine karşı savunma gerçekten çok geniş: ellerin üçte ikisi civarı.",
+          "Yani 'zaten ante koydum, bakarım' sezgisi çöp değil — bir yere kadar doğru.",
+        ],
+        ruleBox: "Bu modül seni geniş savunmaktan vazgeçirmek için değil; geniş savunmanın NEREDE bittiğini göstermek için.",
+        narration:
+          "Önce hakkını verelim: senin sezgin kısmen doğru. Big blind ante formatında, iki katlık bir açışa karşı aksiyonu kapatıyorsun, yani son sözü sen söylüyorsun ve arkanda kimse kalmıyor. Fiyat gerçekten çok iyi; kabaca yüzde on sekiz ile yirmi iki arasında bir equity yeterli oluyor ve neredeyse her iki kart ham olarak bu kadarını taşır. Butondan gelen bir min-raise'e karşı doğru savunma gerçekten çok geniştir; ellerinin üçte ikisi civarı. Yani zaten ante koydum, bakarım cümlesi çöp bir cümle değil. Ama bir yere kadar doğru. Bu modülün amacı seni geniş savunmaktan vazgeçirmek değil; geniş savunmanın tam olarak nerede bittiğini göstermek. O sınırı bilmediğin sürece doğru sezginin bedelini yanlış spotlarda ödersin.",
+      },
+      {
+        title: "Ama pot oranı call'ı fiyatlar, ELİ fiyatlamaz",
+        bullets: [
+          "Ham equity ile tahsil ettiğin equity aynı şey değil — aradaki fark realizasyon.",
+          "BB'de her sokakta OOP'sin: blöf zor, orta elle kaç sokak ödeyeceğin belirsiz.",
+          "Çöp offsuit eller ham equity'lerinin belki üçte ikisini tahsil eder.",
+          "Yani gerçek savunma eşiği, pot oranının söylediğinden YUKARIDA.",
+        ],
+        ruleBox: "Pot oranı 'girmeye değer mi'nin yarısı. Diğer yarısı: girdikten sonra bu eli oynayabilecek miyim?",
+        narration:
+          "Şimdi düzeltmemiz gereken ilk şey. Pot oranı sana bir şey söyler: bu call'ın fiyatı nedir. Ama elin tamamının fiyatını söylemez. Kâğıt üstündeki ham equity ile masada gerçekten tahsil ettiğin equity aynı şey değildir; aradaki farka equity realization diyoruz. Big blind'da her sokakta pozisyon dışısın. Blöf yapman zorlaşır, orta güçteki ellerinle kaç sokak ödeyeceğini bilemezsin, ve elini gerçekleştirmek için gereken kartları gördüğünde bile inisiyatif karşındadır. Çöp offsuit eller bu yüzden ham equity'lerinin belki üçte ikisini tahsil eder. Sonuç şu: gerçek savunma eşiği, pot oranının söylediği eşiğin yukarısındadır. Savunma geniştir, ama her iki kart değildir. Bu ikisi arasındaki mesafe senin masada kaybettiğin yer.",
+      },
+      {
+        title: "Asıl ayrım: KİM min-raise etti?",
+        bullets: [
+          "'Hep min-raise geliyor' cümlesi açanı ayırmıyor — fiyat aynı, ARALIK aynı değil.",
+          "BTN/CO min-raise: geniş aralık, zayıf tepe → geniş savun. Sezgin burada çalışıyor.",
+          "UTG/EP min-raise: dar ve güçlü aralık → çok daha dar savun.",
+          "Küçük boy bir davet değildir; erken pozisyondan küçük boy 'ucuza güçlü aralık' demektir.",
+        ],
+        ruleBox: "Aynı fiyat, iki ayrı karar. Savunma genişliğini boy değil AÇAN belirler.",
+        narration:
+          "Şimdi en önemli slayta geldik. Hep min-raise geliyor diyorsun ama bu cümle kimin min-raise ettiğini ayırmıyor. Fiyat aynı olabilir; aralık asla aynı değil. Butondan ya da cut-off'tan gelen bir min-raise geniş bir aralıktır ve tepesi zayıftır; ona karşı gerçekten çok geniş savunursun, sezgin burada birebir çalışır. Ama en erken pozisyonlardan gelen bir min-raise dar ve güçlü bir aralıktır. Aynı ucuz fiyata, çok daha kötü bir aralığa karşı oynuyorsun. Şunu net söyleyeyim: küçük boy bir davet değildir. Erken pozisyondan gelen küçük boy, ucuza güçlü aralık demektir; rakip seni içeride tutmak istiyor olabilir. Yani savunma genişliğini bahsin boyu değil, o bahsi yapan koltuk belirler. Bu tek ayrımı masaya taşırsan bu modülün parasını çıkarırsın.",
+      },
+      {
+        title: "Domine olmak: ucuz fiyattan pahalı el satın almak",
+        bullets: [
+          "Erken açışa karşı Q7o, K5o gibi eller 'ucuz' ama domine edilmeye açık.",
+          "Çift yaptığında bile en sık senden iyi bir kicker'a karşı çift yapmış olursun.",
+          "En çok kaybettiğin eller tutturamadıkların değil — ikinci en iyi olduklarındır.",
+          "Ters implied odds: ucuz girdiğin el, pahalı sokaklarda seni bırakmıyor.",
+        ],
+        ruleBox: "Fiyat girişi ucuzlatır, çıkışı değil. Domine el ucuz girer, pahalı çıkar.",
+        narration:
+          "Bu slayt bir öncekinin mekaniği. Erken pozisyondan bir açışa karşı kız-yedi offsuit ya da papaz-beş offsuit gibi elleri savunduğunda ucuz bir el aldığını sanırsın. Aslında domine edilmeye açık bir el aldın. Bu ellerin sorunu tutturamamak değil; asıl sorun tutturduklarında ortaya çıkar. Papazın geldi, üst çift yaptın, ve tam da bunu istediğin an karşındaki adamın papaz-kız ya da as-papaz olma ihtimali yüksek. Yani en çok para kaybettiğin eller kaçırdıkların değil, ikinci en iyi olduklarındır. Buna ters implied odds diyoruz: ucuz girdiğin el, pahalı sokaklarda seni bırakmıyor, çünkü elinde bir şey var ve atmak zor geliyor. Aklında kalsın: fiyat girişi ucuzlatır, çıkışı ucuzlatmaz.",
+      },
+      {
+        title: "Araya caller girdiyse: fiyat İYİLEŞİR, aralık DARALIR",
+        bullets: [
+          "Açan + caller varken pot oranın daha da iyi görünür — tuzak burada.",
+          "Artık tek bir aralığı değil, iki ya da üç aralığı birden geçmen gerekiyor.",
+          "Multiway'de bağlantı değil NUT potansiyeli değer kazanır.",
+          "Suited Ax ve çiftler öne geçer; offsuit broadway ve zayıf bağlantılılar düşer.",
+        ],
+        ruleBox: "Multiway'de 'daha iyi fiyat' daha geniş savunma demek değildir. Daha çok rakip = daha yüksek eşik.",
+        narration:
+          "Şimdi araya caller girdiği durum. Açan var, bir ya da iki kişi call etti ve sen big blind'dasın. Pot oranın daha da iyi görünür ve tuzak tam burada. Fiyat gerçekten iyileşti, ama artık tek bir aralığı değil, iki ya da üç aralığı birden geçmen gerekiyor. Bir eli kazanma ihtimalin, rakip sayısı arttıkça hızla düşer. Bu yüzden multiway'de savunma aralığın genişlemez, daralır; ve sadece daralmaz, dokusu da değişir. Bağlantı değil nut potansiyeli değer kazanır. Suited as'lar ve çiftler öne geçer, çünkü ilki en üstteki rengi yapar ve ikincisi set yapar. Offsuit broadway ve zayıf bağlantılı eller düşer, çünkü onların ürettiği şey multiway'de ikinci en iyi eldir. Kural olarak şunu tut: daha çok rakip, daha yüksek eşik.",
+      },
+      {
+        title: "ICM katmanı: balonda geniş savunma pahalıdır",
+        bullets: [
+          "Risk primi varken marjinal spotlara OOP girmek çipten fazlasına mal olur.",
+          "Geniş savunma seni capped bir aralıkla zor kararların içine sokar.",
+          "Seni cover eden biri açtıysa eşik daha da yukarı çıkar.",
+          "chipEV'de doğru olan savunma genişliği, balonda otomatik doğru değildir.",
+        ],
+        ruleBox: "ICM savunmayı iki yönden sıkar: hem eşiği yükseltir hem de yanlış karar verdiğinde bedeli büyütür.",
+        narration:
+          "Bir katman daha var: ICM. Ödeme sınırına yaklaşıyorken ya da masada gerçek sıçramalar varken, marjinal spotlara pozisyon dışı girmek sana sadece çip kaybettirmez; hayatta kalma değerini de yakar. Geniş savunma seni capped bir aralıkla zor kararların içine sokar; yani elinde en güçlü eller yokken büyük bahislerle karşılaşırsın ve doğru cevabı bulmak pahalıdır. Seni cover eden biri açtıysa eşik daha da yukarı çıkar, çünkü elenme riski gerçek. Buradaki kural basit ama sık unutulur: chip EV'de doğru olan savunma genişliği, balonda otomatik olarak doğru değildir. Aynı el, aynı fiyat, aynı pozisyon; ama masadaki para yapısı değişince cevap değişir. ICM savunmayı iki yönden sıkar: eşiği yükseltir ve yanlış karar verdiğinde bedeli büyütür.",
+      },
+      {
+        title: "Geniş savunmanın bedeli FLOPTA ödenir",
+        bullets: [
+          "Geniş savunmanın EV'si, c-bet'e ÇOK fold edebilme disiplininden gelir.",
+          "Savunup sonra flopta yapışırsan teorideki kâr pratikte zarara döner.",
+          "İki kart aldın diye o pota sahip değilsin — çoğu flopta hiçbir şeyin olmayacak.",
+          "Geniş savunma bir hak değil, bir yükümlülüktür.",
+        ],
+        ruleBox: "Geniş savunmayı hak eden şey preflop cesaretin değil, postflop fold disiplinin.",
+        narration:
+          "Şimdi en çok atlanan kısım. Geniş savunmanın kârı preflop'ta doğmaz, flopta doğar. Ve o kâr tek bir beceriden gelir: c-bet'e çok fold edebilmek. Geniş savunduğunda floplarının büyük çoğunluğunda hiçbir şeyin olmayacak, bu normaldir ve planın parçasıdır. Ama savunup sonra her flopta bir bahane bulup devam edersen, teorideki kâr pratikte zarara döner. Aslında geniş savunan ve sonra fold edemeyen bir oyuncu, dar savunan bir oyuncudan çok daha fazla kaybeder. Şunu net söyleyeyim: iki kart aldın diye o pota sahip değilsin. Geniş savunma bir hak değil, bir yükümlülüktür; yükümlülük de fold disiplinidir. Kendine dürüst bir soru sor: geçen ay big blind'da savunduğun çöp ellerin kaçında flopta gerçekten atabildin? Cevap düşükse sorunun savunma genişliğinde değil, orada.",
+      },
+      {
+        title: "Ve senin şikâyetine bağlanıyor: her şeyi call etmek CAPPED aralık kurar",
+        bullets: [
+          "Sadece call ederek savunursan aralığında en güçlü eller hiç olmaz.",
+          "Rakip bunu görür: büyük bahse karşı seni capped kabul edip baskı yapar.",
+          "'Elim açık oluyor' şikâyetinin preflop kaynağı tam olarak budur.",
+          "Panzehir: savunma aralığının bir kısmını 3-bet koluna taşı.",
+        ],
+        ruleBox: "Geniş call + hiç 3-bet = tanımı gereği capped. Aralığa tepe koymanın tek yolu bazı elleri raise etmektir.",
+        narration:
+          "Son olarak, bu modülü senin kendi şikâyetine bağlayalım. Elim açık oluyor diyordun. Big blind savunmasının bir kaynağı var. Eğer her şeyi sadece call ederek savunuyorsan, aralığında en güçlü eller hiç bulunmaz; çünkü onları da call etmişsindir ya da zaten üç-bet'lemişsindir. Yani call aralığın tanımı gereği capped'dir, tepesi yoktur. İyi bir rakip bunu görür ve büyük bahislerle seni sıkıştırır, çünkü senin çok güçlü bir el tutma ihtimalinin düşük olduğunu bilir. Panzehir savunmayı daraltmak değil; savunma aralığının bir kısmını üç-bet koluna taşımak. Big blind'dan üç-bet, hem ölü parayı hemen alır hem de call aralığına saygı kazandırır. Yani geniş savunmaya devam et, ama hepsini aynı kapıdan geçirme.",
+      },
+      {
+        title: "Cheat: BB savunma kartı",
+        bullets: [
+          "Önce AÇANA bak, boya değil: BTN/CO → çok geniş; UTG/EP → belirgin dar.",
+          "Araya caller girdiyse daralt ve dokuyu değiştir: nut potansiyeli > bağlantı.",
+          "ICM varsa bir kademe daha sık; seni cover eden açtıysa bir kademe daha.",
+          "Savunduğun ellerin bir kısmını 3-bet'e taşı — capped kalma.",
+          "Ve asıl iş flopta: c-bet'e çok fold et. Savunmanın kârı orada.",
+        ],
+        ruleBox: "'Zaten ante koydum' cümlesi butona karşı doğru, UTG'ye karşı pahalı. Fiyat değil aralık konuşur.",
+        narration:
+          "Cep kartı. Big blind'da savunma kararı verirken önce açana bak, bahsin boyuna değil. Butondan ya da cut-off'tan geldiyse çok geniş savun; sezgin orada çalışıyor. En erken pozisyonlardan geldiyse belirgin şekilde daralt, çünkü aynı fiyata çok daha güçlü bir aralığa karşı oynuyorsun. Araya caller girdiyse savunmanı daralt ve dokusunu değiştir; multiway'de bağlantı değil nut potansiyeli kazanır. ICM baskısı varsa bir kademe daha sıkı ol, seni cover eden biri açtıysa bir kademe daha. Savunduğun ellerin bir kısmını üç-bet koluna taşı ki aralığın capped kalmasın. Ve en önemlisi: asıl iş flopta. C-bet'e çok fold edebiliyorsan geniş savunma sana para kazandırır; edemiyorsan aynı genişlik seni yakar. Kısacası zaten ante koydum cümlesi butona karşı doğru, en erken pozisyona karşı pahalıdır. Fiyat değil aralık konuşur.",
+      },
+    ],
+  },
+  {
+    id: "M43",
+    title: "Squeeze: masadaki en kârlı tek hamle",
+    chapter: "Bölüm 4.6 ★",
+    minutes: 8,
+    slides: [
+      {
+        title: "Neden bu kadar kârlı: iki tür ölü para",
+        bullets: [
+          "Açan var, bir ya da iki kişi call etti, sen henüz konuşmadın: potta hazır para var.",
+          "O parayı almak için kimseyi yenmene gerek yok — sadece katlatman yeterli.",
+          "İki katman avantaj: potta ölü para VE karşındakilerin zayıf aralığı.",
+          "Kitap bunu 'canlıda en kârlı tek hamle' diye tanımlar; abartı değil.",
+        ],
+        ruleBox: "Squeeze, elinin gücünden değil rakiplerin yapısal zayıflığından para kazanan bir hamledir.",
+        narration:
+          "Squeeze neden bu kadar önemli, önce onu oturtalım. Durum şu: biri açtı, arkasından bir ya da iki kişi call etti ve sıra sana geldi. Potta artık üç kişinin parası var ve bunların hiçbiri henüz gerçek bir taahhüt vermedi. O parayı almak için kimseyi yenmene gerek yok; sadece hepsini katlatman yeterli. Burada iki katman avantaj birden çalışıyor. Birincisi potta hazır bekleyen ölü para. İkincisi ve daha önemlisi, karşındakilerin aralıklarının yapısal olarak zayıf olması. Kitap squeeze'i canlı oyunda en kârlı tek hamle diye tanımlıyor ve bu bir abartı değil. Şunu iyi anla: squeeze elinin gücünden para kazanan bir hamle değildir. Rakiplerin yapısal zayıflığından para kazanan bir hamledir. Bu yüzden hangi elle yaptığın, kime karşı yaptığından daha az önemlidir.",
+      },
+      {
+        title: "Coldcaller neden zayıf: kendi eliyle itiraf etmiştir",
+        bullets: [
+          "Call eden oyuncu 3-bet edebilirdi ama etmedi — yani tepe eller aralığında SEYREK.",
+          "Aralığı sıkı ama capped: 4-bet edemez, büyük bir raise'e çoğu elini atar.",
+          "Açan da zor durumda: arkasında caller varken bir raise'e cevap vermek pahalı.",
+          "Yani tek hamleyle iki farklı zayıflığı aynı anda vuruyorsun.",
+        ],
+        ruleBox: "Coldcall bir bilgi sızıntısıdır: 'elim 3-bet edecek kadar iyi değil' demektir. Squeeze o itirafı ücretlendirir.",
+        narration:
+          "Şimdi mekanizmanın kalbine gelelim. O call eden oyuncu ne yaptı? Üç-bet etme imkânı vardı ve kullanmadı. Bu bir bilgi sızıntısıdır; elim üç-bet edecek kadar iyi değil demektir. Yani onun aralığında en güçlü eller seyrektir, aralığı capped'dir. Sıkıdır ama zayıftır; bu ikisi aynı anda doğru olabilir. Sonuç olarak dört-bet edemez ve büyük bir raise gördüğünde çoğu elini atar. Açan oyuncu da rahat değil. Arkasında bir caller varken bir raise'e cevap vermek onun için de pahalı, çünkü sadece seni değil, arkadaki adamı da hesaba katmak zorunda. Yani sen tek bir hamleyle iki farklı zayıflığı aynı anda vuruyorsun. Squeeze'in gücü buradan gelir, elinden değil. Coldcall bir itiraftır; squeeze o itirafı ücretlendirir.",
+      },
+      {
+        title: "Boyut: normal 3-bet'ten BÜYÜK — ve caller başına artar",
+        bullets: [
+          "Pozisyondayken açılışın kabaca dört buçuk katı; blind'lardan beş kat ve üstü.",
+          "Her ek caller için boyu yukarı taşı — daha çok ölü para, daha çok katlatılacak kişi.",
+          "Küçük squeeze en pahalı hatadır: caller'a tam da aradığı ucuz call'ı verir.",
+          "Boy sadece fold ettirmek için değil; çağrıldığında SPR'yi kontrol etmek için de.",
+        ],
+        ruleBox: "Squeeze'de küçük boy yoktur. Küçük yapacaksan hiç yapma — davetiye göndermiş olursun.",
+        narration:
+          "Boyut. Bu hamlede en sık yapılan hata boyu küçük tutmak, o yüzden net konuşalım. Squeeze normal bir üç-bet'ten büyüktür. Pozisyondayken açılışın kabaca dört buçuk katı, blind'lardan ise beş kat ve üstü. Ve her ek caller için boyu yukarı taşırsın, çünkü hem potta daha çok ölü para var hem de katlatman gereken kişi sayısı arttı. Küçük squeeze bu hamlenin en pahalı hatasıdır; caller'a tam da aradığı ucuz call'ı verirsin ve pozisyon dışı, kalabalık bir potta sıkışırsın. Boyun ikinci bir işlevi daha var: çağrıldığında stack-pot oranını kontrol etmek. Büyük squeeze flopta düşük bir oran bırakır, bu da senin lehinedir çünkü inisiyatif sende. Kural şu: squeeze'de küçük boy diye bir şey yok. Küçük yapacaksan hiç yapma, çünkü davetiye göndermiş olursun.",
+      },
+      {
+        title: "Value malzemesi: net ve dar",
+        bullets: [
+          "Value tarafı: vale-vale ve üstü çiftler, as-kız suited ve üstü, as-papaz offsuit.",
+          "Bu eller çağrıldığında da iyi durumda — squeeze'in 'kaybetmeyen' kanadı.",
+          "Value squeeze her sahada çalışır: fold ederlerse alırsın, call ederlerse öndesin.",
+          "Kararsızsan value tarafından başla; blöf tarafı saha bilgisi ister.",
+        ],
+        ruleBox: "Value squeeze hiçbir zaman kötü bir karar değildir. Blöf squeeze koşulludur — ayrımı karıştırma.",
+        narration:
+          "Value tarafı net ve dardır. Vale-vale ve üstü çiftler, as-kız suited ve üstü, as-papaz offsuit. Bu ellerin ortak özelliği şu: çağrıldıklarında da iyi durumdalar. Yani squeeze'in kaybetmeyen kanadı bunlar. Fold ederlerse ölü parayı alırsın, call ederlerse aralık olarak öndesin. Bu yüzden value squeeze her sahada çalışır; sıkı masada da, balık dolu masada da. Buradan çıkarman gereken pratik kural şu: eğer masayı henüz okuyamadıysan ya da kararsızsan, squeeze'i value tarafından öğrenmeye başla. Blöf tarafı saha bilgisi ister, value tarafı istemez. Çok oyuncu squeeze'i duyduğu an blöf yapmayı dener ve yanar; oysa bu hamlenin garantili parası value kanadındadır. Value squeeze hiçbir zaman kötü bir karar değildir.",
+      },
+      {
+        title: "Blöf malzemesi: rakibin FOLD ettiği bloğu unblock et",
+        bullets: [
+          "Klasik liste (A5s, KQs, AJs) coldcaller pozisyonda VE dar olduğunda doğrudur.",
+          "Ama caller capped ve geniş ise fold ettiği eller broadway'lidir: ATo, KTo, QTo, JTo.",
+          "O bloğu bloklamayan elleri seç: 67s, 97s, 86s, 75s gibi broadway'siz suited'lar.",
+          "T8s ve J9s tam tersini yapar — onlar o fold bloğunu bizzat bloklar.",
+        ],
+        ruleBox: "Tek test: 'kimin bloğunu unblock ediyorum?' Blöf, rakibin ATACAĞI elleri elinde tutmamalıdır.",
+        narration:
+          "Şimdi bu modülün en ince ve en değerli kısmı. Blöf malzemesi seçerken çoğu oyuncu tek bir mantık kullanır: bloker taşıyayım. As-beş suited as-as'ı bloklar, papaz-kız suited papaz-papaz'ı bloklar. Bu doğru, ama sadece coldcaller pozisyondayken ve dar bir aralığa sahipken doğru. Şimdi diğer duruma bak. Caller'ın aralığı capped ve genişse, senin squeeze'ine en sık fold ettiği eller hangileri? As-on offsuit, papaz-on offsuit, kız-on offsuit, vale-on offsuit gibi broadway'li eller. Yani onun fold bloğu broadway ve on'larla dolu. Şimdi kritik soru: sen o bloğu bloklamak mı istersin, unblock etmek mi? Unblock etmek istersin, çünkü o eller elindeyse rakibin onları tutma ihtimali düşer ve fold etmesini istediğin eller masada azalır. Bu yüzden bu düğümde iyi blöfler altı-yedi suited, dokuz-yedi suited, sekiz-altı suited gibi broadway'siz suited ellerdir. On-sekiz suited ve vale-dokuz suited ise tam tersini yapar; ikisi de on taşır ve rakibin atacağı elleri bizzat bloklar. Tek test şu: kimin bloğunu unblock ediyorum?",
+      },
+      {
+        title: "Ne zaman YAPMA: fold etmeyen coldcaller",
+        bullets: [
+          "Squeeze'in yakıtı fold equity'dir. Fold etmeyen rakibe karşı blöf kanadı yanar.",
+          "Caller balıksa (para koyduktan sonra atmıyorsa): blöfü TAMAMEN kes, sadece value.",
+          "İki tane fold etmeyen adam varsa spot senin spotun değildir.",
+          "Caller sıkıysa tersi: blöf tarafını genişlet, fold equity'n yüksek.",
+        ],
+        ruleBox: "Squeeze'i el değil rakip seçer. 'Kim fold ediyor?' sorusu bu hamlenin tek ön koşuludur.",
+        narration:
+          "Şimdi bu hamleyi ne zaman yapmayacağına gelelim, çünkü squeeze otomatik bir refleks olursa para kaybettirir. Squeeze'in yakıtı fold equity'dir. Karşındaki oyuncular fold etmiyorsa blöf kanadı yanar. Somut olarak: caller balıksa, yani bir kere para koyduktan sonra atmıyorsa, blöf tarafını tamamen kes ve sadece value squeeze yap. Masada iki tane fold etmeyen adam varsa o spot senin spotun değildir; ne blöf çalışır ne de kalabalık pota kötü bir elle girmek mantıklıdır. Tersi de doğru: caller sıkıysa ve büyük raise'lere saygı gösteriyorsa blöf tarafını genişlet, çünkü fold equity'n yüksek. Buradaki asıl ders şu: squeeze'i senin elin seçmez, rakibin seçer. Kim fold ediyor sorusu bu hamlenin tek ön koşuludur. Elini o sorudan sonra seç, önce değil.",
+      },
+      {
+        title: "Squeeze etmeden önce cevabı hazır olsun: 4-bet gelirse ne yapıyorum?",
+        bullets: [
+          "Squeeze büyük bir boydur; stack'inin ciddi bir kısmını ortaya koyar.",
+          "Blöfle squeeze ettiysen 4-bet'e cevabın fold — bunu ÖNCEDEN kabul et.",
+          "Value'yla squeeze ettiysen derinliğe göre call ya da jam; kararını baştan ver.",
+          "Sığ derinlikte squeeze commit yaratır: 'squeeze edip fold' yapısı çöker.",
+        ],
+        ruleBox: "Hamleyi yapmadan önce bir sonraki sokağın cevabını bilmiyorsan, o hamleyi yapmıyorsun demektir.",
+        narration:
+          "Squeeze etmeden önce cevaplaman gereken bir soru daha var: dört-bet gelirse ne yapacağım? Squeeze büyük bir boydur ve stack'inin ciddi bir kısmını ortaya koyar; bu yüzden bir sonraki sokak hayali değil, çok muhtemel bir gerçektir. Blöfle squeeze ettiysen dört-bet'e cevabın fold'dur ve bunu hamleyi yapmadan önce kabul etmelisin. Sonradan pişman olup call etmek, blöfün bütün kârını silen şeydir. Value'yla squeeze ettiysen derinliğe göre ya call edersin ya jam'lersin; ama bu kararı da baştan ver, dört-bet'i gördükten sonra değil. Bir de derinlik uyarısı: sığ stack'te squeeze seni fiilen commit eder. Yani squeeze edip fold etme yapısı çöker; o derinlikte ya squeeze etmezsin ya da all-in'e gitmeyi kabul etmişsindir. Genel kural şu: bir hamleyi yapmadan önce bir sonraki sokağın cevabını bilmiyorsan, o hamleyi yapmıyorsun demektir.",
+      },
+      {
+        title: "Üçüncü oyuncu tuzağı: 'raise + call var, ben de bakayım'",
+        bullets: [
+          "Raise ve call gördükten sonra vale-on suited ile over-call klasik tuzaktır.",
+          "Caller'ın papaz-kız suited'ı ve açanın vale-vale/as-vale'si seni domine eder.",
+          "Önce sor: caller'ın aralığında gerçekten TEPE var mı?",
+          "Havuzda genelde yoktur — premium'u hep 3-bet'ler. O zaman over-call değil AGRESYON.",
+        ],
+        ruleBox: "Üçüncü oyuncu olmak seni ucuza değil, iki aralığın arasına sokar. Kalabalık pot ucuz pot değildir.",
+        narration:
+          "Son bir tuzak. Raise gördün, arkasından call gördün ve elinde vale-on suited gibi güzel görünen bir el var. Ben de bakayım demek klasik tuzaktır. Sebebi şu: caller'ın papaz-kız suited ve kız-on suited gibi elleri, açanın da vale-vale, as-vale gibi elleri seni domine eder. Sen iki aralığın arasına sıkışırsın ve pozisyon da genelde sende değildir. Kendine önce şunu sor: bu caller'ın aralığında gerçekten tepe var mı? Dengeli oynayan biri bazı premium ellerini flat edebilir. Ama sahadaki tipik oyuncu bunu yapmaz; premium'unu neredeyse her zaman üç-bet'ler ve call aralığı küçük çiftlerle suited broadway'lere iner. Yani karşında tepe yok. Tepe yoksa doğru cevap over-call değil, agresyondur; ya squeeze ya fold. Kalabalık pot ucuz pot değildir.",
+      },
+      {
+        title: "Cheat: squeeze kartı",
+        bullets: [
+          "Tetik: açan + en az bir caller, sen henüz konuşmadın.",
+          "Önce tek soru: bu caller'lar fold ediyor mu? Hayırsa sadece value.",
+          "Boy: IP dört buçuk kat, blind'lardan beş kat ve üstü; caller başına yukarı.",
+          "Value: JJ+, AQs+, AKo. Blöf: rakibin FOLD bloğunu unblock eden suited'lar.",
+          "4-bet'e cevabını önceden ver. Sığ derinlikte squeeze = commit.",
+        ],
+        ruleBox: "Squeeze'i öğrenmenin sırası: önce value kanadı, sonra saha okuması, en son blöf seçimi.",
+        narration:
+          "Cep kartı. Tetik basit: biri açtı, en az bir kişi call etti ve sen henüz konuşmadın. Önce tek soru sor: bu caller'lar fold ediyor mu? Cevap hayırsa sadece value squeeze yap, blöfü kes. Boy pozisyondayken açılışın dört buçuk katı, blind'lardan beş kat ve üstü, ve her ek caller için yukarı. Value tarafın vale-vale ve üstü, as-kız suited ve üstü, as-papaz offsuit. Blöf tarafında ise elinin bloklamasını değil, unblock etmesini istiyorsun: rakibin fold edeceği broadway'li elleri elinde tutma, broadway'siz suited'ları seç. Dört-bet gelirse ne yapacağını hamleden önce karara bağla; blöfse fold, value'ysa derinliğe göre. Sığ derinlikte squeeze seni commit eder, onu bilerek gir. Ve öğrenme sırası şu olsun: önce value kanadı, sonra saha okuması, en son blöf seçimi. Bu sırayla gidersen squeeze sana para kazandırır; ters giderek başlarsan kaybettirir.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

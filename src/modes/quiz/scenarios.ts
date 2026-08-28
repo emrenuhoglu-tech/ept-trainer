@@ -1318,6 +1318,109 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 4.6",
     kavram: "sb-multiway",
   },
+
+  // --- M42: BB savunması (Bölüm 4.8 + sentez) ---
+  {
+    q: "BB'desin, ante var, BTN min-raise etti. 'Zaten ante koydum' mantığı burada geçerli mi?",
+    options: ["Hayır — min-raise her zaman güçlü aralıktır", "Evet — BTN'e karşı savunma çok geniş", "Sadece premium ellerle savun"],
+    correct: 1,
+    explain:
+      "BB-ante + 2x'te aksiyonu kapatıyorsun ve fiyat mükemmel; BTN'in geniş/zayıf-tepeli aralığına karşı savunma gerçekten çok geniştir. Sezgi burada çalışır — sorun açanı ayırmamakta.",
+    source: "Bölüm 4.8",
+    kavram: "bb-savunma",
+  },
+  {
+    q: "Aynı fiyat, ama bu sefer UTG min-raise etti. Savunma genişliğin ne olur?",
+    options: ["Aynı kalır — fiyat değişmedi ki", "Belirgin daralır — aralık çok güçlü", "Genişler — küçük boy zayıflık işareti"],
+    correct: 1,
+    explain:
+      "Savunma genişliğini boy değil AÇAN belirler. Erken pozisyondan küçük boy 'ucuza güçlü aralık' demektir; aynı ucuz fiyata domine edilmeye açık eller satın alırsın.",
+    source: "Bölüm 4.8",
+    kavram: "bb-savunma",
+  },
+  {
+    q: "BB'desin: açan var, araya iki caller girdi. Pot oranın daha da iyi. Aralığın?",
+    options: ["Genişler — fiyat iyileşti", "Daralır, dokusu da değişir", "Değişmez — BB her zaman geniş savunur"],
+    correct: 1,
+    explain:
+      "Fiyat iyileşti ama artık iki-üç aralığı birden geçmen gerekiyor. Multiway'de bağlantı değil nut potansiyeli kazanır: suited Ax ve çiftler öne, offsuit broadway ve zayıf bağlantılılar geri.",
+    source: "Bölüm 13.1",
+    kavram: "bb-savunma",
+  },
+  {
+    q: "Geniş BB savunmasının kârı asıl nerede doğar?",
+    options: ["Preflop'ta — ucuz fiyattan el almakta", "Flopta — c-bet'e çok fold edebilmekte", "Turn'de — inisiyatifi geri almakta"],
+    correct: 1,
+    explain:
+      "Geniş savunma bir hak değil yükümlülüktür. Floplarının çoğunda hiçbir şeyin olmayacak; kâr o ellerden çıkabilme disiplininden gelir. Savunup yapışırsan aynı genişlik seni yakar.",
+    source: "kitap dışı sentez",
+    kavram: "bb-savunma",
+  },
+  {
+    q: "Her şeyi CALL ederek savunmanın yapısal maliyeti ne?",
+    options: ["Fazla çip harcarsın", "Aralığın capped olur — tepesi yok", "Rakip seni loose sanır, iyi olur"],
+    correct: 1,
+    explain:
+      "Sadece call'la savunursan aralığında en güçlü eller bulunmaz; rakip büyük bahisle baskı kurar. 'Elim açık oluyor' şikâyetinin preflop kaynağı budur — panzehir savunmanın bir kısmını 3-bet'e taşımak.",
+    source: "kitap dışı sentez",
+    kavram: "bb-savunma",
+  },
+
+  // --- M43: squeeze (Bölüm 4.6) ---
+  {
+    q: "Squeeze'i bu kadar kârlı yapan asıl şey ne?",
+    options: ["Elinin çok güçlü olması", "Ölü para + coldcaller'ın capped aralığı", "Rakiplerin kötü oyuncu olması"],
+    correct: 1,
+    explain:
+      "Squeeze elinin gücünden değil rakiplerin yapısal zayıflığından kazanır: potta ölü para var, ve call eden 3-bet edebilecekken etmedi — yani tepesi seyrek, capped bir aralık gösterdi.",
+    source: "Bölüm 4.6",
+    kavram: "squeeze",
+  },
+  {
+    q: "Blind'dan squeeze yapıyorsun, iki caller var. Boy ne olmalı?",
+    options: ["Normal 3-bet boyu yeterli", "5×+ ve caller başına yukarı", "Küçük tut, call alıp pozisyon oyna"],
+    correct: 1,
+    explain:
+      "Squeeze normal 3-bet'ten BÜYÜKTÜR: potta ölü para, katlatılacak iki rakip var. Küçük squeeze caller'a tam da aradığı ucuz call'ı verir — bu hamlenin en pahalı hatası.",
+    source: "Bölüm 4.6",
+    kavram: "squeeze",
+  },
+  {
+    q: "Caller'ın aralığı capped ve geniş; squeeze'ine ATo/KTo/QTo/JTo ile fold ediyor. İyi blöf malzemesi?",
+    options: ["T8s / J9s — bloker taşıyorlar", "67s / 97s / 86s — o bloğu unblock eder", "KQs / AJs — en güçlü blöfler"],
+    correct: 1,
+    explain:
+      "Rakibin FOLD edeceği bloğu bloklamak istemezsin. T8s/J9s ve KQs/AJs o broadway bloğunu bizzat keser; broadway'siz suited'lar onu unblock eder. Tek test: 'kimin bloğunu unblock ediyorum?'",
+    source: "Bölüm 4.6-EK",
+    kavram: "squeeze",
+  },
+  {
+    q: "Coldcaller balık: para koyduktan sonra fold etmiyor. Squeeze planın?",
+    options: ["Blöfü genişlet — balığa baskı kur", "Blöfü kes, sadece value squeeze", "Boyu büyüt ki fold etsin"],
+    correct: 1,
+    explain:
+      "Squeeze'in yakıtı fold equity'dir. Fold etmeyen rakibe karşı blöf kanadı yanar; geriye sadece value kalır. İki tane fold etmeyen adam varsa o spot senin spotun değildir.",
+    source: "Bölüm 4.6",
+    kavram: "squeeze",
+  },
+  {
+    q: "Blöfle squeeze ettin, 4-bet geldi. Bu kararı ne zaman vermeliydin?",
+    options: ["Şimdi — 4-bet'i görüp değerlendirirsin", "Squeeze'i yapmadan ÖNCE", "Flopu gördükten sonra"],
+    correct: 1,
+    explain:
+      "Blöf squeeze'in cevabı fold'dur ve bunu hamleden önce kabul etmiş olman gerekir. Sonradan pişman olup call etmek blöfün bütün kârını siler. Sığ derinlikte squeeze zaten commit yaratır.",
+    source: "Bölüm 4.6",
+    kavram: "squeeze",
+  },
+  {
+    q: "Raise + call gördün, elinde JTs var, henüz konuşmadın. 'Ben de bakayım'?",
+    options: ["Evet — kalabalık pot, iyi fiyat", "Hayır — iki aralık arasında domine olursun", "Evet ama sadece pozisyondaysan"],
+    correct: 1,
+    explain:
+      "Caller'ın KQs/QTs'i ve açanın JJ+/AJ'si seni domine eder. Önce sor: caller'ın aralığında TEPE var mı? Havuzda genelde yoktur (premium'u hep 3-bet'ler) → cevap over-call değil, squeeze ya da fold.",
+    source: "Bölüm 4.6-EK",
+    kavram: "squeeze",
+  },
 ];
 
 export function randomScenario(): Scenario {
@@ -1358,6 +1461,8 @@ const KAVRAM_BOLUM: Record<string, number> = {
   "marjinal-el": 4,
   polarize: 18,
   "sb-multiway": 4,
+  "bb-savunma": 4,
+  squeeze: 4,
 };
 
 export function kavramChapter(kavram: string): number | null {

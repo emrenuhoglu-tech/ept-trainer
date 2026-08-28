@@ -8149,6 +8149,222 @@ var modules = [
         narration: "Cep kart\u0131. Small blind'da biri a\xE7t\u0131 ve arkas\u0131ndan call'lar geldiyse varsay\u0131lan\u0131n fold. Bu zay\u0131f oynamak de\u011Fil, koltu\u011Fun matemati\u011Fi; pozisyon d\u0131\u015F\u0131s\u0131n ve aksiyonu kapatm\u0131yorsun. Elin ger\xE7ekten g\xFC\xE7l\xFCyse hamlen squeeze, a\xE7\u0131l\u0131\u015F\u0131n be\u015F kat\u0131 ve \xFCst\xFC; flat de\u011Fil. Flat penceresi \xE7ok dar ve d\xF6rt \u015Fart\u0131 birden ister: elin nut potansiyeli olacak, yani suited as; fiyat ger\xE7ekten iyi olacak; big blind squeeze tehdidi olmayacak; ve derinlik on be\u015F kat\u0131 sa\u011Flayacak. Coldcaller'lar fold etmeyen tiplerse bl\xF6f squeeze'ini kes, spot yine fold'a d\xF6ner. Son olarak \u015Funu net s\xF6yleyeyim: connector'lar ve d\xFC\u015F\xFCk vale suited eller bu spotun eli de\u011Fildir. Onlar pozisyonda parlar; butonda ve cut-off'ta oyna. Small blind'da onlarla flop g\xF6rmek, \xFC\xE7 rakibe kar\u015F\u0131 pozisyon d\u0131\u015F\u0131 ikinci en iyi eli aramak demektir."
       }
     ]
+  },
+  {
+    id: "M42",
+    title: "BB savunmas\u0131: 'zaten ante koydum' nerede biter",
+    chapter: "B\xF6l\xFCm 4.8 \u2295 kitap d\u0131\u015F\u0131 sentez",
+    minutes: 7,
+    slides: [
+      {
+        title: "Sezgin k\u0131smen DO\u011ERU \u2014 fiyat ger\xE7ekten iyi",
+        bullets: [
+          "BB-ante format\u0131nda 2x'e kar\u015F\u0131 aksiyonu KAPATIYORSUN: son s\xF6z\xFC sen s\xF6yl\xFCyorsun.",
+          "Kabaca y\xFCzde on sekiz ile yirmi iki aras\u0131 equity yeter \u2014 neredeyse her iki kart ham olarak bunu ta\u015F\u0131r.",
+          "Butonun min-raise'ine kar\u015F\u0131 savunma ger\xE7ekten \xE7ok geni\u015F: ellerin \xFC\xE7te ikisi civar\u0131.",
+          "Yani 'zaten ante koydum, bakar\u0131m' sezgisi \xE7\xF6p de\u011Fil \u2014 bir yere kadar do\u011Fru."
+        ],
+        ruleBox: "Bu mod\xFCl seni geni\u015F savunmaktan vazge\xE7irmek i\xE7in de\u011Fil; geni\u015F savunman\u0131n NEREDE bitti\u011Fini g\xF6stermek i\xE7in.",
+        narration: "\xD6nce hakk\u0131n\u0131 verelim: senin sezgin k\u0131smen do\u011Fru. Big blind ante format\u0131nda, iki katl\u0131k bir a\xE7\u0131\u015Fa kar\u015F\u0131 aksiyonu kapat\u0131yorsun, yani son s\xF6z\xFC sen s\xF6yl\xFCyorsun ve arkanda kimse kalm\u0131yor. Fiyat ger\xE7ekten \xE7ok iyi; kabaca y\xFCzde on sekiz ile yirmi iki aras\u0131nda bir equity yeterli oluyor ve neredeyse her iki kart ham olarak bu kadar\u0131n\u0131 ta\u015F\u0131r. Butondan gelen bir min-raise'e kar\u015F\u0131 do\u011Fru savunma ger\xE7ekten \xE7ok geni\u015Ftir; ellerinin \xFC\xE7te ikisi civar\u0131. Yani zaten ante koydum, bakar\u0131m c\xFCmlesi \xE7\xF6p bir c\xFCmle de\u011Fil. Ama bir yere kadar do\u011Fru. Bu mod\xFCl\xFCn amac\u0131 seni geni\u015F savunmaktan vazge\xE7irmek de\u011Fil; geni\u015F savunman\u0131n tam olarak nerede bitti\u011Fini g\xF6stermek. O s\u0131n\u0131r\u0131 bilmedi\u011Fin s\xFCrece do\u011Fru sezginin bedelini yanl\u0131\u015F spotlarda \xF6dersin."
+      },
+      {
+        title: "Ama pot oran\u0131 call'\u0131 fiyatlar, EL\u0130 fiyatlamaz",
+        bullets: [
+          "Ham equity ile tahsil etti\u011Fin equity ayn\u0131 \u015Fey de\u011Fil \u2014 aradaki fark realizasyon.",
+          "BB'de her sokakta OOP'sin: bl\xF6f zor, orta elle ka\xE7 sokak \xF6deyece\u011Fin belirsiz.",
+          "\xC7\xF6p offsuit eller ham equity'lerinin belki \xFC\xE7te ikisini tahsil eder.",
+          "Yani ger\xE7ek savunma e\u015Fi\u011Fi, pot oran\u0131n\u0131n s\xF6yledi\u011Finden YUKARIDA."
+        ],
+        ruleBox: "Pot oran\u0131 'girmeye de\u011Fer mi'nin yar\u0131s\u0131. Di\u011Fer yar\u0131s\u0131: girdikten sonra bu eli oynayabilecek miyim?",
+        narration: "\u015Eimdi d\xFCzeltmemiz gereken ilk \u015Fey. Pot oran\u0131 sana bir \u015Fey s\xF6yler: bu call'\u0131n fiyat\u0131 nedir. Ama elin tamam\u0131n\u0131n fiyat\u0131n\u0131 s\xF6ylemez. K\xE2\u011F\u0131t \xFCst\xFCndeki ham equity ile masada ger\xE7ekten tahsil etti\u011Fin equity ayn\u0131 \u015Fey de\u011Fildir; aradaki farka equity realization diyoruz. Big blind'da her sokakta pozisyon d\u0131\u015F\u0131s\u0131n. Bl\xF6f yapman zorla\u015F\u0131r, orta g\xFC\xE7teki ellerinle ka\xE7 sokak \xF6deyece\u011Fini bilemezsin, ve elini ger\xE7ekle\u015Ftirmek i\xE7in gereken kartlar\u0131 g\xF6rd\xFC\u011F\xFCnde bile inisiyatif kar\u015F\u0131ndad\u0131r. \xC7\xF6p offsuit eller bu y\xFCzden ham equity'lerinin belki \xFC\xE7te ikisini tahsil eder. Sonu\xE7 \u015Fu: ger\xE7ek savunma e\u015Fi\u011Fi, pot oran\u0131n\u0131n s\xF6yledi\u011Fi e\u015Fi\u011Fin yukar\u0131s\u0131ndad\u0131r. Savunma geni\u015Ftir, ama her iki kart de\u011Fildir. Bu ikisi aras\u0131ndaki mesafe senin masada kaybetti\u011Fin yer."
+      },
+      {
+        title: "As\u0131l ayr\u0131m: K\u0130M min-raise etti?",
+        bullets: [
+          "'Hep min-raise geliyor' c\xFCmlesi a\xE7an\u0131 ay\u0131rm\u0131yor \u2014 fiyat ayn\u0131, ARALIK ayn\u0131 de\u011Fil.",
+          "BTN/CO min-raise: geni\u015F aral\u0131k, zay\u0131f tepe \u2192 geni\u015F savun. Sezgin burada \xE7al\u0131\u015F\u0131yor.",
+          "UTG/EP min-raise: dar ve g\xFC\xE7l\xFC aral\u0131k \u2192 \xE7ok daha dar savun.",
+          "K\xFC\xE7\xFCk boy bir davet de\u011Fildir; erken pozisyondan k\xFC\xE7\xFCk boy 'ucuza g\xFC\xE7l\xFC aral\u0131k' demektir."
+        ],
+        ruleBox: "Ayn\u0131 fiyat, iki ayr\u0131 karar. Savunma geni\u015Fli\u011Fini boy de\u011Fil A\xC7AN belirler.",
+        narration: "\u015Eimdi en \xF6nemli slayta geldik. Hep min-raise geliyor diyorsun ama bu c\xFCmle kimin min-raise etti\u011Fini ay\u0131rm\u0131yor. Fiyat ayn\u0131 olabilir; aral\u0131k asla ayn\u0131 de\u011Fil. Butondan ya da cut-off'tan gelen bir min-raise geni\u015F bir aral\u0131kt\u0131r ve tepesi zay\u0131ft\u0131r; ona kar\u015F\u0131 ger\xE7ekten \xE7ok geni\u015F savunursun, sezgin burada birebir \xE7al\u0131\u015F\u0131r. Ama en erken pozisyonlardan gelen bir min-raise dar ve g\xFC\xE7l\xFC bir aral\u0131kt\u0131r. Ayn\u0131 ucuz fiyata, \xE7ok daha k\xF6t\xFC bir aral\u0131\u011Fa kar\u015F\u0131 oynuyorsun. \u015Eunu net s\xF6yleyeyim: k\xFC\xE7\xFCk boy bir davet de\u011Fildir. Erken pozisyondan gelen k\xFC\xE7\xFCk boy, ucuza g\xFC\xE7l\xFC aral\u0131k demektir; rakip seni i\xE7eride tutmak istiyor olabilir. Yani savunma geni\u015Fli\u011Fini bahsin boyu de\u011Fil, o bahsi yapan koltuk belirler. Bu tek ayr\u0131m\u0131 masaya ta\u015F\u0131rsan bu mod\xFCl\xFCn paras\u0131n\u0131 \xE7\u0131kar\u0131rs\u0131n."
+      },
+      {
+        title: "Domine olmak: ucuz fiyattan pahal\u0131 el sat\u0131n almak",
+        bullets: [
+          "Erken a\xE7\u0131\u015Fa kar\u015F\u0131 Q7o, K5o gibi eller 'ucuz' ama domine edilmeye a\xE7\u0131k.",
+          "\xC7ift yapt\u0131\u011F\u0131nda bile en s\u0131k senden iyi bir kicker'a kar\u015F\u0131 \xE7ift yapm\u0131\u015F olursun.",
+          "En \xE7ok kaybetti\u011Fin eller tutturamad\u0131klar\u0131n de\u011Fil \u2014 ikinci en iyi olduklar\u0131nd\u0131r.",
+          "Ters implied odds: ucuz girdi\u011Fin el, pahal\u0131 sokaklarda seni b\u0131rakm\u0131yor."
+        ],
+        ruleBox: "Fiyat giri\u015Fi ucuzlat\u0131r, \xE7\u0131k\u0131\u015F\u0131 de\u011Fil. Domine el ucuz girer, pahal\u0131 \xE7\u0131kar.",
+        narration: "Bu slayt bir \xF6ncekinin mekani\u011Fi. Erken pozisyondan bir a\xE7\u0131\u015Fa kar\u015F\u0131 k\u0131z-yedi offsuit ya da papaz-be\u015F offsuit gibi elleri savundu\u011Funda ucuz bir el ald\u0131\u011F\u0131n\u0131 san\u0131rs\u0131n. Asl\u0131nda domine edilmeye a\xE7\u0131k bir el ald\u0131n. Bu ellerin sorunu tutturamamak de\u011Fil; as\u0131l sorun tutturduklar\u0131nda ortaya \xE7\u0131kar. Papaz\u0131n geldi, \xFCst \xE7ift yapt\u0131n, ve tam da bunu istedi\u011Fin an kar\u015F\u0131ndaki adam\u0131n papaz-k\u0131z ya da as-papaz olma ihtimali y\xFCksek. Yani en \xE7ok para kaybetti\u011Fin eller ka\xE7\u0131rd\u0131klar\u0131n de\u011Fil, ikinci en iyi olduklar\u0131nd\u0131r. Buna ters implied odds diyoruz: ucuz girdi\u011Fin el, pahal\u0131 sokaklarda seni b\u0131rakm\u0131yor, \xE7\xFCnk\xFC elinde bir \u015Fey var ve atmak zor geliyor. Akl\u0131nda kals\u0131n: fiyat giri\u015Fi ucuzlat\u0131r, \xE7\u0131k\u0131\u015F\u0131 ucuzlatmaz."
+      },
+      {
+        title: "Araya caller girdiyse: fiyat \u0130Y\u0130LE\u015E\u0130R, aral\u0131k DARALIR",
+        bullets: [
+          "A\xE7an + caller varken pot oran\u0131n daha da iyi g\xF6r\xFCn\xFCr \u2014 tuzak burada.",
+          "Art\u0131k tek bir aral\u0131\u011F\u0131 de\u011Fil, iki ya da \xFC\xE7 aral\u0131\u011F\u0131 birden ge\xE7men gerekiyor.",
+          "Multiway'de ba\u011Flant\u0131 de\u011Fil NUT potansiyeli de\u011Fer kazan\u0131r.",
+          "Suited Ax ve \xE7iftler \xF6ne ge\xE7er; offsuit broadway ve zay\u0131f ba\u011Flant\u0131l\u0131lar d\xFC\u015Fer."
+        ],
+        ruleBox: "Multiway'de 'daha iyi fiyat' daha geni\u015F savunma demek de\u011Fildir. Daha \xE7ok rakip = daha y\xFCksek e\u015Fik.",
+        narration: "\u015Eimdi araya caller girdi\u011Fi durum. A\xE7an var, bir ya da iki ki\u015Fi call etti ve sen big blind'das\u0131n. Pot oran\u0131n daha da iyi g\xF6r\xFCn\xFCr ve tuzak tam burada. Fiyat ger\xE7ekten iyile\u015Fti, ama art\u0131k tek bir aral\u0131\u011F\u0131 de\u011Fil, iki ya da \xFC\xE7 aral\u0131\u011F\u0131 birden ge\xE7men gerekiyor. Bir eli kazanma ihtimalin, rakip say\u0131s\u0131 artt\u0131k\xE7a h\u0131zla d\xFC\u015Fer. Bu y\xFCzden multiway'de savunma aral\u0131\u011F\u0131n geni\u015Flemez, daral\u0131r; ve sadece daralmaz, dokusu da de\u011Fi\u015Fir. Ba\u011Flant\u0131 de\u011Fil nut potansiyeli de\u011Fer kazan\u0131r. Suited as'lar ve \xE7iftler \xF6ne ge\xE7er, \xE7\xFCnk\xFC ilki en \xFCstteki rengi yapar ve ikincisi set yapar. Offsuit broadway ve zay\u0131f ba\u011Flant\u0131l\u0131 eller d\xFC\u015Fer, \xE7\xFCnk\xFC onlar\u0131n \xFCretti\u011Fi \u015Fey multiway'de ikinci en iyi eldir. Kural olarak \u015Funu tut: daha \xE7ok rakip, daha y\xFCksek e\u015Fik."
+      },
+      {
+        title: "ICM katman\u0131: balonda geni\u015F savunma pahal\u0131d\u0131r",
+        bullets: [
+          "Risk primi varken marjinal spotlara OOP girmek \xE7ipten fazlas\u0131na mal olur.",
+          "Geni\u015F savunma seni capped bir aral\u0131kla zor kararlar\u0131n i\xE7ine sokar.",
+          "Seni cover eden biri a\xE7t\u0131ysa e\u015Fik daha da yukar\u0131 \xE7\u0131kar.",
+          "chipEV'de do\u011Fru olan savunma geni\u015Fli\u011Fi, balonda otomatik do\u011Fru de\u011Fildir."
+        ],
+        ruleBox: "ICM savunmay\u0131 iki y\xF6nden s\u0131kar: hem e\u015Fi\u011Fi y\xFCkseltir hem de yanl\u0131\u015F karar verdi\u011Finde bedeli b\xFCy\xFCt\xFCr.",
+        narration: "Bir katman daha var: ICM. \xD6deme s\u0131n\u0131r\u0131na yakla\u015F\u0131yorken ya da masada ger\xE7ek s\u0131\xE7ramalar varken, marjinal spotlara pozisyon d\u0131\u015F\u0131 girmek sana sadece \xE7ip kaybettirmez; hayatta kalma de\u011Ferini de yakar. Geni\u015F savunma seni capped bir aral\u0131kla zor kararlar\u0131n i\xE7ine sokar; yani elinde en g\xFC\xE7l\xFC eller yokken b\xFCy\xFCk bahislerle kar\u015F\u0131la\u015F\u0131rs\u0131n ve do\u011Fru cevab\u0131 bulmak pahal\u0131d\u0131r. Seni cover eden biri a\xE7t\u0131ysa e\u015Fik daha da yukar\u0131 \xE7\u0131kar, \xE7\xFCnk\xFC elenme riski ger\xE7ek. Buradaki kural basit ama s\u0131k unutulur: chip EV'de do\u011Fru olan savunma geni\u015Fli\u011Fi, balonda otomatik olarak do\u011Fru de\u011Fildir. Ayn\u0131 el, ayn\u0131 fiyat, ayn\u0131 pozisyon; ama masadaki para yap\u0131s\u0131 de\u011Fi\u015Fince cevap de\u011Fi\u015Fir. ICM savunmay\u0131 iki y\xF6nden s\u0131kar: e\u015Fi\u011Fi y\xFCkseltir ve yanl\u0131\u015F karar verdi\u011Finde bedeli b\xFCy\xFCt\xFCr."
+      },
+      {
+        title: "Geni\u015F savunman\u0131n bedeli FLOPTA \xF6denir",
+        bullets: [
+          "Geni\u015F savunman\u0131n EV'si, c-bet'e \xC7OK fold edebilme disiplininden gelir.",
+          "Savunup sonra flopta yap\u0131\u015F\u0131rsan teorideki k\xE2r pratikte zarara d\xF6ner.",
+          "\u0130ki kart ald\u0131n diye o pota sahip de\u011Filsin \u2014 \xE7o\u011Fu flopta hi\xE7bir \u015Feyin olmayacak.",
+          "Geni\u015F savunma bir hak de\u011Fil, bir y\xFCk\xFCml\xFCl\xFCkt\xFCr."
+        ],
+        ruleBox: "Geni\u015F savunmay\u0131 hak eden \u015Fey preflop cesaretin de\u011Fil, postflop fold disiplinin.",
+        narration: "\u015Eimdi en \xE7ok atlanan k\u0131s\u0131m. Geni\u015F savunman\u0131n k\xE2r\u0131 preflop'ta do\u011Fmaz, flopta do\u011Far. Ve o k\xE2r tek bir beceriden gelir: c-bet'e \xE7ok fold edebilmek. Geni\u015F savundu\u011Funda floplar\u0131n\u0131n b\xFCy\xFCk \xE7o\u011Funlu\u011Funda hi\xE7bir \u015Feyin olmayacak, bu normaldir ve plan\u0131n par\xE7as\u0131d\u0131r. Ama savunup sonra her flopta bir bahane bulup devam edersen, teorideki k\xE2r pratikte zarara d\xF6ner. Asl\u0131nda geni\u015F savunan ve sonra fold edemeyen bir oyuncu, dar savunan bir oyuncudan \xE7ok daha fazla kaybeder. \u015Eunu net s\xF6yleyeyim: iki kart ald\u0131n diye o pota sahip de\u011Filsin. Geni\u015F savunma bir hak de\u011Fil, bir y\xFCk\xFCml\xFCl\xFCkt\xFCr; y\xFCk\xFCml\xFCl\xFCk de fold disiplinidir. Kendine d\xFCr\xFCst bir soru sor: ge\xE7en ay big blind'da savundu\u011Fun \xE7\xF6p ellerin ka\xE7\u0131nda flopta ger\xE7ekten atabildin? Cevap d\xFC\u015F\xFCkse sorunun savunma geni\u015Fli\u011Finde de\u011Fil, orada."
+      },
+      {
+        title: "Ve senin \u015Fik\xE2yetine ba\u011Flan\u0131yor: her \u015Feyi call etmek CAPPED aral\u0131k kurar",
+        bullets: [
+          "Sadece call ederek savunursan aral\u0131\u011F\u0131nda en g\xFC\xE7l\xFC eller hi\xE7 olmaz.",
+          "Rakip bunu g\xF6r\xFCr: b\xFCy\xFCk bahse kar\u015F\u0131 seni capped kabul edip bask\u0131 yapar.",
+          "'Elim a\xE7\u0131k oluyor' \u015Fik\xE2yetinin preflop kayna\u011F\u0131 tam olarak budur.",
+          "Panzehir: savunma aral\u0131\u011F\u0131n\u0131n bir k\u0131sm\u0131n\u0131 3-bet koluna ta\u015F\u0131."
+        ],
+        ruleBox: "Geni\u015F call + hi\xE7 3-bet = tan\u0131m\u0131 gere\u011Fi capped. Aral\u0131\u011Fa tepe koyman\u0131n tek yolu baz\u0131 elleri raise etmektir.",
+        narration: "Son olarak, bu mod\xFCl\xFC senin kendi \u015Fik\xE2yetine ba\u011Flayal\u0131m. Elim a\xE7\u0131k oluyor diyordun. Big blind savunmas\u0131n\u0131n bir kayna\u011F\u0131 var. E\u011Fer her \u015Feyi sadece call ederek savunuyorsan, aral\u0131\u011F\u0131nda en g\xFC\xE7l\xFC eller hi\xE7 bulunmaz; \xE7\xFCnk\xFC onlar\u0131 da call etmi\u015Fsindir ya da zaten \xFC\xE7-bet'lemi\u015Fsindir. Yani call aral\u0131\u011F\u0131n tan\u0131m\u0131 gere\u011Fi capped'dir, tepesi yoktur. \u0130yi bir rakip bunu g\xF6r\xFCr ve b\xFCy\xFCk bahislerle seni s\u0131k\u0131\u015Ft\u0131r\u0131r, \xE7\xFCnk\xFC senin \xE7ok g\xFC\xE7l\xFC bir el tutma ihtimalinin d\xFC\u015F\xFCk oldu\u011Funu bilir. Panzehir savunmay\u0131 daraltmak de\u011Fil; savunma aral\u0131\u011F\u0131n\u0131n bir k\u0131sm\u0131n\u0131 \xFC\xE7-bet koluna ta\u015F\u0131mak. Big blind'dan \xFC\xE7-bet, hem \xF6l\xFC paray\u0131 hemen al\u0131r hem de call aral\u0131\u011F\u0131na sayg\u0131 kazand\u0131r\u0131r. Yani geni\u015F savunmaya devam et, ama hepsini ayn\u0131 kap\u0131dan ge\xE7irme."
+      },
+      {
+        title: "Cheat: BB savunma kart\u0131",
+        bullets: [
+          "\xD6nce A\xC7ANA bak, boya de\u011Fil: BTN/CO \u2192 \xE7ok geni\u015F; UTG/EP \u2192 belirgin dar.",
+          "Araya caller girdiyse daralt ve dokuyu de\u011Fi\u015Ftir: nut potansiyeli > ba\u011Flant\u0131.",
+          "ICM varsa bir kademe daha s\u0131k; seni cover eden a\xE7t\u0131ysa bir kademe daha.",
+          "Savundu\u011Fun ellerin bir k\u0131sm\u0131n\u0131 3-bet'e ta\u015F\u0131 \u2014 capped kalma.",
+          "Ve as\u0131l i\u015F flopta: c-bet'e \xE7ok fold et. Savunman\u0131n k\xE2r\u0131 orada."
+        ],
+        ruleBox: "'Zaten ante koydum' c\xFCmlesi butona kar\u015F\u0131 do\u011Fru, UTG'ye kar\u015F\u0131 pahal\u0131. Fiyat de\u011Fil aral\u0131k konu\u015Fur.",
+        narration: "Cep kart\u0131. Big blind'da savunma karar\u0131 verirken \xF6nce a\xE7ana bak, bahsin boyuna de\u011Fil. Butondan ya da cut-off'tan geldiyse \xE7ok geni\u015F savun; sezgin orada \xE7al\u0131\u015F\u0131yor. En erken pozisyonlardan geldiyse belirgin \u015Fekilde daralt, \xE7\xFCnk\xFC ayn\u0131 fiyata \xE7ok daha g\xFC\xE7l\xFC bir aral\u0131\u011Fa kar\u015F\u0131 oynuyorsun. Araya caller girdiyse savunman\u0131 daralt ve dokusunu de\u011Fi\u015Ftir; multiway'de ba\u011Flant\u0131 de\u011Fil nut potansiyeli kazan\u0131r. ICM bask\u0131s\u0131 varsa bir kademe daha s\u0131k\u0131 ol, seni cover eden biri a\xE7t\u0131ysa bir kademe daha. Savundu\u011Fun ellerin bir k\u0131sm\u0131n\u0131 \xFC\xE7-bet koluna ta\u015F\u0131 ki aral\u0131\u011F\u0131n capped kalmas\u0131n. Ve en \xF6nemlisi: as\u0131l i\u015F flopta. C-bet'e \xE7ok fold edebiliyorsan geni\u015F savunma sana para kazand\u0131r\u0131r; edemiyorsan ayn\u0131 geni\u015Flik seni yakar. K\u0131sacas\u0131 zaten ante koydum c\xFCmlesi butona kar\u015F\u0131 do\u011Fru, en erken pozisyona kar\u015F\u0131 pahal\u0131d\u0131r. Fiyat de\u011Fil aral\u0131k konu\u015Fur."
+      }
+    ]
+  },
+  {
+    id: "M43",
+    title: "Squeeze: masadaki en k\xE2rl\u0131 tek hamle",
+    chapter: "B\xF6l\xFCm 4.6 \u2605",
+    minutes: 8,
+    slides: [
+      {
+        title: "Neden bu kadar k\xE2rl\u0131: iki t\xFCr \xF6l\xFC para",
+        bullets: [
+          "A\xE7an var, bir ya da iki ki\u015Fi call etti, sen hen\xFCz konu\u015Fmad\u0131n: potta haz\u0131r para var.",
+          "O paray\u0131 almak i\xE7in kimseyi yenmene gerek yok \u2014 sadece katlatman yeterli.",
+          "\u0130ki katman avantaj: potta \xF6l\xFC para VE kar\u015F\u0131ndakilerin zay\u0131f aral\u0131\u011F\u0131.",
+          "Kitap bunu 'canl\u0131da en k\xE2rl\u0131 tek hamle' diye tan\u0131mlar; abart\u0131 de\u011Fil."
+        ],
+        ruleBox: "Squeeze, elinin g\xFCc\xFCnden de\u011Fil rakiplerin yap\u0131sal zay\u0131fl\u0131\u011F\u0131ndan para kazanan bir hamledir.",
+        narration: "Squeeze neden bu kadar \xF6nemli, \xF6nce onu oturtal\u0131m. Durum \u015Fu: biri a\xE7t\u0131, arkas\u0131ndan bir ya da iki ki\u015Fi call etti ve s\u0131ra sana geldi. Potta art\u0131k \xFC\xE7 ki\u015Finin paras\u0131 var ve bunlar\u0131n hi\xE7biri hen\xFCz ger\xE7ek bir taahh\xFCt vermedi. O paray\u0131 almak i\xE7in kimseyi yenmene gerek yok; sadece hepsini katlatman yeterli. Burada iki katman avantaj birden \xE7al\u0131\u015F\u0131yor. Birincisi potta haz\u0131r bekleyen \xF6l\xFC para. \u0130kincisi ve daha \xF6nemlisi, kar\u015F\u0131ndakilerin aral\u0131klar\u0131n\u0131n yap\u0131sal olarak zay\u0131f olmas\u0131. Kitap squeeze'i canl\u0131 oyunda en k\xE2rl\u0131 tek hamle diye tan\u0131ml\u0131yor ve bu bir abart\u0131 de\u011Fil. \u015Eunu iyi anla: squeeze elinin g\xFCc\xFCnden para kazanan bir hamle de\u011Fildir. Rakiplerin yap\u0131sal zay\u0131fl\u0131\u011F\u0131ndan para kazanan bir hamledir. Bu y\xFCzden hangi elle yapt\u0131\u011F\u0131n, kime kar\u015F\u0131 yapt\u0131\u011F\u0131ndan daha az \xF6nemlidir."
+      },
+      {
+        title: "Coldcaller neden zay\u0131f: kendi eliyle itiraf etmi\u015Ftir",
+        bullets: [
+          "Call eden oyuncu 3-bet edebilirdi ama etmedi \u2014 yani tepe eller aral\u0131\u011F\u0131nda SEYREK.",
+          "Aral\u0131\u011F\u0131 s\u0131k\u0131 ama capped: 4-bet edemez, b\xFCy\xFCk bir raise'e \xE7o\u011Fu elini atar.",
+          "A\xE7an da zor durumda: arkas\u0131nda caller varken bir raise'e cevap vermek pahal\u0131.",
+          "Yani tek hamleyle iki farkl\u0131 zay\u0131fl\u0131\u011F\u0131 ayn\u0131 anda vuruyorsun."
+        ],
+        ruleBox: "Coldcall bir bilgi s\u0131z\u0131nt\u0131s\u0131d\u0131r: 'elim 3-bet edecek kadar iyi de\u011Fil' demektir. Squeeze o itiraf\u0131 \xFCcretlendirir.",
+        narration: "\u015Eimdi mekanizman\u0131n kalbine gelelim. O call eden oyuncu ne yapt\u0131? \xDC\xE7-bet etme imk\xE2n\u0131 vard\u0131 ve kullanmad\u0131. Bu bir bilgi s\u0131z\u0131nt\u0131s\u0131d\u0131r; elim \xFC\xE7-bet edecek kadar iyi de\u011Fil demektir. Yani onun aral\u0131\u011F\u0131nda en g\xFC\xE7l\xFC eller seyrektir, aral\u0131\u011F\u0131 capped'dir. S\u0131k\u0131d\u0131r ama zay\u0131ft\u0131r; bu ikisi ayn\u0131 anda do\u011Fru olabilir. Sonu\xE7 olarak d\xF6rt-bet edemez ve b\xFCy\xFCk bir raise g\xF6rd\xFC\u011F\xFCnde \xE7o\u011Fu elini atar. A\xE7an oyuncu da rahat de\u011Fil. Arkas\u0131nda bir caller varken bir raise'e cevap vermek onun i\xE7in de pahal\u0131, \xE7\xFCnk\xFC sadece seni de\u011Fil, arkadaki adam\u0131 da hesaba katmak zorunda. Yani sen tek bir hamleyle iki farkl\u0131 zay\u0131fl\u0131\u011F\u0131 ayn\u0131 anda vuruyorsun. Squeeze'in g\xFCc\xFC buradan gelir, elinden de\u011Fil. Coldcall bir itiraft\u0131r; squeeze o itiraf\u0131 \xFCcretlendirir."
+      },
+      {
+        title: "Boyut: normal 3-bet'ten B\xDCY\xDCK \u2014 ve caller ba\u015F\u0131na artar",
+        bullets: [
+          "Pozisyondayken a\xE7\u0131l\u0131\u015F\u0131n kabaca d\xF6rt bu\xE7uk kat\u0131; blind'lardan be\u015F kat ve \xFCst\xFC.",
+          "Her ek caller i\xE7in boyu yukar\u0131 ta\u015F\u0131 \u2014 daha \xE7ok \xF6l\xFC para, daha \xE7ok katlat\u0131lacak ki\u015Fi.",
+          "K\xFC\xE7\xFCk squeeze en pahal\u0131 hatad\u0131r: caller'a tam da arad\u0131\u011F\u0131 ucuz call'\u0131 verir.",
+          "Boy sadece fold ettirmek i\xE7in de\u011Fil; \xE7a\u011Fr\u0131ld\u0131\u011F\u0131nda SPR'yi kontrol etmek i\xE7in de."
+        ],
+        ruleBox: "Squeeze'de k\xFC\xE7\xFCk boy yoktur. K\xFC\xE7\xFCk yapacaksan hi\xE7 yapma \u2014 davetiye g\xF6ndermi\u015F olursun.",
+        narration: "Boyut. Bu hamlede en s\u0131k yap\u0131lan hata boyu k\xFC\xE7\xFCk tutmak, o y\xFCzden net konu\u015Fal\u0131m. Squeeze normal bir \xFC\xE7-bet'ten b\xFCy\xFCkt\xFCr. Pozisyondayken a\xE7\u0131l\u0131\u015F\u0131n kabaca d\xF6rt bu\xE7uk kat\u0131, blind'lardan ise be\u015F kat ve \xFCst\xFC. Ve her ek caller i\xE7in boyu yukar\u0131 ta\u015F\u0131rs\u0131n, \xE7\xFCnk\xFC hem potta daha \xE7ok \xF6l\xFC para var hem de katlatman gereken ki\u015Fi say\u0131s\u0131 artt\u0131. K\xFC\xE7\xFCk squeeze bu hamlenin en pahal\u0131 hatas\u0131d\u0131r; caller'a tam da arad\u0131\u011F\u0131 ucuz call'\u0131 verirsin ve pozisyon d\u0131\u015F\u0131, kalabal\u0131k bir potta s\u0131k\u0131\u015F\u0131rs\u0131n. Boyun ikinci bir i\u015Flevi daha var: \xE7a\u011Fr\u0131ld\u0131\u011F\u0131nda stack-pot oran\u0131n\u0131 kontrol etmek. B\xFCy\xFCk squeeze flopta d\xFC\u015F\xFCk bir oran b\u0131rak\u0131r, bu da senin lehinedir \xE7\xFCnk\xFC inisiyatif sende. Kural \u015Fu: squeeze'de k\xFC\xE7\xFCk boy diye bir \u015Fey yok. K\xFC\xE7\xFCk yapacaksan hi\xE7 yapma, \xE7\xFCnk\xFC davetiye g\xF6ndermi\u015F olursun."
+      },
+      {
+        title: "Value malzemesi: net ve dar",
+        bullets: [
+          "Value taraf\u0131: vale-vale ve \xFCst\xFC \xE7iftler, as-k\u0131z suited ve \xFCst\xFC, as-papaz offsuit.",
+          "Bu eller \xE7a\u011Fr\u0131ld\u0131\u011F\u0131nda da iyi durumda \u2014 squeeze'in 'kaybetmeyen' kanad\u0131.",
+          "Value squeeze her sahada \xE7al\u0131\u015F\u0131r: fold ederlerse al\u0131rs\u0131n, call ederlerse \xF6ndesin.",
+          "Karars\u0131zsan value taraf\u0131ndan ba\u015Fla; bl\xF6f taraf\u0131 saha bilgisi ister."
+        ],
+        ruleBox: "Value squeeze hi\xE7bir zaman k\xF6t\xFC bir karar de\u011Fildir. Bl\xF6f squeeze ko\u015Fulludur \u2014 ayr\u0131m\u0131 kar\u0131\u015Ft\u0131rma.",
+        narration: "Value taraf\u0131 net ve dard\u0131r. Vale-vale ve \xFCst\xFC \xE7iftler, as-k\u0131z suited ve \xFCst\xFC, as-papaz offsuit. Bu ellerin ortak \xF6zelli\u011Fi \u015Fu: \xE7a\u011Fr\u0131ld\u0131klar\u0131nda da iyi durumdalar. Yani squeeze'in kaybetmeyen kanad\u0131 bunlar. Fold ederlerse \xF6l\xFC paray\u0131 al\u0131rs\u0131n, call ederlerse aral\u0131k olarak \xF6ndesin. Bu y\xFCzden value squeeze her sahada \xE7al\u0131\u015F\u0131r; s\u0131k\u0131 masada da, bal\u0131k dolu masada da. Buradan \xE7\u0131karman gereken pratik kural \u015Fu: e\u011Fer masay\u0131 hen\xFCz okuyamad\u0131ysan ya da karars\u0131zsan, squeeze'i value taraf\u0131ndan \xF6\u011Frenmeye ba\u015Fla. Bl\xF6f taraf\u0131 saha bilgisi ister, value taraf\u0131 istemez. \xC7ok oyuncu squeeze'i duydu\u011Fu an bl\xF6f yapmay\u0131 dener ve yanar; oysa bu hamlenin garantili paras\u0131 value kanad\u0131ndad\u0131r. Value squeeze hi\xE7bir zaman k\xF6t\xFC bir karar de\u011Fildir."
+      },
+      {
+        title: "Bl\xF6f malzemesi: rakibin FOLD etti\u011Fi blo\u011Fu unblock et",
+        bullets: [
+          "Klasik liste (A5s, KQs, AJs) coldcaller pozisyonda VE dar oldu\u011Funda do\u011Frudur.",
+          "Ama caller capped ve geni\u015F ise fold etti\u011Fi eller broadway'lidir: ATo, KTo, QTo, JTo.",
+          "O blo\u011Fu bloklamayan elleri se\xE7: 67s, 97s, 86s, 75s gibi broadway'siz suited'lar.",
+          "T8s ve J9s tam tersini yapar \u2014 onlar o fold blo\u011Funu bizzat bloklar."
+        ],
+        ruleBox: "Tek test: 'kimin blo\u011Funu unblock ediyorum?' Bl\xF6f, rakibin ATACA\u011EI elleri elinde tutmamal\u0131d\u0131r.",
+        narration: "\u015Eimdi bu mod\xFCl\xFCn en ince ve en de\u011Ferli k\u0131sm\u0131. Bl\xF6f malzemesi se\xE7erken \xE7o\u011Fu oyuncu tek bir mant\u0131k kullan\u0131r: bloker ta\u015F\u0131yay\u0131m. As-be\u015F suited as-as'\u0131 bloklar, papaz-k\u0131z suited papaz-papaz'\u0131 bloklar. Bu do\u011Fru, ama sadece coldcaller pozisyondayken ve dar bir aral\u0131\u011Fa sahipken do\u011Fru. \u015Eimdi di\u011Fer duruma bak. Caller'\u0131n aral\u0131\u011F\u0131 capped ve geni\u015Fse, senin squeeze'ine en s\u0131k fold etti\u011Fi eller hangileri? As-on offsuit, papaz-on offsuit, k\u0131z-on offsuit, vale-on offsuit gibi broadway'li eller. Yani onun fold blo\u011Fu broadway ve on'larla dolu. \u015Eimdi kritik soru: sen o blo\u011Fu bloklamak m\u0131 istersin, unblock etmek mi? Unblock etmek istersin, \xE7\xFCnk\xFC o eller elindeyse rakibin onlar\u0131 tutma ihtimali d\xFC\u015Fer ve fold etmesini istedi\u011Fin eller masada azal\u0131r. Bu y\xFCzden bu d\xFC\u011F\xFCmde iyi bl\xF6fler alt\u0131-yedi suited, dokuz-yedi suited, sekiz-alt\u0131 suited gibi broadway'siz suited ellerdir. On-sekiz suited ve vale-dokuz suited ise tam tersini yapar; ikisi de on ta\u015F\u0131r ve rakibin ataca\u011F\u0131 elleri bizzat bloklar. Tek test \u015Fu: kimin blo\u011Funu unblock ediyorum?"
+      },
+      {
+        title: "Ne zaman YAPMA: fold etmeyen coldcaller",
+        bullets: [
+          "Squeeze'in yak\u0131t\u0131 fold equity'dir. Fold etmeyen rakibe kar\u015F\u0131 bl\xF6f kanad\u0131 yanar.",
+          "Caller bal\u0131ksa (para koyduktan sonra atm\u0131yorsa): bl\xF6f\xFC TAMAMEN kes, sadece value.",
+          "\u0130ki tane fold etmeyen adam varsa spot senin spotun de\u011Fildir.",
+          "Caller s\u0131k\u0131ysa tersi: bl\xF6f taraf\u0131n\u0131 geni\u015Flet, fold equity'n y\xFCksek."
+        ],
+        ruleBox: "Squeeze'i el de\u011Fil rakip se\xE7er. 'Kim fold ediyor?' sorusu bu hamlenin tek \xF6n ko\u015Fuludur.",
+        narration: "\u015Eimdi bu hamleyi ne zaman yapmayaca\u011F\u0131na gelelim, \xE7\xFCnk\xFC squeeze otomatik bir refleks olursa para kaybettirir. Squeeze'in yak\u0131t\u0131 fold equity'dir. Kar\u015F\u0131ndaki oyuncular fold etmiyorsa bl\xF6f kanad\u0131 yanar. Somut olarak: caller bal\u0131ksa, yani bir kere para koyduktan sonra atm\u0131yorsa, bl\xF6f taraf\u0131n\u0131 tamamen kes ve sadece value squeeze yap. Masada iki tane fold etmeyen adam varsa o spot senin spotun de\u011Fildir; ne bl\xF6f \xE7al\u0131\u015F\u0131r ne de kalabal\u0131k pota k\xF6t\xFC bir elle girmek mant\u0131kl\u0131d\u0131r. Tersi de do\u011Fru: caller s\u0131k\u0131ysa ve b\xFCy\xFCk raise'lere sayg\u0131 g\xF6steriyorsa bl\xF6f taraf\u0131n\u0131 geni\u015Flet, \xE7\xFCnk\xFC fold equity'n y\xFCksek. Buradaki as\u0131l ders \u015Fu: squeeze'i senin elin se\xE7mez, rakibin se\xE7er. Kim fold ediyor sorusu bu hamlenin tek \xF6n ko\u015Fuludur. Elini o sorudan sonra se\xE7, \xF6nce de\u011Fil."
+      },
+      {
+        title: "Squeeze etmeden \xF6nce cevab\u0131 haz\u0131r olsun: 4-bet gelirse ne yap\u0131yorum?",
+        bullets: [
+          "Squeeze b\xFCy\xFCk bir boydur; stack'inin ciddi bir k\u0131sm\u0131n\u0131 ortaya koyar.",
+          "Bl\xF6fle squeeze ettiysen 4-bet'e cevab\u0131n fold \u2014 bunu \xD6NCEDEN kabul et.",
+          "Value'yla squeeze ettiysen derinli\u011Fe g\xF6re call ya da jam; karar\u0131n\u0131 ba\u015Ftan ver.",
+          "S\u0131\u011F derinlikte squeeze commit yarat\u0131r: 'squeeze edip fold' yap\u0131s\u0131 \xE7\xF6ker."
+        ],
+        ruleBox: "Hamleyi yapmadan \xF6nce bir sonraki soka\u011F\u0131n cevab\u0131n\u0131 bilmiyorsan, o hamleyi yapm\u0131yorsun demektir.",
+        narration: "Squeeze etmeden \xF6nce cevaplaman gereken bir soru daha var: d\xF6rt-bet gelirse ne yapaca\u011F\u0131m? Squeeze b\xFCy\xFCk bir boydur ve stack'inin ciddi bir k\u0131sm\u0131n\u0131 ortaya koyar; bu y\xFCzden bir sonraki sokak hayali de\u011Fil, \xE7ok muhtemel bir ger\xE7ektir. Bl\xF6fle squeeze ettiysen d\xF6rt-bet'e cevab\u0131n fold'dur ve bunu hamleyi yapmadan \xF6nce kabul etmelisin. Sonradan pi\u015Fman olup call etmek, bl\xF6f\xFCn b\xFCt\xFCn k\xE2r\u0131n\u0131 silen \u015Feydir. Value'yla squeeze ettiysen derinli\u011Fe g\xF6re ya call edersin ya jam'lersin; ama bu karar\u0131 da ba\u015Ftan ver, d\xF6rt-bet'i g\xF6rd\xFCkten sonra de\u011Fil. Bir de derinlik uyar\u0131s\u0131: s\u0131\u011F stack'te squeeze seni fiilen commit eder. Yani squeeze edip fold etme yap\u0131s\u0131 \xE7\xF6ker; o derinlikte ya squeeze etmezsin ya da all-in'e gitmeyi kabul etmi\u015Fsindir. Genel kural \u015Fu: bir hamleyi yapmadan \xF6nce bir sonraki soka\u011F\u0131n cevab\u0131n\u0131 bilmiyorsan, o hamleyi yapm\u0131yorsun demektir."
+      },
+      {
+        title: "\xDC\xE7\xFCnc\xFC oyuncu tuza\u011F\u0131: 'raise + call var, ben de bakay\u0131m'",
+        bullets: [
+          "Raise ve call g\xF6rd\xFCkten sonra vale-on suited ile over-call klasik tuzakt\u0131r.",
+          "Caller'\u0131n papaz-k\u0131z suited'\u0131 ve a\xE7an\u0131n vale-vale/as-vale'si seni domine eder.",
+          "\xD6nce sor: caller'\u0131n aral\u0131\u011F\u0131nda ger\xE7ekten TEPE var m\u0131?",
+          "Havuzda genelde yoktur \u2014 premium'u hep 3-bet'ler. O zaman over-call de\u011Fil AGRESYON."
+        ],
+        ruleBox: "\xDC\xE7\xFCnc\xFC oyuncu olmak seni ucuza de\u011Fil, iki aral\u0131\u011F\u0131n aras\u0131na sokar. Kalabal\u0131k pot ucuz pot de\u011Fildir.",
+        narration: "Son bir tuzak. Raise g\xF6rd\xFCn, arkas\u0131ndan call g\xF6rd\xFCn ve elinde vale-on suited gibi g\xFCzel g\xF6r\xFCnen bir el var. Ben de bakay\u0131m demek klasik tuzakt\u0131r. Sebebi \u015Fu: caller'\u0131n papaz-k\u0131z suited ve k\u0131z-on suited gibi elleri, a\xE7an\u0131n da vale-vale, as-vale gibi elleri seni domine eder. Sen iki aral\u0131\u011F\u0131n aras\u0131na s\u0131k\u0131\u015F\u0131rs\u0131n ve pozisyon da genelde sende de\u011Fildir. Kendine \xF6nce \u015Funu sor: bu caller'\u0131n aral\u0131\u011F\u0131nda ger\xE7ekten tepe var m\u0131? Dengeli oynayan biri baz\u0131 premium ellerini flat edebilir. Ama sahadaki tipik oyuncu bunu yapmaz; premium'unu neredeyse her zaman \xFC\xE7-bet'ler ve call aral\u0131\u011F\u0131 k\xFC\xE7\xFCk \xE7iftlerle suited broadway'lere iner. Yani kar\u015F\u0131nda tepe yok. Tepe yoksa do\u011Fru cevap over-call de\u011Fil, agresyondur; ya squeeze ya fold. Kalabal\u0131k pot ucuz pot de\u011Fildir."
+      },
+      {
+        title: "Cheat: squeeze kart\u0131",
+        bullets: [
+          "Tetik: a\xE7an + en az bir caller, sen hen\xFCz konu\u015Fmad\u0131n.",
+          "\xD6nce tek soru: bu caller'lar fold ediyor mu? Hay\u0131rsa sadece value.",
+          "Boy: IP d\xF6rt bu\xE7uk kat, blind'lardan be\u015F kat ve \xFCst\xFC; caller ba\u015F\u0131na yukar\u0131.",
+          "Value: JJ+, AQs+, AKo. Bl\xF6f: rakibin FOLD blo\u011Funu unblock eden suited'lar.",
+          "4-bet'e cevab\u0131n\u0131 \xF6nceden ver. S\u0131\u011F derinlikte squeeze = commit."
+        ],
+        ruleBox: "Squeeze'i \xF6\u011Frenmenin s\u0131ras\u0131: \xF6nce value kanad\u0131, sonra saha okumas\u0131, en son bl\xF6f se\xE7imi.",
+        narration: "Cep kart\u0131. Tetik basit: biri a\xE7t\u0131, en az bir ki\u015Fi call etti ve sen hen\xFCz konu\u015Fmad\u0131n. \xD6nce tek soru sor: bu caller'lar fold ediyor mu? Cevap hay\u0131rsa sadece value squeeze yap, bl\xF6f\xFC kes. Boy pozisyondayken a\xE7\u0131l\u0131\u015F\u0131n d\xF6rt bu\xE7uk kat\u0131, blind'lardan be\u015F kat ve \xFCst\xFC, ve her ek caller i\xE7in yukar\u0131. Value taraf\u0131n vale-vale ve \xFCst\xFC, as-k\u0131z suited ve \xFCst\xFC, as-papaz offsuit. Bl\xF6f taraf\u0131nda ise elinin bloklamas\u0131n\u0131 de\u011Fil, unblock etmesini istiyorsun: rakibin fold edece\u011Fi broadway'li elleri elinde tutma, broadway'siz suited'lar\u0131 se\xE7. D\xF6rt-bet gelirse ne yapaca\u011F\u0131n\u0131 hamleden \xF6nce karara ba\u011Fla; bl\xF6fse fold, value'ysa derinli\u011Fe g\xF6re. S\u0131\u011F derinlikte squeeze seni commit eder, onu bilerek gir. Ve \xF6\u011Frenme s\u0131ras\u0131 \u015Fu olsun: \xF6nce value kanad\u0131, sonra saha okumas\u0131, en son bl\xF6f se\xE7imi. Bu s\u0131rayla gidersen squeeze sana para kazand\u0131r\u0131r; ters giderek ba\u015Flarsan kaybettirir."
+      }
+    ]
   }
 ];
 
@@ -9697,6 +9913,96 @@ var SCENARIOS = [
     explain: "Squeeze'in yak\u0131t\u0131 fold equity'dir. Fold etmeyen rakibe kar\u015F\u0131 bl\xF6f squeeze'i yanar; sadece value kal\u0131r. Pratik sonu\xE7: bl\xF6f de call de \xE7al\u0131\u015Fm\u0131yorsa o spot senin spotun de\u011Fildir \u2192 fold.",
     source: "B\xF6l\xFCm 4.6",
     kavram: "sb-multiway"
+  },
+  // --- M42: BB savunması (Bölüm 4.8 + sentez) ---
+  {
+    q: "BB'desin, ante var, BTN min-raise etti. 'Zaten ante koydum' mant\u0131\u011F\u0131 burada ge\xE7erli mi?",
+    options: ["Hay\u0131r \u2014 min-raise her zaman g\xFC\xE7l\xFC aral\u0131kt\u0131r", "Evet \u2014 BTN'e kar\u015F\u0131 savunma \xE7ok geni\u015F", "Sadece premium ellerle savun"],
+    correct: 1,
+    explain: "BB-ante + 2x'te aksiyonu kapat\u0131yorsun ve fiyat m\xFCkemmel; BTN'in geni\u015F/zay\u0131f-tepeli aral\u0131\u011F\u0131na kar\u015F\u0131 savunma ger\xE7ekten \xE7ok geni\u015Ftir. Sezgi burada \xE7al\u0131\u015F\u0131r \u2014 sorun a\xE7an\u0131 ay\u0131rmamakta.",
+    source: "B\xF6l\xFCm 4.8",
+    kavram: "bb-savunma"
+  },
+  {
+    q: "Ayn\u0131 fiyat, ama bu sefer UTG min-raise etti. Savunma geni\u015Fli\u011Fin ne olur?",
+    options: ["Ayn\u0131 kal\u0131r \u2014 fiyat de\u011Fi\u015Fmedi ki", "Belirgin daral\u0131r \u2014 aral\u0131k \xE7ok g\xFC\xE7l\xFC", "Geni\u015Fler \u2014 k\xFC\xE7\xFCk boy zay\u0131fl\u0131k i\u015Fareti"],
+    correct: 1,
+    explain: "Savunma geni\u015Fli\u011Fini boy de\u011Fil A\xC7AN belirler. Erken pozisyondan k\xFC\xE7\xFCk boy 'ucuza g\xFC\xE7l\xFC aral\u0131k' demektir; ayn\u0131 ucuz fiyata domine edilmeye a\xE7\u0131k eller sat\u0131n al\u0131rs\u0131n.",
+    source: "B\xF6l\xFCm 4.8",
+    kavram: "bb-savunma"
+  },
+  {
+    q: "BB'desin: a\xE7an var, araya iki caller girdi. Pot oran\u0131n daha da iyi. Aral\u0131\u011F\u0131n?",
+    options: ["Geni\u015Fler \u2014 fiyat iyile\u015Fti", "Daral\u0131r, dokusu da de\u011Fi\u015Fir", "De\u011Fi\u015Fmez \u2014 BB her zaman geni\u015F savunur"],
+    correct: 1,
+    explain: "Fiyat iyile\u015Fti ama art\u0131k iki-\xFC\xE7 aral\u0131\u011F\u0131 birden ge\xE7men gerekiyor. Multiway'de ba\u011Flant\u0131 de\u011Fil nut potansiyeli kazan\u0131r: suited Ax ve \xE7iftler \xF6ne, offsuit broadway ve zay\u0131f ba\u011Flant\u0131l\u0131lar geri.",
+    source: "B\xF6l\xFCm 13.1",
+    kavram: "bb-savunma"
+  },
+  {
+    q: "Geni\u015F BB savunmas\u0131n\u0131n k\xE2r\u0131 as\u0131l nerede do\u011Far?",
+    options: ["Preflop'ta \u2014 ucuz fiyattan el almakta", "Flopta \u2014 c-bet'e \xE7ok fold edebilmekte", "Turn'de \u2014 inisiyatifi geri almakta"],
+    correct: 1,
+    explain: "Geni\u015F savunma bir hak de\u011Fil y\xFCk\xFCml\xFCl\xFCkt\xFCr. Floplar\u0131n\u0131n \xE7o\u011Funda hi\xE7bir \u015Feyin olmayacak; k\xE2r o ellerden \xE7\u0131kabilme disiplininden gelir. Savunup yap\u0131\u015F\u0131rsan ayn\u0131 geni\u015Flik seni yakar.",
+    source: "kitap d\u0131\u015F\u0131 sentez",
+    kavram: "bb-savunma"
+  },
+  {
+    q: "Her \u015Feyi CALL ederek savunman\u0131n yap\u0131sal maliyeti ne?",
+    options: ["Fazla \xE7ip harcars\u0131n", "Aral\u0131\u011F\u0131n capped olur \u2014 tepesi yok", "Rakip seni loose san\u0131r, iyi olur"],
+    correct: 1,
+    explain: "Sadece call'la savunursan aral\u0131\u011F\u0131nda en g\xFC\xE7l\xFC eller bulunmaz; rakip b\xFCy\xFCk bahisle bask\u0131 kurar. 'Elim a\xE7\u0131k oluyor' \u015Fik\xE2yetinin preflop kayna\u011F\u0131 budur \u2014 panzehir savunman\u0131n bir k\u0131sm\u0131n\u0131 3-bet'e ta\u015F\u0131mak.",
+    source: "kitap d\u0131\u015F\u0131 sentez",
+    kavram: "bb-savunma"
+  },
+  // --- M43: squeeze (Bölüm 4.6) ---
+  {
+    q: "Squeeze'i bu kadar k\xE2rl\u0131 yapan as\u0131l \u015Fey ne?",
+    options: ["Elinin \xE7ok g\xFC\xE7l\xFC olmas\u0131", "\xD6l\xFC para + coldcaller'\u0131n capped aral\u0131\u011F\u0131", "Rakiplerin k\xF6t\xFC oyuncu olmas\u0131"],
+    correct: 1,
+    explain: "Squeeze elinin g\xFCc\xFCnden de\u011Fil rakiplerin yap\u0131sal zay\u0131fl\u0131\u011F\u0131ndan kazan\u0131r: potta \xF6l\xFC para var, ve call eden 3-bet edebilecekken etmedi \u2014 yani tepesi seyrek, capped bir aral\u0131k g\xF6sterdi.",
+    source: "B\xF6l\xFCm 4.6",
+    kavram: "squeeze"
+  },
+  {
+    q: "Blind'dan squeeze yap\u0131yorsun, iki caller var. Boy ne olmal\u0131?",
+    options: ["Normal 3-bet boyu yeterli", "5\xD7+ ve caller ba\u015F\u0131na yukar\u0131", "K\xFC\xE7\xFCk tut, call al\u0131p pozisyon oyna"],
+    correct: 1,
+    explain: "Squeeze normal 3-bet'ten B\xDCY\xDCKT\xDCR: potta \xF6l\xFC para, katlat\u0131lacak iki rakip var. K\xFC\xE7\xFCk squeeze caller'a tam da arad\u0131\u011F\u0131 ucuz call'\u0131 verir \u2014 bu hamlenin en pahal\u0131 hatas\u0131.",
+    source: "B\xF6l\xFCm 4.6",
+    kavram: "squeeze"
+  },
+  {
+    q: "Caller'\u0131n aral\u0131\u011F\u0131 capped ve geni\u015F; squeeze'ine ATo/KTo/QTo/JTo ile fold ediyor. \u0130yi bl\xF6f malzemesi?",
+    options: ["T8s / J9s \u2014 bloker ta\u015F\u0131yorlar", "67s / 97s / 86s \u2014 o blo\u011Fu unblock eder", "KQs / AJs \u2014 en g\xFC\xE7l\xFC bl\xF6fler"],
+    correct: 1,
+    explain: "Rakibin FOLD edece\u011Fi blo\u011Fu bloklamak istemezsin. T8s/J9s ve KQs/AJs o broadway blo\u011Funu bizzat keser; broadway'siz suited'lar onu unblock eder. Tek test: 'kimin blo\u011Funu unblock ediyorum?'",
+    source: "B\xF6l\xFCm 4.6-EK",
+    kavram: "squeeze"
+  },
+  {
+    q: "Coldcaller bal\u0131k: para koyduktan sonra fold etmiyor. Squeeze plan\u0131n?",
+    options: ["Bl\xF6f\xFC geni\u015Flet \u2014 bal\u0131\u011Fa bask\u0131 kur", "Bl\xF6f\xFC kes, sadece value squeeze", "Boyu b\xFCy\xFCt ki fold etsin"],
+    correct: 1,
+    explain: "Squeeze'in yak\u0131t\u0131 fold equity'dir. Fold etmeyen rakibe kar\u015F\u0131 bl\xF6f kanad\u0131 yanar; geriye sadece value kal\u0131r. \u0130ki tane fold etmeyen adam varsa o spot senin spotun de\u011Fildir.",
+    source: "B\xF6l\xFCm 4.6",
+    kavram: "squeeze"
+  },
+  {
+    q: "Bl\xF6fle squeeze ettin, 4-bet geldi. Bu karar\u0131 ne zaman vermeliydin?",
+    options: ["\u015Eimdi \u2014 4-bet'i g\xF6r\xFCp de\u011Ferlendirirsin", "Squeeze'i yapmadan \xD6NCE", "Flopu g\xF6rd\xFCkten sonra"],
+    correct: 1,
+    explain: "Bl\xF6f squeeze'in cevab\u0131 fold'dur ve bunu hamleden \xF6nce kabul etmi\u015F olman gerekir. Sonradan pi\u015Fman olup call etmek bl\xF6f\xFCn b\xFCt\xFCn k\xE2r\u0131n\u0131 siler. S\u0131\u011F derinlikte squeeze zaten commit yarat\u0131r.",
+    source: "B\xF6l\xFCm 4.6",
+    kavram: "squeeze"
+  },
+  {
+    q: "Raise + call g\xF6rd\xFCn, elinde JTs var, hen\xFCz konu\u015Fmad\u0131n. 'Ben de bakay\u0131m'?",
+    options: ["Evet \u2014 kalabal\u0131k pot, iyi fiyat", "Hay\u0131r \u2014 iki aral\u0131k aras\u0131nda domine olursun", "Evet ama sadece pozisyondaysan"],
+    correct: 1,
+    explain: "Caller'\u0131n KQs/QTs'i ve a\xE7an\u0131n JJ+/AJ'si seni domine eder. \xD6nce sor: caller'\u0131n aral\u0131\u011F\u0131nda TEPE var m\u0131? Havuzda genelde yoktur (premium'u hep 3-bet'ler) \u2192 cevap over-call de\u011Fil, squeeze ya da fold.",
+    source: "B\xF6l\xFCm 4.6-EK",
+    kavram: "squeeze"
   }
 ];
 function optionOrder(q, n) {
@@ -10198,7 +10504,7 @@ check("D6-63 postflop PLO Q \xFCretiliyor", !!postflopQuestion("plo"));
   const badCorrect = SCENARIOS.filter((s) => !(s.correct >= 0 && s.correct < s.options.length));
   const badSource = SCENARIOS.filter((s) => !s.source || !s.source.trim());
   const badKavram = SCENARIOS.filter((s) => typeof s.kavram !== "string" || !s.kavram);
-  check("D4-38 senaryo say\u0131s\u0131 128 (TR; EN paritesi bekliyor)", SCENARIOS.length === 128, String(SCENARIOS.length));
+  check("D4-38 senaryo say\u0131s\u0131 139 (TR; EN paritesi bekliyor)", SCENARIOS.length === 139, String(SCENARIOS.length));
   check("D4-38 t\xFCm correct options s\u0131n\u0131r\u0131nda", badCorrect.length === 0, badCorrect.map((s) => s.q.slice(0, 24)).join("|"));
   check("D4-38 t\xFCm source dolu", badSource.length === 0, String(badSource.length));
   check("D4-38 t\xFCm kavram dolu", badKavram.length === 0, String(badKavram.length));

@@ -267,7 +267,7 @@ check("D6-63 postflop PLO Q üretiliyor", !!postflopQuestion("plo"));
   const badCorrect = SCENARIOS.filter((s) => !(s.correct >= 0 && s.correct < s.options.length));
   const badSource = SCENARIOS.filter((s) => !s.source || !s.source.trim());
   const badKavram = SCENARIOS.filter((s) => typeof s.kavram !== "string" || !s.kavram);
-  check("D4-38 senaryo sayısı 128 (TR; EN paritesi bekliyor)", SCENARIOS.length === 128, String(SCENARIOS.length));
+  check("D4-38 senaryo sayısı 139 (TR; EN paritesi bekliyor)", SCENARIOS.length === 139, String(SCENARIOS.length));
   check("D4-38 tüm correct options sınırında", badCorrect.length === 0, badCorrect.map((s) => s.q.slice(0, 24)).join("|"));
   check("D4-38 tüm source dolu", badSource.length === 0, String(badSource.length));
   check("D4-38 tüm kavram dolu", badKavram.length === 0, String(badKavram.length));

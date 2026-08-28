@@ -33,10 +33,10 @@ gap("Kitap", `${chapters.length} bölüm / ${subs.length} alt bölüm`, `${eks.l
 gap("Modüller", `${slideCount} slayt`, `${ekSlides} EK slaydı`);
 gap("Quiz", `${scenCount} senaryo`, "");
 
-// B9 (Antrenman Protokolü) ve B10 (Soru Bankası) poker içeriği değil, kitabın kullanım
-// kılavuzu. B10 zaten quiz'in kaynağı (QuestionBank.tsx), B9'u drill/tekrar motoru uyguluyor.
-// Modül/senaryo beklemek yanlış sinyal üretir → muaf.
-const META = new Set([9, 10]);
+// B10 (Soru Bankası) poker içeriği değil, quiz'in kaynağı (QuestionBank.tsx) — modül beklemek
+// yanlış sinyal üretir, muaf. B9 muafiyeti kaldırıldı: 9.3-EK/9.3-EK-2/9.5 gerçek aralık-okuma
+// içeriği taşıyor ve M46 ile app'e girdi, artık gerçekten kontrol edilmeli.
+const META = new Set([10]);
 const noModule = chapters.filter((c) => !modChapters.has(c) && !META.has(c));
 const noScen = chapters.filter((c) => !scenChapters.has(c) && !META.has(c));
 // -EK yogun ama EK slaydi olmayan bolumler: kitaba girdi, anlatima girmedi.

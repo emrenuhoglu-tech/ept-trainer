@@ -350,11 +350,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: Blind düğümünde SB orta boy, BB büyük 3-bet",
-        "table": {
-          "section": "Bölüm 4",
-          "sub": "4.2-EK",
-          "caption": "Blind düğümü: SB orta boy, BB tam boy, SB flat sadece dip aralıkta"
-        },
         "bullets": [
           "SB 3-bet orta boy: BB'nin cevabı pratikte dört bet ya fold, büyük boya gerek yok.",
           "SB malzemesi: aralığın tepesi, yüksek equity suited konektörler, biraz orta çift.",
@@ -703,6 +698,53 @@ export const modules: Module[] = [
         narration:
           "Son olarak, NLH'den PLO'ya geçen bir oyuncunun düştüğü dört tuzak — bunlar senin uyarı levhaların. Birincisi as as'i NLH gözüyle görmek: PLO'da as as, çift suited değilse ve board'a bağlanmıyorsa, sadece bir çifttir; ona canavar muamelesi yaparsan büyük pot oynayıp kaybedersin. İkincisi top pair ya da top two ile stack-off etmek: PLO'da iki per neredeyse hiçbir zaman nut değildir; kentler, setler, flush'lar sürekli masadadır, iki per'le tüm stack'i ortaya sürmek hatadır. Üçüncüsü blöf frekansını NLH'den taşımak: PLO'da aralıklar daha bağlıdır, herkesin eli boarda daha çok temas eder, o yüzden blöf daha az geçer; NLH'deki blöf sıklığını buraya taşırsan yanarsın. Dördüncüsü pozisyonsuz 3-bet potu oynamak: bu PLO'nun en zor spotudur, çünkü equity'ler yakın ve pozisyonsuz karar vermek çok pahalı; şüphe hâlinde 3-bet'lemek yerine flat et. Bu dört tuzağı bilmek, PLO masasında NLH refleksinin seni batırmasını engeller.",
       },
+      {
+        "title": "EK: Aralık kapsaması ve basitleştirme",
+        "bullets": [
+          "Tek elin bas ya da çek seçimi çoğu zaman kıl payı fark eder; asıl kazanç ya da kayıp bir el sınıfının TAMAMI nereye yığıldığında belirlenir.",
+          "Bir sınıfı (mesela bütün güçlü draw'ları) tek hatta bitirdiğinde tek soru şu: o kartlar geldiğinde diğer hat hâlâ kapsıyor mu?",
+          "PLO'da yan kartlar bu kapsamayı çoğu zaman kendiliğinden verir (8.1-EK-2); kapsama duruyorsa basitleştirme ucuzdur.",
+          "NLH'de her komboyu karıştırmak zorundasın çünkü elin bir hatta hiç yoksa rakip bunu okur; PLO'da altı kartlı ellerde otomatik kapsama daha da güçlenir.",
+          "Bedel yalnız kapsama bozulduğunda doğar: korumasız kalan hat ince value ve blöfe açılır, sızıntı tek sokakta bitmez."
+        ],
+        "ruleBox": "Sınıf bir hatta yığılınca kapsama duruyorsa basitleştirme neredeyse cezasızdır; kapsama bozulunca sızıntı tek sokakta bitmez.",
+        "narration": "Şimdi aralık kapsamasına bakalım. Tek bir elin bas ya da çek seçimi genelde kıl payı fark eder; asıl kazanç ya da kayıp, bir el sınıfının tamamını nereye yığdığınla belirlenir. Bütün güçlü draw'larını tek bir hatta, diyelim hep bas hattına yığdığında sorulacak tek soru şudur: o kartlar geldiğinde diğer hat, yani çek hattı, hâlâ kapsaması kalıyor mu? PLO'da yan kartlar bu kapsamayı çoğu zaman kendiliğinden sağlar, çünkü her el sınıfı zaten birden fazla runout'a bağlı kalır. Kapsama duruyorsa basitleştirme ucuzdur, üstelik rakibin raise'ini caydırır, çünkü her sınıf aynı hatta durur. NLH'de bu lüks yoktur: bir komboyu bir hatta hiç oynamazsan elinde hiç kalmaz, rakip bunu okur, o yüzden her komboyu karıştırmak zorunda kalırsın. Net kurallı basit strateji kurmak PLO'da çoğunlukla güvenlidir, çünkü icra kalitesi frekans hassasiyetinden daha çok kazandırır. Altı kartlı ellerde bu otomatik kapsama daha da güçlenir. Bedel yalnız kapsama bozulduğunda doğar: çek aralığın o kartlarda korumasız kalırsa rakip ince value ve blöf bahislerini açar, sızıntı tek sokakta bitmez. Dikkatli rakip bunu elinden değil frekanslarından okur; sen de aynı boşluğu rakipte ara."
+      },
+      {
+        "title": "EK: İki kart kombo dengesi",
+        "bullets": [
+          "Showdown'da kaç kartla oynarsan oyna, elinden yalnız iki kart sayılır; denge dört ya da altı kartlık el üzerinden değil, iki kart kombolar üzerinden kurulur.",
+          "Set, wrap ve flush draw gibi çok bileşenli el neredeyse hep bas eder; onu denge için çek etme.",
+          "Çek aralığına koyman gereken pay, aynı iki kart kombosunun zayıf taşıyıcılarından gelir: tek başına top-two, tek başına draw, yan kartları ölü eller.",
+          "Böylece her hatta doğru kombolar kalır ama en güçlü ellerin değeri kaybolmaz."
+        ],
+        "ruleBox": "Slow-play payını sınıfın en zayıf taşıyıcılarından seç; çok bileşenli kombo el neredeyse her zaman bas eder.",
+        "narration": "Şimdi iki kart kombo dengesine bakalım. Showdown'da dört kartla da altı kartla da oynasan, elinden nihayetinde yalnız iki kart sayılır. Bu yüzden denge, elinin tamamı üzerinden değil, altındaki iki kart kombolar üzerinden kurulur. Set artı wrap artı flush draw gibi çok bileşenli bir el neredeyse her zaman bas eder; böyle bir eli sırf denge için çek etmek kazanç kaçırmaktır. Çek aralığına koyman gereken pay, aynı iki kart kombosunun zayıf taşıyıcılarından gelir: tek başına top-two'lu ama draw'suz eller, tek başına draw'lu ama zayıf per'li eller, yan kartları board'a hiç bağlanmayan ölü eller. Bu elleri çek aralığına koyduğunda, hem çek hem bas hattında doğru kombolar kalmış olur; rakip hangi hatta hangi kombonun durduğunu net okuyamaz. Bunun karşılığında en güçlü, çok bileşenli ellerin değeri hiç kaybolmaz, çünkü onları hep bas hattında tutuyorsun. Kural basit: slow-play payını sınıfın en zayıf taşıyıcılarından seç, en güçlü kombonu asla çek etme."
+      },
+      {
+        "title": "EK: Koruma içgüdüsü tuzağı",
+        "bullets": [
+          "NLH refleksi: elim iyi, board draw ağır, o zaman basıp koru. PLO'da bu mantık çoğunlukla tersine çalışır.",
+          "Sırf koruma amaçlı bastığın el genelde korumayı hak edecek kadar güçlü DEĞİLDİR; gerçekten güçlü eller zaten rakibin çağırma aralığına karşı değer taşıdığı için basılır.",
+          "Test mutlak equity değil görelidir: rakibin çağırma aralığı elime karşı favori mi?",
+          "Favori değilse koruma bahanesi gereksiz, zaten değer için bas; favoriyse elin basmaya yetmiyor demektir, çek.",
+          "Wrap artı flush draw'a karşı top set'i çek etmek net kayıptır."
+        ],
+        "ruleBox": "Koruma için basmalıyım hissi genelde elin basmaya yetmediğinin işaretidir; ölçü mutlak equity değil, rakibin çağırma aralığının elime karşı favori olup olmadığıdır.",
+        "narration": "Şimdi koruma içgüdüsü tuzağına bakalım. NLH'den gelen bir refleks var: elim iyi, board draw ağır, o zaman basıp koruyayım. PLO'da bu mantık çoğunlukla tersine işler. Sırf koruma amacıyla bastığın bir el, genelde korumayı hak edecek kadar güçlü değildir; gerçekten güçlü eller zaten rakibin çağırma aralığına karşı değer taşıdığı için basılır, koruma ayrı bir gerekçe olarak gereksizdir. Testi mutlak equity ile değil göreli yap: rakibin çağırma aralığı elime karşı favori mi? Daha önce gördüğün gibi PLO'da equity'ler yakın koşar ve rakibin epey equity taşıması normaldir; bu tek başına çek nedeni değildir. Favori değilse koruma bahanesini bir kenara bırak, zaten değer için bas. Ama rakibin çağırma aralığı elimin favorisiyse, bu elin zaten basmaya yetmediğinin işaretidir; orada doğru karar çektir. Wrap artı flush draw'a karşı top set'i çek etmek, tam da bu yüzden net bir kayıptır. Kısacası koruma hissi geldiğinde önce rakibin aralığını sor, elinin kendi gücünü değil."
+      },
+      {
+        "title": "EK: İnce value raise'de bloker mantığı",
+        "bullets": [
+          "İnce value raise seçerken daha güçlü ama blokersiz eli değil, biraz daha zayıf ama rakibin nutuna bloke eden eli tercih et.",
+          "Nut'u tuttuğun için rakip tutamaz: üstten raise'lenip dominasyona düşme riskin azalır.",
+          "İnce value'nun kazancı daha zayıf ellerin çağırmasıdır; rakibi katlatmak bu raise'in kazancı değil, maliyetidir.",
+          "Denial gerekçesi blöf ve yarı blöf raise'e aittir, ince value raise'e değil.",
+          "NLH refleksiyle en güçlü elim raise eder mantığı burada yanıltır; seçim bloke mantığıyla yapılır."
+        ],
+        "ruleBox": "İnce value raise'de güçlü ama blokersiz eli değil, zayıf ama nut blokerli eli seç; bloker fold ettirmez, rakibin üstten raise'leyen kombolarını eksiltir.",
+        "narration": "Son olarak ince value raise'de bloker mantığına bakalım. İnce bir value raise seçerken daha güçlü ama blokersiz bir el yerine, biraz daha zayıf ama rakibin en iyi kombolarına bloke eden bir eli tercih et. Nut'u kendi elinde tuttuğun için rakip onu tutamaz; bu da üstten raise'lenip dominasyona düşme riskini azaltır ve rakibin devam aralığını sana ödeyen ikinci en iyi ellere kaydırır. Burada dikkat edilecek nokta şu: ince value raise'in kazancı rakibi katlatmak değildir, daha zayıf ellerin çağırmasıdır. Rakibi katlatmak bu raise'in kazancı değil, maliyetidir; equity reddi gerekçesi blöf ve yarı blöf raise'e aittir, ince value raise'e değil. NLH refleksiyle en güçlü elim raise eder diye düşünmek burada seni yanıltır; PLO'da ince raise seçimi mutlak el gücü değil, kimin ne taşıdığına dair bloke mantığıyla yapılır. Kısacası güçlü ama blokersiz eli değil, zayıf ama nut blokerli eli seç, çünkü bloker rakibi katlatmaz, sadece seni domine eden kombolarını eksiltir."
+      },
     ],
   },
   {
@@ -1041,11 +1083,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: Benzer kısa stack'ler chipEV'e yakındır — ama üç şart kontrol edilmeden değil",
-        "table": {
-          "section": "Bölüm 12",
-          "sub": "12.1-EK-8",
-          "caption": "Kısa-kısa + üçüncü kısa + ödeme eğimi jam'e call'ı yeniden primler"
-        },
         "bullets": [
           "İki benzer kısa stack, lider uzaktaysa aralarındaki prim neredeyse sıfırdır — chipEV'e yakın oyna",
           "Ama sofrada üçüncü, daha kısa bir stack varsa ya da ödeme tepe ağırlıklıysa prim yeniden yükselir",
@@ -1058,11 +1095,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: Orta primde EP'den open-jam sıfır — orta el jam'leyemiyorsa tepe de jam'lemez",
-        "table": {
-          "section": "Bölüm 12",
-          "sub": "12.5-EK-3",
-          "caption": "Prim orta seviyede, arkada çok cover eden stack varken EP'nin open-jam'i kapanır"
-        },
         "bullets": [
           "Prim orta seviyedeyken ve arkada seni cover eden çok sayıda stack varken, orta güçteki eller (kral-onlu suited, as-dama suited gibi) open-jam'leyemez — çağrılınca ezilir",
           "Orta eller jam'leyemiyorsa tepe eller de jam'lemez: as-dama jam'i as-vale gibi zayıfları katlatır, çiftler zaten öder — aynı işi min-raise yapar ve üstelik blöf-jam indükler",
@@ -1072,6 +1104,18 @@ export const modules: Module[] = [
         ],
         "ruleBox": "EP'den açarken önce sor: orta ellerim jam'leyebiliyor mu? Hayır ise tepe elin de jam'lemez, min-raise'e dön.",
         "narration": "Erken pozisyondan open-jam kararı sanıldığından daha kırılgandır. Prim orta seviyedeyken, arkanda seni cover eden birçok stack varken, orta güçteki eller, örneğin kral onlu suited ya da as dama suited, open-jamlenemez çünkü çağrıldığında ezilir. Burada gizli bir mantık var: orta eller jamleyemiyorsa tepe eller de jamlemez. As dama ile jamlemek yalnız as vale gibi zayıf elleri katlatır, çiftler zaten seni çağırır; aynı işi çok daha ucuza min-raise yapar, üstelik rakibin blöf-jamini de davet eder. Sonuç olarak erken pozisyondan open-jam oranı sıfıra iner, açılış aralığı daralır ve bloker ağırlıklı kalır, yani suited as, offsuit broadway ve zayıf as gibi eller açılır. Open-jam ancak özel bir koşulda geri gelir: sen kendin orta stacksen, arkandaki kısalar sana karşı prim taşıyorsa, ve liderin de sana karşı primi varsa. O zaman orta çift, suited broadway ve kral vale offsuit gibi eller yeniden jame döner. Kural basit: erken pozisyondan açmadan önce kendine sor, orta gücümdeki ellerim jamleyebiliyor mu? Cevap hayırsa, tepe elin de jamlemez, min-raisee dön."
+      },
+      {
+        "title": "EK: Merdiveni eğri olarak oku",
+        "bullets": [
+          "İki tipik basamak profili var: düz merdiven, her basamak öncekinin kabaca üçte biri kadar artar (çoğunlukla online yapılar); tepe-dik eğri, ortada küçük basamaklarla ilerleyip son iki basamakta belirgin şekilde sıçrar (çoğunlukla canlı yapılar) — kesin oranları lobiden oku, kalibre et.",
+          "Düz merdivende her basamak gerçek paradır — ladder disiplini kârlıdır, adım atlamaya gerek yok.",
+          "Tepe-dik eğride son iki basamağa gerçekten uzanabilen stack, küçük basamağı feda edip birincilik şansını fiyatlamayı çoğunlukla haklı çıkarır — asıl para son iki jump'ta oturur.",
+          "Aynı FT'de iki oyuncu iki farklı doğru stil oynayabilir; eğri ikisi için aynıdır, fark stack'in eğrinin neresinde durduğudur.",
+          "FT molasında (12.3) tek soruyu bir adım genişlet: yalnız bir sonrakine değil, ardışık basamak oranlarına bak."
+        ],
+        "ruleBox": "FT molasında önce sıradaki basamağı stack'ine oranla ölç (12.3); büyükse ladder'la — küçükse eğrinin tepede mi dikleştiğine bak ve stack oraya uzanıyorsa birinciliği fiyatla.",
+        "narration": "Ödeme merdiveninin basamaklarını tek tek değil eğri olarak oku. Final table molasında yalnız bir sonraki basamağa bakma, ardışık basamak oranlarını karşılaştır, çünkü ödeme yapısı her zaman düz ilerlemez. İki tipik profil görürsün. Birincisi düz merdiven: her basamak bir öncekinin kabaca üçte biri kadar artar, bunu çoğunlukla online yapılarda görürsün. İkincisi tepe dik eğri: ortada daha küçük basamaklarla ilerlerken son iki basamakta belirgin şekilde sıçrar, bunu çoğunlukla canlı yapılarda görürsün. Kesin oranları lobiden oku, kalibre et. Düz merdivende her basamak gerçek paradır, ladder disiplini kârlıdır ve adım atlamaya gerek yoktur. Tepe dik eğride ise son iki basamağa gerçekten uzanabilen stack, küçük basamağı feda edip birincilik şansını fiyatlamayı çoğunlukla haklı çıkarır, çünkü asıl para son iki jump'ta oturur. Aynı final tabloda iki oyuncu iki farklı doğru stil oynayabilir; eğrinin kendisi ikisi için de aynıdır, farkı yaratan stack'in eğrinin neresinde durduğudur. Masada senden kısa oyuncu varken bekle kuralı burada da geçerlidir: sıradaki basamak hâlâ büyükse, eğri ne şekilde olursa olsun ladder'lamaya devam et."
       },
     ],
   },
@@ -1106,6 +1150,127 @@ export const modules: Module[] = [
           "'Kime blöf yapılmaz' listesine eklenir: Multiway pot (kim olursa olsun). Tek station bile blöfü öldürür.",
         narration:
           "İkinci modülde blöfün üç kriterini öğrendik: bloker, bağlantı, board sahipliği — ama bunlar tek rakibe kurgulanmıştı. Multiway'de dördüncü bir değişken devreye girer: rakip sayısı, yani blöfün geçmesi gereken kapı sayısı. Her ek oyuncu bir kapı daha ekler ve tek bir station bile o kapıyı kapatıp blöfü öldürür. Tabloya bak: heads-up'ta üç kriter geçerli, üç yolluda sadece nut-bloker semi-bluff, dört ve üstü yolluda blöf yok. Kimden korkacağın da önemli: preflop caller'ların hepsinden değil, flop'ta hâlâ duran en sıkı aralıktan. Birinin bet'ine, aradaki call'dan sonra gelen raise neredeyse her zaman nut'tır; orada tek per'le devam yoktur. Kısaca ikinci modülün 'kime blöf yapılmaz' listesine yeni bir madde ekle: multiway pot, kim olursa olsun.",
+      },
+      {
+        "title": "EK: Çift agresyonda eşik nut artı redraw'a sıçrar",
+        "bullets": [
+          "Herkesin sık vurduğu bağlantılı board'da multiway norm flop'a tek bet girmesidir; üstüne binen her ekstra agresyon devam kümesini keskin daraltır.",
+          "İki agresyon üst üste geldiğinde (raise artı jam, ya da raise artı call artı baskı) eşik güçlü elden nut artı redraw'a sıçrar.",
+          "Redraw taşımayan ikinci nut bile sınırda fold'dur; overpair ve çıplak top-two bu düğümde raise-sonra-fold sınıfına düşer.",
+          "Bu, nut'un multiway'de değer kazandığı ilkenin somut icrasıdır — değer kazanan bir kademe altın el değil, gerçek nut ile yanındaki redraw'dır."
+        ],
+        "ruleBox": "Multiway'de ikinci agresyondan sonra soru 'kaç puanlık el' değil 'nut mu, redraw'ı var mı'dır — ikisi de yoksa kaçıncı nut olduğunun önemi kalmaz.",
+        "narration": "Çok yollu bir potta flop'a girerken norm tek bir bet görmektir. Herkesin sık vurduğu, bağlantılı bir board'da bu daha da belirginleşir. Ama üstüne bir agresyon daha binerse, mesela raise'in ardından jam gelirse ya da raise call edilip sonra tekrar baskı kurulursa, devam etmen gereken eşik aniden değişir. Artık güçlü bir el yetmez. Aradığın şey gerçek nut ile yanında taşıdığı redraw'dır. Redraw taşımayan ikinci nut bile bu noktada sınırda fold sayılır. Overpair ve çıplak top iki çift gibi eller de aynı kaderi paylaşır; raise edip sonra fold etmen gereken sınıfa düşerler. Bu kural aslında daha genel bir ilkenin somut hâlidir: multiway'de nut'un değeri arttıkça, değer kazanan şey senden bir kademe altındaki eller değil, gerçek nut ve onun yanındaki redraw'dır. Kısacası çift agresyondan sonra kendine sor: elimde nut var mı, yoksa hâlâ tamamlanacak güçlü bir redraw mu taşıyorum. İkisi de yoksa elinin kaçıncı nut olduğunun artık önemi kalmaz."
+      },
+      {
+        "title": "EK: Multiway'de agresyon, tuzak ve savunma eşiği",
+        "bullets": [
+          "Agresyon lisansını el değil koltuk verir: aksiyonu kapatıyorsan en güçlü elini hemen raise'le, arkanda henüz konuşmamış oyuncu varsa aynı el çoğunlukla sadece call eder.",
+          "13.1-EK-2 — saf slowplay yalnız 'kalan tek rakip, bete girecek agresör' düğümünde çalışır; araya bir caller girdiği an tuzağın ödemesi düşer ve aynı el hızlı oyuna döner.",
+          "13.1-EK-3 — savunma eşiğini sınıf adı değil iyileşme out sayısı çizer: board altı cep çifti gibi düşük out'lu eller set dışında value alamaz, beş out'lu bottom pair ondan üstündür.",
+          "Kötü uçtan kurulan gutshot düz de aynı mantıkla düşer — non-nut düz multiway'de kazandırmaz, stack kaybettirir.",
+          "İstisna: herkesin sık vurduğu aşırı bağlantılı board'da nut equity bile erir — orada kapatan oyuncu da pasifleşir, agresyonu kartın vereceği bilgiye bırakır."
+        ],
+        "ruleBox": "Raise'e uzanmadan önce koltuğunu say, tuzağa girmeden kalan rakibini say, devam etmeden elinin out'unu ve o out'ların nut'luğunu say — istisna, aşırı bağlantılı board'da bu sayım kapatan oyuncuyu bile pasifleştirir.",
+        "narration": "13.1 multiway'de bet tarafını anlatır, ama aynı bet gücünün arkasında üç ayrı eşik saklıdır. Birincisi agresyon lisansı. Aynı elle iki zıt karar verirsin, çünkü belirleyen tek eksen aksiyonu kapatıp kapatmadığındır. Arkanda henüz konuşmamış oyuncu varken güçlü elin bile çoğunlukla sadece call eder, çünkü turn'ü ucuza görürsün ve aralığını bölerek arkadakine bilgi vermezsin. Aksiyonu kapatan oyuncu ise tam tersini yapar, en iyi elini hemen büyütür. Bunun bir istisnası var. Herkesin sık vurduğu, aşırı bağlantılı bir board'da nut elin equity'si bile erir, böyle bir board'da kapatan oyuncu da agresyonu erteler ve kartın vereceği bilgiyi bekler. İkincisi tuzak şartı. Saf slowplay yalnız kalan tek rakibin senin yerine bet atacak agresör olduğu düğümde çalışır. Araya bir caller girdiği anda agresör ince value kesemez hâle gelir ve tuzağın ödemesi düşer, aynı el hızlı oyuna döner. Üçüncüsü savunma eşiği. Küçük bete pair fold edilmez refleksi burada kırılır, çünkü belirleyen sınıf adı değil iyileşme out sayısıdır. Board altı bir cep çifti aslında iki out'luk zayıf bir eldir, beş out'lu bottom pair ondan üstündür. Kötü uçtan kurulan gutshot düz de aynı sebeple değer taşımaz. Üç eşik de aynı soruyu farklı düğümde sorar: koltuğun, kalan rakibin ve out'ların ne diyor."
+      },
+      {
+        "title": "EK: Multiway check-raise'e karşı savunma — board, aralık, bloker",
+        "bullets": [
+          "\"Aradaki call'dan sonra raise = nut\" okuması, raiser'ın doğal semi-bluff malzemesinin olmadığı board'larda en güçlüdür; gutshot-yoğun, open-ender'sız statik board'da raiser'ın aralığı zorunlu olarak blöf taşır, iyi top pair teoride savunulur.",
+          "13.2-EK-2 — devam eşiğini el değil aralık ve koltuk koyar: açıcı güçlü aralığının şemsiyesiyle aynı top pair'i rahat taşırken, en zayıf devam aralığına sahip flatter aynı eli sınırda fold eder.",
+          "13.2-EK-3 — devam seçiminde süzgeç elinin raiser'ın hangi aralığından kombo sildiğidir: orta cep çiftleri ve alt per artı düşük backdoor raiser'ın kendi blöf sınıfını taşıdığı için çoğunlukla fold; üst kicker'lı per ve nut'a dönebilen backdoor devam eder.",
+          "Havuz gerçeği ayrı katmandır — rakip bu blöfleri bulmuyorsa teorik fold exploit olarak geri gelebilir."
+        ],
+        "ruleBox": "Check-raise'e karşı üç soru sırayla sorulur: board raiser'a doğal blöf veriyor mu, benim aralığım şemsiyeli mi, elim onun blöf sınıfından kombo mu siliyor — cevap değişince fold-call-raise çizgisi de değişir.",
+        "narration": "13.2 multiway'de aradaki call'dan sonra gelen raise'in nut taşıdığını söyler, ama bu okuma her board'da aynı güçte değildir. Üç-gap tipi, gutshot bol ama open-ender olmayan statik bir board'da raiser'ın doğal semi-bluff malzemesi zaten azdır, aralık yalnız nut'tan kurulamaz, düşük frekansla gutshot ve alt per artı backdoor'dan blöf almak zorunda kalır. Böyle bir board'da iyi top pair teoride fold edilmez. İkinci katman aralık ve koltuktur. Aynı check-raise'e karşı açıcı ile flatter farklı doğruya sahiptir. Açıcının aralığı overpair ve set şemsiyesiyle kalındır, aynı top pair'i rahat taşır. En zayıf devam aralığına sahip flatter ise aynı eli sınırda fold eder, çünkü raiser onun şemsiyesizliğini bilir ve barrel'ı ona daha sık yöneltir. Üçüncü katman blokerdir. Board altındaki orta cep çiftleri raiser'ın gutshot blöflerini bloklar ama nut'a neredeyse hiç dönmez, bu yüzden çoğunlukla fold edilir. Alt per artı düşük backdoor de aynı tuzaktır, çünkü o kombo raiser'ın kendi blöf sınıfıdır. Üst kicker'lı per ve nut'a dönebilen backdoor ise devam eder. Havuz bu blöfleri bulmuyorsa teorik fold'un exploit karşılığı geri gelir."
+      },
+      {
+        "title": "EK: Arkada oyuncu varken pot odds düzeltmesi",
+        "bullets": [
+          "Multiway'de bir bete karşı fiyatı yalnız pota bakarak okumak yanıltır; arkanda henüz konuşmamış, raise edebilecek bir oyuncu varsa gerçek maliyet onun raise sıklığına göre büyür.",
+          "Test cümlesi: bu devam aynı bete karşı iki kişilik bir potta net kazanıyor mu, ve arkadan gelecek fazladan ödemeyi geri getirecek kadar mı.",
+          "İki oyuncuya aynı anda bet atan bir aralığa karşı sınırda görünen call'ların çoğu bu düzeltmeyle fold'a döner.",
+          "Arkadaki oyuncunun raise etmediğini biliyorsan — havuz genelde overcall sever — sınırdaki eller, özellikle out taşıyanlar, geri gelir."
+        ],
+        "ruleBox": "Arkanda raise edebilecek oyuncu varken call fiyatını raise'in gelme ihtimaline göre büyüt ve devamını iki kişilik pottaki eşiğin belirgin üstünde tut.",
+        "narration": "Multiway'de bir bete karşı fiyatını yalnız pottaki parayla ölçmek eksik kalır. Arkanda henüz konuşmamış, raise edebilecek bir oyuncu varsa gerçek maliyet göründüğünden büyüktür, çünkü raise geldiğinde o ana kadar attığın parayı yakıp katlanacaksın. Bu yüzden pratik bir test kullan. Kendine sor: bu devam, aynı bete karşı sadece iki kişilik bir pot olsaydı net kazanır mıydı, ve arkadan gelecek ek maliyeti karşılayacak kadar rahat mı kazanırdı. İki oyuncuya birden bet atan bir aralığa karşı, sınırda görünen call'ların çoğu bu testten geçemez ve fold'a döner. Ama bu düzeltme tek yönlü değildir. Arkandaki oyuncunun raise etmediğini biliyorsan, çünkü o havuz genelde overcall sever ve nadiren raise'e uzanır, sınırdaki eller geri gelir. Bu geri gelenlerin başında da out taşıyan eller yer alır, çünkü onların asıl değeri sonraki kartta saklıdır. Kısacası arkanda söz hakkı olan bir oyuncu varken call fiyatını sabit sanma, o oyuncunun raise alışkanlığına göre yeniden hesapla."
+      },
+      {
+        "title": "EK: Check-raise blöfünü kombo değil frekans yönetsin",
+        "bullets": [
+          "Multiway check-raise aralığının tavanını value kombosu sayısı koyar: value payın aralığının küçük dilimiyse toplam raise frekansı da düşük kalır, board'da gutshot'ın bolluğu bunu değiştirmez.",
+          "Bu, 3-yollu check-raise düğümünün teori katmanıdır; 13.3'ün nut-bloker semi-bluff tablosu blöf bulamayan havuza ve dört-artı yollu potlara karşı geçerliğini korur.",
+          "Doğru inşa tek bir en iyi blöf kombosunu seçmek değil, gutshot, alt per artı backdoor, ikinci per artı kicker-bağlantısı gibi birçok sınıftan düşük frekansla azar azar çekmektir.",
+          "Blöfü tek sınıftan, yalnız gutshot'lardan çekmenin iki bedeli vardır: aralık okunur hâle gelir, o sınıf river'a vardığında ya toptan pes eder ya da elde hiç blöf kalmaz."
+        ],
+        "ruleBox": "3-yollu check-raise'de blöfünü tek doğal sınıftan değil, birçok sınıftan düşük frekansla topla — value kombosu az ise raise frekansın da düşük kalmalı.",
+        "narration": "3-yollu check-raise aralığı kurulurken belirleyici olan elinde kaç tane gerçek value kombosu taşıdığındır. Value payın aralığının küçük bir dilimiyse, toplam raise frekansın da o payla orantılı biçimde düşük kalmalıdır. Board'da gutshot ne kadar bol olursa olsun bu oranı değiştirmez, çünkü bu kural raiser'ın kendi aralık inşasıyla ilgilidir. Bu, 3-yollu check-raise düğümünün teori katmanıdır ve 13.3'teki sadece nut-bloker semi-bluff kuralıyla çelişmez; o tablo blöf bulamayan bir havuza ve dört-artı yollu potlara karşı hâlâ geçerlidir. Buradaki fark inşa yöntemidir. Doğru yaklaşım tek bir en iyi blöf kombosu seçmek değil, gutshot, alt per artı backdoor, ikinci per artı kicker bağlantısı gibi birçok farklı sınıftan düşük frekansla azar azar blöf çekmektir. Tüm blöfünü tek sınıftan, sadece gutshot'lardan çekersen iki bedel ödersin. Önce aralığın okunur hâle gelir, rakip seni kolay profiller. Sonra o tek sınıf river'a vardığında ya tamamen pes eder ya da elinde hiç blöf kalmaz, iki durumda da dengen bozulur. Çeşitlilik komboyu yönetir, value sayısı frekansı yönetir."
+      },
+      {
+        "title": "EK: 3-yollu dengeyi kim taşır, statik board'da devam neden raise olur",
+        "bullets": [
+          "Üç aralıklı bir flop'ta denge tek eksende kurulur: agresörün bet frekansı ile ikinci-güçlü aralığın check-raise frekansı birbirini sınırlar; en zayıf aralık bu oyunun oyuncusu değildir.",
+          "Exploit haritası nettir: açıcı fazla c-bet ediyorsa cevap ikinci-güçlü koltuktan gelir, en zayıf koltuktan gelmez; açıcıysan asıl korkun caller değil polislik yapan aralıktır.",
+          "13.5-EK — 3-yollu potta equity çıpası üçte birdir, elli equity heads-up'taki gibi yazı-tura değil çok güçlü bir eldir; bet artı call görmüş statik board'da açıcının aralığı ikiye yarılır: raise'e rahat yeten güçlüler ve hiçbir şey.",
+          "Showdown'a sürünecek orta el kalmadığı için devamların büyük bölümü raise'e döner; flush draw'lı dinamik board'da bu sadelik bozulur, draw'lı devamlar ve call aralığı geri gelir."
+        ],
+        "ruleBox": "Multiway flop'ta önce dengeyi kim taşıyor diye sor; statik board'da devam çoğunlukla raise'dir, board dinamikleştikçe call aralığı geri gelir.",
+        "narration": "Üç aralıklı bir multiway flopta denge tek bir eksende kurulur. Agresörün bet frekansı ile ikinci güçlü aralığın check-raise frekansı birbirini sınırlar. En zayıf aralık bu dengenin oyuncusu değildir, stratejisi basit ve kaçınılmaz biçimde pasiftir. Bu yapının exploit haritası nettir. Açıcı fazla c-bet ediyorsa doğru cevap ikinci güçlü koltuktan gelir, karışık kombolar saf raise'e çevrilir, en zayıf koltuktan bir cevap beklenmez çünkü orada çevrilecek kol yoktur. Açıcıysan da asıl korkun pasif caller değil, polislik yapan ikinci aralıktır. Bu dengenin özel bir görünümü statik board'da ortaya çıkar. Üç oyuncu arasında adil pay heads-up'taki elli elliye benzemez, çok daha küçük bir pay bile güçlü sayılır. Bet ve call görmüş, kartların az değiştiği bir board'da açıcının aralığı ikiye yarılır, raise'e rahat yeten güçlü eller ve neredeyse hiçbir şey kalır. Showdown'a sürünecek orta el kalmadığı için devamların büyük bölümü raise'e döner. Ama board flush draw taşıyan dinamik bir yapıya dönüşünce eşitlikler sıkışır, yapılmış elin taşıyabileceği blöf oranı düşer, draw'lı devamlar çoğalır ve call aralığı geri gelir."
+      },
+      {
+        "title": "EK: Multiway'de deception bütçesi düşer",
+        "bullets": [
+          "Heads-up'ta güçlü elle ara sıra check etmen gerekir, yoksa check aralığın savunmasız kalır; multiway'de bu ihtiyaç düşer.",
+          "İki rakip varken her düğümde güç saklayabilen biri vardır; sen en doğal hattı oynasan bile kimse aralarında güçlü el yok varsayımıyla üstüne yürüyemez.",
+          "Rakiplerin varlığı seni korur: value bet'ini at, orta elini kontrol et, aralık-koruma amaçlı check'lerini heads-up potlara sakla."
+        ],
+        "ruleBox": "Multiway'de doğal olanı yap — deception bütçesi heads-up içindir, burada diğer oyuncular aralığını senin yerine korur.",
+        "narration": "Heads-up'ta güçlü elinle ara sıra check etmek zorundasındır, çünkü tek rakibin varsa ve sen her güçlü elinle hep bet atarsan check aralığın savunmasız kalır, rakip bunu fark edip senin check'lerine karşı serbestçe saldırır. Multiway'de bu ihtiyaç neredeyse ortadan kalkar. İki rakip aynı anda masadaysa, her düğümde güç saklayabilen en az bir oyuncu vardır. Sen en doğal, en dobra hattı oynasan bile, kimse aralarında güçlü el yok varsayımıyla senin üstüne serbestçe yürüyemez, çünkü diğer rakip de hâlâ oyundadır ve o riski taşır. Sonuç pratik ve rahatlatıcıdır. Value elini normal şekilde bet at, orta gücündeki elini kontrol et, aralığını korumak için attığın yapay check'leri heads-up potlara sakla. Multiway'de rakiplerin varlığının kendisi senin yerine bir denge görevi görür, sen de enerjini deception yerine doğru value çıkarmaya harcarsın."
+      },
+      {
+        "title": "EK: Multiway lead, en zayıf aralığa kesilen vergidir",
+        "bullets": [
+          "Dinamik orta board'da coldcaller'ın lead'i 'board bana vurdu' okuması değildir; asıl işi en zayıf aralığın bedava kart görüp ucuza realize etmesini engellemektir.",
+          "Verginin bir kısmı açıcıya akar: lead atınca check aralığın zayıflar, açıcı iki check gördüğünde çok daha sık bet atabilir hâle gelir — lead atan ile açıcı üçüncü oyuncuyu birlikte sıkıştırır.",
+          "Check'te tuttuğun set, lead sayesinde canlanan c-bet'in üstüne check-raise ile kazanır.",
+          "3-yollu potta atlanan lead otomatik senin kazancın olmaz; lead'siz bıraktığın EV neredeyse tamamen en zayıf aralığa gider, açıcı da lisanslı c-bet'ini kaybettiği için bundan kazanmaz."
+        ],
+        "ruleBox": "Multiway lead'in pusulası board kimin diye değil en zayıf aralığın bedava kartını kim vergilendirecek diye sorar — 3-yollu'da lead'siz bırakılan EV çoğunlukla en zayıf aralığa gider, otomatik sana gelmez.",
+        "narration": "Dinamik ve orta bağlantılı bir board'da coldcaller'ın lead atması board bana vurdu okumasından ibaret değildir. Lead'in asıl işi en zayıf aralığın bedava kart görüp potu ucuza realize etmesini engellemektir, bir tür vergi toplamaktır. Bu verginin bir kısmı ilginç biçimde açıcıya akar. Sen lead atınca kendi check aralığın zayıflar, ama bunun karşılığında açıcı iki check gördüğünde çok daha rahat ve sık bet atabilir hâle gelir. Yani lead atan oyuncu ile açıcı, farkında olmadan üçüncü oyuncuyu birlikte sıkıştırır. Bunun iki yan ürünü vardır. Birincisi, check ile sakladığın set gibi güçlü eller, lead sayesinde canlanan açıcı c-bet'inin üstüne check-raise ile kazanır. İkincisi ve daha önemlisi, üç yollu bir potta lead'i atlaman otomatik olarak senin kazancın demek değildir. Atlanan lead'in EV'si neredeyse tamamen en zayıf aralığa gider, çünkü o aralık bedava kart görür. Açıcı da bundan kazanmaz, çünkü senin lead'in olmadan onun c-bet lisansı zayıflar. Vergiyi kesmezsen, parayı en zayıf aralık cebe atar."
+      },
+      {
+        "title": "EK: Check-raise'i ödedikten sonra turn lead haritası",
+        "bullets": [
+          "Flop check-raise'ini call'ladıysan turn'de roller sezgiye ters dağılır: raiser'ın aralığı board-per'i ve gutshot ağırlıklı, senin aralığın broadway top pair'lerle doludur.",
+          "As ve papaz turn'leri bu yüzden senin kartlarındır; bu kartlarda out-of-position'dan raiser'a lead açılır. Düşük ve board'u bağlayan turn'lerde ise lead ölür, saf check'e dönersin.",
+          "\"Korkunç overcard geldi, check-fold moduna geç\" refleksi burada tam ters çalışır — o kart raiser'ın semi-bluff'larının hiçbirini iyileştirmemiştir.",
+          "Bu harita kitabın c-bet'çiye karşı anlattığı haritanın aynasıdır; orada orta-düşük kartlar lead'cinindir, burada düğüm değişince harita tersine döner."
+        ],
+        "ruleBox": "Check-raiser'a karşı turn lead'ini overcard'larda ara, bağlayan kartlarda unut — kimin kartı olduğunu rank değil iki aralığın kompozisyon farkı söyler.",
+        "narration": "Flop'ta gelen bir check-raise'i call'ladıysan, turn'e geldiğinde roller sezgine ters biçimde dağılır. Raiser'ın aralığı büyük ölçüde board'a vuran per'lerden ve gutshot'lardan oluşur, senin devam aralığın ise broadway top pair'lerle doludur. Bu yüzden as ve papaz gibi yüksek turn kartları aslında senin kartlarındır, raiser'ın aralığını değil seninkini iyileştirir. Böyle bir kartta out-of-position'dan raiser'a doğru lead açmak doğrudur. Ama düşük ve board'u bağlayan bir turn geldiğinde tablo tersine döner, lead ölür, saf check daha doğru hâle gelir. Bu, çoğu oyuncunun refleksine ters çalışır. Korkunç bir overcard geldiğinde check-fold moduna geçme içgüdüsü burada seni yanıltır, çünkü o kart raiser'ın semi-bluff'larının hiçbirini gerçekten iyileştirmemiştir. Bu harita kitabın başka bir yerinde anlatılan c-bet'çiye karşı haritanın tam aynasıdır, orada orta ve düşük kartlar lead'cinin kartıyken, burada düğüm değiştiği için harita da tersine döner. Kimin kartı olduğunu kartın rank'i değil, iki aralığın kompozisyon farkı belirler."
+      },
+      {
+        "title": "EK: Fold seni yeniden fiyatlar, tekel elini bombalatır",
+        "bullets": [
+          "Multiway flop'ta pasifliğe mecbur kalan uncapped savunucu, bir oyuncu fold edince yeniden fiyatlanır: artık heads-up'sın, aralığın uncapped, pasiflik zorunluluğun kalkmıştır.",
+          "İyi turn beklemeden bile küçük koruma-value lead'i açılır; havuz bunu neredeyse hiç yapmaz, yapana karşı savunmak da zordur.",
+          "13.10 — preflop'ta offsuit bağlantılıları yalnız savunucu oynar; flop aksiyonu aralıkları sıktıkça bu tekel büyür, düzü tamamlayan turn'de savunucunun aralığının dev bir dilimi tek el sınıfına çöker.",
+          "O kartta check etme, bombala: diğer oyuncuların aralıkları showdown-bound'dur, kimse senin yerine bet atmaz; paylaşılan düz kartları, yani tekelin olmayanlar, aynı lead'i vermez."
+        ],
+        "ruleBox": "Bir oyuncunun fold'unu iyi bir turn kartı gibi oku, offsuit tekelindeki düzün tamamlandığı turn'de ise check etme — ikisi de lead hakkını sana geri verir.",
+        "narration": "Multiway flopta pasif oynamak zorunda kalan, aralığı uncapped bir savunucu için iki farklı an lead hakkını geri verir. Birincisi bir oyuncunun masadan çekilmesidir. Oyunculardan biri fold edince durum değişir, artık fiilen heads-up'sın, aralığın hâlâ uncapped ve az önceki pasiflik zorunluluğun ortadan kalkmıştır. İyi bir turn kartı beklemene bile gerek yoktur, küçük bir koruma ve value lead'i hemen açılabilir, çünkü rakibin hava ağırlıklı aralığından anında fold toplarsın ve bedava kart görme maliyetini kesersin. Havuz bu ayarlamayı neredeyse hiç yapmaz, bu yüzden sen yaptığında karşı savunmak da zordur. İkinci tetikleyici bambaşka bir kaynaktan gelir. Preflop'ta offsuit bağlantılı elleri genelde yalnız savunucu oynamaya devam eder, diğer oyuncular o elleri ya üç-bet etmiş ya da atmıştır. Flop aksiyonu aralıkları sıktıkça bu tekel büyür. Sonunda düzü tamamlayan bir turn geldiğinde, savunucunun aralığının büyük bir dilimi tek bir el sınıfına, o düze çöker. Böyle bir kartta check etmek bedava kart vermek olur, bombalamak gerekir, çünkü diğer oyuncuların aralığı showdown'a yönelmiştir ve kimse senin yerine bet atmaz. Rakiplerle paylaşılan, yani tekelin olmadığı düz kartları ise aynı zorunluluğu taşımaz."
+      },
+      {
+        "title": "EK: Turn'ü kombo sayarak oku",
+        "bullets": [
+          "Offsuit eller turn'de yalnız kicker'ını board kartına bağlıyken devam eder; suited üst per'lerin bir kısmı preflop üç bete gittiği için turn'e gelen ikinci per, top per'den daha kalabalık gelebilir.",
+          "Bir per sınıfını yalnız arka kapı renk çekişi şartıyla devam ettiriyorsan, o rengin eşleşme turn'ü kendi trips kombolarını öldürür.",
+          "Tek renksiz flopta board-pair turn'ü trips kombosu için daha bol gelir; iki renkli flopta aynı kart trips'i neredeyse boşaltır — kesin oran kalibrasyon bekliyor.",
+          "OOP board-pair'de hep küçük lead at ezberi bu sayım yüzünden kırılır: bu ezberle oynayan rakibe karşı over-fold etme, semi-bluff raise'lerini açık tut."
+        ],
+        "ruleBox": "Hangi turn'ün kime yaradığını doku ezberi değil, kendi devam kombolarının sayımı belirler.",
+        "narration": "Multiway savunma aralığın turn'de sandığın gibi dağılmaz, çünkü hangi elin devam ettiği flop dokusuna göre değişir. Offsuit eller turn'de yalnız kicker'ının board kartına bağlı kalmasıyla devam eder, oysa suited üst per'lerin bir kısmı zaten preflop üç bete gitmiştir. Bu yüzden turn'e gelen ikinci per, top per'den daha kalabalık bir kombo grubu taşıyabilir; hangi board pair'in sana yaradığını anlamak için doku ezberi yerine kendi devam kombolarını sayman gerekir. Aynı mantık renk için de geçerli: bir per sınıfını yalnız arka kapı renk çekişi şartıyla devam ettiriyorsan, o rengin eşleşme turn'ü kendi trips kombolarını öldürür. Tek renksiz flopta board pair turn'ü trips kombosu için daha bol gelirken, iki renkli flopta aynı kart trips'i neredeyse boşaltır; kesin oranı kalibre etmek gerekir. Bu yüzden dışarıdayken board pair gördüğünde hep küçük miktarla lead atma ezberi burada kırılır. O ezberle oynayan rakibe karşı aşırı fold etme, yarı blöf yükseltmelerini açık tut. Kuralın özü hep aynı: turn'ün kime yaradığını sayım söyler, doku değil."
       },
     ],
   },
@@ -1254,6 +1419,39 @@ export const modules: Module[] = [
         ruleBox: "Stack-off için ham out değil, NUT out say.",
         narration:
           "Son olarak out sayımı — ve PLO'da en pahalı yanılgı burada. Ham out seni yanıltır; stack-off eşiğini nut out ile ölçmen gerekir. 'Wrap artı flush draw, on üç out' cümlesi iskonto edilmeden tehlikelidir: eğer o on üç out'un yarısı non-nut ise, elinde gerçek bir silah değil bir tuzak vardır — tamamlanınca bile ikinci en iyi eli yapıp stack kaybedersin. Dokuzuncu modülün 'gerçek silah' etiketi yalnız nut flush draw'lı wrap için geçerli kalır. Kural nettir: stack-off kararı için ham out değil, nut out say. Kaç out'un seni gerçekten öne geçirir, kaçı seni ikinci en iyiye götürür — ayrımı yapmadan tüm stack'i ortaya sürme. Bu, dokuzuncu modülün 'çıplak as as tek per'dir' kuralının draw'lara ve derinliğe genişletilmiş hâlidir.",
+      },
+      {
+        "title": "EK: Value planını geriye kur, üç sürücüyü ayır",
+        "bullets": [
+          "Rakip pot-boy bir bahse kabaca yarı aralığıyla devam eder; iki sokak value planlıyorsan turn'deki hayatta kalma payın river eşiğinin kabaca yarısı olmalı — çarpım sonrası iyi görünen el sınırın altına düşebilir.",
+          "PLO'da genelde iki sokak value edebilen el turn'de bet eder; edemeyen check edip değerini river'da alır.",
+          "Equity avantajı (aralık gücü) bet sıklığını artırır — küçük boy geniş aralık; polarite avantajı (nut yoğunluğu) boyu büyütür — az frekans büyük boy (bkz. 15.2-EK-2).",
+          "Equity düşük SPR'de baskındır, polarite SPR yükseldikçe baskın hâle gelir; pozisyon avantajı ise sıklığı değil aralık şeklini polarize eder — river'da IP ya değer ya blöf atar, orta gücü showdown'a taşır."
+        ],
+        "ruleBox": "Turn bet'inden önce çarpımı yap ve düşük SPR'de equity'ye, yüksek SPR'de polariteye güven.",
+        "narration": "Value planını sokak sokak geriye doğru kur. Rakip her pot boyu bahse kabaca yarı aralığıyla devam eder; iki sokak boyunca value atmayı planlıyorsan, turn'deki hayatta kalma payın river eşiğinin kabaca yarısı kadar olmalı. Çarpım acımasızdır: turn'de iyi görünen bir el, bu hesaptan sonra river'da sınırın altına düşebilir. Postflop'ta çoğunlukla iki sokak value edebilen eller turn'de bahis atar; edemeyenler check edip değerini river'da alır. Agresyonun kaynağı da tek değil üçtür. Equity avantajı, yani aralığının rakibinkinden güçlü olması, bet sıklığını artırır ve küçük boyla geniş aralık basmanı sağlar. Polarite avantajı, yani nut yoğunluğunun fazla olması, boyu büyütür ve az sıklıkla büyük bahis attırır. Equity avantajı sokak azaldıkça, yani düşük SPR'de baskındır; polarite ise sokak arttıkça baskın hâle gelir. Pozisyon avantajı ise sıklığı değil, aralığının şeklini polarize eder; river'da pozisyondaki oyuncu genelde ya değer ya blöf atar, ortayı showdown'a taşır."
+      },
+      {
+        "title": "EK: Equity'yi gerçekten kullanabilecek misin",
+        "bullets": [
+          "15.3'ün ham-out/nut-out ayrımına ek eksen: pot odds karşılansa bile, o equity'yi sonraki sokaklarda gerçekten kullanabilecek misin ayrı bir sorudur.",
+          "Rakip flop'ta büyük boy atıp sonraki sokakların çoğunda seni jam ile equity'nden koparabiliyorsa — özellikle derin, yüksek SPR'li tek-raise potlarında — ham equity yüzdesi anlamını yitirir.",
+          "3-bet potunda SPR bir veya altındaysa flop call'ı zaten commit'tir (15.2 İstisna); orada soru gerçekleşme değil, 15.3'ün nut-out eşiğini geçip geçmediğidir.",
+          "İki-per'in value kalitesi board'daki canlı kent hattı sayısına göre değişir: tek kent hattı açıkken geniş value atar, birden çok kent hattı açık board'da yalnız en güçlü redraw'lı kombolarla atar (15.3-EK-2)."
+        ],
+        "ruleBox": "Derin ve yüksek SPR'li potta bu equity'yi kaç sokak sonra gerçekten kullanabileceğini sormadan call verme; SPR bir veya altındaki üç-bet potunda bu soru düşer, eşik nut-out sayımıdır.",
+        "narration": "On beş nokta üçün ham-out ve nut-out ayrımına bir eksen daha eklenir. Elinin equity'si pot odds'u karşılıyor gibi görünse bile, sonraki sokaklarda o equity'yi gerçekten kullanabilecek misin, ayrı bir kontroldür. Rakip flop'ta büyük boy atmışsa ve sonraki sokakların çoğunda seni jam ile equity'nden koparabiliyorsa, özellikle derin ve yüksek SPR'li tek raise potlarında ham equity yüzdesi anlamını yitirir; çünkü river'ı görme olasılığın matematiksel equity'nden bağımsız biçimde düşüktür. Üç bet potunda SPR bir veya altındaysa flop call'ı zaten commit'tir, orada soru gerçekleşme değil nut-out eşiğinin geçilip geçilmediğidir. Aynı mantık iki-per için de geçerlidir: iki-per'in value kalitesi, board'da kaç farklı kent kombinasyonunun mümkün olduğuna göre büyük fark yaratır. Tek kent hattı açık board'da rakip nadiren iki-per taşır, o yüzden geniş value atarsın. Birden çok kent hattı açık board'da rakibin kombinasyon sayısı patlar, aynı iki-per artık yalnızca en güçlü redraw'lı kombolarla bahis atar."
+      },
+      {
+        "title": "EK: Değer eşiği turn kartı ve sokak sayısıyla oynar",
+        "bullets": [
+          "Turn, flop'u check'leyen rakibin range'ine vuran bir overcard'sa değer eşiğin yükselir — düşük turn'de rahat bet'lediğin two-pair sınıfı, overcard turn'de check-call'a düşer (15.9-EK-2).",
+          "Turn senin tarafına vuruyorsa (rakibin check-back'ine bağlanmayan düşük kart) eşik düşer, frekans artar; savunmada da aynı mantık geçerli — overcard turn'lerde küçük boyutla gelen gecikmiş c-bet'lere karşı güç eşiğini düşürüp daha zayıf ellerle savun.",
+          "Bet'e call eden aralık başlangıç aralığından güçlüdür; iki büyük bet sonrası devam aralığındaki nut oranı katlanır — straight ihtimalli board'da set pot-pot gidemez, ya küçük boyutla iki sokak alır ya büyük boyutla tek sokakta durur; eşiklerin tam yeri formata göre kalibre edilir (15.9-EK-3).",
+          "Zayıf two-pair'le ham out sayısı yanıltır: soru 'hangi river kartlarında ikinci bet'i basabiliyorum' olmalı — out geldiğinde bile bet edemeyeceğin kartlar sayılmaz; cevap azsa el bet değil check-call'dur (15.9-EK-5)."
+        ],
+        "ruleBox": "Değer eşiği sabit değildir: hangi turn kartının kimin range'ine vurduğunu, elin kaç sokak taşıdığını ve hangi out'un geldiğinde gerçekten bet'lenebildiğini sırayla sor.",
+        "narration": "Aynı el farklı turn kartlarında farklı aksiyon alır. Turn, flop'u check'leyen rakibin range'ine vuran bir overcard'sa değer eşiğin yükselir: düşük turn'de rahat bet'lediğin two pair sınıfı, overcard turn'de check call'a düşer. Turn senin tarafına vuruyorsa, yani rakibin check back'ine bağlanmayan düşük bir kartsa, eşik düşer ve frekans artar. Aynı mantık savunmada da geçerlidir: overcard turn'lerde rakip daha sık ve genelde küçük boyutla gecikmiş c-bet atar, sen de o kartlarda check'ten sonra güç eşiğini düşürüp daha zayıf ellerle savunursun. Bet'ine call eden aralık, bet öncesi aralıktan güçlüdür; iki büyük bet sonrası rakibin devam aralığındaki nut oranı başlangıçtakinin kat kat üzerindedir. Bu yüzden straight ihtimalli board'da set pot pot gidemez; böyle eller ya küçük boyutla iki sokak alır ya büyük boyutla tek sokakta durur, eşiklerin tam yeri formata göre kalibre edilir. Zayıf two pair'le de ham out sayısı yanıltır: asıl soru hangi river kartlarında ikinci bet'i basabildiğin olmalı; out geldiğinde bile susacaksan şimdi de sus."
       },
     ],
   },
@@ -1418,6 +1616,62 @@ export const modules: Module[] = [
         ],
         "ruleBox": "Bu turnuvaya özel yazılan satırlar genel doktrine adres verir; B17 modülü değişmez, yalnız çapraz oku.",
         "narration": "Bu bölümün üç satırı bu turnuvaya özel yazıldı, genel doktrin sonradan başka bölümlere girdi; çapraz okumak için adresleri burada topluyoruz. Birincisi, bubble'da cover eden birinin dört-bet jam'ine karşı tüm stack aralığının kral-kral ve üstü olduğu satır. Genel hâlinde bu, cover edilen orta büyük körün value üç-bet'i fiilen kral-kral ve üstüdür, as-kral sınırdadır demektir; kız-kız'dan on-onluya ve as-kız'a kadar olanlar ise fold değil, aralığı koruyan premium flat'tir, blöf dilimi neredeyse kapalıdır. Cover eden büyük körde bu tam tersine döner: value tepesi dar, blöf tarafı dipteki offsuit ellerden gelir. İkincisi, cover'ken kısa büyük köre yüzde altmışa kadar açma satırı. Genel hâli şu: boya karşı esneklik göstermeyen, yalnız jam ya da fold oynayan kısa büyük köre karşı boy küçük kalır, neredeyse minimum raise; büyük boy onun fold'unu artırmaz, jam yediğinde fazladan kaybettirir. Kilitli orta stack'lere baskı ise boyla değil frekansla satılır. Üçüncüsü, on iki ile yirmi büyük blind arasında açılışın bir kısmının direkt jam olması yalnız yirmi big blind ve üstünde arkadakiler seni cover ediyorsa geçerlidir; değilse raise-call artı raise-fold kalır."
+      },
+      {
+        "title": "EK: Blöfün ayna testi",
+        "bullets": [
+          "Value testi soruyor: 'benden kötü hangi el öder?' Blöfün ayna sorusu: 'benden İYİ olup KATLANACAK eller' listesi.",
+          "Büyük river blöfünden/jam'den önce bu listeyi yaz — bir-iki el sınıfından ibaretse blöfü pas geç.",
+          "Eksik olan taraf genelde ADAY tarafıdır, fold tarafı değil: sıkı (nit) aralık river'a doğal aday getirmez, blöf pahalı uçtan gelir.",
+          "Katlanacaklar listesi nit imajıyla KISALMAZ, uzar — sıkı bilinen oyuncunun betine rakip daha çok kredi verir (kalibre et)."
+        ],
+        "ruleBox": "Value testi 'kötü kim öder' ise blöf testi 'iyi kim katlanır'dır — katlanacaklar listesi bir-iki el sınıfını geçmiyorsa blöfü pas geç.",
+        "narration": "Kitaptaki river value testi tek soru sorar: benden kötü hangi el öder? Blöfün ayna sorusu şimdiye dek eksikti, onu tamamlıyoruz: büyük bir river blöfünden ya da jam'den önce, benden iyi olup katlanacak elleri yüksek sesle say. Liste bir ya da iki el sınıfından ibaretse blöfü pas geç, çünkü riskin karşılığında satın aldığın fold kütlesi yok demektir. Burada genelde eksik olan taraf aday tarafıdır, fold tarafı değil: preflop agresyonu düşük, sıkı bir aralık river'a doğal bir aday getirmez, bu yüzden blöfü mecburen aralığının daha pahalı, showdown değeri olan ucundan çevirmek zorunda kalırsın. Katlanacaklar listesi ise sıkı imajla kısalmaz, tersine uzar: rakip sıkı bilinen bir oyuncunun büyük betine daha çok kredi verir ve iyi ellerini de katlar — burada kalibrasyon gerekse de yön budur. Kendi tarafında aday bulamıyorsan bu, hattının değil aralığının sana verdiği bir mesajdır."
+      },
+      {
+        "title": "EK: Anlatı ve kaygı kararı değil, eli yönetsin",
+        "bullets": [
+          "'Çatışmasız biriktiriyorum' anlatısı seni her sınır kararda pasif tarafa iter — bir sonraki elin büyüklüğünü sen seçemezsin.",
+          "'Double lazım yoksa kapı' anlatısı yığını ciddiye almayı bıraktırır; turnuvalar birkaç bb'den kazanılır.",
+          "17.11-EK-4: Bubble'da min-cash rahatlığı hissediyorsan hata masada değil kayıtta (fazla büyük oynama/pay) — mental değil profesyonellik sorunu.",
+          "Protokol: sinyali not et, kenara koy, önündeki karara dön; kökünü turnuva SONRASI çöz.",
+          "Aynı çerçeve 'aptal görünme' korkusuna da uygulanır — masada fold gerekçesi değil, eve dönünce çalışma listesine madde."
+        ],
+        "ruleBox": "Anlatı ve kaygı karar girdisi değildir: stack skor tablosu değil karar tablosudur — sinyali not et, dışarıda çöz.",
+        "narration": "İki yanlış anlatı kararını daha el başlamadan ipotek eder. Birincisi, büyük çatışmalardan uzak durup sessizce biriktirme anlatısı: bu seni her sınır kararda pasif tarafa iter, oysa bir sonraki elin dev bir pot olup olmayacağını sen seçemezsin; doğru oyun bazen büyük blöf, bazen büyük call'dur. İkincisi, yığının küçüldüğü için hemen ikiye katlamam lazım anlatısı: bu, yığınını ciddiye almayı bıraktırır, oysa turnuvalar birkaç büyük körden kazanılır ve bir ayağı kapıda oynayan oyuncu orta boy yığınını hassas oynamaz. Bubble'da min-cash rahatlığını hissediyorsan da hata masada değil kayıttadır: muhtemelen fazla büyük oynadın ya da kendinden fazla pay tuttun, bu bir zihin sorunu değil bir profesyonellik sorunudur ve el ortasında çözülmez. Protokol basit: sinyali not et, kenara koy, önündeki tek karara dön; kökünü turnuva bittikten sonra düzelt. Aynı çerçeve aptal görünme korkusuna da uygulanır — doğru bulduğun agresif hattı, izleyen var diye kesiyorsan bu, o spotu yeterince bilmediğinin işaretidir, masada fold gerekçesi değil eve dönünce çalışma listesine madde."
+      },
+      {
+        "title": "EK: Kendi timing'ini yönet",
+        "bullets": [
+          "Önceki ek rakibin timing+sizing zincirini okumayı verdi; bu ek madalyonun öbür yüzü — kendi zincirini kapatmak.",
+          "Snap-check 'value'm yok, raise menüm boş' itirafıdır; yarım duraksayıp check 'düşündü ve vazgeçti' okunur.",
+          "Karar belliyken bile sabit tempo al, o süreyi eli baştan oynatarak (sokak sokak) harca.",
+          "Kolay fold'unu da aynı temposla ver — tempo yalnız zor ellerde uzuyorsa zor ellerin kendini ele verir."
+        ],
+        "ruleBox": "Her aksiyonun tek temposu olsun — bilgi frekans ve boydan önce tempo varyansıyla sızar.",
+        "narration": "Rakibin timing ve sizing zincirini okumayı öğrendin; bunun öbür yüzü kendi zincirini kapatmaktır. Anlık, tereddütsüz bir check genelde şu itirafı taşır: value'm yok, raise menüm boş. Yarım duraksayıp sonra gelen bir check ise düşündü ve vazgeçti diye okunur. Bu yüzden karar senin için belliyken bile sabit bir tempo al ve o süreyi boşa harcama; eli sanki baştan oynuyormuş gibi, sokak sokak, gerçekten düşünerek geçir. Rakibinin kendi tempolarını da hatırında tut, kendi hattını ona göre kur. Kolay fold'unu bile aynı sabit temposla ver; çünkü tempo yalnız zor ellerde uzuyorsa, o uzama tek başına zor elin kendisini ele verir. Amaç her aksiyona tek bir görünür hız kazandırmak, böylece rakip senin tempondan hiçbir bedava bilgi toplayamaz. Bu disiplin özellikle online masalarda değerlidir, çünkü orada timing bilgisi sizing kadar, bazen ondan da fazla konuşur."
+      },
+      {
+        "title": "EK: Kişisel sapma pusulası",
+        "bullets": [
+          "Drill'lerde yanlışların formunu değil YÖNÜNÜ logla: hep blöfü mü atlıyorsun, hep fazla mı jam'liyorsun, bir sokak mı erken bırakıyorsun?",
+          "Sınırda kalan her kararda pusula tek soru: 'ben bu spotta tipik olarak hangi yöne kaçarım?'",
+          "Beraberi o bilinen yönün TERSİNE boz — EV'si yakın kararlarda sıfır maliyetli düzeltme.",
+          "Yan fayda: seni tanıyan reg'ler sapmanı fiyatlamıştır, ara sıra bilinçli ters oynamak imajı tazeler."
+        ],
+        "ruleBox": "Sınır kararlarda berabere kendi bilinen sapmanın tersine bozulur.",
+        "narration": "Drill yaparken yanlışlarının biçimini değil yönünü kaydet: sürekli üç bet blöfünü mü atlıyorsun, sürekli fazla mı jam atıyorsun, yoksa bir sokak erken mi bırakıyorsun? Bu kayıt zamanla kişisel bir pusula oluşturur. Masada sınırda kalan her kararda pusulayı tek bir soruyla kullan: ben bu tip spotta tipik olarak hangi yöne kaçarım? Sonra beraberliği, yani gerçekten yakın olan kararı, bilinen o sapmanın tam tersine boz. Değeri zaten birbirine yakın olan kararlarda bu, sistematik bir sızıntıyı neredeyse sıfır maliyetle törpüler; büyük bir hata yapma riski almadan küçük bir düzeltme eklersin. Bir yan fayda daha var: seni uzun süredir tanıyan rakipler sapmanı zaten fiyatlamış olabilir, ara sıra bilinçli şekilde tersine oynamak imajını tazeler ve okunabilirliğini azaltır. Bu, büyük bir yeniden çalışma değil, mevcut oyununa eklenen küçük ve sürekli bir düzeltme katmanıdır."
+      },
+      {
+        "title": "EK: Final table arifesi protokolü",
+        "bullets": [
+          "17.15 Uyku: 'mükemmel uyku' beklentisi kaygı üretir — hijyene odaklan (ekran yok, geç saatte uyarıcı/ağır alkol yok, zihni çıkaracak tanıdık aktivite).",
+          "17.15-EK Mesajlaşma: iyi dilek mesajlarına tek tek cevap zaman kaybı — herkese geçerli TEK toplu mesaj, ÖNCEDEN kur.",
+          "17.15-EK-2 Yeni kavram YOK: o gece öğrenme gürültü katar — istisna yalnız ertesi gün kesin karşılaşacağın nadir stack dağılımı.",
+          "17.15-EK-3 Heyecan: nabız/kamera baskısı normal — bastırma, 'heyecan' diye yeniden çerçevele; deneyimliler de hisseder."
+        ],
+        "ruleBox": "FT arifesinde hedef mükemmellik değil hijyen ve icra: uyku beklentisi yerine rutin, mesaj tek toplu sınır, yeni kavram yok, nabzı bastırma yerine yeniden adlandır.",
+        "narration": "Final table arifesinde dört basit kural var. Birincisi uyku: mükemmel uyku almalıyım beklentisi kendi başına kaygı üretir ve genelde tutmaz, bu yüzden beklenti yerine hijyene odaklan — ekranı bırak, geç saatte uyarıcı ya da ağır alkol alma, uyumayı zorlamak yerine zihnini turnuvadan çıkaracak tanıdık bir aktivite seç, mesela daha önce izlenmiş bir dizi ya da sesli kitap. İkincisi mesajlaşma: iyi dilek mesajlarına tek tek anlık cevap vermek zaman ve dikkat kaybıdır, bunun yerine herkese geçerli tek bir toplu mesaj kur ve bunu önceden, ilk final table'dan çok önce alışkanlık haline getir. Üçüncüsü öğrenme: o gece yeni bir kavram ya da yeni bir fikir öğrenmeye çalışmak seni daha iyi yapmaz, sadece gürültü katar; tek istisna, ertesi gün kesin karşılaşacağını bildiğin nadir bir yığın dağılımını hafifçe gözden geçirmektir. Dördüncüsü heyecan: yükselen nabız ve kamera baskısı normaldir, bastırmaya çalışma, bunun yerine heyecan diye yeniden adlandır — deneyimli oyuncular da aynı şeyi hisseder, bu bir zayıflık işareti değildir."
       },
     ],
   },
@@ -1642,6 +1896,18 @@ export const modules: Module[] = [
         ],
         "ruleBox": "Squeeze blöfünü rakibin FOLD bloğunu unblock eden elden seç; üçüncü oyuncuyken önce cold-caller'ın tepesi var mı diye sor — yoksa over-call değil jam.",
         "narration": "Squeeze'in iki yüzü var. Birincisi malzeme: büyük kör küçük körün call'ı üstüne squeeze ederken hedef küçük körün capped aralığıdır ve boy tek rakibe üç-betten hep büyük kalır, çünkü küçük bir squeeze ona tam da istediği ucuz call'ı verir. Blöf tarafını küçük körün en sık katladığı, açılışa flat ettiği offsuit broadway kombolarının blokerini serbest bırakan broadway'siz suited ellerden ve biraz offsuit as'tan kur; papaz-kız ya da as-vale suited gibi eller o fold bloğunu bizzat bloklar, burada iyi aday değildir. Tek soru: kimin bloğunu unblock ediyorum? İkincisi üçüncü oyuncu tuzağı: raise ve call üstüne orta suited connector'la over-call yapmak cazip görünür ama cold-caller'ın tepe kombinasyonları ve açıcının premium'u seni domine eder. Önce sor: cold-caller'ın aralığında tepe var mı? Havuz cut-off'ta tuzak kurmaz, premium'unu neredeyse tamamen üç-betler; tepe yoksa doğru oyun over-call değil jam'dir."
+      },
+      {
+        "title": "EK: Offsuit blöf tabanı — value çıpası ve derinlik kapısı",
+        "bullets": [
+          "Taban kuralı yalnız blöfün gerçekten devrede olduğu dar bantta çalışır: sığ jam-ya-fold düğümü veya ICM'de cover eden BB koltuğu.",
+          "Bu bandın dışında (ör. ~56bb) blöf tarafı suited kalır — taban 99/TT'ye inmez, K9o/Q9o/J9o açılmaz.",
+          "Bant içindeyken çıpa: aralığındaki en düşük value 3-bet çiftini bul, offsuit çöp tam o rütbede durur.",
+          "Merdiven ilkesi: As'lı komboyu K'lıdan, K'lıyı Q'ludan biraz daha sık kullan (value taraf zaten As-ağır) — istisna: cover eden BB'de A-blokeri sınırdadır.",
+          "17.4-EK-3: çok-elli masada bloker seçimini arkadaki canlı oyuncuların 4-bet menüsüne de genişlet; kombo-düzeyi hassasiyet pahalıdır, birkaç temiz kombo yeter (istisna: tekrar eden rakip / kayıt altı)."
+        ],
+        "ruleBox": "Offsuit blöf 3-bet'in tabanı yalnız blöfün devrede olduğu dar bantta (sığ jam-ya-fold veya cover eden BB) en düşük value çiftinin rütbesidir; bunun dışında (ör. 56bb) blöf suited kalır.",
+        "narration": "Offsuit blöf üç bet seçerken önce derinlik kapısına bak. Bu taban kuralı yalnız blöfün gerçekten devrede olduğu dar bantta çalışır: cevabın jam ya fold'a düştüğü sığ karşılaşmalar, ya da ay-cı-em baskısında rakibi cover eden büyük kör koltuğu. Bu bandın dışında, orta derinlikte, blöf tarafı suited kalır ve taban aşağı inmez. Bandın içindeyken inşa çıpası şudur: aralığındaki en düşük value üç bet çiftini bul, offsuit çöp tam o çiftin rütbesinde durur, daha aşağısı listeye girmez. Üstüne bir merdiven ilkesi ekle: en yüksek rütbeli kartı taşıyan komboyu bir alttakinden biraz daha sık kullan, çünkü value taraf zaten o yüksek rütbeye yaslanır ve blöf de aynı kartlara dayanınca rakip temiz bir kart bulamaz. Çok elli masada bloker seçimini genişlet: yalnız açıcıyı değil, arkada henüz act etmemiş oyuncuların olası dört bet menüsünü de bloklayan kombo ara. Kombo düzeyinde aşırı hassaslaşmaya gerek yok; birkaç temiz kombo seçip saf oynamak neredeyse aynı sonucu verir. Tek istisna tekrar eden rakip ya da kayıt altındaki masa — orada frekansı daha sıkı koru."
       },
     ],
   },
@@ -2022,11 +2288,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: Dar-polar açıcıya jam yok — üç-bet ya da call, jam katlatacak el bulamaz",
-        "table": {
-          "section": "Bölüm 12",
-          "sub": "12.2-EK-12",
-          "caption": "Aralığın ortası zaten open-jam'e gitmişse kalan jam işe yaramaz"
-        },
         "bullets": [
           "Açıcı çok dar açıyorsa ve aralığının ortası zaten open-jam'e gitmişse, kalan raise aralığı yalnız tepe ve raise-fold çöpüdür",
           "Bu aralığa jam'in katlattığı el yoktur — tepe zaten öder, çöp küçük üç-bete de katlanır",
@@ -2036,6 +2297,18 @@ export const modules: Module[] = [
         ],
         "ruleBox": "Rakip pozisyonuna değil aralığına oyna: dar-polar açıcıya jam yok, sadece üç-bet ya da call.",
         "narration": "Kısa stack refleksi genelde şudur: az büyük körle kaldıysam as kralı nasıl jamlemem. Ama açıcı gerçekten dar açıyorsa, mesela erken pozisyondan ve seni cover eden bir stackten, ve aralığının orta kısmı zaten open-jame gitmişse, kalan raise aralığı yalnız tepe ellerden ve raise-fold çöpünden oluşur. Böyle bir aralığa karşı jamin katlattığı hiçbir el yoktur: tepe zaten seni çağıracaktır, çöp zaten küçük üç-bete bile katlanacaktır. Jamlemenin tek gerçek etkisi, kendi dört-bet-blöf-jam yapacak elini masadan çekmek, yani kazanabileceğin parayı kaçırmaktır. Doğru ağaç şöyle kurulur: gerçek değer elleriyle üç-bet et, orta çift ve zayıf as-dama gibi ellerle üç-bete call yap, çünkü jamlersen hiçbir şey katlatmazsın ama call edersen açıcının zayıf elleri katlanır, blöfü yüksek kartlı ellerden seç çünkü açıcının raise-fold dilimi genelde as içerir. Aynı mantık çok kısa büyük körde de geçerlidir: sekiz dokuz büyük körlük stack polar bir min-raisee orta çiftle jamlemez, call eder, çünkü çift rakibin tüm blöf-raiselerini zaten domine eder."
+      },
+      {
+        "title": "EK: Postflop para defteri FT derinliğinde",
+        "bullets": [
+          "Yirmi-kırk BB FT derinliğinde düşük SPR'de para iki sokakta zaten girer — set ve en güçlü eller çoğunlukla call defterine (trap) geçer, river'a kadar ince value basılır.",
+          "Check-raise malzemesi güçlü-ama-kırılgan ellerdir (iyi top pair tipi): senden bir per aşağıdaki dilim turn'de pasifleşir, ondan parayı ancak raise koparır — senden iyisi seni zaten stack'ler.",
+          "Rakibin bet'i küçüldükçe, yani SPR fiilen yükseldikçe, tepe el raise defterine geri girer — eşik kalibre edilecek, sert sayı yok.",
+          "Raise'i bet'in katıyla değil POTLA ölçekle: ICM masasında moda olan minik c-bete büyük katsayılı raise fiilen bedava fiyat verir.",
+          "Havuz aynası tersini oynar — tepesini heyecanla raise'ler, ortayı flat'ler; düşük SPR'de gelen flop raise'i dengeden value-ağırdır, bir kademe kat."
+        ],
+        "ruleBox": "Kısa derinlikte en güçlü el raise etmek zorunda değildir — para zaten girer; raise, altındaki dilimden para koparan kırılgan value'nun işidir ve boyu bet'e değil pota göre kurulur.",
+        "narration": "Final table derinliğinde preflop defterin yanına bir de postflop para defteri eklenir. Yirmi ile kırk büyük blind derinlikte check-raise value'su en güçlülerden kurulmaz. Düşük SPR'de para iki sokakta zaten girer ve rakip river'a kadar ince value basar, bu yüzden set ve en güçlü eller çoğunlukla call defterine, yani trap'e geçer. Check-raise malzemesi güçlü ama kırılgan ellerdir, iyi top pair tipi diyebilirsin. Senden bir per aşağıdaki dilim, orta çift ya da zayıf per, turn'de pasifleşir ve ondan parayı ancak raise ile koparırsın; senden iyisi zaten seni stack'ler, o kayıp sabittir. Rakibin bet'i küçüldükçe, yani SPR fiilen yükseldikçe, tepe el raise defterine geri girer; bu eşiği kitap kalibre edilecek diye işaretler, sert sayı vermez. Raise'i bet'in katıyla değil potla ölçekle: ICM masasında moda olan küçük c-bete büyük katsayılı raise fiilen bedava fiyat verir, küçük bete karşı raise pot cinsinden anlamlı olmalı. Havuz aynası tam tersini oynar, tepesini heyecanla raise'ler ortayı flat'ler; düşük SPR'de gelen flop raise'i dengeden value ağırdır, bir kademe kat."
       },
     ],
   },
@@ -2285,11 +2558,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: A-yüksek board'da ikinci kart boyu seçer",
-        "table": {
-          "section": "Bölüm 18",
-          "sub": "18.2-EK-8",
-          "caption": "İkinci karta göre boy: tekerlek-A, orta-A, A-K-x"
-        },
         "bullets": [
           "Tekerlek-A board (as dört iki, as üç iki tipi): büyük kör aralığında alt per artı gutshot, wheel düzü ve küçük setler canlıdır — büyük bet hiçbirini katlatmaz, doğru cevap küçük boy ve hedef otomatik fold'lardır.",
           "Orta-A board (as dokuz dört, as sekiz beş tipi): alt per'in yanında ekstra bir şey yoktur ama zaten küçük bete kayıtsızdır — çoğunlukla küçük ve geniş aralıklı bet yeter.",
@@ -2301,11 +2569,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: Yüksek eşleşmiş board — devam raise'se bet anti-koruma",
-        "table": {
-          "section": "Bölüm 18",
-          "sub": "18.3-EK-2",
-          "caption": "Eşleşmiş board ailesi: devam şekli boyu ve frekansı belirler"
-        },
         "bullets": [
           "Yüksek kartlı eşleşmiş board'da (kral kral x, kız kız x, kral beş beş tipi) büyük körün doğal çağırma aralığı kıttır; devamı ağırlıkla raise'dir.",
           "Devam raise ise orta elle küçük bet iki nedeni birden öldürür — ince value yok çünkü senden kötü el çağırmaz, koruma yok çünkü raise yiyince en iyi eli sen bırakırsın.",
@@ -2315,6 +2578,18 @@ export const modules: Module[] = [
         ],
         "ruleBox": "Devam raise ise bet polarlaşır: gerçek value artı ucuza pes eden hava kalır, orta güçteki el check-back'e gider.",
         "narration": "Yüksek kartlı eşleşmiş board'larda, kral kral x ya da kız kız x ya da kral beş beş tipi board'larda, kuru board için geçerli olan alışılmış küçük range-bet kuralı tersine döner. Bu board'lara büyük körün doğal çağırma aralığı kıttır; devamı ağırlıkla raise'dir. Orta güçte bir elle küçük bet attığında iki neden birden ölür: senden kötü el seni çağırmaz, ya katlanır ya raise'ler; koruma da yoktur, çünkü raise'i yediğinde elini sen bırakırsın. Orta elle bet, çipini ortaya koyup çaldırtmaktır. Doğru cevap bet'i polarlaştırmaktır: raise'e devam edebilen gerçek value ile, raise yiyince ucuza vazgeçen sıfır showdown'lu hava kalır; kız vale, as yüksek, alt cep gibi orta güçteki eller check'e gider ve turn'de rakibin küçük bet'ine çağırarak equity'sini realize eder. Bu ayrım pozisyonla ölçeklenir: büyük kör erken pozisyon açışına karşı check-raise'ini dar tutar, buton açışına karşı top pair'le bile parayı ortaya koymaya hazırdır. Düşük eşleşmiş ve as'lı eşleşmiş board'larda ise çağırma bloğu hâlâ vardır, orada range-bet kuralı geçerliğini korur."
+      },
+      {
+        "title": "EK: İki kapaklı blind'e karşı kuru board'da range-bet istisnası",
+        "bullets": [
+          "Multiway çöküş kuralı en sert hâlini aralığı kapaksız coldcaller'a karşı alır",
+          "Açıcıya karşı iki blind flat'lediyse (üçüncü bahse gitmediyse) flat aralıkları tepeden kapaklıdır",
+          "As yüksek kuru board'da iki blind'in birinde as bulunması nadir değildir ama tepe yoktur — en güçlü as kombinasyonları zaten üçüncü bahse gitti",
+          "Açıcı bu yüzden üç yollu olsa da küçük boyla çok yüksek frekans bet atar — hedef katlatmak değil fiyat almaktır",
+          "Board bağlandıkça veya dördüncü oyuncu girerse çöküş kuralı geri gelir — kapaklılık rakip sayısını iptal etmez"
+        ],
+        "ruleBox": "Üç yollu sabitken çöküşü tetikleyen rakip sayısı değil rakip aralıklarının kapaklılığıdır: iki kapaklı blind artı kuru yüksek board küçük boy ve yüksek frekans üretir, kapaksız coldcaller çöküşü geri getirir, dört veya daha çok yolluda kapaklı olsalar bile çöküş döner.",
+        "narration": "Multiway çöküş kuralı en sert hâlini, aralığı kapaksız olan coldcaller'lara karşı alır. Açıcıya karşı sahada iki blind flatledi, yani üçüncü bahse gitmediyse tablo değişir: ikisinin de en güçlü elleri zaten preflopta üçüncü bahse gittiği için flat aralıkları tepeden kapaklıdır. As yüksek kuru bir board'da iki blind'den birinin as tutması hiç nadir değildir, çünkü savunma aralığı tüm as içeren elleri kapsar. Ama bu aslarda tepe yoktur: asa asa, asa papaz ve asa vezir gibi en güçlü kombinasyonlar zaten üçüncü bahse gitmiştir, elde kalan as zayıf kickerlidir ve ikinci sokağı taşıyamaz. Açıcının hedefi bu yüzden katlatmak değil fiyat almaktır — üç yollu olmasına rağmen küçük boyla çok yüksek frekansta bet atar; bu oran kitapta kalibre edilecek diye işaretli, sert bir sayı verilmiyor. Turn planı as yok varsayımına değil, as var ama kickeri zayıf varsayımına kurulur. Board birbirine bağlandıkça ya da masaya dördüncü bir oyuncu girdiğinde çöküş kuralı geri gelir, çünkü kapaklılık rakip sayısını iptal etmez. Aynı düğümün ikinci ayrıntısı şu: düşük derinlikte set tutan eller bet atmaya mecbur değildir, iki rakip de zayıfken ve iki sokak yeterliyken set çoğu zaman check'e karışır."
       },
     ],
   },
@@ -2545,11 +2820,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: River probe — flop call turn check sonrası boy",
-        "table": {
-          "section": "Bölüm 19",
-          "sub": "19.3-EK-2",
-          "caption": "Flopta küçük c-bete call, turn'de çift check sonrası river probe boyu"
-        },
         "bullets": [
           "Flop küçük c-bete call, turn'de iki taraf da check geçtiyse (SPR yaklaşık dört-beş), IP'nin bu düğüme taşıdığı aralık zayıf ama boş değil — fiyata göre öder.",
           "Güçlü sınıf (trips, iki çift kombosu, boat) için yaklaşık iki kat pot boy — tam oran kalibre edilecek; A-high catcher'lar ve çiftler öder.",
@@ -2705,11 +2975,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: Masa kısaldıkça prim düşer, kalan oyuncu sayısı ikinci girdidir",
-        "table": {
-          "section": "Bölüm 20",
-          "sub": "20.3-EK-3",
-          "caption": "Prim tahmininin ikinci girdisi: kalan oyuncu sayısı — masa kısaldıkça basamak azalır, heads-up'ta prim sıfırlanır"
-        },
         "bullets": [
           "Prim tahmininin ilk iki girdisi ödeme eğrisi ve kalan oyuncu sayısıdır; stack haritası bu ikisinin üstüne gelir, yerine geçmez.",
           "Masa kısaldıkça alınacak basamak sayısı azalır, aynı stack dağılımında bile prim küçülür.",
@@ -2718,6 +2983,74 @@ export const modules: Module[] = [
         ],
         "ruleBox": "Masa kısaldıkça prim düşer; kalan oyuncu sayısı azaldıkça alınacak basamak azalır ve heads-up'ta prim tamamen sıfırlanır.",
         "narration": "Prim tahmininde stack haritasına bakmadan önce iki soru sorulur. Birincisi ödeme eğrisinin şekli, ikincisi masada kalan oyuncu sayısı. Bu slayt ikinci girdiyi anlatır. Aynı yığın dağılımı, aynı kısa stack, farklı masa boyu farklı prim üretir. Altı kişilik masada tek kısa stack'in yarattığı prim, üç kişilik masada aynı kısa stack'in yarattığından belirgin büyüktür, çünkü altı kişilik masada alınacak daha çok basamak vardır. Masa kısaldıkça alınacak basamak sayısı azalır, her elemenin taşıdığı ekstra değer küçülür, prim iner. Örneğin final tablosunda üç kişi kalmışken tek kısa stack'in taşıdığı prim, aynı oranla altı kişilik masadaki halinden düşüktür; çünkü üç kişilik masada alınacak tek basamak kalmıştır, altı kişilikte hâlâ birkaç basamak vardır. Heads up'a gelindiğinde artık alınacak basamak kalmadığı için prim tamamen sıfırlanır ve karar chipEV'ye eşitlenir. Kural şu: prim tahmininin ilk iki girdisi ödeme eğrisi ve kalan oyuncu sayısıdır, stack haritası bu ikisinin üstüne gelir, yerine geçmez. Masaya oturduğunda önce kaç kişi kaldığına bak, sonra stack'lere."
+      },
+      {
+        "title": "EK: Bubble factor'ü tek bölmeyle eşiğe çevir",
+        "bullets": [
+          "Bubble factor (BF) = kaybedersen giden $EV ÷ kazanırsan gelen $EV; chipEV'de BF tam 1'dir.",
+          "Gereken ham equity ≈ BF/(BF+1): BF 1.5 → kabaca %60, BF 2 → kabaca %67; risk primi bu eşiğin %50'yi aşan kısmıdır.",
+          "BF masada çoğunlukla 1-nokta-bir-şeydir; 2'nin üstü ancak uç stack dağılımlarında görülür.",
+          "Tek bölmeyle bulduğun ham eşiği pot odds ve ölü parayla AŞAĞI düzelt — jam'e call gerçek hayatta hiçbir zaman 1:1 değildir, blind ve ante hep içeridedir."
+        ],
+        "ruleBox": "Gereken equity ≈ BF/(BF+1); önce BF'yi kademeyle tahmin edip çevir, sonra ölü parayla indir.",
+        "narration": "Bubble factor, kısaca BF, kaybedersen giden dolar beklenen değerini kazanırsan gelen dolar beklenen değerine bölerek bulunur. ChipEV'de BF tam bire eşittir. BF'yi bildiğinde gereken ham equity'yi tek bir bölmeyle eşiğe çevirebilirsin: BF'yi, BF artı bir'e böl. BF bir nokta beş ise gereken equity kabaca yüzde altmış çıkar, BF iki ise kabaca yüzde altmış yedi çıkar; risk primi bu eşiğin yüzde ellinin üstünde kalan kısmıdır. Masada BF çoğunlukla bir nokta birkaçtır; ikinin üstüne yalnız uç stack dağılımlarında çıkarsın. Ama bu tek bölmeyle bulduğun sayı ham bir üst sınırdır, son adım değildir. Bulduğun eşiği pot odds'la ve masadaki ölü parayla aşağı doğru düzeltmen gerekir, çünkü jam'e call gerçek hayatta hiçbir zaman bire bir oranında olmaz: blind'lar ve ante her zaman potun içindedir ve bu senin lehine ufak bir indirim sağlar. Kısacası masada üç adım var: BF'yi kademeyle tahmin et, tek bölmeyle ham eşiğe çevir, sonra pot odds ve ölü parayla eşiği aşağı çek."
+      },
+      {
+        "title": "EK: 3 yönlü all-in'de side pot'u ayrı hesapla",
+        "bullets": [
+          "Üç veya daha çok oyunculu bir all-in'de tek pota değil, side pot ve ana pot'a AYRI bak.",
+          "Side pot çoğunlukla flip'e yakındır: flip chipEV'de nötr, ICM'de NEGATİFTİR — primin üstüne ekle.",
+          "Asıl karar ana potun gereken equity'sidir: ana pota koyduğun dilimi (en kısa yığın kadar) ana potun TAMAMINA böl, toplam call'a değil.",
+          "Çok yönlü all-in'de risk primi heads-up hesaplanandan bir tık yüksektir; azalan getiri iki kez çalışır."
+        ],
+        "ruleBox": "Masada 30-60 saniyede side pot'u primini eşiğe ekleyerek ayır, ana pota gereken equity'yi ana pota koyduğun dilim bölü ana pot ile hesapla.",
+        "narration": "Üç yönlü bir all-in kararında tek bir potu değil, iki ayrı potu görmen gerekir: side pot ve ana pot. Side pot'ta genelde bir flip'e yakınsındır. Ama dikkat et: flip yongasal beklenen değerde nötrdür, ödül havuzu beklenen değerinde ise negatiftir, çünkü prim sıfırdan büyükken flip seni hem para kaybettirir hem de hızlı elenme riskine sokar. Bu yüzden flip'in maliyetini ana potun eşiğinin üstüne eklemelisin. Asıl karar her zaman ana potun gereken equity'sidir. Bunu hesaplarken ana pota koyduğun dilimi, yani en kısa yığın kadar olan kısmı, toplam call miktarına değil ana potun tamamına böl. Ayrıca çok yönlü bir all-in'de risk primi, iki kişilik hesaplanan primden bir tık daha yüksek çıkar: aynı kazancı elde etmek için daha büyük ve kaybetme ihtimali daha yüksek bir pota giriyorsun, azalan getiri burada iki kez çalışıyor. Masada otuz ile altmış saniye içinde karar vermen gerekiyorsa side pot'u ayrı bir kalem olarak işaretle, primini ekle, sonra ana pota gereken equity'yi hesapla ve iki aralığı birlikte değerlendir."
+      },
+      {
+        "title": "EK: Aynı açılış yüzdesi zıt derinlik kuvvetlerinden gelebilir",
+        "bullets": [
+          "Aynı stack oranlarına sahip sığ ve derin bir final table'da açılış yüzdesi şaşırtıcı derecede benzer çıkabilir — ama aynı mekanizmadan gelmez.",
+          "Sığda: arkadakiler flat edemez (açılışı genişletir) ama ucuza çağrılırsın, eşikler düşüktür (daraltır).",
+          "Derinde: arkadakiler flat edebilir (daraltır) ama eşikler yüksektir, seni pasif karşılarlar (genişletir).",
+          "İki zıt kuvvet yüzdede birbirini götürür; bkz. 12.4-EK-3.",
+          "İki çıktı aynı yüzdeyi verince \"aynı spot\" deme — mutlak derinliği ayrı kontrol et."
+        ],
+        "ruleBox": "İki final table aynı açılış yüzdesini verse de mutlak derinliği ayrı doğrula, el seçimini yüzdeye değil derinliğe göre ayarla.",
+        "narration": "Aynı stack oranlarına sahip, yani herkesin ortalamaya göre payı aynı olan sığ bir final table ile derin bir final table'da açılış yüzdesi şaşırtıcı derecede benzer çıkabilir. Ama bu benzerlik aynı mekanizmadan gelmez, iki zıt kuvvetin birbirini götürmesinden gelir. Sığ masada arkadaki oyuncular flat edemez, bu açılış aralığını genişletir; ama seni ucuza çağırırlar ve eşikler düşüktür, bu da aralığı daraltır. Derin masada ise tam tersi olur: arkadakiler flat edebilir, bu aralığı daraltır; ama eşikler yüksektir ve seni pasif karşılarlar, bu da aralığı genişletir. Sonuçta iki masada da açılış yüzdesi benzer çıkabilir, çünkü genişleten kuvvetle daraltan kuvvet her iki tarafta da birbirini dengeler. Bu yüzden iki farklı çıktı sana aynı yüzdeyi verdiğinde bunları aynı spot sanma. Mutlak derinliği mutlaka ayrı kontrol et ve el seçimini o derinliğe göre ayarla, yüzdenin aynı kalması seni yanıltmasın."
+      },
+      {
+        "title": "EK: Son dilim chip her zaman daha pahalıdır",
+        "bullets": [
+          "Prim pozitifken (seni cover eden biri varken) aynı chip kazancını üreten iki hattan küçüğü ICM'de üstündür — daha az freeroll verir, azalan getiriyi daha az öder.",
+          "Prim ~sıfıra veya negatife düştüğünde (cover eden lider, elemeye giden pot — bkz. 20.7) bu üstünlük tersine döner, büyük/varyanslı hat savunulabilir hale gelir (bkz. 21.0).",
+          "Aynı mantık bet büyüklüğünde de çalışır (bkz. 20.4-EK-5): chipEV'de bet'i büyütüp biraz daha fazla fold almak kârlı görünse de, elenme riski gerçekken bu takas kabaca hiç kârlı değildir.",
+          "Neden: pota koyduğun her ilave chip bir öncekinden pahalıdır — aynı nominal boy, ICM'de efektif olarak daha büyük bir bet'tir.",
+          "Çok düşük SPR'da bile all-in olmayan en büyük boy çoğunlukla tercih edilir: polar hattın blöfleri son birkaç bb'den bir şey kazanmaz, value'nun kazancı chip'in artan fiyatını ödemez."
+        ],
+        "ruleBox": "Prim pozitifken eşit chipEV üreten iki seçenekten daha az chip riske atanı seç — hat seçiminde de bet büyüklüğünde de son dilim her zaman en pahalı dilimdir.",
+        "narration": "Prim pozitifken, yani seni cover eden biri varken, aynı chip kazancını üreten iki hattan küçüğü ICM'de her zaman üstündür. Bunun sebebi basit: aynı geliri daha küçük bir ortalama potla elde eden hat, elde olmayan oyunculara daha az freeroll verir ve kazandığın her ek chip'in azalan getirisini daha az öder. Büyük hat ancak belirgin biçimde fazla chip kazandırıyorsa savunulabilir. Ama bu kural koşulsuz değildir: prim sıfıra yaklaştığında veya negatife döndüğünde, yani seni cover eden lider konumundaysan ya da pot seni elemeye götürüyorsa, üstünlük tersine döner ve büyük, daha varyanslı hat savunulabilir hale gelir. Aynı mantık bet büyüklüğü seçiminde de geçerlidir. Yongasal beklenen değerde bet'i biraz büyütüp karşılığında biraz daha fazla fold almak kârlı bir takas gibi görünebilir. Ama elenme riski gerçekken bu takas neredeyse hiç kârlı değildir, çünkü pota koyduğun her ilave chip bir öncekinden daha pahalıdır. Aynı nominal boy, ICM'de aslında daha büyük bir bet'tir. Bu yüzden çok düşük stack derinliğinde bile all-in olmayan en büyük boy genelde tercih edilir: polar bir hattın blöfleri stack'in son diliminden hiçbir şey kazanmaz, value tarafının kazancı da chip'in artan fiyatını karşılamaz."
+      },
+      {
+        "title": "EK: Call aralığı blok hâlinde kapanır",
+        "bullets": [
+          "El equity'leri sürekli bir merdiven değil, kovadır: geniş bir jam aralığına karşı benzer equity'de koca bir el bloğu durur.",
+          "Eşiğin birkaç puan üstüne çıkmak kombinatorik olarak zordur — AA'dan KK'ya, KK'dan QQ'ya düşüşler büyüktür, arası boştur.",
+          "Prim eşiği bir kovanın üstüne çıktığında aralık kademeli değil blok hâlinde kapanır.",
+          "Benzer görünen iki spot'un call tabloları \"kavramsal olarak bambaşka\" görünebilir — değildir; aynı mantığın kovası değişmiştir."
+        ],
+        "ruleBox": "Prim eşiği bir equity kovasını aştıysa sınırdaki elleri tek tek tartma — blok topluca düşmüştür.",
+        "narration": "El equity'leri masada sürekli bir merdiven gibi sıralanmaz, kova kova gruplanır. Geniş bir jam aralığına karşı benzer equity'de koca bir el bloğu birlikte durur, sonra equity'de büyük bir boşluk gelir. Eşiğin birkaç puan üstüne çıkmak kombinatorik olarak çok zordur, çünkü eller arasındaki equity sıçramaları düzenli değildir. As çiftinden papaz çiftine, papaz çiftinden kız çiftine düşüş büyüktür ve arası neredeyse boştur. Bu yüzden gereken equity eşiği bir kovanın üstüne çıktığında call aralığı kademe kademe değil, blok hâlinde kapanır. Sınırdaki elleri teker teker tartmaya çalışırsan yanılırsın, çünkü karar zaten tek bir blok olarak değişmiştir. Bu da benzer görünen iki masa spotunun call tablolarının birbirinden tamamen farklı görünmesine yol açabilir. Aslında bu iki spot kavramsal olarak farklı değildir, aynı mantık çalışıyordur, sadece hangi kovada durduğun değişmiştir. Masada bunu fark ettiğinde tek tek el tartma, hangi kovadan hangi kovaya geçtiğine bak ve kararını o blok üzerinden ver."
+      },
+      {
+        "title": "EK: Risk primini elle tutulur birime çevir",
+        "bullets": [
+          "Ham risk primi yüzdesi masada tek başına bir şey ifade etmez — iki pratik çeviri yöntemi var.",
+          "Pot-katı: chipEV'de bir jam belli bir kat potu riske atıyorsa, yüksek primli spotta aynı jam'in gerçekte daha fazla katı riske attığını hisset.",
+          "Nakit-stake: kalan oyuncu sayısı ve ödül havuzundan ortalama yığının kaba dolar karşılığını çıkar (azalan getiriyi hesaba kat).",
+          "EV farkını masada anlam taşıyan bir birime bağlayınca hatanın büyüklüğünü daha doğru hissedersin."
+        ],
+        "ruleBox": "Prim yüzdesini soyut bırakma — pot-katı ya da nakit-stake'e çevirdiğinde hatanın büyüklüğünü daha doğru hissedersin.",
+        "narration": "Ham risk primi yüzdesi, masada tek başına bir anlam taşımaz. Bu yüzden onu elle tutulur bir birime çevirmen gerekir, bunun için iki pratik yol var. Birincisi pot katı üzerinden düşünmek: eğer yongasal beklenen değerde bir jam belirli bir kat potu riske atıyorsa, yüksek primli bir spotta aynı jam'in gerçekte daha fazla kat potu riske attığını hisset, çünkü jam'in gerçek maliyeti nominal stack büyüklüğünden daha ağırdır. İkincisi nakit stake üzerinden düşünmek: kalan oyuncu sayısını ve ödül havuzunu kullanarak ortalama yığının kaba dolar karşılığını çıkar, bunu yaparken azalan getiriyi de hesaba kat. Prim yüzdesini soyut bir sayı olarak bırakırsan masada onu hissedemezsin. Ama onu pot katına ya da nakit stake'e çevirdiğinde, yaptığın hatanın gerçek büyüklüğünü çok daha doğru bir şekilde kavrarsın. Bu iki çeviri yöntemi, ICM primini teorik bir kavramdan masada anında karar verebileceğin somut bir ölçüye dönüştürür."
       },
     ],
   },
@@ -3014,11 +3347,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: MDF çöküşünün sınırı — kapsanan hiçbir şey katlamaz",
-        "table": {
-          "section": "Bölüm 21",
-          "sub": "21.4-EK",
-          "caption": "Küçük range-bete karşı kapsananın savunma haritası"
-        },
         "bullets": [
           "Lider check etmesi gereken board'da (A-high, J-high, K-düşük yoğun aralığa karşı) küçük range-bet atarsa kapsanan neredeyse hiçbir şey katlamaz: fold sıfıra yakın, call geniş, raise seyrek.",
           "Raise malzemesi tersine döner: backdoor'suz marjinal eller (renksiz gutshot, kart-eşleşmeyen düşük bağlantılı) raise'e gider; backdoor'lu versiyonları call'da tutulur.",
@@ -3028,6 +3356,54 @@ export const modules: Module[] = [
         ],
         "ruleBox": "Küçük range-bete karşı MDF çöküşü tersine döner: kapsanan fold sıfıra yakın, call geniş, raise yalnız backdoor'suz marjinallerle seyrek — fold refleksi burada hediyedir.",
         "narration": "Yirmi bir nokta dört, MDF altı fold doğrudur der; ama bu kural polarize büyük bete ve rakibin aralığının vurduğu board'a karşı geçerlidir. Lider, check etmesi gereken bir board'da küçük bir range bet atarsa resim tersine döner. A yüksek, J yüksek ya da K düşük yoğun bir aralığa karşı gelen küçük bette kapsananın aralığı çöple doludur, liderinki per ve backdoor'la. Bu durumda kapsanan neredeyse hiçbir şey katlamaz: fold sıfıra yakın, call geniş, raise seyrek ve yalnızca backdoor'suz marjinal ellerle. Raise malzemesi tersine döner, renk kartı taşımayan gutshot'lar ve bağlantısız düşük eller raise'e gider, backdoor taşıyanlar call'da kalır. Top pair elleriyle büyük raise atılır, çünkü set yoktur ve koruma gerekir; lider cep çiftlerini ve AQ tipi elleri katlar. Turn'de lider tüm aralığıyla gelip sık check ediyorsa hiçbir şeyi olmayan elinizle stab atın, bir şey yakaladıysanız check edin. Doğru board'da doğru boyla gelen normal bir bete karşı kapsanan yine az katlanır ve az raise eder; burada MDF çöküşü fikri geçerliliğini korur. Fold refleksi burada bir hediyedir, kullanmayın."
+      },
+      {
+        "title": "EK: Blöf stoğu flop disiplinine bakar",
+        "bullets": [
+          "River blöf stoğu flop'ta tutulan float'lardan gelir — erken katlayan tipte stok yoktur.",
+          "Loose, yapışkan erken sokak oyuncusunda stok doludur — catch defteri açık kalır.",
+          "ICM'de call-off zaten en pahalı aksiyon; stoksuz rakibe hero-call primi ağırlaştırır.",
+          "Check-raise hattında da aynı okuma: turn'de sık bırakmayan tip blöfü taşır, devamı zengin kalır.",
+          "Turn'de sık bırakan tip value'ya arınır — o hatta hero-call'ı sıkılaştır."
+        ],
+        "ruleBox": "Blöfü var mı diye river'da sorma; flop'ta hangi blöf hammaddesini tuttuğunu sor.",
+        "narration": "Bluff catch kararı sadece kombinasyon hesabından çıkmaz; rakibin erken sokak disiplini de belirleyicidir. River agresyonunun blöf stoğu flop'ta tutulan float'lardan doğar. Rakip flop'ta backdoor çöpü ve zayıf çekilişleri float'layamayıp erken katlıyorsa, river'daki agresyonun arkasında blöf hammaddesi yoktur; en iyi bloker'a sahip catcher bile bu durumda bırakılmalıdır. Erken sokakları yapışkan oynayan, float'ları elinde tutan tip için ise stok doludur ve catch defteri açık kalır. ICM tablosu bu etkiyi katlar çünkü call-off zaten en pahalı aksiyondur; stoksuz bir rakibe hero-call yapmak primli bir intihar olur. Aynı test check-raise hattında da işler. Koltuk tersine döner, rakip artık raise'leyen taraftır, ama okuma yönü aynı kalır: flopta blöf malzemesini tutup check-raise ettikten sonra turnde bunu nadiren bırakan tip, o blöfleri turne taşır ve devamı blöf zengin kalır. Turnde sık bırakan tip ise value'ya arınır, hero-call orada sıkılaştırılmalıdır."
+      },
+      {
+        "title": "EK: Çöpsüz range'de blöf tepeden gelir",
+        "bullets": [
+          "ICM'in daralttığı range'de suited connector çöpü yoktur — blöf malzemesi zorunlu olarak yukarıdan gelir.",
+          "A-yüksek, hatta chip'te delilik sayılacak K-yüksek bile blöf haline gelir.",
+          "Orta çiftler value'ya terfi eder, rakibin bluff-catch eşiği düşer.",
+          "İyi removal'lı AQ, AJ tipi eller küçük bete karşı bile sınıra iner.",
+          "Pasif sokaklar geçtikçe etki büyür — iki tarafın da tepesi incelir."
+        ],
+        "ruleBox": "Blöfü ezber listenden değil range'inden seç; çöp dilimi yoksa blöf ile value aynı mahalleden çıkar.",
+        "narration": "Blöfü çöple ve en düşük kartla seç kuralı, range'inde çöp olduğunu varsayar. Ama ICM'in daralttığı range çoğunlukla yalnız çift ve yüksek karttan oluşur; kaçırılmış suited connector yoktur, bu yüzden blöf malzemesi zorunlu olarak yukarıdan gelir. A-yüksek, hatta chip oyununda delilik sayılacak kral yüksek bile blöf haline gelir. Aynı daralma orta çiftleri value'ya terfi ettirir ve rakibin bluff-catch eşiğini çökertir; iyi removal'lı AQ ve AJ tipi eller küçük bete karşı bile sınıra iner. Pasif sokaklar geçtikçe bu etki büyür, çünkü iki tarafın da tepesi incelmiştir. Pratik sonuç şu: blöfünü ezber bir listeden değil, o eldeki gerçek range'inden seçmelisin. Çöp dilimi yoksa blöf ile value aynı mahalleden çıkar ve fold kararını da yukarıdan bulmak zorunda kalırsın. Bu yüzden orta çift elini otomatik value sayıp check etmek hata olur, çünkü rakibin range'i de aynı daralmayı yaşamıştır ve senin orta çiftin artık üst sınıfa girer."
+      },
+      {
+        "title": "EK: Kenardaki fold'lu kısalar prim büyütür",
+        "bullets": [
+          "Cover asimetrisi tablosu yalnız eldeki iki oyuncuya bakarsa yanıltır.",
+          "Kenarda üç mikro stack ladder beklerken, birbirine yakın iki büyük stack iki yönlü yüksek prim taşır.",
+          "Bir büyük blind'lik cover bile lideri kırbaçtan kurtarmaz.",
+          "Sonuç kooperatif pasiflik: OOP açıcı çoğu board'da check'e yakın oynar — kesin sıklık kalibre edilmemiş.",
+          "IP'nin küçük bet'i chipEV'den fazla realize eder — rakibin check-raise'i hem seyrek hem küçük gelir."
+        ],
+        "ruleBox": "Prim hesabına yalnız eldekileri değil, kenarda pay atlaması bekleyen fold etmiş kısaları da yaz.",
+        "narration": "Cover asimetrisi tablosu yalnız o eldeki iki oyuncuya bakarsa yanıltır. Kenarda üç mikro stack ladder beklerken, birbirine yakın iki büyük stack aslında iki yönlü yüksek prim taşır; bir büyük blindlik cover bile lideri kırbaçtan kurtarmaz, çünkü sırada bekleyen kısa stacklar her iki büyük stack için de risk taşır. Sonuç kooperatif bir pasifliktir: OOP açıcı çoğu boardda check'e yakın bir sıklıkla oynar, kesin oranı elimizde kalibre edilmiş değil ama yön nettir. IP ise küçük boyla bet'ler ve iki taraf da potu bilinçli olarak küçük tutar. Bunun bir bonusu var: IP'nin küçük bet'leri chipEV hesabından fazla değer realize eder, çünkü karşısındaki check-raise hem daha seyrek hem daha küçük boyda gelir. Pratik ders şu: prim hesabını yaparken yalnız masadaki iki oyuncuya bakma; kenarda pay atlaması bekleyen fold etmiş kısa stackları da hesaba kat, çünkü onlar potun içindeki herkesin freni gibi çalışır ve agresyonu bastırır."
+      },
+      {
+        "title": "EK: Limp-check potu — ana sahne ve sınıf okuması",
+        "bullets": [
+          "Yüksek primli BvB'nin en sık düğümü limp-check potudur; küçük bet herkesin varsayılan hamlesidir.",
+          "Minik bete karşı yalnız en dip çöpü fold'la — kesin eşik kalibre edilmemiş; value'yu minik check-raise'le bul.",
+          "Blöf-raise'ini board'a dokunan yüksek-düşük kombolardan seç, gerçek çekiliş kartları gelince ateşle.",
+          "Range sınıf olarak izlenir: orta offsuit bağlantılı sınıf iki tarafta da check hattında birikir — 21.3-EK-9'un okuması budur.",
+          "Board bu sınıfa dokunuyorsa büyük boy gerekir; dokunmuyorsa küçük boy üst-kart sınıfını hedefler."
+        ],
+        "ruleBox": "Limp potunda küçük bet herkesin hamlesi; board orta offsuit sınıfına değmişse küçük bet üretken değildir.",
+        "narration": "Yüksek primli buton-blind düğümünde en sık karşılaşılan pot limp-check potudur ve kimse bu potlar için yeterince mücadele etmez. Süper geniş bir aralıkla, yüksek equity taşıyan bir boardda bile bolca check edersin; A-yüksek bir boardda üstünlüğün olsa da destenin çoğu elinde olduğu için otomatik bir devam bet lisansın yoktur, çünkü minik bet zaten herkesin standart hamlesidir. Farkı yaratan üç şey vardır: minik bete karşı yalnız en dip çöpünü katlamak, value ile minik check-raise bulmak, ve blöf-raise'ini board'a dokunan yüksek-düşük kombolardan seçip gerçek çekiliş kartları geldiğinde ateşlemek. Bu potlarda aralıklar el el değil sınıf olarak izlenir: iso ya da raise etmenin hiçbir şey başarmadığı orta offsuit bağlantılı sınıf, her iki tarafta da check hattında birikir. Board bu sınıfa dokunuyorsa pot pasif kalır ve küçük bet fold üretmez, o zaman büyük boy seçmelisin; dokunmuyorsa küçük boy üst-kart sınıfını hedefleyerek işine yarar."
       },
       {
         title: "Cheat kartı + drill",
@@ -3212,11 +3588,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: FT başı zirve — hasat penceresi ve liderin kör noktası",
-        "table": {
-          "section": "Bölüm 22",
-          "sub": "22.1-EK-3",
-          "caption": "Bubble-factor eğrisinin gerçek zirvesi: final masasının ilk fazı"
-        },
         "bullets": [
           "Prim balonda zirve yapar, ITM'de çöker, FT'nin başında döngünün en yüksek noktasına çıkar — balondan bile yüksek: her basamak stack'e göre büyük, herkes birbirini cover ediyor.",
           "Hasat penceresi: FT'nin ilk fazında (ilk eleme ya da ilk kısa bust'lara kadar) herkes sıkı oynar, lider cezasız soyar; pencere ilk bust'la daralır, her elemeyle prim bir tık düşer.",
@@ -3228,11 +3599,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: Mikroya geniş call — en kısa BB'nin fold sınırı",
-        "table": {
-          "section": "Bölüm 22",
-          "sub": "22.10-EK-2",
-          "caption": "Mikro stack'in jam'ine call eşiği ve en kısa büyük körün fold sınırı"
-        },
         "bullets": [
           "Mikronun jam'ine ICM'nin tek-el gösterdiğinden bir tık geniş öde — mikro elenince liderin karşısındaki primin düşer, orta-derin stack'lere karşı cover eden konuma geçersin; sim bu kazancı görmez.",
           "Mikroya karşı primin zaten neredeyse sıfır, kaybetsen de masada kalırsın — sim'in çizdiği sınır ası canlı elleri öde, kral yüksek gibi domine edilmiş elleri katla der.",
@@ -3241,6 +3607,52 @@ export const modules: Module[] = [
         ],
         "ruleBox": "Mikro yalnız jam'lediyse bir tık geniş öde (K9o/86s sınıfı da girer); jam'e zaten call geldiyse ve sen en kısaysan TT/JJ bile katla.",
         "narration": "Mikro bir stack'in jam'ine tek elin ICM tablosunun gösterdiğinden bir tık daha geniş öde. Bu mikro elenince liderin karşısındaki primin düşer ve masadaki orta ve derin stack'lere karşı artık sen cover eden taraf olursun; simülasyonun verdiği aralık bu kazancı görmez. Zaten mikroya karşı primin neredeyse sıfırdır çünkü o elense de sen masada kalmaya devam edersin; tek elin gösterdiği sınır canlı ası taşıyan elleri öde, kral yüksek gibi domine edilmiş elleri katla der. Genişleme tam bu sınırın üstüne gelir: bir tık daha geniş öde, kral yüksek tarafındaki bir-iki kombo da artık call'a girer; ekleme küçük kalır, devasa bir açılım değil. Tam tersi de geçerlidir. Sen masanın en kısa büyük körüsün, buton geniş açtı ve küçük kör zaten ödedi; artık iki ayrı aralığa karşısın ve sen katlayınca basamak, biri bust olacağı için sana bedava geliyor. Bu durumda onlu onlu ya da vale vale gibi güçlü bir çifti bile katlamak doğrudur. Kural iki yüzlüdür: mikro yalnız jam'lediyse bir tık geniş öde, jam'e zaten call geldiyse ve sen en kısaysan güçlü çifti bile bırak."
+      },
+      {
+        "title": "EK: Kaybedersem kim oluyorum — varış rolünün aynası",
+        "bullets": [
+          "Kazanırsam kim oluyorum testinin aynası: kaybedersem masada kimin altına düşerim",
+          "Kayıp hâlâ mikro stack'in kat kat üstünde bırakıyorsa chipEV'e yakın oyna",
+          "Kayıp seni benzer boydaki stack'lerle aynı seviyeye düşürüyorsa boyu küçült",
+          "Roller netleşmeden chip biriktirmenin değeri düşüktür, göreli konum öndedir",
+          "Masadaki üçüncü stack'in etkisi lineer değildir"
+        ],
+        "ruleBox": "Bet boyunu belirlerken kaybedersem sıralamam ne olur diye sor — cevap değişmez ise chipEV'e yaklaş, düşerim ise bir boy küçül.",
+        "narration": "Kazanırsam kim oluyorum testinin bir de aynası var: bu potu kaybedersem masada kimin altına düşerim. Yarım stackini riske atıp kaybettiğinde hâlâ en kısa stackin kat kat üzerinde kalıyorsan, o en kısa stacke rağmen chip EV'e yakın oynayabilirsin; çarpışmadan en çok o kazançlı görünse de senin göreli konumun sarsılmıyor demektir. Ama aynı kayıp seni benzer boydaki stacklerin arasına ya da altına düşürüyorsa, o zaman boyu küçült. Roller netleşmeden önce chip biriktirmenin değeri düşüktür; göreli konumu korumak öndedir. Bu yüzden masadaki üçüncü stackin etkisi düz bir çizgi izlemez, sıçramalı çalışır. Pratikte bunu bet boyu kararına şöyle sok: eli göndermeden önce kendine sor, kaybedersem sıralamam ne olur. Cevap değişmez ise bet boyunu chip EV mantığına yaklaştırabilirsin. Cevap düşerim ise bir boy küçült, çünkü aynı kayıp seni artık gerçek bir tehdit karşısına atıyor demektir. Bu test kazanma tarafındaki sorunun tam simetriği ve iki yönü birlikte kullanmak varış rolünü daha net görmeni sağlar."
+      },
+      {
+        "title": "EK: Post-bubble gecikmesi — popülasyon saatlerce eski modda kalır",
+        "bullets": [
+          "Bubble patladıktan sonra ilk saatlerde saha büyük ölçüde hâlâ yüksek prim refleksleriyle oynar",
+          "Bir kesim value elle bile call-off'a aşırı sıkı kalır, iyi eli gereksiz fold eder",
+          "Diğer kesim hâlâ bubble baskısını satmaya devam eder, aşırı geniş open ve agresyon gösterir",
+          "Aşırı sıkı katlanana karşı fold equity'li hatları genişlet, ince value'yu kes",
+          "Küçük dört-bet tek başına hâlâ bubble modunda sinyali değildir"
+        ],
+        "ruleBox": "Post-bubble ilk elleri kim hâlâ eski modda teşhisi için kullan: aşırı katlanana blöf ve steal genişlet, hâlâ baskı satana call ve üç-bet genişlet.",
+        "narration": "Bubble patladıktan sonra ilk bir kaç saat boyunca, süre sahaya ve seviye uzunluğuna göre değişir, sahanın büyük kısmı hâlâ yüksek prim refleksleriyle oynamaya devam eder. Bu gecikme iki zıt sapma üretir. Bir kesim value elle bile call-off kararında aşırı sıkı kalır ve iyi bir eli gereksiz yere fold eder. Diğer kesim ise hâlâ bubble baskısını satmaya devam eder, açışını ve agresyonunu aşırı geniş tutar. İki mod karşısında ters yönde genişlemek gerekir. Aşırı katlanan post-bubble nite karşı fold equity taşıyan hatları genişlet: steal, blöf jam, üç-bet blöfü. İnce value elini kes, çünkü karşındaki fazla katlanıyor ve sana ödeyen aralık zaten güçlü. Hâlâ baskı satmaya devam edene karşı ise call ve üç-bet tarafını genişlet. Bir teşhis tuzağına dikkat et: açıcının üç-bete karşı küçük dört-bet vermesi, tek başına hâlâ bubble modunda sinyali değildir. Bu hattın malzemesi yapı gereği value ağırlıklı ve varlık koşulu rakibin beş-bet blöf jam bulmasıdır, yüksek prim değil. Küçük dört-beti mod artığı sayıp gerçek elle fazla devam ettirme, önce rakibin beş-bet blöf jam bulup bulmadığını sor."
+      },
+      {
+        "title": "EK: Modelin göremediği kısa stack — blind yakınlığı",
+        "bullets": [
+          "ICM modeli tüm kısa stackleri konumlarına bakmaksızın eşit sayar",
+          "Aynı bb'deki kısa stack blinde yakınsa zorunlu all-in ve bust olasılığı daha yüksektir",
+          "Bu bilgi kendi masanda ya da çoklu masa görünümünde elinde olabilir",
+          "Marjinal bir call'u fold'a çevirmek laddering değerini modelin göstermediği şekilde artırır"
+        ],
+        "ruleBox": "Başka bir masadaki kısa stackin blinde ne kadar yakın olduğunu bilebiliyorsan, o bilgiyi 22.10'un blind geometrisi düzeltmesine üçüncü taraf olarak ekle.",
+        "narration": "ICM modeli tüm kısa stackleri konumlarına bakmaksızın eşit sayar, ama gerçekte durum böyle değildir. Aynı bb'deki bir kısa stack blinde yakınsa, önümüzdeki bir kaç elde zorunlu all-in'e girme ve bust olma olasılığı daha yüksektir. Bu bilgi elinde olabilir: online oyunda çoklu masa ekranından başka bir masadaki sırayı görebilirsin, ya da kendi masanda sıradaki pozisyonu zaten biliyorsun. Bu bilgiyi elinde tuttuğunda, marjinal bir call'u fold'a çevirmek mantıklı hale gelir, çünkü bir başka kısa stackin yakında zorunlu olarak eleneceğini biliyorsun ve bu laddering değerini modelin kendisi göstermez. Model yalnızca stack oranlarına bakar, kimin sırada olduğuna bakmaz. Bu yüzden blind geometrisi düzeltmesini yaparken tek başına kendi bb sayına değil, sahadaki diğer kısa stacklerin sıraya olan mesafesine de bak. Elinde bu bilgi varsa, onu üçüncü bir girdi olarak düzeltmeye ekle ve marjinal kararlarını buna göre bir derece daha temkinli ver."
+      },
+      {
+        "title": "EK: Aynı prim oranı, farklı çarpışma sıklığı — mutlak derinlik",
+        "bullets": [
+          "Stack oranları ve risk primleri aynı olsa bile mutlak ortalama derinlik farklıysa çarpışma sıklığı değişir",
+          "Sığ masada oyuncular birbirine daha sık girer, kısa stack etrafında bust daha sık olur",
+          "Sığ masada kendi bb'n de düşüktür, blind erimen hızlı ve jam'inin fold equity'si çabuk ölür",
+          "Derin masada çarpışma seyrekleşir, kısa stack rahat hissedebilir ama sessizce blind'e eriyebilir"
+        ],
+        "ruleBox": "Masanın mutlak ortalama derinliği çarpışma sıklığını verir, kendi bb'n bekleme bütçesini verir — bu iki değişkeni ayrı sor.",
+        "narration": "İki masada stack oranları, dolayısıyla risk primleri neredeyse aynı olsa bile, masanın mutlak ortalama derinliği farklıysa çarpışma olasılığı da farklı çıkar. Ortalama derinlik sığsa, yani herkes düşük bb'de oynuyorsa, oyuncular birbirine daha sık girer ve kısa stackin etrafında bust'lar daha sık yaşanır; fold'un gizli EV'si yükselir. Ama bu bekleme bedava değildir. Oranlar sabitken sığ masada senin bb'n de düşüktür, zorunlu blind erimen en hızlı çalışır ve jam'inin fold equity'si en çabuk ölür. Yani mutlak derinlik çarpışma sıklığını verir, kendi bb'n ise bekleme bütçesini verir, bunlar iki ayrı değişkendir. Ortalama derinlik daha derinse, aynı oranlarla ama daha yüksek bb'de, diğer stackler birbirini daha rahat fold layabilir ve çarpışma seyrekleşir. Kısa stack bir kaç orbit var bir şey olur diye rahat hissedebilir, ama kimse çarpışmayabilir ve sessizce blinde eriyip gidebilir. Bu iki değişkeni ayrı sor: sığ masada yalnız jamin hâlâ fold equity taşıdığı sürece fold layıp çarpışmayı bekle, derin masada çarpışma seyrek olduğu için eli kendin yaratman gerekebilir."
       },
       {
         title: "Cheat + Day 2 uygulaması",
@@ -3370,6 +3782,275 @@ export const modules: Module[] = [
         "narration": "Yirmi big blind'lik büyük körde tek bir jam listesiyle her açılışa aynı cevabı vermek kök hatadır. Jam'in beklenen değeri iki kaynaktan gelir: katlattığın daha iyi el ve call aldığın daha kötü el. Açıcı erken pozisyondaysa aralığı dar ve güçlüdür; kral-kız offsuit ya da as-on offsuit gibi eller jam'e katlanır, bu yüzden onlu ya da vale taşıyan yüksek suited eller jam'de değer kazanır. Açıcı geç pozisyondaysa aynı eller artık katlanmaz; jam bir kademe aşağı iner, dokuzlu ve sonra sekizli suited ellere kayar, üst katmandaki eller ise artık call'a geçer. Aynı motor as-vale suited call, as-yedi suited jam çelişkisini de çözer: as-vale jam'lediğinde as-kız hiç katlanmaz, as-on hiç call etmez; call'da ise kral-vale, kız-vale ve zayıf as'ları domine eder, flop'ta küçük bete devam eder ve daha çok kazanır. As-yedi suited'in domine ettiği bir kütle yoktur, jam'de as-sekiz ve as-dokuzu katlatır, bu yüzden jam. Soru iyi el mi değil, domine ettiğim kütle call'da mı jam'de mi para ödüyor sorusudur."
       },
       {
+        "title": "EK: Balinaya karşı çift merdiveni",
+        "bullets": [
+          "Orta-üst çift (99 sınıfı): non-all-in 3-bet ile commit ol — jam yalnızca stack 20bb ve altına indiğinde; amaç domine edilen 88-77 gibi çiftlerin ödemesini almak.",
+          "Alt çift (22-66): call ile devam et — flip'ten erken fold ettirmenin kazancı düşük, asıl kâr postflop'ta balinanın elini sana anlatmasında.",
+          "AJs sınıfı: 3-bet-call ile balinanın devam aralığını domine et.",
+          "İnce ayrıntı: 'as gördüm mü jam, görmedim mi fold' oynayan rakibe karşı orta çift 3-bet'i sana A-high board'ların komutasını da verir."
+        ],
+        "ruleBox": "Balinaya agresyonu domine ettiğin call'lar ödüyorsa bas ama boyu all-in olmayan tut; ödemiyorsa alt çiftle call'la ve postflop dinle.",
+        "narration": "Pasif balinanın açılışına çiftlerle cevap tek değil bir merdiven olmalı. Orta ve üst çiftler, mesela dokuzlu sınıfı, commit eden ama all in olmayan bir üç bet ister; jam yalnızca yığın yirmi büyük kör ve altına indiğinde devreye girer. Bu üç betin değeri sırf kart gücünden gelmez, balinanın domine edilen çiftlerini, sekizli ve yedili gibi, ödemesinden gelir; direkt jam edersen tam o ödemeleri kaçırırsın. Alt çiftler için ise call doğru cevaptır; balinayı flip elinden erken fold ettirmek yığın biriktirme fazında az kazandırır, asıl kâr postflop'ta o elini sana anlatırken gelir. As dam ve as vale suited sınıfı ise üç bet call ile balinanın devam aralığını domine eder. İnce bir ek daha var: yalnızca as görünce jam oynayan, görmeyince fold eden bir rakibe karşı orta çiftle üç bet, as yüksek board'ların komutasını da sana verir; as içermeyen boardları hızlı oyna, as gelen boardda elin zaten bellidir."
+      },
+      {
+        "title": "EK: LAG'in check-raise istisnası",
+        "bullets": [
+          "B23.1'in 'LAG'e bluff-catch aç, blöf yapma' kuralı her geniş/agresif görünen rakip için geçerli değildir.",
+          "Alt tip: preflop geniş açar, flop'ta sık stab eder — ama SENİN check-raise veya 3-bet'ine geldiğinde çözülür, ödemeyi bulamaz.",
+          "İşaret: geniş açılış + yüksek c-bet frekansı + karşı-agresyona düşük devam.",
+          "Bu tipe karşı marjinal/orta güçte elle check-raise blöfü ekle — standart LAG kuralını burada uygulama."
+        ],
+        "ruleBox": "LAG'i tek eksende etiketleme; 'geniş açar' ile 'baskıya dayanır mı' ayrı sorulardır — ikincisinde zayıfsa check-raise blöfü aç.",
+        "narration": "Geniş kural şudur: agresif görünen bir rakibin blöfüne fold etme, bluff catch elini aç, kendin blöf yapma. Ama bu kural her geniş açan oyuncu için geçerli değil. Ayrı bir alt tip var: preflop geniş açar, flopta da sık stab eder, ama senin karşı agresyonuna, yani check-raise veya üç bete geldiğinde çözülür ve ödemeyi bulamaz. İşareti üç parçadır: geniş açılış, yüksek devam bahsi frekansı, ve karşı agresyona düşük devam. Bu rakibe karşı standart kuralı tersine çevir; marjinal ya da orta güçte bir elle check-raise blöfü ekle, çünkü bu hamle tam da onun geniş ama fold edilebilir aralığını hedefler. Önemli olan tek bir elle etiket yapıştırmamak. Rakibin geniş açması ile karşı agresyona dayanıp dayanmadığı ayrı iki eksendir; birini gördün diye diğerini varsayma, masada gözlemleyip karar ver."
+      },
+      {
+        "title": "EK: ICM-hissini tek soruyla değil oku",
+        "bullets": [
+          "Üçüncü tip var: ICM baskısını YARIM hisseden oyuncu — para yaklaşırken hâlâ ince stack'le girer ama flop sonrası kilitlenir, check-fold ve raise-fold'a döner.",
+          "Exploit iki uçlu: preflop girişine saygı yok, açık aralıkla gir; postflop kilide tam baskı ver çünkü para oradan gelir.",
+          "El görmeden profil çıkar (23.3-EK-2): küçük buy-in ağırlıklı sonuç geçmişi olan oyuncu min-cash'e kilitlenir, hiç min-cash'i olmayan derin-koşan tip bubble'ı umursamaz.",
+          "Masa davranışı etiketi kendi verir — bubble'da stall'layan ya da bubble'ı uzakta geçiren ICM-duyarlıdır; sözlü beyan tersinden okunur, 'umurumda değil' diyen çoğunlukla tam tersidir."
+        ],
+        "ruleBox": "ICM-hissini el beklemeden etiketle: sonuç profili artı bubble davranışı artı tersinden okunan sözlü beyan — tek bir binary soru değil.",
+        "narration": "ICM'i hissediyor mu sorusu ikili değildir. Sahada en kârlı tip üçüncüsüdür: baskıyı yarım hisseden oyuncu. Bu profil para yaklaşırken hâlâ ince yığınla min raise ile girer, flopu görür, sonra kilitlenir; büyük kör'ü savunurken check fold yapar, açtığında devam bahsine katlanır. Buna karşı exploit iki uçludur: preflop girişine hiç saygı gösterme, aralığını geniş tut; postflop baskıyı tam gaz uygula çünkü asıl para onun flop foldundan gelir. Ayrıca bu duyarlılığı el görmeden de okuyabilirsin. Küçük giriş bedelli turnuva ağırlıklı sonuç geçmişiyle büyük bir turnuvaya oturan oyuncu min cash'e kilitlenir; hiç min cash almamış, hep derin koşan tip bubble'ı umursamaz. Masada bubble'da oyunu yavaşlatan ya da bubble'ı uzakta bekleyen oyuncu ICM duyarlı etiketini kendisi verir, not al. Sözlü beyan tersinden okunur: bubble umurumda değil diyen genellikle tam tersidir, kendiliğinden sızan tavır ise genellikle doğrudur."
+      },
+      {
+        "title": "EK: Bazen değeri CHECK ile al",
+        "bullets": [
+          "Temel kural 'ICM-körü rakibe value al' yalnız ICM'i hiç hissetmeyen rakip içindir.",
+          "Ayrı popülasyon: ICM'i hissediyor, bu yüzden zaten aşırı foldluyor — ve tam bu yüzden devam bahsine de fazla kolay pes ediyor.",
+          "Böyle sahada direkt value bet çoğu zaman anında fold alır, kazanç sıfırdır.",
+          "Premium eli bazen check-back ile oyna — rakip check'i zayıflık okuyup sonraki sokakta kendi blöfünü ya da ince value'sunu masaya koyar."
+        ],
+        "ruleBox": "ICM-körüne value al kuralı ICM'i hiç hissetmeyene özeldir; ICM'i hissedip devam bahsine aşırı foldlayan popülasyona bazen check ile bekle, bahsi rakibe koydur.",
+        "narration": "Bilinen kural şudur: ICM'i hiç hissetmeyen rakibe baskı satma, direkt value al. Ama bu kural yalnız ICM'i tamamen görmeyen rakip içindir. Ayrı bir popülasyon var: ICM'i hissediyor, zaten bu yüzden aşırı foldluyor, ve tam bu yüzden bir devam bahsine karşı da fazla kolay pes ediyor. Böyle bir sahada elini direkt value için attığında çoğu zaman anında fold alırsın, hiçbir şey kazanmazsın çünkü rakip zaten ödemeyecekti. Bu durumda premium elini bazen çekerek oyna, yani check back yap. Rakip senin checkini zayıflık ya da inisiyatifsizlik olarak okur ve sonraki sokakta kendi blöfünü ya da ince value elini masaya koyabilir; check, bahsin kendisinin alamayacağı bir aksiyonu davet eder. Özetle ICM körüne value al kuralını herkese uygulama; ICM'i hissedip devam bahsine aşırı foldlayan rakibe karşı bazen sus, bahsi onun koymasını bekle."
+      },
+      {
+        "title": "EK: Blöf seçimi bloker değil equity",
+        "bullets": [
+          "Blöf frekansı düştükten sonra kalan blöflerin SEÇİMİ de değişir.",
+          "Bloker blöfü değerini rakibin disiplinli fold'undan alır; showdown-öncelikli havuz bu fold'u vermez.",
+          "Böyle havuzda çağrılınca gerçek out taşıyan eller — küçük çift, canlı gutshot — 'temiz' ama outsuz kombolardan çoğunlukla daha iyidir.",
+          "Bloker seçimi disiplinli fold'u GÖRDÜĞÜN reg tipi rakibe karşı yine öne geçer."
+        ],
+        "ruleBox": "Foldlamayan sahada blöfü 'kimi bloke ediyorum'la değil 'çağrılınca kaç outum var'la seç; bloker blöfü fold disiplinli rakibin lüksüdür.",
+        "narration": "Blöf frekansını düşürdüğün an mesele bitmez, kalan blöflerin seçimi de değişmesi gerekir. Bloker blöfü, yani rakibin fold aralığıyla kart çakışmasını en aza indiren düşük bağlantılı bir el, değerini rakibin disiplinli foldundan alır. Ama showdown öncelikli, yani çağırmayı seven bir havuz bu foldu sana vermez, kaç kombo blokladığın onun kararını hiç etkilemez. Aynı hatada bu kez equity'si yüksek adayı öne geçir: gerçek out taşıyan eller, küçük çift ya da canlı gutshot gibi, kağıt üzerinde temiz görünen ama hiç outu olmayan kombolardan çoğunlukla daha iyidir; çünkü kazanma yolun artık rakibi fold ettirmek değil, elini tutturmaktır. Bloker seçimi tamamen çöpe gitmez; disiplinli fold gördüğün, yani reg tipte oynayan bir rakibe karşı yine öne geçer, populasyon değişince mantığın da değişmesi gerekir. Kısacası soru değişir: foldlamayan sahada blöfünü kimi blokladığımla değil, çağrılırsam kaç outum olur sorusuyla seç."
+      },
+      {
+        "title": "EK: Showdown'u geri sararak oku",
+        "bullets": [
+          "Showdown tek kart bilgisi değil, elin TÜM sokaklarının cevap anahtarıdır — kartlar açılınca eli baştan sar, her boyu board tipiyle eşle.",
+          "Tek-boy repertuvar (her dokuda aynı üçte bir) elini değil ezberini boyluyordur; doku büyük boy isterken büyüdüyse elini boyluyordur — boy-tell canlıdır.",
+          "Küçük 3-bet'in iki zıt okuması bağlamdan ayrışır: eski usul rec premium'u içeride tutar, düşünen agresör zayıf oyuncuyu ucuza izole eder.",
+          "En değerli satır: popülasyon telline UYAN gözlem teyittir, AYKIRI gözlem kategori değiştirir — tek gözlemle rafı taşı."
+        ],
+        "ruleBox": "Her showdown'da eli geri sarıp boyları board'la eşle; popülasyon tellini kıran tek gözlem, ona uyan on gözlemden değerlidir.",
+        "narration": "Showdown yalnızca son kartın bilgisini vermez, elin bütün sokaklardaki cevap anahtarını verir. Kartlar açıldığı an eli baştan sar ve attığı her boyu o sokaktaki board tipiyle eşleştir. Aynı üçte bir boyu her dokuda kullanıyorsa bu elini değil ezberini boyluyordur; doku büyük boy isterken boyu da büyüdüyse elini boyluyordur, boy telli canlı demektir. Küçük üç bet'in de iki zıt okuması buradan ayrışır: eski usul bir rakip küçük boyla premium elini içeride tutar, düşünen bir agresör ise küçük boyla masadaki zayıf oyuncuyu ucuza izole eder; hangisi olduğunu boy değil bağlam, yani kimden kime gittiği ve masada bariz bir hedef olup olmadığı söyler. En değerli satır şu: popülasyon tellinle uyuşan bir gözlem sadece teyittir, ama ona aykırı bir gözlem kategori değiştirir. Hızlı çağıran sandığın adam savaş modunda hero call gösterdiyse, ya da ilk kez blöf üç bet gördüysen, onu tek gözlemle yeni bir rafa taşı."
+      },
+      {
+        "title": "EK: İnelastiklik board özelliği de olur",
+        "bullets": [
+          "23.5 'station boyuta duyarsız → büyük bet' der; aynı duyarsızlık dengeli rakipte de belirli boardlarda doğar.",
+          "Kuru, yüksek kartlı boardda rakibin devam aralığı çiftlerden kurulu olabilir ve küçük bete de büyük bete de kabaca aynı aralıkla devam eder.",
+          "Böyle boardda value'yu BÜYÜK al — parayı, katlanamayacağı an koydur; board değişince ya da rakip durunca pencere kapanır.",
+          "Board elastikleştikçe — orta kart ve draw girip devam aralığı boya duyarlı hale geldikçe — küçük boya dön."
+        ],
+        "ruleBox": "Boyu el gücün değil rakibin fold eğrisi seçer: devam aralığı boydan bağımsızsa büyük, boyla eriyorsa küçük — ve bu bazen oyuncunun değil board'un özelliğidir.",
+        "narration": "Bilinen kural şu: boyuta duyarsız bir rakibe, yani stationa, büyük bet at. Ama aynı duyarsızlık dengeli, iyi oynayan bir rakipte de belirli boardlarda kendiliğinden doğar. Kuru, yüksek kartlı bir boardda rakibin devam aralığı büyük ölçüde çiftlerden oluşabilir ve bu aralık küçük bete de büyük bete de kabaca aynı listeyle devam eder. Böyle bir boardda value elini büyük al; parayı, rakip henüz katlanamazken potun içine koydur, çünkü board değişince ya da rakip durunca bu pencere kapanır. Board elastikleştikçe, yani araya orta kartlar ya da olası düz ve renk taşıyıcılar girip devam aralığı boya duyarlı hale geldikçe küçük boya geri dön. Masada sorulacak soru şudur: elimin sınıfı adına şu an potta sihirle ne kadar para olsun isterdim; cevap küçük betten büyükse ve rakip bu boardda gerçekten inelastikse büyük bas. Unutma, bu bazen oyuncunun değil, boardun kendi özelliğidir."
+      },
+      {
+        "title": "EK: Tek gelişmiş hamle tek örneklem değildir",
+        "bullets": [
+          "Rakip beklemediğin gelişmiş/agresif bir hamle yaparsa — örneğin kısa-orta yığından seyrek görülen bir blöf 3-bet — bunu 'tek örneklem, bir şey söylemez' diye geçme.",
+          "Bu tarz hamleler genelde rastgele değil bir EŞİK AŞIMININ işaretidir; rakip bu hamleyi biliyor ve tekrar arayacaktır.",
+          "O andan itibaren rakibe dair tüm okumanı kalıcı şekilde yukarı çek.",
+          "Ters yön de geçerli: beklemediğin sert bir fold ya da disiplinli bir hat gördüysen, çalışmış olma ihtimalini de kalıcı yukarı taşı."
+        ],
+        "ruleBox": "Tek bir gelişmiş ya da disiplinli hamle küçük örneklem diye görmezden gelinmez; rakibin o kapıyı gördüğünün kanıtıdır, okumanı o andan itibaren kalıcı güncelle.",
+        "narration": "Bir rakibin beklemediğin türden gelişmiş ya da agresif bir hamle yaptığını gördüğünde, mesela kısa ya da orta yığından seyrek görülen bir blöf üç bet, bunu tek örneklem, fazla bir şey söylemez diye geçme. Bu tarz hamleler genelde rastgele değil, bir eşik aşımının işaretidir; rakip bu hamleyi bilir ve ileride tekrar arayacaktır. O andan sonra rakibe dair bütün okumanı bu bilgiye göre kalıcı şekilde yukarı çek, tek elin gösterdiğini unutmuş gibi davranma. Aynı mantık ters yönde de geçerli: rakip beklemediğin bir yerde sert bir fold ya da disiplinli bir hat gösterdiyse, onun çalışmış, yani teoriye hakim bir oyuncu olma ihtimalini de kalıcı olarak yukarı taşı. Küçük örneklem gerekçesiyle bu tek gözlemi göz ardı etme; tam tersine, rakibin o kapıyı gördüğünün kanıtı olarak kabul et ve masadaki geri kalan kararlarını buna göre ayarla."
+      },
+      {
+        "title": "EK: İlk tepkin kalibrasyon aletidir",
+        "bullets": [
+          "Bir rakip hattı gördüğünde ilk tepkin iki yönde de veri üretir.",
+          "'Bu ne saçma bet böyle' diyorsan dur — o hat büyük ihtimalle tam da senin gibi düşünenlere karşı çalışıyor; küçümseme refleksi çalışılmamış düğümün kokusudur.",
+          "Bir yaratıcı hatta anında âşık olduysan büyük ihtimalle o hattı fazla kullanıyorsundur.",
+          "Fark etmediğin şey: bu heves masada tempo ve tavır olarak sızar — sürekli o spotu gören oyuncunun agresyonu dikkatli rakip için kendi başına bir tell'dir."
+        ],
+        "ruleBox": "Rakibin hattı sana saçma görünüyorsa muhtemelen sana karşı kârlıdır, kendi hattın sana anında mükemmel görünüyorsa muhtemelen aşırı frekanstasın — ikisini de not al, ikisine de masada karar yaslama.",
+        "narration": "Bir rakibin hattını gördüğünde verdiğin ilk tepki, iki yönde de sana veri verir. Bu ne saçma bet böyle diye düşünüyorsan dur ve düşün; o hat büyük ihtimalle tam da senin gibi düşünen oyunculara karşı işliyordur. Küçümseme refleksi genelde çalışılmamış bir düğümün kokusudur, molada o düğümü kendine sor. Tersine bir yaratıcı hatta anında âşık olduysan, yani evet burada herkes bunu katlar dediysen, büyük ihtimalle o hattı fazla sık kullanıyorsundur. Fark etmediğin şey ise şu: bu heves masada tempo ve tavır olarak sızar. Sürekli aynı spotu gören bir oyuncunun agresyonu, dikkatli bir rakip için kendi başına bir tell haline gelir. İki tepki de doğrudan bir karara değil, kendi çalışma listene yazılmalıdır. Rakibin hattı sana saçma görünüyorsa muhtemelen sana karşı kârlıdır; kendi hattın sana mükemmel görünüyorsa muhtemelen aşırı kullanıyorsundur, ikisini de not al ama masada anında karar verme."
+      },
+      {
+        "title": "EK: Öğrenilmemiş check-raise savunması",
+        "bullets": [
+          "Orta/düşük saha küçük aralık-c-bet'ini ezberlemiştir — bazen range-bet olmayan board'da bile — ama check-raise'e devam ayağını hiç çalışmamıştır, x/r'a olması gerekenden dar devam eder.",
+          "Exploit iki parçalı ve bilinçli dengesiz: x/r blöfünü draw ve backdoor'lu ellerle geniş at, iyi kart gelmezse turn'de fren yap.",
+          "Value x/r'ı ise DAR tut — bu profil ince x/r'a zaten kötü elle devam etmez.",
+          "Aynı okumanın turn ayağı: x/r tehdidi düşükken 'kırılırım' kaygısı da gevşer, koruma ve draw bet'leri teoriden daha serbest açılır."
+        ],
+        "ruleBox": "Otomatik küçük bete karşı check-raise blöfü geniş aç ve turn'de fren yap, value check-raise'i dar tut — fold'u öğrenilmemiş savunmadan al, ödemeyi bekleme.",
+        "narration": "Orta ve düşük sahanın tipik profili küçük aralık bahsini, yani c-beti, ezberlemiştir; bazen bunun teorik olarak doğru olmadığı boardlarda bile aynı küçük boyu atar. Ama bu bahsin check-raise'e karşı devam ayağını hiç çalışmamıştır; senin check-raise'ine karşı olması gerekenden çok daha dar devam eder. Buradaki exploit iki parçalıdır ve bilerek dengesiz kurulur. Check-raise blöfünü draw'lu ve backdoor potansiyelli ellerle geniş tut, ama iyi kart gelmezse turn'de fren yap, floptaki foldu aldın, ısrar etmene gerek yok. Value check-raise'ini ise dar tut; çünkü bu profil ince bir value check-raise'ine zaten kötü eliyle devam etmez, orta top pair ile check-raise yapmak kendi kendine value bet atmaktan farksızdır. Aynı okumanın turn ayağı da var: bu rakip check-raise tehdidi düşükken kırılırım kaygısı da gevşer, bu yüzden koruma ve draw bahisleri teorinin verdiğinden daha serbest açılır."
+      },
+      {
+        "title": "EK: Board'u boşaltılan dilim sahiplenir",
+        "bullets": [
+          "~20bb'de BB, geç açılışa karşı küçük çiftlerini ve zayıf suited Ax'ini preflop'ta jam'ler, AQs/AKs'i de value jam/3-bet'e ayırır — savunması bu dilimlerden arınır.",
+          "Sonuç: A-high board açıcınındır — sık ve büyük bet at; BB'nin check-raise'i neredeyse kapanır, kalan savunma en iyi Ax'i (ATs/AJs) check-call'da tutmaya iner.",
+          "~30bb'de aynı iş jam değil boşaltılan non-all-in 3-bet dilimiyle olur — yön aynı, dilim daha ince.",
+          "SB flat tam tersini yapar: çiftler ve iyi Ax jam/3-bet'te gidince, kalan flat broadway/orta suited'a yoğunlaşır — broadway board flatter'ındır, düşük kartlı board açanın malıdır."
+        ],
+        "ruleBox": "Board'un sahibini pozisyon etiketi değil boşaltılan preflop dilimi söyler — jam'lenen ya da 3-bet'lenen el sınıfının board'u, o dilimi boşaltanın aleyhine döner.",
+        "narration": "Kısa derinlikte board sahipliğini jamler belirler ve yön board sınıfına göre değişir. Yaklaşık yirmi büyük kör derinliğinde büyük kör, geç pozisyondan gelen açılışa karşı küçük çiftlerini ve zayıf suited as'lı ellerini preflopta jamler, güçlü as kombolarını da value jam ya da üç bete ayırır; savunması bu dilimlerden arınmış olur. Sonuçta as yüksek boardlar ezici biçimde açanındır, sık ve büyük bet at; büyük körün check-raise'i neredeyse kapanır, kalan savunması en iyi as kombolarını check call'da tutmaya iner. Otuz büyük kör civarında aynı işi jam değil, boşaltılan küçük üç bet dilimi yapar, yön aynıdır ama dilim incedir. Küçük kör flatı tam tersini yapar: çiftler ve iyi as'lar jam ya da üç bette gider, kalan flat broadway ve orta suited ellere yoğunlaşır; broadway boardlar flat yapanın, üç düşük kartlı board açanın malıdır. Soru pozisyon etiketi değil, bu derinlikte bu koltuğun preflopta hangi dilimi boşalttığıdır."
+      },
+      {
+        "title": "EK: Squeeze'de çift açık",
+        "bullets": [
+          "23.13'ün 3-bet açığının squeeze'de iki katlı sürümü var: havuz open+call gördüğünde squeeze'i dengeden belirgin az bulur, VE squeeze yediğinde savunması (özellikle orta derinlikte rejam) dengeden belirgin eksik kalır.",
+          "İki açık aynı anda lehine çalışır: squeeze ve squeeze-jam'i tam frekans oyna — comfy suited broadway'i 'postflop oynarım' diye flat'e kaçırmak bu geliri bırakmaktır.",
+          "Sen squeeze yediğinde rejam'i DAR ve value-ağırlıklı tut — az squeeze'leyen havuzun bastığı squeeze nut-ağırlıklıdır, blöf rejam'inin fold equity'si yoktur.",
+          "Dolaylı üçüncü sonuç: BB'nin squeeze'i eksikse SB'den flat genişler — squeeze'lendiğini gördüğün an bu genişlemeyi geri sar."
+        ],
+        "ruleBox": "Open+call gördüğünde varsayılan soru 'squeeze var mı' olsun, 'flat comfy mi' değil — sen squeeze yediğinde ise rejam'in dar ve value'dur, blöf değil.",
+        "narration": "Havuzun üç bet açığının squeeze'de iki katlı bir sürümü vardır. Havuz açılış ve çağrı gördüğünde squeeze'i dengeden belirgin şekilde az bulur, ve squeeze yediğinde savunması, özellikle orta derinlikte tekrar jam ile, dengeden belirgin şekilde eksik kalır. Bu iki açık aynı anda senin lehine çalışır. Squeeze'ini ve squeeze jam'ini tam frekansla oyna; rahat suited broadway elini postflop oynarım diyerek flat'e kaçırmak bu geliri masada bırakmaktır. Sen squeeze yediğinde ise tekrar jam'ini dar ve value ağırlıklı tut; çünkü az squeeze yapan bir havuzun fiilen bastığı squeeze, güçlü el ağırlıklıdır, blöf amaçlı bir tekrar jamin fold ettirme gücü yoktur. Dolaylı üçüncü bir sonuç daha var: büyük körün squeeze'i eksikse küçük körden gelen flat genişler, çünkü arkanda seni cezalandıracak bir squeeze tehdidi yoktur. Ama squeeze yediğini gördüğün an bu genişlemeyi hemen geri çek."
+      },
+      {
+        "title": "EK: Küçük bete refleks check-raise değil",
+        "bullets": [
+          "Havuzun büyük dilimi IP'de neredeyse her boardı küçük boyla range-bet'ler ama turn'de düşük-equity barrel bulamaz — cezası check-raise'i şişirmek değil FLOAT'tır.",
+          "Float: küçük bete dengeden yapışkan devam et, turn sık check'lenir, river blöfünü ve ince value'yu sen alırsın.",
+          "Ayrı kök hata (23.17): 'dev avantajlı boardda küçük bet attı → zayıftır, check-raise'le ez' — ama hatası zayıflık değil pot'u BÜYÜTMEMEK olabilir; check-raise basarsan onun value'su için pot'u sen büyütürsün.",
+          "Doğru cevap o zaman geniş ama PASİF savunmadır — fiyatı al, iyi ellerini check-call'da tut; agresyonu fazla-fold veya fazla-blöf yapan rakibe sakla."
+        ],
+        "ruleBox": "Villain'in küçük betinin sebebini teşhis et — zayıf repertuvar mı yoksa bilinçli pot kontrolü mü; birincisine float, ikincisine pasif geniş savunma, ikisine de check-raise değil.",
+        "narration": "Havuzun büyük bir dilimi, pozisyonda açan ya da üç bet eden benim diyerek neredeyse her boardı küçük boyla range bet'ler. Bu bahis aralığını dengedekinden zayıflatır, ama cezası check-raise'i şişirmek değildir; çünkü aynı oyuncu turn'de düşük equity barrel'ı da bulamaz. Doğru hat float'tır: küçük bete dengeden de yapışkan devam et, turn genelde check'lenir, river blöfünü ve ince value'yu sen toplarsın. Ayrı bir kök hata daha var: dev avantajlı bir boardda küçük bet attı demek zayıftır anlamına gelmez, hatası zayıflık değil pot'u büyütmemek olabilir. Böyle bir ele check-raise basarsan, onun value'su için pot'u sen büyütmüş, hatasını bedavaya tamir etmiş olursun. Doğru cevap geniş ama pasif bir savunmadır; fiyatı al, iyi ellerini de check-call hattında tut ki turn baskısına dayanabilesin. Agresyonu ise hatası fazla fold ya da fazla blöf olan rakibe sakla. Kısacası küçük bete karşı önce hatanın adını koy, sonra tepkini seç."
+      },
+      {
+        "title": "3-bet potunda savunma board'a bağlı",
+        "bullets": [
+          "'3-bet potunda çiftle küçük bete hep devam' ezberi board-kördür — rakibin preflop blöf malzemesini yaz (blind 3-bet blöfleri çoğunlukla Ax ve yüksek broadway).",
+          "Blöflerinin PER yaptığı boardda (A-high, K-high) savunmanı sertçe DARALT — onun 'blöfü' artık top pair'dir, senin orta çiftin ve zayıf backdoor'ların değer kaybeder.",
+          "Blöflerinin gerçekten ISKALADIĞI boardda (orta/düşük bağlantısız) aynı çiftler ve backdoor'lar yapışkan devam eder, float da genişler.",
+          "Soru her sokakta aynı: bu kart onun value'sunu mu büyüttü, blöfünü mü per yaptı, yoksa havasını mı çoğalttı?"
+        ],
+        "ruleBox": "Savunma eşiğini board'a değil şu soruya bağla: rakibin preflop blöfleri bu board'da isabet mi etti, ıskaladı mı — isabet ettiyse daral, ıskaladıysa yapış.",
+        "narration": "Üç bet potunda çiftle küçük bete hep devam et ezberi board'u görmez. Doğrusu rakibin preflop blöf malzemesini önceden yazmaktır; kör üç bet blöfleri çoğunlukla as içeren ve yüksek broadway ellerdir. Rakibin blöflerinin isabet ettiği boardda, yani as yüksek ya da papaz yüksek bir boardda, savunmanı sertçe daralt; çünkü onun blöfü artık top pair haline gelmiştir, üstelik papaz yüksek boardda kral asın gerçek value'suyla da örtüşür, senin orta çiftin ve zayıf geri kapı ellerin değer kaybeder. Rakibin blöflerinin gerçekten ıskaladığı boardda, yani orta ya da düşük bağlantısız bir dokuda, aynı çiftler ve geri kapı eller yapışkan devam eder, float aralığın da genişler; çünkü bahis aralığının hava dilimi büyümüştür. Her sokakta kendine aynı soruyu sor: bu kart rakibin value'sunu mu büyüttü, blöfünü mü isabet ettirdi, yoksa sadece havasını mı çoğalttı? Cevap savunma eşiğini belirler."
+      },
+      {
+        "title": "EK: Düğüm sızıntısını ölçekle — sıklık sapması ve hızlı fold",
+        "bullets": [
+          "Rakip bir agresyon düğümünde (check-raise, üç-bet gibi) dengenin kabaca yarısı sıklıkla oynuyorsa, o düğüme karşı devam aralığın kabaca yarıya inmeli; dengenin kabaca iki katı sıklıkla oynuyorsa devam aralığın kabaca iki katına çıkmalı.",
+          "Çarpanı fold oranına değil devam (call) oranına bağla — üç-bet gibi düğümlerde dengedeki fold zaten tavana yakındır, iki katı fold ölçülebilir bir büyüklük değildir.",
+          "Aynı düğümde rakip tereddütsüz, hızlıca fold ediyorsa bu tek elin kararı değil, o düğümü genel olarak dar oynadığının kanıtıdır — bir dahaki sefere daha küçük boy, daha geniş iso, daha sık devam çoğunlukla kârlıdır.",
+          "Yavaş, tereddütlü gelen fold aynı sinyali taşımaz — sadece o elin kararıdır, düğüme genelleme."
+        ],
+        "ruleBox": "Düğümdeki sıklık sapmasını (tahmin ya da hızlı-fold okuması) devam oranına aynı yönde ve kabaca aynı ölçüde yansıt; fold oranını değil, o zaten tavana dayanır.",
+        "narration": "Bir rakip belirli bir agresyon düğümünde dengenin kabaca yarısı sıklıkla oynuyorsa, o düğüme karşı senin devam aralığın da kabaca yarıya inmeli. Rakip dengenin kabaca iki katı sıklıkla oynuyorsa devam aralığın kabaca iki katına çıkmalı. Çarpanı fold oranına değil devam oranına bağla; üç bet gibi düğümlerde dengedeki fold zaten tavana yakındır, iki katı fold ölçülebilir bir büyüklük değildir. Devam oranı her zaman icra edilebilir ve ölçeklenebilir kalır. Bu kısayol, masada tam yüzdeleri hesaplayamadığın anlarda yön ve kaba ölçek veren sağlam bir başlangıç noktasıdır; kesin katsayı popülasyona göre değişir. Aynı mantığın davranışsal bir versiyonu da var: rakip belirli bir düğümde tereddüt etmeden hızlıca fold ediyorsa, bu tek elin kararı değil, o düğümü genel olarak dar oynadığının kanıtıdır. Aynı düğüme tekrar geldiğinde daha küçük boyla açmak, daha geniş iso yapmak veya daha sık devam etmek çoğunlukla kârlıdır. Ama yavaş, uzun düşünülen fold aynı sinyali taşımaz; o yalnızca o elin kararıdır, düğüme genelleme."
+      },
+      {
+        "title": "EK: Oturmadan önce profil — sonuç geçmişini desen olarak oku",
+        "bullets": [
+          "Tek dev skor, etrafında küçük hiçbir şey yoksa büyük ihtimalle rec — o skor örneklem değil piyango.",
+          "Çok sayıda min-cash, hiç derin koşu yoksa cash-odaklı ve pasif bir profil — sınırda hep fold tarafına düşer, bubble baskısına en açık müşteri.",
+          "Küçük sahalardan gelen birincilikler chip-toplayıcı bir agresyonun imzasıdır.",
+          "Uzun yıllara yayılmış orta toplam, hacimle açıklanan vasat bir profildir; yüksek online hacim ise canlıdaki görünümü ne olursa olsun temel refleksleri olduğunu gösterir.",
+          "Bu etiketler ilk showdown'a kadar birer hipotezdir — masada gördüğün her yeni bilgiyle güncellemeye hazır tut."
+        ],
+        "ruleBox": "Sonuç listesinde toplam para değil bitiriş deseni okunur: min-cash yığını pasifin, küçük saha birinciliği agresörün imzasıdır — ikisi de showdown'la revize edilecek ilk hipotezdir.",
+        "narration": "Rakip daha ilk eli oynamadan, sonuç geçmişi sana bir agresyon haritası verir; yeter ki toplamı değil deseni oku. Tek dev bir skorun etrafında küçük hiçbir şey yoksa bu büyük ihtimalle bir rec'tir, o skor örneklem değil piyangodur. Çok sayıda min-cash var ama hiç derin koşu yoksa bu cash-odaklı ve pasif bir profildir; sınırda hep fold tarafına düşer ve bubble baskısına en açık müşteridir. Küçük sahalardan gelen birincilikler ise chip toplayan bir agresyonun imzasıdır. Uzun yıllara yayılmış orta seviye bir toplam, hacimle açıklanan sıradan bir profildir. Yüksek online hacim işareti ise canlıdaki görünümü ne olursa olsun temel refleksleri sağlam demektir. Ama bu etiketlerin hepsi ilk showdown'a kadar birer hipotezdir; masada gördüğün her yeni bilgiyle güncellemeye hazır tut. Oturmadan önce okuduğun bu desen sana kimin sınırda pes edeceğini, kimin baskı altında patlayacağını erkenden söyler."
+      },
+      {
+        "title": "EK: Dominant agresör dinamiği — seni pasif sanan tuzak kurmaz",
+        "bullets": [
+          "Güçlü rakip seni pasif okuyorsa parayı senin koymanı beklemez — sana karşı güçlü elini neredeyse hiç check'lemez ya da slowplay yapmaz.",
+          "Böyle bir rakibin check'i gerçekten çoğunlukla capped'dir; ince value bet'ine gelen raise'e \"benden iyisini check etmezdi\" diyerek bet-call ile disiplinli açılabilirsin.",
+          "Aynı sebepten SB limp'i dipten gelir — limp-reraise dilimi incelmiştir, senin geniş iso yapacağını fiyatlamaz; limp'ine hem çöple hem hafif value'yla normalden geniş iso bas.",
+          "Rol tersse aynı yasa sana döner: masanın crusher'ı sensen, pasif rakip senin yerine pot büyütmez — ince value'yu kendin ve erken al, blöf indüksiyonu planlarını çöpe at."
+        ],
+        "ruleBox": "Rakip seni pasif okuyorsa check'i capped, limp'i dipten, value'su hep kendi elindendir — ince value bet-call ve limp'e geniş iso açılır; rol tersse aynı okumayı kendine uygula.",
+        "narration": "Her eşleşmenin bir agresör hiyerarşisi vardır. Güçlü bir rakip seni pasif okuyorsa stratejisi buna göre eğilir: parayı senin koymanı beklemez, bu yüzden sana karşı güçlü elini neredeyse hiç check'lemez ya da slowplay yapmaz. Böyle bir rakibin check'i gerçekten çoğunlukla capped'dir; ince value bet'ine gelen raise'e karşı benden iyisini check etmezdi diyerek disiplinli bir bet-call açabilirsin. Aynı sebepten small blind limp'i de dipten gelir, çünkü limp sonrası yeniden raise dilimi incelmiştir ve senin geniş bir iso yapacağını fiyatlamaz; bu limp'e hem çöple hem hafif value'yla normalden geniş iso bas. Ayna kuralı da geçerlidir: masanın crusher'ı sensen aynı yasa sana döner. Pasif rakip senin yerine pot büyütmez, o yüzden ince value'yu kendin ve erken al, blöf indüksiyonu planlarını çöpe at. Bu dinamiği tanımak, kimin kimden çekindiğini masada erken görmeni sağlar."
+      },
+      {
+        "title": "EK: Canlı tempo seti — tank nabzı, hazır laf, post-pot dürüstlük",
+        "bullets": [
+          "Büyük river kararında tank'ı bilinçli uzat ve nabzı, nefesi izle — value tutan rakibin gerginliği kalibre edilecek bir süre içinde söner, blöfçününki tank bitene kadar sürer, çoğu zaman artar.",
+          "Tam karar anında hevesle, önceden hazırlanmış hissi veren laf ya da iğneleme çoğunlukla blöf tarafından gelir — value tutan zihin sonraki sokağı planlamakla meşguldür.",
+          "Büyük pot biter bitmez insanlar en dürüst hâlindedir — dökülen el analizi rakibin karar çerçevesini ele verir, iki kutulu düşünene karşı orta value ve ara blöf sınıfları görünmez kalır.",
+          "Bu üç okuma da tek veriye değil tekrar eden desene komite olmak şartıyla geçerlidir; kendinden tecrübeli bir rakibe uygulamaya kalkma, o katta yakalanma ihtimalin okuma ihtimalinden yüksektir."
+        ],
+        "ruleBox": "Tank'ta sönen gerginlik value, süren ya da artan gerginlik blöf lehinedir; karar anındaki hazır laf blöfe, büyük pot sonrası konuşma dürüstlüğe eğilir — ve bu okuma hiyerarşide yukarı doğru çalışmaz.",
+        "narration": "Canlı masada üç tempo okuması var, üçü de tek bir ele değil tekrar eden bir desene komite olmak şartıyla işe yarar. Birincisi: büyük bir river kararında rakip tank atarken nabzını ve nefesini izle. Value tutan rakibin gerginliği bir süre içinde söner çünkü heyecan zirvesi geçmiştir; blöf tutan rakibin gerginliği ise tank bitene kadar sürer, çoğu zaman artar, çünkü karar hâlâ açıktır. İkincisi: tam karar anında hevesle gelen, önceden hazırlanmış hissi veren bir laf ya da iğneleme çoğunlukla blöf tarafından gelir; value tutan zihin gösteriyle değil sonraki sokağı planlamakla meşguldür. Üçüncüsü: büyük bir pot biter bitmez insanlar en dürüst hâlindedir, dökülen elin ardından gelen kendiliğinden analiz rakibin karar çerçevesini ele verir. Ama bu üç okumayı da kendinden tecrübeli bir rakibe uygulamaya kalkma; o seviyede yakalanma ihtimalin okuma ihtimalinden yüksektir."
+      },
+      {
+        "title": "EK: Boyut-tell'i hipotez döngüsüyle işle",
+        "bullets": [
+          "Çoğu oyuncu farkında olmadan boy böler ama iki zıt yönde: kimi value'suna büyür, kimi overcard'ını katlamak isterken büyür ve eliyle küçük oynar.",
+          "Yönü ancak ikinci örnek söyler — aynı oyuncu küçük boyla nut gösterdiyse okuma ters yöne sabitlenir, büyük boyla gösterdiyse ilk yön onaylanır.",
+          "Okumayı otomatiğe bağlayan tek şey birbirini tutmayan karışık örneklerdir — aynı boyda hem nut hem hava görürsen bu oyuncuyu çöpe at, tahmin yürütme.",
+          "River'da güvenilir bir havuz deseni: nut'lu el ya blok atar ya basar; tuhaf orta boylu raise nut'un en seyrek olduğu boydur (kalibre edilecek bir istisna dışında).",
+          "Station'ın river raise'i bu desenin dışındadır, o ayrı bir istisna olarak durur (23.5)."
+        ],
+        "ruleBox": "Boyut okuması ikinci örnekle yön kazanır; küçük boyla nut geldiyse okuma ters döner, karışık örnekte okuma çöpe gider — ve river'ın tuhaf orta boyundan nut'tan az kork, bloktan ve bombadan çok kork.",
+        "narration": "Canlıda boyut-tell tek bir veri noktasıyla değil hipotezle işlenir. Çoğu oyuncu farkında olmadan boy böler, ama iki zıt yönde: kimi value'suna büyür, kimi overcard'ını katlamak isterken büyür ve elini küçük oynar. Yönü ancak ikinci örnek söyler. Aynı oyuncu küçük bir boyla nut gösterdiyse okuma ters yöne sabitlenir, yani onda küçük boy güç, büyük boy koruma ya da blöf demektir; büyük boyla nut gösterdiyse ilk yön onaylanır. İki durumda da bölünme okuması o andan sonra para basar. Okumayı otomatiğe çeviren tek şey birbirini tutmayan karışık örneklerdir; aynı boyda hem nut hem hava gördüysen bu oyuncuyu çöpe at. River'da güvenilir bir havuz deseni de var: nut'lu bir el ya blok atar ya basar, tuhaf orta boylu bir raise nut'un en seyrek olduğu boydur. Station'ın river raise'i bu desenin dışında kalan ayrı bir istisnadır."
+      },
+      {
+        "title": "EK: Bubble zorbası — altıncı tip, dirençte teslim olur",
+        "bullets": [
+          "Altıncı tip: bubble'da her eli açan lider — açışı hata değildir, hatası \"herkes kilitli, direnç gelirse kaçarım\" varsayımındadır.",
+          "Bu varsayım yüzünden üç-bet'e overfold eder ve teorinin bol dört-bet blöfünü sahada neredeyse hiç bulmaz.",
+          "Kanıt birikince — üst üste açıyor ve ilk dirençte bırakıyor — kitabın cover'a bluff üç-bet yok varsayılanının okuma-kapılı istisnası devreye girer: küçük, all-in olmayan bir üç-bet, stack'inin küçük bir dilimini riske atar ve showdown'suz toplar.",
+          "Planı önceden yaz: dört-bet gelirse varsayılan bırakmaktır çünkü dört-bet value-ağırdır; üç-bet'ten beş-bet'e ancak \"dört-bet'i de refleksle basıyor\" kanıtı çıkarsa geçilir."
+        ],
+        "ruleBox": "Bubble zorbasına silah call değil önceden planlanmış küçük üç-bet'tir — dört-bet'ine kanıtsız savaşma.",
+        "narration": "Beş rakip tipine bir altıncısını ekle: bubble'da her eli açan lider. Bu oyuncunun açışı bir hata değildir, hatası herkes kilitli, direnç gelirse kaçarım varsayımındadır. Bu varsayım yüzünden üç-bet'e aşırı fold eder ve teorinin öngördüğü bol dört-bet blöfünü sahada neredeyse hiç bulmaz. Kanıt birikince, yani üst üste açıyor ve ilk dirençte bırakıyorsa, kitabın cover'a bluff üç-bet yok varsayılanının okuma kapılı istisnası devreye girer: küçük, all-in olmayan bir üç-bet, stack'inin küçük bir dilimini riske atar ve showdown'suz toplar. Bu, sana özel dengesiz gibi görünse de rakibin kendi leak'inin doğal sonucudur. Ama planı önceden yaz. Dört-bet gelirse varsayılan hareket bırakmaktır, çünkü dört-bet value ağırlıklıdır. Üç-bet'ten beş-bete geçmek ise ancak dört-bet'i de refleksle bastığına dair ayrı bir kanıt çıkarsa mantıklıdır. Bu tipe karşı silah call değil, önceden planlanmış küçük bir üç-bet'tir; kanıtsız savaşa girme."
+      },
+      {
+        "title": "EK: Ezilen rec preflop patlar",
+        "bullets": [
+          "Duygusal patlamayı postflop değil preflop yaşayan rec vardır — postflop blöf cesaret ister, preflop jam yalnızca zar atmaktır.",
+          "Malzemesi bellidir: çiftler, küçük çiftler bile jam'e girer; offsuit broadway değil.",
+          "Onu ezdiğin bir seride orta güçte bir elle üç-bet'i bir boy büyüt — cepleri toplayan patlamayı davet edersin.",
+          "Call kararını kendi equity'sinden değil \"kaybedersem kaç kalır\"dan verir — stack'inin kabaca yarısı kalıyorsa öder, kesin eşik kalibre edilmelidir.",
+          "Pencereyi sosyal iklim açıp kapatır: seninle tatlı sohbette olan rakip küçük çiftini jam'lemez — patlama istiyorsan barışma, sükûnet istiyorsan sohbet et."
+        ],
+        "ruleBox": "Duygusal rec'in blöfü preflop jam'dir ve malzemesi çifttir — patlamayı istiyorsan value'nla üç-bet'i büyüt, istemiyorsan masayı yumuşat.",
+        "narration": "Bullied hisseden, yani ezildiğini hisseden bir rec, duygusal patlamasını postflop değil preflop yaşar; çünkü postflop blöf cesaret ister, preflop jam ise sadece zar atmaktır. Malzemesi de bellidir: çiftler, küçük çiftler bile jam'e girer, offsuit broadway elleri değil. Onu ezdiğin bir seride orta güçte bir elle üç-bet'ini bir boy büyüt, çünkü cepleri toplayan patlamayı davet edersin. Call kararını kendi equity'sinden değil, kaybedersem kaç kalır sorusundan verir; stack'inin kabaca yarısı elinde kalıyorsa öder, ama kesin eşik kalibre edilmelidir. Bu pencereyi sosyal iklim açar ve kapatır: seninle tatlı sohbette olan bir rakip küçük çiftini jam'lemez, çünkü seni büstlemek istemez. Yani patlama istiyorsan barışma, marjinallerinde sükûnet istiyorsan sohbet et. Masadaki ton, kartların üstünde ayrı bir strateji parametresi gibi çalışır ve gözden kaçırılmamalıdır."
+      },
+      {
+        "title": "EK: İmaj gecikmeli fiyatlanır — nit'in laneti",
+        "bullets": [
+          "Kendi imajın da bir okumadır ve gecikmeli fiyatlanır — nit imajı ya da gerçekten overfold'lu geçmiş sokaklar, blöflerinin bir süre fazla ödenmesini sağlar.",
+          "River'da K-high gibi normalde blöf olmayacak üst katmandan da elleri blöfe çevirebilirsin — bu bir hasat penceresidir.",
+          "Ayna yüzü lanettir: check-raise'in yalnız value ve bariz çekilişse, çekilişin girdiği an ödenmezsin ve büyük fold'lar alırsın.",
+          "Panzehir, zor bulunan blöfleri, örneğin backdoor üç kart elleri, önceden repertuara koymaktır — yoksa value'n zamanla ölür.",
+          "Agresif imaj ters çalışır: vites düşürdüğünde rakip hâlâ eski imajını oynar, birkaç orbit blöf mix'lerini kapat çünkü value fazladan ödenir; karışım düğümünde kararsızsan son orbitlerin imajı seçsin."
+        ],
+        "ruleBox": "Rakip senin şu anki stratejini değil son imajını oynar — blöf ve catch frekansını imaj gecikmesine göre kaydır.",
+        "narration": "Kendi imajın da bir okumadır ve gecikmeli fiyatlanır. Nit imajı, ya da gerçekten overfold'lu geçmiş sokaklar, blöflerinin bir süre fazla ödenmesini sağlar. River'da K-high gibi normalde blöf olmayacak üst katmandan da elleri saf blöfe çevirebilirsin, bu bir hasat penceresidir. Ama aynı yüzün laneti de vardır: check-raise'in yalnız value ve bariz çekilişten oluşuyorsa, çekilişin girdiği an ödenmezsin ve büyük fold'lar alırsın. Panzehir, zor bulunan blöfleri, örneğin backdoor üç kart elleri, önceden repertuara koymaktır; yoksa value'n zamanla ölür. Agresif ya da zorba imaj ise ters çalışır. Vites düşürdüğünde rakip senin eski imajını okumaya devam eder, bu yüzden birkaç orbit boyunca blöf karışımlarını kapat, çünkü value'n fazladan ödenir. Karışım gerektiren bir düğümde kararsız kalırsan son orbitlerin imajı kararı versin: agresif göründüysen call ya da value tarafına, pasif göründüysen blöf ya da raise tarafına eğil."
+      },
+      {
+        "title": "EK: Etiketler faza aittir — bubble sonrası yeniden etiketle",
+        "bullets": [
+          "Bubble'daki nit gerçek nit olmayabilir — durum nit'iydi; bubble patlar patlamaz etiketleri sıfırla.",
+          "Geçiş sinyallerini izle: duruş gevşedi mi, kartlara bakış ve timing değişti mi?",
+          "Asıl av geçmişte kalanlardır — prim düşmüşken hâlâ bubble hattı oynayan, hâlâ küçük ICM üç-bet atan, açılışa aşırı saygı gösteren, hâlâ kilitli call defteri olan oyuncu geçişi kaçırmıştır; fark kapanana kadar üstüne git.",
+          "Meta-edge: prim rejimi turnuva boyunca defalarca değişir, para her seferinde rejime herkesten hızlı geçenindir."
+        ],
+        "ruleBox": "Her faz değişiminde iki liste güncelle — kim durum-nit'iydi, kim hâlâ eski fazı oynuyor; ikincisi ana hedefindir.",
+        "narration": "Bubble'daki bir nit gerçek bir nit olmayabilir, durum onu nit yapmış olabilir. Bubble patlar patlamaz etiketlerini sıfırla ve geçiş sinyallerini izle: duruş gevşedi mi, kartlara bakışı ve karar hızı değişti mi? Asıl av geçmişte kalanlardır. Prim düşmüşken hâlâ bubble hattı oynayan, hâlâ küçük ICM üç-bet atan, açılışlara aşırı saygı gösteren, hâlâ kilitli bir call defteri olan oyuncu geçişi kaçırmıştır; fark kapanana kadar üstüne git, çünkü rakiplerinin çoğu bu güncellemeyi geç yapar. Meta edge şudur: prim rejimi turnuva boyunca defalarca değişir, sadece bubble'da değil, her ödül sıçramasında yeniden yaşanır. Para her seferinde bu rejime herkesten hızlı geçenindir. Bu yüzden her faz değişiminde iki liste tut: kim yalnızca durum yüzünden nit oynuyordu, kim hâlâ geride kalmış eski fazı oynuyor. İkinci liste senin ana hedefindir, çünkü fark kapanana kadar sömürülebilir kalır."
+      },
+      {
+        "title": "EK: Sınır devamının fiyatı postflop filmde saklı",
+        "bullets": [
+          "Chart'ın sınır defend'i, postflop ağacını senin oynayacağını varsayar; bu varsayım iki düzeltme gerektirir.",
+          "Birinci düzeltme kendi kapasiten: river'ı hava ile asla basmayacaksan sınır defend'lerin eksiye döner — ya blöfleri gerçekten repertuara koy ya da chart'tan dar oyna.",
+          "İkinci düzeltme rakibin fıçı profili: sürekli büyük basan tipe karşı marjinal el preflop'ta jam ya da fold'la çözülür, postflop'u ona verme; küçük atan ve elini anlatan tek-fıçı tipe karşı aynı el call'a döner.",
+          "Test cümlesi dar tutulmalı: brick turn'de katlanacağını bilmek tek başına diskalifiye değildir, kârlı sınır defend'lerin çoğunda brick'te fold zaten doğru hattır.",
+          "Doğru cümle şudur: \"bu eli sadece nut'u tutturursam devam ettirebiliyorum, hiçbir runout'ta blöf ya da bluff-catch planım yok\" — o el preflop fold'dur."
+        ],
+        "ruleBox": "Marjinal devamı elin değil postflop filmi fiyatlar — kendi blöf kapasiten ve rakibin fıçı profili; film kötüyse potu preflop bitir ya da hiç girme.",
+        "narration": "Chart'ın sınır defend'i, solver'ın postflop ağacını senin oynayacağını varsayar; bu varsayım iki düzeltme gerektirir. Birinci düzeltme kendi kapasiten: river'ı hava ile asla basmayacaksan sınır defend'lerinin bir kısmı eksiye döner, o yüzden ya blöfleri gerçekten repertuara koy ya da chart'tan daha dar oyna. İkinci düzeltme rakibin fıçı profili: sürekli büyük basan bir tipe karşı marjinal bir el preflop'ta jam ya da fold ile çözülür, postflop kararı ona bırakma. Elini anlatan, küçük atan, tek fıçı bir tipe karşı ise aynı el call'a döner, çünkü sokak ucuz ve bilgi net gelir. Test cümlesi dar tutulmalı: brick turn'de katlanacağını bilmek tek başına diskalifiye değildir, kârlı sınır defend'lerin çoğunda brick'te fold zaten doğru hattır. Doğru test cümlesi şudur: bu eli sadece nut'u tutturursam devam ettirebiliyorum, hiçbir runout'ta blöf ya da bluff-catch planım yok. Cevap buysa, o el preflop fold'dur."
+      },
+      {
         title: "Cheat + drill",
         table: { section: "Bölüm 23", sub: "23.8", caption: "Okuma → default'tan sapma." },
         bullets: [
@@ -3450,6 +4131,18 @@ export const modules: Module[] = [
         ],
         "ruleBox": "Gamble kararının dört sorusu fiyatı tartar; varış rolü ve saha büyüklüğü kademeyi ince ayarlar — filtre aynı kalır.",
         "narration": "Gamble kararının dört sorusu fiyatı tartıyordu; iki ek ölçü varış noktasını tartıyor. Beşinci soru şu: kazanırsam kim oluyorum? Aynı double iki farklı stack'e farklı bir şey verir — biri masayı domine eden lidere dönüşür, öbürü hâlâ cover edilen orta stack olarak kalır. Cevap herkesi cover eden lider ise, marjinal gamble alma kararına bir kademe yaklaşır; cevap yine orta stack ise pas geçmeye yaklaşır. Bu kademe, büyük stack'i iyi oynayacağına inanıyorsan büyür; rakipler ICM baskısına duyarsızsa küçülür. İkinci ölçü saha çarpanı: aynı yüzde birkaç beklenen değer kalan bir spot küçük sahada ya da final tabloda kolayca alınır, ama dev sahanın bubble'ında aynı spot stack'ine göre belirgin daha büyük bir kazanç ister — bunu kendi solver'ında kalibre et."
+      },
+      {
+        "title": "EK: Edge büyükken düşük varyanslı hat",
+        "bullets": [
+          "Edge primi yalnız preflop flip kararlarını değil, EV'de eşit iki postflop hat arasındaki seçimi de kapsar.",
+          "Soft sahada, re-entry kapalıyken ya da edge büyükken: iki hat teoride eşit EV'liyse düşük varyanslı olanı seç — call ya da float.",
+          "Düşük varyanslı hat ekstra bilgi kazandırır: rakip turn'de check-back verirse çoğunlukla no-equity blöf atmayı bilmiyordur, river'da da hatalı fold ya da call yapar.",
+          "Bu hat seni büyük bir potta erken bust riskinde tutmaz; kazanç sonraki sokaklarda rakibin zayıflığını sömürmekten gelir, ilk sokağın kendisinden değil.",
+          "Tough sahada ya da edge yoksa bu ayrım kaybolur — orada EV'de eşit hatlar arasında fark etmez, dengeli oyna."
+        ],
+        "ruleBox": "Soft saha, büyük edge ve EV'de eşit iki hat varsa: büyük pota giden agresif hattı değil, bilgi toplayan düşük varyanslı hattı seç.",
+        "narration": "Edge primi yalnızca preflop flip kararlarını kapsamaz. EV'de eşit iki postflop hat arasındaki seçimi de kapsar. Diyelim ki check-raise ile barrel-off hattı, float ile call hattıyla teoride eşit EV veriyor. Soft sahada, re-entry kapalıyken ya da edge büyükken bu iki hat artık eşit değildir — düşük varyanslı olanı seç. Neden basit: düşük varyanslı hat sana ekstra bilgi kazandırır. Rakip turn'de check-back verirse, bu genellikle no-equity blöf atmayı bilmediğinin işaretidir, river'da da hatalı fold ya da call yapacaktır. Yani kazanç ilk sokağın kendisinden değil, sonraki sokaklarda rakibin zayıflığını sömürmekten gelir. Ayrıca bu hat seni büyük bir potta erken bust riskinde tutmaz, re-entry kapalıysa bu risk daha da değerlidir. Tough sahada ya da edge yoksa bu ayrım kaybolur: orada EV'de eşit iki hat arasında fark etmez, dengeli oyna. Kural basit — edge büyükken agresif değil, bilgi toplayan hattı seç."
       },
       {
         title: "Cheat + drill",
@@ -4399,11 +5092,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: Arkada karışık stack'ler — jam kârlı olsa bile raise üstündür",
-        "table": {
-          "section": "Bölüm 28",
-          "sub": "28.4-EK",
-          "caption": "Arkadaki stack dokusuna göre open tipi"
-        },
         "bullets": [
           "Arkası tek tip mikro-kısaysa jam standarttır — en dipteki çöp hariç her şey gider.",
           "Arkada kısa ile orta karışıksa jam kârlı görünse de raise seç.",
@@ -5375,11 +6063,6 @@ export const modules: Module[] = [
       },
       {
         "title": "EK: Kelle girince BvB'nin adresi B28'e, balina-limp 23.1-EK'e kayar",
-        "table": {
-          "section": "Bölüm 33",
-          "sub": "33.6-EK",
-          "caption": "Kelle girince BvB adres tablosu — kapsanan/kapsayan B28'e, balina-limp 23.1-EK'e"
-        },
         "bullets": [
           "Kapsanan SB, cover eden BB'ye karşı: 33.2/33.3 katmanları kayar — BB artık raise'e jam'lemez, flat'ler ve iso eder; suited güçlü RAISE, offsuit güçlü As + çift LİMP-JAM (yarı-value), tepe büyük RAISE (adres: 28.26); tepenin limp-reraise'i tuzak değil pompa (adres: 28.25).",
           "Cover eden SB, sığ HU-BvB 12–20bb: ICM'in limp-ağırlıklı dokusu tersine döner, kelle equity açığını kapatır, tuzak gereksizleşir → limp çöker, aralık sıkı ama JAM-ağırlıklı (adres: 28.3-EK).",
@@ -5583,6 +6266,18 @@ export const modules: Module[] = [
         ruleBox: "Okunabilirlik el seçiminden değil, boy-aralık eşleşmenin sabitlenmesinden doğar.",
         narration:
           "Şimdi asıl derdine gelelim. Standart oynuyorum, elim açık oluyor diyorsun. Teşhis şu: sorun oynadığın eller değil, her boyla tek tip aralık göstermen. Eğer büyük bahsin her zaman gerçekten güçlü bir el, küçük bahsin her zaman orta güçte bir el anlamına geliyorsa, rakip elini bedavaya okur. Hiçbir şeyi yanlış oynamıyor olabilirsin ve yine de tahmin edilebilirsin, çünkü boyların bilgi sızdırıyor. Çözüm de basit ama disiplin ister: aynı boyun içine hem değer ellerini hem blöflerini koy. Büyük bahis yaptığında bunu bazen nut'la bazen blöfle yap. O zaman rakip doğru fold edemez, çünkü hangi tarafta olduğunu bilemez. Dikkat, bu daha çok blöf yap demek değil. Her boyun içine iki tarafı da koy demek. Blöf oranını board ve rakip belirler; senin işin, boy ile aralık arasındaki sabit eşleşmeyi kırmak.",
+      },
+      {
+        "title": "EK: Polarize HU lüksüdür — multiway'de merged öne çıkar",
+        "bullets": [
+          "Üç yollu potta board açıcıya yarıyor ve tek geniş overcaller (en zayıf aralık) varsa çöken bet aralığı polar değil merged'dır",
+          "Merged'in alt sınırı orta kuvvet değildir — sınır, en zayıf aralığın call aralığını yenen ellerdir; altındaki orta kuvvet check eder",
+          "Nedeni denial'dır: sıkı katlanan güçlü rakibe değil, geniş çağıran en zayıf aralığa bedava kart bırakmamak içindir",
+          "İki agresör iş bölümü yapar — check edersen pozisyondaki oyuncu senin yerine betler, bu check'in maliyetini düşürür ve merged orta yolu doğurur",
+          "Dördüncü oyuncu girerse istisna kalkar — orta kuvvet yeniden check eder, hava hiçbir zaman bet'lenmez"
+        ],
+        "ruleBox": "Multiway'de çöken bet aralığının şekli, tek geniş overcaller varken polar değil merged'dır ve alt sınırı zayıf aralığın call'unu yenen eldir — dördüncü oyuncu girince istisna kalkar ve orta kuvvet yeniden check eder.",
+        "narration": "Polarize boy aslında baş başa oyunun lüksüdür. Üç yollu bir potta board açıcının lehine döndüğünde ve masada tek bir geniş çağıran zayıf aralık kaldığında, çöken bet aralığının şekli değişir: artık polar değil merged olur. Merged'in alt sınırı orta kuvvet değildir — sınır, o zayıf aralığın çağırma aralığını yenen ellerdir; onun altındaki orta kuvvet yine check eder. Bunun nedeni koruma değil denial'dır: sıkı katlanan güçlü bir rakibe karşı değil, geniş çağıran en zayıf aralığa bedava kart bırakmamak için betlenir. Mekanizma şöyle işler — masadaki iki agresör fiilen iş bölümü yapar. Sen check edersen pozisyondaki oyuncu senin yerine bet atar, bu senin check'inin maliyetini düşürür ve bet frekansını iki zıt yöne çeker; sonuç ne tam range bet ne tam check, merged bir orta yoldur. Bu istisnanın kapsamı dardır. Masaya dördüncü bir oyuncu girdiğinde kural istisnasız geri döner: orta kuvvetli eller yeniden check eder ya da potu kontrol eder, çünkü çağırma olasılığı yükseldikçe denial'ın kazancı erir ve iki agresörün iş bölümü dağılır. Sıfır equity'li hava ise hiçbir durumda multiway'de bet'lenmez."
       },
     ],
   },
@@ -6158,6 +6853,419 @@ export const modules: Module[] = [
           "İki yapısal tuzak kaldı. Birincisi derinlik. Yığın üç yüz big blind'i geçtiğinde as-as artık dört-bet eli değildir, call eline döner; ve üç-bet potunda flopta pot boyu devam bahsi yapmazsın, çünkü o derinlikte çıplak as-as tek çifttir ve stack koyacak el değildir. Aslında en pratik çözüm şu: üç yüz big blind'e ulaştığında o masadan kalk ve yeni bir masaya yüz big blind ile otur. Bu bir kaçış değil, oyun seçimi. İkincisi kendi kartların. Elinde aynı karttan üç ya da dört tane varsa elin bir kademe aşağı iner; üç as aslında as-as değil, tek çifttir, çünkü kendi out'larını kendin yakmışsın. Aynı mantıkla monoton bir flopta rengin yoksa ve elinde sadece çift varsa barrel yok. Kart tekrarı elinin adını değiştirmez ama sınıfını değiştirir, ve plan sınıfa göre kurulur.",
       },
       {
+        "title": "EK: Value tabanını aralığının gerçekten taşıdığından kur",
+        "bullets": [
+          "Check-raise ya da blöf için ideal el şablonunu — nut artı redraw — kör kör uygulama; önce preflop aralığının bu noktaya gerçekten hangi el sınıflarını taşıyabildiğini kontrol et.",
+          "Premium kombinasyonlar zaten preflop üç-bet veya dört-bete gittiyse, value tabanı bir kademe iner ama yalnız nut sınıfları içinde: aralığının o board'da gerçekten kurabildiği en iyi nut sınıfı — set, nut renk taslaklı iki çift, nut redraw'lı kombinasyon — value tabanı olur.",
+          "Taban nut sınıfının altına — üst çift veya overpair'e — inmez; aralığın hiçbir nut sınıfı taşımıyorsa value check-raise kurmaya çalışma, hattı bırak.",
+          "Sonuç OOP'ta netleşir: tek boyutlu — nut redraw'ı olmayan — top pair veya overpair'i refleksle check-call ile devam ettirme; PLO-6'da doğru cevap fold'dur, check-raise ancak el nut redraw kazandığında masaya gelir (15.5-EK-2)."
+        ],
+        "ruleBox": "İdeal değer elini değil, aralığının o noktaya gerçekten taşıdığı en iyi nut sınıfını value tabanı yap; taban nut'un altına inecekse — OOP'ta tek boyutlu top pair veya overpair dahil — value yoktur.",
+        "narration": "Check-raise ya da blöf için ideal el şablonunu, yani nut artı redraw'ı, kör kör uygulama. Önce preflop aralığının bu noktaya gerçekten hangi el sınıflarını taşıyabildiğini kontrol et. Bazı board'larda ideal şablon aralığında yapısal olarak yoktur: premium kombinasyonların tamamı zaten preflop üç bet ya da dört bete gittiyse, postflop check-raise value tabanı bir kademe iner, ama yalnız nut sınıfları içinde. Nut artı redraw yerine, aralığının o board'da gerçekten kurabildiği en iyi nut sınıfı — set, nut renk taslaklı iki çift, ya da nut redraw taşıyan kombinasyon — value tabanı olur. Taban nut sınıfının altına, üst çift ya da overpair'e inmez. Aralığın o board'da hiçbir nut sınıfı taşımıyorsa value check-raise kurmaya çalışma, hattı bırak. Bu ilkenin pratik sonucu oyun içi pozisyonda netleşir: rakip bet attığında, ikinci bir boyutu, yani nut redraw'ı olmayan top pair ya da overpair'ini refleksle check-call ile devam ettirme. PLO-6'da doğru cevap fold'dur. Check-raise ancak el nut redraw kazanıp tek boyutlu olmaktan çıktığında masaya gelir."
+      },
+      {
+        "title": "EK: Asla fold değil teorik garanti değildir",
+        "bullets": [
+          "15.5, river'da non-nut call için rakibin somut bir blöf aralığı olması gerektiğini söyler; bunun bir adım gerisi var.",
+          "Bir elin solver'a göre asla fold değil olması, rakibin GTO frekansında blöf yaptığı varsayımına dayanır.",
+          "Gerçek rakipler, özellikle kendi blocker'larına bağımlı river'larda — yalnız kendi elinde temiz bir kart varken blöf yapma eğiliminde — sistematik olarak az blöfler.",
+          "Tam da hiç fold edilmez denen, en çok blocker'a dayalı spotlar, pratikte rakip yeterince az blöflediği için call'un para kaybettirdiği spotlardır."
+        ],
+        "ruleBox": "Teoride asla fold değil ifadesini garanti sanma; blocker-ağırlıklı river spotlarında gerçek rakibin blöf sıklığını ayrıca sorgula.",
+        "narration": "On beş nokta beş, river'da non-nut call için rakibin somut bir blöf aralığı olması gerektiğini söyler. Bunun bir adım gerisinde önemli bir ayrım var. Bir elin solver'a göre asla fold değil olması, rakibin GTO frekansında blöf yaptığı varsayımına dayanır. Gerçek rakipler bu varsayımı her zaman karşılamaz. Özellikle kendi blocker'larına bağımlı river'larda, yani yalnız kendi elinde temiz bir kart varken blöf yapma eğiliminde olan spotlarda, gerçek rakipler sistematik olarak az blöfler. Sonuç ironiktir: tam da teorinin hiç fold edilmez dediği, en çok blocker'a dayalı spotlar, pratikte en çok altından oyulan spotlardır, çünkü rakip yeterince az blöflediği için call para kaybettirir. Bu yüzden teorik asla fold değil etiketini otomatik bir garanti gibi kullanma. Masaya oturduğun rakip havuzunda blocker'a dayalı river blöflerinin ne sıklıkta geldiğini ayrıca gözlemle, ve gözlemin teoriyle çelişiyorsa gözlemine güven; bu bir denge sapması değil, bir exploit fırsatıdır."
+      },
+      {
+        "title": "EK: Rakip sızıntısını iki bağımsız eksende oku",
+        "bullets": [
+          "Masaya oturunca izlenecek şey rakibin hangi yöne saptığıdır — kapalı bir profil listesi değil, iki bağımsız eksen.",
+          "Birinci eksen rakibin bet aralığı: el kategorilerini otomatik ince value bet eden oyuncunun bet aralığı zayıftır, senin marjinal ellerinin call değeri artar — call eşiğini indir.",
+          "Bu gevşetme tabanın üstünde çalışır, tabanı delmez: river'da pot bete non-nut call için rakibin somut blöf aralığı şartı kalkmaz.",
+          "İkinci eksen rakibin check-raise'e tepkisi: check-raise'e inanmayan ve aşırı call edene karşı kendi check-raise'ini value ağırlıklı tut; check-raise'e aşırı fold edene karşı blöf frekansını artır.",
+          "İki ekseni karıştırma — call eşiğin rakibin bet aralığına, check-raise blöf frekansın rakibin raise'e fold oranına bakar."
+        ],
+        "ruleBox": "Rakibi hazır bir profil listesine oturtma; bet aralığı zayıfladıkça call eşiğini indir, raise'e fold oranı arttıkça blöf check-raise'ini artır — iki ekseni karıştırma.",
+        "narration": "Masaya oturunca izlenecek şey rakibin hangi yöne saptığıdır, kapalı bir profil listesi değil, iki bağımsız eksen. Birinci eksen rakibin bet aralığıdır. Belirli el kategorilerini sırf oynaması kolay diye otomatik ince value bet eden oyuncunun bet aralığı zayıftır, dolayısıyla senin marjinal ellerinin call değeri artar; call eşiğini indir. Ama bu gevşetme tabanın üstünde çalışır, tabanı delmez: river'da pot bete non-nut call için rakibin somut bir blöf aralığı olması şartı hâlâ geçerlidir. İkinci eksen rakibin check-raise'e verdiği tepkidir. Check-raise'ine inanmayan ve aşırı call eden rakibe karşı kendi check-raise'ini value ağırlıklı tut ve blöf oranını düşür. Check-raise'e aşırı fold eden rakibe karşı ise blöf check-raise frekansını artır. İki ekseni birbirine karıştırma: call eşiğin rakibin bet aralığına bakar, check-raise blöf frekansın ise rakibin raise'e fold oranına bakar. Birinden çıkardığın gerekçeyi diğerine taşıma, her ekseni kendi kanıtıyla besle."
+      },
+      {
+        "title": "EK: Sınırdaki elde hızlı ol, doğru değil",
+        "bullets": [
+          "Bet mi check mi diye uzun süre kararsız kaldığın el, tanımı gereği iki hatta da benzer EV taşır.",
+          "Üzerinde dakika yakmak kazandırmaz, sadece bandwidth tüketir.",
+          "Standart açılış boyları, c-bet boyları ve rutin sınıf kararları masaya oturmadan otomatik olmalı.",
+          "Zihnin masada rakip okumaya ve frekans saymaya kalsın.",
+          "Otomatikleşmiş rutinin yan faydası: yorgunken ve tilt'teyken bozulmayan tek şey odur."
+        ],
+        "ruleBox": "Sınırdaki elde hızlı seç ve geç; düşünme bütçeni EV'si gerçekten ayrışan kararlara sakla.",
+        "narration": "Bet mi check mi diye uzun süre kararsız kaldığın bir el, tanımı gereği iki hatta da benzer EV taşır. Üzerinde dakikalarca düşünmek seni daha iyi bir sonuca götürmez, sadece elindeki zihinsel bandwidth'i tüketir. Bu yüzden standart açılış boyları, c-bet boyları ve rutin sınıf kararları masaya oturmadan önce otomatikleşmiş olmalı; bir kural gibi ezberlenmeli, masada yeniden türetilmemeli. Zihninin masadaki asıl işi rakip okumak, frekans saymak ve gerçekten ayrışan kararlara odaklanmaktır. Otomatikleşmiş rutinin bir yan faydası daha vardır: yorgunken ve tilt hâlindeyken bozulmayan neredeyse tek şey odur; çünkü düşünmeyi gerektirmez, sadece uygulamayı gerektirir. Sınırdaki elde uzun süre tereddüt etmek, hem oturumun geri kalanı için enerji kaybettirir hem de asıl fark yaratacak kararlara ayıracağın dikkati azaltır. Kural basittir: sınırdaki elde hızlı seç ve geç, düşünme bütçeni EV'si gerçekten ayrışan kararlara sakla."
+      },
+      {
+        "title": "EK: Flop c-bet — value, doku, basitleştirme",
+        "bullets": [
+          "Boy value'dan çıkar: bu board'da hangi eller kaç sokak para koymak istiyor, boyu onların isteği belirler — o boyda value bet edecek elin yoksa aralığın da o boyda yoktur.",
+          "Board dokusu ana eksendir: kuru, az bağlantılı board'da aralığının neredeyse tamamını tek boyla basabilirsin; board ıslaklaştıkça hem value hem blöf basma eşiğin birlikte yükselir.",
+          "Üç sokak testi: flop'ta şu an en iyi el olsan da turn ve river'da value basmaya devam edemeyecek redraw'suz orta-güç bir el check-back adayıdır — soru şu an kazanıyor muyum değil, bu el üç sokak boyunca basabilir mi sorusudur.",
+          "Board'un nut'u river'a kadar aynı kalma ihtimali yüksekse (paired, monoton, kuru ace-high), aralığının bir kısmı olarak gerçek nut'u da bazen check-back yap — sonra zaman zaman gerçekten temsil et, yoksa aralığın okunur.",
+          "Statik (paired/monoton) board'da aralığını kutuplaştır: çoğu check, en güçlüsü büyük bassın; c-bet blöfü için el seçerken de bir blokerim var mı değil hangi bloker sorusunu sor — rakibin devam ettiği, yani nut draw ve yapılmış nut elleri bloke edeni seç."
+        ],
+        "ruleBox": "Flop c-bet kararını önce value aralığından kur, board dokusuna göre değer ve blöf eşiğini birlikte ayarla, üç sokak boyunca basabilme testinden geçir.",
+        "narration": "Flop c-bet kararının iki ana ekseni board dokusu ve el sınıfıdır. Plana blöften değil değerden başla: bu board'da hangi eller kaç sokak para koymak istiyor, boyu onların isteği belirler, blöfler seçilen boya uyum sağlar. O boyda value bet edecek elin yoksa, o boyda aralığın da yoktur. Board dokusu ana eksendir. Kuru, az bağlantılı board'larda aralığının neredeyse tamamını tek boyla basabilirsin, çünkü rakip aralığı da zayıftır. Board ıslaklaştıkça hem value hem blöf basma eşiğin birlikte yükselir. Üç sokak testini uygula: flop'ta şu an en iyi el olsan da, turn ve river'da value basmaya devam edemeyecek redraw'suz orta güç bir el check-back aralığına gider; soru şu an kazanıyor muyum değil, bu el üç sokak boyunca basabilir mi sorusudur. Board'un nut'u river'a kadar aynı kalma ihtimali yüksekse, aralığının bir kısmı olarak gerçek nut'u da bazen check-back yap, sonra zaman zaman gerçekten temsil et, yoksa aralığın şeffaflaşır. Statik board'da aralığını kutuplaştır, çoğu check en güçlüsü büyük bassın. C-bet blöfü için el seçerken de bir blokerim var mı değil, hangi bloker sorusunu sor; rakibin devam ettiği elleri bloke edeni seç."
+      },
+      {
+        "title": "EK: C-bet savunması — call, check-raise, float",
+        "bullets": [
+          "Savunma eşiği draw yoğunluğuyla kayar: elin mutlak gücüne değil, o board'da aralığındaki daha iyi devam adaylarının sayısına bağlıdır — draw-zengin board'da pair artı gutshot kırıntıları fold olur, draw-fakir board'da aynı kategori savunmanın omurgasıdır.",
+          "Check-raise genişliğini board belirler: monoton ve yüksek-kart paired board'larda check-raise aralığı neredeyse sıfıra iner; kuru tek-yönlü straight board'larda dar kalır; dinamik çok-draw'lu board'larda hem value hem blöf içerecek şekilde genişler.",
+          "En sağlam value elini yavaşlat: en az yaralanabilir value çoğunlukla check-call ile daha çok kazanır; check-raise, redraw nut'a yakınsa korumaya muhtaç orta-güçlü value'dan gelmeli — dominated redraw'la raise etme, check-call et.",
+          "Call edemeyeceğin eli raise etme: blöf check-raise için bu eli check-call olarak da oynayabilir miydim diye sor, cevap hayırsa çoğunlukla raise de değildir — altı kartta bu sınır dört karttan daha sıkıdır."
+        ],
+        "ruleBox": "Devam eşiğini ve check-raise genişliğini önce board dokusuyla belirle; en sağlam value'yu yavaşlat, call edemeyeceğin eli raise etme.",
+        "narration": "C-bet'e karşı OOP'nin araç seti — devam eşiği, check-raise genişliği ve float — tek tek elin gücünden çok board dokusuna ve rakibin devam aralığına göre şekillenir. Savunma eşiğin elin mutlak gücüne değil, o board'da aralığındaki daha iyi devam adaylarının sayısına bağlıdır; draw zengin board'da pair artı gutshot gibi kırıntılar fold olur, draw fakir board'da aynı kategori savunmanın omurgasıdır. Check-raise aralığının genişliğini de board belirler. Monoton ve yüksek kart paired board'larda check-raise aralığı neredeyse sıfıra iner, çünkü nut flop'ta neyse river'da da genelde odur. Kuru tek yönlü straight board'larda aralık dar kalır. Dinamik, çok draw'lu board'larda ise hem value hem blöf içerecek şekilde meşru biçimde genişler. En sağlam, en az yaralanabilir value elini check-raise etmek çoğunlukla yanlış yöndür, bu eller check-call ile daha çok kazanır. Check-raise, redraw nut'a yakınsa korumaya muhtaç orta güçlü value'dan gelmelidir; redraw zayıfsa aynı el check-call'a düşer. Blöf check-raise için bu eli check-call olarak da oynayabilir miydim diye sor; cevap hayırsa çoğunlukla raise de değildir, altı kartta bu sınır dört kartlıya göre daha sıkıdır."
+      },
+      {
+        "title": "EK: Float'ta seçim bloker sorar, ham güç sormaz",
+        "bullets": [
+          "Float bet'inde hangi eli value, hangisini blöf olarak seçeceğin neredeyse tamamen bloker etrafında döner: aynı ham güçteki iki el arasında rakibin nut veya ikinci-nut kombinasyonunu bloke eden bahis alır, bloke etmeyen çeker.",
+          "Bu güçlü elde bile geçerlidir — bloke eden top pair bahis, bloke etmeyen top pair çoğunlukla çek; ham güç tek başına yeterli filtre değildir.",
+          "Value tarafında bu eksen tam tersi çalışır: çiftli yüksek board'da (K-K-x, Q-Q-x) trips'i bahis için seçerken kickerin ham gücüne değil, rakibin devam eden overpair'lerini BLOKE ETMEYEN kombinasyona bak — kicker onların call'unu elinden almıyorsa bahis daha çok ödeme görür (15.8-EK-5).",
+          "PLO-6'da kickeri tamamen yok sayma: altı kartta board çiftine eşleşen trips dört karttakinden belirgin biçimde daha sık gelir, kicker savaşı gerçek bir risktir; bahis için gereken kicker eşiği henüz kalibre edilmedi."
+        ],
+        "ruleBox": "Eşit ham güçte iki elden hangisini oynayacağını seçerken önce rakibin devam ettiği kombinasyonu bloke ediyor muyum sorusunu sor, ham gücü ikinci sıraya koy.",
+        "narration": "Float bet'inde hangi eli value, hangisini blöf olarak seçeceğin neredeyse tamamen bloker etrafında döner. Aynı ham güçteki iki el arasında rakibin nut ya da ikinci nut kombinasyonunu bloke eden el bahis alır, bloke etmeyen çeker. Bu, güçlü elde bile geçerlidir: bloke eden top pair bahis atar, bloke etmeyen top pair çoğunlukla çek eder. Ham güç tek başına yeterli filtre değildir. Aynı eksen value tarafında da çalışır. Çiftli yüksek board'larda trips'i bahis için seçerken önce kickerin ham gücüne değil, rakibin devam eden overpair'lerini bloke edip etmediğine bak. Kickeri bloke etmeyen, yani rakibin call'unu elinden almayan kombinasyon daha çok ödeme görür. PLO-6'da kickeri tamamen yok sayma: altı kartlı elde oyuncu başına düşen kombinasyon sayısı arttığından, board çiftine eşleşen trips dört karttakinden belirgin biçimde daha sık gelir, kicker savaşı gerçek bir risktir. Bahis için gereken kesin kicker eşiği henüz kalibre edilmedi, ama soru sırası nettir: önce bloke ediyor muyum, sonra kicker ne kadar güçlü."
+      },
+      {
+        "title": "EK: Slow-play'in kredibilitesini bütçele",
+        "bullets": [
+          "Flop bet, turn check, sonra tekrar saldırma (bet-check-bet) hattına koyduğun blöf sayısı doğal olarak azdır, çünkü hat dar bir gerçek-el kümesinden geliyormuş gibi okunur.",
+          "Bu hatta çok fazla blöf sokarsan hat inanılırlığını kaybeder ve deneyimli rakip seni sık çağırır ya da raise'ler — blöf sayısını hattı gerçekten value ile de oynadığın kombinasyon sayısına göre sınırla.",
+          "Aynı kredibilite meselesi backdoor seçiminde de var: iki karşılaştırılabilir backdoor'un — biri nut'a giden, diğeri zayıf — varsa flop'ta zayıf olanı blöf yakıtı olarak harca, nut'a gideni çek (15.8-EK-4).",
+          "Sebep: renk tamamlanan bir turn veya river geldiğinde çek-geri range'inde gerçek nut kombinasyonların bulunması o range'i inanılır kılar; zayıf backdoor'u harcamak bu korumayı bozmaz, çünkü o kart tamamlansa bile zaten ikinci sınıf bir el olacaktı."
+        ],
+        "ruleBox": "Hattın blöf sayısını, o hattı gerçekten value ile de oynadığın kombinasyon sayısına göre sınırla — iki backdoor'dan nut'a gideni sakla, zayıf olanı şimdi yak.",
+        "narration": "Slow-play ettiğin bir hattın kendi kredibilite bütçesi vardır, ve bu bütçeyi iki farklı yerde yönetmen gerekir. Birincisi hattın kendisi: flop bet, turn check, sonra tekrar saldırma hattına koyduğun blöf sayısı doğal olarak azdır, çünkü bu hat dar bir gerçek el kümesinden geliyormuş gibi okunur. Bu hatta çok fazla blöf sokarsan hattın inanılırlığını kaybedersin ve deneyimli rakip seni sık çağırır ya da raise'ler. Blöf sayısını, o hattı gerçekten value ile de oynadığın kombinasyon sayısına göre sınırla, genel blöf frekansından ayrı düşün. İkincisi kart seçimi: elinde iki karşılaştırılabilir backdoor varsa, biri nut'a giden diğeri zayıf, flop'ta zayıf olanı blöf yakıtı olarak harca, nut'a gideni çek. Sebep aynı kredibilite mantığıdır: renk tamamlanan bir turn ya da river geldiğinde, çek geri range'inde gerçek nut kombinasyonların bulunması o range'i inanılır kılar. Zayıf backdoor'u flop'ta harcamak bu korumayı bozmaz, çünkü o kart tamamlansa bile zaten ikinci sınıf bir el olacaktı. İki backdoor'u aynı torbaya koyup rastgele seçme."
+      },
+      {
+        "title": "EK: Board çiftinin rütbesi float agresyonunu ters yönde belirler",
+        "bullets": [
+          "Çiftli board'larda (6-6-x, Q-Q-x gibi) IP'nin float agresyonu, board'daki çiftin rütbesiyle ters orantılıdır.",
+          "Çift ne kadar düşükse rakibin o çiftle eşleşen trips'e sahip olma ihtimali o kadar düşer ve range'i o kadar zayıflar — IP neredeyse tüm range'iyle agresif olabilir.",
+          "Çift yükseldikçe rakibin o karta bağlanma ihtimali artar — özellikle preflop'ta hep devam eden AA/KK aralığından — IP'nin bahis frekansı düşer ve seçicilik artar."
+        ],
+        "ruleBox": "Board'daki çiftin rütbesi ne kadar düşükse float'ta o kadar geniş ol; rütbe yükseldikçe daralt.",
+        "narration": "Çiftli board'larda, altı-altı-x ya da kız-kız-x gibi, IP'nin float agresyonu board'daki çiftin rütbesiyle ters orantılıdır. Çift ne kadar düşükse, rakibin o çiftle eşleşen trips'e sahip olma ihtimali o kadar düşer ve rakibin range'i o kadar zayıflar; bu durumda IP neredeyse tüm range'iyle agresif olabilir. Çift yükseldikçe tablo değişir. Rakibin o karta bağlanma ihtimali, özellikle preflop'ta hep devam eden yüksek çiftler aralığından, artar. Bu yüzden IP'nin bahis frekansı düşer ve seçicilik artar; yüksek çiftli board'da yalnızca gerçekten güçlü kombinasyonlarla saldır. Kısacası board'daki çiftin rütbesini bir gösterge gibi oku: düşük çift zayıf rakip range'i, yüksek çift güçlü ve bağlı rakip range'i anlamına gelir, float genişliğini buna göre ayarla. Aynı çift, altı-altı gibi düşük bir kartla geldiğinde ve kız-kız gibi yüksek bir kartla geldiğinde sana aynı float genişliğini vermez; masaya oturur oturmaz önce bu tek göstergeye bak, sonra elinin gücüne geç."
+      },
+      {
+        "title": "EK: Redraw tehdidi ve popülasyona göre bas-sakla",
+        "bullets": [
+          "Flush ve straight board'larında set ile iki-per, turn'de gelecek redraw tehdidi yüksekse hemen bas; tehdit düşükse (kolay kötüleşmeyen el) bazen sakla ve sonraki sokakta değerlendir (15.8-EK-7).",
+          "Float spotlarında (flush ve düşük straight board'ları) gerçek rakipler teorinin önerdiğinden daha kalın check-call yapar — flop ve turn'de teoriden sık bas, ama river'da teorinin ima ettiği kadar ince gitme (15.8-EK-8).",
+          "Sadece tek zayıf bloker taşıyan ve başka eşitliği olmayan ellerle flop'ta hemen blöf atma; iki sokak taşıyacak gücün yoksa ilk blöfü turn ya da river'a ertele (15.8-EK-9)."
+        ],
+        "ruleBox": "Redraw tehdidi ve rakibin gerçek savunması board sınıfına göre bas-sakla zamanlamanı belirler; değeri şimdi al, ince blöfü ve zayıf blokeri sonraki sokağa sakla.",
+        "narration": "Flush ve straight board'larında set ve iki per genellikle bahis alır çünkü turn'de gelecek bir kent veya renk taslağına karşı redraw tehdidi altındadırlar; çekilirlerse ikinci sınıf hâle düşme riskleri yüksektir. Tamamlanmış flush'lar bu board'larda daha az kötüleşir, bu yüzden bazen hemen basmak yerine saklanıp sonraki sokakta değerlendirilebilir. Aynı board'larda gerçek rakipler teorinin önerdiği kadar ince oynamaz: flop'ta çektikten sonra genelde daha kalın ve daha az dengeli bir aralıkla check call yapar. Bu senin için flop ve turn'de teoriden daha sık basabileceğin ama river'da teorinin ima ettiği kadar ince gidemeyeceğin anlamına gelir. Blöf tarafında da benzer bir disiplin geçerli: sadece tek ve zayıf bir bloker taşıyan, başka hiçbir eşitliği olmayan ellerle flop'ta hemen bahis atmak yerine çekip ilk blöfü turn ya da river'a ertelemek genelde daha ucuzdur. Üç kuralın ortak noktası şu: gelecekteki risk ve rakibin gerçek eğilimi, standart teorinin önerdiği zamanlamayı değiştirir."
+      },
+      {
+        "title": "EK: Probe boyutu board sınıfına göre değişir",
+        "bullets": [
+          "Rakip pozisyonda flop'ta c-bet atmayıp check'lediğinde range'ini kısmen cap'lemiştir; turn'de OOP'nin bahis atma hakkı, yani probe, doğar (15.9).",
+          "Dinamik board'da (straight yok, flush yok, per yok — top set nut) probe'u tek büyük boyutla, pot civarında oyna: kovalanacak çok draw vardır, hem değer hem semi-blöf pahalı devam ettirmek ister.",
+          "Board'da hem flush hem birden fazla straight varsa probe polar'laşır: değer aralığı esasen flush'lardır, blöfler onun etrafına dizilir, tek büyük boyut yeter; straight ve iki-per'in bet etme sebebi yoktur ve check'e oturur (15.9-EK-6).",
+          "Küçük boyut ancak flush turn'de yeni tamamlandıysa ve set veya iki-per avantajı sende ise geri gelir — bu, range avantajı ile nut avantajının aynı şey olmadığının sahadaki hali."
+        ],
+        "ruleBox": "Probe stratejisini elden değil board sınıfından başlat: dinamik board tek büyük boyut, kilitli (flush artı çoklu straight) board da polar tek büyük boyut, dar istisnalar hariç.",
+        "narration": "Rakip pozisyonda flop'ta bahis atmayıp check ettiğinde range'ini kısmen sınırlamış olur; turn'de OOP oyuncusunun bahis atma hakkı, yani probe, doğar. Dinamik bir board'da, yani straight yok, flush yok, per yok, top set nut olduğu board'da, probe'u tek büyük boyutla, pot civarında oyna. Bu tür board'larda kovalanacak çok sayıda draw vardır; hem değer hem yarı blöf ellerin pahalı devam ettirmek ister, küçük boyut eklemek getiriyi artırmaz ama icrayı zorlaştırır. Board'ın nut yapısı kilitlendikçe, yani straight veya flush geldikçe, tablo tersine döner. Hem flush hem birden fazla straight varsa probe polar hâle gelir: değer aralığın esasen flush'lardır, blöfler onun etrafına dizilir, yine tek büyük boyut yeter. Straight'in ve iki per'in artık bahis atma sebebi yoktur, çünkü flush'a karşı ölü çeker ve zaten flush dışındaki her şeyi eziyordur; bu yüzden check'e oturur. Küçük boyut sadece flush turn'de yeni tamamlandıysa ve set veya iki per avantajı sende kaldıysa geri döner; range avantajı ile nut avantajının aynı şey olmadığının sahadaki karşılığı budur."
+      },
+      {
+        "title": "EK: Sizing şemasından çok hangi el hangi boyuta gider",
+        "bullets": [
+          "Aynı değer-blöf aralığını pot yerine üçte-bir potla bet'lersen matematik çöker: küçük bet rakibe çok pot odds verir, aynı blöf sayısı artık aşırı overbluff olur (15.9-EK).",
+          "Farklı sizing şemaları birbirine yakın getiri üretir; asıl fark her boyuta o boyutun kaldırabileceği eli koymaktır — küçük boyut rakibin fold'larını domine eden combo ellere, büyük boyut polar değer ve blöfe aittir.",
+          "Turn'de tek straight geldiyse board hâlâ dinamik gibi oynar: blöfü equity'yle (draw'larla) seç, bloker ikincildir çünkü rakip nadiren o straight'i tutar (15.9-EK-7).",
+          "Üç straight geldiyse denklem tersine döner: değer aralığın straight'lerdir, blöfün de straight blokeri taşımalıdır; rainbow ve kuru board'larda blöfü kazıyarak bul — gut shot ve gelecekteki river blokerleri yeterli malzemedir."
+        ],
+        "ruleBox": "Hangi sizing şemasını seçtiğin ikincildir; asıl iş her boyuta doğru eli koymak ve board'daki straight sayısına göre blöfü equity'den mi blokerden mi seçeceğine karar vermektir.",
+        "narration": "Aynı değer blöf aralığını pot yerine üçte bir potla bahisle sürersen matematik çöker: küçük bet rakibe çok büyük pot odds verir, aynı blöf sayısı artık devasa bir overbluff hâline gelir ve rakip her şeyle call ederek seni cezalandırır. Farklı sizing şemaları birbirine yakın getiri üretir; asıl fark her boyuta o boyutun taşıyabileceği eli koymakta yatar. Küçük boyut, rakibin foldlarını domine eden combo ellere aittir; büyük boyut, polar değer ve blöfe aittir. Bu ilke blöf seçiminde de geçerlidir ama board'a göre değişir. Turn'de sadece tek bir straight geldiyse board hâlâ dinamik gibi davranır: blöfü equity'yle, yani draw taşıyan ellerle seç, bloker burada ikincildir çünkü rakip nadiren o straight'i tutuyordur. Üç straight geldiyse denklem tersine döner: artık değer aralığın straight'lerdir ve blöfün de straight blokeri taşıması gerekir. Rainbow ve kuru board'larda blöfü kazıyarak bulursun; gut shot ve gelecekteki river blokerleri yeterli malzemedir, aksi hâlde aralığın value heavy kalır ve rakibe bedava fold verirsin."
+      },
+      {
+        "title": "EK: Check-raise ayrımı ve check aralığını çıplak bırakma",
+        "bullets": [
+          "Probe spotunda güçlü elleri ikiye böl: ek equity'si olmayan set veya two-pair çoğunlukla bet — değerini şimdi al, kötü river'lar eli düşürür; redraw'lı veya kombo-draw'lı set check-raise'e gider (15.9-EK-4).",
+          "Check-raise aralığında board per'ini yakalayan el yoksa, per river'larında cap'lisindir ve rakip her per kartını pot'layarak seni ezer — check-raise blöflerini de aynı simetriyle kur: pair artı draw ve flush'a dönmeyen yüksek kart blöfleri ekle.",
+          "Her orta kuvvet eli probe'a taşırsan check aralığın çöp ve tuzaksız kalır; rakip bunu gecikmiş c-bet'le ezer ve sen her check'ten sonra fold'lamak zorunda kalırsın (15.9-EK-8).",
+          "Probe seçerken iki listeyi aynı anda yaz: bet'e gidenler ve check'te kalıp savunacaklar; check aralığına bilinçli olarak hem check-call'lık hem check-raise'lik güçlü el bırak."
+        ],
+        "ruleBox": "Kuru nut bas, redraw'lı nut check-raise'e sakla; ve her seferinde check aralığında savunulabilir el bıraktığından emin ol, yoksa fazla probe ediyorsundur.",
+        "narration": "Probe spotunda güçlü ellerini ikiye böl. Ek equity'si olmayan set ve two pair çoğunlukla bet eder, çünkü değerini şimdi almak gerekir ve kötü river'lar eli düşürür. Redraw'lı veya kombo draw'lı set ise check-raise'e gider. Bunun görünmez faydası range korumasıdır: check-raise aralığında board per'ini yakalayan el yoksa, per river'larında cap'lisindir ve rakip her per kartını pot'layarak seni ezer. Check-raise blöflerini de aynı simetriyle kur; pair artı draw ve flush'a dönmeyen yüksek kart blöfleri ekle ki check-raise sonrası her river'da kapsaman olsun. Bu seçim, check aralığının genel sağlığıyla da doğrudan bağlantılıdır. Her orta kuvvet eli probe'a taşırsan check aralığın çöp ve tuzaksız kalır; rakip bunu gecikmiş c-bet'le ezer ve sen her check'ten sonra fold'lamak zorunda kalırsın. Probe seçerken iki listeyi aynı anda yaz: bet'e gidenler ve check'te kalıp savunacaklar. Check aralığına bilinçli olarak hem check-call'lık hem check-raise'lik güçlü el bırak; bunlar olmadan check zayıf diye okunursun."
+      },
+      {
+        "title": "EK: Probe'a karşı savunma boyuta ve blokere göre",
+        "bullets": [
+          "Pozisyonda küçük, üçte bir pot civarı probe'la karşılaştığında fold eşiğin çok düşüktür: verilen pot odds'ta pair, gut shot, üstü kart neredeyse hepsi devam eder — katlanan yalnız en çıplak eller; tam sınır formata göre kalibre edilir (15.9-EK-9).",
+          "Küçük bet zaten blöf değil equity itmesidir, sen de neredeyse tüm equity'nle karşılık verirsin; büyük probe'a karşı ise OOP'nin polar aralığına ekstra fold etmek normaldir — blokeri kötü bluff-catcher'ları bırak.",
+          "Draw'la probe raise'i cazip görünür ama call eden aralık artık seni ezen ellerde yoğunlaşır ve rakibin dominated blöflerini pottan kovmuş olursun; çoğunlukla düz call üstündür (15.9-EK-10).",
+          "Raise'i iki sınıfa sakla: değer artı güçlü redraw, ya da rakibin değer aralığını vuran kilit blokerli semi-blöf; rakibin hattı polar bir aralık anlatıyorsa call'u mutlak el gücü değil kart seçimi belirler — rakibin değer kombolarını bloklayan, blöf adaylarını bloklamayan el en iyi call'dur (15.9-EK-11)."
+        ],
+        "ruleBox": "Probe boyutu küçüldükçe savunma genişler, büyüdükçe daralır; raise istisnadır, ve polar bete karşı bluff-catcher'ı el gücü değil hangi kartları tuttuğun seçer.",
+        "narration": "Pozisyonda küçük, üçte bir pot civarı bir probe'la karşılaştığında fold eşiğin çok düşüktür. Verilen pot odds'ta pair, gut shot, üstü kart neredeyse hepsi devam eder; katlanan yalnız en çıplak ellerdir, ama tam sınır formata göre kalibre edilir. Küçük bet zaten blöf değil equity itmesidir, sen de neredeyse tüm equity'nle karşılık verirsin. Büyük probe'a karşı ise OOP'nin polar aralığına ekstra fold etmek normaldir; blokeri kötü bluff catcher'ları bırakırsın. Draw'la probe raise'i cazip görünür, daha iyi draw'ları fold'latırsın diye düşünürsün, ama call eden aralık artık seni ezen ellerde yoğunlaşır ve rakibin dominated blöflerini pottan kovmuş olursun. Çoğunlukla düz call üstündür, çünkü blöfleri içeride tutar ve pozisyonu river'a taşırsın. Raise'i iki sınıfa sakla: değer artı güçlü redraw, ya da rakibin değer aralığını vuran kilit blokerli semi blöf. Rakibin hattı polar bir aralık anlatıyorsa elindeki çoğu şey bluff catcher'dır; hangisiyle call edeceğini mutlak el gücü değil kart seçimi belirler. İyi call, rakibin değer kombolarını bloklayan ama blöf adaylarını bloklamayan eldir."
+      },
+      {
+        "title": "EK: İnce değere giden read blöfü de genişletmeli",
+        "bullets": [
+          "'Rakipte nut yok, ikinci ya da üçüncü nut'la raise edebilirim' read'i tek başına yarım karardır: değer aralığını genişletip blöf aralığını sabit bırakırsan hattın value-heavy okunur ve sadece seni yenen eller ödeme yapar.",
+          "Read simetrik uygulanır — thin value'ya iznin varsa aynı spotta blöf sayını da artır.",
+          "Tek showdown read'i bozmaz: rakip en iyi blöf kombosuyla blöf gösterdiyse bu demek blöf yapıyormuş değil, demek doğru kombolarla blöf yapıyor demektir; underbluff read'in ayakta kalır."
+        ],
+        "ruleBox": "Değer eşiğini düşüren her read blöf sayını da artırmalı; tek bir showdown'la mevcut read'i değiştirme.",
+        "narration": "Rakipte nut yok, ikinci ya da üçüncü nut'la raise edebilirim diye düşünmek tek başına yarım bir karardır. Değer aralığını genişletip blöf aralığını olduğu gibi bırakırsan hattın value heavy okunur; masada sadece seni yenen eller ödeme yapmaya devam eder, çünkü rakip bunu hisseder ve ince değerine karşı fazla ödeme yapmaz. Read simetrik uygulanmalıdır: thin value'ya izin veren bir okuman varsa, aynı spotta blöf sayını da artırman gerekir, yoksa aralığın dengesiz kalır ve rakip sonunda seni sadece en güçlü elle yenmeye başlar. Tersi yönde de dikkatli olmak gerekir. Tek bir showdown mevcut read'i bozmamalı. Rakip elini en iyi blöf kombosuyla açtıysa bu, rakibin sık blöf yaptığı anlamına gelmez; sadece doğru kombolarla blöf yaptığı anlamına gelir. Yani altında yatan underbluff read'in, yani rakibin genel olarak az blöf yaptığı okuman, o tek elden sonra da ayakta kalmalıdır. Küçük örneklemle büyük değişiklik yapma."
+      },
+      {
+        "title": "EK: Aşırı-fold sigortası",
+        "bullets": [
+          "'Bu spotta blöf yok' okumasında bile aralığının tamamını fold etme.",
+          "En iyi blocker'lı üst dilimi call'da tut, kalanını fold et.",
+          "Amaç kabaca beşte dört fold — tam sıfır call değil.",
+          "Read yanlışsa kayıp sınırlı kalır; call ettiğin eller showdown'da read'ini test eder."
+        ],
+        "ruleBox": "Underbluff read'inde bile aralığının en iyi call'larını canlı tut: aşırı-fold'u sınırla, bilgiyi satın al.",
+        "narration": "Rakibin bu spotta blöf bulamayacağını düşündüğünde bile aralığının tamamıyla fold etmek riskli bir alışkanlıktır. Bunun yerine en iyi blocker'lı üst dilimini call'da tutmayı, kalanını fold etmeyi hedefle; toplamda kabaca beşte dört fold yeterlidir, tam sıfır call değil. Bu sigortanın iki nedeni var. Birincisi, read'in yanlış çıkarsa kaybın sınırlı kalır çünkü elinin tamamını değil küçük bir dilimini riske atmışsındır. İkincisi, ve daha az fark edilen neden şu: call ettiğin eller showdown'a gider ve orada read'ini gerçek verilerle test eder. Hep fold eden bir oyuncu, o read'in ne zaman yanlış olduğunu asla öğrenemez çünkü hiçbir zaman kartları görmez. Uzun bir seansta bu bilginin kendisi bir getiri kalemidir; sonraki elde aynı görünen spotu daha doğru okumanı sağlar. Yani aşırı-fold sadece o elin kaybı değil, gelecekteki tüm okumaların kalitesinin de kaybıdır. Kuralı basit tut: en iyi blocker'lı dilim canlı kalsın, kalanı güvenle fold et."
+      },
+      {
+        "title": "EK: Probe sonrası river — kime karşı yeniyorsun",
+        "bullets": [
+          "Rakip check ettiğinde önce sor: check-call aralığını mı, sadece check-raise'i mi yeniyorum?",
+          "Check-call'ların hepsini yenen el genelde bet'tir — 'raise yerim' korkusu bedava check'e sürükler.",
+          "Value aralığın call aralığından genişse rakip seni slow-play ve check-raise'e davet ediyor demektir.",
+          "Bu spotlarda boyutu düşür — yarım pot; sebebi caydırma değil maliyet kontrolü.",
+          "Küçük boy daha sık check-raise yer ama raise geldiğinde daha az ödersin, aralığının daha fazlasıyla devam edersin."
+        ],
+        "ruleBox": "Check-call'ları yeniyorsan bet; ama value aralığın call aralığından genişse küçült — küçük bet daha sık raise yer, raise geldiğinde seni daha az cezalandırır.",
+        "narration": "Probe sonrası river'da rakip check ettiğinde iki farklı soru sormalısın. Birincisi: rakibin check-call aralığının tamamını yeniyor muyum? İkincisi: yoksa sadece check-raise aralığına mı yeniliyorum? Check-call'ların hepsini yenen bir el neredeyse her zaman bet'tir; raise yeme korkusuyla check'lemek, sana zaten ödeyecek olan ellerden bedava kaçmak demektir. İkinci kural birinciyi dengeler. Value bet'lediğin aralık, aynı bet'i call edebilecek rakip aralığından daha genişse, bu durum rakibi slow-play'e ve check-raise'e davet ettiğin anlamına gelir. Böyle spotlarda boyutu düşür, örneğin yarım pota in. Ama bunu caydırma amacıyla yapma; sebep tamamen maliyet yönetimidir. Küçük bet aslında daha sık check-raise yer çünkü blöf-raise ucuzlar ve küçük boy zaten geniş, tavanı düşük bir aralık ilan eder. Buna karşılık raise geldiğinde çok daha az ödersin ve aralığının daha büyük bir kısmıyla devam edebilirsin. Yani küçültme kararı korkudan değil, aritmetikten gelir."
+      },
+      {
+        "title": "EK: Mix'i zarla değil kategoriyle çöz",
+        "bullets": [
+          "Solver bir sınıfı turn'de karışık bet çek dağılımına ayırıyorsa kombo kombo taklit etmeye çalışma.",
+          "Sınıfı yan-equity'ye göre ikiye böl: nut-redraw'lı versiyonlar check ve check-raise'e.",
+          "Çıplak ya da non-nut-draw'lı versiyonlar bet'e.",
+          "Bu ayrım kabaca doğru frekansa kendiliğinden oturur, her iki hat da sınıfı temsil eder.",
+          "Aynı kalıp probe, gecikmiş c-bet ve check-raise aralıklarının hepsinde çalışır."
+        ],
+        "ruleBox": "Frekans karışımını kategoriye çevir: nut-redraw'lı dilim check ve check-raise'e, kalanı bet'e — zar yok, ezber yok.",
+        "narration": "Solver bir el sınıfını turn'de belirli oranlarda bet ile check arasında karıştırıyorsa, bunu kombo kombo taklit etmeye çalışmak masada işe yaramaz; frekansı tutturamazsın ve zihinsel kapasiteni gereksiz yere tüketirsin. Bunun yerine sınıfı yan-equity'sine göre ikiye böl. Nut-redraw taşıyan versiyonları, yani nut flush çekilişi ya da nut açık uçlu gibi ek potansiyeli olanları, check ve check-raise tarafına ayır. Çıplak ya da zayıf çekilişli versiyonları ise bet et. Bu basit ayrım seni kabaca doğru frekansa kendiliğinden oturtur, çünkü her iki hatta da o sınıfın bir kısmı temsil edilmiş olur; ayrıca hangi kombonun masada ne yaptığını bir saniyede bilirsin, ezbere ihtiyacın kalmaz. Bu kalıp sadece bu spota özgü değildir; probe sonrası bet kararlarında, gecikmiş continuation bet aralıklarında ve check-raise aralıklarının tamamında aynı şekilde çalışır. Yani öğrendiğin tek bir ayırma prensibi, kitaptaki birçok farklı spotu aynı anda çözer."
+      },
+      {
+        "title": "EK: Tek boyut seç, hangi katmanda öndeysen ona göre seç",
+        "bullets": [
+          "İki boyut arasında küçük bir teorik EV farkı olsa da ikisini aynı anda yürütmek pratikte zordur, elini ifşa riski taşır.",
+          "Spota önceden TEK bir varsayılan boyut ata; kullanım oranı çok dengesizse azınlık boyutu tamamen bırak.",
+          "Bu varsayılanı range'inin ortalama gücüne göre değil, hangi katmanda gerçek avantajın olduğuna göre seç — bkz. 15.10-EK-6.",
+          "Nut'ların üstünde eşitsen ama orta katmanda, örneğin tek per ya da zayıf iki per gibi ellerde, büyük avantajın varsa, büyük polar boyut yerine küçük tek boyut o katmanı value'ya çevirir.",
+          "Büyük boyuta gitmek sadece nut'ların istediğini seçmiş, orta katmanın avantajını masaya koymamış olursun."
+        ],
+        "ruleBox": "Boyutu karar anında dengelemeye çalışma; spota önceden, range'inin hangi katmanında gerçek avantajın olduğuna göre tek bir varsayılan boyut ata.",
+        "narration": "Bir turn ya da river spotunda iki farklı bahis boyutu arasında teorik olarak küçük bir EV farkı olsa bile, ikisini aynı anda hangi elin hangi boyuta gideceğini şaşırmadan yürütmek pratikte zordur ve yanlışlıkla elini ifşa etme riski taşır. Bu yüzden tek boyut seçmek küçük bir teorik kayba mal olsa da, zihinsel kapasiteni el okumaya ayırmanı sağlar; bir spotta iki boyutun kullanım oranı çok dengesizse azınlıktaki boyutu tamamen bırakmak makul bir basitleştirmedir. Peki hangi boyut varsayılan olsun? Cevap range'inin ortalama gücüne değil, hangi katmanda gerçek avantajın olduğuna bakmaktan geçer. Nut'ların üstünde rakiple eşit güçteysen ama orta katmanda, örneğin tek per ya da zayıf iki per gibi ellerde büyük bir avantajın varsa, büyük ya da polar boyut yerine küçük tek boyut seçmek o orta katmanı korur ve value'ya çevirir. Büyük boyuta gidersen sadece nut'ların istediği boyutu seçmiş, orta katmanın avantajını masaya hiç koyamamış olursun."
+      },
+      {
+        "title": "EK: Sulu board eşiği yükseltir, korumayı değil",
+        "bullets": [
+          "Board draw-heavy oldukça zayıf iki per ya da orta tek per gibi ellerin bahis için ihtiyaç duyduğu ekstra equity artar, azalmaz.",
+          "Yaygın refleks 'board sulu, elimi korumam lazım, bas' şeklindedir — bu ters yöndür.",
+          "Board sulandıkça rakibin range'i nut'a ya da güçlü draw'a doğru kutuplaşır.",
+          "Orta-kalite elinin bahis karşısındaki göreli avantajı incelir.",
+          "Altı kartlı PLO'da bu etki dört kartlıya göre daha belirgindir — daha fazla kombinasyon nut'a ya da nut-draw'a ulaşır."
+        ],
+        "ruleBox": "Board sulandıkça orta iyi elin check aralığı genişler, bahis aralığı daralır — koruma refleksiyle ters yönde hareket ettiğini fark et.",
+        "narration": "Board draw-heavy hale geldikçe, zayıf iki per ya da orta tek per gibi ellerin bahis için ihtiyaç duyduğu ekstra equity artar, azalmaz. Yaygın refleks tam tersini söyler: board sulu olduğunda elimi korumam lazım, o yüzden basayım. Ama gerçek mekanizma ters çalışır. Board sulandıkça rakibin range'i de nut'a ya da güçlü çekilişe doğru kutuplaşır, bu yüzden senin orta kaliteli elinin bahis karşısındaki göreli avantajı incelir, kalınlaşmaz. Yani koruma içgüdüsü seni yanlış yöne itiyor olabilir. Altı kartlı PLO'da bu etki dört kartlı oyuna göre daha belirgindir, çünkü daha fazla kombinasyon nut'a ya da nut çekilişine ulaşabilir; rakibin range'i aynı board üzerinde altı kartta dört karta göre daha hızlı ve daha sert kutuplaşır. Sonuç olarak sulu boardlarda orta iyi elin check aralığı genişlemeli, bahis aralığı daralmalıdır; bunu fark etmeden koruma refleksiyle basmaya devam etmek sistematik bir hata haline gelir."
+      },
+      {
+        "title": "EK: Slow-play range'i korur, kişisel bluff yakalamayı değil",
+        "bullets": [
+          "Güçlü kombolardan bir kısmını check-back bırakmanın asıl işlevi 'river'da bluff yakalamak' değildir.",
+          "Asıl işlev rakibin sonraki sokaklarda o sınıfın ALTINDAKİ kombolarla ince value yapmasını engellemektir.",
+          "Check-back'e giren kombo senin range'inin TAMAMINI korur, sadece kendisini değil.",
+          "Sınıfı bet ve check diye bölerken en GÜÇLÜ komboları değil, bahisten en AZ KAZANAN komboları check'e ayır.",
+          "Böylece bahis aralığının value yoğunluğu korunur."
+        ],
+        "ruleBox": "Check-back'e giden komboyu 'hangisi en güçlü' değil 'hangisi bahisten en az kazanıyor' sorusuna göre seç.",
+        "narration": "Bir el sınıfının güçlü kombolarından bir kısmını check-back bırakmanın asıl işlevi, çoğu oyuncunun sandığı gibi river'da bluff yakalamak değildir. Asıl işlev, rakibin sonraki sokaklarda o sınıfın altındaki kombolarla ince value-raise ya da value-bet yapmasını engellemektir. Check-back'e giren kombo aslında sadece kendisini değil, senin range'inin tamamını korur; çünkü rakip artık o gücün altındaki elleriyle sana karşı ince value denemeye çekinir. Bu yüzden bir sınıfı bahis ve check diye ikiye bölerken doğru soru hangi kombolar en güçlü değildir; doğru soru hangi kombolar bahisten en az kazanıyor, yani check'e konduğunda en az EV kaybediyor sorusudur. En güçlü komboları check'e ayırmak bahis aralığının value yoğunluğunu zayıflatır; onun yerine bahisten görece az kazanan komboları check'e ayırmak hem range koruma işlevini yerine getirir hem de bahis aralığının value gücünü korur."
+      },
+      {
+        "title": "EK: İnce value eşiğini sayarak bul",
+        "bullets": [
+          "Sınırda bir elin, örneğin zayıf iki per ya da ince trips gibi bir elin, belirli bir boyutla value-bet edilip edilemeyeceğini hissederek değil sayarak anla.",
+          "Rakibin o boyutu çağıracağı aralıkta seni kaç kombinasyonun geçtiğini kabaca say.",
+          "Mutlak el gücüne değil, rakibin çağırma aralığındaki göreli sıralamana bak.",
+          "Boyut küçüldükçe rakip daha geniş çağırır ve eşik daha hassaslaşır — kesin oranlar masaya göre değişir.",
+          "Önce rakibin o boyutu neyle çağırdığını listele, sonra kendi elinin o listede kaçıncı sırada olduğuna bak."
+        ],
+        "ruleBox": "İnce value kararını 'elim güçlü mü' değil 'rakibin bu boyutu çağıran aralığında kaçıncı sıradayım' sorusuyla ver.",
+        "narration": "Sınırda bir elin, örneğin zayıf iki per ya da ince trips gibi bir elin, belirli bir boyutla value-bet edilip edilemeyeceğini anlamanın pratik yolu hissetmek değil saymaktır. Rakibin o boyutu çağıracağı aralıkta seni kaç kombinasyonun geçtiğini kabaca say; bakılması gereken mutlak el gücün değil, rakibin çağırma aralığındaki göreli sıralamandır. Boyut küçüldükçe rakip daha geniş çağırır, bu da eşiği daha hassas hale getirir; kesin oranlar masadan masaya değişir, bu yüzden burada sert bir sayı vermek yanıltıcı olur, ama yöntem her zaman sabittir. Önce rakibin o belirli boyutu hangi ellerle çağırdığını kabaca listele, sonra kendi elinin o listede kaçıncı sırada olduğuna bak. Eğer listenin üst yarısındaysan bet mantıklıdır, alt yarısına düşüyorsan check daha güvenlidir. Bu sayma alışkanlığı, sınırda kalan ince value kararlarını sezgiden çıkarıp somut bir prosedüre çevirir."
+      },
+      {
+        "title": "EK: Range avantajı her sokakta sıfırdan hesaplanır",
+        "bullets": [
+          "Aynı board dokusu farklı sırayla tamamlandığında, nut turn'de mi geldi river'da mı, range ve nut avantajı kökten değişebilir.",
+          "Flop'ta kimin önde olduğu bilgisi bir sonraki sokağa otomatik taşınmaz.",
+          "Altı kartlı PLO'da bu sallantı dört karta göre daha şiddetlidir.",
+          "Tamamlayıcı bir kart altı kartta her iki range'de de çok daha fazla yeni nut kombinasyonu doğurur.",
+          "'Flop'ta öndeydim' varsayımıyla turn ve river'a girmek altı kartta özellikle riskli bir alışkanlıktır."
+        ],
+        "ruleBox": "Her yeni kartta 'range avantajı şu an kimde' sorusunu sıfırdan sor — sıralamanın kendisi bile bir sokaktan diğerine dönebilir.",
+        "narration": "Aynı board dokusu farklı bir sırayla tamamlandığında, yani nut o sokağa turn'de mi gelmiş yoksa river'da mı gelmiş, hangi tarafın range ve nut avantajına sahip olduğu kökten değişebilir. Flop'ta kimin önde olduğu bilgisi bir sonraki sokağa otomatik olarak taşınmaz; her sokakta yeniden hesaplanmalıdır. Altı kartlı PLO'da bu sallantı dört kartlı oyuna göre daha şiddetlidir, çünkü tamamlayıcı bir kart her iki tarafın range'inde de çok daha fazla yeni nut kombinasyonu doğurur; altı karttan seçilebilecek iki kartlık kombinasyon sayısı dört karda seçilebilecekten kat kat fazladır. Bu yüzden flop'ta önde olduğun varsayımıyla turn ve river'a girmek, altı kartlı oyunda özellikle riskli bir alışkanlıktır; sokak değiştikçe sıralamanın kendisi tersine dönebilir. Doğru refleks her yeni kartta range avantajını sıfırdan sormaktır; önceki sokaktaki sonucu bir sonrakine miras gibi taşımamaktır."
+      },
+      {
+        "title": "EK: Beklenmeyen çizgide hangi el gerçekten oradadır",
+        "bullets": [
+          "Rakip teorik olarak lead ya da check-raise range'i olmayan bir spotta bahis gibi beklenmeyen bir çizgi atarsa önce kendi elini bir kenara koy.",
+          "Sor: bu çizgiyi GERÇEKTEN atmak isteyen el sınıfı hangisi?",
+          "Cevap neredeyse hep iki uçtan biridir: saf air ya da dar bir tek value kombosu.",
+          "Orta katman, yani check-raise edilebilir ama edilmemiş orta güçte eller, neredeyse boştur.",
+          "O orta güçteki eller zaten normal çizgiyi, check-raise ya da iki kez value bas, tercih eder."
+        ],
+        "ruleBox": "Rakibin 'atmaması gereken' bir çizgisini gördüğünde kendi elini değil, o çizgiyi gerçekten seçecek el sınıflarını say — sayı azsa fold eşiğini sıkılaştır.",
+        "narration": "Rakip olması beklenmeyen agresif bir çizgi atarsa, örneğin teorik olarak lead ya da check-raise range'i olmayan bir spotta bahis yaparsa, ilk refleksin kendi elinin gücüne bakmak olmamalı. Önce kendi elini bir kenara koy ve sor: bu çizgiyi gerçekten atmak isteyen el sınıfı hangisidir? Cevap neredeyse her zaman iki uçtan birine yaslanır. Ya saf air'dir, yani hiçbir şey kazanamayacağını gören ve deneyeyim diyen bir el; ya da dar bir tek value kombosudur. Orta katman, yani check-raise edilebilecek ama edilmemiş orta güçteki eller, bu çizgide neredeyse boştur, çünkü o eller zaten normal çizgiyi tercih eder: check-raise atmak ya da iki sokak üst üste value basmak. Bu yüzden beklenmeyen bir çizgi gördüğünde yapman gereken, o çizgiyi gerçekten seçecek el sınıflarını saymaktır; eğer bu sayı azsa, fold eşiğini sıkılaştırman gerekir çünkü karşındaki dağılım göründüğünden daha polar bir dağılımdır."
+      },
+      {
+        "title": "EK: River'da az blöf yapısaldır, seçimi blokerle yap",
+        "bullets": [
+          "River kartı board'un büyük kısmını tamamladığında sezgi 'artık herkes blöf atar' der, ama gerçek genelde tersidir.",
+          "Value range o karttan orantılı büyür, ama blöf adayı sayısı aynı oranda büyümez.",
+          "Blöf adayı olmak için hem elin şimdi işe yaramaması hem geçmiş sokaklarda bu ele mantıklı ulaşılmış olması gerekir — nadir bir kesişim.",
+          "Sonuç: spot yapısal olarak underbluff olur; pot-odds'un gerektirdiği value-blöf oranı tutturulamaz — bkz. 15.11-EK-2.",
+          "Rakip neredeyse her zaman en azından bir çift ya da gutshot gibi bir şeyle geliyorsa, lineer mantık (range dibindeyim, o yüzden blöflerim) çöker; seçim bloker'a kaymalıdır."
+        ],
+        "ruleBox": "Rakip bu river'a gerçekten sıfır showdown-value'lu bir elle gelemiyorsa, blöfünü range dibine göre değil rakibin call aralığını en çok kesen kombolara göre seç.",
+        "narration": "Bir river kartı board'un büyük kısmını tamamladığında sezgi artık herkes blöf atar der; gerçek genelde tersidir. Value range'i o karttan orantılı büyür, ama blöf adayı sayısı aynı oranda büyümez, çünkü blöf adayı olmak için hem elin şimdi işe yaramaması hem geçmiş sokaklarda bu ele mantıklı ulaşılmış olması gerekir; bu nadir bir kesişimdir. Sonuç olarak spot yapısal olarak underbluff olur, pot-odds'un gerektirdiği value ile blöf oranı tutturulamaz. Bunun pratik sonucu blöf seçim yöntemini değiştirir. Lineer mantık, yani range'imin dibindeyim o yüzden blöflerim mantığı, ancak rakibin gerçekten sıfır showdown-value'lu bir elle bu river'a ulaşması mümkünse işler. Rakip neredeyse her zaman en azından bir çift ya da gutshot gibi bir şeyle geliyorsa bu mantık çöker; seçim tamamen bloker'a kaymalıdır, yani hangi kombo rakibin call aralığını en çok kesiyorsa o seçilir. Altı kartlı oyunda range dibi bile daha sık showdown value taşır, bu yüzden bloker öncelikli seçim dört karda olduğundan daha sık gereklidir."
+      },
+      {
+        "title": "EK: Gelecek sokağın bloker değeri — call gerekçesi değil, boy gerekçesi",
+        "bullets": [
+          "Flop'ta bir bloker call kararını meşrulaştırabilir çünkü önünde birden fazla sokak, dolayısıyla birden fazla blöf fırsatı vardır.",
+          "Turn'de, tek kart kalmışken, bu mantık çöker: bloker kartı YOKMUŞ gibi düşün — o haliyle fold ise blokerli haliyle de fold'dur.",
+          "Bloker'ın 'belki river'da blöf atarım' potansiyeli turn call'unu tek başına artı EV yapacak kadar büyük değildir.",
+          "Ama aynı gelecek-sokak mantığı BOY seçiminde işler: turn'de küçük basmak SPR'yi yüksek tutar ve river'da bloker-temelli manevrayı canlı tutar — bkz. 15.11-EK-5.",
+          "Turn'de büyük basıp SPR'yi düşürürsen river'da genelde tek seçenek jam-fold kalır, bloker'ların ince ayar gücü kaybolur."
+        ],
+        "ruleBox": "Gelecek sokağın bloker değeri marjinal bir call'u haklı çıkarmaz, ama bugünün boyunu küçültmeyi haklı çıkarabilir — call kararında bloker yokmuş gibi düşün, boy kararında SPR'yi canlı tutmayı hedefle.",
+        "narration": "Flop'ta bir bloker call kararını meşrulaştırabilir, çünkü önünde hâlâ birden fazla sokak vardır ve o bloker gelecekteki bir blöf fırsatının değerini taşır. Turn'de, yani tek kart kalmışken, bu mantık çöker. Elindeki bloker kartı yokmuş gibi düşün: o haliyle call açık bir fold ise, blokerli haliyle de fold'dur. Bloker'ın belki river'da bununla blöf atarım potansiyeli, turn call'unu tek başına artı EV yapacak kadar büyük değildir. Ama aynı gelecek sokak mantığı bir başka kararda tam tersi yönde işler: boy seçiminde. Turn'de küçük boy seçmek sadece bugün az risk almak değildir; SPR'yi yüksek tutarak river'da bloker temelli manevra, ince value, seçici blöf yapma imkânını canlı tutar. Turn'de büyük basıp SPR'yi düşürürsen river'da genelde tek seçenek jam ya da fold kalır ve bloker'ların ince ayar gücü kaybolur. Yani gelecek sokağın bloker değeri, marjinal bir call'u haklı çıkarmaz ama bugünün boyunu küçültme kararını haklı çıkarabilir; ikisi farklı oyuncu rollerinde farklı sonuçlara götürür."
+      },
+      {
+        "title": "EK: Redraw'suz nütte tuzak dürtüsüne direnç",
+        "bullets": [
+          "Turn'de redraw'suz nütü, örneğin çıplak düz, yakaladığında tuzak kurma dürtüsü cazip gelir ama genelde yanlıştır.",
+          "Range'inin başka kısımlarında zaten check-raise slowplay elleri vardır; bu elin o boşluğu doldurmasına gerek yok.",
+          "Asıl risk kolu: aynı düzü redraw'la tutan rakibin raise'i — o kolda kayıp asimetriktir.",
+          "Bas, ama potu stack-off boyuna şişirmeyen bir boyla; raise geldiğinde redraw'un yoksa devam etme.",
+          "Bu, 15.6'daki 'redraw'suz nüt call'dır, raise için redraw şart' kuralının turn'deki bahis tarafıdır."
+        ],
+        "ruleBox": "Redraw'suz nüt ve zaten dolu bir check-raise range'in varsa tuzak kurma — bas ama stack-off boyunda değil; raise gelirse redraw'suz devam yok.",
+        "narration": "Turn'de redraw'suz bir nütü yakaladığında, örneğin ek çekilişi olmayan çıplak bir düz, tuzak kurayım küçük oynayıp rakibi bir hataya çekeyim dürtüsü cazip gelir. Ama genelde yanlıştır. Sebebi şu: range'inin başka kısımlarında zaten check-raise ve slowplay elleri vardır, bu elin o boşluğu doldurmak için fedakârlık yapmasına gerek yoktur; ayrıca redraw olmadığı için ek sokakta kazanacağın yeni bir şey de yoktur. Ama burada asıl soru rakip şimdi mi sonra mı öder sorusu değildir. Asıl risk kolu, aynı düzü redraw ile tutan rakibin raise'idir ve o koldaki kayıp asimetriktir: iyi ihtimalle chop, kötü ihtimalle yanlış taraftaki bir freeroll. Bu yüzden tuzak kurma, bas, ama potu stack-off boyuna şişirmeyen bir boyla bas. Raise geldiğinde ve elinde redraw yoksa devam etme. Bu kural, redraw'suz nüt call'dır raise değildir kuralının turn'deki bahis tarafını tamamlar; tuzak stokunu range'inin başka bir yerinde ara."
+      },
+      {
+        "title": "EK: River bet boyunu 'yüzde kaç yeniyorum' sayısı seçer",
+        "bullets": [
+          "River'da pot bet'e karşı rakip kabaca yarı aralığıyla devam eder.",
+          "Bunun aritmetiği pot-boy value bet için taban olarak rakip aralığının kabaca dörtte üçünü yenmeni ister.",
+          "Pratikte raise ihtimali ve blocker'lar eşiği daha da sıkar.",
+          "Hesabı tersinden yap: en üst sınıftan aşağı inerek 'beni yenen eller toplam ne kadar' diye say; kaba tahmin yeter.",
+          "Altı kartta rakip nut'a çok daha sık ulaştığı için eşikleri PLO-6 frekanslarıyla yeniden kalibre et."
+        ],
+        "ruleBox": "Rahat öndeysen büyük bet, sınıra yaklaştıkça küçül eğer o boy şemanda varsa, sınırı geçtiysen check.",
+        "narration": "River'da pot boyutunda bir bet'e karşı rakip kabaca aralığının yarısıyla devam eder. Bunun aritmetiği, pot boy value bet atmak için taban olarak rakibin aralığının kabaca dörtte üçünü yenmeni ister. Pratikte raise ihtimali ve bloker'lar bu eşiği daha da sıkar, kesin sayı masaya göre değişir. Hesabı tersinden yapmak en pratik yoldur: kendi el sınıfını en üst sıradan aşağı doğru sayarak beni yenen eller toplamda ne kadar diye sor; burada kaba bir tahmin yeterlidir, amaç sınırın çok ötesinde pot atmamaktır. Eşiğe yaklaştıkça küçük boy pot'tan daha yüksek EV verir; ama o el sınıfında hiç küçük boy kullanmıyorsan, elini okutmamak için pot'ta kalman gerekir, çünkü el hâlâ bet edebiliyorsa boy tek başına küçülmez. Altı kartlı oyunda rakip nut'a çok daha sık ulaştığı için aynı mutlak el gücü daha sık yeniktir; bu yüzden eşikleri PLO-6 frekanslarıyla yeniden kalibre etmek gerekir."
+      },
+      {
+        "title": "EK: River bluf seçiminde pozisyon farkı ve blocker testi",
+        "bullets": [
+          "IP (pozisyondaki oyuncu) genelde range'inin en altından, yani mutlak gösteri değeri en düşük elinden bluf seçer.",
+          "OOP (pozisyon dışındaki oyuncu) ise blocker kalitesine göre bluf seçer, çünkü onun check-call aralığında gerçek showdown value bulunur.",
+          "Genel test (15.11-EK-12): bir bloker rakibin FOLD aralığından mı yoksa ÇAĞIRMA aralığından mı kombo siliyor — cevap bluf seçimini belirler.",
+          "Çağırma aralığından kombo silen bloker bluf'u güçlendirir; fold aralığından kombo silen bloker güçlendirmez, sadece ödeyen payını büyütür."
+        ],
+        "ruleBox": "IP river bluf'unda 'en zayıf elim hangisi', OOP river bluf'unda 'en iyi blocker'ım hangisi' diye sor — ikisi aynı soru değildir.",
+        "narration": "Checked down ya da kaçırılmış turn bahsi sonrası river'da, pozisyon bluf seçim mantığını değiştirir. Pozisyondaki oyuncu genelde range'inin en altından, yani mutlak gösteri değeri en düşük elinden bluf seçer, çünkü karşısındaki pozisyon dışı range geniş ve çoğunlukla havadır; geniş bir aralığı topluca fold ettirmek önceliktir. Pozisyon dışındaki oyuncu ise blocker kalitesine göre bluf seçer, çünkü onun çağırma aralığında gerçek gösteri değeri bulunur ve rakibin spesifik value kombolarını dışarı atmak doğru blocker gerektirir. Bu ayrım gözden kaçtığında pozisyon dışında da pozisyon mantığıyla, yalnızca mutlak el gücüne göre bluf seçilir ve elde blocker olduğu halde boşa harcanır. Bu seçimin arkasındaki genel test şudur: bir bloker rakibin fold edeceği aralıktan mı yoksa çağıracağı aralıktan mı kombo siliyor. Çağırma aralığından kombo silen kart bluf'u güçlendirir, çünkü kalan aralıkta ödeyen payı küçülür. Fold aralığından kombo silen kart ise bluf'u güçlendirmez, tersine ödeyen payını büyütür. Aynı test river bahis ve raise seçiminde de birebir geçerlidir."
+      },
+      {
+        "title": "EK: Bluff-raise'in EV kaynağı ve doğru blocker yönü",
+        "bullets": [
+          "Bir check-raise bluff'unun kârlılığı rakibin bluff'larını yenmenden değil, rakibin value elini fold ettirebilmenden gelir.",
+          "\"Rakip hiç bluflamıyor\" gerekçesiyle raise'e geçmek tersine döner — rakip zaten bluflamıyorsa bu bluff-raise için daha kötü bir spottur.",
+          "Value bet'te rakibi yenen kombo bloklanır; bluff-raise'de ise rakibin value'sunu blokla ama bluff'unu serbest bırak (15.11-EK-10).",
+          "Sebep: rakibin fold edecek bluff'unu bloklamak hiçbir şey kazandırmaz, kazanç rakibin value'sunu fold ettirmekten gelir."
+        ],
+        "ruleBox": "Bluff-raise kararını rakibin bluff sıklığına değil value elini fold edip etmeyeceğine göre ver, ve seçtiğin komboda rakibin value'sunu blokla ama bluff'unu serbest bırak.",
+        "narration": "Bir check-raise bluff'unun kârlılığı rakibin bluff'larını yenmenden değil, rakibin value elini fold ettirebilmenden gelir. Rakip burada hiç bluflamıyor, o yüzden çağıramam, bari raise'e çevireyim mantığı tersine döner: rakip gerçekten hiç bluflamıyorsa bu, bluff-raise için daha kötü bir spottur, çünkü zaten sana kaybedecek elleri fold ettirmenin katkısı sıfırdır ve kazancın tamamı rakibin gerçek value elini kırabilmene bağlıdır; hiç bluflamayan bir rakip genelde value'sunu da bırakmaz. Bu mantık kombo seçimine de taşınır. Value bet ederken rakibin seni yenen veya eşitleyen kombolarını bloklamak istersin. Ama bluff-raise yaparken mantık tersine döner: rakibin value kombolarını blokla, ama mümkünse rakibin bluff kombolarını unblok et, çünkü rakibin zaten fold edecek olan bluff'unu bloklamak sana hiçbir şey kazandırmaz, sadece rakibin elinde fold edecek daha fazla bluff kombosu kalma ihtimalini azaltır. Asıl kâr, rakibin elinde tuttuğu value kombolarını fold ettirmekten gelir."
+      },
+      {
+        "title": "EK: Aynı el sınıfını bölerken blocker hangi tarafa yazar",
+        "bullets": [
+          "Sınırda bir el sınıfını bölerken, rakibin value veya çağırma aralığından kombo silen bloker'ı taşıyan kombo CHECK yani check-call aralığına yazılır.",
+          "Blocker'lı kombo check-call'da daha iyi bir bluff-catcher'dır çünkü rakibin value kombolarını sen tutuyorsun.",
+          "Blocker'sız kombo rakibin çağırma aralığını unblock ettiği için daha sık ödenir, bu yüzden bahse yazılır.",
+          "Kazanç rakibin senin spesifik komboya göre daha geniş oynamasından gelmez; kazanç yalnız rakibin aralığının bileşiminden gelir.",
+          "Bu bölme zaten bahis mi check mi kararı verilmiş bir made-hand sınıfı içindir; bluf seçimi ayrı bir konudur (15.11-EK-7, EK-12)."
+        ],
+        "ruleBox": "Aynı made-hand sınıfını bölerken rakibin value ve çağırma aralığını bloklayan komboyu check-call'a, bloklamayanı bahse yaz — sezgisel tam tersini değil.",
+        "narration": "Sınırda bir el sınıfını, bahis mi check mi diye ikiye bölerken, burada blocker rakibin value ya da çağırma aralığından kombo silen kart demektir. O blokeri taşıyan komboları check-call aralığına, taşımayanları bahis aralığına koymak dengeleyici bir kısayoldur. Mantık ters gibi görünür ama işler: blokerli kombo check-call'da daha iyi bir bluff-catcher'dır, çünkü rakibin value kombolarını sen tutuyorsun; o bahis attığında aralığında kalan value payı küçülür, blöf payı görece büyür. Kazanç rakibin senin spesifik komboya göre daha geniş oynamasından gelmez; rakip hangi komboyu tuttuğunu bilmez, kazanç yalnız onun aralığının bileşiminden gelir. Blokersiz kombo ise rakibin çağırma aralığını unblok ettiği için daha sık ödenir; bahse onu yaz, gerekçe fold ettirme gücü değil, çağırma alma sıklığıdır. Bu bölme, ayrımı zaten yapılmış bir made-hand sınıfı içindir; bluf seçimi başka bir konuya tabidir."
+      },
+      {
+        "title": "EK: River donk kararı IP'nin value rahatlığına bakar",
+        "bullets": [
+          "OOP'nin river'da lead (donk) atıp atmayacağını belirleyen soru \"elim güçlü mü\" değildir.",
+          "Asıl soru: IP bu river'da kendi tipik value elleriyle (set, üst çift vb.) hâlâ rahatça value bet basabilir mi.",
+          "IP hâlâ basabiliyorsa OOP'nin lead atmaya ihtiyacı yoktur, check-call yeterlidir çünkü value zaten karşı taraftan gelecektir.",
+          "River kartı IP'nin o value ellerini devalüe ederse (üçüncü düz olasılığı, board pair ile set avantajının OOP'ye geçmesi gibi), IP çekinir ve OOP'nin lead range'i tam bu boşlukta EV kazanır."
+        ],
+        "ruleBox": "River lead range'ini kendi el gücünle değil, o river'ın IP'nin tipik value ellerini hâlâ bastırıp bastıramadığıyla kur.",
+        "narration": "OOP'nin, yani pozisyon dışındaki oyuncunun river'da lead atıp atmayacağını belirleyen temel soru elim güçlü mü değildir; şudur: IP, yani pozisyondaki oyuncu, bu river'da kendi tipik value elleriyle, set ya da üst çift gibi, hâlâ rahatça value bet basabilir mi. IP hâlâ basabiliyorsa OOP'nin lead atmaya ihtiyacı yoktur, check-call yeterlidir, çünkü value zaten karşı taraftan gelecektir. Ama river kartı IP'nin o value ellerini devalüe ederse, üçüncü bir düz olasılığı açılırsa ya da board çift olup set avantajı OOP'ye geçerse, IP kendi value'sunu basmaktan çekinir ve tam bu boşlukta OOP'nin lead range'i EV kazanır. Yani lead kararı kendi elinin gücüyle değil, rakibin o texture'da value basma rahatlığıyla ölçülür. Rakip rahatsa çekilirsin, rakip zorlanıyorsa devreye girersin. Bu, river mimarisini okumanın en pratik yoludur. Bu okuma river donk kararını tahminden çıkarıp yapıya bağlar."
+      },
+      {
+        "title": "EK: Multiway'de küçük-sık bahis ve sandviç etkisi",
+        "bullets": [
+          "Multiway'de rakip sayısı arttıkça kârlı bir bahis için gereken el gücü eşiği yükselir, bu yüzden bahis sıklığı ve boyu küçülür.",
+          "Küçük boy daha zayıf ellerin de bahsi artı beklenen değerle atmasını mümkün kılar, bu da bahis sıklığını yükseltir.",
+          "İlk hareket eden oyuncunun bahsi her rakibi hem arkasındaki hem önündeki tehdide karşı aynı anda fold etmeye zorlar — buna sandviç etkisi denir (15.12-EK).",
+          "Bu yüzden her rakip tek tek daha sık fold eder, ama hepsinin aynı anda fold etmesi gerektiğinden toplam fold equity heads-up'takinden düşüktür.",
+          "Sandviç etkisinin verdiği şey bahis sıklığı değil bahis seçiciliğidir — kime ve hangi boyla baskı yapacağını belirler."
+        ],
+        "ruleBox": "Multiway'de ilk hareket ederken tek tek fold sıklıklarını değil çarpımlarını hesapla; sandviç, bluf sıklığını değil kime ve hangi boyla baskı yapacağını seçmenin gerekçesidir.",
+        "narration": "Multiway'de bahis sıklığı ve boyu küçülür, çünkü rakip sayısı arttıkça kârlı bir bahis için gereken el gücü eşiği yükselir; daha fazla range aynı anda seni yenebilecek durumda olduğundan, ortalama elin bahis için yeterli olma olasılığı düşer. Küçük boy bu sorunu kısmen çözer: boy küçüldükçe daha zayıf ellerin de bahsi artı beklenen değerle atması mümkün hale gelir, bu da bahis sıklığını yükseltir. Yüksek sıklık ise aradaki her rakibi aynı anda sıkıştırıp ucuz equity toplamanı sağlar; buna sandviç etkisi denir, çünkü ilk hareket eden oyuncunun bahsi her rakibi hem arkasındaki henüz karar vermemiş hem önündeki hâlâ pota bağlı tehdide karşı aynı anda katlanmaya zorlar. Bu yüzden her rakip tek tek daha sık fold eder. Ama buradan multiway'de daha çok bluf çıkmaz, çünkü bluf'un tutması için hepsinin aynı anda fold etmesi gerekir; toplam fold equity heads-up'takinden düşüktür. Sandviç etkisinin verdiği şey bluf sıklığı değil bluf seçiciliğidir, yani kime ve hangi boyla baskı yapacağındır."
+      },
+      {
+        "title": "EK: 3-bet'li multiway potta ortadaki oyuncu en az bahis atar",
+        "bullets": [
+          "Preflop 3-bet sonrası iki veya daha fazla çağıran varsa, postflop'ta ilk hareket eden oyuncunun check range'i genelde geniştir.",
+          "Donk-lead yok denecek kadar azdır, orta güçteki eller potu şişirmeden check'e düşer, nütler de check-raise için orada bekletilir — o check zayıflık sinyali değil, aralığın neredeyse tamamıdır.",
+          "Arada kalan oyuncu, yani 3-bet eden ama hâlâ arkasında bir çağıran varken oynayan taraf, yapısal olarak en az bahis atan taraftır.",
+          "Sebep: önündeki aralık check-raise'i içeride tutuyor, arkasındaki çağıran hâlâ canlı, ve düşük SPR'li 3-bet potunda orta bir elle potu şişirmek kendi aleyhine commit eder.",
+          "Bahis çoğunlukla son harekete geçen, yani pozisyondaki oyuncudan gelir."
+        ],
+        "ruleBox": "3-bet'li multiway potta ortadaki oyuncuysan varsayılan olarak en az bahis atan taraf sensin; önündeki check zayıflık değildir, bahis basmak için ekstra sebep iste.",
+        "narration": "Preflop 3-bet sonrası iki ya da daha fazla çağıran varsa, postflop'ta ilk hareket eden oyuncunun check range'i genelde geniştir: donk-lead yok denecek kadar azdır, orta güçteki eller potu şişirmeden check'e düşer, nütler de check-raise için orada bekletilir. Yani o check zayıflık sinyali değil, neredeyse aralığın tamamıdır. Bu geniş check'e karşı, arada kalan oyuncu, yani 3-bet eden ama hâlâ arkasında bir çağıran varken oynayan taraf, yapısal olarak en az bahis atan taraftır: önündeki aralık check-raise'i içeride tutuyor, arkasındaki çağıran hâlâ canlı, ve 3-bet potu zaten düşük SPR'li olduğundan, orta bir elle potu şişirmek onu kendi aleyhine commit eder. Bahis çoğunlukla son harekete geçen, pozisyondaki oyuncudan gelir. Bu yüzden ortadaki oyuncuysan varsayılan olarak en az bahis atan taraf sensin; önündeki check zayıflık değildir, aralığın tamamı orada, check-raise dahil. Bahis basmak için ekstra sebep iste, sadece üç bet ettim demek yeterli değildir."
+      },
+      {
+        "title": "EK: Shove'a call'da üçüncü oyuncu canlıysa eşik sıkılaşır",
+        "bullets": [
+          "Bir rakibin shove'una karşı heads-up hesaplanan ufak artı EV'li bir call, üçüncü bir oyuncu hâlâ elindeyken tamamen farklı bir karardır.",
+          "Sebep chip asimetrisi değildir — riske ettiğin miktar iki dalda da aynıdır ve üçüncü oyuncu da girerse kazandığında daha çok kazanırsın.",
+          "Sebep aralıktır: seni overcall eden oyuncunun aralığı dar, güçlü ve seninkiyle korelelidir, üstelik kartlar birbirinizin outlarını siler.",
+          "Üç yönlü potta equity payın, ölü parayla düşen üçte bir eşiğinin altına iner; azınlıkta equity tek başına diskalifiye etmez, diskalifiye eden korele-güçlü overcall aralığıdır.",
+          "Turnuvada bustout ve ICM bu asimetriyi büyütür — elenirsen kalan seriyi de kaybedersin."
+        ],
+        "ruleBox": "Shove'a call kararı verirken üçüncü oyuncu hâlâ hareket edecek mi sorusunu equity hesabından önce sor — canlıysa eşiği heads-up'takinden belirgin sıkılaştır.",
+        "narration": "Bir rakibin shove'una karşı heads-up hesapladığında ufak da olsa artı EV'li bir call, üçüncü bir oyuncu hâlâ elindeyken tamamen farklı bir karardır. Sebep chip asimetrisi değildir: riske ettiğin miktar iki dalda da aynı call'dır ve üçüncü oyuncu da girerse, onun chipleri pota eklendiğinden kazandığında daha az değil daha çok kazanırsın. Sebep aralıktır: seni overcall eden oyuncunun aralığı dar, güçlü ve seninkiyle korelelidir; PLO'da çoğu zaman aynı nüt eline çekiliyorsunuzdur, üstelik kartların birbirinizin outlarını siler. Yani üç yönlü potta equity payın, ölü parayla zaten düşen yaklaşık üçte bir eşiğinin de altına iner. Azınlıkta equity tek başına diskalifiye etmez; üç yönlü potta yaklaşık eşit katkıyla üçte bir yeter. Diskalifiye eden şey korele ve güçlü overcall aralığıdır. Turnuvada asıl asimetriyi bunun üstüne bustout ve ICM ekler: elenirsen kalan seriyi de kaybedersin. Bu yüzden üçüncü bir oyuncu hâlâ hareket edecekken call ya da shove eşiği heads-up eşiğinden belirgin biçimde sıkı tutulmalıdır."
+      },
+      {
+        "title": "EK: Dry side-pot'ta nütü gizleme, büyük oyna",
+        "bullets": [
+          "Bir rakip all-in olup kalan iki oyuncu arasında dry (ekstra para eklenmeyen) bir side-pot oluştuğunda, nüt eli düşük SPR'de yavaş oynamak genelde işe yaramaz.",
+          "Sebep: side-pot rakibinin seni bluf'la yenebilmesi için hem all-in olan oyuncunun elini hem senin elini aynı anda geçmesi gerekir.",
+          "Bu, tek bir bluf çizgisiyle nadiren tutan çift bir koşuldur.",
+          "Dry side-pot'ta düşük SPR'de nütü saklamak yerine büyük oynamak çoğunlukla daha çok EV getirir.",
+          "Saklama planı ancak SPR yüksekse ve side-pot rakibinin gerçekten manevra alanı varsa mantıklı olur."
+        ],
+        "ruleBox": "Dry side-pot'ta düşük SPR'de nütü gizleme — rakibinin seni yenmesi için iki elin aynı anda geçmesi gerektiğinden, büyük oynamak neredeyse her zaman daha iyidir.",
+        "narration": "Bir rakip all-in olup kalan iki oyuncu arasında dry, yani ekstra para eklenmeyen bir side-pot oluştuğunda, nüt eli düşük SPR'de yavaş oynamak, yani tuzak kurmak, genelde işe yaramaz. Sebep şudur: side-pot rakibinin seni bluf ile yenebilmesi için hem all-in olan oyuncunun elini hem senin elini aynı anda geçmesi gerekir; bu, tek bir bluf çizgisiyle nadiren tutan çift bir koşuldur. Bu yüzden dry side-pot'ta düşük SPR'de nütü saklamak yerine büyük oynamak çoğunlukla daha çok EV getirir. Saklama planı ancak SPR yüksekse ve side-pot rakibinin gerçekten manevra alanı varsa mantıklı olur. Bu bulgu kök hatanın PLO formuna bağlanır: çıplak nüt tek başına yeterli değildir doktrini, burada draw'lara ve derinliğe genişletilmiş hâliyle karşımıza çıkar; non-nut kombolarla şişirilen bir pot, aynı kök hatanın side-pot versiyonudur. Kısacası, all-in bir rakip varken kalan iki elin çift koşulu, senin lehine oynar; bunu kullan, gizleme."
+      },
+      {
         title: "Cheat: masaya oturmadan dokuz satır",
         bullets: [
           "Açılış: UTG dar, CO = UTG + yüzde on, BTN geniş; dangler'lı el erken açılmaz.",
@@ -6171,6 +7279,125 @@ export const modules: Module[] = [
           "Masaya oturmadan önce okunacak dokuz satır. Açılışta en erken pozisyon dar, cut-off ondan yüzde on geniş, buton geniş; dangler taşıyan el erken pozisyondan açılmaz. Üç-bet'e call yalnız as-as'lı eller, çift renkli papaz-papaz ve bağlı rundown'larla. Dört-bet'e beş-bet yalnız as-as'lı ellerle. Big blind'da call yok, üç-bet ya da fold. Her flop call'ından önce turn planın olmalı; hangi kartta devam edeceğini söyleyemiyorsan fold. Turn'de redraw'suz nut call'dır, raise değil. River'da pot bahsine nut olmayan elle fold. Elinde üçlü kart varsa el bir kademe aşağı. Yığın üç yüz big blind'i geçtiyse as-as call'a düşer, devam bahsi yok, tercihen masa değiştir. Ve bir seans kuralı: gece kapanış saatini sabit tut, iki büyük kayıp üst üste gelirse on beş dakika ara ver.",
       },
     ],
+  },
+  {
+    "id": "M46",
+    "title": "Antrenman Protokolü: drill, geri-çağırma, okuma disiplini",
+    "chapter": "Bölüm 9",
+    "minutes": 8,
+    "slides": [
+      {
+        "title": "Drill nasıl başlar: komut, soru karışımı, kurallar",
+        "table": {
+          "section": "Bölüm 9",
+          "sub": "9.1",
+          "caption": "Soru ağırlıkları: kök hata en büyük pay."
+        },
+        "bullets": [
+          "Komut 'beni hazırla' / 'drill' / 'soru sor' → sokratik soru-cevap: beş-sekiz karar sorusu, tek tek.",
+          "Ağırlık yüzde kırk kök hataya (tek per / şişmiş pot sınıflandırması), yüzde otuz stack modu ve aralık seçimine (Bölüm 3, 4, 5).",
+          "Kalan: PLO yüzde yirmi, blöf seçimi ve draw kararları yüzde on.",
+          "Yanlış sorular bir-iki gün sonra farklı kılıkta tekrar gelir; doğru cevap + doğru gerekçe ikisi de gerekir.",
+          "Masadan gelen kalıcı yeni kurallar B0'a eklenir."
+        ],
+        "ruleBox": "Soru karışımı rastgele değil: en pahalı hata, kök hata sınıflandırması, en büyük payı alır.",
+        "narration": "Bu bölüm bir kullanım kılavuzu: drill nasıl başlar, sorular nasıl dağılır, yanlışlar nasıl işlenir. Komut basittir, beni hazırla, drill, ya da soru sor dediğinde sokratik bir döngü başlar: beş ile sekiz karar sorusu, tek tek sorulur, sen cevap vermeden bir sonraki soru gelmez. Sorular eşit dağılmaz. En büyük pay, yüzde kırk, kök hataya gider: tek per mi şişmiş pot mu, bu sınıflandırmayı doğru yapabiliyor musun. İkinci büyük pay, yüzde otuz, stack modu ve aralık seçimine ayrılır. PLO yüzde yirmi, blöf seçimi ve draw kararları yüzde on pay alır. İki kural bu döngüyü sağlamlaştırır. Birincisi, yanlış cevapladığın soru kaybolmaz, bir iki gün sonra farklı kılıkta tekrar karşına çıkar. İkincisi, doğru cevap tek başına yetmez, gerekçe de sorulur; doğru karar yanlış gerekçeyle geldiyse bu yarım puandır, çünkü şansla tutturmuşsundur. Masadan getirdiğin gerçek eller vaka olarak işlenir; ortaya çıkan kalıcı yeni kurallar da ana kural setine eklenir."
+      },
+      {
+        "title": "İki drill modu: hacim mi, dur-düşün mü",
+        "bullets": [
+          "Preflop drill: hacimle dön — telefon, düşük enerji, soru sormadan ilerle.",
+          "Postflop drill: kural TERS — her yanlış VE her şaşırtan doğru, drill'i durdurur.",
+          "Durunca: sınıf görünümünü aç, aksiyonun döndüğü eşiği bul, üç parça formatında yaz, sonra devam et.",
+          "'Kombom doğru oynamış, geçtim' = kök hata; hiçbir şey öğrenmedin demektir.",
+          "A-oyun günlüğü: her seans sonunda iki satır — nasıl oynadım, o gün ne yaptım (uyku, kafa yükü, saat).",
+          "Amaç sağlık takibi değil, tekrar eden iki-üç değişkeni yakalamak; bulduğun yasayı seri planına yaz."
+        ],
+        "ruleBox": "Postflop'ta her şaşırtan doğru da drill'i durdurur — 'kombom doğru oynadı, geçtim' kök hatanın ta kendisidir.",
+        "narration": "Drill'in iki modu birbirine zıt çalışır. Preflop drill'i hacimle dönmelidir: telefonda, düşük enerjiyle, soru sormadan hızlı hızlı ilerle, burada amaç tekrar sayısıdır. Postflop'ta kural tam tersine döner: her yanlış cevap drill'i durdurur, ama daha önemlisi, her şaşırtan doğru cevap da durdurur. Durduğunda ne yapacaksın? Sınıf görünümünü aç, aksiyonun hangi eşikte döndüğünü bul, bunu üç parçalı bir formatta yaz, ancak ondan sonra devam et. En sık düşülen tuzak şu cümledir: kombom doğru oynamış, geçtim. Bu cümle drill'in kök hatasıdır, çünkü doğru çıkmış bir sonuç seni durdurmazsa altındaki mantığı hiç öğrenmemiş olursun. İkinci parça A-oyun günlüğü. Her seansın sonunda sadece iki satır yaz: nasıl oynadım, bir not artı bir sayı; ve o gün ne yaptım, uyku, seans öncesi kafa yükü, hangi saatte oturdum. Amaç sağlık takibi değil, birkaç günde tekrar eden iki üç değişkeni yakalamak. Bulduğun bu yasayı seri planına ekle ve bir daha ihlal etme."
+      },
+      {
+        "title": "Aralık geri-çağırma: önce 'oynuyor muyum'",
+        "bullets": [
+          "Preflop drill'inin ve her postflop seansının açılışı: iki dakikalık kör geri-çağırma.",
+          "Pozisyonu söyle, gözünü kapa, aralığı grid sırasıyla oku: offsuit Ax, Kx, Qx, Tx, çiftler, suited.",
+          "Her el için İLK soru: 'bu eli oynuyor muyum?' — 'yüzde kaç 3-bet ediyorum?' değil.",
+          "İkinci katman: bu elin 3-bet primi var mı, hangi kriterden?",
+          "Frekans hassasiyeti EN SON katman; sıra bozulursa yüzde ezberi karar sınıfının yerini alır ve masada geri gelmez."
+        ],
+        "ruleBox": "Katman sırası sabit: oynuyor muyum, sonra prim ne, en son frekans — sıra bozulursa masada çöker.",
+        "narration": "Her preflop drill oturumu ve her postflop seansı aynı iki dakikalık ritüelle açılır: kör geri çağırma. Pozisyonunu kendine söyle, gözünü kapat, ve elindeki aralığı grid sırasıyla zihninde oku, önce offsuit as'lı eller, sonra offsuit kral'lı, sonra kız, sonra onlu, sonra çiftler, en son suited eller. Kritik olan şu: her el için sorduğun ilk soru 'bu eli oynuyor muyum' olmalı, 'bu elle yüzde kaç sıklıkla 3-bet ediyorum' değil. Sıra doğruysa ikinci katmana geç: bu elin 3-bet primi var mı, ve bu prim hangi kriterden geliyor, bloker mi, bağlantı mı, board sahipliği mi. Frekans hassasiyeti, yani tam yüzdeyi bilmek, en son katmandır. Neden bu sıra önemli? Çünkü sıra bozulursa, yani önce yüzde ezberlenirse, yüzde bilgisi karar sınıfının yerine geçer ve masada elin başına gelince geri çağrılamaz, donarsın. Sıra korunursa, ilk iki katmanı bilen ama üçüncüyü bilmeyen kişi az hata yapar; tam tersi kişi masada çöker."
+      },
+      {
+        "title": "Aynı ritüel rakip tarafına: chart'a dönme testi",
+        "bullets": [
+          "Aynı ritüel rakip tarafına da uygulanır: 'açan CO — hangi elleri oynuyor?'",
+          "Bu soruya cevap veremiyorsan o spotu drill'lemeye hazır değilsin; önce chart'a dön.",
+          "Kural: sıra sabit — oynuyor muyum, sonra prim ne, en son frekans.",
+          "İlk iki katmanı bilen üçüncüyü bilmeden az hata yapar; üçüncüyü ezberleyip ilk ikisini bilmeyen masada çöker."
+        ],
+        "ruleBox": "Rakip tarafı da aynı katmanla geri çağrılır — cevap veremiyorsan drill'den önce chart'a dön.",
+        "narration": "Bu geri çağırma ritüeli tek yönlü değildir; aynı disiplini rakip tarafına da uygulaman gerekir. Kendine sor: masada açan cutoff pozisyonundaki oyuncu hangi elleri oynuyor? Bu soruya net cevap veremiyorsan, o spotu drill'lemeye henüz hazır değilsin demektir; drill'e girmeden önce ilgili aralık chart'ına dönüp o bilgiyi tazelemelisin. Çünkü drill kendi kararını rakibin aralığına göre kalibre eder, rakibin aralığını bilmeden verdiğin karar, doğru çıksa bile şans eseri doğrudur. Kuralın özü değişmez: sıra sabittir, önce oynuyor muyum sorusu, sonra 3-bet priminin hangi kriterden geldiği, en son tam frekans. İlk iki katmanı sağlam bilen ama üçüncü katmanı, yani kesin yüzdeyi bilmeyen oyuncu masada az hata yapar, çünkü karar sınıfı doğrudur. Ama üçüncü katmanı ezberleyip ilk ikisini atlayan oyuncu, elin başına geldiğinde donar ve masada çöker."
+      },
+      {
+        "title": "Offsuit-taban çıpası: pozisyon başına tek satır",
+        "bullets": [
+          "Aralığı komple ezberlemenin kısayolu: en alttaki offsuit seriyi çıpa yap.",
+          "Kabaca: LJ offsuit Tx'te, HJ offsuit 9x'te, CO offsuit 8x'te biter (taban satırları kalibre edilir).",
+          "BTN'de taban pratikte kalkar: neredeyse tüm offsuit Ax açılır, dip A2o-A5o mix dahil.",
+          "Postflop kullanım: kuru yüksek-kart board'da CO taban satırındaki offsuit 8x yüksek frekansla c-bet edilir.",
+          "Senin 8x'in o bloğu kesiyorsa check-raise adayın bir kademe aşağı kayar."
+        ],
+        "ruleBox": "Pozisyon başına bir offsuit-taban satırı ezberle: aralığın alt sınırı, rakibin havasının da kaynağıdır.",
+        "narration": "Bir açılış aralığını tek tek ezberlemek yerine kısa bir yol var: aralığın en alttaki offsuit serisini çıpa yapmak. Kabaca şöyle: lojack pozisyonu offsuit onda biter. Hijack pozisyonu offsuit dokuzda biter. Cutoff offsuit sekizde biter. Buton pozisyonuna gelince taban pratikte kalkar, neredeyse bütün offsuit as elleri açılır, en dipteki as iki offsuit ile as beş offsuit dahil, bir karışım halinde. Bu satırlar kesin değil, kalibre edilir, ama sıralamayı ve mantığı öğretir. Bu tek satırın ikinci kullanımı postflop'tadır: rakibin hava ya da blöf bloğunun nereden geldiğini söyler. Kral, ikili, altı gibi kuru ve yüksek kartlı bir zeminde, cutoff pozisyonundan açan rakip, kendi taban satırındaki offsuit sekizli elleri yüksek bir frekansla devam bahsi yapar. Şimdi kendi elini düşün: eğer senin elindeki sekizli kart o bloğu kesiyorsa, yani rakibin o bloftan gelen elini azaltıyorsa, check-raise adayın bir kademe aşağı kayar, daha marjinal bir el bile artık check-raise'e aday olur."
+      },
+      {
+        "title": "Taban satırından blöf seç: bir-iki basamak altı",
+        "bullets": [
+          "Üçüncü kullanım: preflop 3-bet ve squeeze blöf seçimi.",
+          "Blöf adayları çoğunlukla o tabanın bir-iki basamak ALTINDAKİ kartlardan gelir.",
+          "HJ tabanı offsuit 9x ise, blöf adayı A8s/A7s tipi ellerdir.",
+          "Test: 'call'da beni domine edecek eli fold ettiriyor muyum?' Evet ise blöf kazançlı, çöp değil.",
+          "Kural: pozisyon başına bir taban satırı ezberle; rakip havası, check-raise kademesi ve blöf adayları hep o satırdan türer."
+        ],
+        "ruleBox": "Blöf adayı taban satırının bir-iki basamak altı; test tek soru: call'da beni domine edecek eli fold ettiriyor mu.",
+        "narration": "Aynı taban satırının üçüncü ve belki en pratik kullanımı preflop blöf seçimidir. 3-bet ya da squeeze blöf adayların rastgele seçilmez, çoğunlukla o pozisyonun taban satırının bir iki basamak altındaki kartlardan gelir. Örnek ver: hijack pozisyonunun tabanı offsuit dokuzsa, blöf adayların as sekiz suited ya da as yedi suited gibi ellerdir, yani tabanın hemen altındaki suited as'lar. Neden bu bölge? Çünkü test tek bir sorudur: call ettiğimde beni domine edecek eli fold ettiriyor muyum? Cevap evetse, o blöf kazançlıdır, rastgele bir çöp el değildir, çünkü rakibin elindeki güçlü as'ları azaltıyor ve rakip call ettiğinde bile dominasyon riski düşük kalıyor. Bütün bu üç kullanımı tek cümlede topla: pozisyon başına yalnızca bir offsuit taban satırı ezberle. Rakibin postflop havasını, kendi check-raise kademeni ve preflop blöf adaylarını, hepsini o tek satırdan türet, ayrı ayrı üç liste ezberlemene gerek yok."
+      },
+      {
+        "title": "Okuma disiplini: skor termometre değil, rapor gezinti değil",
+        "bullets": [
+          "Drill skoru: yön hatası (bet/check, call/raise) ve boy SINIFI hatasında dur; karışık düğümde ters seçimde durma.",
+          "80'li skorlar postflop pakette sağlıklı bir başlangıçtır; kovalanan resim, rakam değil.",
+          "Solver raporu: önce TAHMİN yap (hangi board sınıfı kimin?), raporu sonra aç.",
+          "Uçlardan başla: hiç check etmediğin ve en çok check ettiğin board'lar; leak neredeyse hep uçlarda.",
+          "Karşılaştırırken hipotez kur, filtrele, ve değişmemesi gereken sınıfı da doğrula (null test)."
+        ],
+        "ruleBox": "Skor ve rapor aynı disiplini paylaşır: tahminle/hipotezle gir, rastgele gezinme, yön ve sınıf hatasında dur.",
+        "narration": "İki ayrı alışkanlık aynı hataya düşer: rastgele gezinmek. Önce drill skoru. Postflop'ta her sürprizde dur denir; aynı kural skora bakarken de geçerlidir. Solver'ın karışık, yani mix, bir düğümünde ters tarafı seçtin diye durup skoru yükseltmeye çalışmak, ormanı ağaca satmaktır. Postflop pakette seksenli skorlar zaten sağlıklı bir başlangıçtır. Durman gereken yer yön hatası, yani bahis mi check mi, call mi raise mi, ve boy sınıfı hatasıdır, mix'in ince yüzde farkı değil. Şimdi rapor okuma. Binlerce board'u sırayla gezmek çalışma değil, gezintidir. Doğru protokol dört adım: önce tahmin et, preflop aralıklara bakıp hangi board sınıfı kimin diye yaz, raporu sonra aç. Sonra uçlardan başla: hiç check etmediğin ve en çok check ettiğin board'lar, leak neredeyse hep uçlardadır. İki derinliği karşılaştırırken hipotez kur, sadece o sınıfı filtrele, ve değişmemesi gereken bir sınıfı da doğrula, yani null test yap. Tahminin tutmazsa çerçeveyi atma; hangi tek faktörün kaydığını bul."
+      },
+      {
+        "title": "Aralık farkı nerede: göz suited'e kayar, kütle orada değil",
+        "bullets": [
+          "İki aralığı karşılaştırırken göz refleksle suited merdivene kayar; kütle orada değildir.",
+          "Offsuit kombolar 12'şer, çiftler 6'şar gelir — farkı neredeyse hep offsuit bloklar ve çiftler yazar.",
+          "Suited farklar çoğunlukla 1-4 komboluktur; postflop iğneyi oynatmaz.",
+          "Board kime çalışıyor sorusunun cevabı önce buradan gelir: kimin offsuit bloğu bağlandı."
+        ],
+        "ruleBox": "Aralık farkını suited köşede arama — kütle offsuit bloklarda ve çiftlerdedir.",
+        "narration": "İki aralığı yan yana koyup farkı bulmaya çalıştığında, göz refleksle suited merdivene kayar, o güzel, sıralı görünen suited kartlara. Ama kütle orada değildir. Sayıları hatırla: her offsuit kombinasyon on iki farklı kart kombosu taşır, her çift altı kombo taşır. Suited bir el ise sadece dört kombo taşır. Bu yüzden iki aralık arasındaki gerçek fark, neredeyse her zaman offsuit bloklar ve çiftler tarafından yazılır; suited taraftaki farklar genellikle bir ile dört kombo arasında kalır ve postflop kararını hiç oynatmaz, gözden kaçırsan da kaybın yoktur. Peki bu ne işe yarar? Bir board kime çalışıyor sorusuna cevap ararken ilk bakman gereken yer burasıdır: kimin offsuit bloğu bu board'a bağlandı. Suited köşeye takılıp kalırsan, gerçek farkı, yani rakibin elinin gerçekte nereden güçlendiğini kaçırırsın. Kural basit: kütleyi offsuit bloklarda ve çiftlerde ara, suited köşede değil."
+      },
+      {
+        "title": "Mutlak sayı değil oran; saturasyon ikinci filtre",
+        "bullets": [
+          "Düzeltme bir: mutlak kombo değil ORAN düşün — küçük görünen fark katlı olabilir.",
+          "Düzeltme iki: saturasyon — dar aralık ortak bir eli daha büyük payla taşır.",
+          "Örnek: iki oyuncu da 66'yı hiç atmıyorsa, yarı genişlikte oynayan onu kabaca iki kat sık tutar.",
+          "Board'un kime çalıştığını üçlü söyler: kimin offsuit bloğu bağlandı, oran kaç, kimde daha yoğun."
+        ],
+        "ruleBox": "Fark küçük görünse de oranla oku; dar aralık ortak eli her zaman daha yoğun taşır.",
+        "narration": "Kütlenin offsuit bloklarda ve çiftlerde olduğunu gördükten sonra, iki düzeltme daha gerekir. Birincisi, mutlak kombo sayısına değil orana bak. Bir aralıkta yüzde altı, diğerinde yüzde iki buçuk gibi bir fark küçük görünebilir, ama bu iki buçuk kat demektir, mutlak sayı seni yanıltır, oran gerçek büyüklüğü gösterir. İkincisi saturasyon. Dar bir aralık, ortak tuttuğunuz bir eli her zaman daha büyük bir payla taşır. Örnek ver: iki oyuncu da altı altı çiftini hiç atmıyor, yani ikisi de elde tutuyor olsun. Ama biri geniş bir aralıkla oynuyor, öbürü yarı genişlikte oynuyorsa, dar oynayan taraf o çifti kabaca iki kat daha sık taşır, çünkü aynı kombo, daha küçük bir aralığın içinde daha büyük bir paya denk gelir. Bir board'un kime çalıştığını bu üç bilgi birlikte söyler: kimin offsuit bloğu bu zemine bağlandı, oran olarak fark kaç kat, ve kimde bu el daha yoğun oturuyor."
+      }
+    ]
   },
 ];
 

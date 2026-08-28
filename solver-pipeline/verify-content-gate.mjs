@@ -57,6 +57,9 @@ Rule of thumb: "is this general poker knowledge many sources teach, or THIS sour
 };
 
 const items = Array.isArray(args) ? args : (args && args.items) || [];
+// Varsayılan fable. { items, model } biçiminde çağrılırsa geçici olarak başka modele
+// düşülebilir (fable ayda limite takıldığında kapı tamamen durmasın diye).
+const MODEL = (!Array.isArray(args) && args && args.model) || 'fable';
 if (!items.length) {
   log('verify-content-gate: args boş — [{ id, draft, groundTruth? }] bekleniyor.');
   return [];
@@ -67,7 +70,7 @@ const results = await parallel(
     Object.entries(LENSES).map(([lens, guard]) => () =>
       agent(
         `${guard}\n\nid: ${it.id}\n${it.groundTruth ? 'GROUND TRUTH (book explain):\n' + it.groundTruth + '\n\n' : ''}DRAFT:\n${it.draft}`,
-        { label: `${lens}:${it.id}`, phase: 'Gate', model: 'fable', schema: LENS_SCHEMA },
+        { label: `${lens}:${it.id}`, phase: 'Gate', model: MODEL, schema: LENS_SCHEMA },
       ).then((v) => (v ? { ...v, id: it.id, lens } : null)),
     ),
   ),

@@ -90,6 +90,28 @@ const CARDS: BetCard[] = [
       text: "Kitap uyarısı: overbet = büyük value bet, aynı filtre geçerli — “river’da senden zayıf el ödemeyecekse value değildir” (Bölüm 0.2 / Vaka 3). Belirsizse kitabın kuralına dön: büyük pota check-fold, küçük pota check-call. PLO’da “iki pot bet = stack ortada” (Bölüm 8).",
     },
   },
+  {
+    name: "Polarize vs Merged",
+    glyph: "⚖️",
+    ne: "Bahsin İÇİNDE hangi eller var sorusu. Polarize = uçlar (nut + blöf), orta el yok. Merged = tepeden aşağı süreklilik, blöf az.",
+    src: "ext",
+    cite: "genel teori · terim tanımı",
+    nasil: [
+      "Polarize → BÜYÜK boy. Orta elini bahse koymazsın; onlar check/call aralığında kalır. Rakip pahalı bir karar verir: nut’a mı blöfe mi bakıyorum?",
+      "Merged (lineer) → KÜÇÜK boy. Tepeden aşağı iyi ellerin devam eder, blöf dilimi incedir. Amaç ucuza geniş ödetmek.",
+      "Boy ile aralık aynı anda seçilir: büyük boy + orta el = kendi kendine tuzak. Küçük boy + saf nut = para masada kalır.",
+      "Hangisi? Rakibin devam aralığına bak: az call ediyorsa polar-büyük; çok call ediyorsa merged-küçük.",
+    ],
+    durum: [
+      "Polar: nut avantajın var, rakip capped, board senin aralığını taşıyor (Bölüm 18.2 · Bölüm 11).",
+      "Merged: rakip geniş devam ediyor, aralığın nut ağırlıklı değil ama iyi tarafta — ıslak/bağlantılı board, multiway.",
+      "Yapılmaz: aynı boyu her elle kullanmak. Aralığın açık olmasının sebebi budur — büyük boy hep nut, küçük boy hep orta el demeye başlarsan rakip elini ücretsiz okur.",
+    ],
+    note: {
+      kind: "kopru",
+      text: "Kitap köprüsü: kitap terimi tanımlamaz ama doktrini her yerde kullanır — “overbet polar, downbet merged” (Bölüm 18.2 / 11.1). “Standart oynuyorum, elim açık oluyor” şikâyetinin cevabı burada: sorun ellerin değil, her boyla tek tip aralık göstermen. Aynı boyda hem value hem blöf taşıdığında rakip doğru fold edemez.",
+    },
+  },
 ];
 
 function SrcBadge({ src, cite }: { src: Src; cite: string }) {
@@ -132,11 +154,12 @@ export function BetTypes({ onDone }: { onDone: () => void }) {
       </div>
 
       <div className="rounded-xl border border-dashed border-accent/50 bg-accent-soft px-4 py-3 text-sm text-accent">
-        <div className="font-semibold">İkisi kitaptan, ikisi kitap dışı.</div>
+        <div className="font-semibold">İkisi kitaptan, üçü kitap dışı.</div>
         <p className="mt-1 text-[13px] leading-relaxed text-accent/90">
           <b className="text-emerald-300">Value</b> ve <b className="text-emerald-300">Bluff</b> birebir kitaptan
-          (bölüm referanslı). <b>Thin value</b> ve <b>Overbet</b> kitapta yok — genel teori olarak eklendi ve her biri
-          bir <b>kitap kuralıyla</b> sınırlandı. Karar belirsizse kitap kazanır.
+          (bölüm referanslı). <b>Thin value</b>, <b>Overbet</b> ve <b>Polarize vs Merged</b> kitapta ayrı başlık
+          değil — genel teori olarak eklendi ve her biri bir <b>kitap kuralıyla</b> sınırlandı. Karar belirsizse
+          kitap kazanır.
         </p>
       </div>
 

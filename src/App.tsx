@@ -20,6 +20,9 @@ const QuickReference = lazy(() =>
 );
 const Sentences = lazy(() => import("./modes/cards/Sentences").then((m) => ({ default: m.Sentences })));
 const RangeAtlas = lazy(() => import("./modes/ranges/RangeAtlas").then((m) => ({ default: m.RangeAtlas })));
+const HandClasses = lazy(() =>
+  import("./modes/reference/HandClasses").then((m) => ({ default: m.HandClasses })),
+);
 const EquityIntuition = lazy(() =>
   import("./modes/reference/EquityIntuition").then((m) => ({ default: m.EquityIntuition })),
 );
@@ -162,6 +165,8 @@ export default function App() {
             <Sentences onDone={() => nav("#/referans")} />
           ) : segs[1] === "araliklar" ? (
             <RangeAtlas onDone={() => nav("#/referans")} />
+          ) : segs[1] === "eller" ? (
+            <HandClasses onDone={() => nav("#/referans")} />
           ) : segs[1] === "equity" ? (
             <EquityIntuition onDone={() => nav("#/referans")} />
           ) : segs[1] === "bahis" ? (
@@ -205,6 +210,12 @@ export default function App() {
                   className="btn-accent py-2.5"
                 >
                   🗂️ Aralık Rehberi →
+                </button>
+                <button
+                  onClick={() => nav("#/referans/eller")}
+                  className="btn-accent py-2.5"
+                >
+                  🃏 El Sınıfı Danışmanı →
                 </button>
                 <button
                   onClick={() => nav("#/referans/cumleler")}

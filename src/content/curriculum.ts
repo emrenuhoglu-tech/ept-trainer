@@ -365,3 +365,54 @@ export function ploModes(): MdTable | null {
 export function ploStackOff(): MdTable | null {
   return tableFromSection("Bölüm 15", "15.2");
 }
+
+// ---- El sinifi danismani (Bolum 4.9-4.11) — el-once arama ----
+// RangeAtlas aralik-once calisir (derinlik+aksiyon -> grid). Bu erisimciler tersini
+// besler: elimdeki sinif -> hangi spotta ne yapiyorum. Poker degeri KITAPTAN gelir.
+
+/** 4.9 marjinal Kx/Qx/Jx matrisi: spot × suited/offsuit. */
+export function marginalKQJMatrix(): MdTable | null {
+  return tableFromSection("Bölüm 4", "4.9");
+}
+
+/** 4.10 Ax matrisi: first-in pozisyon × suited Ax/offsuit Ax. */
+export function axOpenMatrix(): MdTable | null {
+  return tableFromSection("Bölüm 4", "4.10");
+}
+
+/** Bir alt bolumdeki "**Etiket:**" ile baslayan paragrafi dondurur. */
+function boldPara(body: string, label: string): string {
+  const re = new RegExp(`\\*\\*${label}[^*]*\\*\\*\\s*([^\\n]+)`);
+  const m = body.match(re);
+  return m ? stripInline(m[1]) : "";
+}
+
+/** 4.10 — düşük Ax'in bir raise'e karşı cevabı (prose). */
+export function axVsRaise(): string {
+  return boldPara(findSub(sectionBlock("Bölüm 4"), "4.10"), "Raise karşısında");
+}
+
+/** 4.10 — kısa kural satırı. */
+export function axShortRule(): string {
+  return boldPara(findSub(sectionBlock("Bölüm 4"), "4.10"), "Kısa kural");
+}
+
+/** 4.9 — offsuit'in neden daha sert olduğu (prose). */
+export function marginalOffsuitWhy(): string {
+  return boldPara(findSub(sectionBlock("Bölüm 4"), "4.9"), "Neden offsuit çok daha sert");
+}
+
+/** 4.9 — bu ellerin postflop kimliği (kök hatanın adresi). */
+export function marginalPostflop(): string {
+  return boldPara(findSub(sectionBlock("Bölüm 4"), "4.9"), "Postflop");
+}
+
+/** 4.11 — suited broadway'in raise karşısındaki madde listesi. */
+export function suitedBroadwayVsRaise(): string[] {
+  return listItems(findSub(sectionBlock("Bölüm 4"), "4.11"), false);
+}
+
+/** 4.11 — suited broadway açılış kuralı (prose). */
+export function suitedBroadwayOpen(): string {
+  return boldPara(findSub(sectionBlock("Bölüm 4"), "4.11"), "Açılış");
+}

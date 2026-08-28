@@ -8365,6 +8365,114 @@ var modules = [
         narration: "Cep kart\u0131. Tetik basit: biri a\xE7t\u0131, en az bir ki\u015Fi call etti ve sen hen\xFCz konu\u015Fmad\u0131n. \xD6nce tek soru sor: bu caller'lar fold ediyor mu? Cevap hay\u0131rsa sadece value squeeze yap, bl\xF6f\xFC kes. Boy pozisyondayken a\xE7\u0131l\u0131\u015F\u0131n d\xF6rt bu\xE7uk kat\u0131, blind'lardan be\u015F kat ve \xFCst\xFC, ve her ek caller i\xE7in yukar\u0131. Value taraf\u0131n vale-vale ve \xFCst\xFC, as-k\u0131z suited ve \xFCst\xFC, as-papaz offsuit. Bl\xF6f taraf\u0131nda ise elinin bloklamas\u0131n\u0131 de\u011Fil, unblock etmesini istiyorsun: rakibin fold edece\u011Fi broadway'li elleri elinde tutma, broadway'siz suited'lar\u0131 se\xE7. D\xF6rt-bet gelirse ne yapaca\u011F\u0131n\u0131 hamleden \xF6nce karara ba\u011Fla; bl\xF6fse fold, value'ysa derinli\u011Fe g\xF6re. S\u0131\u011F derinlikte squeeze seni commit eder, onu bilerek gir. Ve \xF6\u011Frenme s\u0131ras\u0131 \u015Fu olsun: \xF6nce value kanad\u0131, sonra saha okumas\u0131, en son bl\xF6f se\xE7imi. Bu s\u0131rayla gidersen squeeze sana para kazand\u0131r\u0131r; ters giderek ba\u015Flarsan kaybettirir."
       }
     ]
+  },
+  {
+    id: "M44",
+    title: "Cold 4-bet: masadaki en g\xFC\xE7l\xFC sinyal",
+    chapter: "B\xF6l\xFCm 4.1 + 4.5 \u2295 sentez",
+    minutes: 7,
+    slides: [
+      {
+        title: "Ne demek: potta paras\u0131 OLMAYAN birinin 4-bet'i",
+        bullets: [
+          "Normal 4-bet: sen a\xE7t\u0131n, 3-bet yedin, tekrar y\xFCkselttin \u2014 zaten yat\u0131r\u0131m\u0131n vard\u0131.",
+          "Cold 4-bet: hi\xE7 para koymam\u0131\u015F biri, a\xE7\u0131\u015F + 3-bet'i g\xF6r\xFCp \xFCst\xFCne \xE7\u0131k\u0131yor.",
+          "'Cold' kelimesi tam olarak bunu anlat\u0131r: so\u011Fuktan giriyor, hik\xE2yesi yok.",
+          "Bu y\xFCzden normal 4-bet'ten \xE7ok daha dar ve \xE7ok daha g\xFC\xE7l\xFCd\xFCr."
+        ],
+        ruleBox: "Normal 4-bet 'elimi savunuyorum' der. Cold 4-bet 'iki aral\u0131\u011F\u0131 birden yeniyorum' der.",
+        narration: "\xD6nce terimi netle\u015Ftirelim \xE7\xFCnk\xFC kar\u0131\u015Ft\u0131r\u0131l\u0131yor. Normal d\xF6rt-bet \u015Fudur: sen a\xE7t\u0131n, biri sana \xFC\xE7-bet yapt\u0131, sen de tekrar y\xFCkselttin. Bu durumda potta zaten paran vard\u0131 ve elini savunuyorsun. Cold d\xF6rt-bet ise bamba\u015Fka. Biri a\xE7t\u0131, bir ba\u015Fkas\u0131 \xFC\xE7-bet yapt\u0131, ve potta hi\xE7 paras\u0131 olmayan \xFC\xE7\xFCnc\xFC bir oyuncu bunlar\u0131n \xFCst\xFCne \xE7\u0131k\u0131yor. Cold kelimesi tam olarak bunu anlat\u0131yor: so\u011Fuktan giriyor, arkas\u0131nda hi\xE7bir hik\xE2ye yok, kendini savunmak zorunda de\u011Fil. Bu ayr\u0131m kritik, \xE7\xFCnk\xFC ayn\u0131 hamlenin iki versiyonu tamamen farkl\u0131 g\xFC\xE7tedir. Normal d\xF6rt-bet nispeten geni\u015F olabilir; cold d\xF6rt-bet ise do\u011Fas\u0131 gere\u011Fi \xE7ok dard\u0131r. Bunu masada refleks haline getirmen gerekiyor: kim d\xF6rt-bet etti, potta paras\u0131 var m\u0131yd\u0131?"
+      },
+      {
+        title: "Neden bu kadar g\xFC\xE7l\xFC: iki aral\u0131\u011F\u0131 birden ge\xE7mek zorunda",
+        bullets: [
+          "A\xE7an bir aral\u0131k g\xF6sterdi, 3-bet eden ondan daha g\xFC\xE7l\xFC bir aral\u0131k g\xF6sterdi.",
+          "Cold 4-bet eden ikisini de yenmeyi g\xF6ze al\u0131yor \u2014 \xFCstelik arkada oyuncu da olabilir.",
+          "Hi\xE7 yat\u0131r\u0131m\u0131 yok, yani 'zaten param\u0131 koydum' bahanesi de yok.",
+          "Sonu\xE7: elini se\xE7erken en dar filtreyi kullanm\u0131\u015F olmas\u0131 gerekiyor."
+        ],
+        ruleBox: "Bir hamlenin g\xFCc\xFC, onu yapan ki\u015Finin ka\xE7 aral\u0131\u011F\u0131 ge\xE7mek zorunda oldu\u011Fuyla \xF6l\xE7\xFCl\xFCr. Cold 4-bet'te bu say\u0131 iki.",
+        narration: "\u015Eimdi neden bu kadar g\xFC\xE7l\xFC oldu\u011Funa bakal\u0131m, \xE7\xFCnk\xFC sebebini anlarsan masada hat\u0131rlamak zorunda kalmazs\u0131n. A\xE7an oyuncu bir aral\u0131k g\xF6sterdi. \xDC\xE7-bet eden ondan daha dar ve daha g\xFC\xE7l\xFC bir aral\u0131k g\xF6sterdi. \u015Eimdi \xFC\xE7\xFCnc\xFC bir oyuncu, potta hi\xE7 paras\u0131 yokken, bu ikisinin \xFCst\xFCne \xE7\u0131k\u0131yor. Yani sadece a\xE7an\u0131 de\u011Fil, \xFC\xE7-bet edeni de yenmeyi g\xF6ze al\u0131yor. \xDCstelik arkas\u0131nda h\xE2l\xE2 konu\u015Facak oyuncular olabilir. Ve en \xF6nemlisi, hi\xE7 yat\u0131r\u0131m\u0131 olmad\u0131\u011F\u0131 i\xE7in zaten param\u0131 koydum diye bir bahanesi de yok; bu hamleyi tamamen kendi iradesiyle, s\u0131f\u0131rdan yap\u0131yor. Bir hamlenin g\xFCc\xFCn\xFC \xF6l\xE7menin en basit yolu \u015Fu: onu yapan ki\u015Fi ka\xE7 aral\u0131\u011F\u0131 ge\xE7mek zorunda? Cold d\xF6rt-bet'te bu say\u0131 iki. Bu y\xFCzden masadaki en g\xFC\xE7l\xFC sinyaldir."
+      },
+      {
+        title: "Havuzda cold 4-bet bl\xF6f\xFC yok denecek kadar az",
+        bullets: [
+          "Kitab\u0131n canl\u0131-alan d\xFCzeltmesi: '4-bet bl\xF6f\xFC neredeyse yoktur.'",
+          "Teorik bl\xF6f malzemesi var (A5s, A4s gibi bloker eller) ama canl\u0131da \xC7OK seyrek.",
+          "Kimse fold etmiyorsa bl\xF6f 4-bet zaten para yakmakt\u0131r \u2014 havuz bunu bilir ve yapmaz.",
+          "Yani cold 4-bet g\xF6rd\xFC\u011F\xFCnde varsay\u0131m\u0131n 'ger\xE7ek el' olmal\u0131, 'olabilir' de\u011Fil."
+        ],
+        ruleBox: "Dengeli oyuncuya kar\u015F\u0131 bile temkinli ol; ama havuza kar\u015F\u0131 cold 4-bet'i neredeyse saf value oku.",
+        narration: "Bir katman daha ekleyelim: sen canl\u0131 turnuvada oynuyorsun ve canl\u0131 alan\u0131n kendine has bir sapmas\u0131 var. Kitab\u0131n canl\u0131 d\xFCzeltmesi bunu net s\xF6yl\xFCyor: d\xF6rt-bet bl\xF6f\xFC neredeyse yoktur. Teoride bl\xF6f malzemesi elbette var; as-be\u015F suited, as-d\xF6rt suited gibi bloker ta\u015F\u0131yan eller. Ama canl\u0131 alanda bu \xE7ok seyrek g\xF6r\xFCl\xFCr. Sebebi de mant\u0131kl\u0131: kar\u015F\u0131ndaki insanlar fold etmiyorsa bl\xF6f d\xF6rt-bet zaten para yakmakt\u0131r ve havuz bunu deneyimle \xF6\u011Frenmi\u015Ftir. Buradan \xE7\u0131kan pratik sonu\xE7 \u015Fu. Cold d\xF6rt-bet g\xF6rd\xFC\u011F\xFCnde varsay\u0131m\u0131n ger\xE7ek el olmal\u0131; bl\xF6f olabilir de\u011Fil. Dengeli oynayan tan\u0131d\u0131\u011F\u0131n bir rege kar\u015F\u0131 bile temkinli ol, ama tan\u0131mad\u0131\u011F\u0131n havuza kar\u015F\u0131 bu hamleyi neredeyse saf value olarak oku. Bu tek varsay\u0131m sana \xE7ok para kazand\u0131r\u0131r, daha do\u011Frusu \xE7ok para kaybettirmez."
+      },
+      {
+        title: "Sen A\xC7ANSIN ve arkadan cold 4-bet geldi: en k\xF6t\xFC senaryo",
+        bullets: [
+          "Aral\u0131\u011F\u0131n en geni\u015F olan sensin; \xFCstelik iki g\xFC\xE7l\xFC aral\u0131\u011F\u0131n aras\u0131ndas\u0131n.",
+          "Kitab\u0131n kural\u0131 burada aynen ge\xE7erli: 'QQ ve alt\u0131n\u0131 ciddiye al, AK otomatik 5-bet de\u011Fil.'",
+          "Havuza kar\u015F\u0131 JJ, AQ, hatta QQ bile rahat\xE7a fold olabilir.",
+          "Devam edersen \xE7ok dar bir aral\u0131kla devam et \u2014 merak call'\u0131 en pahal\u0131 call'd\u0131r."
+        ],
+        ruleBox: "A\xE7an sensen cold 4-bet kar\u015F\u0131s\u0131nda varsay\u0131lan\u0131n FOLD. Bu spot senin aral\u0131\u011F\u0131n\u0131n en zay\u0131f oldu\u011Fu spottur.",
+        narration: "\u015Eimdi sana en s\u0131k olan \u015Feye gelelim. Sen a\xE7t\u0131n, biri \xFC\xE7-bet yapt\u0131, ve arkadan bir ba\u015Fkas\u0131 cold d\xF6rt-bet etti. Bu, o elde bulunabilece\u011Fin en k\xF6t\xFC konumdur. Neden? \xC7\xFCnk\xFC masadaki en geni\u015F aral\u0131k senin aral\u0131\u011F\u0131n; sen a\xE7arken bu kadar ate\u015Fi hesaba katmam\u0131\u015Ft\u0131n. Ve \u015Fu anda iki g\xFC\xE7l\xFC aral\u0131\u011F\u0131n tam ortas\u0131ndas\u0131n. Kitab\u0131n canl\u0131 kural\u0131 burada aynen ge\xE7erli: d\xF6rt-bet g\xF6rd\xFC\u011F\xFCnde k\u0131z-k\u0131z ve alt\u0131n\u0131 ciddiye al, as-papaz otomatik be\u015F-bet de\u011Fil. Havuza kar\u015F\u0131 vale-vale rahat\xE7a fold'dur, as-k\u0131z fold'dur, hatta \xE7o\u011Fu masada k\u0131z-k\u0131z bile fold'dur. Devam edeceksen \xE7ok dar bir aral\u0131kla devam et. Ve \u015Funu akl\u0131na kaz\u0131: buradaki en pahal\u0131 call merak call'\u0131d\u0131r. Ne oldu\u011Funu g\xF6rmek i\xE7in \xF6dedi\u011Fin bedel, o bilginin de\u011Ferinin kat kat \xFCst\xFCndedir."
+      },
+      {
+        title: "Sen 3-BET ETT\u0130N ve \xFCst\xFCne cold 4-bet geldi",
+        bullets: [
+          "Bu sefer aral\u0131\u011F\u0131n daha g\xFC\xE7l\xFC \u2014 ama cold 4-bet'in aral\u0131\u011F\u0131 ondan da g\xFC\xE7l\xFC.",
+          "Bl\xF6f 3-bet ettiysen karar kolay: fold, teredd\xFCts\xFCz.",
+          "Value 3-bet ettiysen bile \xFCst dilim d\u0131\u015F\u0131nda devam yok.",
+          "A\xE7an\u0131n h\xE2l\xE2 konu\u015Faca\u011F\u0131n\u0131 unutma: arkanda bir de o var, tek rakip de\u011Filsin."
+        ],
+        ruleBox: "3-bet'ini cold 4-bet'e kar\u015F\u0131 savunmak zorunda de\u011Filsin. 3-bet aral\u0131\u011F\u0131n zaten polar; bl\xF6f taraf\u0131 buraya kadar.",
+        narration: "\u0130kinci senaryo: sen \xFC\xE7-bet ettin ve \xFCst\xFCne cold d\xF6rt-bet geldi. Bu sefer aral\u0131\u011F\u0131n daha g\xFC\xE7l\xFC, ama cold d\xF6rt-bet edenin aral\u0131\u011F\u0131 seninkinden de g\xFC\xE7l\xFC. Karar asl\u0131nda kolayd\u0131r ve elini nas\u0131l se\xE7ti\u011Fine ba\u011Fl\u0131d\u0131r. Bl\xF6fle \xFC\xE7-bet ettiysen cevap fold, hem de teredd\xFCts\xFCz. \xDC\xE7-bet aral\u0131\u011F\u0131n zaten polar; bl\xF6f taraf\u0131n\u0131n i\u015Fi burada biter, o kadar. Value ile \xFC\xE7-bet ettiysen bile aral\u0131\u011F\u0131n\u0131n sadece \xFCst dilimiyle devam edersin; orta value elleri burada devam etmez. Bir \u015Feyi daha unutma: sen cold d\xF6rt-bet edenle ba\u015F ba\u015Fa de\u011Filsin. A\xE7an oyuncu h\xE2l\xE2 konu\u015Facak ve onun da bir s\xF6z\xFC var. Yani devam edersen sadece bir g\xFC\xE7l\xFC aral\u0131kla de\u011Fil, muhtemelen iki oyuncuyla y\xFCzle\u015Fiyorsun. Akl\u0131nda tutulacak c\xFCmle \u015Fu: \xFC\xE7-bet'ini cold d\xF6rt-bet'e kar\u015F\u0131 savunmak zorunda de\u011Filsin."
+      },
+      {
+        title: "Kendin ne zaman yapars\u0131n: value a\u011F\u0131rl\u0131kl\u0131, dar, ve nadiren",
+        bullets: [
+          "De\u011Fer taraf\u0131: en \xFCst \xE7iftler ve AK s\u0131n\u0131f\u0131 \u2014 kitab\u0131n 4-bet value sat\u0131r\u0131.",
+          "Bl\xF6f yapacaksan bloker ta\u015F\u0131yan suited Ax; ama canl\u0131da bunu \xC7OK seyrek kullan.",
+          "\xD6n ko\u015Ful ayn\u0131: kar\u015F\u0131ndakiler fold ediyor mu? Etmiyorsa bl\xF6f cold 4-bet para yakar.",
+          "Bir de kimin 3-bet etti\u011Fine bak: ge\xE7 pozisyondan gelen 3-bet'e kar\u015F\u0131 aral\u0131\u011F\u0131n geni\u015Fler."
+        ],
+        ruleBox: "Cold 4-bet'i bl\xF6f hamlesi olarak \xF6\u011Frenme. \xD6nce value kanad\u0131n\u0131 kur; bl\xF6f taraf\u0131 saha bilgisi ister.",
+        narration: "Peki sen ne zaman cold d\xF6rt-bet yapars\u0131n? Cevap: dar bir value aral\u0131\u011F\u0131yla ve nadiren. De\u011Fer taraf\u0131 kitab\u0131n d\xF6rt-bet value sat\u0131r\u0131yla ayn\u0131 \xE7er\xE7evede kal\u0131r; en \xFCst \xE7iftler ve as-papaz s\u0131n\u0131f\u0131. Bl\xF6f yapacaksan bloker ta\u015F\u0131yan suited as'lar mant\u0131kl\u0131d\u0131r, \xE7\xFCnk\xFC rakiplerin en g\xFC\xE7l\xFC ellerini keserler. Ama canl\u0131 alanda bunu \xE7ok seyrek kullan. \xD6n ko\u015Ful her agresif hamlede oldu\u011Fu gibi ayn\u0131: kar\u015F\u0131ndakiler fold ediyor mu? Etmiyorlarsa bl\xF6f cold d\xF6rt-bet do\u011Frudan para yakar. Bir ayr\u0131nt\u0131 daha: kimin \xFC\xE7-bet etti\u011Fine bak. Ge\xE7 pozisyondan gelen bir \xFC\xE7-bet daha geni\u015F bir aral\u0131kt\u0131r, ona kar\u015F\u0131 senin cold d\xF6rt-bet aral\u0131\u011F\u0131n da bir t\u0131k geni\u015Fler. En erken pozisyondan gelen bir \xFC\xE7-bet'e kar\u015F\u0131 ise neredeyse sadece en tepeyle girersin."
+      },
+      {
+        title: "Boy ve derinlik: 40bb alt\u0131nda cold 4-bet zaten commit'tir",
+        bullets: [
+          "Boy 3-bet'in kabaca iki ile iki bu\xE7uk kat\u0131; pozisyon d\u0131\u015F\u0131ysan \xFCst u\xE7tan.",
+          "\xC7ok k\xFC\xE7\xFCk yaparsan 3-bet edene iyi fiyat verirsin \u2014 kimse fold etmez.",
+          "25\u201340bb band\u0131nda 3-bet zaten commit demektir; cold 4-bet fiilen all-in'dir.",
+          "O derinlikte 'cold 4-bet edip fold' diye bir yap\u0131 yoktur \u2014 girmeden kabul et."
+        ],
+        ruleBox: "Derinli\u011Fi \xF6nce \xF6l\xE7: s\u0131\u011F bandda bu hamle bir raise de\u011Fil, stack karar\u0131d\u0131r.",
+        narration: "Boy ve derinlik. Boy olarak cold d\xF6rt-bet, \xFC\xE7-bet'in kabaca iki ile iki bu\xE7uk kat\u0131d\u0131r ve pozisyon d\u0131\u015F\u0131ndaysan \xFCst u\xE7tan gidersin. \xC7ok k\xFC\xE7\xFCk yaparsan \xFC\xE7-bet edene iyi bir fiyat vermi\u015F olursun ve kimse fold etmez; bu da hamlenin b\xFCt\xFCn amac\u0131n\u0131 siler. \u015Eimdi derinlik. Yirmi be\u015F ile k\u0131rk big blind band\u0131nda zaten \xFC\xE7-bet commit demektir; o bantta cold d\xF6rt-bet fiilen all-in'dir, boyu ne yazarsan yaz. Yani o derinlikte cold d\xF6rt-bet edip sonra fold etme diye bir yap\u0131 yoktur. Bunu hamleyi yapmadan \xF6nce kabul etmelisin. Genel kural \u015Fu: bu hamleyi d\xFC\u015F\xFCn\xFCrken \xF6nce derinli\u011Fi \xF6l\xE7. Derin bandda cold d\xF6rt-bet bir raise'dir ve ka\xE7\u0131\u015F kap\u0131n vard\u0131r; s\u0131\u011F bandda bir stack karar\u0131d\u0131r ve ka\xE7\u0131\u015F kap\u0131n yoktur."
+      },
+      {
+        title: "Exploit: kim s\u0131k yap\u0131yor, onu not al",
+        bullets: [
+          "Cold 4-bet nadir bir hamledir; bir oyuncu bunu iki kez yapt\u0131ysa dikkat et.",
+          "S\u0131k yapan biri varsa aral\u0131\u011F\u0131 ger\xE7ekten geni\u015Ftir \u2014 ona kar\u015F\u0131 devam e\u015Fi\u011Fin d\xFC\u015Fer.",
+          "Hi\xE7 yapmayan biri yapt\u0131\u011F\u0131nda ise tam tersi: neredeyse kilitli oku.",
+          "Bu not, t\xFCm masaya uygulanan genel kuraldan daha de\u011Ferlidir."
+        ],
+        ruleBox: "Nadir hamleler en iyi okuma malzemesidir: tam da nadir olduklar\u0131 i\xE7in tesad\xFCf olma ihtimalleri d\xFC\u015F\xFCkt\xFCr.",
+        narration: "Son bir katman: exploit. Cold d\xF6rt-bet do\u011Fas\u0131 gere\u011Fi nadir bir hamledir ve nadir hamleler en iyi okuma malzemesidir, \xE7\xFCnk\xFC tam da nadir olduklar\u0131 i\xE7in tesad\xFCf olma ihtimalleri d\xFC\u015F\xFCkt\xFCr. Bir oyuncunun bunu iki kez yapt\u0131\u011F\u0131n\u0131 g\xF6rd\xFCysen bu ciddi bir bilgidir. S\u0131k yapan biri varsa aral\u0131\u011F\u0131 ger\xE7ekten geni\u015Ftir; ona kar\u015F\u0131 devam e\u015Fi\u011Fin d\xFC\u015Fer ve normalde ataca\u011F\u0131n elleri oynayabilirsin. Tersi \xE7ok daha s\u0131k kar\u015F\u0131na \xE7\u0131kar: hi\xE7 yapmayan sakin bir oyuncu birden cold d\xF6rt-bet etti\u011Finde onu neredeyse kilitli oku ve as-papaz dahil her \u015Feyi atmay\u0131 ciddi ciddi d\xFC\u015F\xFCn. \u015Eunu unutma: masaya uygulad\u0131\u011F\u0131n genel kural iyi bir ba\u015Flang\u0131\xE7t\u0131r, ama tek bir oyuncu hakk\u0131ndaki somut notun o genel kuraldan her zaman daha de\u011Ferlidir."
+      },
+      {
+        title: "Cheat: cold 4-bet kart\u0131",
+        bullets: [
+          "Tan\u0131m kontrol\xFC: 4-bet eden ki\u015Finin potta paras\u0131 var m\u0131yd\u0131? Yoksa bu cold 4-bet.",
+          "Varsay\u0131m: ger\xE7ek el. Canl\u0131 havuzda cold 4-bet bl\xF6f\xFC yok denecek kadar az.",
+          "A\xE7an sensen: varsay\u0131lan fold. QQ ve alt\u0131n\u0131 ciddiye al, AK otomatik 5-bet de\u011Fil.",
+          "3-bet eden sensen: bl\xF6fse fold; value'ysa sadece \xFCst dilim. A\xE7an h\xE2l\xE2 arkanda.",
+          "Kendin yaparken: dar value, 3-bet'in 2\u20132.5 kat\u0131, 40bb alt\u0131nda commit kabul et."
+        ],
+        ruleBox: "Bu hamlenin kar\u015F\u0131s\u0131nda merak pahal\u0131d\u0131r. Bilgi almak i\xE7in \xF6dedi\u011Fin bedel, bilginin de\u011Ferinden b\xFCy\xFCkt\xFCr.",
+        narration: "Cep kart\u0131. \xD6nce tan\u0131m kontrol\xFC yap: d\xF6rt-bet eden ki\u015Finin potta paras\u0131 var m\u0131yd\u0131? Yoksa bu bir cold d\xF6rt-bet'tir ve normal d\xF6rt-bet'ten \xE7ok daha g\xFC\xE7l\xFCd\xFCr. Varsay\u0131m\u0131n ger\xE7ek el olsun; canl\u0131 havuzda bu hamlenin bl\xF6f\xFC yok denecek kadar azd\u0131r. A\xE7an sensen varsay\u0131lan\u0131n fold; k\u0131z-k\u0131z ve alt\u0131n\u0131 ciddiye al, as-papaz otomatik be\u015F-bet de\u011Fil. \xDC\xE7-bet eden sensen, bl\xF6fle \xFC\xE7-bet ettiysen fold, value ile ettiysen sadece aral\u0131\u011F\u0131n\u0131n \xFCst dilimiyle devam et ve a\xE7an\u0131n h\xE2l\xE2 arkanda oldu\u011Funu unutma. Kendin yaparken dar bir value aral\u0131\u011F\u0131 kur, boyu \xFC\xE7-bet'in iki ile iki bu\xE7uk kat\u0131 tut, ve k\u0131rk big blind alt\u0131nda bu hamlenin seni commit etti\u011Fini ba\u015Ftan kabul et. Son c\xFCmle \u015Fu: bu hamlenin kar\u015F\u0131s\u0131nda merak pahal\u0131d\u0131r. Ne oldu\u011Funu g\xF6rmek i\xE7in \xF6dedi\u011Fin bedel, o bilginin de\u011Ferinden b\xFCy\xFCkt\xFCr."
+      }
+    ]
   }
 ];
 
@@ -10003,6 +10111,55 @@ var SCENARIOS = [
     explain: "Caller'\u0131n KQs/QTs'i ve a\xE7an\u0131n JJ+/AJ'si seni domine eder. \xD6nce sor: caller'\u0131n aral\u0131\u011F\u0131nda TEPE var m\u0131? Havuzda genelde yoktur (premium'u hep 3-bet'ler) \u2192 cevap over-call de\u011Fil, squeeze ya da fold.",
     source: "B\xF6l\xFCm 4.6-EK",
     kavram: "squeeze"
+  },
+  // --- M44: cold 4-bet (Bölüm 4.1 + 4.5 + sentez) ---
+  {
+    q: "Normal 4-bet ile cold 4-bet aras\u0131ndaki fark nedir?",
+    options: ["Sadece boyut fark\u0131 \u2014 cold daha b\xFCy\xFCk", "Cold 4-bet edenin potta paras\u0131 yoktu", "Cold 4-bet sadece blind'lardan yap\u0131l\u0131r"],
+    correct: 1,
+    explain: "Normal 4-bet'te sen a\xE7m\u0131\u015Ft\u0131n, elini savunuyorsun. Cold 4-bet'te oyuncu hi\xE7 yat\u0131r\u0131m yapmadan a\xE7\u0131\u015F + 3-bet'in \xFCst\xFCne \xE7\u0131k\u0131yor \u2014 'zaten param\u0131 koydum' bahanesi yok. Bu y\xFCzden \xE7ok daha dar.",
+    source: "kitap d\u0131\u015F\u0131 sentez",
+    kavram: "cold-4bet"
+  },
+  {
+    q: "Cold 4-bet'i masadaki en g\xFC\xE7l\xFC sinyal yapan mekanizma ne?",
+    options: ["Boyunun b\xFCy\xFCk olmas\u0131", "\u0130ki aral\u0131\u011F\u0131 birden ge\xE7mesi gerekmesi", "Genelde blind'lardan gelmesi"],
+    correct: 1,
+    explain: "A\xE7an bir aral\u0131k g\xF6sterdi, 3-bet eden daha g\xFC\xE7l\xFCs\xFCn\xFC g\xF6sterdi. Cold 4-bet eden ikisini birden yenmeyi g\xF6ze al\u0131yor \u2014 \xFCstelik s\u0131f\u0131r yat\u0131r\u0131mla ve arkas\u0131nda oyuncu varken.",
+    source: "kitap d\u0131\u015F\u0131 sentez",
+    kavram: "cold-4bet"
+  },
+  {
+    q: "Sen a\xE7t\u0131n, 3-bet geldi, arkadan cold 4-bet geldi. Elinde QQ var. Canl\u0131 havuzda?",
+    options: ["5-bet jam \u2014 QQ \xE7ok g\xFC\xE7l\xFC", "\xC7o\u011Fu masada fold", "Call edip flop g\xF6r"],
+    correct: 1,
+    explain: "Kitab\u0131n canl\u0131 d\xFCzeltmesi: '4-bet bl\xF6f\xFC neredeyse yoktur; 4-bet g\xF6rd\xFC\u011F\xFCnde QQ ve alt\u0131n\u0131 ciddiye al, AK otomatik 5-bet de\u011Fil.' A\xE7an sensen aral\u0131\u011F\u0131n en geni\u015F oland\u0131r ve iki g\xFC\xE7l\xFC aral\u0131\u011F\u0131n aras\u0131ndas\u0131n.",
+    source: "B\xF6l\xFCm 4.1",
+    kavram: "cold-4bet"
+  },
+  {
+    q: "Bl\xF6fle 3-bet ettin, \xFCst\xFCne cold 4-bet geldi. Karar?",
+    options: ["Call \u2014 pot oran\u0131 iyi", "Fold \u2014 bl\xF6f taraf\u0131 buraya kadar", "5-bet \u2014 bloker'\u0131m var"],
+    correct: 1,
+    explain: "3-bet aral\u0131\u011F\u0131n polar; bl\xF6f kanad\u0131n\u0131n i\u015Fi cold 4-bet'te biter. Ayr\u0131ca a\xE7an h\xE2l\xE2 konu\u015Facak \u2014 tek rakiple kar\u015F\u0131 kar\u015F\u0131ya de\u011Filsin. 3-bet'ini cold 4-bet'e kar\u015F\u0131 savunmak zorunda de\u011Filsin.",
+    source: "kitap d\u0131\u015F\u0131 sentez",
+    kavram: "cold-4bet"
+  },
+  {
+    q: "30bb'sin ve cold 4-bet yapmay\u0131 d\xFC\u015F\xFCn\xFCyorsun. Ne kabul etmi\u015F oluyorsun?",
+    options: ["Fold opsiyonun duruyor", "Fiilen commit \u2014 all-in karar\u0131", "K\xFC\xE7\xFCk boyla ucuz bilgi al\u0131rs\u0131n"],
+    correct: 1,
+    explain: "25\u201340bb band\u0131nda 3-bet zaten commit demektir; cold 4-bet fiilen all-in'dir, boyu ne yazarsan yaz. O derinlikte 'cold 4-bet edip fold' diye bir yap\u0131 yoktur \u2014 girmeden kabul et.",
+    source: "B\xF6l\xFCm 4.7",
+    kavram: "cold-4bet"
+  },
+  {
+    q: "Hi\xE7 cold 4-bet yapmam\u0131\u015F sakin bir oyuncu birden cold 4-bet etti. Okuman?",
+    options: ["Nihayet bl\xF6f denedi, geni\u015F oku", "Neredeyse kilitli oku", "Fark etmez, genel kural\u0131 uygula"],
+    correct: 1,
+    explain: "Nadir hamleler en iyi okuma malzemesidir \u2014 tesad\xFCf olma ihtimalleri d\xFC\u015F\xFCkt\xFCr. Tek oyuncu hakk\u0131ndaki somut not, masaya uygulanan genel kuraldan her zaman daha de\u011Ferlidir.",
+    source: "kitap d\u0131\u015F\u0131 sentez",
+    kavram: "cold-4bet"
   }
 ];
 function optionOrder(q, n) {
@@ -10504,7 +10661,7 @@ check("D6-63 postflop PLO Q \xFCretiliyor", !!postflopQuestion("plo"));
   const badCorrect = SCENARIOS.filter((s) => !(s.correct >= 0 && s.correct < s.options.length));
   const badSource = SCENARIOS.filter((s) => !s.source || !s.source.trim());
   const badKavram = SCENARIOS.filter((s) => typeof s.kavram !== "string" || !s.kavram);
-  check("D4-38 senaryo say\u0131s\u0131 139 (TR; EN paritesi bekliyor)", SCENARIOS.length === 139, String(SCENARIOS.length));
+  check("D4-38 senaryo say\u0131s\u0131 145 (TR; EN paritesi bekliyor)", SCENARIOS.length === 145, String(SCENARIOS.length));
   check("D4-38 t\xFCm correct options s\u0131n\u0131r\u0131nda", badCorrect.length === 0, badCorrect.map((s) => s.q.slice(0, 24)).join("|"));
   check("D4-38 t\xFCm source dolu", badSource.length === 0, String(badSource.length));
   check("D4-38 t\xFCm kavram dolu", badKavram.length === 0, String(badKavram.length));

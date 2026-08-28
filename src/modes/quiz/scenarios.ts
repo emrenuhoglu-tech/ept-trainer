@@ -1421,6 +1421,62 @@ export const SCENARIOS: Scenario[] = [
     source: "Bölüm 4.6-EK",
     kavram: "squeeze",
   },
+
+  // --- M44: cold 4-bet (Bölüm 4.1 + 4.5 + sentez) ---
+  {
+    q: "Normal 4-bet ile cold 4-bet arasındaki fark nedir?",
+    options: ["Sadece boyut farkı — cold daha büyük", "Cold 4-bet edenin potta parası yoktu", "Cold 4-bet sadece blind'lardan yapılır"],
+    correct: 1,
+    explain:
+      "Normal 4-bet'te sen açmıştın, elini savunuyorsun. Cold 4-bet'te oyuncu hiç yatırım yapmadan açış + 3-bet'in üstüne çıkıyor — 'zaten paramı koydum' bahanesi yok. Bu yüzden çok daha dar.",
+    source: "kitap dışı sentez",
+    kavram: "cold-4bet",
+  },
+  {
+    q: "Cold 4-bet'i masadaki en güçlü sinyal yapan mekanizma ne?",
+    options: ["Boyunun büyük olması", "İki aralığı birden geçmesi gerekmesi", "Genelde blind'lardan gelmesi"],
+    correct: 1,
+    explain:
+      "Açan bir aralık gösterdi, 3-bet eden daha güçlüsünü gösterdi. Cold 4-bet eden ikisini birden yenmeyi göze alıyor — üstelik sıfır yatırımla ve arkasında oyuncu varken.",
+    source: "kitap dışı sentez",
+    kavram: "cold-4bet",
+  },
+  {
+    q: "Sen açtın, 3-bet geldi, arkadan cold 4-bet geldi. Elinde QQ var. Canlı havuzda?",
+    options: ["5-bet jam — QQ çok güçlü", "Çoğu masada fold", "Call edip flop gör"],
+    correct: 1,
+    explain:
+      "Kitabın canlı düzeltmesi: '4-bet blöfü neredeyse yoktur; 4-bet gördüğünde QQ ve altını ciddiye al, AK otomatik 5-bet değil.' Açan sensen aralığın en geniş olandır ve iki güçlü aralığın arasındasın.",
+    source: "Bölüm 4.1",
+    kavram: "cold-4bet",
+  },
+  {
+    q: "Blöfle 3-bet ettin, üstüne cold 4-bet geldi. Karar?",
+    options: ["Call — pot oranı iyi", "Fold — blöf tarafı buraya kadar", "5-bet — bloker'ım var"],
+    correct: 1,
+    explain:
+      "3-bet aralığın polar; blöf kanadının işi cold 4-bet'te biter. Ayrıca açan hâlâ konuşacak — tek rakiple karşı karşıya değilsin. 3-bet'ini cold 4-bet'e karşı savunmak zorunda değilsin.",
+    source: "kitap dışı sentez",
+    kavram: "cold-4bet",
+  },
+  {
+    q: "30bb'sin ve cold 4-bet yapmayı düşünüyorsun. Ne kabul etmiş oluyorsun?",
+    options: ["Fold opsiyonun duruyor", "Fiilen commit — all-in kararı", "Küçük boyla ucuz bilgi alırsın"],
+    correct: 1,
+    explain:
+      "25–40bb bandında 3-bet zaten commit demektir; cold 4-bet fiilen all-in'dir, boyu ne yazarsan yaz. O derinlikte 'cold 4-bet edip fold' diye bir yapı yoktur — girmeden kabul et.",
+    source: "Bölüm 4.7",
+    kavram: "cold-4bet",
+  },
+  {
+    q: "Hiç cold 4-bet yapmamış sakin bir oyuncu birden cold 4-bet etti. Okuman?",
+    options: ["Nihayet blöf denedi, geniş oku", "Neredeyse kilitli oku", "Fark etmez, genel kuralı uygula"],
+    correct: 1,
+    explain:
+      "Nadir hamleler en iyi okuma malzemesidir — tesadüf olma ihtimalleri düşüktür. Tek oyuncu hakkındaki somut not, masaya uygulanan genel kuraldan her zaman daha değerlidir.",
+    source: "kitap dışı sentez",
+    kavram: "cold-4bet",
+  },
 ];
 
 export function randomScenario(): Scenario {
@@ -1463,6 +1519,7 @@ const KAVRAM_BOLUM: Record<string, number> = {
   "sb-multiway": 4,
   "bb-savunma": 4,
   squeeze: 4,
+  "cold-4bet": 4,
 };
 
 export function kavramChapter(kavram: string): number | null {

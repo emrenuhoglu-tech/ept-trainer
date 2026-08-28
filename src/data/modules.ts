@@ -4087,6 +4087,123 @@ export const modules: Module[] = [
       },
     ],
   },
+  {
+    id: "M44",
+    title: "Cold 4-bet: masadaki en güçlü sinyal",
+    chapter: "Bölüm 4.1 + 4.5 ⊕ sentez",
+    minutes: 7,
+    slides: [
+      {
+        title: "Ne demek: potta parası OLMAYAN birinin 4-bet'i",
+        bullets: [
+          "Normal 4-bet: sen açtın, 3-bet yedin, tekrar yükselttin — zaten yatırımın vardı.",
+          "Cold 4-bet: hiç para koymamış biri, açış + 3-bet'i görüp üstüne çıkıyor.",
+          "'Cold' kelimesi tam olarak bunu anlatır: soğuktan giriyor, hikâyesi yok.",
+          "Bu yüzden normal 4-bet'ten çok daha dar ve çok daha güçlüdür.",
+        ],
+        ruleBox: "Normal 4-bet 'elimi savunuyorum' der. Cold 4-bet 'iki aralığı birden yeniyorum' der.",
+        narration:
+          "Önce terimi netleştirelim çünkü karıştırılıyor. Normal dört-bet şudur: sen açtın, biri sana üç-bet yaptı, sen de tekrar yükselttin. Bu durumda potta zaten paran vardı ve elini savunuyorsun. Cold dört-bet ise bambaşka. Biri açtı, bir başkası üç-bet yaptı, ve potta hiç parası olmayan üçüncü bir oyuncu bunların üstüne çıkıyor. Cold kelimesi tam olarak bunu anlatıyor: soğuktan giriyor, arkasında hiçbir hikâye yok, kendini savunmak zorunda değil. Bu ayrım kritik, çünkü aynı hamlenin iki versiyonu tamamen farklı güçtedir. Normal dört-bet nispeten geniş olabilir; cold dört-bet ise doğası gereği çok dardır. Bunu masada refleks haline getirmen gerekiyor: kim dört-bet etti, potta parası var mıydı?",
+      },
+      {
+        title: "Neden bu kadar güçlü: iki aralığı birden geçmek zorunda",
+        bullets: [
+          "Açan bir aralık gösterdi, 3-bet eden ondan daha güçlü bir aralık gösterdi.",
+          "Cold 4-bet eden ikisini de yenmeyi göze alıyor — üstelik arkada oyuncu da olabilir.",
+          "Hiç yatırımı yok, yani 'zaten paramı koydum' bahanesi de yok.",
+          "Sonuç: elini seçerken en dar filtreyi kullanmış olması gerekiyor.",
+        ],
+        ruleBox: "Bir hamlenin gücü, onu yapan kişinin kaç aralığı geçmek zorunda olduğuyla ölçülür. Cold 4-bet'te bu sayı iki.",
+        narration:
+          "Şimdi neden bu kadar güçlü olduğuna bakalım, çünkü sebebini anlarsan masada hatırlamak zorunda kalmazsın. Açan oyuncu bir aralık gösterdi. Üç-bet eden ondan daha dar ve daha güçlü bir aralık gösterdi. Şimdi üçüncü bir oyuncu, potta hiç parası yokken, bu ikisinin üstüne çıkıyor. Yani sadece açanı değil, üç-bet edeni de yenmeyi göze alıyor. Üstelik arkasında hâlâ konuşacak oyuncular olabilir. Ve en önemlisi, hiç yatırımı olmadığı için zaten paramı koydum diye bir bahanesi de yok; bu hamleyi tamamen kendi iradesiyle, sıfırdan yapıyor. Bir hamlenin gücünü ölçmenin en basit yolu şu: onu yapan kişi kaç aralığı geçmek zorunda? Cold dört-bet'te bu sayı iki. Bu yüzden masadaki en güçlü sinyaldir.",
+      },
+      {
+        title: "Havuzda cold 4-bet blöfü yok denecek kadar az",
+        bullets: [
+          "Kitabın canlı-alan düzeltmesi: '4-bet blöfü neredeyse yoktur.'",
+          "Teorik blöf malzemesi var (A5s, A4s gibi bloker eller) ama canlıda ÇOK seyrek.",
+          "Kimse fold etmiyorsa blöf 4-bet zaten para yakmaktır — havuz bunu bilir ve yapmaz.",
+          "Yani cold 4-bet gördüğünde varsayımın 'gerçek el' olmalı, 'olabilir' değil.",
+        ],
+        ruleBox: "Dengeli oyuncuya karşı bile temkinli ol; ama havuza karşı cold 4-bet'i neredeyse saf value oku.",
+        narration:
+          "Bir katman daha ekleyelim: sen canlı turnuvada oynuyorsun ve canlı alanın kendine has bir sapması var. Kitabın canlı düzeltmesi bunu net söylüyor: dört-bet blöfü neredeyse yoktur. Teoride blöf malzemesi elbette var; as-beş suited, as-dört suited gibi bloker taşıyan eller. Ama canlı alanda bu çok seyrek görülür. Sebebi de mantıklı: karşındaki insanlar fold etmiyorsa blöf dört-bet zaten para yakmaktır ve havuz bunu deneyimle öğrenmiştir. Buradan çıkan pratik sonuç şu. Cold dört-bet gördüğünde varsayımın gerçek el olmalı; blöf olabilir değil. Dengeli oynayan tanıdığın bir rege karşı bile temkinli ol, ama tanımadığın havuza karşı bu hamleyi neredeyse saf value olarak oku. Bu tek varsayım sana çok para kazandırır, daha doğrusu çok para kaybettirmez.",
+      },
+      {
+        title: "Sen AÇANSIN ve arkadan cold 4-bet geldi: en kötü senaryo",
+        bullets: [
+          "Aralığın en geniş olan sensin; üstelik iki güçlü aralığın arasındasın.",
+          "Kitabın kuralı burada aynen geçerli: 'QQ ve altını ciddiye al, AK otomatik 5-bet değil.'",
+          "Havuza karşı JJ, AQ, hatta QQ bile rahatça fold olabilir.",
+          "Devam edersen çok dar bir aralıkla devam et — merak call'ı en pahalı call'dır.",
+        ],
+        ruleBox: "Açan sensen cold 4-bet karşısında varsayılanın FOLD. Bu spot senin aralığının en zayıf olduğu spottur.",
+        narration:
+          "Şimdi sana en sık olan şeye gelelim. Sen açtın, biri üç-bet yaptı, ve arkadan bir başkası cold dört-bet etti. Bu, o elde bulunabileceğin en kötü konumdur. Neden? Çünkü masadaki en geniş aralık senin aralığın; sen açarken bu kadar ateşi hesaba katmamıştın. Ve şu anda iki güçlü aralığın tam ortasındasın. Kitabın canlı kuralı burada aynen geçerli: dört-bet gördüğünde kız-kız ve altını ciddiye al, as-papaz otomatik beş-bet değil. Havuza karşı vale-vale rahatça fold'dur, as-kız fold'dur, hatta çoğu masada kız-kız bile fold'dur. Devam edeceksen çok dar bir aralıkla devam et. Ve şunu aklına kazı: buradaki en pahalı call merak call'ıdır. Ne olduğunu görmek için ödediğin bedel, o bilginin değerinin kat kat üstündedir.",
+      },
+      {
+        title: "Sen 3-BET ETTİN ve üstüne cold 4-bet geldi",
+        bullets: [
+          "Bu sefer aralığın daha güçlü — ama cold 4-bet'in aralığı ondan da güçlü.",
+          "Blöf 3-bet ettiysen karar kolay: fold, tereddütsüz.",
+          "Value 3-bet ettiysen bile üst dilim dışında devam yok.",
+          "Açanın hâlâ konuşacağını unutma: arkanda bir de o var, tek rakip değilsin.",
+        ],
+        ruleBox: "3-bet'ini cold 4-bet'e karşı savunmak zorunda değilsin. 3-bet aralığın zaten polar; blöf tarafı buraya kadar.",
+        narration:
+          "İkinci senaryo: sen üç-bet ettin ve üstüne cold dört-bet geldi. Bu sefer aralığın daha güçlü, ama cold dört-bet edenin aralığı seninkinden de güçlü. Karar aslında kolaydır ve elini nasıl seçtiğine bağlıdır. Blöfle üç-bet ettiysen cevap fold, hem de tereddütsüz. Üç-bet aralığın zaten polar; blöf tarafının işi burada biter, o kadar. Value ile üç-bet ettiysen bile aralığının sadece üst dilimiyle devam edersin; orta value elleri burada devam etmez. Bir şeyi daha unutma: sen cold dört-bet edenle baş başa değilsin. Açan oyuncu hâlâ konuşacak ve onun da bir sözü var. Yani devam edersen sadece bir güçlü aralıkla değil, muhtemelen iki oyuncuyla yüzleşiyorsun. Aklında tutulacak cümle şu: üç-bet'ini cold dört-bet'e karşı savunmak zorunda değilsin.",
+      },
+      {
+        title: "Kendin ne zaman yaparsın: value ağırlıklı, dar, ve nadiren",
+        bullets: [
+          "Değer tarafı: en üst çiftler ve AK sınıfı — kitabın 4-bet value satırı.",
+          "Blöf yapacaksan bloker taşıyan suited Ax; ama canlıda bunu ÇOK seyrek kullan.",
+          "Ön koşul aynı: karşındakiler fold ediyor mu? Etmiyorsa blöf cold 4-bet para yakar.",
+          "Bir de kimin 3-bet ettiğine bak: geç pozisyondan gelen 3-bet'e karşı aralığın genişler.",
+        ],
+        ruleBox: "Cold 4-bet'i blöf hamlesi olarak öğrenme. Önce value kanadını kur; blöf tarafı saha bilgisi ister.",
+        narration:
+          "Peki sen ne zaman cold dört-bet yaparsın? Cevap: dar bir value aralığıyla ve nadiren. Değer tarafı kitabın dört-bet value satırıyla aynı çerçevede kalır; en üst çiftler ve as-papaz sınıfı. Blöf yapacaksan bloker taşıyan suited as'lar mantıklıdır, çünkü rakiplerin en güçlü ellerini keserler. Ama canlı alanda bunu çok seyrek kullan. Ön koşul her agresif hamlede olduğu gibi aynı: karşındakiler fold ediyor mu? Etmiyorlarsa blöf cold dört-bet doğrudan para yakar. Bir ayrıntı daha: kimin üç-bet ettiğine bak. Geç pozisyondan gelen bir üç-bet daha geniş bir aralıktır, ona karşı senin cold dört-bet aralığın da bir tık genişler. En erken pozisyondan gelen bir üç-bet'e karşı ise neredeyse sadece en tepeyle girersin.",
+      },
+      {
+        title: "Boy ve derinlik: 40bb altında cold 4-bet zaten commit'tir",
+        bullets: [
+          "Boy 3-bet'in kabaca iki ile iki buçuk katı; pozisyon dışıysan üst uçtan.",
+          "Çok küçük yaparsan 3-bet edene iyi fiyat verirsin — kimse fold etmez.",
+          "25–40bb bandında 3-bet zaten commit demektir; cold 4-bet fiilen all-in'dir.",
+          "O derinlikte 'cold 4-bet edip fold' diye bir yapı yoktur — girmeden kabul et.",
+        ],
+        ruleBox: "Derinliği önce ölç: sığ bandda bu hamle bir raise değil, stack kararıdır.",
+        narration:
+          "Boy ve derinlik. Boy olarak cold dört-bet, üç-bet'in kabaca iki ile iki buçuk katıdır ve pozisyon dışındaysan üst uçtan gidersin. Çok küçük yaparsan üç-bet edene iyi bir fiyat vermiş olursun ve kimse fold etmez; bu da hamlenin bütün amacını siler. Şimdi derinlik. Yirmi beş ile kırk big blind bandında zaten üç-bet commit demektir; o bantta cold dört-bet fiilen all-in'dir, boyu ne yazarsan yaz. Yani o derinlikte cold dört-bet edip sonra fold etme diye bir yapı yoktur. Bunu hamleyi yapmadan önce kabul etmelisin. Genel kural şu: bu hamleyi düşünürken önce derinliği ölç. Derin bandda cold dört-bet bir raise'dir ve kaçış kapın vardır; sığ bandda bir stack kararıdır ve kaçış kapın yoktur.",
+      },
+      {
+        title: "Exploit: kim sık yapıyor, onu not al",
+        bullets: [
+          "Cold 4-bet nadir bir hamledir; bir oyuncu bunu iki kez yaptıysa dikkat et.",
+          "Sık yapan biri varsa aralığı gerçekten geniştir — ona karşı devam eşiğin düşer.",
+          "Hiç yapmayan biri yaptığında ise tam tersi: neredeyse kilitli oku.",
+          "Bu not, tüm masaya uygulanan genel kuraldan daha değerlidir.",
+        ],
+        ruleBox: "Nadir hamleler en iyi okuma malzemesidir: tam da nadir oldukları için tesadüf olma ihtimalleri düşüktür.",
+        narration:
+          "Son bir katman: exploit. Cold dört-bet doğası gereği nadir bir hamledir ve nadir hamleler en iyi okuma malzemesidir, çünkü tam da nadir oldukları için tesadüf olma ihtimalleri düşüktür. Bir oyuncunun bunu iki kez yaptığını gördüysen bu ciddi bir bilgidir. Sık yapan biri varsa aralığı gerçekten geniştir; ona karşı devam eşiğin düşer ve normalde atacağın elleri oynayabilirsin. Tersi çok daha sık karşına çıkar: hiç yapmayan sakin bir oyuncu birden cold dört-bet ettiğinde onu neredeyse kilitli oku ve as-papaz dahil her şeyi atmayı ciddi ciddi düşün. Şunu unutma: masaya uyguladığın genel kural iyi bir başlangıçtır, ama tek bir oyuncu hakkındaki somut notun o genel kuraldan her zaman daha değerlidir.",
+      },
+      {
+        title: "Cheat: cold 4-bet kartı",
+        bullets: [
+          "Tanım kontrolü: 4-bet eden kişinin potta parası var mıydı? Yoksa bu cold 4-bet.",
+          "Varsayım: gerçek el. Canlı havuzda cold 4-bet blöfü yok denecek kadar az.",
+          "Açan sensen: varsayılan fold. QQ ve altını ciddiye al, AK otomatik 5-bet değil.",
+          "3-bet eden sensen: blöfse fold; value'ysa sadece üst dilim. Açan hâlâ arkanda.",
+          "Kendin yaparken: dar value, 3-bet'in 2–2.5 katı, 40bb altında commit kabul et.",
+        ],
+        ruleBox: "Bu hamlenin karşısında merak pahalıdır. Bilgi almak için ödediğin bedel, bilginin değerinden büyüktür.",
+        narration:
+          "Cep kartı. Önce tanım kontrolü yap: dört-bet eden kişinin potta parası var mıydı? Yoksa bu bir cold dört-bet'tir ve normal dört-bet'ten çok daha güçlüdür. Varsayımın gerçek el olsun; canlı havuzda bu hamlenin blöfü yok denecek kadar azdır. Açan sensen varsayılanın fold; kız-kız ve altını ciddiye al, as-papaz otomatik beş-bet değil. Üç-bet eden sensen, blöfle üç-bet ettiysen fold, value ile ettiysen sadece aralığının üst dilimiyle devam et ve açanın hâlâ arkanda olduğunu unutma. Kendin yaparken dar bir value aralığı kur, boyu üç-bet'in iki ile iki buçuk katı tut, ve kırk big blind altında bu hamlenin seni commit ettiğini baştan kabul et. Son cümle şu: bu hamlenin karşısında merak pahalıdır. Ne olduğunu görmek için ödediğin bedel, o bilginin değerinden büyüktür.",
+      },
+    ],
+  },
 ];
 
 export function moduleById(id: string): Module | undefined {

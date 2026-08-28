@@ -3540,6 +3540,12 @@ Herkes planını onu izole etmek üzere kurar. Kısa stack'in POZİSYONU stratej
 
 İzolasyon boyu kendi derinliğine bağlı: derinsen "first-raise" (kısa reopen edemesin diye gereği kadar büyük — reopen'ı reddet); sığsan min-raise (kısanın jam'le reopen'ına izin ver, çek).
 
+### 28.4-EK Arkada karışık stack'ler → jam kârlı olsa bile raise üstündür
+
+Arkası tek tip mikro-kısaysa bas jam'i — en dipteki çöp hariç her şey gider (kalibre et). Ama arkada kısa ile orta karışıksa "jam kârlı" diye jam'leme; raise'le. Kısalar itince zaten ödüyorsun; orta stack uyandığında çöpünü bedavaya atar, güçlünle postflop oynarsın. Kök hata, tek rakam ezberleyip masadaki stack dağılımını okumamak.
+
+**Kural:** open tipini el değil arkadaki stack dokusu seçer — tek tip mikro-kısa arkada jam, kısa+orta karışıkken raise: kısaların jam'ine zaten ödersin, orta stack'e çöpünü bedavaya attırma.
+
 ### 28.5 Mystery bounty = preflop oyunu / sandbox
 
 Devasa varyans (büyük roll şart), popülasyon postflop clueless. Ana edge: IP geniş limp + korunmuş aralık; insanlar limp düğümünü kötü oynar. Kelle değeri ITM boyunca DEĞİŞİR (büyük kelleler çekildikçe düşer); kaba hesap = canlı kelle toplamı / kalan oyuncu.

@@ -3541,6 +3541,12 @@ Herkes plan\u0131n\u0131 onu izole etmek \xFCzere kurar. K\u0131sa stack'in POZ\
 
 \u0130zolasyon boyu kendi derinli\u011Fine ba\u011Fl\u0131: derinsen "first-raise" (k\u0131sa reopen edemesin diye gere\u011Fi kadar b\xFCy\xFCk \u2014 reopen'\u0131 reddet); s\u0131\u011Fsan min-raise (k\u0131san\u0131n jam'le reopen'\u0131na izin ver, \xE7ek).
 
+### 28.4-EK Arkada kar\u0131\u015F\u0131k stack'ler \u2192 jam k\xE2rl\u0131 olsa bile raise \xFCst\xFCnd\xFCr
+
+Arkas\u0131 tek tip mikro-k\u0131saysa bas jam'i \u2014 en dipteki \xE7\xF6p hari\xE7 her \u015Fey gider (kalibre et). Ama arkada k\u0131sa ile orta kar\u0131\u015F\u0131ksa "jam k\xE2rl\u0131" diye jam'leme; raise'le. K\u0131salar itince zaten \xF6d\xFCyorsun; orta stack uyand\u0131\u011F\u0131nda \xE7\xF6p\xFCn\xFC bedavaya atar, g\xFC\xE7l\xFCnle postflop oynars\u0131n. K\xF6k hata, tek rakam ezberleyip masadaki stack da\u011F\u0131l\u0131m\u0131n\u0131 okumamak.
+
+**Kural:** open tipini el de\u011Fil arkadaki stack dokusu se\xE7er \u2014 tek tip mikro-k\u0131sa arkada jam, k\u0131sa+orta kar\u0131\u015F\u0131kken raise: k\u0131salar\u0131n jam'ine zaten \xF6dersin, orta stack'e \xE7\xF6p\xFCn\xFC bedavaya att\u0131rma.
+
 ### 28.5 Mystery bounty = preflop oyunu / sandbox
 
 Devasa varyans (b\xFCy\xFCk roll \u015Fart), pop\xFClasyon postflop clueless. Ana edge: IP geni\u015F limp + korunmu\u015F aral\u0131k; insanlar limp d\xFC\u011F\xFCm\xFCn\xFC k\xF6t\xFC oynar. Kelle de\u011Feri ITM boyunca DE\u011E\u0130\u015E\u0130R (b\xFCy\xFCk kelleler \xE7ekildik\xE7e d\xFC\u015Fer); kaba hesap = canl\u0131 kelle toplam\u0131 / kalan oyuncu.
@@ -4978,6 +4984,53 @@ var modules = [
           }
         ],
         "narration": "Otuz big blind band\u0131nda small blind'in do\u011Fru \xFC\xE7-bet'i \xE7o\u011Funlukla all-in'dir; b\xFCy\xFCk non-all-in \xFC\xE7-bet dengede seyrektir. Havuz tersini yapar: jam'lemesi gereken elleri b\xFCy\xFCk \xFC\xE7-bet'ler. O aral\u0131k polar ve \xE7o\u011Funlukla tepesizdir; value taraf\u0131 as-kral ve orta-y\xFCksek \xE7iftler, bl\xF6f taraf\u0131 offsuit broadway'ler ve suited krallar; en b\xFCy\xFCk \xE7iftler ya jam'lenmi\u015F ya k\xFC\xE7\xFCk boyda gitmi\u015Ftir. Boy b\xFCy\xFCd\xFCk\xE7e \xF6l\xFC para artar ama small blind de ba\u011Flan\u0131r; fold equity k\xFC\xE7\xFCk \xFC\xE7-bet'e g\xF6re azal\u0131r ama s\u0131f\u0131rlanmaz. K\xE2r \xFC\xE7 kalemin toplam\u0131d\u0131r: bl\xF6f yar\u0131s\u0131n\u0131n fold'u, \xF6l\xFC para ve \xF6dendi\u011Finde tepesiz aral\u0131\u011Fa kar\u015F\u0131 canl\u0131 equity; tepesizlik iddias\u0131 \u015Fartl\u0131, g\xF6zlemle. Aral\u0131kta b\xFCy\xFCk \xE7ift azsa kral orta \xE7iftlere canl\u0131 ama as-krala domine, k\u0131z iki tarafa da canl\u0131d\u0131r; suited krallar ve k\u0131zlar beklenenden iyi jam'ler. Kural: button'dan d\xF6rt-bet jam aral\u0131\u011F\u0131n\u0131 geni\u015F kur; suited as'lar ve krallar, \xE7iftler, broadway'ler; s\u0131n\u0131r\u0131 kendi solver'\u0131nda kalibre et. \xDC\xE7-bet k\xFC\xE7\xFCk boysa standart d\xF6rt-bet-jam ile call kar\u0131\u015F\u0131m\u0131na, all-in'se jam'e kar\u015F\u0131 call hatt\u0131na d\xF6n. Havuz exploitidir: b\xFCy\xFCk \xFC\xE7-bet'te en b\xFCy\xFCk \xE7iftleri tam frekansla g\xF6rd\xFC\u011F\xFCn an geni\u015Flemeyi geri al."
+      },
+      {
+        "title": "EK: ICM katman\u0131 \u2014 cover eden agresif BB'ye limp kapan\u0131r, k\u0131sa BB'ye boy b\xFCy\xFCr",
+        "bullets": [
+          "Cover eden agresif BB'ye kar\u015F\u0131 SB'nin limp'i aral\u0131k geni\u015Fletme arac\u0131 de\u011Fil, iso'ya a\xE7\u0131lan kap\u0131d\u0131r \u2014 raise-only, dar aral\u0131k.",
+          "K\u0131sa BB varsa limp iki kere yasak: k\u0131sa capped BB geni\u015F jam basar, sen katlars\u0131n, \xFCst\xFCne bedava flop da vermi\u015F olursun.",
+          "Limp yaln\u0131z BB zay\u0131f ve pasifse ya\u015Far.",
+          "BB \u22645bb ise min-raise fold equity'sizdir \u2014 2.2\u20132.5x a\xE7\u0131l\u0131\u015F boyu kullan (BTN en b\xFCy\xFCk), aral\u0131k bir t\u0131k daral\u0131r (kalibre et)."
+        ],
+        "ruleBox": "ICM a\xE7\u0131kken cover eden agresif BB'ye limp kapan\u0131r; k\u0131sa BB'ye ise min-raise de\u011Fil 2.2\u20132.5 kat\u0131 a\xE7\u0131l\u0131\u015F boyu gerekir.",
+        "narration": "Limp malzemesi \xE7ip beklenen de\u011Feri i\xE7indi; ICM a\xE7\u0131ld\u0131\u011F\u0131nda iki d\xFCzeltme geliyor. Birincisi, solunda seni cover eden agresif bir big blind varken limp aral\u0131k geni\u015Fletme arac\u0131 de\u011Fil, b\xFCy\xFCk stack'e iso a\xE7an ve capped aral\u0131k cezas\u0131 veren bir kap\u0131ya d\xF6n\xFC\u015F\xFCr \u2014 bu d\xFC\u011F\xFCmde yaln\u0131z raise, aral\u0131k dar. K\u0131sa bir big blind varsa limp iki kere yasakt\u0131r: k\u0131sa ve capped rakip limp'ine geni\u015F jam basar, sen katlan\u0131rs\u0131n, \xFCstelik bedava bir flop da vermi\u015F olursun. Limp yaln\u0131z rakip zay\u0131f ve pasifse hayatta kal\u0131r. \u0130kincisi boyutla ilgili: rakibin stack'i be\u015F big blind ve alt\u0131ndaysa min-raise fold equity ta\u015F\u0131maz, her eliyle \xF6denir. Bunun yerine iki virg\xFCl iki ile iki virg\xFCl be\u015F kat aras\u0131 a\xE7\u0131l\u0131\u015F boyu kullan \u2014 hem bir dilimini katlat\u0131r hem bask\u0131y\u0131 art\u0131r\u0131r; boy pozisyona g\xF6re kademelidir, aral\u0131k da bir t\u0131k daralt\u0131l\u0131r."
+      },
+      {
+        "title": "EK: BB k\u0131saysa SB'ye \xFC\xE7-bet-fold lisans\u0131 do\u011Far",
+        "bullets": [
+          "E\u015Fit stack'te SB'nin non-all-in \xFC\xE7-bet'i katlanmaz \u2014 BTN'den de BB'den de jam yer.",
+          "BB KISAYSA tehdit tekle\u015Fir: tek ger\xE7ek tehdit BTN'nin d\xF6rt-bet jam'idir, BB genelde \xF6nceden katlanm\u0131\u015F olur.",
+          "D\xFC\u015F\xFCk-EV jam elleri (A7o/K9o/QJo tipi) art\u0131k \xFC\xE7-bet-FOLD dilimine ge\xE7er; value \xFC\xE7-bet (QQ+/AK) bl\xF6f dilimiyle dengelendi\u011Fi i\xE7in daha \xE7ok kazan\u0131r.",
+          "Lisans BTN'e ba\u011Fl\u0131: BTN yeterince jam'lemiyorsa ge\xE7erli, uyum sa\u011Flayan BTN'ye kar\u015F\u0131 bl\xF6f dilimini k\u0131s.",
+          "SB'nin marjinal flat'leri d\xFC\u015Fer \u2014 k\u0131sa BB flat'i cezaland\u0131r\u0131r, geriye yaln\u0131z y\xFCksek kartl\u0131 flat'ler kal\u0131r."
+        ],
+        "ruleBox": "K\u0131sa BB varken SB'nin low-EV jam elleri \xFC\xE7-bet-fold'a d\xF6ner; lisans\u0131n s\u0131n\u0131r\u0131 BTN'nin d\xF6rt-bet jam s\u0131kl\u0131\u011F\u0131d\u0131r.",
+        "narration": "Be\u015F nokta iki'nin \xFC\xE7-bet e\u015Fittir jam kural\u0131 e\u015Fit stack'ler i\xE7indir; small blind'\u0131n non-all-in \xFC\xE7-bet'i hem butondan hem big blind'den jam yer, katlanamaz. Ama big blind k\u0131saysa hesap de\u011Fi\u015Fir: jam'ine small blind neredeyse her eliyle fiyatla \xF6der, \xE7\xFCnk\xFC efektif stack k\xFC\xE7\xFCkt\xFCr; tek ger\xE7ek tehdit art\u0131k butonun d\xF6rt-bet jam'idir, ve big blind zaten butondan \xF6nce hareket etti\u011Fi i\xE7in o d\xFC\u011F\xFCme \xE7o\u011Funlukla katlanm\u0131\u015F girer. Sonu\xE7: e\u015Fit stackte jam'lenebilen d\xFC\u015F\xFCk de\u011Ferli eller \xFC\xE7-bet-fold diline ge\xE7er, value \xFC\xE7-betler bu bl\xF6f dilimiyle dengelendi\u011Fi i\xE7in daha \xE7ok kazan\u0131r. Lisans\u0131n s\u0131n\u0131r\u0131 buton: buton bu dilimi koklarsa d\xF6rt-bet jam'i fold equity kazan\u0131p geni\u015Fler \u2014 lisans yaln\u0131z buton yeterince jam'lemedi\u011Fi s\xFCrece ge\xE7erlidir. Yan etki: small blind'\u0131n marjinal flat'leri d\xFC\u015Fer, geriye yaln\u0131z y\xFCksek kartl\u0131 flat'ler kal\u0131r."
+      },
+      {
+        "title": "EK: 'Flat yok' kural\u0131n\u0131n iki istisnas\u0131",
+        "bullets": [
+          "\xDC\xE7 ki\u015Filik ICM'de ~30bb SB'ye kar\u015F\u0131 \xE7ok geni\u015F a\xE7an BTN varsa, sim yine de suited broadway/k\xFC\xE7\xFCk \xE7ift ile CALL verir \u2014 jam'in riske att\u0131\u011F\u0131 \xF6l\xFC paraya g\xF6re b\xFCy\xFCkt\xFCr (kalibre et).",
+          "Bu istisna 22.8-EK'e dokunmaz \u2014 o, aksiyonu kapatan BB'nin lidere kar\u015F\u0131 kural\u0131d\u0131r; burada koltuk SB ve arkada oyuncu var.",
+          "8-max'ta ve normal bir a\xE7\u0131l\u0131\u015Fa kar\u015F\u0131 flat yok kural\u0131 aynen ge\xE7erli.",
+          "Geni\u015F d\xF6rt-bet jam'i (5.2-EK) havuzun \xFC\xE7-bet'inin TEPES\u0130Z olmas\u0131na ba\u011Fl\u0131d\u0131r \u2014 dengeli rakipte orta \xE7iftin jam'i d\xFC\u015Fer, slow-play artar.",
+          "Ayn\u0131 el, iki ko\u015Ful, iki cevap; showdown'da AA/KK'y\u0131 b\xFCy\xFCk \xFC\xE7-bet'te g\xF6rmeye ba\u015Flad\u0131\u011F\u0131n an geni\u015F jam'i kapat."
+        ],
+        "ruleBox": "Flat yok kural\u0131 durur; tek istisnas\u0131 \xFC\xE7 ki\u015Filik ICM'de \xE7ok geni\u015F a\xE7an butona kar\u015F\u0131 SB call'u, ve geni\u015F d\xF6rt-bet jam'in kendisi havuzun tepesiz \xFC\xE7-bet'ine ba\u011Fl\u0131d\u0131r.",
+        "narration": "Flat yok kural\u0131 genelde durur ama iki dipnotu var. Birincisi: \xFC\xE7 ki\u015Fi kald\u0131\u011F\u0131nda, otuz big blind civar\u0131 small blind'a kar\u015F\u0131 buton a\u015F\u0131r\u0131 geni\u015F a\xE7\u0131yorsa ve lider big blind arkada bekliyorsa, sim\xFClasyon yine de suited broadway ve k\xFC\xE7\xFCk \xE7iftle \xE7a\u011Fr\u0131 verir \u2014 a\xE7\u0131c\u0131 bu kadar geni\u015Fken jam'in riske att\u0131\u011F\u0131 \xF6l\xFC paraya g\xF6re b\xFCy\xFCkt\xFCr, \xE7a\u011Fr\u0131 s\u0131\u011F oranda flop g\xF6rmeni sa\u011Flar. Bu, aksiyonu kapatan big blind'in lidere kar\u015F\u0131 kural\u0131na dokunmaz \u2014 orada koltuk farkl\u0131, burada small blind ve arkada h\xE2l\xE2 oyuncu var. Sekiz ki\u015Filik masada ve normal a\xE7\u0131l\u0131\u015Fa kar\u015F\u0131 flat yok kural\u0131 aynen ge\xE7erli. \u0130kinci dipnot: geni\u015F d\xF6rt-bet jam kural\u0131, havuzun \xFC\xE7-bet'inin tepesiz olmas\u0131na, yani as as ve kral kral olmamas\u0131na dayan\u0131r. Dengeli bir rakipte bu do\u011Fru de\u011Fildir, orta \xE7iftlerin jam'i d\xFC\u015Fer. Rakibin b\xFCy\xFCk \xFC\xE7-bet'inde premium \xE7ift g\xF6rmeye ba\u015Flad\u0131\u011F\u0131n an geni\u015F jam'i kapat."
+      },
+      {
+        "title": "EK: S\u0131k\u0131 rejam'e call'u kombo say\u0131s\u0131 fiyatlar \u2014 as-on suited ve kral-dam suited fold",
+        "bullets": [
+          "5.3'\xFCn \xE7izgisi (99+/AJs+/AQo+) durur \u2014 gerek\xE7esi kombo say\u0131m\u0131d\u0131r.",
+          "Havuzun 30bb rejam'i teoriden s\u0131k\u0131d\u0131r \u2014 orta \xE7iftler + g\xFC\xE7l\xFC offsuit broadway + A-blokerli suited eller, kabaca %7 (kalibre et).",
+          "Suited bl\xF6fler 4 kombo, ATs'i domine eden offsuit AJ/AQ 12 kombo + \xE7iftler \u2014 'aral\u0131\u011F\u0131nda suited malzeme var' hesab\u0131 yanl\u0131\u015F sayar.",
+          "Yaln\u0131z offsuit'in domine etti\u011Fi eller (ATs, KQs tipi) s\u0131k\u0131 jam'e FOLD'dur; jam'ci suited malzemeyi geni\u015Fletse bile.",
+          "A\xE7\u0131c\u0131/flatter \xE7izgisi bir kademe geni\u015F \u2014 88+/AJs/AQo civar\u0131; AJo fold, 88 s\u0131n\u0131rda."
+        ],
+        "ruleBox": "Jam'e call ederken suited bl\xF6fleri de\u011Fil, seni domine eden offsuit value kombolar\u0131n\u0131 say.",
+        "narration": "Be\u015F nokta \xFC\xE7'\xFCn \xE7izgisi duruyor ama gerek\xE7esi saf kombo say\u0131m\u0131d\u0131r. Havuzun otuz big blind civar\u0131ndaki rejam'i teoriden daha s\u0131k\u0131d\u0131r, tipik olarak orta \xE7iftler, g\xFC\xE7l\xFC offsuit broadway ve as-blokerli suited ellerden olu\u015Fur, kabaca y\xFCzde yedi civar\u0131nda. 'Aral\u0131\u011F\u0131nda dam-vale suited ve as-be\u015F suited gibi eller var, o y\xFCzden as-on suited iyi durur' hesab\u0131 yanl\u0131\u015F sayar, \xE7\xFCnk\xFC suited bl\xF6fler d\xF6rder kombodur, ama as-on suited'i domine eden offsuit as-vale ve as-dam on iki\u015Fer kombodur, \xFCst\xFCne \xE7iftler de eklenir. Bu y\xFCzden yaln\u0131z offsuit ellerin domine etti\u011Fi eller, yani as-on suited ve kral-dam suited tipi eller, s\u0131k\u0131 bir jam'e fold'dur, jam'ci suited malzemeyi geni\u015Fletmi\u015F olsa bile. A\xE7\u0131c\u0131 ya da flat \xE7izgisi bir kademe daha geni\u015Ftir. K\u0131sacas\u0131, jam'e \xE7a\u011Fr\u0131 yaparken suited bl\xF6fleri de\u011Fil, seni domine eden offsuit value kombolar\u0131n\u0131 say."
       }
     ]
   },
@@ -5235,6 +5288,18 @@ var modules = [
         ],
         "ruleBox": "River boyu, hangi katman\u0131 kay\u0131ts\u0131zl\u0131\u011Fa itmek istedi\u011Fini VE rakibin raise kapasitesini birlikte okur \u2014 orta elle \xFC\xE7te-bir \xE7o\u011Funlukla yok.",
         "narration": "River value boyunun iki pusulas\u0131 var. Birincisi katman hedefi: value k\xFCtlen orta katmandaysa ve nut katman\u0131 rakipteyse boyu k\xFC\xE7\xFClt. K\xFC\xE7\xFCk boy rakibin zay\u0131f per ve \xE7ekili\u015F katman\u0131ndan \xF6deme al\u0131r, nut katman\u0131na kar\u015F\u0131 kayb\u0131 s\u0131n\u0131rlar, raise kald\u0131rac\u0131n\u0131 keser. Bu boyu nut'un dahil t\xFCm bet aral\u0131\u011F\u0131na tek boy olarak uygula ki aral\u0131\u011F\u0131n raise'e kar\u015F\u0131 korunsun. \u0130kincisi pozisyonda reg'e kar\u015F\u0131 a\u011Fa\xE7: orta elle \xFC\xE7te-bir bet \xE7o\u011Funlukla yoktur; k\xFC\xE7\xFCk bet reg'e raise d\xFC\u011F\xFCm\xFC a\xE7ar ve k\xFC\xE7\xFCk aral\u0131\u011F\u0131n raise'e en a\xE7\u0131k aral\u0131kt\u0131r. Orta el ya check eder ya \xFC\xE7te-iki ve \xFCst\xFCn\xFC atar. Nut'la boyu rakibin raise kapasitesi se\xE7er: g\xFC\xE7l\xFC catcher'\u0131yla kendisi jam'leyen rakibe \xFC\xE7te-iki ikisini de toplar; raise etmeyen pasif rakipte paray\u0131 sen koyars\u0131n, all-in. \xC7ok bl\xF6fle gelip rakibin her catcher'\u0131n\u0131 yeniyorsan tavan boy a\xE7\u0131l\u0131r \u2014 bl\xF6f \xE7oklu\u011Fu boyu k\xFC\xE7\xFCltmez, b\xFCy\xFCt\xFCr. Raise etmeyen station'a k\xFC\xE7\xFCk value bet istisnad\u0131r; kendi solver'\u0131nda kalibre et."
+      },
+      {
+        "title": "EK: SPR bir civar\u0131nda turn \u2014 value ile jam de\u011Fil, yar\u0131-stack bet",
+        "bullets": [
+          "SPR\u22481'de ana tablo 'commit' der ama boyu s\xF6ylemez; overpair/g\xFC\xE7l\xFC top pair'i 'zaten committed'im' diye jam'lemek hatad\u0131r.",
+          "Flop bet'ine call eden aral\u0131k alt per ve zay\u0131f orta per doludur; jam onlar\u0131 snap-fold ettirir \u2014 tam ezdi\u011Fin s\u0131n\u0131f.",
+          "Do\u011Frusu potun yar\u0131s\u0131 ile \xFC\xE7te ikisi aras\u0131: bir k\u0131sm\u0131 \xF6der (value), bir k\u0131sm\u0131 katlan\u0131r (bl\xF6f i\xE7in fold equity).",
+          "Flush draw'a jam'in koruma kazanc\u0131 s\u0131n\u0131rl\u0131d\u0131r \u2014 stack'in yar\u0131s\u0131 zaten turn'de girmi\u015Ftir, river'da zaten her kartta jam'lersin.",
+          "Jam yaln\u0131z turn aral\u0131\u011Fa B\u0130RDEN FAZLA canl\u0131 \xE7ekili\u015F ekledi\u011Finde mant\u0131kl\u0131d\u0131r; flush tamamland\u0131ysa ana tablo (11.1) ge\xE7erlidir."
+        ],
+        "ruleBox": "SPR bir civar\u0131nda turn'de commit do\u011Fru fikirdir ama boy yar\u0131-stackt\u0131r; jam yaln\u0131z birden fazla canl\u0131 \xE7ekili\u015F eklendi\u011Finde devreye girer.",
+        "narration": "Ana tablo SPR bir civar\u0131nda commit der ama boyu s\xF6ylemez. Turn'de overpair ya da g\xFC\xE7l\xFC top pair'le 'zaten committed'im' diye jam etmek hatad\u0131r, \xF6zellikle korkutucu bir kart geldi\u011Finde hemen koy refleksi. Commit, paran\u0131n eninde sonunda girece\u011Fini s\xF6yler; hangi sokakta, hangi boyla girdi\u011Fi rakibin devam aral\u0131\u011F\u0131n\u0131 de\u011Fi\u015Ftirir. Flop bete \xE7a\u011F\u0131ran aral\u0131k alt per ve zay\u0131f orta per doludur; jam'e bu eller an\u0131nda katlan\u0131r, tam senin ezdi\u011Fin s\u0131n\u0131f. Potun yar\u0131s\u0131 ile \xFC\xE7te ikisi aras\u0131 o s\u0131n\u0131f\u0131 kay\u0131ts\u0131zl\u0131\u011Fa iter \u2014 bir k\u0131sm\u0131 \xF6der, bu senin value'n; bir k\u0131sm\u0131 katlan\u0131r, bu da bl\xF6flerin i\xE7in fold equity. Flush \xE7ekili\u015Fine kar\u015F\u0131 jam'in koruma kazanc\u0131 da s\u0131n\u0131rl\u0131d\u0131r, \xE7\xFCnk\xFC stack'in yar\u0131s\u0131 zaten turn'de gitmi\u015Ftir. Jam'i yaln\u0131z tek gerek\xE7e hakl\u0131 \xE7\u0131kar\u0131r: turn kart\u0131 aral\u0131\u011Fa birden fazla canl\u0131 \xE7ekili\u015F eklemi\u015Fse; flush tamamland\u0131ysa ana tablo ge\xE7erlidir."
       }
     ]
   },
@@ -5339,6 +5404,51 @@ var modules = [
         ],
         "ruleBox": "Jam aral\u0131\u011F\u0131n\u0131 \xFC\xE7 \u015Fey \xF6l\xE7ekler \u2014 \xF6l\xFC para, rakibin primi, kendi primin; \xFC\xE7\xFC de k\xFC\xE7\xFCkse jam yerine raise.",
         "narration": "K\u0131sa stack'te chipEV'nin jam ya da fold ezberi prim devreye girince k\u0131r\u0131l\u0131r. Jam b\xFCt\xFCn y\u0131\u011F\u0131n\u0131n\u0131 riske atar ve tam primi \xF6der; min-raise yaln\u0131z iki big blind riske atar ve neredeyse s\u0131f\u0131r prim \xF6der. \xDCstelik rakiplerin jam'e call aral\u0131\u011F\u0131 da primle daral\u0131r \u2014 jam daha az kazan\u0131r, raise daha az kaybeder. Sonu\xE7: on ile on be\u015F big blind band\u0131nda a\u011Faca normal raise geri gelir; tepeyi raise-call'a, en zay\u0131f y\xFCksek kartl\u0131lar\u0131 raise-fold'a yaz, jam'i raise'e katlanamayaca\u011F\u0131n ama call de bulamayaca\u011F\u0131n ellere daralt. \u0130kinci \xF6l\xE7ek \xF6l\xFC parad\u0131r: b\xFCy\xFCk ante jam'i a\xE7ar, k\xFC\xE7\xFCk ante ve az oyuncu jam'i raise'e d\xF6nd\xFCr\xFCr. \xD6l\xFC para, rakibin primi ve kendi primin \u2014 \xFC\xE7\xFC birden k\xFC\xE7\xFCkse jam atma, raise et. S\u0131n\u0131rlar\u0131 kendi hesaplay\u0131c\u0131nda kalibre et."
+      },
+      {
+        "title": "EK: K\u0131san\u0131n Jam Aral\u0131\u011F\u0131 Cover Edilirken Erir",
+        "bullets": [
+          "Yirmi big blind \xFCst\xFCnde, seni cover eden blindlere kar\u015F\u0131 en g\xFC\xE7l\xFC ellerin raise'e gider \u2014 \xE7\xFCnk\xFC onlarla a\xE7\u0131p \xFCst\xFCne gelen bir jam'e rahat \xE7a\u011F\u0131r\u0131rs\u0131n.",
+          "Geriye kalan 'jam aral\u0131\u011F\u0131' (orta suited as, k\xFC\xE7\xFCk \xE7ift tipi eller) tepesiz kal\u0131r \u2014 destekleyen \xFCst k\u0131s\u0131m art\u0131k raise taraf\u0131ndad\u0131r.",
+          "Rakip bu tepesiz jam aral\u0131\u011F\u0131na belirgin geni\u015F \xF6der, \xE7\xFCnk\xFC senin ger\xE7ek canavarlar\u0131n\u0131n jam'de de\u011Fil raise'de oldu\u011Funu bilir \u2014 her jam eksiye d\xFC\u015Fer.",
+          "Sonu\xE7: open-jam pay\u0131 neredeyse s\u0131f\u0131rlan\u0131r; k\xFC\xE7\xFCk bir dilim non-all-in raise'e gider, gerisi raise-fold ya da fold'dur.",
+          "Ante b\xFCy\xFCd\xFCk\xE7e, stack k\u0131sald\u0131k\xE7a ya da arkandakiler senden daha k\u0131sa oldu\u011Funda jam aral\u0131\u011F\u0131 yeniden geri gelir."
+        ],
+        "ruleBox": "En g\xFC\xE7l\xFC ellerin raise'e gidince geride kalan jam aral\u0131\u011F\u0131 tepesiz kal\u0131r \u2014 iki aral\u0131\u011F\u0131 ayn\u0131 anda kurma.",
+        "narration": "Yirmi big blind \xFCzerinde, seni kapsayan blindlere kar\u015F\u0131 jam ile raise'i iki ayr\u0131 aral\u0131k gibi yan yana kurma. Mekanizma \u015Fu: en g\xFC\xE7l\xFC ellerin, yani normalde \xE7a\u011F\u0131r\u0131rd\u0131n diyebilece\u011Fin tepe k\u0131sm\u0131, art\u0131k jam'e de\u011Fil raise'e gidiyor, \xE7\xFCnk\xFC o ellerle a\xE7\u0131p \xFCst\xFCne gelen bir jam'i rahat\xE7a \xE7a\u011F\u0131rabiliyorsun. Bu da geride kalan jam aral\u0131\u011F\u0131n\u0131, orta suited as ve k\xFC\xE7\xFCk \xE7ift gibi elleri, tepesiz b\u0131rak\u0131yor; onlar\u0131 destekleyecek \xFCst k\u0131s\u0131m art\u0131k raise taraf\u0131nda. Rakip bu tepesiz aral\u0131\u011Fa belirgin geni\u015F \xF6der, \xE7\xFCnk\xFC senin ger\xE7ek canavarlar\u0131n\u0131n jam'de olmad\u0131\u011F\u0131n\u0131 bilir, ve her jam'in eksiye d\xFC\u015Fer. Sonu\xE7 olarak a\xE7\u0131k-jam pay\u0131 neredeyse s\u0131f\u0131rlan\u0131r, all-in olmayan k\xFC\xE7\xFCk bir raise dilimi kal\u0131r, gerisi fold'dur. Ante b\xFCy\xFCd\xFCk\xE7e ya da arkandakiler senden daha k\u0131sa oldu\u011Funda jam aral\u0131\u011F\u0131 geri gelir."
+      },
+      {
+        "title": "EK: K\u0131saya Jam'de Geni\u015F, Raise'e Dar \xD6de",
+        "bullets": [
+          "K\u0131san\u0131n all-in'i orta blo\u011Fu ta\u015F\u0131r (orta \xE7ift, orta suited, geni\u015F as) \u2014 orta-y\xFCksek \xE7ift onu domine eder, call defterinde kal\u0131r.",
+          "Ayn\u0131 k\u0131san\u0131n k\xFC\xE7\xFCk raise'i (non-all-in) polard\u0131r: tepe art\u0131 katlanabilen \xE7\xF6p \u2014 orta \xE7ift burada domine edilir veya kimseyi katlatmaz.",
+          "Ayn\u0131 el, iki farkl\u0131 aksiyona iki farkl\u0131 cevap verir \u2014 jam'e call, k\xFC\xE7\xFCk raise'e fold.",
+          "Arkanda seni cover eden biri varken \xE7a\u011F\u0131rd\u0131\u011F\u0131n an 'committed' sanma \u2014 dev yeniden iterse katlanmak \xE7o\u011Funlukla do\u011Frudur."
+        ],
+        "ruleBox": "\xD6nce aksiyonun t\xFCr\xFCn\xFC oku, sonra eli de\u011Ferlendir \u2014 jam ve k\xFC\xE7\xFCk raise ayn\u0131 defterden okunmaz.",
+        "narration": "K\u0131sa stack'in b\xFCt\xFCn y\u0131\u011F\u0131n\u0131n\u0131 ortaya s\xFCrmesiyle k\xFC\xE7\xFCk bir raise atmas\u0131 ayn\u0131 defterden okunmaz. All-in'i geni\u015F bir orta blok ta\u015F\u0131r, orta \xE7ift ve orta suited as elleri de var, bu y\xFCzden orta-y\xFCksek \xE7iftle geni\u015F \xF6de, domine ediyorsun. Ama ayn\u0131 k\u0131san\u0131n k\xFC\xE7\xFCk raise'i tamamen farkl\u0131 bir hikaye anlat\u0131r, tepe art\u0131 katlanabilen \xE7\xF6pt\xFCr; orta \xE7iftin burada i\u015Fi yok, ya domine ediliyor ya kimseyi katlatm\u0131yor, o y\xFCzden fold. Ayn\u0131 el iki aksiyona iki cevap verir, paradoks de\u011Fil doku fark\u0131. Son uyar\u0131: arkanda seni kapsayan b\xFCy\xFCk bir stack varsa, \xE7a\u011F\u0131rd\u0131\u011F\u0131n an\u0131 committed sanma, dev yeniden iterse katlanmak \xE7o\u011Funlukla do\u011Fru kal\u0131r."
+      },
+      {
+        "title": "EK: \xD6l\xFC Para Jam Geni\u015Fli\u011Fini \xD6l\xE7ekler",
+        "bullets": [
+          "Jam'in fold-kazanc\u0131 potun \xF6l\xFC paras\u0131yla (ante ve oyuncu say\u0131s\u0131) orant\u0131l\u0131d\u0131r, riski stack ile sabittir.",
+          "B\xFCy\xFCk ante h\u0131zl\u0131 yap\u0131larda jam aral\u0131\u011F\u0131n\u0131 belirgin a\xE7ar; k\xFC\xE7\xFCk ante veya az oyuncuda aral\u0131k daral\u0131r, raise'e d\xF6ner.",
+          "Cover eden mini sahada, k\xFC\xE7\xFCk ante ve iki blind sana kar\u015F\u0131 primsizse, jam pay\u0131 s\u0131f\u0131ra iner \u2014 yaln\u0131z raise kal\u0131r.",
+          "Masa darald\u0131k\xE7a (d\xF6rt ki\u015Fi kal\u0131nca) potta bir t\u0131k daha az \xF6l\xFC para olur, marjinal call bile k\xF6t\xFCle\u015Fir."
+        ],
+        "ruleBox": "Jam geni\u015Fli\u011Fini \xFC\xE7 \u015Feyle \xF6l\xE7ekle: \xF6l\xFC para, rakibin primi, kendi primin \u2014 \xFC\xE7\xFC de k\xFC\xE7\xFCkse jam yok, raise var.",
+        "narration": "Ayn\u0131 stack, ayn\u0131 prim ile bile her yap\u0131da ayn\u0131 jam aral\u0131\u011F\u0131n\u0131 oynama. Jam'in kazanc\u0131 potun i\xE7indeki \xF6l\xFC paradan gelir, riski ise stack'inle sabittir. H\u0131zl\u0131 ve b\xFCy\xFCk anteli yap\u0131larda \xF6l\xFC para fazla oldu\u011Fu i\xE7in jam aral\u0131\u011F\u0131 belirgin a\xE7\u0131l\u0131r. Normal ve k\xFC\xE7\xFCk anteli yap\u0131da ayn\u0131 spot daha dar kal\u0131r, baz\u0131 eller jam'den raise'e kayar. U\xE7 noktada, cover eden b\xFCy\xFCk bir stack k\xFC\xE7\xFCk anteli ve az oyunculu bir mini sahada, sana kar\u015F\u0131 hi\xE7 prim ta\u015F\u0131m\u0131yorsa, jam pay\u0131 neredeyse s\u0131f\u0131rlan\u0131r ve yaln\u0131zca raise kal\u0131r. Masa darald\u0131k\xE7a, d\xF6rt ki\u015Fi kal\u0131nca bile \xF6l\xFC para biraz azal\u0131r ve marjinal call k\xF6t\xFCle\u015Fir. K\u0131saca jam geni\u015Fli\u011Fini \xFC\xE7 de\u011Fi\u015Fkenle \xF6l\xE7ekle: \xF6l\xFC para, rakibin primi, kendi primin."
+      },
+      {
+        "title": "EK: Offsuit as elinde U \u015Fekli \u2014 ortas\u0131 jamlemez",
+        "bullets": [
+          "En g\xFC\xE7l\xFC offsuit as eller a\xE7\u0131k jam olur, arada bir kendinden k\xF6t\xFC bir asla \xF6denir.",
+          "En zay\u0131f offsuit as eller de a\xE7\u0131k jam olur \u2014 ama\xE7lar\u0131 kendinden biraz iyi aslar\u0131 katlatmak.",
+          "Ortadaki offsuit as eller ne iyisinden \xF6deme al\u0131r ne k\xF6t\xFCs\xFCn\xFC katlat\u0131r \u2014 jam olmaz, a\xE7\u0131l\u0131\u015F olur.",
+          "A\xE7\u0131lan bu orta dilim b\xFCy\xFCk blinde kar\u015F\u0131 \xE7a\u011Fr\u0131ya, k\xFC\xE7\xFCk blindin jamine kar\u015F\u0131 katlanmaya gider."
+        ],
+        "ruleBox": "Offsuit as tablosu d\xFCz bir \xE7izgi de\u011Fil U bi\xE7imidir \u2014 en iyi ve en k\xF6t\xFC u\xE7lar jamler, orta dilim a\xE7\u0131l\u0131p katlan\u0131r.",
+        "narration": "Offsuit as ellerini tek bir do\u011Fru \xFCzerinde s\u0131ralama, \xE7\xFCnk\xFC tablo d\xFCz de\u011Fil bir U bi\xE7imindedir. En g\xFC\xE7l\xFC offsuit as elleri a\xE7\u0131k jam olur, \xE7\xFCnk\xFC arada bir kendinden daha k\xF6t\xFC bir asla \xF6deme al\u0131rlar. En zay\u0131f offsuit as elleri de a\xE7\u0131k jam olur ama farkl\u0131 bir sebeple \u2014 ama\xE7lar\u0131 kendinden biraz daha iyi bir as elini katlatmakt\u0131r. Ortadaki dilim ise ikisini de yapamaz: ne kendinden k\xF6t\xFCs\xFCnden \xF6deme al\u0131r ne kendinden iyisini katlat\u0131r, \xE7\xFCnk\xFC orta g\xFC\xE7teki bir as elinin kime kar\u015F\u0131 avantaj\u0131 belirsizdir. O y\xFCzden bu orta dilim jam de\u011Fil, k\xFC\xE7\xFCk a\xE7\u0131l\u0131\u015F olarak oynan\u0131r. Sonra o a\xE7\u0131l\u0131\u015F\u0131n ak\u0131beti pozisyona g\xF6re de\u011Fi\u015Fir \u2014 b\xFCy\xFCk blindin kat\u0131l\u0131m\u0131na kar\u015F\u0131 \xE7a\u011Fr\u0131ya gider, k\xFC\xE7\xFCk blindin jamine kar\u015F\u0131 ise katlan\u0131r. Elin g\xFCc\xFCne de\u011Fil, elin nereye hizmet etti\u011Fine bak."
       }
     ]
   },
@@ -5435,6 +5545,41 @@ var modules = [
         ],
         "ruleBox": "K\xF6pr\xFC band\u0131nda 3-bet preflop'ta bitmez \u2014 commit'e yak\u0131n SPR postflop tehdidi flop'a ta\u015F\u0131r; eli o a\u011Faca g\xF6re se\xE7.",
         "narration": "K\u0131rk ile yetmi\u015F big blind aras\u0131ndaki k\xF6pr\xFC band\u0131nda \xFC\xE7-bet'in commit'e yakla\u015Fmas\u0131 preflop'ta kalmaz. K\u0131rk big blind civar\u0131nda \xFC\xE7-bet potunun flop stack pot oran\u0131 iki civar\u0131nda ya da alt\u0131ndad\u0131r; flop'ta call etmek \xE7o\u011Funlukla fiilen stack-off'tur ve flop bet art\u0131 turn jam tehdidi caller'\u0131n \xE7ekili\u015Flerini kay\u0131ts\u0131z b\u0131rakabilir: draw'\u0131yla devam etse de flop'ta commit olmadan ta\u015F\u0131yamaz. Y\xFCz big blind'de bu tehdit ortadan kalkmaz, gecikir. Turn jam'i bir overbet'e d\xF6ner, \xE7\xFCnk\xFC turn'de oran h\xE2l\xE2 birin \xFCst\xFCndedir; caller \xE7ekili\u015Fini flop'ta ba\u011Flanmadan turn'e ta\u015F\u0131yabilir. Ayn\u0131 dinamik vale-onlu-iks tipi y\xFCksek board'da k\u0131rk big blind'de b\xFCy\xFCk boy, y\xFCz big blind'de pot boyu verir; \xFC\xE7-broadway board'da ise caller'\u0131n yo\u011Fun iki-per ve kent pay\u0131, yani ince nut avantaj\u0131, boyu her derinlikte k\xFC\xE7\xFC\u011Fe iter; boylar\u0131 kendi solver'\u0131nda kalibre et. Pratik sonu\xE7 preflop'ta ba\u015Flar: \xFC\xE7-bet edece\u011Fin el postflop'ta jam ya da check a\u011Fac\u0131n\u0131 ta\u015F\u0131yabilmeli. Flop'ta ne jam'e ne check'e yak\u0131\u015Fan bir elle bu bantta \xFC\xE7-bet, kendi kendine commit tuza\u011F\u0131 kurmakt\u0131r."
+      },
+      {
+        "title": "EK: Capped cold-caller'a altm\u0131\u015F b\xFCy\xFCk blind jam \u2014 T9s neden en iyi aday",
+        "bullets": [
+          "Havuz CO'da premium'u y\xFCzde y\xFCz \xFC\xE7-betler \u2192 call aral\u0131\u011F\u0131 22-99 + suited broadway (bkz. 4.6-EK).",
+          "60bb jam'e bu aral\u0131k yaln\u0131z 99/AQs civar\u0131yla \xF6der \u2192 SB'den T9s/J9s/JTs jam'i +EV.",
+          "T9s en iyi aday: \xF6deyen 99'u bloklar, katlanan KQ/KJ/QJ/suited Ax fold'lar\u0131n\u0131 unblock eder \u2014 net art\u0131.",
+          "Bloker y\xF6n\xFC burada TERS\u0130NE d\xF6ner: \xF6deyen aral\u0131k yaln\u0131z \xE7iftlerse J/T bloker \u0130TER; domine-eden broadway varsa FRENLER.",
+          "\u015Eart: cold-caller premium'unun bir k\u0131sm\u0131n\u0131 slow-play'lemeye ba\u015Flarsa pencere h\u0131zla kapan\u0131r (e\u015Fik: kalibre et)."
+        ],
+        "ruleBox": "Kart\u0131n hangi aral\u0131ktan kombo sildi\u011Fi cold-caller'\u0131n kompozisyonuna ba\u011Fl\u0131 \u2014 \xE7iftlerden ibaret \xF6deyen aral\u0131kta J/T bloker jam'i iter, broadway'li \xF6deyen aral\u0131kta frenler.",
+        "narration": "Capped bir cold-caller'a kar\u015F\u0131 jam karar\u0131n\u0131 bloker verir. Havuz cut-off'ta premium'unu neredeyse tamamen \xFC\xE7-betledi\u011Fi i\xE7in geriye kalan call aral\u0131\u011F\u0131 iki-iki'den dokuz-dokuza kadar \xE7iftler ve suited broadway'dir. Altm\u0131\u015F big blind'lik bir jam'e bu aral\u0131k yaln\u0131z dokuz-dokuz ve as-k\u0131z civar\u0131yla \xF6der; k\xFC\xE7\xFCk k\xF6rden on-dokuz suited, dokuz-vale suited ya da vale-on suited jam'i tam bu y\xFCzden art\u0131 beklenen de\u011Ferlidir. On-dokuz suited en iyi adayd\u0131r: \xF6deyen dokuz-dokuzu bloklar, katlanan kral-k\u0131z, kral-vale, k\u0131z-vale ve suited as fold'lar\u0131n\u0131 serbest b\u0131rak\u0131r; onlunun kendi suited broadway fold'lar\u0131n\u0131 hafif\xE7e kesmesi k\xFC\xE7\xFCk bir eksi, net etki yine art\u0131d\u0131r. Bloker kural\u0131 burada tersine d\xF6ner: \xF6deyen aral\u0131k yaln\u0131z \xE7iftlerden ibaretse vale ve onlu bloker jam'i iter; \xF6deyen aral\u0131kta domine eden broadway varsa frenler. Cold-caller premium'unun bir k\u0131sm\u0131n\u0131 yava\u015F oynamaya ba\u015Flad\u0131\u011F\u0131 an bu pencere h\u0131zla kapan\u0131r, kendi solver'\u0131nda kalibre et."
+      },
+      {
+        "title": "EK: Reshove'da orta \xE7ift k\xFC\xE7\xFCk \xE7iftle e\u015Fit \u2014 bloker ta\u015F\u0131yan as \xF6ne \xE7\u0131kar",
+        "bullets": [
+          "S\u0131k\u0131 EP a\xE7\u0131c\u0131 (77+/AJs+/AK) reshove'a TT+/AK/AQs ile \xF6der \u2192 o aral\u0131\u011Fa kar\u015F\u0131 99 ile 55 AYNI equity.",
+          "55 raise-fold'dan (77/88/AJs) hi\xE7bir kombo silmez; 99 yaln\u0131z a\xE7\u0131c\u0131n\u0131n katlanan 99'unu siler \u2014 k\xFC\xE7\xFCk bir eksi.",
+          "A5s ise AK/AA'y\u0131 bloklar, \xF6dendi\u011Finde canl\u0131 \u2192 \xE7iftlerin \xFCst\xFCne \xE7\u0131kar (s\u0131ralama: kalibre et).",
+          "Reshove aral\u0131\u011F\u0131 \xE7ift-a\u011F\u0131r de\u011Fil BLOKER-a\u011F\u0131r: 99/TT s\u0131n\u0131rda, 55-88 \xE7o\u011Funlukla fold."
+        ],
+        "ruleBox": "Reshove'a s\u0131k\u0131 bir aral\u0131k \xF6d\xFCyorsa \xE7iftin b\xFCy\xFCkl\xFC\u011F\xFC de\u011Fil, kart\u0131n\u0131n AK/AA'y\u0131 bloklay\u0131p canl\u0131 kalmas\u0131 s\u0131ralamay\u0131 belirler.",
+        "narration": "Reshove'da orta \xE7ift ile k\xFC\xE7\xFCk \xE7ift aras\u0131ndaki fark g\xF6r\xFCnd\xFC\u011F\xFCnden azd\u0131r. S\u0131k\u0131 bir erken pozisyon a\xE7\u0131c\u0131s\u0131 reshove'u onlu-onludan yukar\u0131, as-kral ve as-k\u0131z suited ile \xF6der; o aral\u0131\u011Fa kar\u015F\u0131 dokuz-dokuz ile be\u015F-be\u015F ayn\u0131 equity'yi ta\u015F\u0131r. Be\u015F-be\u015F a\xE7\u0131c\u0131n\u0131n raise-fold etti\u011Fi yedi-yedi, sekiz-sekiz ya da as-vale suited kombolar\u0131ndan hi\xE7birini silmez; dokuz-dokuz yaln\u0131z a\xE7\u0131c\u0131n\u0131n katlad\u0131\u011F\u0131 dokuz-dokuzu siler, k\xFC\xE7\xFCk bir eksi. As-be\u015F suited ise farkl\u0131 \xE7al\u0131\u015F\u0131r: as-kral'\u0131 ve as-as'\u0131 bloklar, \xF6dendi\u011Finde de canl\u0131 kal\u0131r; bu y\xFCzden \xE7iftlerin \xFCst\xFCne \xE7\u0131kar, tam s\u0131ralamay\u0131 kendi solver'\u0131nda kalibre et. Sonu\xE7: reshove aral\u0131\u011F\u0131n \xE7ift a\u011F\u0131rl\u0131kl\u0131 de\u011Fil bloker a\u011F\u0131rl\u0131kl\u0131 kurulur; dokuz-dokuz ve on-onlu s\u0131n\u0131rda, be\u015F-be\u015Ften sekiz-sekize kadar olanlar \xE7o\u011Funlukla fold'dur."
+      },
+      {
+        "title": "EK: Squeeze-jam'i el de\u011Fil BB'nin STACK'\u0130 fiyatlar",
+        "bullets": [
+          "30-45bb, loose a\xE7\u0131c\u0131 + geni\u015F flatter, SB'sin: ikinci eksen arkadaki BB'nin stack'i.",
+          "BB seni cover ETM\u0130YORSA jam aral\u0131\u011F\u0131 belirgin geni\u015Fler; ediyorsa sert daral\u0131r \u2014 spek\xFClatif suited Ax/d\xFC\u015F\xFCk ba\u011Flant\u0131l\u0131 cover eden BB'ye kar\u015F\u0131 EV kaybeder.",
+          "Derinlik artt\u0131k\xE7a jam aral\u0131\u011F\u0131 daral\u0131r; \xE7a\u011F\u0131ranlar\u0131n premium \xE7ift + en g\xFC\xE7l\xFC broadway'e s\u0131k\u0131\u015Fmas\u0131 daralmay\u0131 k\u0131smen telafi eder.",
+          "Malzeme: suited broadway omurga (QTs/KTs/KJs/T9s) + suited Ax/Kx g\xF6vde; k\xFC\xE7\xFCk \xE7ift 77'den k\xF6t\xFC de\u011Fil.",
+          "Gambler freni: rakip JTs/QTs ile call'l\u0131yorsa \xE7izgi h\u0131zla daral\u0131r; en loose'a sald\u0131r."
+        ],
+        "ruleBox": "Cover edilmeyen stack'e kar\u015F\u0131 spek\xFClatif eller ya\u015Far, cover edene kar\u015F\u0131 \xF6l\xFCr \u2014 jam aral\u0131\u011F\u0131n\u0131 el de\u011Fil arkadaki BB'nin stack'i fiyatlar.",
+        "narration": "Bloker testi bir eksendi, ikinci eksen arkadaki b\xFCy\xFCk k\xF6r\xFCn stack'i. Hijack geni\u015F a\xE7\u0131yor, buton geni\u015F flat ediyor, sen k\xFC\xE7\xFCk k\xF6rs\xFCn. \u0130lk soru: b\xFCy\xFCk k\xF6r seni cover ediyor mu? Etmiyorsa jam aral\u0131\u011F\u0131n belirgin geni\u015Fler; ediyorsa sert daral\u0131r, \xE7\xFCnk\xFC spek\xFClatif suited as'lar ve d\xFC\u015F\xFCk ba\u011Flant\u0131l\u0131 eller cover eden b\xFCy\xFCk k\xF6re kar\u015F\u0131 beklenen de\u011Fer kaybeder, yaln\u0131z premium \xE7ekirdek her ko\u015Fulda k\xE2rl\u0131 kal\u0131r. \u0130kinci soru derinlik: herkes derinse jam aral\u0131\u011F\u0131 daral\u0131r, ama \xE7a\u011F\u0131ranlar\u0131n premium \xE7ift ve en g\xFC\xE7l\xFC broadway'e s\u0131k\u0131\u015Fmas\u0131 bu daralmay\u0131 k\u0131smen telafi eder; otuz big blind'deki kadar geni\u015F olmasa da yine oynanabilir kal\u0131r. Malzeme suited broadway omurgas\u0131 ve suited as, kral g\xF6vdesidir; k\xFC\xE7\xFCk \xE7ift bu omurgadan k\xF6t\xFC de\u011Fildir. Son bir fren: rakip on-vale ya da k\u0131z-on suited gibi ellerle bile call'l\u0131yorsa \xE7izgi h\u0131zla daral\u0131r, en gev\u015Fek oynayana sald\u0131r."
       }
     ]
   },
@@ -5499,6 +5644,17 @@ var modules = [
         table: { section: "B\xF6l\xFCm 16", sub: "16.3", caption: "Do\u011Fru karar + k\xF6t\xFC sonu\xE7 \u2192 aral\u0131k DE\u011E\u0130\u015EMEZ." },
         ruleBox: "Kurala uyduysan ve kaybettiysen: 'do\u011Fru karar, k\xF6t\xFC sonu\xE7' \u2014 ARALIK DE\u011E\u0130\u015EMEZ.",
         narration: "Son kart otopsi kural\u0131, ve bu senin kalibrasyonunu koruyan filtredir. Ne zaman otopsi yapars\u0131n? El bitti\u011Fi an de\u011Fil \u2014 g\xFCn bittikten sonra. Masada sadece eli not al, \xE7\xF6z\xFCmlemeyi ak\u015Fama b\u0131rak. \u0130ki soru sorars\u0131n: bir, karar an\u0131nda bildiklerimle kitaptaki kural neydi? \u0130ki, o kurala uydum mu? E\u011Fer uyduysan ve yine de kaybettiysen, vaka defterine 'do\u011Fru karar, k\xF6t\xFC sonu\xE7' yaz \u2014 ve aral\u0131\u011F\u0131n\u0131 de\u011Fi\u015Ftirme. Bu filtre neden kritik? \xC7\xFCnk\xFC SHR'de do\u011Fru jam'ler s\u0131k kaybedilecek; bu filtre olmadan, d\xF6rd\xFCnc\xFC ve be\u015Finci b\xF6l\xFCm\xFCn \xF6zenle kalibre edilmi\u015F tablolar\u0131n\u0131 turnuva ortas\u0131nda bozmaya ba\u015Flars\u0131n. Tek uyar\u0131: 'do\u011Fruydu, varyanst\u0131' etiketi kendini aklama kap\u0131s\u0131na d\xF6n\xFC\u015Fmesin \u2014 yaln\u0131z kurala ger\xE7ekten uyduysan ge\xE7erlidir. Sonu\xE7 de\u011Fil, karar de\u011Ferlendirilir."
+      },
+      {
+        "title": "EK: D\xF6rd\xFCnc\xFC tetikleyici \u2014 co\u015Fku tilt'i ve dikkat leak'i",
+        "bullets": [
+          "Derin-run ya da final tablo heyecan\u0131 da tilt \xFCretir \u2014 bozuk uyku, s\u0131cak kartlar ve y\xFCkselen imaj birle\u015Fince over-agresyona d\xF6ner.",
+          "Belirti: frekanslar s\xFCrekli y\xFCksek kal\u0131r, her spotun oynan\u0131r hissi do\u011Far \u2014 d\xF6rd\xFCnc\xFC tetikleyici: pozitif-arousal.",
+          "An\u0131nda hamle: karar h\u0131z\u0131n\u0131 d\xFC\u015F\xFCr, baseline frekanslara d\xF6n, s\u0131n\u0131rdaki d\xF6rt-bet ve be\u015F-bet d\xFC\u011F\xFCm\xFCnde bir kademe geri \xE7ek.",
+          "Masay\u0131 domine eden konu\u015Fkan rakip ayr\u0131 bir leak a\xE7ar: dikkat da\u011F\u0131l\u0131r, preflop okuman bayatlar \u2014 ak\u0131\u015Fa d\xF6n\xFC\u015F rit\xFCeli kur, saati \xE7a\u011F\u0131r, her sokak ba\u015F\u0131nda tazele."
+        ],
+        "ruleBox": "Co\u015Fku da tilt'tir \u2014 belirtisi h\u0131z ve geni\u015Fleme, \xE7aresi baseline'a d\xF6n\xFC\u015F ve okumay\u0131 her sokak ba\u015F\u0131nda tazelemek.",
+        "narration": "Tilt yaln\u0131z \xF6fkeden gelmez. Derin-run ya da final tablo heyecan\u0131 da ayn\u0131 y\u0131k\u0131m\u0131 yapar: bozuk uyku, s\u0131cak kartlar ve y\xFCkselen imaj birle\u015Fince frekanslar\u0131n s\xFCrekli y\xFCkseldi\u011Fini, her spotun oynanabilir g\xF6r\xFCnd\xFC\u011F\xFCn\xFC fark edersin. Bu, d\xF6rd\xFCnc\xFC tetikleyicidir \u2014 pozitif-arousal tilt'i. An\u0131nda hamle basit: karar h\u0131z\u0131n\u0131 d\xFC\u015F\xFCr, varsay\u0131lan frekanslara geri d\xF6n, s\u0131n\u0131rdaki d\xF6rt-bet ve be\u015F-bet d\xFC\u011F\xFCmlerinde bir kademe geri \xE7ek. \u0130kinci bir leak masada oturur: masay\u0131 domine eden, dikkat emen konu\u015Fkan bir rakip. Bu seni ak\u0131\u015Ftan \xE7\u0131kar\u0131r, kararlar\u0131n y\xFCzeyselle\u015Fir, preflop okuman bayatlar. \xC7are kendi taraf\u0131nda bir rit\xFCel kurmak \u2014 nefes, kulak t\u0131kac\u0131, ak\u0131\u015Fa d\xF6n\xFC\u015F \u2014 \xE7\xFCnk\xFC herkes ak\u0131\u015Ftan \xE7\u0131kt\u0131\u011F\u0131 i\xE7in okumalar asl\u0131nda kolayla\u015F\u0131r. Zaman-istismarc\u0131s\u0131na saati \xE7a\u011F\u0131r, pasif kalmak do\u011Frudan kay\u0131pt\u0131r. Ve her yeni sokak ba\u015F\u0131nda okuman\u0131 bilin\xE7li \u015Fekilde tazele."
       }
     ]
   },
@@ -5592,6 +5748,30 @@ var modules = [
         ],
         "ruleBox": "Raise-only iki BB rejiminde de EV b\u0131rak\u0131r; yaln\u0131z BB raise'e over-fold ediyorsa ya da limp a\u011Fac\u0131n\u0131 y\xF6netemiyorsan sadele\u015Ftirme olarak tut.",
         "narration": "Bu turnuvan\u0131n small blind sat\u0131r\u0131 raise-only der: limp yok, \xFC\xE7 kat a\xE7. Bunu evrensel blind'e kar\u015F\u0131 blind doktrini sanma; yakla\u015F\u0131k elli big blind'lik online sahaya \xF6zel bir ba\u011Flam \u015Fart\u0131d\u0131r. Big blind limp'e seyrek ya da pasif izolasyon yap\u0131yorsa limp-reraise tuza\u011F\u0131n\u0131n pay\u0131 d\xFC\u015Fer; ama ayn\u0131 anda marjinal ellerin ucuz flop g\xF6rme de\u011Feri artar. Bu rejim raise-only'yi hakl\u0131 \xE7\u0131karmaz. Big blind limp'e y\xFCksek oranda iso ya da \xFC\xE7-bet yap\u0131yorsa zay\u0131f limp'ler kesilir, ama premium'un limp-reraise pay\u0131 b\xFCy\xFCr; o sahada da raise-only para b\u0131rak\u0131r. Raise-only ancak iki ko\u015Fulda kabul edilebilir bir sadele\u015Ftirmedir: big blind raise'e belirgin over-fold ediyorsa ya da oyuncu limp a\u011Fac\u0131n\u0131 y\xF6netemiyorsa; s\u0131n\u0131r\u0131 kendi solver'\u0131nda kalibre et. Genel blind'e kar\u015F\u0131 blind'de ayn\u0131 derinlik derin ile orta katman\u0131n s\u0131n\u0131r\u0131ndad\u0131r ve small blind'in limp pay\u0131 hangi motorun \xE7al\u0131\u015Ft\u0131\u011F\u0131na g\xF6re de\u011Fi\u015Fir: stack pot oran\u0131 kapan\u0131, polarize iso; premium'un limp-reraise dilimi dahil; jam motoru k\u0131sa katmana aittir. Kural: hangi rejimin \xE7al\u0131\u015Ft\u0131\u011F\u0131n\u0131 tablo etiketine de\u011Fil big blind'in iso ve \xFC\xE7-bet davran\u0131\u015F\u0131na g\xF6re se\xE7."
+      },
+      {
+        "title": "EK: Online'da timing sizing'le okunacak B\u0130R\u0130NC\u0130L kanal",
+        "bullets": [
+          "Canl\u0131da timing zay\u0131f sinyal (fiziksel teller daha zengin); ONLINE'da fiziksel tell yok \u2014 timing + sizing Z\u0130NC\u0130R\u0130 birincil rakip-okuma kanal\u0131.",
+          "H\u0131zl\u0131 check-call + h\u0131zl\u0131 check = orta/capped aral\u0131k e\u011Filimi \u2192 sald\u0131r (turn/river barrel).",
+          "B\xFCy\xFCk-para river snap-jam = \xF6nceden-planl\u0131, polar hat \u2192 bluff-catch'i SIKILA\u015ETIR, hero-call'a gitme.",
+          "Snap-call = 'raise men\xFCmde yok' itiraf\u0131 \u2192 ince value boyunu korkusuzca b\xFCy\xFCt.",
+          "Uzun tank + k\xFC\xE7\xFCk/orta bet = zay\u0131fl\u0131k/karar-zorlu\u011Fu \u2192 hafif bl\xF6f-bask\u0131s\u0131 ekle. Tek data-point'e de\u011Fil, TEKRAR EDEN desene oyna."
+        ],
+        "ruleBox": "Canl\u0131da timing zay\u0131f sinyaldir; online'da timing+sizing zinciri rakip okumas\u0131n\u0131n ana silah\u0131d\u0131r \u2014 tek tell'e de\u011Fil tekrar eden desene oyna.",
+        "narration": "Bu turnuvan\u0131n daha \xF6nceki dersi timing'in zay\u0131f bir sinyal oldu\u011Fuydu ve canl\u0131 masada bu h\xE2l\xE2 ge\xE7erlidir, \xE7\xFCnk\xFC orada fiziksel teller \xE7ok daha zengindir. Ama online'da fiziksel tell yoktur; elindeki ger\xE7ek zamanl\u0131 tek veri timing ve boyutun birlikte olu\u015Fturdu\u011Fu zincirdir. Bu y\xFCzden online'da timing zay\u0131f sinyal de\u011Fil, boyutla birlikte okunacak birincil rakip okuma kanal\u0131d\u0131r; tek bir ana de\u011Fil, tekrar eden bir desene komite ol. D\xF6rt \xF6r\xFCnt\xFC var. H\u0131zl\u0131 check-call'\u0131n ard\u0131ndan h\u0131zl\u0131 check gelmesi orta ya da capped bir aral\u0131k e\u011Filimidir, turn ve river barrel'\u0131yla sald\u0131r. B\xFCy\xFCk parayla river'da an\u0131nda all-in \xF6nceden planlanm\u0131\u015F polar bir hatt\u0131r, spontane bl\xF6f oran\u0131 d\xFC\u015F\xFCkt\xFCr; bluff-catch aral\u0131\u011F\u0131n\u0131 s\u0131k\u0131la\u015Ft\u0131r, hero-call'a gitme. An\u0131nda call ise elinde raise se\xE7ene\u011Fi olmad\u0131\u011F\u0131n\u0131n itiraf\u0131d\u0131r; pozisyon d\u0131\u015F\u0131 ince value boyunu korkusuzca b\xFCy\xFCt. Uzun d\xFC\u015F\xFCn\xFCp k\xFC\xE7\xFCk ya da orta bir bet atmak zay\u0131fl\u0131k ya da karar zorlu\u011Fu i\u015Faretidir, hafif bir bl\xF6f bask\u0131s\u0131 ekle."
+      },
+      {
+        "title": "EK: Bu turnuvan\u0131n notlar\u0131 genele nas\u0131l ba\u011Flan\u0131r",
+        "bullets": [
+          "'Bubble'da cover'a kar\u015F\u0131 t\xFCm stack KK+' \u2192 cover ED\u0130LEN orta BB'de ger\xE7ekte KK+ (AK s\u0131n\u0131rda); QQ-TT/AQ fold de\u011Fil PREM\u0130UM FLAT \u2014 bl\xF6f dilimi neredeyse kapal\u0131.",
+          "Cover EDEN BB'de tersi: value tepe dar, bl\xF6f offsuit dipten.",
+          "'Cover'ken k\u0131sa BB'ye y\xFCzde altm\u0131\u015Fa kadar open' \u2192 boya inelastik k\u0131sa BB'ye boy K\xDC\xC7\xDCK kal\u0131r (min-raise civar\u0131); b\xFCy\xFCk boy fold'u art\u0131rmaz.",
+          "Kilitli orta stack'lere bask\u0131 BOYLA de\u011Fil FREKANSLA sat\u0131l\u0131r \u2014 geni\u015F a\xE7\u0131l\u0131\u015F\u0131n boyu k\xFC\xE7\xFCk kalabilir.",
+          "Mod D 'a\xE7\u0131l\u0131\u015F\u0131n bir k\u0131sm\u0131 direkt jam' \u2192 yaln\u0131z \u226520bb'de arkadakiler cover ediyorsa; de\u011Filse raise-call + raise-fold kal\u0131r."
+        ],
+        "ruleBox": "Bu turnuvaya \xF6zel yaz\u0131lan sat\u0131rlar genel doktrine adres verir; B17 mod\xFCl\xFC de\u011Fi\u015Fmez, yaln\u0131z \xE7apraz oku.",
+        "narration": "Bu b\xF6l\xFCm\xFCn \xFC\xE7 sat\u0131r\u0131 bu turnuvaya \xF6zel yaz\u0131ld\u0131, genel doktrin sonradan ba\u015Fka b\xF6l\xFCmlere girdi; \xE7apraz okumak i\xE7in adresleri burada topluyoruz. Birincisi, bubble'da cover eden birinin d\xF6rt-bet jam'ine kar\u015F\u0131 t\xFCm stack aral\u0131\u011F\u0131n\u0131n kral-kral ve \xFCst\xFC oldu\u011Fu sat\u0131r. Genel h\xE2linde bu, cover edilen orta b\xFCy\xFCk k\xF6r\xFCn value \xFC\xE7-bet'i fiilen kral-kral ve \xFCst\xFCd\xFCr, as-kral s\u0131n\u0131rdad\u0131r demektir; k\u0131z-k\u0131z'dan on-onluya ve as-k\u0131z'a kadar olanlar ise fold de\u011Fil, aral\u0131\u011F\u0131 koruyan premium flat'tir, bl\xF6f dilimi neredeyse kapal\u0131d\u0131r. Cover eden b\xFCy\xFCk k\xF6rde bu tam tersine d\xF6ner: value tepesi dar, bl\xF6f taraf\u0131 dipteki offsuit ellerden gelir. \u0130kincisi, cover'ken k\u0131sa b\xFCy\xFCk k\xF6re y\xFCzde altm\u0131\u015Fa kadar a\xE7ma sat\u0131r\u0131. Genel h\xE2li \u015Fu: boya kar\u015F\u0131 esneklik g\xF6stermeyen, yaln\u0131z jam ya da fold oynayan k\u0131sa b\xFCy\xFCk k\xF6re kar\u015F\u0131 boy k\xFC\xE7\xFCk kal\u0131r, neredeyse minimum raise; b\xFCy\xFCk boy onun fold'unu art\u0131rmaz, jam yedi\u011Finde fazladan kaybettirir. Kilitli orta stack'lere bask\u0131 ise boyla de\u011Fil frekansla sat\u0131l\u0131r. \xDC\xE7\xFCnc\xFCs\xFC, on iki ile yirmi b\xFCy\xFCk blind aras\u0131nda a\xE7\u0131l\u0131\u015F\u0131n bir k\u0131sm\u0131n\u0131n direkt jam olmas\u0131 yaln\u0131z yirmi big blind ve \xFCst\xFCnde arkadakiler seni cover ediyorsa ge\xE7erlidir; de\u011Filse raise-call art\u0131 raise-fold kal\u0131r."
       }
     ]
   },
@@ -5764,6 +5944,40 @@ var modules = [
         ],
         ruleBox: "Fiyat equity'yi kurtar\u0131r, oynanabilirli\u011Fi kurtarmaz \u2014 zay\u0131f offsuit'i fiyat olsa bile at.",
         narration: "Son kart: b\xFCy\xFCk k\xF6r savunmas\u0131, ve buras\u0131 matemati\u011Fin en c\xF6mert yeri. Ante oldu\u011Fu i\xE7in potta zaten \xE7ok para var, senin eklemen az; iki nokta yirmi be\u015F katl\u0131k bir a\xE7\u0131\u015Fa kar\u015F\u0131 yakla\u015F\u0131k y\xFCzde yirmi bir equity yeter, ki neredeyse her iki kart bu e\u015Fi\u011Fi ge\xE7er. O y\xFCzden b\xFCy\xFCk k\xF6rden defend aral\u0131\u011F\u0131n \xE7ok geni\u015F: t\xFCm suited eller, t\xFCm \xE7iftler, ba\u011Fl\u0131 ve tek bo\u015Fluklu offsuit'ler, b\xFCt\xFCn as'ler, krallar\u0131n \xE7o\u011Fu \u2014 kabaca elinin y\xFCzde elli be\u015F, altm\u0131\u015F\u0131 call. Neyi atars\u0131n? Hem kopuk hem domine \xE7\xF6p\xFC: jek \xFC\xE7 offsuit, k\u0131z d\xF6rt offsuit, kral iki'den kral be\u015Fe offsuit, dokuz iki offsuit. Fiyat equity'yi kurtar\u0131r ama oynanabilirli\u011Fi kurtarmaz \u2014 o y\xFCzden zay\u0131f offsuit'i fiyat cazip olsa bile at. \xDCstteki elleri call yerine 3-bet'e y\xFCkseltirsin; grid'de g\xF6sterilen dokuz dokuz ve \xFCst\xFC, as on suited ve \xFCst\xFC value, bloker bl\xF6fler. Ama en kritik uyar\u0131 \u015Fu: ucuz girmek ucuz devam etmek de\u011Fildir. \u0130ki bin be\u015F y\xFCze girip flopta ikinci per yakalay\u0131nca 'zaten pottay\u0131m' moduna ge\xE7mek, k\xF6k hatan\u0131n b\xFCy\xFCk k\xF6r versiyonudur; giri\u015F fiyat\u0131n flop sonras\u0131 kararlar\u0131n\u0131 etkilemez, her sokak yeni bir karard\u0131r. Ve multiway'de bu geni\u015F defend'i daralt \u2014 domine eller \xE7ok yollu potta de\u011Fer kaybeder."
+      },
+      {
+        "title": "EK: Bluff-catcher s\u0131n\u0131r\u0131 pozisyonu de\u011Fil ROL\xDC izler",
+        "bullets": [
+          "'OOP \xFC\xE7-bet potunda tek per bluff-catcher'd\u0131r' preflop aral\u0131k kural\u0131; postflop'ta s\u0131n\u0131r ROL\xDC izler, pozisyonu de\u011Fil.",
+          "Capped/\xE7a\u011F\u0131ran taraf: SPR\u22732'de bluff-catcher; SPR\u22721.5'te top pair de \xE7o\u011Funlukla call-off s\u0131n\u0131f\u0131na iner, jam'e katlanmaz.",
+          "\xDC\xE7-bet\xE7inin overpair/TPTK's\u0131 s\u0131\u011F SPR'de (otuz-k\u0131rk be\u015F big blind, SPR\u22722; orta-ba\u011Flant\u0131l\u0131 + nut avantaj\u0131 sende) \xE7o\u011Funlukla jam s\u0131n\u0131f\u0131; underpair girmez.",
+          "SPR\u22733-4'te flop-jam s\u0131n\u0131f\u0131 \xE7o\u011Funlukla yok: kuru/d\xFC\u015F\xFCk dokuda overpair h\xE2l\xE2 stack-off eli; ba\u011Flant\u0131l\u0131 iki-broadway'de nut avantaj\u0131 erir \u2192 bet + yeniden de\u011Ferlendirme."
+        ],
+        "ruleBox": "K\xF6k hata bozulmaz: derinde, nut avantaj\u0131n\u0131n eridi\u011Fi dokuda tek perle dokudan ba\u011F\u0131ms\u0131z stack-off eden \xFC\xE7-bet\xE7i k\xF6k hatay\u0131 yapar.",
+        "narration": "Pozisyon d\u0131\u015F\u0131 \xFC\xE7-bet potunda tek per bluff-catcher'd\u0131r c\xFCmlesi bir preflop kural\u0131d\u0131r, aral\u0131\u011F\u0131n\u0131 s\u0131k\u0131 tutar. Postflop'ta s\u0131n\u0131r pozisyonu de\u011Fil rol\xFC izler. \xC7a\u011F\u0131ran taraf derin SPR'de bluff-catcher kal\u0131r; SPR bir bu\xE7u\u011Fun alt\u0131na d\xFC\u015F\xFCnce top per'i de \xE7o\u011Funlukla call-off s\u0131n\u0131f\u0131na iner, potu ba\u015Flatmaz ama jam'e katlanmaz. \xDC\xE7-bet\xE7inin overpair'i tersi y\xF6nde \xE7al\u0131\u015F\u0131r: s\u0131\u011F SPR'de, orta ba\u011Flant\u0131l\u0131 ve nut avantaj\u0131 onda olan dokularda \xE7o\u011Funlukla jam s\u0131n\u0131f\u0131d\u0131r. SPR \xFC\xE7 d\xF6rt ve \xFCst\xFCne \xE7\u0131k\u0131nca bu jam s\u0131n\u0131f\u0131 kalkar, ba\u011Flant\u0131l\u0131 dokuda nut avantaj\u0131 eridik\xE7e overpair bet art\u0131 yeniden de\u011Ferlendirmeye d\xF6ner. K\xF6k hata burada da bozulmaz: derinde, nut avantaj\u0131 eridi\u011Fi dokuda dokudan ba\u011F\u0131ms\u0131z stack-off eden \xFC\xE7-bet\xE7i k\xF6k hatay\u0131 i\u015Fler."
+      },
+      {
+        "title": "EK: Y\xFCz b\xFCy\xFCk blind ante'li blind d\xFC\u011F\xFCm\xFC \u2014 SB orta boy, BB b\xFCy\xFCk boy",
+        "bullets": [
+          "SB \xFC\xE7-bet'i ORTA boy: arkada BB var, cevab\u0131 \xE7o\u011Funlukla d\xF6rt-bet-ya-fold \u2014 iki aral\u0131kla y\xFCzle\u015Fen SB b\xFCy\xFCk boya gitmez.",
+          "SB malzemesi: aral\u0131\u011F\u0131n tepesi + y\xFCksek-equity suited ba\u011Flant\u0131l\u0131 (T9s tipi) + orta \xE7ift mix; dip (d\xFC\u015F\xFCk kicker suited) \xFC\xE7-bet DE\u011E\u0130L.",
+          "BB \xFC\xE7-bet'i B\xDCY\xDCK: tek aral\u0131\u011Fa (BTN) kar\u015F\u0131 AK/AQ/KK-TT tam boy; be\u015F-alt\u0131 kat aras\u0131 EV yak\u0131n, boy-tell s\xF6m\xFCr\xFClebilir.",
+          "SB flat GER\xC7EKTEN var: flat = dip eller, \xFC\xE7-bet = y\xFCksek equity \u2014 'dengeli olsun diye \xFC\xE7-bet' ezberi ters leak."
+        ],
+        "ruleBox": "\u0130ki blind'e tek boy verme: SB arkas\u0131ndaki BB bask\u0131s\u0131yla orta boya s\u0131k\u0131\u015F\u0131r, BB tek aral\u0131\u011Fa kar\u015F\u0131 tam boyu kullan\u0131r.",
+        "narration": "Bir kural iki blind'e tek boy verir ama y\xFCz b\xFCy\xFCk blind ante'li turnuvada ikisi ayr\u0131\u015F\u0131r. K\xFC\xE7\xFCk k\xF6r \xFC\xE7-bet'i orta boya gider, \xE7\xFCnk\xFC arkas\u0131nda b\xFCy\xFCk k\xF6r bekler ve onun cevab\u0131 \xE7o\u011Funlukla d\xF6rt-bet ya fold'tur; iki aral\u0131kla birden y\xFCzle\u015Fen k\xFC\xE7\xFCk k\xF6r b\xFCy\xFCk boya gitmez. Malzemesi aral\u0131\u011F\u0131n tepesi, y\xFCksek-equity suited ba\u011Flant\u0131l\u0131lar ve orta \xE7ift kar\u0131\u015F\u0131m\u0131d\u0131r; aral\u0131\u011F\u0131n dibindeki d\xFC\u015F\xFCk kickerli suited eller \xFC\xE7-bet de\u011Fildir, d\xFC\u015F\xFCk equity'yle para zorlanmaz. B\xFCy\xFCk k\xF6r \xFC\xE7-bet'i tam tersine b\xFCy\xFCkt\xFCr: tek bir aral\u0131\u011Fa, butona kar\u015F\u0131, as-kral'dan on-on'a kadar tam boyu kullan\u0131r; be\u015F ile alt\u0131 kat aras\u0131 beklenen de\u011Fer birbirine yak\u0131nd\u0131r ama boy bir tell'dir, fiyat okuyan rakibe kar\u015F\u0131 s\xF6m\xFCr\xFClebilir. K\xFC\xE7\xFCk k\xF6r flat'i de ger\xE7ekten vard\u0131r: flat dipteki elleri al\u0131r, \xFC\xE7-bet y\xFCksek equity'yi; call aral\u0131\u011F\u0131m\u0131n dibi dengeli olsun diye \xFC\xE7-bet ezberi burada ters y\xF6nde para kaybettirir."
+      },
+      {
+        "title": "EK: Squeeze'in iki y\xFCz\xFC \u2014 bl\xF6f unblock eder, \xFC\xE7\xFCnc\xFC oyuncu \xF6nce tepe sorar",
+        "bullets": [
+          "SB call'\u0131 \xFCst\xFCne BB squeeze'inde (100bb) hedef SB'nin capped aral\u0131\u011F\u0131; boy tek-rakip \xFC\xE7-betten hep B\xDCY\xDCK \u2014 k\xFC\xE7\xFCk squeeze SB'ye ucuz call verir.",
+          "Bl\xF6f malzemesi: SB'nin en s\u0131k FOLD etti\u011Fi kombonun (ATo/KTo/QTo/JTo flat) blokerini UNBLOCK eden broadway'siz suited'lar (67s/97s/86s/75s) + biraz offsuit Ax.",
+          "T8s/J9s/KQs/AJs o FOLD blo\u011Funu bizzat bloklar \u2192 bu spotta iyi bl\xF6f aday\u0131 de\u011Fil. Test: kimin blo\u011Funu unblock ediyorum?",
+          "\xDC\xE7\xFCnc\xFC oyuncu tuza\u011F\u0131: raise+call sonras\u0131 orta suited connector'la over-call \u2014 cold-caller'\u0131n tepesi ve a\xE7\u0131c\u0131n\u0131n premium'u seni domine eder.",
+          "\xD6nce sor: cold-caller'\u0131n aral\u0131\u011F\u0131nda TEPE var m\u0131? Havuz CO'da tuzak yapmaz, premium'u neredeyse tam \xFC\xE7-betler \u2192 tepe YOK \u2192 over-call de\u011Fil JAM."
+        ],
+        "ruleBox": "Squeeze bl\xF6f\xFCn\xFC rakibin FOLD blo\u011Funu unblock eden elden se\xE7; \xFC\xE7\xFCnc\xFC oyuncuyken \xF6nce cold-caller'\u0131n tepesi var m\u0131 diye sor \u2014 yoksa over-call de\u011Fil jam.",
+        "narration": "Squeeze'in iki y\xFCz\xFC var. Birincisi malzeme: b\xFCy\xFCk k\xF6r k\xFC\xE7\xFCk k\xF6r\xFCn call'\u0131 \xFCst\xFCne squeeze ederken hedef k\xFC\xE7\xFCk k\xF6r\xFCn capped aral\u0131\u011F\u0131d\u0131r ve boy tek rakibe \xFC\xE7-betten hep b\xFCy\xFCk kal\u0131r, \xE7\xFCnk\xFC k\xFC\xE7\xFCk bir squeeze ona tam da istedi\u011Fi ucuz call'\u0131 verir. Bl\xF6f taraf\u0131n\u0131 k\xFC\xE7\xFCk k\xF6r\xFCn en s\u0131k katlad\u0131\u011F\u0131, a\xE7\u0131l\u0131\u015Fa flat etti\u011Fi offsuit broadway kombolar\u0131n\u0131n blokerini serbest b\u0131rakan broadway'siz suited ellerden ve biraz offsuit as'tan kur; papaz-k\u0131z ya da as-vale suited gibi eller o fold blo\u011Funu bizzat bloklar, burada iyi aday de\u011Fildir. Tek soru: kimin blo\u011Funu unblock ediyorum? \u0130kincisi \xFC\xE7\xFCnc\xFC oyuncu tuza\u011F\u0131: raise ve call \xFCst\xFCne orta suited connector'la over-call yapmak cazip g\xF6r\xFCn\xFCr ama cold-caller'\u0131n tepe kombinasyonlar\u0131 ve a\xE7\u0131c\u0131n\u0131n premium'u seni domine eder. \xD6nce sor: cold-caller'\u0131n aral\u0131\u011F\u0131nda tepe var m\u0131? Havuz cut-off'ta tuzak kurmaz, premium'unu neredeyse tamamen \xFC\xE7-betler; tepe yoksa do\u011Fru oyun over-call de\u011Fil jam'dir."
       }
     ]
   },
@@ -5998,6 +6212,141 @@ var modules = [
         ],
         "ruleBox": "RFI'dan \xF6nce arkaya bak: el jam/fold'la m\u0131 bitecek, flop mu g\xF6recek \u2014 jam'ciye bloker, caller'a suited, \xE7a\u011Fr\u0131lacaksan ham g\xFC\xE7.",
         "narration": "Final masas\u0131nda tek bir a\xE7\u0131l\u0131\u015F chart'\u0131 yoktur; aral\u0131\u011F\u0131n \u015Fekli elin nerede bitece\u011Fine ba\u011Fl\u0131d\u0131r. Arkadaki blind'lar k\u0131sa ve kilitliyse flop neredeyse hi\xE7 g\xF6r\xFClmez, oyun raise sonras\u0131 jam ya da fold'dur; as ve kral blokerleri rakibin jam kombolar\u0131n\u0131 inceltir \u2014 as-be\u015F offsuit a\xE7\u0131l\u0131r, on-dokuz suited katlan\u0131r. Arkada seni cover eden ve geni\u015F savunan derin bir big blind varsa flop s\u0131k g\xF6r\xFCl\xFCr: suited ve ba\u011Flant\u0131l\u0131 eller a\xE7\u0131l\u0131r, \xE7\u0131plak bloker offsuit d\xFC\u015Fer. Ayn\u0131 koltuk, iki z\u0131t aral\u0131k. Jam malzemesinde ayn\u0131 yasa: tek y\xFCksek art\u0131 tek d\xFC\u015F\xFCk suited jam'ler, ba\u011Flant\u0131l\u0131 orta eller raise eder \u2014 big blind domine etti\u011Fin ellerle \xF6der. Erken pozisyondan open-jam \xE7o\u011Funlukla s\u0131f\u0131rd\u0131r: orta eller jam'leyemiyorsa tepe de jam'lemez, min-raise ayn\u0131 i\u015Fi yapar ve bl\xF6f-jam ind\xFCkler. Offsuit as'larda ortas\u0131 raise, u\xE7lar\u0131 jam."
+      },
+      {
+        "title": "EK: K\xFC\xE7\xFCk-Orta \xC7ift Rejam'de \xD6l\xFCr, As Bloker Ge\xE7er",
+        "bullets": [
+          "Altm\u0131\u015F alt\u0131 ile seksen sekiz aras\u0131 \xE7ift, s\u0131n\u0131rda doksan dokuz \u2014 a\xE7\u0131c\u0131ya rejam'de hi\xE7bir iyi eli katlatmaz, k\xF6t\xFC eli de \xF6detmez.",
+          "Ayn\u0131 spotta as-d\xF6rt veya as-dokuz off-suit hem overpair'lere canl\u0131 equity ta\u015F\u0131r hem a\xE7\u0131c\u0131n\u0131n \xE7a\u011F\u0131ran tepesini bloke eder.",
+          "ICM'de kay\u0131p bust demek oldu\u011Fu i\xE7in s\u0131ralama b\xFCy\xFCr \u2014 y\xFCksek \xE7iftin call de\u011Feri as-kral'\u0131n \xFCst\xFCne \xE7\u0131kabilir.",
+          "K\xFC\xE7\xFCk-orta \xE7ift call defterinde ya\u015Far, flop g\xF6r\xFCr; rejam ve \xFC\xE7-bet-fold defterinde ise \xF6l\xFCr \u2014 o defterin malzemesi as bloker ve en y\xFCksek \xE7iftlerdir."
+        ],
+        "ruleBox": "\xC7ift, rejam malzemesi de\u011Fildir \u2014 orada i\u015F g\xF6r\xFCr as bloker; \xE7ift, \xE7a\u011F\u0131rma defterinde ya\u015Far.",
+        "narration": "Seksen sekiz veya doksan dokuz gibi bir \xE7ifti g\xF6r\xFCnce refleks hemen rejam ya da \xFC\xE7-bet olur, ama ICM'de bu en pahal\u0131 se\xE7imdir. A\xE7\u0131c\u0131ya rejam att\u0131\u011F\u0131nda iyi eli zaten \xF6der, k\xF6t\xFC eli de zaten katlan\u0131r, sen sadece kendi \xE7iftini overpair'e kar\u015F\u0131 ezdirmi\u015F olursun. Ayn\u0131 spotta as-d\xF6rt gibi bir bloker el hem overpair'lere kar\u015F\u0131 canl\u0131 kal\u0131r hem a\xE7\u0131c\u0131n\u0131n \xE7a\u011F\u0131ran as elini bloke eder, \xFCst\xFCne katlanan dilimini b\xFCy\xFCt\xFCr. ICM'de kaybetmek elenmek demek oldu\u011Fu i\xE7in bu fark abart\u0131l\u0131 b\xFCy\xFCr, y\xFCksek \xE7iftin \xE7a\u011F\u0131rma de\u011Feri as-kraldan bile iyi hale gelebilir. Kural \u015Fu: k\xFC\xE7\xFCk-orta \xE7ift flop g\xF6rs\xFCn, \xE7a\u011F\u0131rma defterinde otursun; rejam ve fold alan \xFC\xE7-bet defterinin malzemesi as bloker ve en y\xFCksek \xE7iftlerdir."
+      },
+      {
+        "title": "EK: \xC7iftin R\xFCtbesi Rakibin Hangi Elini Bloklad\u0131\u011F\u0131na G\xF6re De\u011Fi\u015Fir",
+        "bullets": [
+          "Jam'in gizli de\u011Fi\u015Fkeni: rakibin katlad\u0131\u011F\u0131 ellerden ka\xE7\u0131 elindeki kartla ayn\u0131.",
+          "A\xE7\u0131c\u0131n\u0131n raise-fold dilimi orta-y\xFCksek off-suit as ise, o r\xFCtbeye yak\u0131n bir \xE7ift tam da o fold'lar\u0131 bloklar \u2014 jam k\xF6t\xFCle\u015Fir.",
+          "Ayn\u0131 mant\u0131k kral-x elinde tersine d\xF6ner: rakip dokuzluyu \xE7a\u011F\u0131r\u0131yor ama sekizliyi katl\u0131yorsa, kral-dokuz jam, kral-sekiz \xE7a\u011F\u0131r\u0131r \u2014 ikisi ayn\u0131 el gibi g\xF6r\xFCn\xFCr, de\u011Fildir.",
+          "Kural: elin her kart\u0131na sor \u2014 rakibin \xE7a\u011F\u0131rd\u0131\u011F\u0131n\u0131 m\u0131 blokluyor, katlad\u0131\u011F\u0131n\u0131 m\u0131? Katlad\u0131\u011F\u0131n\u0131 bloklayan kart jam'i k\xF6t\xFCle\u015Ftirir."
+        ],
+        "ruleBox": "Ele de\u011Fil, o iki listeye \u2014 rakibin \xE7a\u011F\u0131rd\u0131klar\u0131 ve katlad\u0131klar\u0131 \u2014 g\xF6re s\u0131rala.",
+        "narration": "\u0130ki elin g\xF6r\xFCn\xFC\u015Fte ayn\u0131 g\xFC\xE7te olmas\u0131 jam karar\u0131nda hi\xE7bir \u015Fey ifade etmeyebilir. Jam'in gizli de\u011Fi\u015Fkeni \u015Fu: rakibin katlanaca\u011F\u0131 ellerden ka\xE7\u0131n\u0131 elindeki kartlar bloke ediyor. A\xE7\u0131c\u0131 orta-y\xFCksek off-suit as ellerini raise-fold yap\u0131yorsa, o r\xFCtbeye yak\u0131n bir \xE7ift tam olarak o fold'lar\u0131 bloklar ve jam'in fold kazanc\u0131 erir. Ayn\u0131 mant\u0131k kral-x elinde tam tersine d\xF6ner: rakip dokuzlu kral'\u0131 \xE7a\u011F\u0131r\u0131p sekizli kral'\u0131 katl\u0131yorsa, kral-dokuz jam atmak do\u011Fru, kral-sekiz ise \xE7a\u011F\u0131rmak do\u011Fru, ikisi kula\u011Fa ayn\u0131 el gibi gelir ama de\u011Fildir. K\u0131sacas\u0131 her kart\u0131na \u015Funu sor: rakibin \xE7a\u011F\u0131raca\u011F\u0131 elleri mi bloke ediyor, yoksa katlanaca\u011F\u0131 elleri mi? Katlanacaklar\u0131 bloke eden kart jam'i k\xF6t\xFCle\u015Ftirir, \xE7a\u011F\u0131racaklar\u0131 bloke eden kart iyile\u015Ftirir."
+      },
+      {
+        "title": "EK: Rakip Tepe Art\u0131 Saf \xC7\xF6p Oynuyorsa Bloker Mant\u0131\u011F\u0131 Ters D\xF6ner",
+        "bullets": [
+          "Cover eden b\xFCy\xFCk stack k\u0131sa kilitli blindlere a\xE7arken aral\u0131\u011F\u0131 \xFC\xE7e b\xF6l\xFCn\xFCr: tepe \xE7a\u011F\u0131r\u0131r, orta zaten jam atm\u0131\u015F, dip zaten katlan\u0131r.",
+          "Y\xFCksek kartl\u0131 bloker (kral, k\u0131z, vale) burada yaln\u0131z zaten katlanacak \xE7\xF6p\xFC bloklar \u2014 \xFC\xE7-bet bl\xF6f\xFC d\xFC\u015F\xFCk ba\u011Flant\u0131s\u0131z kartlardan se\xE7ilmeli.",
+          "As-iki tipi ellerin ikinci kart\u0131 da mant\u0131\u011F\u0131 de\u011Fi\u015Ftirir: rakip ikilileri katl\u0131yorsa iki, o fold'lar\u0131 bloklar ve el k\xF6t\xFCle\u015Fir.",
+          "Bu aral\u0131\u011Fa kar\u015F\u0131 \xE7ift \xFC\xE7-betlenmez, d\xFCz \xE7a\u011Fr\u0131l\u0131r \u2014 polar tepe genelde stack-off etmez, tuza\u011F\u0131n de\u011Feri d\xFC\u015Fer."
+        ],
+        "ruleBox": "Rakibin aral\u0131\u011F\u0131 tepe-art\u0131-\xE7\xF6p olunca, bl\xF6f kart\u0131n\u0131 fold aral\u0131\u011F\u0131n\u0131 UNBLOK eden d\xFC\u015F\xFCkten se\xE7, katlanacak y\xFCksekten de\u011Fil.",
+        "narration": "Genel kural \u015Fu: bloker kart\u0131n\u0131 rakibin \xE7a\u011F\u0131raca\u011F\u0131 ellerden se\xE7. Ama bir spotta bu tam tersine d\xF6ner. Cover eden b\xFCy\xFCk bir stack, k\u0131sa ve kilitli blindlere a\xE7arken aral\u0131k \xFC\xE7e b\xF6l\xFCn\xFCr, tepe \xE7a\u011F\u0131r\u0131r, orta zaten kendi kendine jam atm\u0131\u015Ft\u0131r, dip zaten katlan\u0131r. B\xF6yle bir aral\u0131\u011Fa kar\u015F\u0131 kral ya da k\u0131z gibi y\xFCksek bir bloker yaln\u0131zca zaten katlanacak \xE7\xF6p\xFC bloklar, i\u015Fe yaramaz. Do\u011Fru \xFC\xE7-bet bl\xF6f\xFC d\xFC\u015F\xFCk ve ba\u011Flant\u0131s\u0131z kartlardan gelir, \xE7\xFCnk\xFC onlar fold aral\u0131\u011F\u0131n\u0131 bloklamaz. As-iki tipi ellerde de ayn\u0131 tuzak var, rakip ikilileri katl\u0131yorsa ikinin kendisi o fold'u bloklar ve el k\xF6t\xFCle\u015Fir. Bu aral\u0131\u011Fa kar\u015F\u0131 \xE7ift de \xFC\xE7-betlenmez, d\xFCz \xE7a\u011Fr\u0131l\u0131r, \xE7\xFCnk\xFC tepe genelde stack-off etmez, tuza\u011F\u0131n de\u011Feri d\xFC\u015Fer."
+      },
+      {
+        "title": "EK: Lineer K\xFC\xE7\xFCk \xDC\xE7-Bete K\xFC\xE7\xFCk D\xF6rt-Bet",
+        "bullets": [
+          "K\u0131sa bir a\xE7\u0131c\u0131, seni cover eden b\xFCy\xFCk stack kar\u015F\u0131s\u0131nda k\xFC\xE7\xFCk \xFC\xE7-bet at\u0131yorsa aral\u0131\u011F\u0131 lineer ve g\xFC\xE7l\xFCd\xFCr \u2014 fold equity ta\u015F\u0131maz.",
+          "Buna kar\u015F\u0131 d\xF6rt-betin de non-all-in olmal\u0131: tepeyle \xF6de, orta \xE7ift ve as-k\u0131z gibi elleri d\xF6rt-bet-fold'a yaz.",
+          "Rakibin jam'e cevab\u0131 ya orta ellerle \xE7a\u011Fr\u0131 ya polar bir jam'dir \u2014 o jam heads-up rejam'inden g\xFC\xE7l\xFCd\xFCr.",
+          "Bu sat\u0131r s\u0131n\u0131rda; kalibrasyon gerektirir ve arkandaki cover eden b\xFCy\xFCk stack kalkarsa dilim daral\u0131r."
+        ],
+        "ruleBox": "Lineer k\xFC\xE7\xFCk \xFC\xE7-bete kar\u015F\u0131 b\xFCy\xFCk d\xF6rt-bet atma \u2014 k\xFC\xE7\xFCk d\xF6rt-bet at, orta \xE7ift ve as-k\u0131z'\u0131 fold yap.",
+        "narration": "\xDC\xE7-bet yedi\u011Finde refleks ya jam ya fold olur, ama her \xFC\xE7-bet ayn\u0131 de\u011Fildir. Orta fazda k\u0131sa bir a\xE7\u0131c\u0131, seni cover eden b\xFCy\xFCk bir stacke kar\u015F\u0131 k\xFC\xE7\xFCk bir \xFC\xE7-bet atarsa, bu \xFC\xE7-betin fold g\xFCc\xFC yoktur, aral\u0131\u011F\u0131 lineer ve g\xFC\xE7l\xFCd\xFCr. Buna kar\u015F\u0131 d\xF6rt-betini de b\xFCy\xFCtme, k\xFC\xE7\xFCk tut ve yaln\u0131zca en tepedeki ellerle \xF6de. Orta \xE7ift ve as-k\u0131z gibi eller burada d\xF6rt-bet-fold olur, \xE7\xFCnk\xFC rakibin sana geri cevab\u0131 ya orta ellerle \xE7a\u011Fr\u0131 ya da g\xFC\xE7l\xFC bir polar jam'dir. Bu sat\u0131r kesin de\u011Fildir, kendi solver'\u0131nda kalibre et, ve arkandaki seni kapsayan b\xFCy\xFCk stack masadan kalkarsa bu dilim daral\u0131r."
+      },
+      {
+        "title": "EK: Any-Two Jam'e Pot Odds ve Prim ile Geni\u015F \xD6de",
+        "bullets": [
+          "Y\xFCksek primli k\u0131sa a\xE7\u0131c\u0131 orta ellerini zaten open-jam'liyorsa, geriye kalan k\xFC\xE7\xFCk raise'i tepe art\u0131 \xE7\xF6pt\xFCr \u2014 \xE7ifte rejam neredeyse hi\xE7 yok.",
+          "Ayn\u0131 a\xE7\u0131c\u0131 any-two jam'ledi\u011Finde ise tablo de\u011Fi\u015Fir: pot odds ile prim toplam\u0131 belirgin y\xFCkselir, kral-y\xFCksek suited elle \xE7a\u011Fr\u0131 bu e\u015Fi\u011Fi a\u015Facak equity ta\u015F\u0131r.",
+          "Kapsan\u0131rken bile bu matematik ge\xE7erlidir \u2014 e\u015Fik el g\xFCc\xFCyle de\u011Fil, pot odds art\u0131 prim toplam\u0131yla \xF6l\xE7\xFCl\xFCr.",
+          "Bubble'da ayn\u0131 polar raise'e kar\u015F\u0131 orta-k\xFC\xE7\xFCk \xE7iftler \xE7a\u011Fr\u0131, d\xFC\u015F\xFCk \xE7ift ve off-suit as ise jam malzemesidir."
+        ],
+        "ruleBox": "Jam'e kar\u015F\u0131 e\u015Fi\u011Fi aral\u0131\u011Fa g\xF6re de\u011Fil, pot odds art\u0131 ICM primi toplam\u0131na g\xF6re kur.",
+        "narration": "Y\xFCksek primli k\u0131sa bir a\xE7\u0131c\u0131n\u0131n open-jam'ine kar\u015F\u0131 geni\u015F \xE7a\u011F\u0131rmak korkutucu gelir ama matematik seni destekler. O a\xE7\u0131c\u0131 orta ellerini zaten kendi kendine jam att\u0131ysa, kalan raise'i zaten tepe art\u0131 \xE7\xF6pt\xFCr, ona \xE7ift ile rejam atman\u0131n anlam\u0131 kalmaz. Ama ayn\u0131 a\xE7\u0131c\u0131 ger\xE7ekten any-two jam'liyorsa hesap de\u011Fi\u015Fir, pot odds ile ICM primini topla, toplam belirgin y\xFCkselir, kral-y\xFCksek suited bir el buna kar\u015F\u0131 yeterli equity ta\u015F\u0131r, yani \xE7a\u011F\u0131r. Bu matematik seni kaps\u0131yorken bile ge\xE7erlidir. Bubble'da ayn\u0131 polar raise'e kar\u015F\u0131 orta ve k\xFC\xE7\xFCk \xE7iftler \xE7a\u011F\u0131rma taraf\u0131na, d\xFC\u015F\xFCk \xE7ift ile off-suit as ise senin kendi jam malzemene yaz\u0131l\u0131r."
+      },
+      {
+        "title": "EK: Cover Eden \xDC\xE7-Bet\xE7inin Malzemesi \u2014 K\xE2rl\u0131 Flat Harcanmaz",
+        "bullets": [
+          "Prim makas\u0131 sende oldu\u011Funda b\xFCy\xFCk boy yaln\u0131z kendi riskini b\xFCy\xFCt\xFCr \u2014 k\xFC\xE7\xFCk \xFC\xE7-bet de ayn\u0131 katlanma oran\u0131n\u0131 al\u0131r.",
+          "Bl\xF6f malzemesi off-suit as (tam frekans) ve k\xE2rl\u0131 \xE7a\u011Fr\u0131n\u0131n hemen alt\u0131ndaki eller \u2014 kral-on, k\u0131z-on tipi, \xE7a\u011F\u0131r\u0131rsa k\xE2r etmeyecek eller.",
+          "As-k\u0131z, as-vale, kral-k\u0131z gibi zaten k\xE2rl\u0131 \xE7a\u011F\u0131ran eller \xFC\xE7-bete HARCANMAZ \u2014 domine etti\u011Fi aral\u0131\u011F\u0131 i\xE7eride tutar.",
+          "Kar\u015F\u0131 koltukta, prim orta seviyedeyken a\xE7\u0131c\u0131 \xE7o\u011Funlukla over-fold yapmaz \u2014 jam dilimi geni\u015Ftir, d\xFC\u015F\xFCk primli \xE7a\u011Fr\u0131 da a\xE7\u0131l\u0131r."
+        ],
+        "ruleBox": "Zaten k\xE2rl\u0131 \xE7a\u011F\u0131ran eli \xFC\xE7-bete harcama \u2014 bl\xF6f malzemesi \xE7a\u011F\u0131r\u0131nca k\xE2r etmeyecek olanlardan gelir.",
+        "narration": "Prim fark\u0131 senden yanaysa \xFC\xE7-betini b\xFCy\xFCtme iste\u011Fi yanl\u0131\u015F bir refleks, \xE7\xFCnk\xFC b\xFCy\xFCk boy yaln\u0131z senin riskini b\xFCy\xFCt\xFCr, k\xFC\xE7\xFCk boy da rakibi ayn\u0131 oranda katlar. Bl\xF6f malzemesini iki yerden se\xE7: birincisi off-suit as elleri, tam frekans ile, \xE7\xFCnk\xFC hem bloker ta\u015F\u0131r hem oynanabilirli\u011Fi d\xFC\u015F\xFCk, kayb\u0131na yaz\u0131k de\u011Fil. \u0130kincisi, k\xE2rl\u0131 \xE7a\u011Fr\u0131n\u0131n hemen alt\u0131ndaki eller, kral-on veya k\u0131z-on gibi, \xE7\xFCnk\xFC bunlar \xE7a\u011F\u0131rsa k\xE2r etmez ama \xFC\xE7-bette bloker ve fold de\u011Feri ta\u015F\u0131r. Buna kar\u015F\u0131l\u0131k as-k\u0131z, as-vale, kral-k\u0131z gibi zaten k\xE2rl\u0131 \xE7a\u011F\u0131ran eller \xFC\xE7-bete harcanmaz, \xE7\xFCnk\xFC domine etti\u011Fin aral\u0131\u011F\u0131 i\xE7eride tutmak daha de\u011Ferlidir. Kar\u015F\u0131 koltukta orta primli a\xE7\u0131c\u0131 k\xFC\xE7\xFCk \xFC\xE7-bete \xE7o\u011Funlukla a\u015F\u0131r\u0131 katlanmaz, jam dilimi geni\u015F kal\u0131r."
+      },
+      {
+        "title": "EK: Capped Flat'e Boy-Ba\u011F\u0131ms\u0131z Squeeze-Jam",
+        "bullets": [
+          "Sen a\xE7\u0131c\u0131yken arkandaki k\u0131sa oyuncu senin a\xE7\u0131l\u0131\u015F\u0131n\u0131 flat'lerse ve onun devam aral\u0131\u011F\u0131 \xE7ift-k\u0131z art\u0131 as-kral'a kapal\u0131ysa, arkadaki derin small blind squeeze-jam atabilir.",
+          "Bu jam boydan ba\u011F\u0131ms\u0131zd\u0131r \u2014 altm\u0131\u015F big blind'lik bir jam bile mant\u0131kl\u0131d\u0131r, \xE7\xFCnk\xFC flat yapan zaten \xF6demeyecek, a\xE7\u0131c\u0131n\u0131n \xE7a\u011F\u0131rma aral\u0131\u011F\u0131 da minicik.",
+          "En k\u0131sa big blind bile o jam'e geni\u015F \xFCstten \xE7a\u011F\u0131r\u0131r, \xE7\xFCnk\xFC arkada kimse \xF6demeyecektir.",
+          "Ayna taraf: lider olmayan ama y\xFCksek primli small blind, geni\u015F-zay\u0131f a\xE7\u0131l\u0131\u015Flara orta-\xFCst elleri stack-off etmeden flat'ler \u2014 aral\u0131k zay\u0131f, flat squeeze'den korunur."
+        ],
+        "ruleBox": "Flat aral\u0131\u011F\u0131 kapal\u0131ysa arkadaki derin oyuncunun squeeze-jam'i boy de\u011Fil, aral\u0131k kapan\u0131kl\u0131\u011F\u0131 garanti eder.",
+        "narration": "Sen a\xE7t\u0131n, arkandaki k\u0131sa bir oyuncu seni flat'ledi ama onun devam aral\u0131\u011F\u0131 dard\u0131r, yaln\u0131z en b\xFCy\xFCk \xE7iftler ve as-kral \xFC\xE7-bet eder gerisini flat'ler. Bu durumda arkada oturan derin small blind squeeze-jam atabilir ve bu jam'in boyu \xF6nemli de\u011Fildir, \xE7ok b\xFCy\xFCk bile olsa mant\u0131kl\u0131d\u0131r, \xE7\xFCnk\xFC flat yapan oyuncu zaten \xF6demeyecek, senin a\xE7\u0131c\u0131 olarak \xE7a\u011F\u0131rma aral\u0131\u011F\u0131n da minicik. Masadaki en k\u0131sa big blind bile bu jam'e geni\u015F \xFCstten \xE7a\u011F\u0131r\u0131r, \xE7\xFCnk\xFC arkada kimsenin \xF6demeyece\u011Fini bilir. Ayna tarafta, lider olmayan ama y\xFCksek primli bir small blind, zay\u0131f ve geni\u015F a\xE7\u0131l\u0131\u015Flara orta-\xFCst elleriyle flat'ler, stack-off etmeden; \xE7\xFCnk\xFC aral\u0131\u011F\u0131 zay\u0131f oldu\u011Fu i\xE7in squeeze'den de korunur."
+      },
+      {
+        "title": "EK: Cover eden BB'nin \xFC\xE7-bet defteri \u2014 value dar, bl\xF6f en dipten",
+        "bullets": [
+          "Sen derin, a\xE7\u0131c\u0131 orta boyda ve senin primin d\xFC\u015F\xFCkken value dilimi dar tutulur \u2014 en y\xFCksek \xE7iftler ve as-kral civar\u0131.",
+          "Suited eller kapsad\u0131\u011F\u0131n rakibe kar\u015F\u0131 flop sonras\u0131 de\u011Ferini fazlas\u0131yla ger\xE7ekle\u015Ftirir, o y\xFCzden bu eller \xE7a\u011Fr\u0131 defterinde kal\u0131r, bl\xF6fe harcanmaz.",
+          "A\xE7\u0131c\u0131n\u0131n katlanma dilimi \xE7o\u011Funlukla suited as ve kral i\xE7erdi\u011Finden, onlar\u0131 bloklamayan en zay\u0131f offsuit el iyi bl\xF6f malzemesidir.",
+          "As tutan bl\xF6f s\u0131n\u0131rda kal\u0131r \u2014 hem a\xE7\u0131c\u0131n\u0131n katlanaca\u011F\u0131 suited elleri hem senin en g\xFC\xE7l\xFC ellerini ayn\u0131 anda bloklar, net etkisi ba\u015Fa ba\u015F."
+        ],
+        "ruleBox": "Cover eden BB'nin \xFC\xE7-beti dar value art\u0131 en dip offsuit bl\xF6ft\xFCr \u2014 as tutan bl\xF6f net etkisi ba\u015Fa ba\u015F oldu\u011Fu i\xE7in \xF6zel bir tercih de\u011Fildir.",
+        "narration": "Sen b\xFCy\xFCk stackle oturuyorsan ve a\xE7\u0131c\u0131 orta boydaysa, \xFC\xE7-bet defterin san\u0131ld\u0131\u011F\u0131ndan dard\u0131r. Value dilimini en y\xFCksek \xE7iftler ve as-kral civar\u0131na s\u0131k\u0131\u015Ft\u0131r, daha a\u015Fa\u011F\u0131s\u0131 \xE7a\u011Fr\u0131ld\u0131\u011F\u0131nda yeterince \xF6nde de\u011Fil. Bl\xF6f malzemesini de en dipteki offsuit elden se\xE7, bunun iki sebebi var. Birincisi, suited eller kapsad\u0131\u011F\u0131n rakibe kar\u015F\u0131 flop sonras\u0131 de\u011Ferini fazlas\u0131yla ger\xE7ekle\u015Ftiriyor, yani onlar\u0131 \xE7a\u011Fr\u0131 defterinde tutmak bl\xF6fe harcamaktan daha k\xE2rl\u0131. \u0130kincisi, a\xE7\u0131c\u0131n\u0131n katlanma dilimi genelde suited as ve kral ellerinden olu\u015Fuyor, bu y\xFCzden onlar\u0131 bloklamayan en zay\u0131f offsuit el en iyi bl\xF6f. As tutan bir elle bl\xF6f yapmak burada \xF6zel bir avantaj sa\u011Flamaz, \xE7\xFCnk\xFC as hem a\xE7\u0131c\u0131n\u0131n katlanaca\u011F\u0131 suited as ellerini hem senin kendi en g\xFC\xE7l\xFC ellerini ayn\u0131 anda bloklar, net etkisi ba\u015Fa ba\u015F kal\u0131r."
+      },
+      {
+        "title": "EK: Cover edilen orta BB'nin \xFC\xE7-bet defteri \u2014 ind\xFCksiyon yok, dar value",
+        "bullets": [
+          "Seni kapsayan lidere kar\u015F\u0131 \xFC\xE7-bet ind\xFCksiyon arac\u0131 de\u011Fildir \u2014 orta-\xFCst\xFC \xE7iftlerle \xFC\xE7-bet edip jam gelirse kendinden daha iyiye stack yat\u0131rm\u0131\u015F olursun.",
+          "Fiili value tepe \xE7iftler civar\u0131nda kal\u0131r, as-kral s\u0131n\u0131rda ve \xE7o\u011Funlukla d\xFCz \xE7a\u011Fr\u0131ya gider; orta \xE7iftler ve as-vezir de d\xFCz \xE7a\u011Fr\u0131ya, \xFC\xE7-bete de\u011Fil.",
+          "Bl\xF6f dilimi neredeyse kapan\u0131r \u2014 kapsanan tarafta katlanmay\u0131 sat\u0131n alacak bo\u015F \xFC\xE7-bet \xE7ok az kazan\u0131r.",
+          "Y\u0131\u011F\u0131n\u0131n derinli\u011Fine g\xF6re kademelenir: derin bantta yeniden iti\u015F az; orta bantta y\xFCksek \xE7iftler ve as-kral tipi eller jame gider; suited as-kral ve k\xFC\xE7\xFCk \xE7iftler s\u0131n\u0131rda kal\u0131r, y\u0131\u011F\u0131n k\u0131sald\u0131k\xE7a bu s\u0131n\u0131r da d\xFC\u015Fer."
+        ],
+        "ruleBox": "Kapsanan orta stackin b\xFCy\xFCk lider kar\u015F\u0131s\u0131nda \xFC\xE7-beti ind\xFCksiyon de\u011Fildir \u2014 dar value, neredeyse bl\xF6fs\xFCz, y\u0131\u011F\u0131na g\xF6re kademeli.",
+        "narration": "\u015Eimdi madalyonun \xF6teki y\xFCz\xFC \u2014 sen orta stacksin ve seni kapsayan lider a\xE7t\u0131. Burada \xFC\xE7-bet bir ind\xFCksiyon arac\u0131 de\u011Fil, \xE7\xFCnk\xFC rakip jam ile geldi\u011Finde stack-off'u kendinden iyi bir elin kar\u015F\u0131s\u0131nda sat\u0131n alm\u0131\u015F olursun. Fiili value dilimi en y\xFCksek \xE7iftlerde kal\u0131r, as-kral s\u0131n\u0131rda ve \xE7o\u011Funlukla d\xFCz \xE7a\u011Fr\u0131ya gider; orta-\xFCst \xE7iftler ve as-vezir de \xFC\xE7-bet de\u011Fil d\xFCz \xE7a\u011Fr\u0131 olarak oynan\u0131r, \xE7\xFCnk\xFC aral\u0131\u011F\u0131n\u0131 korumak \xFC\xE7-betten daha de\u011Ferli. Bl\xF6f dilimi neredeyse kapan\u0131r, \xE7\xFCnk\xFC burada bo\u015F elle katlanma sat\u0131n almak kazand\u0131rmaz. Y\u0131\u011F\u0131n derinli\u011Fine g\xF6re bu tablo kademelenir: derin kald\u0131k\xE7a yeniden iti\u015F azal\u0131r, orta derinlikte y\xFCksek \xE7iftler ve as-kral tipi eller jame d\xF6ner, suited as-kral ve k\xFC\xE7\xFCk \xE7iftler ise s\u0131n\u0131rda kal\u0131r ve y\u0131\u011F\u0131n k\u0131sald\u0131k\xE7a bu s\u0131n\u0131r daha da a\u015Fa\u011F\u0131 iner."
+      },
+      {
+        "title": "EK: Prim tavana yak\u0131nken \xFC\xE7-bet yaln\u0131z as \xE7ifti",
+        "bullets": [
+          "\u0130ki b\xFCy\xFCk stack birbirine yak\u0131n primle kar\u015F\u0131la\u015F\u0131rken \xE7a\u011Fr\u0131 yapabilece\u011Fin tek el as \xE7iftidir \u2014 kral \xE7ifti bile bir suited asa kar\u015F\u0131 stack-off istemez, d\xFCz \xE7a\u011Fr\u0131ya gider.",
+          "Value tek bir elde topland\u0131\u011F\u0131 i\xE7in boy dev tutulur \u2014 k\xFC\xE7\xFCk boy anlams\u0131z, ya rakibi katlar ya taahh\xFCde sokar.",
+          "Bl\xF6f malzemesi \xE7a\u011F\u0131ramayaca\u011F\u0131n offsuit as ellerdir.",
+          "As-kral'\u0131n d\xFCz \xE7a\u011Fr\u0131 yolu zay\u0131f, \xFC\xE7-bet-\xE7a\u011Fr\u0131 yolu ise madeni para at\u0131\u015F\u0131na d\xF6ner \u2014 bu y\xFCzden derin y\u0131\u011F\u0131nda bile do\u011Frudan a\xE7\u0131k jam daha iyi bir se\xE7enektir.",
+          "A\xE7\u0131c\u0131 taraf\u0131nda da tablo simetriktir: dev boydaki \xFC\xE7-bete orta g\xFC\xE7 katlan\u0131r, ortadaki offsuit as \xE7a\u011F\u0131r\u0131r, d\xF6rt-bet jam yaln\u0131z suited as ile gelir, \xE7iftler jamlenmez."
+        ],
+        "ruleBox": "Prim tavana yak\u0131n benzer b\xFCy\xFCk stacklerde \xFC\xE7-bet-\xE7a\u011Fr\u0131 as \xE7iftine d\xFC\u015Fer, gerisi d\xFCz \xE7a\u011Fr\u0131 ya da a\xE7\u0131k jamdir.",
+        "narration": "\u0130ki b\xFCy\xFCk stack birbirine denk ve prim tavana yak\u0131nken masa \xE7ok sertle\u015Fir. Burada ger\xE7ekten \xE7a\u011F\u0131rabilece\u011Fin tek el as \xE7iftidir \u2014 kral \xE7ifti bile kendinden d\xFC\u015F\xFCk suited bir asa kar\u015F\u0131 b\xFCy\xFCk bir stack-off istemez, o y\xFCzden kral \xE7ifti ve alt\u0131ndaki \xE7iftler d\xFCz \xE7a\u011Fr\u0131ya gider. Value tek elde topland\u0131\u011F\u0131 i\xE7in boy k\xFC\xE7\xFCk tutulmaz, dev boy oynan\u0131r, ama\xE7 rakibi ya tamamen katlatmak ya da onu taahh\xFCde sokmakt\u0131r, ortas\u0131 yok. Bl\xF6f malzemesi de basit: \xFC\xE7-bet-\xE7a\u011Fr\u0131 yapamayaca\u011F\u0131n offsuit as elleri. As-kral bu masada garip bir yere d\xFC\u015Fer, \xE7\xFCnk\xFC d\xFCz \xE7a\u011Fr\u0131s\u0131 zay\u0131f, \xFC\xE7-bet-\xE7a\u011Fr\u0131s\u0131 ise madeni para at\u0131\u015F\u0131na d\xF6n\xFCyor, bu y\xFCzden derin y\u0131\u011F\u0131nda bile as-kral'\u0131 do\u011Frudan a\xE7\u0131k jam olarak oyna. A\xE7\u0131c\u0131 taraf\u0131 da ayn\u0131 mant\u0131kla cevap verir: dev \xFC\xE7-bete orta g\xFC\xE7teki eller katlan\u0131r, ortadaki offsuit as \xE7a\u011F\u0131r\u0131r, d\xF6rt-bet jam yaln\u0131z suited as elinden gelir, \xE7iftler jamlenmez."
+      },
+      {
+        "title": "EK: A\xE7\u0131c\u0131, BB'nin fazla jamine kar\u015F\u0131 ayar yapar",
+        "bullets": [
+          "Y\xFCksek primli kapsanan bir a\xE7\u0131c\u0131n\u0131n aral\u0131\u011F\u0131 yap\u0131sal olarak iki u\xE7ludur \u2014 orta dilim zaten kendi jamine gitmi\u015Ftir, raise'de tepe ve \xE7\xF6p kal\u0131r.",
+          "B\xF6yle bir aral\u0131\u011Fa kar\u015F\u0131 b\xFCy\xFCk blindin teorik do\u011Fru cevab\u0131 s\u0131f\u0131r jamdir \u2014 k\xFC\xE7\xFCk \xFC\xE7-bet ve \xE7ok geni\u015F \xE7a\u011Fr\u0131, \xE7\xFCnk\xFC katlanan el zaten katlanacakt\u0131.",
+          "Sahada b\xFCy\xFCk blind h\xE2l\xE2 jamlerse a\xE7\u0131c\u0131 ate\u015Fe su d\xF6kmemeli \u2014 aral\u0131\u011F\u0131n\u0131 bir kademe daraltmal\u0131.",
+          "Orta \xE7iftlerini kendi jaminden \xE7\u0131kar\u0131p raise-\xE7a\u011Fr\u0131'ya ta\u015F\u0131mal\u0131, \xE7\xFCnk\xFC b\xFCy\xFCk blindin jami onlar\u0131 art\u0131k domine ederek \xE7a\u011F\u0131r\u0131r.",
+          "Orta \xE7ift jamden \xE7\u0131k\u0131nca koruyacak de\u011Fer kalmad\u0131\u011F\u0131 i\xE7in bl\xF6f jamler de d\xFC\u015Fmeli \u2014 o eller katlanmal\u0131."
+        ],
+        "ruleBox": "Kapsanan a\xE7\u0131c\u0131, b\xFCy\xFCk blindin fazla jamine agresyonla de\u011Fil aral\u0131\u011F\u0131n\u0131 daralt\u0131p orta \xE7iftini raise-\xE7a\u011Fr\u0131ya ta\u015F\u0131yarak cevap verir.",
+        "narration": "Sen y\xFCksek primli ve kapsanan bir a\xE7\u0131c\u0131ysan, aral\u0131\u011F\u0131n zaten iki u\xE7ludur \u2014 orta g\xFCc\xFCndeki eller kendi jamine gitmi\u015F, elinde geriye a\xE7t\u0131\u011F\u0131n raise i\xE7in sadece tepe ve \xE7\xF6p kalm\u0131\u015Ft\u0131r. B\xF6yle bir aral\u0131\u011Fa kar\u015F\u0131 b\xFCy\xFCk blindin do\u011Fru cevab\u0131 s\u0131f\u0131r jam olmal\u0131, \xE7\xFCnk\xFC katlanacak el zaten katlan\u0131r, teorik cevap k\xFC\xE7\xFCk \xFC\xE7-bet ve \xE7ok geni\u015F \xE7a\u011Fr\u0131d\u0131r. Ama sahada b\xFCy\xFCk blind h\xE2l\xE2 jamliyorsa buna agresyonla kar\u015F\u0131l\u0131k verme, bu ate\u015Fe su d\xF6kmek olur. Do\u011Fru ayar aral\u0131\u011F\u0131n\u0131 bir kademe daraltmak. Orta \xE7iftlerini kendi jaminden \xE7\u0131kar\u0131p raise-\xE7a\u011Fr\u0131'ya ta\u015F\u0131, \xE7\xFCnk\xFC b\xFCy\xFCk blind jamledi\u011Finde art\u0131k onlar\u0131 domine ederek \xE7a\u011F\u0131r\u0131yor, jam ettirmek o de\u011Feri bo\u015Fa harcamak. Orta \xE7ift jamden \xE7\u0131k\u0131nca koruyacak bir \u015Fey kalmad\u0131\u011F\u0131 i\xE7in bl\xF6f niyetiyle at\u0131lan jamler de d\xFC\u015Fmeli, onlar\u0131 da katla."
+      },
+      {
+        "title": "EK: Ka\xE7ak lider k\u0131sa a\xE7\u0131c\u0131ya pozisyonda geni\u015F d\xFCz \xE7a\u011Fr\u0131",
+        "bullets": [
+          "Sen ger\xE7ek anlamda ka\xE7ak lider ve a\xE7\u0131c\u0131 k\u0131saysa, a\xE7\u0131c\u0131n\u0131n sana kar\u015F\u0131 primi y\xFCksek, seninki neredeyse s\u0131f\u0131rd\u0131r \u2014 flopta o katlanmaya mahk\xFBm, sen bet ile elini ger\xE7ekle\u015Ftirirsin.",
+          "Squeeze tehlikesi de k\xFC\xE7\xFCkt\xFCr \xE7\xFCnk\xFC arkadakilerin d\xFCz \xE7a\u011Fr\u0131c\u0131ya kar\u015F\u0131 primi var ve a\xE7\u0131c\u0131 dar a\xE7t\u0131\u011F\u0131 i\xE7in k\xFC\xE7\xFCk bir squeeze'e g\xFC\xE7l\xFC aral\u0131\u011F\u0131nla \xE7a\u011F\u0131r\u0131rs\u0131n, b\xFCy\xFCk bir squeeze ise arkadakileri k\u0131saya kar\u015F\u0131 taahh\xFCde sokar.",
+          "Sonu\xE7 olarak b\xFCy\xFCk a\xE7\u0131l\u0131\u015F boyuna kar\u015F\u0131 bile suited ba\u011Flant\u0131l\u0131 eller, suited orta kartlar, b\xFCt\xFCn \xE7iftler ve offsuit broadway'ler d\xFCz \xE7a\u011Fr\u0131ya gider.",
+          "\xDC\xE7-bet dilimi yaln\u0131zca d\xFCz \xE7a\u011Fr\u0131ya yaramayan en zay\u0131f \xE7\xF6pe kal\u0131r.",
+          "Bu geni\u015F d\xFCz \xE7a\u011Fr\u0131 yaln\u0131z ger\xE7ek ka\xE7ak liderlik \u015Fart\u0131nda \xE7al\u0131\u015F\u0131r \u2014 s\u0131radan b\xFCy\xFCk bir stack bu geni\u015Fli\u011Fin yar\u0131s\u0131n\u0131 bile bulamaz."
+        ],
+        "ruleBox": "Ger\xE7ek ka\xE7ak lider, k\u0131sa a\xE7\u0131c\u0131ya kar\u015F\u0131 pozisyonda geni\u015F d\xFCz \xE7a\u011Fr\u0131 ile over-realize eder \u2014 \xFC\xE7-bet yaln\u0131z \xE7a\u011Fr\u0131lamayan \xE7\xF6pe kal\u0131r.",
+        "narration": "E\u011Fer ger\xE7ek anlamda ka\xE7ak liderysen ve a\xE7an oyuncu k\u0131saysa, pozisyondaki d\xFCz \xE7a\u011Fr\u0131 sand\u0131\u011F\u0131ndan \xE7ok daha geni\u015Ftir. A\xE7\u0131c\u0131n\u0131n sana kar\u015F\u0131 \xF6dedi\u011Fi risk primi y\xFCksek, seninki neredeyse s\u0131f\u0131r, bu y\xFCzden flopta o \xE7o\u011Fu zaman katlanmaya mahk\xFBm, sen ise bet atarak elinin de\u011Ferini fazlas\u0131yla ger\xE7ekle\u015Ftirirsin. Squeeze korkusu da burada k\xFC\xE7\xFCl\xFCr, \xE7\xFCnk\xFC arkadaki oyuncular\u0131n d\xFCz \xE7a\u011Fr\u0131c\u0131ya kar\u015F\u0131 primi var ve a\xE7\u0131c\u0131 zaten dar a\xE7t\u0131\u011F\u0131 i\xE7in k\xFC\xE7\xFCk bir squeeze'e senin g\xFC\xE7l\xFC aral\u0131\u011F\u0131n rahat\xE7a \xE7a\u011F\u0131r\u0131r, b\xFCy\xFCk bir squeeze ise arkadakileri k\u0131sa stacke kar\u015F\u0131 taahh\xFCde sokar, bu y\xFCzden \xE7o\u011Fu zaman kimse giri\u015Fmez. Sonu\xE7 olarak b\xFCy\xFCk a\xE7\u0131l\u0131\u015F boyuna kar\u015F\u0131 bile suited ba\u011Flant\u0131l\u0131 eller, orta suited kartlar, b\xFCt\xFCn \xE7iftler ve offsuit y\xFCksek kartlar d\xFCz \xE7a\u011Fr\u0131ya gider, \xFC\xE7-bet dilimi yaln\u0131z \xE7a\u011Fr\u0131lamayacak en zay\u0131f \xE7\xF6pe kal\u0131r. Bu geni\u015Flik yaln\u0131z ger\xE7ek ka\xE7ak liderlikte \xE7al\u0131\u015F\u0131r \u2014 s\u0131radan bir b\xFCy\xFCk stack bu d\xFCz \xE7a\u011Fr\u0131n\u0131n yar\u0131s\u0131n\u0131 bile bulamaz."
       }
     ]
   },
@@ -6203,6 +6552,42 @@ var modules = [
         ],
         "ruleBox": "OOP c-bet lisans\u0131 board'dan \xF6nce aral\u0131k kar\u015F\u0131la\u015Ft\u0131rmas\u0131yla verilir: toz oran\u0131n y\xFCksekse ya da flat aral\u0131\u011F\u0131 senden g\xFC\xE7l\xFCyse check kolonunda kal.",
         "narration": "Pozisyon d\u0131\u015F\u0131 c-bet'in d\xF6rt d\xFCzeltmesi. Bir: havayla range-bet tuza\u011F\u0131 tek-raise'li pot i\xE7indir; \xFC\xE7-bet potunda aral\u0131k avantajl\u0131 \xFC\xE7-bettor kopuk as-y\xFCksek board'da tam aral\u0131k k\xFC\xE7\xFCk bet atar, tuzak de\u011Fil baseline. Ayna y\xFCz\xFC: d\xFC\u015F\xFCk ba\u011Flant\u0131l\u0131 board'da \xE7o\u011Funlukla check eder, pozisyondaki caller'\u0131n stab'i artar. \u0130ki: rakip buton'sa flat aral\u0131\u011F\u0131 dar ve yap\u0131l\u0131d\u0131r; lisans sorusu \u015Fu, a\xE7\u0131\u015F aral\u0131\u011F\u0131m onun flat aral\u0131\u011F\u0131ndan g\xFC\xE7l\xFC m\xFC? Erken pozisyon \xE7o\u011Funlukla evet, cutoff \xE7o\u011Funlukla hay\u0131r. \xDC\xE7: mekanizma kendi aral\u0131\u011F\u0131ndaki toz oran\u0131d\u0131r; bet atmak istemeyen el oran\u0131 y\xFCksekse frekans \xE7\xF6ker \u2014 erken pozisyon range-bet eder, cutoff check eder ve overpair getirisini check-raise'den al\u0131r. D\xF6rt: as-y\xFCksek board'da pozisyon d\u0131\u015F\u0131 a\xE7\u0131c\u0131yken as-d\xFC\u015F\xFCk check a\u011F\u0131rl\u0131k, as art\u0131 broadway tam aral\u0131k k\xFC\xE7\xFCk, as-orta art\u0131 renk \xE7ekili\u015Fi \xFC\xE7te iki. Kalibre et."
+      },
+      {
+        "title": "EK: Boy nedenselli\u011Fi \u2014 board de\u011Fil value karar verir",
+        "bullets": [
+          "Boy tablosu genelde board dokusundan okunur; as\u0131l belirleyen value aral\u0131\u011F\u0131n\u0131n ka\xE7 sokak ta\u015F\u0131naca\u011F\u0131 ve nut avantaj\u0131n\u0131n kimde oldu\u011Fudur.",
+          "Board dokusu bu iki sorunun sadece vekili \u2014 tabloyu do\u011Frudan okumak nedeni atlar.",
+          "Kuru board k\xFC\xE7\xFCk boy kural\u0131, s\u0131k\u0131 EP a\xE7\u0131c\u0131n\u0131n aral\u0131\u011F\u0131 o board'da tam a\u011F\u0131rl\u0131kla \xFCstte oldu\u011Fu d\xFC\u011F\xFCmde do\u011Fru.",
+          "Ayn\u0131 kuru board BB-lehine oynanan bir d\xFC\u011F\xFCmde k\xFC\xE7\xFCk boy fazla c-bet olur; check pay\u0131 artmal\u0131, boy k\xFC\xE7\xFClmez.",
+          "S\u0131ra: \xF6nce value ka\xE7 sokak + board kimin lehine, boyu en son bundan t\xFCret."
+        ],
+        "ruleBox": "Boyu board dokusu de\u011Fil value'nun ta\u015F\u0131naca\u011F\u0131 sokak say\u0131s\u0131 ve nut avantaj\u0131n\u0131n kimde oldu\u011Fu belirler; board yaln\u0131zca bunun g\xF6r\xFCnen y\xFCz\xFCd\xFCr.",
+        "narration": "Boyut tablosunda kuru board k\xFC\xE7\xFCk boy, \u0131slak board b\xFCy\xFCk boy dersin ama bu bir k\u0131sayol, ger\xE7ek neden de\u011Fil. As\u0131l soru iki tane: value aral\u0131\u011F\u0131n ka\xE7 sokak ta\u015F\u0131nacak, ve board kimin lehine. Board dokusu bu ikisinin yaln\u0131z g\xF6r\xFCnen y\xFCz\xFC. S\u0131k\u0131 erken pozisyon a\xE7\u0131c\u0131s\u0131 i\xE7in kuru board k\xFC\xE7\xFCk boy do\u011Fru \xE7al\u0131\u015F\u0131r \xE7\xFCnk\xFC aral\u0131\u011F\u0131 o boardda tam a\u011F\u0131rl\u0131kla \xFCstte. Ayn\u0131 kuru boardu b\xFCy\xFCk blindin geni\u015F savunma aral\u0131\u011F\u0131 lehine oynanan bir d\xFC\u011F\xFCme koyarsan, o k\xFC\xE7\xFCk boy art\u0131k a\u015F\u0131r\u0131 bir c-bet olur, \xE7\xFCnk\xFC kar\u015F\u0131 taraf art\u0131k \xE7o\u011Funlukla katlanm\u0131yor. Tabloyu ezberlemeden \xF6nce s\u0131ray\u0131 kur: \xF6nce value ka\xE7 sokak ta\u015F\u0131nacak diye sor, sonra board kimin lehine diye sor, boyu en son bu ikisinden t\xFCret."
+      },
+      {
+        "title": "EK: As-y\xFCksek board'da \xFC\xE7\xFCnc\xFC koltuk \u2014 OOP a\xE7\u0131c\u0131",
+        "bullets": [
+          "\xDC\xE7\xFCnc\xFC koltuk: 18.2 IP a\xE7\u0131c\u0131, 32.3 \xFC\xE7-bet potu; bu OOP a\xE7\u0131c\u0131 vs IP caller, tek-raise'li pot, ~30bb.",
+          "A-d\xFC\u015F\xFCk (A-5-2 / A-6-2 r): a\xE7\u0131c\u0131n\u0131n Ax-d\u0131\u015F\u0131 aral\u0131\u011F\u0131 \xF6l\xFC, caller'\u0131n cep-a\u011F\u0131rl\u0131kl\u0131 aral\u0131\u011F\u0131 board'u ba\u011Flar; sonu\xE7 check a\u011F\u0131rl\u0131kl\u0131 (kabaca \xFC\xE7te iki).",
+          "A + broadway (A-J-6 / A-T-8): a\xE7\u0131c\u0131n\u0131n t\xFCm aral\u0131\u011F\u0131 per veya gutshot al\u0131r, caller'\u0131n cepleri \xF6l\xFCr; sonu\xE7 neredeyse tam-aral\u0131k k\xFC\xE7\xFCk bet.",
+          "A-orta + fd (A-8-6 fd): k\xFC\xE7\xFCk bet backdoor-fd kombolar\u0131n\u0131 her zaman i\xE7eride tutar; boy 2/3'e \xE7\u0131kar ki bu kombolar kay\u0131ts\u0131zl\u0131\u011Fa itilsin, rainbow e\u015Fde\u011Ferinde (A-6-2) zaten katlan\u0131rlar, k\xFC\xE7\xFCk yeter.",
+          "Soru 'elimde A var m\u0131' de\u011Fil, 'Ax-d\u0131\u015F\u0131 aral\u0131\u011F\u0131m bu board'da ne yap\u0131yor'."
+        ],
+        "ruleBox": "OOP a\xE7\u0131c\u0131 vs IP caller'da boy Ax-d\u0131\u015F\u0131 aral\u0131\u011F\u0131n canl\u0131l\u0131\u011F\u0131na ba\u011Fl\u0131d\u0131r \u2014 A-d\xFC\u015F\xFCkte check, A+broadway'de tam-aral\u0131k k\xFC\xE7\xFCk, A-orta+fd'de 2/3.",
+        "narration": "On sekizinci b\xF6l\xFCm\xFCn as-y\xFCksek mant\u0131\u011F\u0131 pozisyonda a\xE7\u0131c\u0131 i\xE7indi, \xFC\xE7-bet potu ayr\u0131 bir madde. Burada \xFC\xE7\xFCnc\xFC koltuk var: pozisyon d\u0131\u015F\u0131 a\xE7\u0131c\u0131, pozisyondaki caller, tek-raise'li pot, kabaca otuz big blind derinlik. Cevap board'a g\xF6re \xFC\xE7e ayr\u0131l\u0131r. As-d\xFC\u015F\xFCk boardda a\xE7\u0131c\u0131n\u0131n as-d\u0131\u015F\u0131 aral\u0131\u011F\u0131 \xF6l\xFCd\xFCr, per yok \xE7ekili\u015F yok; caller'\u0131n cep-a\u011F\u0131rl\u0131kl\u0131 aral\u0131\u011F\u0131 d\xFC\u015F\xFCk kartlar\u0131 ba\u011Flar ve katlanmaz, sonu\xE7 \xE7o\u011Funlukla check. As art\u0131 broadway boardda tam tersi olur: a\xE7\u0131c\u0131n\u0131n t\xFCm aral\u0131\u011F\u0131 per veya gutshot al\u0131r, caller'\u0131n cepleri de\u011Fersizle\u015Fir, sonu\xE7 neredeyse tam aral\u0131\u011Fa yak\u0131n k\xFC\xE7\xFCk bet. As-orta art\u0131 renk-\xE7ekili\u015Fli boardda boy \xFC\xE7te ikiye \xE7\u0131kar, \xE7\xFCnk\xFC k\xFC\xE7\xFCk bet backdoor renk-\xE7ekili\u015Fi kombolar\u0131n\u0131 her zaman i\xE7eride tutar. Soraca\u011F\u0131n soru elimde as var m\u0131 de\u011Fil, as-d\u0131\u015F\u0131 aral\u0131\u011F\u0131m bu boardda h\xE2l\xE2 ya\u015F\u0131yor mu olmal\u0131."
+      },
+      {
+        "title": "EK: \u0130nce value e\u015Fi\u011Fi \u2014 geriye sar\u0131m ve s\u0131n\u0131f-i\xE7i da\u011F\u0131l\u0131m",
+        "bullets": [
+          "\u0130nce value his de\u011Fil geriye-sar\u0131md\u0131r: boyunun dayatt\u0131\u011F\u0131 devam-y\xFCzdesini yaz, son \xE7a\u011F\u0131ran aral\u0131\u011F\u0131n yar\u0131s\u0131ndan iyisini yenmen gerekti\u011Fini kabul et.",
+          "Bunu turn e\u015Fi\u011Fine geri \xE7evir \u2014 hangi elin bu \u015Fart\u0131 kar\u015F\u0131lad\u0131\u011F\u0131n\u0131 oradan belirle (kalibre et).",
+          "S\u0131n\u0131f \u0130\xC7\u0130NDE say: tipik aral\u0131klar Axs'i her kicker'la oynar, rakip aral\u0131\u011F\u0131ndaki flush s\u0131n\u0131f\u0131n\u0131n \xFCst ucu kombinatorik olarak kalabal\u0131kt\u0131r.",
+          "As-y\xFCksek flush kombolar\u0131 d\xFC\u015F\xFCk flush'lardan belirgin fazlad\u0131r; 'her flush'la \xF6der' olsa bile ortalamas\u0131n\u0131 yenemeyebilirsin.",
+          "K\xF6k hata: s\u0131n\u0131f\u0131n ADINA bak\u0131p bet'lemek; do\u011Frusu s\u0131n\u0131f-\u0130\xC7\u0130 da\u011F\u0131l\u0131ma bak\u0131p gerekirse check etmek."
+        ],
+        "ruleBox": "\u0130nce value karar\u0131n\u0131 s\u0131n\u0131f ad\u0131 de\u011Fil s\u0131n\u0131f-i\xE7i da\u011F\u0131l\u0131m verir; boyunun dayatt\u0131\u011F\u0131 devam aral\u0131\u011F\u0131n\u0131n yar\u0131s\u0131ndan iyisini yenmiyorsan, o value ince de\u011Fil hayalidir.",
+        "narration": "\u0130nce value bir his de\u011Fil, geriye do\u011Fru bir hesapt\u0131r. \xD6nce boyunun kar\u015F\u0131 tarafa dayatt\u0131\u011F\u0131 devam y\xFCzdesini yaz; sonra kabul et ki o son \xE7a\u011F\u0131ran aral\u0131\u011F\u0131n yar\u0131s\u0131ndan iyisini yenmen gerekiyor; bunu kendi turn e\u015Fi\u011Fine geri \xE7evir, kendi solver'\u0131nda kalibre et. \u0130kinci ad\u0131m daha ince: s\u0131n\u0131f\u0131n ad\u0131na de\u011Fil, s\u0131n\u0131f\u0131n i\xE7ine bak. Tipik aral\u0131klar as-suited elleri her kicker'la oynar, bu y\xFCzden rakip aral\u0131\u011F\u0131ndaki bir renk s\u0131n\u0131f\u0131n\u0131n \xFCst ucu kombinatorik olarak kalabal\u0131kt\u0131r; as-y\xFCksek renk kombolar\u0131 zay\u0131f renklerden belirgin bi\xE7imde fazlad\u0131r. Yani rakip her renkle \xF6dese bile, sen o s\u0131n\u0131f\u0131n ortalamas\u0131n\u0131 yenemeyebilirsin. K\xF6k hata tam burada do\u011Far: s\u0131n\u0131f\u0131n ad\u0131na bak\u0131p bet atars\u0131n, oysa s\u0131n\u0131f\u0131n i\xE7indeki da\u011F\u0131l\u0131ma bak\u0131p check etmen gerekiyordur. Value karar\u0131n\u0131 isim de\u011Fil da\u011F\u0131l\u0131m versin."
       }
     ]
   },
@@ -6400,6 +6785,29 @@ var modules = [
         ],
         "ruleBox": "Cover eden lead a\xE7ar: \xFC\xE7 rejimi flat aral\u0131\u011F\u0131n belirler; nudge bir hat de\u011Fil, \xFC\xE7 \u015Fart\u0131n bulu\u015Ftu\u011Fu her d\xFC\u011F\xFCmd\xFCr.",
         "narration": "ICM alt\u0131nda agresyon lisans\u0131 cover edene aittir; haritas\u0131 \u015Fudur. Primi s\u0131f\u0131ra yak\u0131n b\xFCy\xFCk stack k\xFC\xE7\xFCk k\xF6r geni\u015F flat'lemi\u015Fken, kapsanan s\u0131k\u0131 a\xE7\u0131c\u0131ya kar\u015F\u0131 toplam lead pay\u0131 kabaca y\xFCzde k\u0131rka yakla\u015F\u0131r; lead'siz oynarsan flat aral\u0131\u011F\u0131n\u0131n alt yar\u0131s\u0131 kaybeder \u2014 lead geni\u015F flat'in lisans\u0131d\u0131r, s\xFCs\xFC de\u011Fil. \xDC\xE7 rejim var: as-d\xFC\u015F\xFCk, k\u0131z-d\xFC\u015F\xFCk ve vale-d\xFC\u015F\xFCk board'lar b\xFCy\xFCk polar lead evidir, d\xFC\u015F\xFCk setler sende ve bl\xF6fler daha iyi havay\u0131 katlat\u0131p out temizler; d\xFC\u015F\xFCk ve ba\u011Flant\u0131l\u0131 orta board'lar k\xFC\xE7\xFCk range-lead; as art\u0131 broadway ve kral-y\xFCksek board'lar lead'sizdir. Harita kendi flat aral\u0131\u011F\u0131n\u0131n fonksiyonudur. Nudge ise bir hat de\u011Fil \xFC\xE7 \u015Fart\u0131n bulu\u015Fmas\u0131d\u0131r: aral\u0131\u011F\u0131n g\xFC\xE7l\xFC-zay\u0131f, rakibinki u\xE7lu, turn raise g\xFCd\xFCs\xFC s\u0131f\u0131ra yak\u0131n; b\xFCy\xFCk k\xF6r savunmas\u0131, \xFC\xE7-bet potunun caller'\u0131, k\xFC\xE7\xFCk k\xF6r flat'i ve multiway hepsi nudge evidir. Kalibre et."
+      },
+      {
+        "title": "EK: \u0130kinci check'in anlam\u0131 \u2014 rakipte lead aral\u0131\u011F\u0131 var m\u0131",
+        "bullets": [
+          "19.3'\xFCn 'flop check-back etti = capped' okumas\u0131 preflop a\xE7an oyuncunun flop'una \xF6zeldir; pozisyon d\u0131\u015F\u0131ndaki oyuncunun turn check'ine otomatik ta\u015F\u0131nmaz.",
+          "Lead aral\u0131\u011F\u0131 OLAN bir reg check ederse capped \u2014 ince value + bl\xF6f (19.2 tablosu).",
+          "Lead aral\u0131\u011F\u0131 OLMAYAN havuz check ederse bu t\xFCm aral\u0131\u011F\u0131d\u0131r (trips dahil) \u2014 buna kar\u015F\u0131 IP'nin do\u011Fru cevab\u0131 neredeyse tam aral\u0131k check-back'tir, AA dahil (kalibre et).",
+          "Exploit: havuz bu d\xFC\u011F\xFCmde ince bet + fazla bl\xF6f yapar \u2014 orta kart e\u015Fle\u015Fen turn'de check-raise ve river bl\xF6f hacmini art\u0131r."
+        ],
+        "ruleBox": "\u0130kinci check'in 'zay\u0131fl\u0131k' okumas\u0131 yaln\u0131z rakipte ger\xE7ek bir lead aral\u0131\u011F\u0131 varsa ge\xE7erlidir; lead aral\u0131\u011F\u0131 olmayan havuzda check t\xFCm aral\u0131kt\u0131r.",
+        "narration": "On dokuz nokta \xFC\xE7, preflop a\xE7an oyuncu flop'u check-back ederse capped'dir dedi \u2014 do\u011Fru, \xE7\xFCnk\xFC g\xFC\xE7l\xFC elleriyle flop'ta bet ederdi. Ama bu mant\u0131\u011F\u0131 pozisyon d\u0131\u015F\u0131ndaki oyuncunun turn check'ine otomatik ta\u015F\u0131ma, \xE7\xFCnk\xFC havuzun b\xFCy\xFCk k\u0131sm\u0131n\u0131n turn'de ger\xE7ek bir lead aral\u0131\u011F\u0131 yoktur. Lead atan bir reg check ederse, evet, capped \u2014 ince value ve bl\xF6fle git. Ama lead aral\u0131\u011F\u0131 olmayan bir havuz oyuncusu check ederse bu t\xFCm aral\u0131\u011F\u0131d\u0131r, trips dahil, kalibre et; buna kar\u015F\u0131 rakibin do\u011Fru cevab\u0131 neredeyse tam aral\u0131kla check-back'tir, as as dahil. Neden: k\xFC\xE7\xFCk flop bet'i zaten zay\u0131f blokerleri katlatt\u0131, kalan aral\u0131k board'a ba\u011Fl\u0131; orta kartla bet etmek check-raise'e a\xE7\u0131l\u0131r; check-back'in kazanc\u0131 river'da do\u011Far. Exploit \u015Fu: havuz bu turn'de ince bet atar ve fazla bl\xF6fler \u2014 sen board e\u015Fle\u015Fen turn'de check-raise'i ve river bl\xF6f hacmini art\u0131r."
+      },
+      {
+        "title": "EK: \xDC\xE7-bet potunda ikinci sokak stab \u2014 turn boyu k\xFC\xE7\xFCl\xFCr, jam de\u011Fil",
+        "bullets": [
+          "Flop k\xFC\xE7\xFCk stab, range-bet'i atlayan orta-zay\u0131f elleri (KJ/KT/A5 tipi) hedefler; A-high \xE7o\u011Funlukla check-call, \xE7iftler check-raise.",
+          "Turn brick ve ikinci check'e \xC7OK k\xFC\xE7\xFCk, min'e yak\u0131n bet \u2014 boy kalibre et.",
+          "'SPR bir, jam do\u011Fal' refleksi yanl\u0131\u015F: ayn\u0131 A-high blo\u011Funu daha pahal\u0131ya katlat\u0131r, check-raise etmemi\u015F \xE7iftlere kar\u015F\u0131 riski b\xFCy\xFCt\xFCr.",
+          "Flop'ta check-raise yedinse ve per'in yoksa fold; per'siz bl\xF6fler ve ince-value stab'lar burada biter.",
+          "40bb'de \xE7al\u0131\u015F\u0131r, derinde daha k\xE2rl\u0131 \u2014 river'da h\xE2l\xE2 fold equity kal\u0131r."
+        ],
+        "ruleBox": "\xDC\xE7-bet potunda ikinci sokak stab'\u0131 b\xFCy\xFCtme; turn k\xFC\xE7\xFCl\xFCr \xE7\xFCnk\xFC hedef aral\u0131k zaten dar, jam o aral\u0131\u011F\u0131 gereksiz pahal\u0131ya katlat\u0131r.",
+        "narration": "On dokuz nokta d\xF6rt ek, flop stab'\u0131n\u0131 verdi ama hat orada bitmiyor. Pozisyon d\u0131\u015F\u0131ndaki \xFC\xE7-bet\xE7i orta-d\xFC\u015F\xFCk bir board'da range-bet atmas\u0131 gerekirken check ederse, sen flop'ta k\xFC\xE7\xFCk bir stab'la range-bet'i atlayan orta-zay\u0131f elleri hedeflersin \u2014 kral-vale, kral-on tipi eller, ka\xE7\u0131rm\u0131\u015F as-vale as-dam. Rakip \xE7iftlerle check-raise'e gider, as-y\xFCksekle check-call'da kal\u0131r. Turn'de rakip yine check ederse boy k\xFC\xE7\xFClmeye devam eder, min'e yak\u0131n bir bete inersin, kalibre et. SPR bir, hemen jam refleksi burada yanl\u0131\u015F; ayn\u0131 as-y\xFCksek blo\u011Funu daha pahal\u0131 katlat\u0131rs\u0131n ve check-raise etmemi\u015F \xE7iftlere kar\u015F\u0131 riski b\xFCy\xFCt\xFCrs\xFCn. Flop'ta check-raise yedinse ve per'in yoksa fold \u2014 per'siz bl\xF6flerin burada biter. Bu hat k\u0131rk big blind'de \xE7al\u0131\u015F\u0131r, derinlikte daha da k\xE2rl\u0131d\u0131r \xE7\xFCnk\xFC river'da h\xE2l\xE2 fold equity kal\u0131r."
       }
     ]
   },
@@ -6466,6 +6874,78 @@ var modules = [
         ],
         ruleBox: "Cover ediliyor muyum? Cevap primi, prim e\u015Fi\u011Fi, e\u015Fik karar\u0131 verir.",
         narration: "Son olarak iki y\xF6nl\xFC tuzak, \xE7\xFCnk\xFC prim iki y\xF6ne de hata yapt\u0131r\u0131r. Birinci y\xF6n: cover edilmeyeni cover edilen sanmak, olmayan bir primi eklersin, fazla fold edersin. On iki nokta d\xF6rt b\xF6l\xFCm\xFCndeki as dokuz suited ve kral on offsuit leak'i tam buydu, k\u0131sa jam'e kar\u015F\u0131 gereksiz fold. \u0130kinci y\xF6n: cover edeni cover edilmeyen sanmak, primi atlars\u0131n, fazla call edersin ve bust olursun. Do\u011Fru soru hep ayn\u0131: cover ediliyor muyum, ve payout s\u0131\xE7ramas\u0131 ne kadar yak\u0131n? Cheat kart\u0131n\u0131 akl\u0131nda tut: para uzaksa prim s\u0131f\u0131r, normal pot odds. Cover etmeyen k\u0131sa jam'e prim s\u0131f\u0131r, geni\u015F call. Bubble'da n\xF6tr, orta prim, marjinali kes. Cover eden art\u0131 bubble ya da final table, y\xFCksek prim, sert daral, kuv\xF6z kuv\xF6z bile marjinal olabilir. \xD6zet: on ikinci b\xF6l\xFCm ICM'in y\xF6n\xFCn\xFC verir, yirminci b\xF6l\xFCm fiyat\u0131n\u0131 \xF6l\xE7er; ikisi ayn\u0131 disiplinin nitel ve nicel yar\u0131lar\u0131d\u0131r."
+      },
+      {
+        "title": "EK: Prim hi\xE7 s\u0131f\u0131r olmaz, tuttu\u011Fun y\u0131\u011F\u0131n say\u0131s\u0131yla b\xFCy\xFCr",
+        "bullets": [
+          "Havuz tek ki\u015Fiye \xF6denmez: her eleme, hayatta kalan HERKES\u0130N y\u0131\u011F\u0131n-dolar\u0131n\u0131 bir t\u0131k y\xFCkseltir.",
+          "Double-up y\u0131\u011F\u0131n-dolar\u0131n\u0131 asla tam ikiye katlamaz \u2014 aradaki fark primdir.",
+          "Turnuvan\u0131n ilk elinde bile prim var: bir ba\u015Flang\u0131\xE7-y\u0131\u011F\u0131n\u0131 i\xE7in kabaca bir puan (kalibre et).",
+          "Prim riske att\u0131\u011F\u0131n y\u0131\u011F\u0131nla \xF6l\xE7eklenir: iki ba\u015Flang\u0131\xE7-y\u0131\u011F\u0131n tutan, tek y\u0131\u011F\u0131nl\u0131lara kar\u015F\u0131 neredeyse iki kat prim ta\u015F\u0131r.",
+          "\u0130ki b\xFCy\xFCk y\u0131\u011F\u0131n erken fazda \xE7arp\u0131\u015F\u0131rsa orta kademe prim do\u011Far (kabaca be\u015F puan; kalibre et), tek y\u0131\u011F\u0131nl\u0131lara kar\u015F\u0131 h\xE2l\xE2 bir puan civar\u0131ndas\u0131n."
+        ],
+        "ruleBox": "Erken fazda prim k\xFC\xE7\xFCk ama s\u0131f\u0131r de\u011Fil; as\u0131l uyan\u0131kl\u0131k iki b\xFCy\xFCk y\u0131\u011F\u0131n kar\u015F\u0131 kar\u015F\u0131ya gelince \u2014 orada e\u015Fi\u011Fi chipEV'nin bir t\u0131k \xFCst\xFCne koy.",
+        "narration": "K\xF6k hata \u015Fudur: para uzak, prim s\u0131f\u0131r, \xF6yleyse chip ev oynar\u0131m demek. Ama havuz tek ki\u015Fiye \xF6denmez \u2014 her eleme, hayatta kalan herkesin y\u0131\u011F\u0131n dolar\u0131n\u0131 bir t\u0131k yukar\u0131 \xE7eker. Sen birini eledi\u011Finde, o \xF6len y\u0131\u011F\u0131n\u0131n de\u011Feri masadaki ve \xF6b\xFCr masalardaki herkese da\u011F\u0131l\u0131r; bu y\xFCzden bir double-up y\u0131\u011F\u0131n dolar\u0131n\u0131 asla tam ikiye katlamaz. Aradaki fark primdir, ve bu fark turnuvan\u0131n ilk elinde bile vard\u0131r, k\xFC\xE7\xFCk ama s\u0131f\u0131r de\u011Fil. Prim riske att\u0131\u011F\u0131n y\u0131\u011F\u0131nla b\xFCy\xFCr: iki ba\u015Flang\u0131\xE7 y\u0131\u011F\u0131n\u0131 tutan oyuncu tek y\u0131\u011F\u0131nl\u0131lara kar\u015F\u0131 neredeyse iki kat prim ta\u015F\u0131r. \u0130ki b\xFCy\xFCk y\u0131\u011F\u0131n erken fazda \xE7arp\u0131\u015F\u0131rsa bile orta seviyede bir prim do\u011Far. Kural: erken fazda \xE7o\u011Funlukla chip ev'e yak\u0131n kal, ama iki b\xFCy\xFCk y\u0131\u011F\u0131n kar\u015F\u0131la\u015F\u0131nca e\u015Fi\u011Fini bir t\u0131k yukar\u0131 \xE7ek."
+      },
+      {
+        "title": "EK: Primin as\u0131l belirleyicisi \xF6deme e\u011Frisidir, stack haritas\u0131 de\u011Fil",
+        "bullets": [
+          "Ayn\u0131 y\u0131\u011F\u0131n da\u011F\u0131l\u0131m\u0131, ayn\u0131 kalan oyuncu say\u0131s\u0131: \xF6deme merdiveni ne kadar D\xDCZSE (lineer) prim o kadar y\xFCksek, tepe-a\u011F\u0131r \xF6demede chipEV'ye o kadar yakla\u015F\u0131rs\u0131n.",
+          "\xD6deme e\u011Frisinin \u015Fekli tek ba\u015F\u0131na primi ikiye katlayabilir \u2014 ayn\u0131 stack'lerle lineer \xF6demede prim, tepe-a\u011F\u0131r \xF6demedeki primin kabaca iki kat\u0131d\u0131r (kalibre et).",
+          "Masa k\u0131sald\u0131k\xE7a prim d\xFC\u015Fer: al\u0131nacak basamak say\u0131s\u0131 azal\u0131r, heads-up'ta prim s\u0131f\u0131rd\u0131r.",
+          "Bubble\u2192final-masa mesafesi 'dip'in derinli\u011Fini belirler: d\xFCz \xF6deme + b\xFCy\xFCk sahada bubble patlay\u0131nca prim ba\u015Flang\u0131\xE7 seviyesine iner; on be\u015F ki\u015Fide patlarsa final-masa \xF6demeleri hemen arkada oldu\u011Fundan prim neredeyse hi\xE7 d\xFC\u015Fmez.",
+          "S\u0131ra: \xF6nce yap\u0131 sayfas\u0131ndan \xF6deme e\u011Frisini ve kalan oyuncu say\u0131s\u0131n\u0131 oku, stack haritas\u0131 bunun \xDCST\xDCNE gelir."
+        ],
+        "ruleBox": "Prim tahmininin ilk iki girdisi \xF6deme e\u011Frisi ve kalan oyuncu say\u0131s\u0131d\u0131r; stack haritas\u0131 bunlar\u0131n \xFCst\xFCne gelir.",
+        "narration": "Prim tahminini yaln\u0131z stack haritas\u0131ndan okumak k\xF6k hatad\u0131r \u2014 \xF6deme tablosunun e\u011Frisine bakmadan yap\u0131lan her tahmin yanl\u0131\u015F olur. Ayn\u0131 y\u0131\u011F\u0131n da\u011F\u0131l\u0131m\u0131, ayn\u0131 el, iki farkl\u0131 yap\u0131 iki farkl\u0131 turnuvad\u0131r. \xD6deme merdiveni d\xFCzse, yani \xFC\xE7\xFCnc\xFC s\u0131ra birincinin yar\u0131s\u0131ndan fazlas\u0131n\u0131 al\u0131yorsa, her eleme b\xFCy\xFCk para demektir ve prim tavana yak\u0131nd\u0131r. \xD6deme tepe-a\u011F\u0131rsa, birinci havuzun b\xFCy\xFCk pay\u0131n\u0131 al\u0131yorsa, her basamak k\xFC\xE7\xFCkt\xFCr ve prim chip ev'e yakla\u015F\u0131r \u2014 ayn\u0131 stack'lerle fark iki kat\u0131na kadar \xE7\u0131kabilir. \u0130kinci girdi kalan oyuncu say\u0131s\u0131d\u0131r: masa k\u0131sald\u0131k\xE7a al\u0131nacak basamak azal\u0131r, heads-up'ta prim s\u0131f\u0131rd\u0131r. \xDC\xE7\xFCnc\xFCs\xFC bubble ile final masa aras\u0131 mesafedir \u2014 sahada y\xFCzlerce ki\u015Fi varken bubble patlarsa prim ba\u015Flang\u0131\xE7 seviyesine iner, ama on be\u015F ki\u015Fide patlarsa final masa \xF6demeleri hemen arkada oldu\u011Fundan prim neredeyse hi\xE7 d\xFC\u015Fmez."
+      },
+      {
+        "title": "EK: Canl\u0131 yap\u0131 primi iki koldan d\xFC\u015F\xFCr\xFCr",
+        "bullets": [
+          "K\xF6k hata: 'canl\u0131 turnuva = b\xFCy\xFCk para = daha \xE7ok ICM' sanmak \u2014 \xE7o\u011Funlukla tersi.",
+          "Kol bir, \xF6deme e\u011Frisi: tepesi a\u011F\u0131r \xF6demede (birinci, \xFC\xE7\xFCnc\xFCn\xFCn iki kat\u0131ndan fazlas\u0131n\u0131 al\u0131r; kalibre et) alt basamaklar k\xFC\xE7\xFCk dilim \u2192 prim d\xFC\u015Fer; lineer \xF6demede basamaklar e\u015Fit a\u011F\u0131r \u2192 prim tavan.",
+          "Tepe-a\u011F\u0131r e\u011Fride kapsanan orta y\u0131\u011F\u0131n\u0131n primi belirgin d\xFC\u015Fer, liderinki zaten d\xFC\u015F\xFCk oldu\u011Fundan az de\u011Fi\u015Fir \u2192 asimetri kapan\u0131r: liderin jam aral\u0131\u011F\u0131 daral\u0131r, kapsanan\u0131n call aral\u0131\u011F\u0131 geni\u015Fler.",
+          "Kol iki, tam-b\xFCy\xFCk-blind ante: k\u0131sa masada tam ante potu kabaca \xFC\xE7te bir b\xFCy\xFCt\xFCr \u2192 SB'nin open-jam dilimi katlanarak a\xE7\u0131l\u0131r, limp dilimi daral\u0131r.",
+          "D\xFC\u015F\xFCk prim ve tam ante birle\u015Fince limp geri gelir: g\xFC\xE7l\xFC elle limp-raise lisans\u0131 do\u011Far, zay\u0131f limp de geni\u015Fler."
+        ],
+        "ruleBox": "Tepe-a\u011F\u0131r \xF6deme kapsanan-lider asimetrisini kapat\u0131r, tam-b\xFCy\xFCk-blind ante ise SB'yi jam'e iter \u2014 ikisi birlikte limp'i geri getirir.",
+        "narration": "Canl\u0131 turnuvada para b\xFCy\xFCk diye ICM bask\u0131s\u0131 da b\xFCy\xFCk sanmak k\xF6k hatad\u0131r \u2014 \xE7o\u011Fu zaman tersi do\u011Frudur. Birinci mekanizma \xF6deme e\u011Frisi: tepesi a\u011F\u0131r bir \xF6demede birinci s\u0131ra \xFC\xE7\xFCnc\xFCn\xFCn kabaca iki kat\u0131ndan fazlas\u0131n\u0131 al\u0131yorsa alt basamaklar k\xFC\xE7\xFCk kal\u0131r, prim d\xFC\u015Fer. Ayn\u0131 stack'lerle lineer \xF6demeye ge\xE7ince basamaklar e\u015Fit a\u011F\u0131rla\u015F\u0131r, prim tavana \xE7\u0131kar. Tepe-a\u011F\u0131r e\u011Fride kapsanan orta y\u0131\u011F\u0131n\u0131n primi belirgin d\xFC\u015Fer ama liderinki zaten d\xFC\u015F\xFCk oldu\u011Fundan pek de\u011Fi\u015Fmez \u2014 aradaki asimetri kapan\u0131r, liderin all-in aral\u0131\u011F\u0131 daral\u0131r, kapsanan\u0131n \xE7a\u011F\u0131rma aral\u0131\u011F\u0131 geni\u015Fler. \u0130kinci mekanizma tam b\xFCy\xFCk blind ante: k\u0131sa masada tam ante potu kabaca \xFC\xE7te bir b\xFCy\xFCt\xFCr, small blind'in open-jam dilimini kat kat a\xE7ar ve limp dilimini daralt\u0131r. D\xFC\u015F\xFCk prim ile tam ante bir araya gelince limp geri d\xF6ner \u2014 g\xFC\xE7l\xFC elle bile limp sonra raise mant\u0131kl\u0131 h\xE2le gelir."
+      },
+      {
+        "title": "EK: Prim, riske att\u0131\u011F\u0131n y\u0131\u011F\u0131n ORANIYLA \xE7al\u0131\u015F\u0131r",
+        "bullets": [
+          "K\xF6k hata: 'primim y\xFCzde be\u015F, \xF6yleyse her aral\u0131\u011F\u0131m\u0131 y\xFCzde be\u015F daraltay\u0131m' demek.",
+          "Prim, t\xFCm y\u0131\u011F\u0131n masadayken ge\xE7erli bir say\u0131d\u0131r; iki b\xFCy\xFCk blind'l\u0131k a\xE7\u0131l\u0131\u015Fta y\u0131\u011F\u0131n\u0131n k\xFC\xE7\xFCk bir dilimi riske girer \u2014 a\xE7\u0131l\u0131\u015F aral\u0131klar\u0131 chipEV'den neredeyse ayr\u0131lmaz.",
+          "\xDC\xE7-bet'e cevap y\u0131\u011F\u0131n\u0131n onda birini masaya koyar: ayn\u0131 primle fold belirgin artar, flat yar\u0131lan\u0131r.",
+          "Jam ya da jam'e call tam primi \xF6der.",
+          "S\u0131ralama: a\xE7\u0131l\u0131\u015F chipEV'ye yak\u0131n, \xFC\xE7-bet'e cevap primin kabaca yar\u0131s\u0131, all-in tam prim (kademeler: kalibre et)."
+        ],
+        "ruleBox": "Primi elinin g\xFCc\xFCne de\u011Fil, karar a\u011Fac\u0131ndaki yat\u0131r\u0131m oran\u0131na g\xF6re uygula \u2014 a\xE7\u0131l\u0131\u015F neredeyse dokunmaz, \xFC\xE7-bete cevap yar\u0131 prim, jam tam prim.",
+        "narration": "K\xF6k hata \u015Fu c\xFCmledir: primim y\xFCzde be\u015F, \xF6yleyse b\xFCt\xFCn aral\u0131klar\u0131m\u0131 y\xFCzde be\u015F daraltay\u0131m. Yanl\u0131\u015F, \xE7\xFCnk\xFC prim t\xFCm y\u0131\u011F\u0131n masadayken ge\xE7erli bir say\u0131d\u0131r. \u0130ki b\xFCy\xFCk blind'l\u0131k bir a\xE7\u0131l\u0131\u015Fta y\u0131\u011F\u0131n\u0131n k\xFC\xE7\xFCk bir dilimi riske girer, prim orada neredeyse hi\xE7 \u0131s\u0131rmaz \u2014 a\xE7\u0131l\u0131\u015F aral\u0131klar\u0131n chip ev'den bir iki kombinasyon d\u0131\u015F\u0131nda ayr\u0131lmaz. Ama \xFC\xE7-bete cevap verirken y\u0131\u011F\u0131n\u0131n onda birini masaya koyars\u0131n; ayn\u0131 primle bile fold belirgin artar, flat aral\u0131\u011F\u0131n yar\u0131ya iner. Jam atmak ya da jam'e call etmek ise t\xFCm primi \xF6der. Kural \u015Fu: primi elinin g\xFCc\xFCne de\u011Fil, karar a\u011Fac\u0131ndaki derinli\u011Fe g\xF6re uygula. A\xE7\u0131l\u0131\u015F \xE7o\u011Funlukla chip ev'e yak\u0131n kal\u0131r, \xFC\xE7-bete cevap primin kabaca yar\u0131s\u0131n\u0131 ta\u015F\u0131r, all-in tam primi \xF6der. Erken ve orta fazda masada en \xE7ok de\u011Fi\u015Fmesi gereken d\xFC\u011F\xFCm a\xE7\u0131l\u0131\u015F de\u011Fil, \xFC\xE7-bete cevapt\u0131r."
+      },
+      {
+        "title": "EK: Masada \xFC\xE7 ad\u0131mda prim tahmini, d\xF6rt d\xFCzeltici",
+        "bullets": [
+          "Ad\u0131m bir: ka\xE7 ba\u015Flang\u0131\xE7-y\u0131\u011F\u0131n\u0131 tuttu\u011Funu faz katsay\u0131s\u0131yla \xE7arp \u2014 turnuva ba\u015F\u0131nda y\u0131\u011F\u0131n ba\u015F\u0131na kabaca bir puan, ge\xE7 kay\u0131t kapan\u0131rken iki puan, bubble yakla\u015Ft\u0131k\xE7a katlan\u0131r (kalibre et).",
+          "Ad\u0131m iki, da\u011F\u0131l\u0131m d\xFCzeltmesi: chip'ler az elde toplanm\u0131\u015Fsa senin double'\u0131n neredeyse kesin para demektir \u2192 tahminin belirgin \xFCst\xFCne \xE7\u0131k; da\u011F\u0131l\u0131m d\xFCzse tahminin alt\u0131nda kal.",
+          "Ad\u0131m \xFC\xE7, \xF6denen y\xFCzde: sahan\u0131n k\xFC\xE7\xFCk bir dilimi \xF6deniyorsa kalan oyuncu y\xFCzdesi seni yan\u0131lt\u0131r \u2014 ayn\u0131 y\xFCzdede prim d\xFC\u015F\xFCk kal\u0131r; sahan\u0131n b\xFCy\xFCk bir dilimi \xF6deniyorsa ayn\u0131 y\xFCzdede prim daha y\xFCksektir.",
+          "D\xF6rt d\xFCzeltici ekle: min-cash b\xFCy\xFCkl\xFC\u011F\xFC, \xF6deme e\u011Frisinin \u015Fekli, min-cash sonras\u0131 ani basamak var m\u0131, ve rakibin seni cover marj\u0131.",
+          "Post-bubble dev sahada kural kopar: k\u0131rk ba\u015Flang\u0131\xE7-y\u0131\u011F\u0131n\u0131 k\u0131rk puan prim \xFCretmez \u2014 orada \xF6l\xE7\xFC bir sonraki basama\u011Fa uzakl\u0131k ve masadaki stack da\u011F\u0131l\u0131m\u0131d\u0131r."
+        ],
+        "ruleBox": "Molada de\u011Fil masada: ba\u015Flang\u0131\xE7-y\u0131\u011F\u0131n\u0131 say, faz katsay\u0131s\u0131yla \xE7arp, d\xF6rt d\xFCzelticiyi uygula \u2014 dev sahada kural kopar, \xF6l\xE7\xFC bir sonraki basama\u011Fa uzakl\u0131k olur.",
+        "narration": "Bu iki addendumu \xFC\xE7 kademeli bir merdivenle birle\u015Ftirelim. Bir: ka\xE7 ba\u015Flang\u0131\xE7 y\u0131\u011F\u0131n\u0131 tuttu\u011Funu say ve faz katsay\u0131s\u0131yla \xE7arp \u2014 turnuva ba\u015F\u0131nda y\u0131\u011F\u0131n ba\u015F\u0131na k\xFC\xE7\xFCk bir puan, ge\xE7 kay\u0131t kapan\u0131rken daha b\xFCy\xFCk, bubble yakla\u015Ft\u0131k\xE7a katlanan bir puan. \u0130ki: da\u011F\u0131l\u0131m d\xFCzeltmesi yap \u2014 chip'ler az elde toplanm\u0131\u015F ve masalar k\u0131sa y\u0131\u011F\u0131nlarla doluysa senin double'\u0131n neredeyse kesin para demektir, tahminini yukar\u0131 \xE7ek; da\u011F\u0131l\u0131m d\xFCzse a\u015Fa\u011F\u0131 \xE7ek. \xDC\xE7: \xF6denen y\xFCzdeyi kontrol et \u2014 sahan\u0131n k\xFC\xE7\xFCk bir dilimi \xF6deniyorsa kalan oyuncu y\xFCzdesi seni yan\u0131lt\u0131r, ayn\u0131 y\xFCzdede prim d\xFC\u015F\xFCk kal\u0131r; sahan\u0131n b\xFCy\xFCk bir dilimi \xF6deniyorsa ayn\u0131 y\xFCzdede prim daha y\xFCksektir. Buna d\xF6rt d\xFCzeltici ekle: min-cash b\xFCy\xFCkl\xFC\u011F\xFC, \xF6deme e\u011Frisinin \u015Fekli, min-cash sonras\u0131 ani basamak var m\u0131, ve rakibin seni ne kadar cover etti\u011Fi. Dev sahal\u0131 post-bubble'da bu kural kopar \u2014 orada \xF6l\xE7\xFC bir sonraki basama\u011Fa uzakl\u0131k ve masadaki stack da\u011F\u0131l\u0131m\u0131d\u0131r."
+      },
+      {
+        "title": "EK: Bubble patlay\u0131nca prim dibi mesafeye g\xF6re de\u011Fi\u015Fir",
+        "bullets": [
+          "Bubble patlay\u0131nca prim d\xFC\u015Fer \u2014 ama ne kadar d\xFC\u015Ft\xFC\u011F\xFC sabit de\u011Fil, bubble ile final masas\u0131 aras\u0131ndaki mesafeye ba\u011Fl\u0131.",
+          "Saha h\xE2l\xE2 kalabal\u0131kken bubble patlarsa prim neredeyse ba\u015Flang\u0131\xE7 seviyesine iner \u2014 ger\xE7ek bir chip odakl\u0131 pencere a\xE7\u0131l\u0131r.",
+          "Saha final masas\u0131na yak\u0131nken bubble patlarsa final \xF6demeleri hemen arkada \u2014 prim neredeyse hi\xE7 d\xFC\u015Fmez, gev\u015Feme hayaldir.",
+          "Oturmadan \xF6nce yap\u0131 sayfas\u0131ndan iki \u015Feyi oku: \xF6deme e\u011Frisinin d\xFCzl\xFC\u011F\xFC, ve bubble ile final masas\u0131 aras\u0131ndaki oyuncu say\u0131s\u0131.",
+          "D\xFCz \xF6deme art\u0131 kalabal\u0131k saha demek gev\u015Feme yok demek; tepe-a\u011F\u0131r \xF6deme art\u0131 b\xFCy\xFCk saha demek bubble sonras\u0131 ger\xE7ek chip odakl\u0131 pencere demek."
+        ],
+        "ruleBox": "Bubble patlad\u0131ktan sonraki gev\u015Femenin derinli\u011Fi sabit de\u011Fildir \u2014 final masas\u0131na olan mesafeyle \xF6l\xE7eklenir; final masas\u0131 yak\u0131nsa gev\u015Feme neredeyse yoktur.",
+        "narration": "Bubble patlad\u0131\u011F\u0131nda herkes ayn\u0131 \u015Feyi d\xFC\u015F\xFCn\xFCr \u2014 art\u0131k para g\xFCvencede, biraz gev\u015Feyebilirim. Ama bu gev\u015Femenin derinli\u011Fi sabit bir say\u0131 de\u011Fil, final masas\u0131na olan mesafeyle \xF6l\xE7eklenir. Saha h\xE2l\xE2 kalabal\u0131kken bubble patl\u0131yorsa prim ger\xE7ekten ba\u015Flang\u0131\xE7 seviyesine iner \u2014 burada ger\xE7ek bir chip odakl\u0131 pencere a\xE7\u0131l\u0131r, \xE7\xFCnk\xFC final masas\u0131 \xF6demeleri \xE7ok uzakta. Ama saha zaten final masas\u0131na yak\u0131nken bubble patl\u0131yorsa, final masas\u0131 \xF6demeleri hemen arkanda demektir; o zaman prim neredeyse hi\xE7 d\xFC\u015Fmez, gev\u015Feme hayal. Bu y\xFCzden oturmadan \xF6nce yap\u0131 sayfas\u0131ndan iki \u015Feyi oku: \xF6deme e\u011Frisi ne kadar d\xFCz, ve bubble ile final masas\u0131 aras\u0131nda ka\xE7 oyuncu var. D\xFCz \xF6deme art\u0131 kalabal\u0131k saha gev\u015Feme yok demek. Tepe a\u011F\u0131r \xF6deme art\u0131 b\xFCy\xFCk saha ger\xE7ek pencere demek."
       }
     ]
   },
@@ -6619,6 +7099,142 @@ var modules = [
         ],
         "ruleBox": "\u0130nce/statik el kademe iner; k\u0131r\u0131lgan-g\xFC\xE7l\xFC el + k\xF6t\xFC runout \xE7oklu\u011Fu kademe YUKARI \xE7\u0131kar; PKO'da inen yaln\u0131z bl\xF6ft\xFCr.",
         "narration": "Kademe indirmenin s\u0131n\u0131rlar\u0131n\u0131 bil. Koruma beti statik board i\xE7indir: ba\u011Flant\u0131l\u0131 y\xFCksek bir board'da g\xFC\xE7l\xFC ama k\u0131r\u0131lgan el check-raise'e dayanam\u0131yorsa flop'ta check eder, g\xFCvenli turn'de bet atar; \xE7a\u011Fr\u0131lacak her eli bloklayan kilit el turn'de de check eder. Ama el k\u0131r\u0131lgan ve g\xFC\xE7l\xFCyken, board dinamikken ve rakibin aral\u0131\u011F\u0131nda \xE7ift art\u0131 \xE7ekili\u015F kombinasyonu bolken kapsanan k\u0131sa oyuncunun do\u011Fru hatt\u0131 tam tersidir: paray\u0131 \u015Fimdi, h\xE2l\xE2 \xF6ndeyken koyan b\xFCy\xFCk jam. Bu, bir kademe indir kural\u0131n\u0131n tek b\xFCy\xFCk istisnas\u0131d\u0131r ve yaln\u0131z k\u0131sa ile orta stack'te ge\xE7erlidir. PKO ayr\u0131 bir evrendir: kapsanan\u0131n pozitif risk primi yoktur; onu pasif yapan \u015Fey cover edenin kelle i\xE7in geni\u015F \xF6demesidir. Orada bl\xF6f ve barrel kademesi iner, value kademesi inmez. Final masas\u0131nda ICM ve kelle birlikteyse iki indirimi ayr\u0131 hesapla."
+      },
+      {
+        "title": "EK: Set call, top set check \u2014 derin primde river e\u015Fi\u011Fi",
+        "bullets": [
+          "Derin stack ve y\xFCksek primde river b\xFCy\xFCk betine alt-orta set CALL, raise yaln\u0131z top set veya kent.",
+          "Top set \xE7o\u011Funlukla CHECK-back \u2014 rakibin \xF6deyen aral\u0131\u011F\u0131n\u0131 bloklar, \xF6dendi\u011Finde genelde kente \xE7arpar.",
+          "D\xFC\u015F\xFCk iki per top setten daha iyi raise malzemesi \xE7\xFCnk\xFC \xF6deyeni bloklamaz.",
+          "Kuru river'da bile tek per, mesela as-kral, check-back gider \u2014 para artt\u0131k\xE7a tek per k\xF6t\xFCle\u015Fir.",
+          "Kademe e\u015Fikleri kaynakta kalibre edilmemi\u015F i\u015Faretli \u2014 burada y\xF6n var, kesin say\u0131 yok."
+        ],
+        "ruleBox": "Derin ve y\xFCksek primde son sokakta \xF6nce \xF6deyen aral\u0131\u011F\u0131 blokluyor muyum diye sor; set'le call, nut art\u0131 iyi bloker'la raise.",
+        "narration": "Bu slayt derin stack ve y\xFCksek prim kesi\u015Fiminde river davran\u0131\u015F\u0131n\u0131 netle\u015Ftiriyor. Al\u0131\u015Fkanl\u0131\u011F\u0131n set g\xF6rd\xFC\u011F\xFCnde raise, top set g\xF6rd\xFC\u011F\xFCnde g\xFCvenmek; ICM'de bu tersine d\xF6ner. Alt ya da orta set b\xFCy\xFCk bir river betine \xE7o\u011Funlukla sadece \xE7a\u011F\u0131r\u0131r, raise'i top set ya da kentle s\u0131n\u0131rl\u0131 tutar. Top set \xE7o\u011Funlukla check-back'e gider \xE7\xFCnk\xFC elindeki kombinasyon rakibin \xF6deyecek elini zaten blokluyor \u2014 \xF6denirse genelde kent seni ge\xE7mi\u015Ftir. D\xFC\u015F\xFCk iki per ise \xF6deyeni bloklamad\u0131\u011F\u0131 i\xE7in daha iyi bir raise malzemesi. En \xE7arp\u0131c\u0131 k\u0131s\u0131m \u015Fu: kuru bir river'da bile tek per, mesela as-kral, check-back'e gider \u2014 para artt\u0131k\xE7a tek perin de\u011Feri d\xFC\u015Fer, en temiz g\xF6r\xFCnen river'da bile."
+      },
+      {
+        "title": "EK: Kral-y\xFCksek flush jam yok, kapsanan\u0131n river'\u0131 b\xFCy\xFCk bet",
+        "bullets": [
+          "Renk tamamlanan river'da kral-y\xFCksek renk jam etmez, \xE7a\u011F\u0131r\u0131r \u2014 jam'e yaln\u0131z as-y\xFCksek renk \xF6der.",
+          "Renksiz iki per ayn\u0131 river'da bet bile atmaz, direkt \xE7ekilir.",
+          "Kapsanan taraf river'da value'yu JAM de\u011Fil b\xFCy\xFCk bet olarak oynar.",
+          "Bl\xF6f-jam \xE7a\u011Fr\u0131ld\u0131\u011F\u0131nda pahal\u0131ya patlar; jam dilimi bl\xF6f korumas\u0131 olmadan ayakta duramaz."
+        ],
+        "ruleBox": "Derin ve y\xFCksek primde river jam'i dar tutulur \u2014 kral-y\xFCksek renk \xE7a\u011F\u0131r\u0131r, as-y\xFCksek renk \xF6der; kapsanan taraf value'sunu jam yerine b\xFCy\xFCk betle al\u0131r.",
+        "narration": "Ayn\u0131 derin ve y\xFCksek prim ortam\u0131nda iki n\xFCans daha var. Renk tamamlanan bir river'da kral-y\xFCksek renk asla jam etmez, sadece \xE7a\u011F\u0131r\u0131r \u2014 jam'e ancak as-y\xFCksek renk \xF6der, geri kalan her \u015Fey pas ge\xE7er. Renk yapmam\u0131\u015F iki per ise bu river'da bet bile atmaya kalkmaz, direkt \xE7ekilir. \u0130kinci n\xFCans kapsanan taraf i\xE7in, yani daha k\u0131sa stack'li ve masay\u0131 domine eden rakip kar\u015F\u0131s\u0131ndaki oyuncu i\xE7in. O taraf river'da value elini jam olarak de\u011Fil, b\xFCy\xFCk bir bet olarak oynar. Sebep \u015Fu: bl\xF6f-jam'ler \xE7a\u011Fr\u0131ld\u0131\u011F\u0131nda a\u015F\u0131r\u0131 pahal\u0131ya mal olur, jam dilimi yeterli bl\xF6f kar\u0131\u015F\u0131m\u0131 ta\u015F\u0131madan tek ba\u015F\u0131na ayakta duramaz. Cover eden taraf ayn\u0131 elle rahat\xE7a jam edebilir \xE7\xFCnk\xFC kayb\u0131 g\xF6rece k\xFC\xE7\xFCk; kapsanan taraf\u0131n ayn\u0131 l\xFCks\xFC yoktur."
+      },
+      {
+        "title": "EK: Yo\u011Fun caller'a kar\u015F\u0131 OOP a\xE7\u0131c\u0131 check-first",
+        "bullets": [
+          "Yo\u011Fun bir \xE7a\u011F\u0131ran aral\u0131\u011F\u0131na kar\u015F\u0131 orta-stack OOP a\xE7\u0131c\u0131 flop'ta neredeyse tamamen check eder.",
+          "Bet edilen tek yer e\u015Fle\u015Fmi\u015F as veya kral board'lar\u0131 ile as veya kral art\u0131 iki d\xFC\u015F\xFCk renksiz kart \u2014 k\xFC\xE7\xFCk ve seyrek.",
+          "Tek bir kombonun varl\u0131\u011F\u0131 bile boyu de\u011Fi\u015Ftirir, bu y\xFCzden ezberlemek yerine check-first'e sadele\u015Ftir.",
+          "A\xE7\u0131c\u0131 check ediyorsa pozisyondaki taraf da genelde check-back yapar \u2014 nut h\xE2l\xE2 onun aral\u0131\u011F\u0131nda de\u011Fildir."
+        ],
+        "ruleBox": "Yo\u011Fun \xE7a\u011F\u0131rana kar\u015F\u0131 orta-stack OOP a\xE7\u0131c\u0131 ICM'de check-first't\xFCr; bet/check fark\u0131 tek kombonun varl\u0131\u011F\u0131na ba\u011Fl\u0131ysa ezberlenemez, check'e sadele\u015Ftir.",
+        "narration": "Bu slayt, pozisyon d\u0131\u015F\u0131nda oynayan orta stack'li bir a\xE7\u0131c\u0131n\u0131n yo\u011Fun bir \xE7a\u011F\u0131ran aral\u0131\u011F\u0131na kar\u015F\u0131 ne kadar se\xE7ici olmas\u0131 gerekti\u011Fini konu al\u0131yor. ICM'de bu se\xE7icilik neredeyse s\u0131f\u0131ra iner \u2014 a\xE7\u0131c\u0131 flop'ta neredeyse tamamen check eder. Sebep \u015Fu: \xE7a\u011F\u0131ran\u0131n aral\u0131\u011F\u0131 cepler ve suited broadway'lerle dolu, senin aral\u0131\u011F\u0131n bloker a\u011F\u0131rl\u0131kl\u0131 ve geni\u015F. E\u015Fle\u015Fmemi\u015F kartlar\u0131n bet edecek bir el bulam\u0131yor, e\u015Fle\u015Fen kartlar\u0131n da bet etmek istemiyor \xE7\xFCnk\xFC \xF6denirse kaybediyorsun. Bet edilen tek yer, as ya da kral\u0131n e\u015Fle\u015Fti\u011Fi board'lar \u2014 k\xFC\xE7\xFCk ve seyrek. Tek bir kombonun varl\u0131\u011F\u0131 bile do\u011Fru boyu de\u011Fi\u015Ftirdi\u011Fi i\xE7in ezberlemeye \xE7al\u0131\u015Fmak seni yan\u0131lt\u0131r; bunun yerine sadele\u015Ftir, check-first oyna. Ayna kural da i\u015Fe yarar \u2014 a\xE7\u0131c\u0131 check ediyorsa, pozisyondaki taraf da genelde check-back yapar, \xE7\xFCnk\xFC nut h\xE2l\xE2 onun aral\u0131\u011F\u0131nda de\u011Fildir."
+      },
+      {
+        "title": "EK: Kapsanan\u0131n check-raise'i \u2014 bir sokakl\u0131k koruma",
+        "bullets": [
+          "Kapsanan taraf\u0131n check-raise'i sald\u0131r\u0131 de\u011Fil koruma \u2014 cover edenin geni\u015F stab'ine kar\u015F\u0131 bir sokak value al\u0131r, sonra durur.",
+          "Check-raise sonras\u0131 turn'de check ya da k\xFC\xE7\xFCk bet \u2014 jam yok, stack-off yok, oran b\xFCy\xFCk kal\u0131r.",
+          "Bl\xF6f malzemesi stab'lenmemi\u015F backdoor \xE7\xF6p\xFC ve call'a yetmeyen ama fold'a da yaz\u0131k gelen eller.",
+          "Ters koltukta, b\xFCy\xFCk stack pozisyonda ve kapsanan pozisyon d\u0131\u015F\u0131ndaysa, check-raise s\u0131f\u0131ra iner."
+        ],
+        "ruleBox": "Kapsanan\u0131n check-raise'i agresyon de\u011Fil korumad\u0131r: cover edenin geni\u015F stab'ine kar\u015F\u0131 bir sokak value, sonra fren; chip-EV'de barrel'\u0131n ba\u015Flang\u0131c\u0131 olan check-raise, ICM'de tek sokakl\u0131k bir ara\xE7t\u0131r.",
+        "narration": "Kapsanan taraf check-raise yapt\u0131\u011F\u0131nda, al\u0131\u015Fkanl\u0131\u011F\u0131n bunu bir barrel'\u0131n ba\u015Flang\u0131c\u0131 sanmand\u0131r \u2014 raise et, sonra bas. ICM'de bu yanl\u0131\u015F. Cover eden taraf geni\u015F ve polar stab'lerken, kapsanan\u0131n check-raise'i h\xE2l\xE2 var ama \u015Fekil de\u011Fi\u015Ftiriyor: ama\xE7 sald\u0131r\u0131 de\u011Fil koruma, bir sokak value almak ve durmak. Check-raise'den sonra turn genelde check ya da k\xFC\xE7\xFCk bir bet \u2014 jam yok, stack-off yok, oran b\xFCy\xFCk kal\u0131r. Bl\xF6f malzemesi de de\u011Fi\u015Fir: stab'lemedi\u011Fin backdoor \xE7\xF6p\xFC ve \xE7a\u011F\u0131rmaya yetmeyen ama katlamaya da yaz\u0131k gelen eller. Her backdoor \xE7\xF6p\xFCn\xFC zaten stab'lersen, check-raise bl\xF6f\xFCn i\xE7in hi\xE7bir \u015Fey kalmaz. Son bir incelik: koltuklar tersine d\xF6nerse, yani b\xFCy\xFCk stack pozisyon d\u0131\u015F\u0131nda ve kapsanan taraf pozisyondaysa, check-raise neredeyse hi\xE7 g\xF6r\xFClmez \u2014 koruma ihtiyac\u0131 yoktur, \xE7\xFCnk\xFC kapsanan zaten dar stab'liyordur."
+      },
+      {
+        "title": "EK: River'\u0131 yeniden a\xE7ma e\u015Fi\u011Fi \u2014 call aral\u0131\u011F\u0131n\u0131 yen",
+        "bullets": [
+          "River'da yeniden a\xE7an elin e\u015Fi\u011Fi equity de\u011Fil, rakibin \xC7A\u011EIRACA\u011EI aral\u0131kt\u0131r.",
+          "Pozisyondaki taraf pozisyon d\u0131\u015F\u0131na g\xF6re bir kademe s\u0131k\u0131 oynar \u2014 check-back zaten g\xFCvenli showdown'a g\xF6t\xFCr\xFCr, deny g\xF6revini pozisyon d\u0131\u015F\u0131n\u0131n bet'i \xFCstlenir.",
+          "Renk tamamland\u0131\u011F\u0131nda elinde renk olsa bile k\xFC\xE7\xFCk bet at, korunmu\u015F kal.",
+          "D\xFC\u015F\xFCk SPR oran\u0131 lisans de\u011Fildir \u2014 \xE7ok s\u0131\u011F oranlarda bile top pair check'e gidebilir.",
+          "Kapsanan \u0130P: turn boyu d\xFC\u015Fer, river'da tek per b\xFCy\xFCk boyla asla, k\xFC\xE7\xFCk boyla yaln\u0131z en iyi kombo."
+        ],
+        "ruleBox": "River'\u0131 yeniden a\xE7an el rakibin \xE7a\u011F\u0131rma aral\u0131\u011F\u0131n\u0131 yenmeli, aral\u0131\u011F\u0131n\u0131 de\u011Fil; y\xFCksek equity bile otomatik b\xFCy\xFCk boy value anlam\u0131na gelmez, d\xFC\u015F\xFCk SPR oran\u0131 lisans vermez.",
+        "narration": "River'da bet atman\u0131n e\u015Fi\u011Fi equity de\u011Fil, rakibin \xE7a\u011F\u0131raca\u011F\u0131 aral\u0131kt\u0131r \u2014 katlanan her el zaten yendi\u011Fin el, \xF6deyen her el seni yenen el. Pozisyondaki taraf pozisyon d\u0131\u015F\u0131na g\xF6re bir kademe daha s\u0131k\u0131 oynamal\u0131, \xE7\xFCnk\xFC check-back opsiyonu onu g\xFCvenli bir showdown'a g\xF6t\xFCr\xFCyor; deny g\xF6revini \xFCstlenen pozisyon d\u0131\u015F\u0131n\u0131n bet'i. Renk tamamlanan bir river'da elinde renk olsa bile k\xFC\xE7\xFCk bet at ve korunmu\u015F kal \u2014 rakibin daha y\xFCksek bir renk ta\u015F\u0131ma ihtimali senin sand\u0131\u011F\u0131ndan fazla olabilir. Ve son uyar\u0131: \xE7ok d\xFC\u015F\xFCk oran sana otomatik jam lisans\u0131 vermez, \xE7ok s\u0131\u011F oranlarda bile top pair gibi eller check'e gidebilir. Kapsanan taraf i\xE7in kural s\u0131k\u0131la\u015F\u0131r: turn boyu d\xFC\u015Fer, river'da tek per b\xFCy\xFCk boyla asla oynanmaz, k\xFC\xE7\xFCk boyla ancak en iyi kombosu gider."
+      },
+      {
+        "title": "EK: Turn boyu kart\u0131n y\xFCksekli\u011Fiyle d\xF6ner",
+        "bullets": [
+          "D\xFC\u015F\xFCk turn \u2014 board'un \xFCst kart\u0131n\u0131n alt\u0131ndaki kart \u2014 k\xFC\xE7\xFCk ve lineer: per'siz eller bile value bet eder.",
+          "Y\xFCksek turn \u2014 board'un \xFCst\xFCnde veya \xFCst kart\u0131 e\u015Fleyen \u2014 polar ve b\xFCy\xFCk: en iyi kombolar ile en d\xFC\u015F\xFCk kartlar bet eder.",
+          "Board'un e\u015Fle\u015Fti\u011Fi d\xFC\u015F\xFCk turn check edilir, bl\xF6f\xFC geli\u015Ftiren d\xFC\u015F\xFCk turn bet edilir.",
+          "K\xFC\xE7\xFCk turn att\u0131ysan river'da yar\u0131m pot yeter \u2014 jam'i rakibe b\u0131rak, stack-off'u kendin a\xE7ma."
+        ],
+        "ruleBox": "ICM'de turn boyu sokak ba\u015F\u0131na se\xE7ilir, geometrik plan ikinci s\u0131radad\u0131r: d\xFC\u015F\xFCk kart lineer-k\xFC\xE7\xFCk, y\xFCksek kart polar-b\xFCy\xFCk.",
+        "narration": "Turn boyunu belirleyen \u015Fey geometrik bir plan de\u011Fil, turn kart\u0131n\u0131n y\xFCksekli\u011Fi. D\xFC\u015F\xFCk bir turn geldiyse, yani board'un \xFCst kart\u0131n\u0131n alt\u0131nda bir kartsa, boy k\xFC\xE7\xFCk ve lineer kal\u0131r \u2014 per'i olmayan eller bile value bet eder, \xE7\xFCnk\xFC rakibin e\u015Fle\u015Fmemi\u015F k\xFCtlesi h\xE2l\xE2 katlan\u0131r. Y\xFCksek bir turn geldiyse, board'un \xFCst\xFCnde ya da \xFCst kart\u0131 e\u015Fleyen bir kartsa, boy polar ve b\xFCy\xFCk olur \u2014 sadece en iyi kombolar ve en d\xFC\u015F\xFCk kartlar bet eder, orta per'ler check'e gider. \u0130ki ince kural daha: board'un kendi kart\u0131n\u0131 e\u015Fledi\u011Fi d\xFC\u015F\xFCk turn'de check et \xE7\xFCnk\xFC value k\xFC\xE7\xFCl\xFCr ve bl\xF6fler geli\u015Fmez; ama bl\xF6f\xFCn\xFC geli\u015Ftiren d\xFC\u015F\xFCk bir turn geldiyse bet et. Son not: k\xFC\xE7\xFCk boyla att\u0131\u011F\u0131n bir turn'den sonra river'da yar\u0131m pot yeter \u2014 jam'i rakibe b\u0131rak, stack-off'u kendin a\xE7ma."
+      },
+      {
+        "title": "EK: Lider OOP'un bl\xF6f malzemesi \u2014 rakibin tepesini blokla",
+        "bullets": [
+          "Lider OOP'un a\xE7\u0131\u015F aral\u0131\u011F\u0131 geni\u015F ve zay\u0131f, kapsanan \xE7a\u011F\u0131ran\u0131n aral\u0131\u011F\u0131 y\xFCksek-kart yo\u011Fun \u2014 doku board haritas\u0131n\u0131 ters \xE7evirir.",
+          "As-d\xFC\u015F\xFCk ve d\xFC\u015F\xFCk-e\u015Fle\u015Fmi\u015F board'larda equity dezavantaj\u0131nda bile pot boy polar oyna: value cep-as, set, as-d\xFC\u015F\xFCk iki per.",
+          "Bl\xF6f malzemesi rakibin TEPES\u0130N\u0130 bloklayan el \u2014 suited kral-x, \xFC\xE7-\xFC\xE7 board'unda kral-vezir veya kral-vale, k\xFC\xE7\xFCk cepler.",
+          "Pot'tan sonra rakibin as-x'i kay\u0131ts\u0131z kal\u0131r, turn'de as-y\xFCksek'ler katlan\u0131r, kral river'da neredeyse aral\u0131k jam."
+        ],
+        "ruleBox": "Lider OOP olarak bl\xF6f\xFC equity'yle de\u011Fil, rakibin yo\u011Fun aral\u0131\u011F\u0131n\u0131n tepesini bloklay\u0131p bloklamad\u0131\u011F\u0131na g\xF6re se\xE7; as-d\xFC\u015F\xFCk ve d\xFC\u015F\xFCk-e\u015Fle\u015Fmi\u015F board pot-boy senin do\u011Fan.",
+        "narration": "Bu slayt lider pozisyonundaki, yani pozisyon d\u0131\u015F\u0131nda oynayan b\xFCy\xFCk stack'in bl\xF6f se\xE7imini konu al\u0131yor. \u0130\xE7g\xFCd\xFCn bl\xF6f\xFC equity'ye g\xF6re se\xE7mek \u2014 \xE7ekili\u015F elleri. Ama ICM'de b\xFCy\xFCk stack'in a\xE7\u0131l\u0131\u015F aral\u0131\u011F\u0131 geni\u015F ve zay\u0131f, kapsanan \xE7a\u011F\u0131ran\u0131n aral\u0131\u011F\u0131 ise y\xFCksek-kart yo\u011Fun, \xE7\xFCnk\xFC sadece kuvvetli elleri flat'lemi\u015F. Bu y\xFCzden as-d\xFC\u015F\xFCk ya da d\xFC\u015F\xFCk-e\u015Fle\u015Fmi\u015F board'lar equity dezavantaj\u0131nda bile lidere \xE7al\u0131\u015F\u0131r \u2014 pot boy polar oyna. Value taraf\u0131 cep-as, set ve as-d\xFC\u015F\xFCk iki per. Bl\xF6f taraf\u0131 ise equity de\u011Fil, rakibin aral\u0131\u011F\u0131n\u0131n tepesini bloklayan eller \u2014 suited kral-x, \xFC\xE7-\xFC\xE7 board'unda kral-vezir ya da kral-vale, k\xFC\xE7\xFCk cepler. Pot bet'ten sonra rakibin as-x'i kay\u0131ts\u0131z kal\u0131r, turn'de as-y\xFCksek'ler katlan\u0131r, kral gelen river'da rakip neredeyse t\xFCm aral\u0131\u011F\u0131yla jam yer."
+      },
+      {
+        "title": "EK: Kral-y\xFCksek board lidere neden k\xF6t\xFC",
+        "bullets": [
+          "Kral-y\xFCksek board lidere k\xF6t\xFC \xE7al\u0131\u015F\u0131r \u2014 elinde offsuit as \xE7ok, kral-x az.",
+          "Flop'ta yar\u0131 check k\xFC\xE7\xFCk boy; turn'de yaln\u0131z k\xFC\xE7\xFCk ve GEN\u0130\u015E value \u2014 kral-x, vezir-vezir, vale-vale dahil.",
+          "\xC7a\u011F\u0131ran\u0131n flop call'\u0131 \xE7ift art\u0131 as-y\xFCksek'tir, turn'deki k\xFC\xE7\xFCk bete genelde katlan\u0131r.",
+          "Dam-vale-on lider i\xE7in en k\xF6t\xFC board \u2014 aral\u0131k-check; rakibin nut'u orada."
+        ],
+        "ruleBox": "Kral-y\xFCksek board lidere k\xF6t\xFC \xE7al\u0131\u015F\u0131r: flop yar\u0131-check k\xFC\xE7\xFCk, turn yaln\u0131z k\xFC\xE7\xFCk ve geni\u015F value; dam-vale-on lidere kar\u015F\u0131 en k\xF6t\xFC board, aral\u0131k-check gerekir.",
+        "narration": "Bir \xF6nceki kural\u0131n istisnas\u0131 kral-y\xFCksek board. Burada lider a\xE7\u0131s\u0131ndan resim tersine d\xF6ner \xE7\xFCnk\xFC elinde offsuit as \xE7ok, kral-x azd\u0131r \u2014 aral\u0131k yap\u0131s\u0131 bu board'da liderin lehine de\u011Fil. Flop'ta yar\u0131 frekansla ve k\xFC\xE7\xFCk boyla check-bet kar\u0131\u015F\u0131m\u0131 oyna. Turn'de ise yaln\u0131z k\xFC\xE7\xFCk boy ve geni\u015F bir value dilimi kullan \u2014 kral-x, vezir-vezir, vale-vale gibi eller bile value bet atar, \xE7\xFCnk\xFC \xE7a\u011F\u0131ran\u0131n flop call'\u0131 zaten \xE7ift art\u0131 as-y\xFCksek a\u011F\u0131rl\u0131kl\u0131 ve k\xFC\xE7\xFCk turn bet'ine genelde katlan\u0131r. Dam-vale-on gibi bir board ise liderin en k\xF6t\xFC board'u \u2014 burada nut kapsanan \xE7a\u011F\u0131ran\u0131n elinde, o y\xFCzden aral\u0131k-check oyna. As-art\u0131-broadway board'lar\u0131nda yar\u0131m pot ya da check yeterli, ikinci \xE7ift kral-x ise \xE7ok sokakl\u0131 bl\xF6f malzemesi \xE7\xFCnk\xFC kral'\u0131 bloklar."
+      },
+      {
+        "title": "EK: 'Bluff-catcher'a d\xF6n\xFC\u015Fme' lead'i",
+        "bullets": [
+          "Rakibin ana boyu b\xFCy\xFCk veya overbet ise, check etti\u011Finde iki per bile bluff-catcher'a d\xF6n\xFC\u015F\xFCr.",
+          "K\xFC\xE7\xFCk bir lead \u2014 potun onda biri ile \xFC\xE7te biri aras\u0131 \u2014 rakibin check-back edece\u011Fi tek per'lerden \xF6deme toplar.",
+          "Raise gelirse nut dilimi reopen eder, iki per katlanabilir; bl\xF6f ihtiyac\u0131 d\xFC\u015F\xFCk, ka\xE7\u0131r\u0131lm\u0131\u015F \xE7ekili\u015Fler yeter.",
+          "En geni\u015F cover eden b\xFCy\xFCk blind'de, kapsanan b\xFCy\xFCk blind'de yaln\u0131z en g\xFC\xE7l\xFC dilimle uygulan\u0131r."
+        ],
+        "ruleBox": "Check edersen b\xFCy\xFCk bet yiyip bluff-catcher olacaksan k\xFC\xE7\xFCk bir lead at; check edersen zaten k\xFC\xE7\xFCk bet yiyeceksen check-call'a devam et.",
+        "narration": "Bu kural iki per ya da g\xFC\xE7l\xFC tek per elleriyle, pozisyon d\u0131\u015F\u0131nda oynarken devreye girer. Check edersen rakibin sana b\xFCy\xFCk ya da overbet boyutunda gelme ihtimali y\xFCksekse, iki per gibi g\xFC\xE7l\xFC bir el bile bir bluff-catcher'a d\xF6n\xFC\u015F\xFCr \u2014 y\xFCksek primde bu iki kez de\u011Fer yakar. \xC7\xF6z\xFCm k\xFC\xE7\xFCk bir lead: potun onda biri ile \xFC\xE7te biri aras\u0131nda bir boy. Bu, rakibin check-back edece\u011Fi b\xFCt\xFCn tek per'lerden \xF6deme toplar ve seni b\xFCy\xFCk bete maruz b\u0131rakmaz. Raise gelirse endi\u015Felenme \u2014 nut dilimin, yani kent ya da set, geri a\xE7ar; iki per gibi orta eller o zaman katlanabilir. Bl\xF6f ihtiyac\u0131n da d\xFC\u015F\xFCk, ka\xE7\u0131r\u0131lm\u0131\u015F \xE7ekili\u015Fler yeterli. Bu taktik seni cover eden b\xFCy\xFCk blind'de en geni\u015F uygulan\u0131r, sen kapsananken yaln\u0131z en g\xFC\xE7l\xFC dilimle kullan\u0131l\u0131r."
+      },
+      {
+        "title": "EK: Kilitli rakibe bask\u0131 boyla de\u011Fil frekansla sat\u0131l\u0131r",
+        "bullets": [
+          "ICM ile kilitlenmi\u015F rakip fiyat okumaz \u2014 zay\u0131f elini boydan ba\u011F\u0131ms\u0131z katlar, en ucuz boy ayn\u0131 fold'u al\u0131r.",
+          "Bask\u0131y\u0131 boyu de\u011Fil FREKANSI y\xFCkselterek sat: daha \xE7ok el a\xE7, daha s\u0131k bet at, her biri k\xFC\xE7\xFCk.",
+          "\u0130stisna bir \u2014 jam-or-fold band\u0131ndaki k\u0131sa blind fiyata g\xF6re \xE7a\u011F\u0131r\u0131yorsa, \xE7a\u011Fr\u0131y\u0131 kesmek i\xE7in boy b\xFCy\xFCr.",
+          "\u0130stisna iki \u2014 kilitli de\u011Fil, fiyat okuyan rakibe kar\u015F\u0131 standart b\xFCy\xFCk veya polar boy ge\xE7erli kal\u0131r."
+        ],
+        "ruleBox": "Rec'e ya da kilitli rakibe kar\u015F\u0131 boyu elinle se\xE7, reg'e kar\u015F\u0131 aral\u0131\u011F\u0131nla \u2014 kilitli hedefe bask\u0131 frekansla sat\u0131l\u0131r, boyla de\u011Fil.",
+        "narration": "Yayg\u0131n bir \xF6\u011Freti b\xFCy\xFCk veya polar boyun her zaman bask\u0131 satt\u0131\u011F\u0131n\u0131 s\xF6yler, ama bu rakibin fiyat okudu\u011Funu varsayar. ICM ile kilitlenmi\u015F bir rakip fiyat okumaz \u2014 zay\u0131f offsuit elini, zay\u0131f tek perini boydan ba\u011F\u0131ms\u0131z katlar. Fold oran\u0131 boydan ba\u011F\u0131ms\u0131zsa, ayn\u0131 fold'u en ucuz boy da al\u0131r. Bu durumda bask\u0131y\u0131 boyu b\xFCy\xFCterek de\u011Fil, frekans\u0131 y\xFCkselterek satars\u0131n: daha \xE7ok el a\xE7, daha s\u0131k bet at, her birini k\xFC\xE7\xFCk tut. \u0130ki istisna var. Birincisi, jam-or-fold band\u0131ndaki k\u0131sa blind fiyata g\xF6re \xE7a\u011F\u0131r\u0131yorsa, o \xE7a\u011Fr\u0131y\u0131 kesmek i\xE7in boy b\xFCy\xFCmeli. \u0130kincisi, kilitli olmayan ve fiyat okuyan bir rakibe kar\u015F\u0131 standart b\xFCy\xFCk ya da polar boy yine ge\xE7erli. \u0130lke \u015Fu: amat\xF6re ya da kilitliye kar\u015F\u0131 boyu elinle se\xE7, d\xFCzenli oyuncuya kar\u015F\u0131 aral\u0131\u011F\u0131nla se\xE7."
+      },
+      {
+        "title": "EK: Nut ellerin i\u015Fi potu \u015Fi\u015Firmek de\u011Fil, ince value'yu korumak",
+        "bullets": [
+          "Y\xFCksek primde kapsanan taraf stack-off e\u015Fi\u011Fini nut'a \xE7eker \u2014 b\xFCy\xFCk boy geldi\u011Finde tek per, iki per, hatta alt set bile katlan\u0131r.",
+          "Nut ellerin \xE7o\u011Funlukla az\u0131nl\u0131k, ince value'nun \u2014 k\xFC\xE7\xFCk \xE7ift, orta kart, d\xFC\u015F\xFCk iki \xE7ift \u2014 bol oldu\u011Fu aral\u0131klarda b\xFCy\xFCk boy nut'u \xF6dettirmez, ince value'yu \xF6dettirir.",
+          "Lead atan taraf \xFC\xE7 sokak boyunca k\xFC\xE7\xFCk boyla oyna, potun onda biri ile \xFC\xE7te biri aras\u0131; overbet neredeyse hi\xE7 g\xF6r\xFClmez.",
+          "Kar\u015F\u0131 taraf k\xFC\xE7\xFCk bete raise ederse elindeki setle ya da d\xFCz ile yeniden a\xE7 \u2014 jam et.",
+          "S\u0131n\u0131r: nut dilimi aral\u0131\u011F\u0131n az\u0131nl\u0131\u011F\u0131 de\u011Fil \xE7o\u011Funlu\u011Fuysa bu kural tersine d\xF6ner, b\xFCy\xFCk boy geri gelir."
+        ],
+        "ruleBox": "Nut'un az\u0131nl\u0131kta oldu\u011Fu aral\u0131kta i\u015Fi potu \u015Fi\u015Firmek de\u011Fil, ince value'yu \xFC\xE7 sokak boyunca k\xFC\xE7\xFCk boyla korumakt\u0131r.",
+        "narration": "Elinde nut varken do\u011Fal refleks potu \u015Fi\u015Firmek \u2014 ama y\xFCksek primde bu ters teper. Kapsanan taraf stack-off e\u015Fi\u011Fini nut'a \xE7eker; b\xFCy\xFCk bir boy ya da all-in geldi\u011Finde elindeki tek \xE7ifti, iki \xE7ifti, hatta k\xFC\xE7\xFCk seti bile katlar. Yani nut'unu b\xFCy\xFCk oynarsan \xF6deyen kalmaz. Bunun yerine bak: aral\u0131\u011F\u0131nda nut az\u0131nl\u0131kta ama k\xFC\xE7\xFCk \xE7ift, orta kart, d\xFC\u015F\xFCk iki \xE7ift gibi ince value bol. O ince value her sokakta k\xFC\xE7\xFCk boyla \xF6denir. Do\u011Fru i\u015F, \xFC\xE7 sokak boyunca k\xFC\xE7\xFCk boyla o ince value aral\u0131\u011F\u0131n\u0131 korumak \u2014 overbet neredeyse hi\xE7 g\xF6r\xFClmemeli. Rakip k\xFC\xE7\xFCk betine raise ederse elindeki setle ya da d\xFCz ile yeniden a\xE7, yani jam et. Ama dikkat: nut'un aral\u0131\u011F\u0131nda az\u0131nl\u0131k de\u011Fil \xE7o\u011Funluk oldu\u011Fu durumlarda bu kural tersine d\xF6ner, b\xFCy\xFCk boy geri gelir."
+      },
+      {
+        "title": "EK: K\u0131r\u0131lgan g\xFC\xE7l\xFC el her zaman bet de\u011Fildir",
+        "bullets": [
+          "Koruma ama\xE7l\u0131 bet refleksi kuru, statik y\xFCksek board'lar i\xE7in do\u011Frudur \u2014 orada g\xFC\xE7l\xFC ama k\u0131r\u0131lgan elini y\xFCksek frekansla k\xFC\xE7\xFCk boyla koru.",
+          "Ba\u011Flant\u0131l\u0131 y\xFCksek board'da \u2014 birbirine yak\u0131n \xFC\xE7 y\xFCksek kart \u2014 ayn\u0131 refleks yanl\u0131\u015F; equity y\xFCksek olsa da bet frekans\u0131 d\xFC\u015Fer, flop'ta check et.",
+          "Ba\u011Flant\u0131l\u0131 board'da elin renk ya da d\xFCz tamamlayan bir kartla kolayca geride kal\u0131r ve check-raise'e dayanamaz \u2014 g\xFCvenli turn'\xFC bekle, sonra bet et.",
+          "Rakibinin \xE7a\u011F\u0131raca\u011F\u0131 her eli bloklayan ger\xE7ek kilit el \u2014 k\xFC\xE7\xFCk set gibi \u2014 turn'de kendisi de check-back eder, korumaya ihtiyac\u0131 yoktur.",
+          "Bu asimetri yaln\u0131z kapsanan tarafa ait \u2014 rakip yaln\u0131z kendi equity'sine g\xF6re bet eder, bunu unutma."
+        ],
+        "ruleBox": "Y\xFCksek primde lisans equity de\u011Fil dayan\u0131kl\u0131l\u0131kt\u0131r \u2014 ba\u011Flant\u0131l\u0131 board'da g\xFC\xE7l\xFC-ama-k\u0131r\u0131lgan el flop'ta check, g\xFCvenli turn'de bet.",
+        "narration": "K\u0131r\u0131lgan ama g\xFC\xE7l\xFC bir elin varken koruma i\xE7in bet at refleksi her board'da do\u011Fru de\u011Fil. Kuru, statik y\xFCksek bir board'da do\u011Fru \u2014 orada elini y\xFCksek frekansla k\xFC\xE7\xFCk boyla koruyabilirsin, kimse seni kolayca ge\xE7emez. Ama board ba\u011Flant\u0131l\u0131ysa, yani birbirine yak\u0131n \xFC\xE7 y\xFCksek kart varsa, ayn\u0131 refleks seni yakar. Equity'n h\xE2l\xE2 y\xFCksek g\xF6r\xFCnse de bet frekans\u0131n d\xFC\u015Fmeli \u2014 flop'u check ge\xE7. \xC7\xFCnk\xFC o board'da renk ya da d\xFCz tamamlayan bir turn kart\u0131 elini h\u0131zla geride b\u0131rak\u0131r, check-raise geldi\u011Finde dayanamazs\u0131n. Onun yerine g\xFCvenli bir turn kart\u0131 bekle, sonra bet et. Ger\xE7ek kilit el, yani rakibin \xE7a\u011F\u0131rabilece\u011Fi her eli bloklayan k\xFC\xE7\xFCk set gibi bir el, turn'de kendisi de check-back eder \u2014 zaten koruma gerekmiyor. Ve unutma, bu asimetri yaln\u0131z kapsanan tarafa ait; rakip sadece kendi equity'sine g\xF6re oynar."
       },
       {
         title: "Cheat kart\u0131 + drill",
@@ -6775,6 +7391,28 @@ var modules = [
         "narration": "ICM tek elin foto\u011Fraf\u0131d\u0131r ama masa bir film; mikro stack'ler resmi iki y\xF6nde d\xFCzeltir. K\u0131sa bir jam'e kar\u015F\u0131 yakla\u015F\u0131k yirmi iki big blind ve \xFCst\xFCyle varsay\u0131lan cevap call'd\u0131r, rejam de\u011Fil: orta \xE7ift ve as y\xFCksek, k\u0131san\u0131n jam aral\u0131\u011F\u0131n\u0131 domine eder; rejam ise stack'ini arkadaki aral\u0131klara kar\u015F\u0131 riske atar. Tek istisna k\xFC\xE7\xFCk k\xF6r: arkadaki b\xFCy\xFCk k\xF6r katlanabilecek kadar derinse jam. Mikronun jam'ine bir t\u0131k geni\u015F \xF6de; onu yollamak herkesin primini d\xFC\u015F\xFCr\xFCr ve kelep\xE7eni \xE7\xF6zer. Ama jam ve arkas\u0131ndan call g\xF6rd\xFCysen ve masan\u0131n en k\u0131sas\u0131 sensen basamak bedavad\u0131r: onlu, hatta valeli \xE7ifti bile at. Son d\xFCzeltme: mikro zorunlu blind'e yakla\u015F\u0131rken bekleyen sensen call'\u0131n\u0131 daralt; bekleyen rakipse ona jam'ini geni\u015Flet, \xE7\xFCnk\xFC herkesin call'\u0131 senin lehine daralm\u0131\u015Ft\u0131r. E\u015Fikleri kendi solver'\u0131nda kalibre et."
       },
       {
+        "title": "EK: K\u0131sa jam'e kar\u015F\u0131 derin stack \u2014 varsay\u0131lan call",
+        "bullets": [
+          "K\u0131sa jam'e yakla\u015F\u0131k yirmi iki b\xFCy\xFCk blind ve \xFCzerinde bir stack'le kar\u015F\u0131la\u015F\u0131nca varsay\u0131lan hamle REJAM de\u011Fil CALL'd\u0131r.",
+          "K\u0131san\u0131n jam aral\u0131\u011F\u0131 zay\u0131f as-x, k\xFC\xE7\xFCk \xE7ift ve suited kral-x a\u011F\u0131rl\u0131kl\u0131d\u0131r \u2014 orta \xE7ift ve as-y\xFCksek onu domine eder.",
+          "Rejam stack'ini arkadaki aral\u0131klara riske atar: k\xFC\xE7\xFCk \xE7iftle \xF6denmez, overpair'le katlanmaz \u2014 \xE7a\u011Fr\u0131ld\u0131\u011F\u0131nda ezilirsin.",
+          "Call a\u011Fac\u0131 devam aral\u0131\u011F\u0131n\u0131 belirgin geni\u015Fletir, arkadan yeni jam gelirse zay\u0131f katman\u0131 b\u0131rakma opsiyonu verir."
+        ],
+        "ruleBox": "Alt\u0131 ile on iki b\xFCy\xFCk blind aras\u0131 jam'e yakla\u015F\u0131k yirmi iki art\u0131 b\xFCy\xFCk blind ile kar\u015F\u0131la\u015F\u0131nca varsay\u0131lan hamle call'd\u0131r, rejam de\u011Fil \u2014 k\u0131san\u0131n aral\u0131\u011F\u0131 seni domine eder.",
+        "narration": "K\xFC\xE7\xFCk bir jam'e, alt\u0131 ile on iki b\xFCy\xFCk blind aras\u0131 bir all-in'e, senin de yakla\u015F\u0131k yirmi iki b\xFCy\xFCk blind ve \xFCzerinde bir stack'in varsa, sadece jam ya da fold gibi d\xFC\u015F\xFCnmek hata. K\u0131san\u0131n jam aral\u0131\u011F\u0131 zay\u0131f as-x, k\xFC\xE7\xFCk \xE7ift ve suited kral-x ile doludur; senin orta \xE7iftlerin ve as-y\xFCksek ellerin onu domine eder. Rejam yaparsan stack'ini arkadaki oyuncular\u0131n aral\u0131\u011F\u0131na riske atars\u0131n \u2014 onlar k\xFC\xE7\xFCk \xE7iftle \xF6demez ama overpair g\xF6rd\xFCklerinde de katlanmazlar, yani \xE7a\u011Fr\u0131ld\u0131\u011F\u0131nda ezilirsin. Call a\u011Fac\u0131 ise devam edece\u011Fin el yelpazesini belirgin \u015Fekilde geni\u015Fletir, ve arkadan yeni bir jam gelirse zay\u0131f katman\u0131 b\u0131rakma opsiyonu tan\u0131r. K\u0131sacas\u0131, k\u0131sa jam'e kar\u015F\u0131 varsay\u0131lan hamle \xE7a\u011Fr\u0131, rejam sadece \xF6zel bir ara\xE7."
+      },
+      {
+        "title": "EK: Overcall hijyeni ve pozisyon aynas\u0131",
+        "bullets": [
+          "Tek istisna k\xFC\xE7\xFCk blind \u2014 arkas\u0131ndaki b\xFCy\xFCk blind rejam'e katlanacak kadar derinse jam-or-fold oyna.",
+          "Derin rejam arkadaki call aral\u0131klar\u0131n\u0131 daraltt\u0131\u011F\u0131 i\xE7in buton ve kesici pozisyon rejam'i biraz geni\u015Fleyebilir.",
+          "Belirsizlikte varsay\u0131lan hamle CALL'd\u0131r \u2014 bilmiyorsan jam kural\u0131 yaln\u0131z k\xFC\xE7\xFCk blindde ge\xE7erli.",
+          "Ayna kural: erken pozisyondan yeni ge\xE7mi\u015F k\u0131sa jam'i dar tut ona geni\u015F a\xE7; ge\xE7 pozisyondan giren k\u0131saya dar a\xE7."
+        ],
+        "ruleBox": "Belirsizlikte varsay\u0131lan hamle call'd\u0131r, bilmiyorsan jam yaln\u0131z k\xFC\xE7\xFCk blindde ge\xE7erlidir; k\u0131san\u0131n hangi pozisyondan geldi\u011Fi onun jam aral\u0131\u011F\u0131n\u0131n s\u0131k\u0131l\u0131\u011F\u0131n\u0131 belirler.",
+        "narration": "Bir tek istisna var: k\xFC\xE7\xFCk blind koltu\u011Fu. Arkandaki b\xFCy\xFCk blind rejam'e katlanacak kadar derinse, yani fold equity varsa, flat call yerine do\u011Frudan jam ya da fold oyna \u2014 \xE7\xFCnk\xFC flat call, b\xFCy\xFCk blinde pozisyonlu ve ucuz bir overcall ya da squeeze f\u0131rsat\u0131 verir. \u0130kinci katman: derin bir rejam arkadaki oyuncular\u0131n \xE7a\u011F\u0131rma aral\u0131\u011F\u0131n\u0131 daraltt\u0131\u011F\u0131 i\xE7in, buton ve kesici pozisyondaki rejam biraz geni\u015Fleyebilir. Genel ilke \u015Fu: belirsizlikte varsay\u0131lan hamle her zaman \xE7a\u011Fr\u0131d\u0131r, bilmiyorsan jam kural\u0131 sadece k\xFC\xE7\xFCk blindde ge\xE7erli. Son bir ayna kural: k\u0131sa stack erken pozisyondan yeni ge\xE7tiyse jam aral\u0131\u011F\u0131 dard\u0131r, ona kar\u015F\u0131 geni\u015F a\xE7. Ama ayn\u0131 k\u0131sa stack ge\xE7 pozisyondan blind'lara giriyorsa marjinal ellerle de iter, ona kar\u015F\u0131 daha dar a\xE7."
+      },
+      {
         title: "Cheat + Day 2 uygulamas\u0131",
         table: { section: "B\xF6l\xFCm 22", sub: "22.8", caption: "Sinyal \u2192 oku \u2192 aksiyon." },
         bullets: [
@@ -6862,6 +7500,41 @@ var modules = [
         "narration": "K\xF6k hata: iyi el e\u015Fittir jam ezberi. \u0130lke: oynanabilir el call eder, fold ettirmek isteyen el jam'ler. K\u0131sa bantta yaln\u0131z domine etti\u011Fini katlatan y\xFCksek-kart eller, g\xFC\xE7l\xFC suited broadway'ler, \xE7o\u011Funlukla call'\u0131 tercih eder: domine etti\u011Fi elleri potta tutar, equity'yi daha \xE7ok realize eder. Zay\u0131f suited as'lar ve k\xFC\xE7\xFCk \xE7iftler ise \xE7o\u011Funlukla jam. Band\u0131n alt ucunda suited as-onlu, kral-k\u0131z tipi eller de \xE7o\u011Funlukla jam'e kayar; call tercihi bant derinle\u015Ftik\xE7e belirginle\u015Fir, ge\xE7i\u015F noktas\u0131n\u0131 kendi solver'\u0131nda kalibre et. Orta bantta jam birka\xE7 big blind'lik pot i\xE7in t\xFCm stack'i riske atmakt\u0131r; do\u011Fru agresyon k\xFC\xE7\xFCk, all-in olmayan \xFC\xE7-bet; orta suited connector call eli, blokerli krallar ve offsuit broadway'ler \xFC\xE7-bet malzemesi. Havuz hipotezi: big blind k\u0131sada fazla jam'ler, ortada \xFC\xE7-bet'i bulamaz. Sen k\u0131sada call'\u0131, ortada \xFC\xE7-bet aral\u0131\u011F\u0131n\u0131 geni\u015Flet. Fazla jam'leyen big blind'in \xF6n\xFCnde a\xE7an olarak fold equity'n de\u011Fi\u015Fmez; de\u011Fi\u015Fen, pozisyonla flop oynay\u0131p equity realize etme \u015Fans\u0131n\u0131n d\xFC\u015Fmesi ve raise-fold maliyetinin artmas\u0131d\u0131r: s\u0131n\u0131r elleri raise-fold'a g\xF6re fiyatla; showdown'la do\u011Frula, kendi solver'\u0131nda kalibre et."
       },
       {
+        "title": "EK: Balina limp'ine kar\u015F\u0131 \xFC\xE7 soru \u2014 otomatik raise refleksi de\u011Fil",
+        "bullets": [
+          "'Balinaya kar\u015F\u0131 ne olsa raise' refleksi iso aral\u0131\u011F\u0131n\u0131 lineer-geni\u015F kurar, arkadaki jam/\xFC\xE7-bet'e a\xE7\u0131k b\u0131rak\u0131r.",
+          "1) Stack'im jam'e s\u0131\u011F\u0131yor mu? Balina raise'e domine ellerle CALL eder, jam'e etmez \u2192 orta-g\xFC\xE7l\xFC eller RAISE, d\xFC\u015F\xFCk-equity spek\xFClatifler JAM.",
+          "2) Arkada jam'leyebilen ka\xE7 ki\u015Fi var? \xC7oksa iso boyu ve bl\xF6f malzemesi (bloker offsuit) buna g\xF6re se\xE7ilir, arkas\u0131 over-call ediyorsa blind'lar geni\u015F jam'ler.",
+          "3) Arkadakilerle derin miyim? Derinsem commit'in kazan\u0131m\u0131 yok \u2014 non-all-in \xFC\xE7-bet daha iyi; balinan\u0131n nadir tuza\u011F\u0131na ve arkadaki k\u0131sa stack'lere kar\u015F\u0131 jam yaln\u0131z kaybettirir.",
+          "S\u0131k\u0131 balinaya (nadiren raise) kar\u015F\u0131 \xFC\xE7\xFC de daral\u0131r: zay\u0131f \xE7iftler ve suited Ax fold, g\xFC\xE7l\xFC offsuit bile flat."
+        ],
+        "ruleBox": "Balina limp'ine cevap tek refleks de\u011Fil \xFC\xE7 soru: jam'e s\u0131\u011Far m\u0131y\u0131m, arkada ka\xE7 jam'leyebilen var, arkadakilerle derin miyim \u2014 s\u0131ra bunu belirler.",
+        "narration": "Balinaya kar\u015F\u0131 ne olursa olsun raise ya da jam refleksi iso aral\u0131\u011F\u0131n\u0131 do\u011Frusal ve geni\u015F kurar, arkadaki \xFC\xE7 oyuncunun jam'ine ya da \xFC\xE7-bet'ine a\xE7\u0131k b\u0131rak\u0131r. Limp'e cevab\u0131 \xFC\xE7 soru belirler. Birincisi: stack'im jam'e s\u0131\u011F\u0131yor mu? Balina raise'e domine ellerle call eder, jam'e etmez; o y\xFCzden orta g\xFC\xE7te eller raise, domine olan alt k\u0131s\u0131m jam'e gider, \xE7\xFCnk\xFC jam'lersen domine call'\u0131 atars\u0131n. \u0130kincisi: arkada jam'leyebilecek ka\xE7 oyuncu var? Ne kadar \xE7oksa iso boyu o kadar k\xFC\xE7\xFCl\xFCr ve bl\xF6f malzemesi suited connector de\u011Fil bloker ta\u015F\u0131yan offsuit ellere kayar; arkas\u0131 over-call ediyorsa blind'lar geni\u015F jam'lemeye ba\u015Flar, \xE7\xFCnk\xFC o over-call \xF6l\xFC parad\u0131r. \xDC\xE7\xFCnc\xFCs\xFC: arkadakilerle derin miyim? Derinsem jam'in kazan\u0131m\u0131 yoktur, commit eden non-all-in \xFC\xE7-bet daha iyidir; balinan\u0131n nadir tuza\u011F\u0131na ve arkadaki k\u0131sa stack'lere kar\u015F\u0131 jam yaln\u0131z kaybettirir. S\u0131k\u0131 ve nadiren raise eden bir balinaya kar\u015F\u0131 \xFC\xE7\xFC de daral\u0131r: zay\u0131f \xE7iftler ve suited as'lar fold, g\xFC\xE7l\xFC offsuit bile \xFC\xE7-bet edilmeden flat kal\u0131r."
+      },
+      {
+        "title": "EK: FT'de rakip tipine g\xF6re ters y\xF6n \u2014 reg-yo\u011Funda k\xFC\xE7\xFClt, spewy'de s\u0131k\u0131la\u015F",
+        "bullets": [
+          "Reg-yo\u011Fun final masada denge y\xF6n VER\u0130R: herkes yap\u0131\u015Fkan, k\xFC\xE7\xFCk bete raise/float s\u0131k \u2192 k\xFC\xE7\xFCk c-bet/lead'in gizli EV'si \xE7\xF6ker.",
+          "K\xFC\xE7\xFCk-boylu agresyonu (k\xFC\xE7\xFCk c-bet, k\xFC\xE7\xFCk lead, probe) D\xDC\u015E\xDCR; check-call ve check-raise pay\u0131n\u0131 ARTIR \u2014 rakibin agresyonuna kar\u015F\u0131 realize et.",
+          "Spewy/para-sa\xE7an rakibe kar\u015F\u0131 refleks 'daha \xE7ok el' de\u011Fil, tam tersi: VPIP'i hafif DARALT \u2014 onunla varyansa girme.",
+          "\u0130yi elle pot kur (o zaten verecek); bl\xF6f taraf\u0131n\u0131 L\u0130NEER/oynanabilir kur, polarize de\u011Fil \u2014 bl\xF6f\xFCn fold bulmaz zaten."
+        ],
+        "ruleBox": "Reg-yo\u011Fun masada agresyonu k\xFC\xE7\xFClt ve rakibin bet'ini bekleyip raise'le; spewy rakibe kar\u015F\u0131 daha \xE7ok el de\u011Fil daha \xE7ok \u0130Y\u0130 EL oyna.",
+        "narration": "Dengeye d\xF6n \xF6\u011F\xFCd\xFC reg-yo\u011Fun bir final masada y\xF6n de verir. Herkes yap\u0131\u015Fkan oynuyorsa ve k\xFC\xE7\xFCk bete raise ya da float s\u0131ksa, senin k\xFC\xE7\xFCk c-bet'inin ve b\xFCy\xFCk k\xF6r lead'inin gizli beklenen de\u011Feri, yani rakibin gere\u011Finden \xE7ok fold etmesi, \xE7\xF6ker. Bu masada k\xFC\xE7\xFCk boylu agresyonunu, yani k\xFC\xE7\xFCk c-bet, k\xFC\xE7\xFCk lead ve probe bet'lerini d\xFC\u015F\xFCr; check-call ve check-raise pay\u0131n\u0131 art\u0131r. Mant\u0131k \u015Fu: rakibin agresyonuna kar\u015F\u0131 realize edersin, ona k\xFC\xE7\xFCk bete raise lisans\u0131 vermezsin. \u0130kinci d\xFC\u011F\xFCm: ICM balt\u0131nda rec g\xF6rd\xFCm demek value al demektir, ama para sa\xE7an bir oyuncuya kar\u015F\u0131 i\xE7g\xFCd\xFC ters \xE7al\u0131\u015Fabilir. Do\u011Fru exploit daha \xE7ok el oynamak de\u011Fil, daha s\u0131k iyi el tutmakt\u0131r. VPIP'i hafif daralt, onunla gev\u015Feyip varyansa girme; iyi elinle pot kur, \xE7\xFCnk\xFC \xE7ipini zaten sana verecek; bl\xF6f taraf\u0131n\u0131 lineer ve oynanabilir kur, polarize de\u011Fil, \xE7\xFCnk\xFC onun kar\u015F\u0131s\u0131nda bl\xF6f\xFCn zaten fold bulmaz."
+      },
+      {
+        "title": "EK: 'Oynanabilir el CALL, equity-reddi JAM'\u0131n motoru \u2014 a\xE7\u0131c\u0131n\u0131n pozisyonu jam katman\u0131n\u0131 kayd\u0131r\u0131r",
+        "bullets": [
+          "Yirmi b\xFCy\xFCk blind BB'de tek jam listesiyle her a\xE7\u0131l\u0131\u015Fa ayn\u0131 cevap k\xF6k hata; jam'in EV'si 'katlatt\u0131\u011F\u0131m daha iyi el' + 'call ald\u0131\u011F\u0131m daha k\xF6t\xFC el'den gelir.",
+          "A\xE7\u0131c\u0131 ERKEN pozisyondaysa aral\u0131k dar-g\xFC\xE7l\xFC \u2192 K-Qo/A-To katlan\u0131r \u2192 suited T-x/J-x tipi y\xFCksek-suited eller JAM'de de\u011Ferlenir.",
+          "A\xE7\u0131c\u0131 GE\xC7 pozisyondaysa ayn\u0131 eller art\u0131k katlanmaz \u2192 jam bir kademe a\u015Fa\u011F\u0131 iner (suited 9-x, sonra 8-x); \xFCst katman CALL'a ge\xE7er.",
+          "Ayn\u0131 motor A-Js CALL / A-7s JAM paradoksunu \xE7\xF6zer: A-Js jam'de A-Q hi\xE7 katlanmaz, A-T hi\xE7 call etmez; call'da K-J/Q-J/zay\u0131f A-x'i domine eder \u2192 call kazan\u0131r.",
+          "Soru: 'domine etti\u011Fim k\xFCtle CALL'da m\u0131 JAM'de mi para \xF6der?' Havuz suited broadway'i jam'lemekte tutuk \u2192 ge\xE7 a\xE7\u0131l\u0131\u015F\u0131n jam'i teoriden az riskli, a\xE7\u0131l\u0131\u015F bir kademe geni\u015Fler."
+        ],
+        "ruleBox": "\u0130yi el mi diye sorma; domine etti\u011Fin k\xFCtle call'da m\u0131 jam'de mi para \xF6d\xFCyor diye sor \u2014 a\xE7\u0131c\u0131n\u0131n pozisyonu jam katman\u0131n\u0131 bir kademe kayd\u0131r\u0131r.",
+        "narration": "Yirmi big blind'lik b\xFCy\xFCk k\xF6rde tek bir jam listesiyle her a\xE7\u0131l\u0131\u015Fa ayn\u0131 cevab\u0131 vermek k\xF6k hatad\u0131r. Jam'in beklenen de\u011Feri iki kaynaktan gelir: katlatt\u0131\u011F\u0131n daha iyi el ve call ald\u0131\u011F\u0131n daha k\xF6t\xFC el. A\xE7\u0131c\u0131 erken pozisyondaysa aral\u0131\u011F\u0131 dar ve g\xFC\xE7l\xFCd\xFCr; kral-k\u0131z offsuit ya da as-on offsuit gibi eller jam'e katlan\u0131r, bu y\xFCzden onlu ya da vale ta\u015F\u0131yan y\xFCksek suited eller jam'de de\u011Fer kazan\u0131r. A\xE7\u0131c\u0131 ge\xE7 pozisyondaysa ayn\u0131 eller art\u0131k katlanmaz; jam bir kademe a\u015Fa\u011F\u0131 iner, dokuzlu ve sonra sekizli suited ellere kayar, \xFCst katmandaki eller ise art\u0131k call'a ge\xE7er. Ayn\u0131 motor as-vale suited call, as-yedi suited jam \xE7eli\u015Fkisini de \xE7\xF6zer: as-vale jam'ledi\u011Finde as-k\u0131z hi\xE7 katlanmaz, as-on hi\xE7 call etmez; call'da ise kral-vale, k\u0131z-vale ve zay\u0131f as'lar\u0131 domine eder, flop'ta k\xFC\xE7\xFCk bete devam eder ve daha \xE7ok kazan\u0131r. As-yedi suited'in domine etti\u011Fi bir k\xFCtle yoktur, jam'de as-sekiz ve as-dokuzu katlat\u0131r, bu y\xFCzden jam. Soru iyi el mi de\u011Fil, domine etti\u011Fim k\xFCtle call'da m\u0131 jam'de mi para \xF6d\xFCyor sorusudur."
+      },
+      {
         title: "Cheat + drill",
         table: { section: "B\xF6l\xFCm 23", sub: "23.8", caption: "Okuma \u2192 default'tan sapma." },
         bullets: [
@@ -6925,6 +7598,18 @@ var modules = [
         ],
         ruleBox: "\u20AC5K Main: sab\u0131rl\u0131, flip'i pas. \u20AC100K SHR: +$EV marjinali al \u2014 edge yok.",
         narration: "\u015Eimdi bunu senin Barcelona program\u0131na ba\u011Flayal\u0131m. Be\u015F bin \xFC\xE7 y\xFCz euroluk Main event'te edge'in var, \xE7\xFCnk\xFC saha daha geni\u015F ve daha soft; orada marjinal flip'leri pas ge\xE7, sab\u0131rl\u0131 oyna, edge'in sonra daha g\xFCvenli EV \xFCretecek. Ama y\xFCz bin euroluk s\xFCper high roller'da edge'in yok ya da \xE7ok az, \xE7\xFCnk\xFC kar\u015F\u0131nda d\xFCnyan\u0131n en iyileri; orada beklemenin primi d\xFC\u015F\xFCk, ICM d\xFC\u015F\xFCld\xFCkten sonra h\xE2l\xE2 art\u0131-dolar-EV olan marjinal spotlar\u0131 almaktan \xE7ekinme. Ayn\u0131 el, iki turnuvada tam z\u0131t karar verir, ve aradaki tek fark senin edge'in. Tabii s\xFCper high roller'da bile ICM katman\u0131 ayr\u0131 \xE7al\u0131\u015F\u0131r: bir spot ancak risk primi d\xFC\u015F\xFCld\xFCkten sonra h\xE2l\xE2 art\u0131-EV ise al\u0131n\u0131r."
+      },
+      {
+        "title": "EK: Var\u0131\u015F rol\xFC ve saha \xE7arpan\u0131 \u2014 be\u015Finci soru",
+        "bullets": [
+          "Ayn\u0131 double iki farkl\u0131 var\u0131\u015Fa g\xF6t\xFCr\xFCr: otuzdan altm\u0131\u015Fa masay\u0131 domine eden lider, yirmiden k\u0131rka h\xE2l\xE2 cover edilen orta stack.",
+          "Be\u015Finci soru: 'kazan\u0131rsam kim oluyorum?' \u2014 cevap 'herkesi cover eden' ise marjinal gamble AL'a bir kademe yakla\u015F\u0131r, 'yine orta' ise PAS'a.",
+          "Bu kademe b\xFCy\xFCk stack'i iyi oynayaca\u011F\u0131na inan\u0131yorsan b\xFCy\xFCr, rakipler ICM'e duyars\u0131zsa (bask\u0131 sat\u0131lam\u0131yorsa) k\xFC\xE7\xFCl\xFCr.",
+          "Saha \xE7arpan\u0131: ayn\u0131 y\xFCzde birka\xE7 kalan EV'li spot, dev saha bubble'\u0131nda stack'e g\xF6re belirgin daha b\xFCy\xFCk kazan\xE7 ister (kalibre et).",
+          "Zor k\xFC\xE7\xFCk saha (SHR) ile yumu\u015Fak dev saha (Main) z\u0131t u\xE7lard\u0131r; filtre tablosu de\u011Fi\u015Fmez, yaln\u0131zca bu iki \xF6l\xE7\xFCyle okunur."
+        ],
+        "ruleBox": "Gamble karar\u0131n\u0131n d\xF6rt sorusu fiyat\u0131 tartar; var\u0131\u015F rol\xFC ve saha b\xFCy\xFCkl\xFC\u011F\xFC kademeyi ince ayarlar \u2014 filtre ayn\u0131 kal\u0131r.",
+        "narration": "Gamble karar\u0131n\u0131n d\xF6rt sorusu fiyat\u0131 tart\u0131yordu; iki ek \xF6l\xE7\xFC var\u0131\u015F noktas\u0131n\u0131 tart\u0131yor. Be\u015Finci soru \u015Fu: kazan\u0131rsam kim oluyorum? Ayn\u0131 double iki farkl\u0131 stack'e farkl\u0131 bir \u015Fey verir \u2014 biri masay\u0131 domine eden lidere d\xF6n\xFC\u015F\xFCr, \xF6b\xFCr\xFC h\xE2l\xE2 cover edilen orta stack olarak kal\u0131r. Cevap herkesi cover eden lider ise, marjinal gamble alma karar\u0131na bir kademe yakla\u015F\u0131r; cevap yine orta stack ise pas ge\xE7meye yakla\u015F\u0131r. Bu kademe, b\xFCy\xFCk stack'i iyi oynayaca\u011F\u0131na inan\u0131yorsan b\xFCy\xFCr; rakipler ICM bask\u0131s\u0131na duyars\u0131zsa k\xFC\xE7\xFCl\xFCr. \u0130kinci \xF6l\xE7\xFC saha \xE7arpan\u0131: ayn\u0131 y\xFCzde birka\xE7 beklenen de\u011Fer kalan bir spot k\xFC\xE7\xFCk sahada ya da final tabloda kolayca al\u0131n\u0131r, ama dev sahan\u0131n bubble'\u0131nda ayn\u0131 spot stack'ine g\xF6re belirgin daha b\xFCy\xFCk bir kazan\xE7 ister \u2014 bunu kendi solver'\u0131nda kalibre et."
       },
       {
         title: "Cheat + drill",
@@ -7293,6 +7978,40 @@ var modules = [
         ],
         "ruleBox": "B\xFCy\xFCk polar bete boyu b\xFCy\xFCtmek value'dan bir \u015Fey sat\u0131n almaz, havan\u0131n fold'unu pahal\u0131ya al\u0131r \u2014 min-raise yeter; havuz overfold etti\u011Fi an x/r aral\u0131\u011F\u0131 geni\u015Fler.",
         "narration": "B\xFCy\xFCk polar c-bet aral\u0131\u011F\u0131 iki bloktur: value hi\xE7bir boya katlanmaz, hava her boya katlan\u0131r. Check-raise boyunu b\xFCy\xFCtmek value blo\u011Fundan bir \u015Fey sat\u0131n almaz, havan\u0131n fold'unu pahal\u0131ya al\u0131r; \xE7\xF6z\xFCc\xFC kabaca iki \xE7arp\u0131, yani min-raise civar\u0131n\u0131 se\xE7er \u2014 hava en ucuza katlan\u0131r, \xFC\xE7-bet d\xFC\u011F\xFCm\xFC de kapan\u0131r. Havuz katman\u0131 bunu b\xFCy\xFCt\xFCr: insanlar min check-raise'e offsuit papaz ve k\u0131z y\xFCkseklerini de katlar, teorik fold oran\u0131n\u0131n belirgin \xFCst\xFCnde. O sapma varken check-raise aral\u0131\u011F\u0131n call'\u0131n \xE7ok \xFCst\xFCne, neredeyse tamam\u0131na geni\u015Fler. \u0130kinci spot ayn\u0131 mant\u0131k: small blind'dan flat sonras\u0131 kuru k\u0131z ya da papaz y\xFCksek board'da havuz y\xFCzde y\xFCze yak\u0131n c-bet atar ve check-raise'e a\u015F\u0131r\u0131 katlan\u0131r \u2014 fold equity dengenin \xE7ok \xFCst\xFCndedir. Value \xFCst per ve \xFCst\xFC; bl\xF6f suited as: overcard ta\u015F\u0131r, turn'de kent ya da flush \xE7ekili\u015Fine d\xF6ner ve rakibin katlanacak broadway s\u0131n\u0131f\u0131n\u0131 bloklamaz. \u0130kisini de kendi solver'\u0131nda kalibre et."
+      },
+      {
+        "title": "EK: Sa\u011Flam olan \xE7izgidir, aksiyon etiketi de\u011Fil",
+        "bullets": [
+          "Ayn\u0131 spotu sim\xFClasyonda tekrar tekrar oynat: hangi kombonun raise mi call m\u0131 yapaca\u011F\u0131 s\xFCrekli de\u011Fi\u015Fir, oynanabilir mi de\u011Fil mi \xE7izgisi neredeyse hi\xE7 k\u0131p\u0131rdamaz.",
+          "Kar\u015F\u0131la\u015Ft\u0131\u011F\u0131n boy b\xFCy\xFCd\xFCk\xE7e devam e\u015Fi\u011Fi pot-odds gere\u011Fi daral\u0131r \u2014 ama bu daralma raise mi call m\u0131 se\xE7iminden \xE7ok daha az g\xFCr\xFClt\xFCl\xFCd\xFCr.",
+          "\xD6\u011Frenilmesi gereken sa\u011Flam nesne devam \xE7izgisidir \u2014 hangi elle oynan\u0131r hangi elle katlan\u0131l\u0131r sorusu, hangi aksiyonla oynand\u0131\u011F\u0131 de\u011Fil.",
+          "Kendi kendini test ederken do\u011Fru tarafta devam ettiysen do\u011Fru say \u2014 raise yerine call, ya da call yerine raise se\xE7mi\u015F olman hata b\xFCt\xE7eni g\xFCr\xFClt\xFCye harcamakt\u0131r."
+        ],
+        "ruleBox": "Sa\u011Flam olan devam m\u0131 fold mu \xE7izgisidir; raise mi call m\u0131 se\xE7imi kombo baz\u0131nda savrulur \u2014 kendini ona g\xF6re puanla.",
+        "narration": "Bir karar\u0131 sim\xFClasyonda defalarca oynatt\u0131\u011F\u0131nda ilgin\xE7 bir \u015Fey g\xF6r\xFCrs\xFCn: ayn\u0131 elin raise mi yoksa call m\u0131 yapaca\u011F\u0131 s\xFCrekli de\u011Fi\u015Fir, neredeyse rastgele savrulur. Ama o elin devam m\u0131 edece\u011Fi yoksa katlanacak m\u0131 oldu\u011Fu neredeyse hi\xE7 k\u0131p\u0131rdamaz. Yani sa\u011Flam olan, \xF6\u011Frenilmesi gereken \u015Fey devam \xE7izgisidir \u2014 hangi elin oyunda kald\u0131\u011F\u0131, hangi elin katland\u0131\u011F\u0131. Kar\u015F\u0131la\u015Ft\u0131\u011F\u0131n boy b\xFCy\xFCd\xFCk\xE7e bu \xE7izgi pot-odds gere\u011Fi elbette daral\u0131r, ama bu daralma bile raise mi call m\u0131 sorusundan \xE7ok daha az g\xFCr\xFClt\xFCl\xFCd\xFCr. Bunun pratik sonucu \u015Fu: kendini test ederken do\u011Fru tarafta devam ettiysen bunu do\u011Fru say, \xF6deyecek olsan da raise etsen de. Aksiyon etiketini tam tutturamad\u0131n diye \xFCz\xFClmek, hata b\xFCt\xE7eni yanl\u0131\u015F yere, yani g\xFCr\xFClt\xFCye harcamak demektir."
+      },
+      {
+        "title": "EK: K\xFC\xE7\xFCk buton a\xE7\u0131l\u0131\u015F\u0131na flop check-raise \u2014 kuru y\xFCksek board",
+        "bullets": [
+          "Erken pozisyona k\xFC\xE7\xFCk stack derinli\u011Finde flat'ledikten sonra kuru y\xFCksek rainbow board'da k\xFC\xE7\xFCk bete kar\u015F\u0131 check-raise iki nedenle g\xFC\xE7l\xFC \u2014 havuz aral\u0131\u011F\u0131n\u0131n tamam\u0131yla bet at\u0131yor VE check-raise'e fazla katlan\u0131yor.",
+          "Value elin: rakip aral\u0131\u011F\u0131n\u0131n \xFCst\xFCn\xFC tutan eller \u2014 \xFCst \xE7ift, iki \xFCst kart, set.",
+          "Bl\xF6f malzemesi: suited as \u2014 overcard ta\u015F\u0131r, d\xFC\u015F\xFCk kartlar\u0131n etraf\u0131nda turn'de renk ya da d\xFCz \xE7evirebilir, rakibin katlanaca\u011F\u0131 orta-alt kartl\u0131 elleri bloklamaz.",
+          "K\xFC\xE7\xFCk \xE7iftler turn'de d\xFCz a\xE7abildi\u011Fi i\xE7in s\u0131n\u0131rda raise aday\u0131; daha b\xFCy\xFCk \xE7iftler \xE7o\u011Funlukla sadece call'da kal\u0131r.",
+          "Rakip senin check-raise'ine over-call etmeye ba\u015Flarsa, yani fazla katlanmay\u0131 b\u0131rak\u0131rsa, standart plana d\xF6n."
+        ],
+        "ruleBox": "Kuru y\xFCksek board'da erken pozisyon a\xE7\u0131l\u0131\u015F\u0131na k\xFC\xE7\xFCk stab yiyince check-raise'i suited as bl\xF6f\xFCyle geni\u015F kullan \u2014 havuz iki yerde birden a\u015F\u0131r\u0131 katlan\u0131r.",
+        "narration": "Erken pozisyona flat'ledin, board kuru ve y\xFCksek \u2014 \xFC\xE7 farkl\u0131 renk, ba\u011Flant\u0131s\u0131z kartlar. Rakip k\xFC\xE7\xFCk bir bet att\u0131. Burada check-raise iki ayr\u0131 hatadan besleniyor: havuz bu t\xFCr board'larda aral\u0131\u011F\u0131n\u0131n tamam\u0131yla bet atma e\u011Filiminde, ve check-raise gelince ger\xE7ekte gerekenden \xE7ok daha fazla katlan\u0131yor. \u0130ki hata \xFCst \xFCste binince fold equity dengeyi fazlas\u0131yla a\u015F\u0131yor. Value elin rakip aral\u0131\u011F\u0131n\u0131n \xFCst\xFCn\xFC tutan eller \u2014 \xFCst \xE7ift, iki \xFCst kart, set. Bl\xF6f malzemesi ise suited as: hem bir overcard ta\u015F\u0131yor hem de d\xFC\u015F\xFCk kartlar\u0131n etraf\u0131nda turn'de renk ya da d\xFCz \xE7evirebiliyor, \xFCstelik rakibin katlanaca\u011F\u0131 orta-alt kartl\u0131 elleri bloklam\u0131yor, yani fold'u temiz. K\xFC\xE7\xFCk \xE7iftler turn'de d\xFCz a\xE7abildi\u011Fi i\xE7in s\u0131n\u0131rda bir raise aday\u0131, b\xFCy\xFCk \xE7iftler \xE7o\u011Funlukla sade call'da kal\u0131yor."
+      },
+      {
+        "title": "EK: Ayn\u0131 spotta pozisyonun tersi \u2014 IP olarak check-back geni\u015Flet",
+        "bullets": [
+          "Ayn\u0131 spotta koltuklar tersine d\xF6nerse \u2014 sen buton olup erken pozisyonun flat'ine kar\u015F\u0131 oynuyorsan \u2014 denge kuru y\xFCksek board'da neredeyse yar\u0131 yar\u0131ya check verir.",
+          "Erken pozisyon flat'ledi demek ki zay\u0131f diye aral\u0131\u011F\u0131n\u0131n tamam\u0131yla bet atma \u2014 orta suited ba\u011Flant\u0131l\u0131, suited as, k\xFC\xE7\xFCk cepler check-back listesindedir.",
+          "Check-back etmenin bedeli d\xFC\u015F\xFCk: bu eller zaten b\xFCy\xFCk bir showdown de\u011Feri ta\u015F\u0131m\u0131yor, ama rakibin check-raise'ine maruz kalmadan turn'e ucuza ge\xE7iyorlar.",
+          "Rakip senin check'ine kar\u015F\u0131 over-call yapmaya, yani gere\u011Finden fazla \xF6demeye ba\u015Flarsa standart bet frekans\u0131na geri d\xF6n."
+        ],
+        "ruleBox": "Buton olarak kuru y\xFCksek board'da erken pozisyon flat'ine kar\u015F\u0131 aral\u0131\u011F\u0131n\u0131n neredeyse yar\u0131s\u0131n\u0131 check-back et \u2014 flat etti demek zay\u0131f tuza\u011F\u0131na d\xFC\u015Fme.",
+        "narration": "\u015Eimdi ayn\u0131 sahneyi tersinden d\xFC\u015F\xFCn: sen butondas\u0131n, rakip erken pozisyondan flat'lemi\u015F, board kuru ve y\xFCksek. Burada denge sana neredeyse aral\u0131\u011F\u0131n\u0131n yar\u0131s\u0131n\u0131 check-back etmeni s\xF6yl\xFCyor. Kolay d\xFC\u015Fen tuzak \u015Fu: o flat'ledi, demek ki zay\u0131f, ben her elimle bet atar\u0131m. Bu yanl\u0131\u015F \u2014 orta suited ba\u011Flant\u0131l\u0131 eller, suited as, k\xFC\xE7\xFCk cepler gibi eller check-back listesinde kalmal\u0131. Bu ellerin zaten b\xFCy\xFCk bir showdown de\u011Feri yok ama bet atarsan onlar\u0131 rakibin check-raise'ine maruz b\u0131rak\u0131rs\u0131n; check-back edersen ucuza turn'e ge\xE7erler. Tek istisna: rakip senin check'lerine kar\u015F\u0131 gere\u011Finden fazla \xF6demeye, yani over-call yapmaya ba\u015Flarsa, o zaman standart bet frekans\u0131na geri d\xF6n."
       }
     ]
   },
@@ -7443,6 +8162,18 @@ var modules = [
         ],
         "ruleBox": "Sadele\u015Ftirme bir iddia de\u011Fil bir \xF6l\xE7\xFCmd\xFCr: ara boyu kilitle, kayb\u0131 oku, s\u0131f\u0131ra yak\u0131nsa ta\u015F\u0131.",
         "narration": "Node-lock prosed\xFCr\xFCn\xFC soyut bir solver al\u0131\u015Ft\u0131rmas\u0131 sanma; iki sadele\u015Ftirmeyi bu prosed\xFCrle \xFCretirsin. Birincisi s\u0131\u011F stack pot oranl\u0131 \xFC\xE7-bet potu: ara boylar\u0131 at, a\u011Fac\u0131 jam ile check'e indir. \u0130kincisi y\xFCz big blind derinli\u011Fi: iki boy, k\xFC\xE7\xFCk ve b\xFCy\xFCk. \u0130kisi de ayn\u0131 ad\u0131mlardan \xE7\u0131kar. Ara boyu kilitle, yani stratejiden \xE7\u0131kar; solver'\u0131 yeniden \xE7\xF6z; kilitli a\u011Fac\u0131n de\u011Fer kayb\u0131n\u0131 kilitsiz a\u011Faca g\xF6re \xF6l\xE7; kay\u0131p s\u0131f\u0131ra yak\u0131nsa sadele\u015Ftirmeyi masaya ta\u015F\u0131, de\u011Filse ara boy ger\xE7ekten i\u015F yap\u0131yordur ve onu tutars\u0131n. \xD6l\xE7\xFCm kendi a\u011Fac\u0131nda, kendi aral\u0131klar\u0131nla yap\u0131l\u0131r; s\u0131n\u0131r de\u011Ferini kendi solver'\u0131nda kalibre et. Bir de disiplin notu: ba\u015Fkas\u0131n\u0131n bu boyu atmak hi\xE7bir \u015Fey kaybettirmiyor iddias\u0131n\u0131 olgu gibi alma. O iddia belirli bir aral\u0131k ve derinlikte, belirli bir boy a\u011Fac\u0131nda \xF6l\xE7\xFClm\xFC\u015Ft\xFCr; senin a\u011Fac\u0131n farkl\u0131ysa sonu\xE7 da farkl\u0131 olabilir. Sadele\u015Ftirme bir iddia de\u011Fil bir \xF6l\xE7\xFCmd\xFCr."
+      },
+      {
+        "title": "EK: Altm\u0131\u015F big blindlik \xFC\xE7-bet d\xFC\u011F\xFCm\xFCnde mix n\xF6tr kalmal\u0131",
+        "bullets": [
+          "Mix kural\u0131 \u2014 kompozisyonu de\u011Fi\u015Ftirmeyen d\xFC\u011F\xFCmlerde bedava karar, diledi\u011Fin gibi sabitle \u2014 altm\u0131\u015F big blindlik \xFC\xE7-bet d\xFC\u011F\xFCm\xFCnde istisna g\xF6r\xFCr.",
+          "S\u0131n\u0131r kombolar\u0131n (KJs, QJs, QTs, JTs, ATo, A9s tipi) tamam\u0131n\u0131 \xFC\xE7-bete \xE7ekersen \xFC\xE7-bet aral\u0131\u011F\u0131n\u0131n ortalama g\xFCc\xFC d\xFC\u015Fer.",
+          "Call-off aral\u0131\u011F\u0131n (AQ+, 77+ civar\u0131) sabit kal\u0131r \u2014 b\xFCy\xFCk stackin d\xF6rt-bet-jam'i neredeyse her elle k\xE2rl\u0131 hale gelir.",
+          "Y\xFCz big blindde bu risk yok: d\xF6rt-bet-jam pahal\u0131, rakip non-all-in d\xF6rt-bete mahk\xFBm.",
+          "Kural: bir s\u0131n\u0131r komboyu \xFC\xE7-bete \xE7ekiyorsan ba\u015Fka birini flat ya da fold'a it \u2014 toplam kompozisyonu koru."
+        ],
+        "ruleBox": "Altm\u0131\u015F big blindlik \xFC\xE7-bet d\xFC\u011F\xFCm\xFCnde mix'i tek y\xF6ne \xE7ekme \u2014 s\u0131n\u0131r kombo eklersen ba\u015Fka birini \xE7\u0131kar, toplam sabit kals\u0131n.",
+        "narration": "Mix, yani kar\u0131\u015F\u0131k strateji, kompozisyonu de\u011Fi\u015Ftirmeyen d\xFC\u011F\xFCmlerde bedava bir karard\u0131r \u2014 istedi\u011Fin gibi sabitleyebilirsin. Ama altm\u0131\u015F big blindlik \xFC\xE7-bet d\xFC\u011F\xFCm\xFC bu kural\u0131n istisnas\u0131. Aral\u0131\u011F\u0131n s\u0131n\u0131r\u0131ndaki suited broadway ve ofsuit as-dokuz gibi kombolar\u0131n\u0131n tamam\u0131n\u0131 \xFC\xE7-bete \xE7ekersen, \xFC\xE7-bet aral\u0131\u011F\u0131n\u0131n ortalama g\xFCc\xFC d\xFC\u015Fer; buna kar\u015F\u0131l\u0131k call-off aral\u0131\u011F\u0131n, yani as-kral \xFCst\xFC ve yedili \xE7ift civar\u0131, sabit kal\u0131r. Sonu\xE7 \u015Fu: kar\u015F\u0131ndaki oyuncunun altm\u0131\u015F big blindlik d\xF6rt-bet-jam'i neredeyse her iki kartla k\xE2rl\u0131 hale gelir, \xFC\xE7-betin kendisi eksiye d\xF6ner. Y\xFCz big blindde bu sorun ya\u015Fanmaz, \xE7\xFCnk\xFC orada d\xF6rt-bet-jam pahal\u0131d\u0131r ve rakip zaten all-in olmayan bir d\xF6rt-bete mahk\xFBmdur. Kural net: s\u0131n\u0131r kombolardan birini \xFC\xE7-bete \xE7ekiyorsan, ba\u015Fka birini flat ya da fold'a itip toplam kompozisyonu koru."
       },
       {
         title: "Cheat: Solver \xE7al\u0131\u015Fma kart\u0131",
@@ -7798,6 +8529,18 @@ var modules = [
         "narration": "Kapsanan\u0131n postflop'unda iki d\xFCzeltme var. Bir: polar river'da boy oyunu yoktur. Kelle te\u015Fviki cover edende \xE7al\u0131\u015Ft\u0131\u011F\u0131 i\xE7in value'n per ve \xFCst\xFC dahil geni\u015F \xF6denir \u2014 value jam'e gider; bl\xF6f\xFCn de fold equity i\xE7in jam'e mecburdur. Boy hileleri de \xF6l\xFCr: jam'le, kelleye g\xF6re bl\xF6f frekans\u0131n\u0131 ayarla, boyu de\u011Fil. Cover eden flop'u kelle i\xE7in geni\u015F c-bet etti\u011Finden check'lerle river'a gelen aral\u0131\u011F\u0131 kellesizden zay\u0131ft\u0131r: nut'la jam standart, g\xFC\xE7l\xFC ama nut olmayan value ile bir boy k\xFC\xE7\xFCk \u2014 o zay\u0131f aral\u0131ktan daha geni\u015F \xE7a\u011Fr\u0131 al\u0131rs\u0131n. \u0130ki: kapsanan olarak kesilen \u015Fey bl\xF6ft\xFCr, value de\u011Fil; ama bl\xF6f s\u0131f\u0131rlanmaz, adres de\u011Fi\u015Ftirir. Cover edenin geni\u015F \xF6demesi ancak eli oldu\u011Funda \xE7al\u0131\u015F\u0131r; \xE7ok geni\u015F a\xE7an rakip, kilitli kuru board'da aral\u0131k-bet bas\u0131yorsa aral\u0131\u011F\u0131n\u0131n b\xFCy\xFCk k\u0131sm\u0131 otomatik katlan\u0131r \u2014 kelle motivasyonu elsiz \xE7\xF6p\xFC check-raise'e kar\u015F\u0131 tutamaz. Orada k\xFC\xE7\xFCk check-raise'i geni\u015F kur; malzeme, rakibin katlanacak ellerini bloklamayan \xE7\xF6p. Ba\u011Flant\u0131l\u0131 board'da ayn\u0131 hat \xF6l\xFCr; kalibre et."
       },
       {
+        "title": "EK: S\u0131\u011F HU-BvB'de kelle limp-tuza\u011F\u0131n\u0131 siler \u2014 cover eden SB jam'ler",
+        "bullets": [
+          "ICM'in s\u0131\u011F BvB'de 'limp-a\u011F\u0131rl\u0131kl\u0131' dokusu PKO'ya ta\u015F\u0131nmaz \u2014 kelle o equity a\xE7\u0131\u011F\u0131n\u0131 kapat\u0131r.",
+          "ICM'de s\u0131\u011F SB limp'ler \xE7\xFCnk\xFC jam'ledi\u011Fi ellerin equity'si yetmez; PKO'da kelle jam'i \xF6der \u2192 'oynanmaya de\u011Fer' her el JAM'e gider.",
+          "Tuzak (limp-call-all-in) yoksa dip de limp'leyemez \u2014 korumas\u0131z limp her iso'ya katlan\u0131r \u2192 limp \xE7\xF6ker, aral\u0131k SIKI ama JAM-a\u011F\u0131rl\u0131kl\u0131.",
+          "\u0130stisna: domine eden y\xFCksek suited/Kx-Qx tepeyi jam'leme \u2014 non-all-in raise, BB'nin domine etti\u011Fin call'lar\u0131 potta kals\u0131n.",
+          "Havuz 'limp'e kimse jam'lemez' san\u0131p dipten geni\u015Fler \u2192 o limp y\u0131\u011F\u0131n\u0131 k\xFC\xE7\xFCk iso'ya katlan\u0131r, bedava parad\u0131r."
+        ],
+        "ruleBox": "Cover eden SB s\u0131\u011F heads-up blind-versus-blind'da limp'lemez: tuzak dilimi kelleyle gereksizle\u015Fir, aral\u0131k daha az el ama daha \xE7ok all-in ta\u015F\u0131r.",
+        "narration": "ICM'in s\u0131\u011F heads-up blind-versus-blind dokusunu birebir PKO'ya ta\u015F\u0131mak k\xF6k hatad\u0131r. ICM'de k\xFC\xE7\xFCk k\xF6r s\u0131\u011Fken limp'ler, \xE7\xFCnk\xFC jam'ledi\u011Fi ellerin equity'si yetmez ve tepeyi limp, call, all-in tuza\u011F\u0131yla korur. PKO'da cover eden k\xFC\xE7\xFCk k\xF6r i\xE7in kelle tam bu equity a\xE7\u0131\u011F\u0131n\u0131 kapat\u0131r: b\xFCy\xFCk k\xF6r\xFCn standart call aral\u0131\u011F\u0131na kar\u015F\u0131 ham equity ve kelle birlikte jam'i \xF6der, oynanmaya de\u011Fer her el jam'e gider ve tuzak dilimi gereksizle\u015Fir. Tuzak yoksa dip de limp'leyemez, \xE7\xFCnk\xFC korumas\u0131z limp her izolasyona katlan\u0131r; limp \xE7\xF6ker ve aral\u0131k s\u0131k\u0131 ama jam a\u011F\u0131rl\u0131kl\u0131 kal\u0131r, kellesiz turnuvadan daha az el ama daha \xE7ok all-in g\xF6r\xFCrs\xFCn. \u0130ki ek uyar\u0131: domine eden y\xFCksek suited ya da kral, k\u0131z y\xFCksek elleri tepeyken jam'leme, non-all-in raise et ki b\xFCy\xFCk k\xF6r\xFCn domine etti\u011Fin call'lar\u0131 potta kals\u0131n. Havuz ise limp'e kimse jam'lemez san\u0131p dipten geni\u015Fler; o limp y\u0131\u011F\u0131n\u0131 k\xFC\xE7\xFCk bir izolasyona katlan\u0131r, bedava para b\u0131rak\u0131r."
+      },
+      {
         title: "Cheat: PKO / kelle kart\u0131",
         bullets: [
           "Net prim: ICM primi eksi kelle indirimi; indirim yaln\u0131z COVER edende. Negatif prim \xE7a\u011Fr\u0131 primidir, bl\xF6f de\u011Fil.",
@@ -8039,6 +8782,40 @@ var modules = [
         "narration": "On be\u015F big blind ve alt\u0131nda, rakip daha derin a\xE7t\u0131, big blind'de flat'ledin. S\u0131\u011Fda hesab\u0131 iki \u015Fey ele ge\xE7irir: korumak ve fold ettirmek; alt per bile on big blind civar\u0131nda \xE7o\u011Funlukla stack-off s\u0131n\u0131f\u0131d\u0131r. Jam'in fold equity kayna\u011F\u0131 bare overcard'lar ve gutshot ya da tek overcard'l\u0131 zay\u0131f draw'lard\u0131r; overcard'l\u0131 \xFCst kent draw'lar\u0131 \xF6der, onlara kar\u015F\u0131 jam'in de\u011Feri bedava kart vermeyip equity'yi an\u0131nda realize etmektir. A\u011Fa\xE7 \xFC\xE7 d\xFC\u011F\xFCm: jam, k\xFC\xE7\xFCk, check; jam s\u0131n\u0131f\u0131 \xFCst ve orta per, overcard'l\u0131 kent draw. Tuzak: iki per, kent, set ve g\xFC\xE7l\xFC \xFCst perin bir k\u0131sm\u0131 check'te, yoksa check aral\u0131\u011F\u0131n \xE7\u0131plak kal\u0131r; test: k\xF6t\xFC turn kart\u0131ndan korkuyor mu, korkuyorsa jam. Erken pozisyon a\xE7\u0131c\u0131n\u0131n overpair-yo\u011Fun dar aral\u0131\u011F\u0131 d\xFC\u015F\xFCk board'u \u0131skalamaz; equity avantaj\u0131 onda kal\u0131r, big blind'in avantaj\u0131 nut'tur. Overpair'ler katlanmaz, k\xFC\xE7\xFCk ve s\u0131k lead de\u011Fil kontrol: aral\u0131k \xE7o\u011Funlukla check, jam yaln\u0131z nut'a yak\u0131n s\u0131n\u0131f ve en iyi kent draw'lar\u0131na; k\xFC\xE7\xFCk lead nut-a\u011F\u0131rl\u0131kl\u0131 ve seyrek. S\u0131n\u0131rlar\u0131 kendi solver'\u0131nda kalibre et."
       },
       {
+        "title": "EK: Derin rakipler k\u0131sa a\xE7\u0131c\u0131ya rejam'i ICM'de biraz k\u0131sabilir",
+        "bullets": [
+          "Varsay\u0131lan kural sabit: masa derinse reshove geni\u015Fler, jam-or-fold sertle\u015Fir \u2014 chipEV ve b\xFCy\xFCk antede bu a\u011F\u0131r basar.",
+          "ICM n\xFCans\u0131 s\u0131n\u0131rda: derin rakip rejam'i sana de\u011Fil, arkas\u0131ndaki \xF6b\xFCr derin stack'e kar\u015F\u0131 da riske atar (\xE7arp\u0131\u015Fma primi).",
+          "Bu, rejam'i bir t\u0131k daraltabilir \u2014 ama g\xF6zlemlenecek bir \u015Fey, ezberlenecek bir kural de\u011Fil.",
+          "K\xFC\xE7\xFCk raise-fold'u yaln\u0131z ICM bask\u0131s\u0131 a\xE7\u0131k + arkadakiler birbirini cover ediyor + rejam'in seyrek oldu\u011Funu G\xD6RD\xDCYSEN dene."
+        ],
+        "ruleBox": "Derin masada k\u0131sa a\xE7\u0131c\u0131 olarak varsay\u0131lan jam-or-fold'dur; k\xFC\xE7\xFCk raise-fold yaln\u0131z ICM bask\u0131s\u0131 a\xE7\u0131k\xE7a g\xF6r\xFCld\xFC\u011F\xFCnde ve g\xF6zlemle do\u011Fruland\u0131\u011F\u0131nda bir se\xE7enek.",
+        "narration": "\xD6nceki kural \u015Fuydu: arkandaki oyuncular derinse rejam onlara ucuza mal olur, bu y\xFCzden reshove geni\u015Fler ve senin jam ya da fold karar\u0131n sertle\u015Fir. Bu kural chip beklenen de\u011Ferde ve b\xFCy\xFCk ante d\xF6neminde ge\xE7erlili\u011Fini korur. Ama ICM devredeyken canl\u0131 sezgi tersini f\u0131s\u0131ldar: derin rakipler birbirlerine kar\u015F\u0131 da risk ta\u015F\u0131d\u0131\u011F\u0131 i\xE7in, sana rejam etmek yaln\u0131z sana kar\u015F\u0131 de\u011Fil, arkalar\u0131ndaki \xF6b\xFCr derin stack'e kar\u015F\u0131 da bir risktir. Bu \xE7arp\u0131\u015Fma primi rejam'i bir t\u0131k daraltabilir. Ama bu s\u0131n\u0131rda bir etki \u2014 kalibre edilmesi gereken, g\xF6zlemle do\u011Frulanmas\u0131 gereken bir \u015Fey, ezberlenecek bir kural de\u011Fil. Pratik kural \u015Fu: derin masada k\u0131sa a\xE7\u0131c\u0131 olarak varsay\u0131lan davran\u0131\u015F\u0131n h\xE2l\xE2 jam ya da fold'dur. K\xFC\xE7\xFCk raise-fold'u yaln\u0131z ICM bask\u0131s\u0131 a\xE7\u0131k\xE7a g\xF6r\xFCl\xFCyorsa, arkandakiler birbirini cover ediyorsa ve rejam'in seyrek geldi\u011Fini g\xF6rd\xFCysen dene."
+      },
+      {
+        "title": "EK: Fold-equity s\u0131f\u0131rsa jam de\u011Fil flat",
+        "bullets": [
+          "\xC7ok k\u0131sa SB (~7bb) a\xE7\u0131l\u0131\u015Fa jam'lerse rakip fiyatla zaten mecburdur \u2014 fold-equity s\u0131f\u0131r; ~10bb'de fold-equity vard\u0131r, orada jam do\u011Fru.",
+          "Fold-equity yokken 'vurmas\u0131 gereken' ellerle jam'lemek yaln\u0131z a\xE7\u0131c\u0131n\u0131n aral\u0131\u011F\u0131na kar\u015F\u0131 flip'e ko\u015Fmakt\u0131r.",
+          "Flat ayn\u0131 equity'yi daha ucuza al\u0131r ve BB'yi domine etti\u011Fin overcall'larla pota \xE7eker.",
+          "A\u011Fa\xE7: jam = tepe + \xE7iftler; flat = k\xFC\xE7\xFCk \xE7ift, suited connector/Kx. BB tek jam'lerse neredeyse hi\xE7 katlanma; BB jam + a\xE7\u0131c\u0131 call gelirse \xE7iftler d\u0131\u015F\u0131nda her \u015Fey fold."
+        ],
+        "ruleBox": "Committed olmak jam sebebi de\u011Fildir \u2014 soru \u015Fu: rakip katlanabilir mi? Hay\u0131rsa flat ve iki-jam'e-fold.",
+        "narration": "K\u0131sa k\xFC\xE7\xFCk k\xF6r refleksi \u015Fu: a\xE7\u0131l\u0131\u015F geldi, jam ya da fold. Ama yedi big blind civar\u0131nda bu refleks yanl\u0131\u015F \xE7al\u0131\u015F\u0131r: jam'lersen potta yakla\u015F\u0131k on bir big blind olur, rakip yaln\u0131zca be\u015F \xF6der \u2014 bu fiyatla hi\xE7bir el katlanmaz, fold-equity s\u0131f\u0131rd\u0131r. On big blindde fold-equity vard\u0131r, orada jam do\u011Fru. Fold-equity yokken vurmas\u0131 gereken ellerle jam'lemek, a\xE7\u0131c\u0131n\u0131n aral\u0131\u011F\u0131na kar\u015F\u0131 bir flip'e ko\u015Fmak demektir. Flat ayn\u0131 equity'yi daha ucuza al\u0131r ve b\xFCy\xFCk k\xF6r\xFC domine etti\u011Fin overcall'larla pota \xE7eker \u2014 vurdu\u011Funda iki taraftan kazan\u0131rs\u0131n. A\u011Fa\xE7 basit: jam tepe elleri ve \xE7iftlere kal\u0131r, flat k\xFC\xE7\xFCk \xE7ift ve suited connector'a kal\u0131r. B\xFCy\xFCk k\xF6r tek jam'lerse neredeyse hi\xE7 katlanma yok; b\xFCy\xFCk k\xF6r jam edip a\xE7\u0131c\u0131 da call ederse, \xE7iftler d\u0131\u015F\u0131nda her \u015Feyi katla, art\u0131k \xF6l\xFC bir eldesin."
+      },
+      {
+        "title": "EK: K\u0131sa b\xFCy\xFCk k\xF6r, derin a\xE7\u0131c\u0131n\u0131n min-raise'ine kar\u015F\u0131",
+        "bullets": [
+          "K\u0131sa BB, derin butonun min-raise'ine kar\u015F\u0131 fiyat refleksi tuzakt\u0131r \u2014 chipEV'deki gibi geni\u015F-merged savunma yanl\u0131\u015F.",
+          "A\xE7\u0131c\u0131n\u0131n jam aral\u0131\u011F\u0131 vard\u0131r: orta blo\u011Fu jam al\u0131r, min-raise'e yaln\u0131z tepe eller + jam'lenemeyecek en g\xFC\xE7l\xFC kombolar kal\u0131r.",
+          "O aral\u0131\u011Fa orta-zay\u0131f elle flop g\xF6rmek iki kere kaybettirir: bl\xF6flerine domine olursun, tek per rakibin overpair'ine \xF6l\xFC kal\u0131r.",
+          "Call dilimi dar: g\xFC\xE7l\xFC top pair yapabilen high card'lar + ger\xE7ek suited connector'lar. Jam malzemesi: her As, t\xFCm \xE7iftler, zay\u0131f suited broadway.",
+          "Kural: min-raise \xF6ncesi 'a\xE7\u0131c\u0131n\u0131n jam aral\u0131\u011F\u0131 var m\u0131?' diye sor \u2014 varsa min-raise'i polar oku, savunmay\u0131 dar call + As-bloker jam'e indir."
+        ],
+        "ruleBox": "A\xE7\u0131c\u0131n\u0131n jam aral\u0131\u011F\u0131 varsa min-raise'i polar oku \u2014 geni\u015F savunmay\u0131 kapat, dar call ve As-bloker jam'e in.",
+        "narration": "On big blind civar\u0131 k\u0131sa b\xFCy\xFCk k\xF6rs\xFCn, derin buton min-raise yapt\u0131. Refleks fiyat iyi, geni\u015F savunay\u0131m der. Ama bu tuzak, \xE7\xFCnk\xFC a\xE7\u0131c\u0131n\u0131n elinde bir jam aral\u0131\u011F\u0131 da vard\u0131r, orta blo\u011Fu o al\u0131r; min-raise'e yaln\u0131zca tepe eller, yani b\xFCy\xFCk \xE7iftler ve iyi as'lar, kal\u0131r. O aral\u0131\u011Fa kar\u015F\u0131 orta ya da zay\u0131f elle flop g\xF6rmek seni iki kere vurur: rakibin bl\xF6flerine domine olursun, tuttu\u011Fun tek \xE7ift rakibin \xFCst \xE7iftine \xF6l\xFC kal\u0131r. Bu y\xFCzden call dilimi dar tutulmal\u0131 \u2014 g\xFC\xE7l\xFC top pair yapabilen y\xFCksek kartlar ve ger\xE7ek suited ba\u011Flant\u0131l\u0131lar. Gerisi jam ya da fold. Jam malzemesi de de\u011Fi\u015Fir: her as, t\xFCm \xE7iftler, zay\u0131f suited broadway \u2014 domine eden broadway'leri katlat\u0131r. Kural: min-raise'e savunmadan \xF6nce a\xE7\u0131c\u0131n\u0131n jam aral\u0131\u011F\u0131 var m\u0131 diye sor \u2014 varsa min-raise'i polar oku."
+      },
+      {
         title: "Cheat: Micro 4-12bb kart\u0131",
         bullets: [
           "A\xE7\u0131\u015F JAM ya da fold \u2014 k\xFC\xE7\xFCk-RFI tablosu YOK. K\xFC\xE7\xFCk \xE7iftler band\u0131n en derin ya\u015Fayan jam'lerinden, DEFEND edilmez.",
@@ -8188,6 +8965,51 @@ var modules = [
         ],
         "ruleBox": "Aynalanan e\u011Fri de\u011Fil, pozisyon ve motordur: y\xF6n ayn\u0131 kal\u0131r, de\u011Fi\u015Fen seviye ve doku \u2014 SB daha geni\u015F ve merged limp'ler, limp-reraise dilimi s\u0131n\u0131rda.",
         "narration": "Bu mod\xFCl\xFCn derinlik e\u011Frisi pozisyondaki limp i\xE7indir. Blind'e kar\u015F\u0131 blind'de small blind limp'i pozisyon d\u0131\u015F\u0131d\u0131r, iso pozisyondan gelir ve pozisyondaki iso derinlikle \xE7o\u011Funlukla b\xFCy\xFCr. Dolay\u0131s\u0131yla e\u011Fri \xE7o\u011Funlukla tersine d\xF6nmez, ayn\u0131 y\xF6nde kal\u0131r: derin u\xE7ta small blind de limp pay\u0131n\u0131 k\xFC\xE7\xFClt\xFCp raise-first'e kayar; s\u0131\u011Fla\u015Ft\u0131k\xE7a, kabaca on iki ile on be\u015F big blind'e kadar, limp a\u011F\u0131rl\u0131kla\u015F\u0131r; daha alt\u0131nda limp yerini open-jam'e b\u0131rak\u0131r. Fark limp-reraise'in varl\u0131\u011F\u0131 de\u011Fil, e\u011Frinin seviyesi ve limp'in dokusudur. Raise-fold'un preflop maliyeti iki tarafta ayn\u0131d\u0131r; fark raise'in \xE7a\u011Fr\u0131ld\u0131\u011F\u0131 dalda \xE7\u0131kar: pozisyon d\u0131\u015F\u0131 raise \xE7a\u011Fr\u0131l\u0131nca b\xFCy\xFCm\xFC\u015F potta pozisyon d\u0131\u015F\u0131 kal\u0131rs\u0131n, bu y\xFCzden small blind ayn\u0131 derinlikte heads-up button'dan \xE7o\u011Funlukla daha fazla limp'ler. Fazlal\u0131k raise-fold'dan ka\xE7an orta ellerdir; derin u\xE7ta small blind'in limp dilimi daha geni\u015F ve daha merged'd\u0131r, limp-reraise dilimi korunur ama oransal pay\u0131 b\xFCy\xFCk de\u011Fildir, s\u0131n\u0131rda. Derin kolda limp s\u0131f\u0131ra inmez; kendi solver'\u0131nda kalibre et. De\u011Fi\u015Fen y\xF6n de\u011Fil, motor ve seviyedir: pozisyonda ucuz flop g\xF6rme, pozisyon d\u0131\u015F\u0131nda raise'in \xE7a\u011Fr\u0131lma dal\u0131ndan ka\xE7\u0131nma art\u0131 stack pot oran\u0131 kapan\u0131."
+      },
+      {
+        "title": "EK: Limp'in tuzak testi \u2014 \xFC\xE7 derinlik kovas\u0131",
+        "bullets": [
+          "Tuzak k\xFCme derinlikle tek y\xF6nl\xFC de\u011Fi\u015Fmez: s\u0131\u011Fda a\xE7\u0131l\u0131r, orta derinlikte kaybolur, en s\u0131\u011Fda yeniden kapan\u0131r.",
+          "S\u0131\u011F u\xE7ta (kabaca 15bb, kalibre et) k\xE2r iki-d\xFC\u015F\xFCk-kartla non-all-in iso edenden gelir; A'lar ve K'lar zaten raise'e de jam'ler.",
+          "Orta derinlikte (kabaca 25bb, kalibre et) k\xFCme kaybolur \u2014 limp EV \xFCretmez, raise'in \xE7a\u011Fr\u0131lma gelirini b\u0131rak\u0131rs\u0131n.",
+          "\xDC\xE7 kova: iki d\xFC\u015F\xFCk offsuit kart (82o) saf limp; iyi suited/suited broadway (JTs) limp-call g\xF6vdesi; y\xFCksek-kart offsuit (K5o) raise-fold malzemesi."
+        ],
+        "ruleBox": "Limp'e ekstra aksiyon veren elin ad\u0131n\u0131 koyam\u0131yorsan en y\xFCksek-EV eli RAISE'le; kova, eli de\u011Fil elin o aksiyona verece\u011Fi cevab\u0131 ay\u0131r\u0131r.",
+        "narration": "Limp'in k\xE2r\u0131 tek bir testten ge\xE7er: limp'ime sald\u0131ran k\xFCme, raise'ime sald\u0131ran k\xFCmeden farkl\u0131 m\u0131? Bu k\xFCme derinlikle tek y\xF6nde de\u011Fi\u015Fmez. S\u0131\u011F u\xE7ta ger\xE7ekten farkl\u0131d\u0131r \u2014 as'lar ve kral'lar zaten raise'e de jam'lenir, as\u0131l k\xE2r iki d\xFC\u015F\xFCk kartla non-all-in giren rakipten gelir. Orta derinlikte k\xFCme kaybolur: raise'e \xE7a\u011F\u0131racak eller limp'e check eder, limp'e jam'leyen aral\u0131k raise'e jam'leyen aral\u0131kla neredeyse ayn\u0131d\u0131r \u2014 limp ekstra kazan\xE7 \xFCretmez, \xFCstelik raise'in \xE7a\u011Fr\u0131lma gelirini de b\u0131rakm\u0131\u015F olursun. \xC7ok s\u0131\u011F u\xE7ta tuzak dilimi yine neredeyse s\u0131f\u0131rlan\u0131r. Kural basit: limp'ime kim fazladan aksiyon veriyor sorusuna cevap veremiyorsan, en y\xFCksek de\u011Ferli elini raise'le. \xDC\xE7 kova var: iki d\xFC\u015F\xFCk offsuit kart saf limp'tir, iyi suited eller raise-fold edemedi\u011Fi i\xE7in limp-call g\xF6vdesine girer, y\xFCksek kartl\u0131 offsuit eller raise-fold'un do\u011Fal malzemesidir."
+      },
+      {
+        "title": "EK: Heads-up turn lead'in kap\u0131s\u0131 \u2014 k\xFC\xE7\xFCk c-bet, geni\u015F call, d\xFC\u015F\xFCk e\u015Fle\u015Fen turn",
+        "bullets": [
+          "Simetriyi bozan \u015Fey flop'taki K\xDC\xC7\xDCK c-bet art\u0131 geni\u015F call'dur \u2014 b\xFCy\xFCk c-bet'te kap\u0131 kapal\u0131 kal\u0131r.",
+          "J-7-7 tipi board: turn ikinci J geldi\u011Finde BB'nin per aral\u0131\u011F\u0131 IP'nin \xE7\xF6p\xFCn\xFC ezer \u2014 asimetri art\u0131k BB'dedir.",
+          "Lead s\u0131ras\u0131: en g\xFC\xE7l\xFC full house eli \xF6nce, sonra ikinci per grubu, sonra zay\u0131f Ax ince value, sonra showdown'suz \xE7ekili\u015Fler.",
+          "Ayn\u0131 mekanizma turn d\xFC\u015F\xFCk kart\u0131 e\u015Fledi\u011Finde de \xE7al\u0131\u015F\u0131r; k\xFC\xE7\xFCk ve b\xFCy\xFCk lead kar\u0131\u015F\u0131k kullan\u0131l\u0131r, yaln\u0131z b\xFCy\xFCkle oynama.",
+          "Kap\u0131 kapan\u0131r: IP flop'ta polar/b\xFCy\xFCk ba\u015Flad\u0131ysa ve turn IP'nin aral\u0131\u011F\u0131n\u0131 g\xFC\xE7lendiren orta-y\xFCksek kartsa lead yok."
+        ],
+        "ruleBox": "Heads-up'ta lead varsay\u0131lan de\u011Fil; kap\u0131y\u0131 IP'nin k\xFC\xE7\xFCk c-bet'i ve BB'nin geni\u015F call'u a\xE7ar, b\xFCy\xFCk c-bet'e kar\u015F\u0131 kap\u0131 kapal\u0131 kal\u0131r.",
+        "narration": "Otuz bir nokta d\xF6rt'\xFCn gerek\xE7esi aral\u0131k simetrisidir; bu simetriyi bozan \u015Fey flop'taki k\xFC\xE7\xFCk c-bet ve buna gelen geni\u015F call'dur. Diyelim board j yedi yedi rainbow, buton \xFC\xE7te bir gibi k\xFC\xE7\xFCk bir bet at\u0131yor, big blind neredeyse t\xFCm dame-kral y\xFCksek elini ve her \xE7ekili\u015Fi savunuyor. Turn'de ikinci j geldi\u011Finde big blind'in j'li elleri en tepeye \xE7\u0131k\u0131yor, yedili elleri butonun \xE7\xF6p\xFCn\xFC eziyor, zay\u0131f as'l\u0131 eller bile art\u0131k \xF6ndedir \u2014 \xE7\xFCnk\xFC buton range-bet att\u0131\u011F\u0131 i\xE7in h\xE2l\xE2 y\xFCksek kartl\u0131 \xE7\xF6p ta\u015F\u0131yor. Asimetri art\u0131k big blind'dedir: lead s\u0131ras\u0131 en g\xFC\xE7l\xFC el \xF6nce, sonra ikinci grup, sonra zay\u0131f as ince value, sonra showdown'suz \xE7ekili\u015Fler. Flop'ta buton b\xFCy\xFCk ve polar bet atm\u0131\u015Fsa bu kap\u0131 kapan\u0131r \u2014 big blind'in call aral\u0131\u011F\u0131 zaten dar kalm\u0131\u015Ft\u0131r. Kural \u015Fu: heads-up'ta lead varsay\u0131lan bir hamle de\u011Fil, kap\u0131y\u0131 k\xFC\xE7\xFCk c-bet ve geni\u015F call birlikte a\xE7ar."
+      },
+      {
+        "title": "EK: B\xFCy\xFCk boy az\u0131nl\u0131kt\u0131r \u2014 polar c-bet'e k\xFC\xE7\xFCk check-raise cevab\u0131",
+        "bullets": [
+          "Derin heads-up'ta d\xFC\u015F\xFCk-kopuk-rainbow board'da b\xFCy\xFCk boy do\u011Frudur ama aral\u0131\u011F\u0131n yar\u0131s\u0131ndan AZI i\xE7indir \u2014 kabaca %40 bet / %60 check (kalibre et).",
+          "Havuz 'her \u015Feyi bet' der; range-bet + b\xFCy\xFCk boy = kendi \u015Fi\u015Firdi\u011Fin potta seyrelmi\u015F aral\u0131kla check-raise'e kar\u015F\u0131 MDF'yi kar\u015F\u0131layamamak.",
+          "B\xFCy\xFCk polar c-bet'e cevap check-call ya da K\xDC\xC7\xDCK check-raise'dir (~2.2x) \u2014 3x+ raise DE\u011E\u0130L.",
+          "S\u0131\u011F limp-check potunda yar\u0131m-pot c-bet'e overcard + backdoor tipi zay\u0131f elle M\u0130N check-raise, \xE7\xFCnk\xFC min tam bet aral\u0131\u011F\u0131n\u0131n alt-kart havas\u0131n\u0131 hedefler."
+        ],
+        "ruleBox": "B\xFCy\xFCk boy = seyrek + geni\u015F check; b\xFCy\xFCk polar bete k\xFC\xE7\xFCk raise; raise boyu rakibin bet aral\u0131\u011F\u0131ndaki hava oran\u0131yla k\xFC\xE7\xFCl\xFCr.",
+        "narration": "Otuz bir nokta be\u015F'in 'rainbow'da b\xFCy\xFCk boy' kural\u0131n\u0131 range-bet'e \xE7evirme. Derin heads-up'ta d\xFC\u015F\xFCk, kopuk, rainbow board'da b\xFCy\xFCk boy do\u011Frudur, ama aral\u0131\u011F\u0131n yar\u0131s\u0131ndan az\u0131 i\xE7indir \u2014 kabaca y\xFCzde k\u0131rk bet, geri kalan\u0131 check. Havuz her \u015Feyi bet eder, kendi \u015Fi\u015Firdi\u011Fi potta seyrelmi\u015F aral\u0131kla check-raise'e kar\u015F\u0131 savunamaz hale gelir. Do\u011Fru cevap check-call ya da k\xFC\xE7\xFCk bir check-raise'dir, bet'in kabaca iki kat\u0131 civar\u0131 \u2014 \xFC\xE7 kat ve \xFCst\xFC de\u011Fil. B\xFCy\xFCk polar bet'in g\xF6vdesi az value ve \xE7ok hava ta\u015F\u0131r, k\xFC\xE7\xFCk raise o havaya \xF6denemez bir fiyat a\xE7ar; havuzun b\xFCy\xFCk raise'i fazla para koyar, \xE7o\u011Funlukla d\xFCz call'dan bile k\xF6t\xFC sonu\xE7 verir. S\u0131\u011F limp-check potlar\u0131nda ayna g\xF6r\xFCn\xFCr: yar\u0131m pot c-bet'e overcard ve backdoor ta\u015F\u0131yan zay\u0131f elle min check-raise do\u011Frudur, \xE7\xFCnk\xFC min boy bet aral\u0131\u011F\u0131n\u0131n alt kart havas\u0131n\u0131 hedefler."
+      },
+      {
+        "title": "EK: Jam'in \xFC\xE7 sorusu \u2014 \xE7ift ve as-x elleri derinlikle d\xF6ner",
+        "bullets": [
+          "As-on ve as-dokuz offsuit \xFC\xE7-bet-jam 40bb'de \xE7a\u011Fr\u0131 ya da non-all-in'dir; 30bb'de jam'e d\xF6ner \u2014 T8s/T9o tipi canl\u0131 equity katlan\u0131r (kalibre et).",
+          "K\xFC\xE7\xFCk \xE7ift, BB'ye gelen raise'e derin (~50bb) CALL; \xE7\u0131pa civar\u0131 (~40bb) JAM a\u011F\u0131r basar.",
+          "~50bb'de non-all-in \xFC\xE7-bete k\xFC\xE7\xFCk \xE7iftle d\xF6rt-bet-jam YOK \u2014 \xF6deyen aral\u0131k ya ezer ya coinflip verir; flat do\u011Fru.",
+          "~25bb'de dengeli polar \xFC\xE7-bete premium \xE7ift slow-play, en k\xFC\xE7\xFCk \xE7iftler jam, orta \xE7iftler slow, y\xFCksek \xE7iftler jam \u2014 bant s\u0131n\u0131rlar\u0131n\u0131 kendi \xE7al\u0131\u015Fmanda kalibre et."
+        ],
+        "ruleBox": "Ayn\u0131 eli her derinlikte ayn\u0131 hatla oynama; her jam'i \xFC\xE7 soru fiyatlar \u2014 daha iyi eli katlat\u0131yor mu, katlatt\u0131\u011F\u0131n\u0131n equity'si var m\u0131, \xE7a\u011Fr\u0131l\u0131nca ne oluyor.",
+        "narration": "Ayn\u0131 eli her derinlikte ayn\u0131 hatla oynama; her jam'i \xFC\xE7 soru fiyatlar \u2014 daha iyi bir eli katlat\u0131yor mu, katlatt\u0131\u011F\u0131n\u0131n equity'si var m\u0131, \xE7a\u011Fr\u0131l\u0131nca ne oluyor. As-on offsuit gibi eller k\u0131rk big blind civar\u0131nda jam yerine \xE7a\u011Fr\u0131 ya da non-all-in ister, \xF6deyen aral\u0131k ya daha iyidir ya hi\xE7bir \u015Feyi katlatmaz; otuz big blind'e inince ayn\u0131 el jam'e d\xF6ner. K\xFC\xE7\xFCk \xE7iftler big blind'den gelen raise'e derin stack'te \xE7a\u011Fr\u0131 ister, overpair'e d\xF6rt-bet-jam yemek istemezsin; \xE7\u0131pa civar\u0131nda jam a\u011F\u0131r basar. Elli big blind'de non-all-in \xFC\xE7-bete k\xFC\xE7\xFCk \xE7iftle jam yoktur \u2014 seni \xF6deyen aral\u0131k ya ezer ya coinflip verir, ikisi de riski kar\u015F\u0131lamaz, flat'tir. Yirmi be\u015F big blind'de dengeli \xFC\xE7-bete kar\u015F\u0131 premium \xE7iftler yava\u015F, en k\xFC\xE7\xFCk \xE7iftler jam, orta \xE7iftler yava\u015F, y\xFCksek \xE7iftler equity'yi kesmek i\xE7in jam eder \u2014 bant s\u0131n\u0131rlar\u0131n\u0131 kendi \xE7al\u0131\u015Fmanda kalibre et."
       },
       {
         title: "Cheat: BB-ante HU kart\u0131",
@@ -8355,6 +9177,77 @@ var modules = [
         ],
         "ruleBox": "Kitap y\xF6n\xFC verir, say\u0131y\u0131 sen verirsin: her h\xFCcreyi kendi solver'\u0131nda ve sahada \xF6l\xE7.",
         "narration": "Bu b\xF6l\xFCm\xFCn say\u0131lar\u0131 kalibre edilir; kendi solver'\u0131nda \xFC\xE7-bettor d\xFC\u011F\xFCm\xFCn\xFC a\xE7. \xD6l\xE7eceklerin \u015Funlar. Bir: jam frekans\u0131 ve check s\u0131n\u0131f\u0131, k\u0131rk big blind'da onlu-dokuz-x board'unda. \u0130ki: y\xFCz big blind'da vale-on-x'te b\xFCy\xFCk boyun ve turn stack-off'un pay\u0131. \xDC\xE7: alt \xE7iftin bet ve check EV fark\u0131, as-papaz-x ile as-vale-x kar\u015F\u0131la\u015Ft\u0131rmas\u0131nda. D\xF6rt: kay\u0131ts\u0131zl\u0131k boyu, dokuz-yedi-yedi gibi caller'da trips olas\u0131 e\u015Fle\u015Fmi\u015F board'da. Be\u015F: ara boylar\u0131 kilitleyip iki boya indirmenin EV kayb\u0131; ba\u015Fkas\u0131n\u0131n s\u0131f\u0131r iddias\u0131n\u0131 olgu gibi alma, kendin \xF6l\xE7. Alt\u0131: y\xFCz big blind as-y\xFCksek potunda top pair'in turn ve river kontrol oran\u0131. Yedi: d\xFC\u015F\xFCk kopuk board'da y\xFCz big blind overpair boyu. Sekiz: pozisyondaki check-node boyu. Sahada da bir saya\xE7 tut: son otuz adet \xFC\xE7-bet potunda caller k\xFC\xE7\xFCk bete ne oranda katland\u0131. Bu oran teorinin \xFCst\xFCndeyse tam aral\u0131k k\xFC\xE7\xFCk bet daha \xE7ok kazan\u0131r, alt\u0131ndaysa frekans\u0131 k\u0131s, kalan betleri daha b\xFCy\xFCk ve value a\u011F\u0131rl\u0131kl\u0131 kur. Say\u0131y\u0131 kitap de\u011Fil senin sahan verir."
+      },
+      {
+        "title": "EK: 32.3 tablosuna iki d\xFCzeltme \u2014 mono board ve y\xFCz b\xFCy\xFCk blind",
+        "bullets": [
+          "Mono board'da (pozisyondaki \xFC\xE7-bettor, orta board), overpair'ler a\u011F\u0131rl\u0131kla check-back'e d\xF6ner \u2014 caller'\u0131n aral\u0131\u011F\u0131 suit-a\u011F\u0131r oldu\u011Fundan flush ya kar\u015F\u0131ndad\u0131r ya da hava, overpair pota para koyunca \xF6deyen \xE7o\u011Funlukla flush.",
+          "Mono'da bl\xF6f aday\u0131 orta ba\u011Flant\u0131l\u0131 eller de\u011Fil, renk ta\u015F\u0131yan y\xFCksek kartlard\u0131r \u2014 rakibin cebine overcard ta\u015F\u0131r ve kendi realizasyonunu renk \xE7ekili\u015Fiyle korur.",
+          "\xDC\xE7-broadway board'da caller BB ise ve aral\u0131\u011F\u0131 suit-\xE7\xF6p\xFC ta\u015F\u0131yorsa tek boy yar\u0131m pot s\u0131n\u0131r\u0131nda kal\u0131r; k\xFC\xE7\xFCk boy o \xE7\xF6p\xFC katlatmaz.",
+          "Y\xFCz b\xFCy\xFCk blind s\xFCtununda pozisyon d\u0131\u015F\u0131ndaki \xFC\xE7-bettor'\u0131n check pay\u0131 iki kattan fazla b\xFCy\xFCr \u2014 jam s\u0131n\u0131f\u0131 yok olunca realizasyon belirgin d\xFC\u015Fer, pozisyonun de\u011Feri derinlikle b\xFCy\xFCr.",
+          "Ayn\u0131 derinlikte, pozisyondaki oyuncunun as-d\xFC\u015F\xFCk board'a raise s\u0131kl\u0131\u011F\u0131 da katlan\u0131r \u2014 s\u0131\u011Fda para zaten girer, derinde b\xFCy\xFCtmek gerekir; as-d\xFC\u015F\xFCk check pay\u0131 s\u0131f\u0131ra yak\u0131ndan \xFC\xE7te bire \xE7\u0131kar."
+        ],
+        "ruleBox": "Tam-aral\u0131k k\xFC\xE7\xFCk boy k\u0131rk-altm\u0131\u015F b\xFCy\xFCk blind derinli\u011Finin lisans\u0131d\u0131r \u2014 mono board'da ve y\xFCz b\xFCy\xFCk blindde ikisi de kova check'e d\xF6ner.",
+        "narration": "Otuz iki nokta \xFC\xE7\xFCn tablosuna iki ayr\u0131 d\xFCzeltme geliyor. Birincisi mono board. Orta bir mono board'da pozisyondaki \xFC\xE7-bettor'ken overpair'ler a\u011F\u0131rl\u0131kla check-back'e d\xF6ner, \xE7\xFCnk\xFC caller'\u0131n aral\u0131\u011F\u0131 suit-a\u011F\u0131rd\u0131r \u2014 ya renk vard\u0131r ya hi\xE7bir \u015Fey yoktur. Bl\xF6f aday\u0131 orta ba\u011Flant\u0131l\u0131 eller de\u011Fil, renk ta\u015F\u0131yan y\xFCksek kartlard\u0131r, \xE7\xFCnk\xFC onlar hem rakibin cebine overcard ta\u015F\u0131r hem kendi realizasyonunu korur. \u0130kincisi derinlik. Y\xFCz b\xFCy\xFCk blindde pozisyon d\u0131\u015F\u0131ndaki \xFC\xE7-bettor'\u0131n check pay\u0131 iki kattan fazla b\xFCy\xFCr, \xE7\xFCnk\xFC s\u0131\u011Fdaki jam s\u0131n\u0131f\u0131 ortadan kalkar ve realizasyon belirgin d\xFC\u015Fer. Ayn\u0131 derinlikte pozisyondaki oyuncunun as-d\xFC\u015F\xFCk board'a raise s\u0131kl\u0131\u011F\u0131 da katlan\u0131r, \xE7\xFCnk\xFC s\u0131\u011Fda para zaten girerken derinde b\xFCy\xFCtmek gerekir. Sonu\xE7 olarak tam-aral\u0131k k\xFC\xE7\xFCk boy k\u0131rk ile altm\u0131\u015F b\xFCy\xFCk blind band\u0131n\u0131n lisans\u0131d\u0131r; mono board'da ve y\xFCz b\xFCy\xFCk blindde ikisi de kova check'e d\xF6ner."
+      },
+      {
+        "title": "EK: D\xFC\u015F\xFCk board'da \xFC\xE7-bet potunun hatt\u0131n\u0131 bl\xF6f malzemesi se\xE7er",
+        "bullets": [
+          "K\xF6k hata: d\xFC\u015F\xFCk ba\u011Flant\u0131l\u0131 board'da pozisyon d\u0131\u015F\u0131ndaki her zaman check eder, pozisyondaki her zaman stab atar sanmak \u2014 kural yaln\u0131z dar, broadway-a\u011F\u0131r \xFC\xE7-bet aral\u0131klar\u0131 i\xE7in ge\xE7erlidir.",
+          "Rakibin \xFC\xE7-bet aral\u0131\u011F\u0131 orta suit-ba\u011Flant\u0131l\u0131 eller ta\u015F\u0131yorsa o board caller'\u0131n board'udur: k\xFC\xE7\xFCk tam-aral\u0131k bet, y\xFCksek frekans \u2014 b\xFCy\xFCk boy gereksizdir \xE7\xFCnk\xFC katlanan zaten katlan\u0131r.",
+          "Ayn\u0131 aral\u0131kta orta suit-ba\u011Flant\u0131l\u0131 YOKSA (dar, premium-a\u011F\u0131r \xFC\xE7-bet), eski kural aynen ge\xE7erlidir: check, pozisyondakine stab b\u0131rak\u0131l\u0131r.",
+          "Pozisyondaki \xFC\xE7-bettor'ken d\xFC\u015F\xFCk board'da range-bet reflekste k\xF6k hatad\u0131r: pozisyon d\u0131\u015F\u0131ndaki caller'\u0131n aral\u0131\u011F\u0131 do\u011Fal value VE do\u011Fal bl\xF6f ta\u015F\u0131r, orta y\xFCksek-equity broadway eller (kral-k\u0131z, as-vale, as-on) check-back kalmal\u0131, bet yaln\u0131z g\xFC\xE7l\xFC eller + d\xFC\u015F\xFCk-equity bl\xF6f i\xE7indir.",
+          "S\u0131n\u0131r kart\u0131: gutshot a\xE7an bir s\u0131radaki board (sekiz-yedi-alt\u0131, dokuz-sekiz-yedi) frekans\u0131 d\xFC\u015F\xFCr\xFCr."
+        ],
+        "ruleBox": "D\xFC\u015F\xFCk board'da hatt\u0131 se\xE7en board de\u011Fil, rakip \xFC\xE7-bet aral\u0131\u011F\u0131n\u0131n orta suit-ba\u011Flant\u0131l\u0131 malzeme ta\u015F\u0131y\u0131p ta\u015F\u0131mad\u0131\u011F\u0131d\u0131r.",
+        "narration": "D\xFC\u015F\xFCk ba\u011Flant\u0131l\u0131 board'da pozisyon d\u0131\u015F\u0131ndaki oyuncu her zaman check eder, pozisyondaki oyuncu her zaman stab atar diye ezberlemek k\xF6k hatad\u0131r. Bu kural yaln\u0131z dar ve broadway a\u011F\u0131r \xFC\xE7-bet aral\u0131klar\u0131 i\xE7in ge\xE7erli. Rakibin \xFC\xE7-bet aral\u0131\u011F\u0131 orta suit ba\u011Flant\u0131l\u0131 eller ta\u015F\u0131yorsa, o board art\u0131k caller'\u0131n board'udur \u2014 k\xFC\xE7\xFCk boy, tam aral\u0131k, y\xFCksek frekans do\u011Frudur, \xE7\xFCnk\xFC katlanan zaten katlanacakt\u0131. Ayn\u0131 aral\u0131kta orta suit ba\u011Flant\u0131l\u0131 yoksa eski kural aynen ge\xE7erli, check ve stab'a b\u0131rak. \u0130kinci taraftan bak\u0131nca, pozisyondaki \xFC\xE7-bettor'ken d\xFC\u015F\xFCk board'da her zaman range-bet atmak da k\xF6k hatad\u0131r. Pozisyon d\u0131\u015F\u0131ndaki caller'\u0131n aral\u0131\u011F\u0131 hem do\u011Fal value hem do\u011Fal bl\xF6f ta\u015F\u0131r; senin orta y\xFCksek-equity broadway ellerin, yani kral-k\u0131z veya as-vale gibi eller, check-back kalmal\u0131. Bet yaln\u0131z g\xFC\xE7l\xFC ellerin ve d\xFC\u015F\xFCk-equity bir bl\xF6f\xFCn i\u015Fidir."
+      },
+      {
+        "title": "EK: En g\xFC\xE7l\xFC elin turn check'i ind\xFCksiyondur, koruma de\u011Fil",
+        "bullets": [
+          "Kaynak, k\xFC\xE7\xFCk flop bet call'land\u0131ktan sonra turn'\xFCn polarla\u015Ft\u0131\u011F\u0131n\u0131 s\xF6yler ama tepenin neden check'te durdu\u011Funu a\xE7\u0131klamaz.",
+          "Sebep koruma de\u011Fil: k\xFC\xE7\xFCk flop bet'in muhatab\u0131 zaten gitmi\u015Ftir, kalan aral\u0131k per ve \xE7ekili\u015F a\u011F\u0131rl\u0131kl\u0131d\u0131r.",
+          "Zay\u0131f per bet-bet-bet'e iyi fiyata ra\u011Fmen katlan\u0131r; g\xFC\xE7l\xFC per kendi check'ine kendisi bet eder; haval\u0131 eller check'ine b\xFCy\xFCk bl\xF6f atar \u2014 en g\xFC\xE7l\xFC el hi\xE7birini bloklamaz.",
+          "\xDC\xE7\xFC toplan\u0131nca en g\xFC\xE7l\xFC elin check EV'si bet EV'sini ge\xE7er \u2014 bu koruma de\u011Fil saf beklenen de\u011Fer hesab\u0131d\u0131r.",
+          "S\u0131n\u0131r: rakip check'e bl\xF6f atmayan bir station'sa ind\xFCksiyon yok, bet geri gelir; rakip river'da range-check ediyorsa value boyun b\xFCy\xFCr, block-bet at\u0131yorsa k\xFC\xE7\xFCl\xFCr."
+        ],
+        "ruleBox": "Koruma sonu\xE7tur, sebep de\u011Fil \u2014 en g\xFC\xE7l\xFC elin check'i rakibin bl\xF6f\xFCn\xFC ind\xFCklemek i\xE7indir, bu ind\xFCksiyon station'a kar\u015F\u0131 \xE7\xF6ker.",
+        "narration": "K\xFC\xE7\xFCk flop bet call edildikten sonra turn polarla\u015F\u0131r, ama neden en g\xFC\xE7l\xFC el kendi check ediyor, bu a\xE7\u0131klanmaz. Sebep koruma de\u011Fildir. K\xFC\xE7\xFCk flop bet'in muhatab\u0131 zaten gitmi\u015Ftir, elinde kalan aral\u0131k art\u0131k per ve \xE7ekili\u015F a\u011F\u0131rl\u0131kl\u0131d\u0131r. Zay\u0131f bir per, bet bet bet dizisine iyi fiyata ra\u011Fmen katlan\u0131r. G\xFC\xE7l\xFC bir per ise kendi check'ine kendisi bet eder, value ka\xE7maz. Haval\u0131 bir el ise check'ine b\xFCy\xFCk bir bl\xF6f atar, ve en g\xFC\xE7l\xFC elin kendisi bu bl\xF6fleri bloklamaz. Bu \xFC\xE7\xFC toplan\u0131nca en g\xFC\xE7l\xFC elin check etme beklenen de\u011Feri, bet atma beklenen de\u011Ferini ge\xE7er. Bunun ad\u0131 koruma de\u011Fil, ind\xFCksiyondur. Rakip check'e hi\xE7 bl\xF6f atmayan bir istasyon oyuncusuysa bu mant\u0131k \xE7\xF6ker, bet geri gelir."
+      },
+      {
+        "title": "EK: IP \xFC\xE7-bettor'\u0131n turn boyu kart y\xFCksekli\u011Fiyle TERS b\xFCy\xFCr",
+        "bullets": [
+          "K\xFC\xE7\xFCk flop bet call yedikten sonra d\xFC\u015F\xFCk veya blank turn'de (\xFC\xE7, d\xF6rt, on) rakibin devam aral\u0131\u011F\u0131 suit-Ax backdoor, kral-k\u0131z/kral-vale, alt cep, gutshot gibi zay\u0131f eller ta\u015F\u0131r \u2014 bu katman b\xFCy\xFCk boy beti \xF6der, k\xFC\xE7\xFC\u011Fe katlanmaz.",
+          "Kural bu y\xFCzden ters \xE7al\u0131\u015F\u0131r: d\xFC\u015F\xFCk veya blank turn B\xDCY\xDCK boy ister, efektif y\u0131\u011F\u0131n\u0131n kabaca \xFC\xE7te biri civar\u0131; 'blank turn k\xFC\xE7\xFCk devam beti' ezberi burada yanl\u0131\u015Ft\u0131r.",
+          "Y\xFCksek turn'de (kral veya k\u0131z) senin aral\u0131\u011F\u0131n o kartla yo\u011Fundur \u2014 kral-k\u0131z, kral-vale, as-kral gibi eller \xE7o\u011Fal\u0131r, 'neredeyse her \u015Fey' k\xFC\xE7\xFCk boy ve s\u0131k at\u0131l\u0131r.",
+          "Bl\xF6f se\xE7imi ilkesi: bu bl\xF6f en az \xFC\xE7 sokakta value bet'e d\xF6n\xFC\u015Febiliyor mu diye sor \u2014 kral-yedi/kral-alt\u0131 gibi eller kral turn'\xFCnde value'ya d\xF6ner, ama 'gelince bile value'su \u015F\xFCpheli' eller turn'\xFC bet'lememeli.",
+          "Havuzun tipik hatas\u0131 bunun tam tersi: vale-on gibi eli bet'ler, kral-vale/kral-on gibi g\xFC\xE7l\xFC eli bet'lemez \u2014 \xFC\xE7-bet potundaki en pahal\u0131 el se\xE7im hatalar\u0131ndan biri budur."
+        ],
+        "ruleBox": "Boy kartla ters \xE7al\u0131\u015F\u0131r: d\xFC\u015F\xFCk veya blank turn b\xFCy\xFCk ve polar, y\xFCksek turn k\xFC\xE7\xFCk ve s\u0131k; bl\xF6f se\xE7imi \xFC\xE7 sokak sonra value'ya d\xF6n\xFC\u015Febilen elden yap\u0131l\u0131r.",
+        "narration": "\xC7o\u011Fu kartta polarla\u015F\u0131r\u0131z denir, ama pozisyondaki \xFC\xE7-bettor'da y\xF6n kartla ters \xE7al\u0131\u015F\u0131r. K\xFC\xE7\xFCk flop bet call edildikten sonra d\xFC\u015F\xFCk veya blank bir turn gelirse rakibin devam aral\u0131\u011F\u0131 suit-as\u0131 backdoor'lu eller, kral-k\u0131z, kral-vale, alt cepler ve gutshot gibi zay\u0131f malzemeden olu\u015Fur; bu katman b\xFCy\xFCk bir bete katlan\u0131r, k\xFC\xE7\xFC\u011Fe katlanmaz. O y\xFCzden d\xFC\u015F\xFCk veya blank turn'de k\xFC\xE7\xFCk de\u011Fil b\xFCy\xFCk boy atman gerekir, efektif y\u0131\u011F\u0131n\u0131n kabaca \xFC\xE7te biri kadar. Y\xFCksek bir turn gelirse, yani kral veya k\u0131z, senin aral\u0131\u011F\u0131n o kartla zaten yo\u011Fundur, neredeyse her \u015Feyle k\xFC\xE7\xFCk ve s\u0131k bet atars\u0131n. Bl\xF6f se\xE7iminde \xF6l\xE7\xFC \u015Fu: bu el en az \xFC\xE7 sokak sonra value bete d\xF6n\xFC\u015Febiliyor mu? Havuzun tipik hatas\u0131 tam tersini yapmakt\u0131r \u2014 zay\u0131f eli bet'ler, g\xFC\xE7l\xFC elini check eder."
+      },
+      {
+        "title": "EK: IP \xFC\xE7-bettor d\xFC\u015F\xFCk board'da range-bet atmaz",
+        "bullets": [
+          "\xDC\xE7-bet potunda sald\u0131ran taraf olarak d\xFC\u015F\xFCk board'da 'ben agres\xF6r\xFCm, aral\u0131\u011F\u0131mla k\xFC\xE7\xFCk bet atar\u0131m' refleksi burada yanl\u0131\u015F.",
+          "\xC7a\u011F\u0131ran taraf\u0131n aral\u0131\u011F\u0131 bu board'larda hem do\u011Fal value \u2014 \xFCst \xE7ift, cepler, set \u2014 hem do\u011Fal bl\xF6f \u2014 backdoor renkli orta kartlar \u2014 ta\u015F\u0131yor; sana bet at\u0131nca daha k\xF6t\xFC el katlanmaz, daha iyi el \xF6der.",
+          "Check-back etmen kaybettirmez: turn'de y\xFCksek kartlar geldi\u011Finde en y\xFCksek kicker zaten sende kal\u0131r \u2014 s\xFCrprizi sen kurars\u0131n, o de\u011Fil.",
+          "Bet edece\u011Fin eller iki u\xE7ta: ger\xE7ekten g\xFC\xE7l\xFC eller, ve raise yiyince kayb\u0131 k\xFC\xE7\xFCk olan ucuz bl\xF6fler.",
+          "En d\xFC\u015F\xFCk board'da en tepedeki eller bile \xE7o\u011Funlukla check-back; en y\xFCksek board'da ise tam ters, k\xFC\xE7\xFCk boyla s\u0131k bet atars\u0131n."
+        ],
+        "ruleBox": "\xDC\xE7-bet potunda pozisyondaki sald\u0131rgan d\xFC\u015F\xFCk board'da range-bet atmaz \u2014 orta-g\xFC\xE7l\xFC eller check-back, bet yaln\u0131z iki u\xE7ta: ger\xE7ek g\xFC\xE7 ve ucuz bl\xF6f.",
+        "narration": "\xDC\xE7-bet potunda pozisyonda sald\u0131ran taraf oldu\u011Funda i\xE7g\xFCd\xFC \u015Funu der: ben agres\xF6r\xFCm, d\xFC\u015F\xFCk board'da aral\u0131\u011F\u0131mla k\xFC\xE7\xFCk bet atar\u0131m. Bu i\xE7g\xFCd\xFC burada seni yanl\u0131\u015F y\xF6nlendiriyor. \xC7\xFCnk\xFC \xE7a\u011F\u0131ran taraf\u0131n aral\u0131\u011F\u0131 d\xFC\u015F\xFCk board'larda hem do\u011Fal bir value hem do\u011Fal bir bl\xF6f ta\u015F\u0131yor \u2014 orta cepler, \xFCst \xE7ift, ve backdoor renkli orta kartlar. Sen bet att\u0131\u011F\u0131nda bu aral\u0131ktan daha k\xF6t\xFC hi\xE7bir el katlanm\u0131yor, daha iyi eller seni \xF6d\xFCyor, bl\xF6f gelirse sen katlan\u0131yorsun. Yani check-back etmen sana hi\xE7bir \u015Fey kaybettirmez \u2014 turn'de y\xFCksek bir kart geldi\u011Finde en y\xFCksek kickeri zaten sen tutuyorsun, s\xFCrprizi sen kurars\u0131n. Bet atman gereken eller yaln\u0131z iki u\xE7ta: ger\xE7ekten g\xFC\xE7l\xFC eller, ve raise yiyince az kaybettiren ucuz bl\xF6fler. En d\xFC\u015F\xFCk board'larda en tepedeki ellerin bile \xE7o\u011Fu check-back'e gider; en y\xFCksek board'larda ise durum tam tersine d\xF6ner, k\xFC\xE7\xFCk boyla s\u0131k bet atars\u0131n."
+      },
+      {
+        "title": "EK: Kar\u015F\u0131 taraf ise \u2014 pozisyonsuz d\xFC\u015F\xFCk board check-raise'ini geni\u015F kullan",
+        "bullets": [
+          "Pozisyonsuz \xE7a\u011F\u0131ran taraf olarak: havuz oyuncular\u0131 pozisyonda olsa bile d\xFC\u015F\xFCk board'da aral\u0131\u011F\u0131n\u0131n tamam\u0131yla bet atma e\u011Filimindedir \u2014 bu bir s\u0131z\u0131nt\u0131d\u0131r, kar\u015F\u0131s\u0131na \xE7\u0131k.",
+          "K\xFC\xE7\xFCk check-raise'i geni\u015F kullan \u2014 be\u015F-y\xFCksek/as-d\xFC\u015F\xFCk koruma elleri ve iki-u\xE7lu d\xFCz ta\u015F\u0131y\u0131c\u0131lar\u0131 bu raise'e giren malzeme.",
+          "Havuzun backdoor renksiz zay\u0131f suited as, kral, on gibi kartlar\u0131 k\xFC\xE7\xFCk check-raise'e b\xFCy\xFCk oranda katlan\u0131r \u2014 fold equity dengeyi fazlas\u0131yla ge\xE7er.",
+          "Bu, d\xFC\u015F\xFCk ba\u011Flant\u0131l\u0131 board'da pozisyonsuz check-raise'in genel kural\u0131n\u0131n \xFC\xE7-bet potundaki uygulamas\u0131 \u2014 ayn\u0131 mant\u0131k, daha b\xFCy\xFCk stack'ler."
+        ],
+        "ruleBox": "Havuzdaki pozisyonlu oyuncu d\xFC\u015F\xFCk board'da aral\u0131\u011F\u0131yla bet atmaya yatk\u0131nd\u0131r \u2014 pozisyonsuz taraf olarak k\xFC\xE7\xFCk check-raise'i koruma elleri ve iki-u\xE7lu d\xFCz ta\u015F\u0131y\u0131c\u0131larla geni\u015F kullanarak bu s\u0131z\u0131nt\u0131y\u0131 cezaland\u0131r.",
+        "narration": "\u015Eimdi madalyonun \xF6b\xFCr y\xFCz\xFC: sen pozisyonsuz \xE7a\u011F\u0131ran taraftaysan ve rakip pozisyonda d\xFC\u015F\xFCk bir board'da bet att\u0131ysa, havuzdaki oyuncular\u0131n \xE7o\u011Fu burada teorinin gerektirdi\u011Finden fazla, neredeyse aral\u0131\u011F\u0131n\u0131n tamam\u0131yla bet atma e\u011Filimindedir. Bu bir s\u0131z\u0131nt\u0131 ve sen bunu k\xFC\xE7\xFCk bir check-raise'i geni\u015F kullanarak cezaland\u0131rabilirsin. Raise malzemen: be\u015F-y\xFCksek ya da as-d\xFC\u015F\xFCk gibi koruma elleri, ve iki-u\xE7lu d\xFCz ta\u015F\u0131yan kombinasyonlar. Bunun kar\u015F\u0131l\u0131\u011F\u0131nda \xF6dedi\u011Fin bedel d\xFC\u015F\xFCk \xE7\xFCnk\xFC havuzdaki oyuncular backdoor renksiz zay\u0131f suited kartlarla, yani suited as, kral ya da on gibi ellerle, k\xFC\xE7\xFCk bir check-raise'e bile b\xFCy\xFCk oranda katlan\u0131yor. Bu asl\u0131nda bildi\u011Fin bir kural\u0131n \xFC\xE7-bet potundaki hali: pozisyonsuz taraf d\xFC\u015F\xFCk ba\u011Flant\u0131l\u0131 board'da check-raise'i geni\u015F kullan\u0131r, burada yaln\u0131zca stack'ler daha b\xFCy\xFCk."
       },
       {
         "title": "Cheat: 3-bet pot postflop kart\u0131",
@@ -8533,6 +9426,78 @@ var modules = [
         ],
         "ruleBox": "Havuz derinde \xE7ok az 3-bet, orta-s\u0131\u011Fda \xE7ok az jam eder \u2014 iki katman\u0131 neredeyse ayn\u0131 oynar; okumay\u0131 derinde al, s\u0131\u011Fda harca.",
         "narration": "Stratejiyi segmentlerde tut: derin, orta ve s\u0131\u011F blok. Blok i\xE7inde her big blind de\u011Fi\u015Fimine tepki verme; katman ge\xE7i\u015Fini efektif big blind ve SPR tetiklesin. G\xF6zlem katman i\xE7i e\u015Fikleri kayd\u0131rs\u0131n: limp-jam alt s\u0131n\u0131r\u0131, jam'e call geni\u015Fli\u011Fi, iso boyu. Ne chart etiketini ne g\xF6zlemi bekle. Havuz derinde \xE7ok az \xFC\xE7-bet, orta ve s\u0131\u011Fda \xE7ok az jam eder; iki katman\u0131 neredeyse ayn\u0131 oynar. Derin fazda k\xFC\xE7\xFCk potlu agresyon ucuzdur: ilk ellerde tester at, raise'e \xFC\xE7-bet geliyor mu, iso'ya hep fold mu; okumay\u0131 buradan al, paray\u0131 s\u0131\u011F faz\u0131n jam kararlar\u0131nda kullan. Rakip erken fazda agresif ya da yap\u0131\u015Fkansa s\u0131\u011F faz\u0131n e\u015Fiklerini ona g\xF6re kayd\u0131r. Kalibrasyon slotlar\u0131n \u015Funlar, kendi solver'\u0131nda ve sahanda doldur: katman e\u015Fikleri; limp-reraise ve iso boyu, derinde SPR'yi ka\xE7 kat d\xFC\u015F\xFCrd\xFC\u011F\xFC; limp-jam, iso-jam ve jam'e call i\xE7in blocker as ve papaz alt s\u0131n\u0131r\u0131, k\xFC\xE7\xFCk \xE7ift e\u015Fi\u011Fi, referans big blind ve kademe kayd\u0131rmas\u0131; commit \xFC\xE7-bet ve k\u0131say\u0131 commit eden squeeze boyunun k\u0131sa a\xE7\u0131c\u0131n\u0131n stack'ine oran\u0131."
+      },
+      {
+        "title": "EK: On big blind BvB push-call cep ezberi",
+        "bullets": [
+          "SB push (kalibre et): offsuit'te her kral-x ve her k\u0131z-x; k\u0131zdan vale'ye B\xDCY\xDCK d\xFC\u015F\xFC\u015F \u2014 vale-yedi offsuit ve \xFCst\xFC push, sonra on-yedi/dokuz-yedi/sekiz-yedi paralel; alt\u0131-x offsuit ve alt\u0131 fold.",
+          "SB push suited'te: bir y\xFCksek kart ta\u015F\u0131yan her suited push (on-iki suited ve \xFCst\xFC), d\xFC\u015F\xFCk suited'lerde ba\u011Flant\u0131 \u015Fart \u2014 yedi-d\xF6rt suited/alt\u0131-d\xF6rt suited/alt\u0131-be\u015F suited push, kopuk en d\xFC\u015F\xFCk suited fold.",
+          "BB call (kalibre et): her as-x, her kral-x; kraldan k\u0131za b\xFCy\xFCk d\xFC\u015F\xFC\u015F \u2014 k\u0131z-sekiz offsuit ve \xFCst\xFC, vale-dokuz offsuit ve \xFCst\xFC, orta suited broadway call.",
+          "Ezber \xE7\u0131pas\u0131: push e\u015Fi\u011Fi k\u0131z-vale aras\u0131nda k\u0131r\u0131l\u0131r, call e\u015Fi\u011Fi kral-k\u0131z aras\u0131nda k\u0131r\u0131l\u0131r \u2014 ikisini kar\u0131\u015Ft\u0131rma.",
+          "S\u0131n\u0131rdaki call \xE7o\u011Funlukla art\u0131 beklenen de\u011Ferlidir \xE7\xFCnk\xFC havuzun jam aral\u0131\u011F\u0131 dengeden daha az premium i\xE7erir; havuz kendi taraf\u0131nda s\u0131n\u0131r call'lar\u0131 \xE7o\u011Funlukla katlar, senin en ince push'lar\u0131n ge\xE7er."
+        ],
+        "ruleBox": "Push e\u015Fi\u011Fi k\u0131z-vale'de, call e\u015Fi\u011Fi kral-k\u0131z'da k\u0131r\u0131l\u0131r \u2014 bu iki ezberi kar\u0131\u015Ft\u0131rma, HU-BTN chart'\u0131n\u0131 buraya ta\u015F\u0131ma.",
+        "narration": "On b\xFCy\xFCk blind, b\xFCy\xFCk blinde kar\u015F\u0131 small blind spotunda cep ezberi \u015F\xF6yle. Small blind push taraf\u0131nda: offsuit'te her kral ta\u015F\u0131yan ve her k\u0131z ta\u015F\u0131yan el push, ama k\u0131zdan vale'ye ge\xE7i\u015Fte b\xFCy\xFCk bir d\xFC\u015F\xFC\u015F var \u2014 vale-yedi offsuit ve \xFCst\xFC h\xE2l\xE2 push, alt\u0131 ta\u015F\u0131yan offsuit eller fold. Suited'te bir y\xFCksek kart ta\u015F\u0131yan her el push, d\xFC\u015F\xFCk suited'lerde ise ba\u011Flant\u0131 \u015Fart, kopuk d\xFC\u015F\xFCk suited'ler fold. B\xFCy\xFCk blind call taraf\u0131nda: her as ta\u015F\u0131yan ve her kral ta\u015F\u0131yan el call, ama kraldan k\u0131za ge\xE7i\u015Fte b\xFCy\xFCk d\xFC\u015F\xFC\u015F var. Ezber \xE7\u0131pas\u0131 \u015Fu: push e\u015Fi\u011Fi k\u0131z ile vale aras\u0131nda k\u0131r\u0131l\u0131r, call e\u015Fi\u011Fi kral ile k\u0131z aras\u0131nda k\u0131r\u0131l\u0131r, bu ikisini kar\u0131\u015Ft\u0131rma. S\u0131n\u0131rdaki call'lar \xE7o\u011Funlukla k\xE2rl\u0131d\u0131r \xE7\xFCnk\xFC havuzun jam aral\u0131\u011F\u0131 dengeden daha az premium i\xE7erir. Bu ezberi heads-up buton chart'\u0131yla kar\u0131\u015Ft\u0131rma, iki spot ayr\u0131d\u0131r."
+      },
+      {
+        "title": "EK: Cover eden BB'nin k\u0131sa limp'e cevab\u0131 iki d\xFCnyad\u0131r",
+        "bullets": [
+          "K\xF6k hata: limp'e kar\u015F\u0131 chipEV iso ezberini her stack ili\u015Fkisine uygulamak, ya da 'b\xFCy\xFCk y\u0131\u011F\u0131n\u0131m, limp'e her zaman jam'lerim' demek.",
+          "D\xFCnya bir \u2014 sen lider BB, SB k\u0131sa ve tavan primli: jam SIFIR, min-raise jam gibi \xE7al\u0131\u015F\u0131r; iso POLAR \u2014 tepe eller + saf \xE7\xF6p + d\xFC\u015F\xFCk offsuit as; orta kartl\u0131 eller (yedi-x, sekiz-x, dokuz-x, kral-be\u015F offsuit) iso'da YOK \xE7\xFCnk\xFC bunlar SB'nin zaten limp-fold etti\u011Fi kartlar.",
+          "SB'nin limp aral\u0131\u011F\u0131 ne kadar s\u0131k\u0131ysa value iso o kadar dard\u0131r \u2014 orta \xE7iftler bile check-back kalabilir.",
+          "D\xFCnya iki \u2014 benzer b\xFCy\xFCk y\u0131\u011F\u0131nlar, prim d\xFC\u015F\xFCk-orta: SB'nin limp-jam'i neredeyse hi\xE7 yoktur, bu y\xFCzden BB iso'su L\u0130NEER geni\u015Fler \u2014 orta de\u011Ferli eller (as-dokuz offsuit, kral-k\u0131z offsuit, vale-on suited, alt\u0131-be\u015F suited gibi) flop'u neredeyse hep g\xF6rd\xFC\u011F\xFC i\xE7in iso edilir, agresyon yemez.",
+          "Prim y\xFCkseldik\xE7e iso frekans\u0131 kademeli d\xFC\u015Fer ve tekrar polarla\u015F\u0131r."
+        ],
+        "ruleBox": "Limp'e iso'nun dokusu SB'nin devam aral\u0131\u011F\u0131yla belirlenir: SB k\u0131sa ve s\u0131k\u0131ysa polar iso ve orta kart yok, SB benzer ve gev\u015Fekse iso lineer geni\u015Fler.",
+        "narration": "Cover eden b\xFCy\xFCk blindin k\u0131sa small blind limp'ine cevab\u0131 tek bir ezber de\u011Fil, iki ayr\u0131 d\xFCnyad\u0131r. Birinci d\xFCnya: sen lider b\xFCy\xFCk blindsin, small blind k\u0131sa ve tavan primli. Burada jam s\u0131f\u0131rd\u0131r, min-raise zaten jam gibi \xE7al\u0131\u015F\u0131r. \u0130so ise polard\u0131r \u2014 tepe eller ve saf \xE7\xF6p eller iso edilir, ama orta kartl\u0131 eller iso aral\u0131\u011F\u0131nda yoktur, \xE7\xFCnk\xFC onlar zaten small blind'in limp-fold etti\u011Fi kartlard\u0131r, tutmak fold'u engellemek olur. Small blind'in limp aral\u0131\u011F\u0131 ne kadar s\u0131k\u0131ysa, senin value iso'n o kadar dard\u0131r. \u0130kinci d\xFCnya: benzer b\xFCy\xFCkl\xFCkte iki y\u0131\u011F\u0131n ve prim d\xFC\u015F\xFCk ya da orta seviyede. Burada small blind'in limp sonras\u0131 jam'i neredeyse hi\xE7 yoktur, bu y\xFCzden b\xFCy\xFCk blindin iso'su lineer geni\u015Fler \u2014 orta de\u011Ferli eller de flop'u g\xF6rmek i\xE7in iso edilir. Prim y\xFCkseldik\xE7e bu iso frekans\u0131 kademeli d\xFC\u015Fer ve yeniden polarla\u015F\u0131r."
+      },
+      {
+        "title": "EK: S\u0131\u011F havuzda limp'e fazla jam, az iso",
+        "bullets": [
+          "On be\u015F ile yirmi b\xFCy\xFCk blind aras\u0131nda BvB'de havuz SB limp'ine teorinin birka\xE7 kat\u0131 jam'ler, teorinin yar\u0131s\u0131 kadar non-all-in iso eder (kalibre et) \u2014 jam'i iyi elden se\xE7er, iso'yu neredeyse hi\xE7bir \u015Feyden.",
+          "'Derinde SB'den fold yok' ilkesi s\u0131\u011Fa da ge\xE7er: cezaland\u0131r\u0131lmayan limp ekstra realize eder, en zay\u0131f offsuit eller bile fold de\u011Fil limp olur.",
+          "Orta suited broadway iki y\xF6nde s\u0131k\u0131\u015F\u0131r \u2014 raise'e fazla jam gelir, limp'e az non-all-in iso gelir; bu y\xFCzden limp postflop i\xE7in daha g\xFCvenlidir, tuzak pay\u0131 vard\u0131r.",
+          "K\xFC\xE7\xFCk \xE7iftin limp-jam de\u011Feri iso'nun fold'undan gelir; iso az geliyorsa en k\xFC\xE7\xFCk \xE7iftler open-jam'e d\xF6ner, orta \xE7iftler limp'te kal\u0131r (s\u0131n\u0131r: kalibre et).",
+          "Jam seti offsuit as, en k\xFC\xE7\xFCk \xE7iftler ve d\xFC\u015F\xFCk-orta suited ba\u011Flant\u0131l\u0131lar\u0131 kapsar; b\xFCy\xFCk \xE7iftler limp-tuzak yapar."
+        ],
+        "ruleBox": "S\u0131\u011F havuzda jam'i iyi elden se\xE7, iso'yu neredeyse hi\xE7bir elden bekleme \u2014 derin sudaki az-iso sapmas\u0131 s\u0131\u011Fda da ge\xE7erlidir, \xFCstelik daha da g\xFC\xE7lenir.",
+        "narration": "Derin sularda ge\xE7erli bir sapma, yani az iso etmek, s\u0131\u011F sulara da ta\u015F\u0131n\u0131r. On be\u015F ile yirmi b\xFCy\xFCk blind aras\u0131nda b\xFCy\xFCk blinde kar\u015F\u0131 small blind'de havuz, small blind'in limp'ine teorinin birka\xE7 kat\u0131 jam atar ama teorinin yar\u0131s\u0131 kadar all-in olmayan iso eder. Jam'i iyi bir elden se\xE7er, iso'yu ise neredeyse hi\xE7bir elden yapmaz. Derinde ge\xE7erli olan bir kural s\u0131\u011Fda da ge\xE7erlidir: cezaland\u0131r\u0131lmayan limp fazladan realize eder, bu y\xFCzden en zay\u0131f offsuit eller bile fold de\u011Fil limp olur. Orta suited broadway eller iki y\xF6nden s\u0131k\u0131\u015F\u0131r \u2014 raise att\u0131klar\u0131nda fazla jam yerler, limp att\u0131klar\u0131nda az iso g\xF6r\xFCrler; bu y\xFCzden limp postflop i\xE7in daha g\xFCvenlidir. K\xFC\xE7\xFCk \xE7iftlerin limp sonras\u0131 jam de\u011Feri iso'nun fold etmesinden gelir; iso az geliyorsa en k\xFC\xE7\xFCk \xE7iftler do\u011Frudan jam atmaya d\xF6ner."
+      },
+      {
+        "title": "EK: Kelle girince adres de\u011Fi\u015Fir, simetrik y\xFCksek primde a\u011Fa\xE7 iki d\xFC\u011Fmeye kilitlenir",
+        "bullets": [
+          "BvB'de \xF6nce 'kelle var m\u0131' sorusunu sor \u2014 yoksa chipEV katmanlar\u0131 ge\xE7erli, varsa kim kimi kaps\u0131yor ve kelle kimde sorusuna ge\xE7ilir; kelle te\u015Fviki YALNIZ cover EDENDE, kapsanan\u0131n kesilen \u015Feyi bl\xF6ft\xFCr.",
+          "Adres tablosu: kelle katman\u0131n\u0131n g\xF6vdesi ba\u015Fka bir b\xF6l\xFCmde, balina-limp d\xFC\u011F\xFCm\xFC ba\u015Fka bir addendumda i\u015Flenir \u2014 kelle dahil k\u0131sa a\xE7\u0131c\u0131ya derin oyunda \xF6nce stack'in jam'e s\u0131\u011F\u0131p s\u0131\u011Fmad\u0131\u011F\u0131na, arkada ka\xE7 jam'leyen oldu\u011Funa bak\u0131l\u0131r.",
+          "Simetrik y\xFCksek primli BvB'de (k\xFC\xE7\xFCk saha, lineer \xF6deme, tek ki\u015Fi kala) a\u011Fa\xE7 rakibin iki d\xFC\u011Fmesine kilitlidir: BB'nin jam'e ne kadar geni\u015F \xF6dedi\u011Fi ve limp'e ne s\u0131kl\u0131kta iso etti\u011Fi.",
+          "BB bir t\u0131k geni\u015F \xF6derse any-two jam neredeyse s\u0131f\u0131r jam'e iner, a\u011Fa\xE7 limp'e d\xF6ner; BB limp'e teoriden \xE7ok iso ederse limp EV'si d\xFC\u015Fer, orta eller jam'e geri d\xF6ner.",
+          "Raise dilimi bu d\xFC\u011F\xFCmde neredeyse yaln\u0131z tepe elden olu\u015Fur \xE7\xFCnk\xFC rejam gelince y\xFCksek primle stack-off yoktur; limp'lenen g\xFC\xE7l\xFCler aras\u0131nda \xE7ok g\xFC\xE7l\xFC eller bile limp-call kalabilir."
+        ],
+        "ruleBox": "Kelle varsa \xF6nce cover eden mi cover edilen mi oldu\u011Funa bak; simetrik y\xFCksek primde a\u011Fa\xE7 rakibin jam-call geni\u015Fli\u011Fi ile limp-iso s\u0131kl\u0131\u011F\u0131na kilitlenir.",
+        "narration": "Bir karar\u0131 vermeden \xF6nce sorulacak ilk soru \u015Fu: kelle var m\u0131? Yoksa chip ev katmanlar\u0131 aynen ge\xE7erli. Varsa mekanik de\u011Fi\u015Fir \u2014 art\u0131k kim kimi kaps\u0131yor ve kelle kimde sorusuna bak\u0131l\u0131r. Kelle te\u015Fviki yaln\u0131z cover eden tarafta vard\u0131r, kapsanan taraf\u0131n kesti\u011Fi \u015Fey bir bl\xF6ft\xFCr, \xF6d\xFCl de\u011Fil. K\u0131sa a\xE7\u0131c\u0131ya derin oynarken de \xF6nce stack'inin jam'e s\u0131\u011F\u0131p s\u0131\u011Fmad\u0131\u011F\u0131na ve arkada ka\xE7 ki\u015Finin jam atabilece\u011Fine bak\u0131l\u0131r. Saha k\xFC\xE7\xFCk ve \xF6deme lineerken, yani simetrik y\xFCksek primli bir masada, a\u011Fa\xE7 rakibin sadece iki d\xFC\u011Fmesine kilitlenir: b\xFCy\xFCk blindin jam'e ne kadar geni\u015F \xF6dedi\u011Fi, ve limp'e ne s\u0131kl\u0131kta iso etti\u011Fi. B\xFCy\xFCk blind bir t\u0131k geni\u015F \xF6derse any-two jam neredeyse biter, a\u011Fa\xE7 limp'e kayar. B\xFCy\xFCk blind limp'e fazla iso ederse limp'in de\u011Feri d\xFC\u015Fer, orta eller yeniden jam'e d\xF6ner."
+      },
+      {
+        "title": "EK: Final masada k\u0131sa SB'nin a\u011Fac\u0131 jam-ya-da-limp'e daral\u0131r",
+        "bullets": [
+          "K\xF6k hata: chipEV BvB katman\u0131n\u0131 final masaya ta\u015F\u0131mak \u2014 on yedi b\xFCy\xFCk blindlik SB'de raise/limp/limp-jam kar\u0131\u015F\u0131m\u0131 beklemek.",
+          "K\u0131sa SB'nin cover eden BB'ye kar\u015F\u0131 primi tavana yak\u0131nken (y\xFCzde yirmi ve \xFCst\xFC, kalibre et) \xFC\xE7 \u015Fey k\u0131r\u0131l\u0131r: min-raise neredeyse \xF6l\xFCr, ind\xFCksiyon \xF6l\xFCr, limp-jam neredeyse yok olur.",
+          "\u0130nd\xFCksiyon \xF6l\xFCnce tepe eller (k\u0131z-k\u0131z, vale-vale, on-on, as-kral, as-k\u0131z) bile check ve limp yerine do\u011Frudan open-jam olur \u2014 tepeyi jam'leyince zay\u0131f elleri de jam'e katabilirsin.",
+          "Toplam giren-el oran\u0131 k\xFC\xE7\xFCkt\xFCr (kabaca be\u015Fte bir, kalibre et); limp g\xF6vdesi en iyi suited connector'lar ve suited kral/as ellerle s\u0131n\u0131rl\u0131d\u0131r, zay\u0131f offsuit broadway fold olur.",
+          "Prim orta seviyeye inerse (en k\u0131sa SB ama fark k\xFC\xE7\xFCkse) her \u015Fey geri gelir: limp neredeyse s\u0131f\u0131rlan\u0131r, jam ve raise birlikte d\xF6ner, limp-call geni\u015F h\xE2le gelir."
+        ],
+        "ruleBox": "K\u0131sa SB'nin a\u011Fac\u0131 primle \xFC\xE7 moddur: prim tavan \u2192 yaln\u0131z jam veya limp; prim orta \u2192 jam ve raise birlikte, limp-call geni\u015F.",
+        "narration": "Final masada k\u0131sa small blind'in a\u011Fac\u0131na chip ev katman\u0131n\u0131 ta\u015F\u0131mak k\xF6k hatad\u0131r. K\u0131sa small blindin cover eden b\xFCy\xFCk blinde kar\u015F\u0131 primi tavana yak\u0131nken \xFC\xE7 \u015Fey k\u0131r\u0131l\u0131r. Birincisi min-raise neredeyse \xF6l\xFCr, \xE7\xFCnk\xFC b\xFCy\xFCk blind geni\u015F \xF6der ve flop'ta senden fazla realize eder. \u0130kincisi ind\xFCksiyon \xF6l\xFCr \u2014 bu kadar y\xFCksek primle limp at\u0131p b\xFCy\xFCk blindin jam'ini beklemek art\u0131k k\xE2rl\u0131 de\u011Fildir, bu y\xFCzden k\u0131z-k\u0131z, vale-vale, as-kral gibi tepe eller bile do\u011Frudan open-jam olur. \xDC\xE7\xFCnc\xFCs\xFC limp-jam neredeyse hi\xE7 yoktur. Toplam giren-el oran\u0131 k\xFC\xE7\xFCkt\xFCr, limp g\xF6vdesi yaln\u0131zca en iyi suited connector'lar ve suited kral veya as ellerle s\u0131n\u0131rl\u0131d\u0131r. Prim orta seviyeye inerse, yani small blind en k\u0131sa ama fark k\xFC\xE7\xFCkse, her \u015Fey geri gelir \u2014 limp s\u0131f\u0131rlan\u0131r, jam ve raise birlikte d\xF6ner, limp-call aral\u0131\u011F\u0131 geni\u015Fler."
+      },
+      {
+        "title": "EK: HU-BTN'de katman ge\xE7i\u015Fini rakibin ilk tepkisi tetikler",
+        "bullets": [
+          "BvB'de katman ge\xE7i\u015Fini efektif big blind tetikler ve g\xF6zlem beklenmez; HU-BTN'de bu default katman\u0131 se\xE7meye devam eder ama \xFCst\xFCne bir exploit katman\u0131 biner.",
+          "Exploit katman\u0131n\u0131n teti\u011Fi big blind de\u011Fil, rakibin CEVABIDIR: y\u0131\u011F\u0131n k\xFC\xE7\xFCld\xFC ve chart limp'e ge\xE7meni s\xF6ylese bile rakip h\xE2l\xE2 raise'ine jam'lemiyor ve limp'ine sald\u0131rm\u0131yorsa raise stratejisini koru.",
+          "K\u0131r\u0131lma noktas\u0131 rakibin cevab\u0131 de\u011Fi\u015Fti\u011Fi yerdir: raise'e ilk jam gelince limp pay\u0131n\u0131 chart seviyesine \xE7ek; limp'e ilk iso-jam gelince limp-fold pay\u0131n\u0131 k\u0131rp ve limp-call aral\u0131\u011F\u0131n\u0131 chart seviyesine \xE7ek.",
+          "Tek veri noktas\u0131 yeterlidir \u2014 bir jam ya da bir iso-jam g\xF6rmek ikinciyi beklemeden katman de\u011Fi\u015Ftirmeye yeter.",
+          "S\u0131n\u0131r: exploit katman\u0131 default'un alt\u0131na inemez \u2014 rakip pasif diye s\u0131\u011F y\u0131\u011F\u0131nda yaln\u0131z raise oynamak, jam gelmeye ba\u015Flad\u0131\u011F\u0131nda pahal\u0131ya patlar; okuma bozulunca tekrar default'a d\xF6n."
+        ],
+        "ruleBox": "HU-BTN'de default'u efektif y\u0131\u011F\u0131n se\xE7er, exploit katman\u0131n\u0131 ise rakibin ilk jam'i ya da ilk iso'su tetikler \u2014 bir veri noktas\u0131 yeter, ikincisini bekleme.",
+        "narration": "Efektif b\xFCy\xFCk blind katman ge\xE7i\u015Fini tetikler, g\xF6zlem beklenmez \u2014 bu kural heads-up buton spotunda da default katman\u0131 se\xE7er. Ama \xFCst\xFCne bir exploit katman\u0131 biner ve onun teti\u011Fi farkl\u0131d\u0131r \u2014 o tetik rakibin cevab\u0131d\u0131r, y\u0131\u011F\u0131n b\xFCy\xFCkl\xFC\u011F\xFC de\u011Fil. Diyelim y\u0131\u011F\u0131n\u0131n k\xFC\xE7\xFCld\xFC, chart sana limp'e ge\xE7meni s\xF6yl\xFCyor, ama rakip h\xE2l\xE2 raise'ine jam atm\u0131yor ve limp'ine de sald\u0131rm\u0131yor \u2014 o zaman raise stratejini koru, k\u0131r\u0131lmad\u0131ysa tamir etme. As\u0131l k\u0131r\u0131lma noktas\u0131 rakibin cevab\u0131n\u0131n de\u011Fi\u015Fti\u011Fi yerdir. Raise'ine ilk jam geldi\u011Finde limp pay\u0131n\u0131 chart seviyesine \xE7ek. Limp'ine ilk iso-jam geldi\u011Finde limp-fold pay\u0131n\u0131 k\u0131rp, limp-call aral\u0131\u011F\u0131n\u0131 geni\u015Flet. Tek bir veri noktas\u0131 yeter, ikincisini beklemene gerek yok. Ama exploit katman\u0131 default'un alt\u0131na inemez \u2014 rakip pasif diye s\u0131\u011F y\u0131\u011F\u0131nda yaln\u0131z raise oynarsan, jam gelmeye ba\u015Flad\u0131\u011F\u0131nda pahal\u0131ya patlar."
       },
       {
         "title": "Cheat: Blind-vs-Blind kart\u0131",
@@ -10944,6 +11909,950 @@ var SCENARIOS = [
     explain: "Nadir hamleler en iyi okuma malzemesidir \u2014 tesad\xFCf olma ihtimalleri d\xFC\u015F\xFCkt\xFCr. Tek oyuncu hakk\u0131ndaki somut not, masaya uygulanan genel kuraldan her zaman daha de\u011Ferlidir.",
     source: "kitap d\u0131\u015F\u0131 sentez",
     kavram: "cold-4bet"
+  },
+  {
+    q: "Orta pozisyonda oturuyorsun; blind'daki oyuncunun kellesi seninkinden b\xFCy\xFCk, stack'i seninkinden k\xFC\xE7\xFCk \u2014 yani onu cover ediyorsun. Marjinal bir call/agresyon spotunda ne yapars\u0131n?",
+    options: ["E\u015Fi\u011Fi gev\u015Fet \u2014 onu elemek \xE7ip art\u0131 kelle kazand\u0131r\u0131r, negatif risk primi ta\u015F\u0131r", "Standart chipEV e\u015Fi\u011Finde kal \u2014 kelle yaln\u0131z bilgi katman\u0131d\u0131r, karar\u0131 de\u011Fi\u015Ftirmez"],
+    correct: 0,
+    explain: "Cover etti\u011Fin oyuncuya kar\u015F\u0131 kelle negatif risk primi \xFCretir: onu elemek \xE7ip + kelle kazand\u0131rd\u0131\u011F\u0131 i\xE7in call/agresyon e\u015Fi\u011Fin d\xFC\u015Fer \u2014 ICM'in aynas\u0131.",
+    source: "B\xF6l\xFCm 28.0",
+    kavram: "pko-cover-negatif-prim"
+  },
+  {
+    q: "BTN'densin ve kelleli bir k\u0131say\u0131 cover ediyorsun; bounty-fark\u0131nda solver \xE7\u0131kt\u0131s\u0131 normalde flat edilmeyecek \xE7ok zay\u0131f suited elleri de flat g\xF6steriyor. Sahada nas\u0131l uygulars\u0131n?",
+    options: ["Solver'\u0131n verdi\u011Fi zay\u0131f suited kombo'lar\u0131 da flat'le \u2014 kelle onlar\u0131 karl\u0131 yapar ve BTN'deki pozisyon avantaj\u0131 riski zaten fazlas\u0131yla kar\u015F\u0131lar", "Geni\u015Fleme prensibini al ama u\xE7 kombo'lar\u0131 flat'leme \u2014 canl\u0131 saha bu gev\u015Fekli\u011Fi \xF6d\xFCllendirmez"],
+    correct: 1,
+    explain: "Bounty-fark\u0131ndal\u0131 solver'lar kelleyi prim gibi modelleyip u\xE7 flat'ler verir; prensibi (geni\u015Fleme) al, spesifik gev\u015Fek kombo'yu alma \xE7\xFCnk\xFC canl\u0131 saha o gev\u015Fekli\u011Fi \xF6d\xFCllendirmez.",
+    source: "B\xF6l\xFCm 28.1",
+    kavram: "pko-cover-genisleme-prensip"
+  },
+  {
+    q: "SB'desin, BTN'i cover ediyorsun. BTN a\xE7t\u0131, elinde zay\u0131f suited Kx var. 'Cover ediyorum, kelleyi avlamak i\xE7in geni\u015Flerim' diyip flat mi, ba\u015Fka bir hat m\u0131?",
+    options: ["Flat'i kes \u2014 agresyonu geni\u015Flet, hat lineer 3-bet ya da fold olsun", "Flat'le \u2014 cover eden VPIP'ini geni\u015Fletir, daha \xE7ok el kelleyi \xE7ipe \xE7evirir"],
+    correct: 0,
+    explain: "Cover eden SB OOP'ta geni\u015Fleme VPIP'e de\u011Fil agresyona gider: buton, kendisini cover eden SB'ye kar\u015F\u0131 daral\u0131r, fringe flat orta-derin stack'te kimseyi stack'lemez \u2014 flat pay\u0131 d\xFC\u015Fer, lineer 3-bet pay\u0131 y\xFCkselir.",
+    source: "B\xF6l\xFCm 28.1-EK",
+    kavram: "pko-sb-oop-linear-3bet"
+  },
+  {
+    q: "Geni\u015F bir flat aral\u0131\u011F\u0131n var; arkanda squeeze edebilecek blind SEN\u0130 cover ediyor (o seni kaps\u0131yor, sen onu de\u011Fil). Elinde AK var. Ne yapars\u0131n?",
+    options: ["Flat'le \u2014 geni\u015F aral\u0131\u011F\u0131 AK gibi nut'larla koru, squeeze seni cezaland\u0131rmas\u0131n; nut i\xE7eren aral\u0131k kendini her ko\u015Fulda savunur", "3-bet'e ta\u015F\u0131 \u2014 arkadaki seni kaps\u0131yorsa flat aral\u0131\u011F\u0131 daral\u0131r, AK 3-bet'e d\xF6ner"],
+    correct: 1,
+    explain: "Nut-koruma cover-\u015Fartl\u0131d\u0131r: r\xFCya spot (blind jam, a\xE7\u0131c\u0131 katlan\u0131r) yaln\u0131z SEN arkadakini kaps\u0131yorsan var; arkadaki seni kaps\u0131yorsa o r\xFCya yok, AK 3-bet'e ta\u015F\u0131n\u0131r ve flat aral\u0131\u011F\u0131 daral\u0131r.",
+    source: "B\xF6l\xFCm 28.2-EK",
+    kavram: "pko-nut-koruma-cover-sartli"
+  },
+  {
+    q: "Orta-derin stack'tesin; kelleli k\u0131sa bir stack arkanda ve sen onu cover ediyorsun. Marjinal bir a\xE7\u0131l\u0131\u015F eliyle raise m\u0131, limp mi?",
+    options: ["Limp \u2014 daha az \xE7ip riske at, daha \xE7ok el oyna, daha \xE7ok kelle avla", "Raise \u2014 fold equity \xFCretsin, aral\u0131\u011F\u0131 temiz tut ve k\u0131san\u0131n reopen ihtimalini azalt"],
+    correct: 0,
+    explain: "Cover ediyorsan limp-a\u011F\u0131rl\u0131kl\u0131 VPIP mant\u0131kl\u0131d\u0131r: \xE7ok k\u0131sa/kelleli stack arkandayken raise fold equity \xFCretmez, limp daha az risk ta\u015F\u0131yarak daha \xE7ok eli kelleye \xE7evirir.",
+    source: "B\xF6l\xFCm 28.3",
+    kavram: "pko-limp-agirlikli-vpip"
+  },
+  {
+    q: "S\u0131\u011F stack'te (kabaca 12-20bb band\u0131) SB'desin, BB'yi cover ediyorsun. Kellesiz ICM'de bu spotta limp-call-all-in tuza\u011F\u0131 standartt\u0131r. PKO'da ne yapars\u0131n?",
+    options: ["Ayn\u0131 tuza\u011F\u0131 kur \u2014 limp'le, BB'nin call'una all-in'le kar\u015F\u0131l\u0131k ver", "Limp'i kes \u2014 direkt jam'le, kelle equity a\xE7\u0131\u011F\u0131n\u0131 zaten kapat\u0131yor"],
+    correct: 1,
+    explain: "Kelle BB'nin standart call aral\u0131\u011F\u0131na kar\u015F\u0131 equity a\xE7\u0131\u011F\u0131n\u0131 kapat\u0131r: oynanmaya de\u011Fer her el jam'e gider, tuzak dilimi gereksizle\u015Fir \u2014 limp \xE7\xF6ker, hat s\u0131k\u0131 ama jam-a\u011F\u0131rl\u0131kl\u0131 olur.",
+    source: "B\xF6l\xFCm 28.3-EK",
+    kavram: "pko-sig-huBvB-jam"
+  },
+  {
+    q: "Masada kellesi kendi stack'ine yakla\u015Fm\u0131\u015F \xE7ok k\u0131sa bir oyuncu var ve BB'de oturuyor \u2014 aksiyonu kapat\u0131yor, reopen ihtimali en d\xFC\u015F\xFCk. \xD6n\xFCndeki oyuncular ona kar\u015F\u0131 nas\u0131l davran\u0131r?",
+    options: ["3-bet frekans\u0131n\u0131 art\u0131r\u0131rlar \u2014 reopen riski d\xFC\u015F\xFCk, izolasyon daha ucuz gelir", "Flat aral\u0131\u011F\u0131n\u0131 nut'la korurlar \u2014 reopen riskine kar\u015F\u0131 savunmay\u0131 \xF6nde tutup izolasyonu erteler"],
+    correct: 0,
+    explain: "K\u0131sa stack'in pozisyonu stratejiyi belirler: BB'deyse aksiyonu kapat\u0131r ve reopen ihtimali en d\xFC\u015F\xFCkt\xFCr, bu y\xFCzden \xF6n\xFCndekiler daha \xE7ok 3-bet edebilir; nut-koruma refleksi SB/erken pozisyondaki reopen tehdidi i\xE7indir.",
+    source: "B\xF6l\xFCm 28.4",
+    kavram: "pko-kisa-stack-pozisyon"
+  },
+  {
+    q: "Seni cover eden k\u0131sa bir stack sana jam geldi; net primin (ICM primi eksi kelle indirimi) derin negatif, yani ona kar\u015F\u0131 geni\u015F \xE7a\u011F\u0131r\u0131yorsun. Ayn\u0131 mant\u0131kla ona kar\u015F\u0131 bl\xF6f-jam frekans\u0131n\u0131 da m\u0131 art\u0131r\u0131rs\u0131n?",
+    options: ["Evet \u2014 negatif prim genel bir gev\u015Feme sinyalidir, bl\xF6f-jam da geni\u015Fler, \xE7\xFCnk\xFC k\u0131sa stack seni zaten dar \xF6der", "Hay\u0131r \u2014 negatif prim \xE7a\u011Fr\u0131 primidir, bl\xF6f primi de\u011Fil; o seni cover etti\u011Finden bloflar\u0131na zaten dar bakar"],
+    correct: 1,
+    explain: "\u0130\u015Fareti do\u011Fru okumak gerekir: negatif prim \xC7A\u011ERI primidir, bl\xF6f primi de\u011Fil \u2014 indirim yaln\u0131z cover edende \xE7al\u0131\u015F\u0131r. Bl\xF6f fold equity'n yaln\u0131z SEN\u0130 cover eden rakiplere kar\u015F\u0131 d\xFC\u015Fer \u2014 burada 'k\u0131sa' etiketine aldanma, as\u0131l ili\u015Fki bu: o seni cover ediyor, yani bloflar\u0131na zaten dar bak\u0131yor; frekans\u0131 art\u0131rmak i\xE7in de\u011Fil k\u0131smak i\xE7in bir sebep bu.",
+    source: "B\xF6l\xFCm 28.6",
+    kavram: "pko-net-prim-cagri"
+  },
+  {
+    q: "Seni cover eden bir rakip jam geldi \u2014 sen kapsan\u0131yorsun. Jam yelpazeni kurarken hangi malzemeyi tercih edersin?",
+    options: ["Geni\u015F call menzilini domine eden y\xFCksek kart \u2014 do\u011Frusal jam kur", "Flip sat\u0131n alan suited connector ve blocker-jam ile menzili b\xF6l; masay\u0131 okuyamayan rakiplere kar\u015F\u0131 bu denge fazladan equity katar"],
+    correct: 0,
+    explain: "Kapsan\u0131yorsan rakip kellen i\xE7in zaten \xF6deyecek: jam'i do\u011Frusalla\u015Ft\u0131r, geni\u015F call menzilini domine eden y\xFCksek kart\u0131 it; flip sat\u0131n alan suited connector ve kimseyi katlatmayan blocker-jam \xE7\xF6pt\xFCr.",
+    source: "B\xF6l\xFCm 28.7",
+    kavram: "pko-jam-yon-cover"
+  },
+  {
+    q: "Kelleli k\u0131sa bir stack'sin; 'bask\u0131m d\xFC\u015F\xFCk, kellemle geni\u015F jam'lerim' diye d\xFC\u015F\xFCn\xFCyorsun. Kitab\u0131n hatt\u0131 bu refleksi onaylar m\u0131?",
+    options: ["Onaylar \u2014 kellen fold equity'ni art\u0131r\u0131r, jam aral\u0131\u011F\u0131n geni\u015Fleyebilir", "Onaylamaz \u2014 kellen rakip e\u015Fi\u011Fini d\xFC\u015F\xFCr\xFCr, jam'in kellesiz bubble'dan bile dar olmal\u0131"],
+    correct: 1,
+    explain: "Kelle rakiplerin \xF6deme e\u015Fi\u011Fini d\xFC\u015F\xFCr\xFCr, fold equity \xE7\xF6ker; jam aral\u0131\u011F\u0131n kellesiz bubble'dakinden DAR olmal\u0131. Makas\u0131n \xF6b\xFCr a\u011Fz\u0131 lehine i\u015Fler: sana gelen jam'lere stack-off e\u015Fi\u011Fin GEN\u0130\u015E olur.",
+    source: "B\xF6l\xFCm 28.8",
+    kavram: "pko-kapsanan-jam-dar"
+  },
+  {
+    q: "Kelleli k\u0131sa stack olarak a\xE7t\u0131n; seni cover eden rakip normal geni\u015Flikte 3-bet geldi. Elinde TT var \u2014 kellesiz turnuvada bu el standart olarak katlan\u0131r. Burada ne yapars\u0131n?",
+    options: ["4-bet jam \u2014 cover eden 3-bet'\xE7inin value'su a\u015Fa\u011F\u0131 \xE7eker, orta \xE7iftler ve TT art\u0131k value'dur", "Katlan \u2014 TT kellesiz turnuvada da 3-bet'e kar\u015F\u0131 marjinal, jam'e de\u011Fecek el de\u011Fil"],
+    correct: 0,
+    explain: "Seni cover eden 3-bet'\xE7i kelle i\xE7in value'sunu a\u015Fa\u011F\u0131 \xE7eker: orta \xE7iftler (88/99) ve AJs s\u0131n\u0131f\u0131 art\u0131k value 3-bet'tir, jam'ine kelle oddsuyla \xF6demeye haz\u0131rd\u0131r \u2014 kitab\u0131n ad\u0131yla JJ/TT senin i\xE7in 4-bet jam'dir, katlanacak el de\u011Fil; 99'dan \xE7a\u011Fr\u0131 bulman fiyat\u0131n par\xE7as\u0131.",
+    source: "B\xF6l\xFCm 28.8-EK",
+    kavram: "pko-3bet-value-genisleme"
+  },
+  {
+    q: "Balon a\u015Famas\u0131ndas\u0131n, kelleli k\u0131sa bir stack'sin ve 'risk primim d\xFC\u015F\xFCk, o zaman geni\u015F jam'leyeyim' diye d\xFC\u015F\xFCn\xFCyorsun. Bu \xE7\u0131kar\u0131m do\u011Fru mu?",
+    options: ["Do\u011Fru \u2014 balon bask\u0131s\u0131 ICM primini eritir, kelle bu primi daha da d\xFC\u015F\xFCr\xFCp jam'i geni\u015Fletir", "Yanl\u0131\u015F \u2014 kafandaki kelle rakip call aral\u0131\u011F\u0131n\u0131 geni\u015Fletir, balonda daha s\u0131k\u0131 jam'lemen gerekir"],
+    correct: 1,
+    explain: "Primi d\xFC\u015F\xFCren mekanizman\u0131n kendisi \u2014 kafandaki kelle \u2014 rakiplerin call aral\u0131\u011F\u0131n\u0131 geni\u015Fletir; fold equity'n erir, seni her zamankinden \xE7ok \xF6derler. Sonu\xE7 paradoks: balonda kelleli k\u0131sa, kellesiz turnuvadakinden DAHA SIKI jam'ler.",
+    source: "B\xF6l\xFCm 28.10",
+    kavram: "pko-balon-paradoksu"
+  },
+  {
+    q: "K\u0131sa kelleli bir stack'i iki farkl\u0131 masada cover ediyorsun: birinde arkanda pozisyonlu tek coverer sensin, \xF6tekinde onu blind'lardan iki oyuncu kaps\u0131yor. A\xE7\u0131l\u0131\u015F aral\u0131\u011F\u0131 hangisinde daha \xE7ok k\u0131s\u0131l\u0131r?",
+    options: ["Arkada pozisyonlu tek coverer oldu\u011Funda \u2014 pozisyon d\u0131\u015F\u0131 kalma riski aral\u0131\u011F\u0131 k\u0131sar", "Blind'larda iki coverer oldu\u011Funda \u2014 kapsayan say\u0131s\u0131 artt\u0131k\xE7a bask\u0131 katlanarak b\xFCy\xFCr ve aral\u0131\u011F\u0131 k\u0131sar"],
+    correct: 0,
+    explain: "Cover \xE7arp\u0131 pozisyondur: arkanda pozisyonlu tek coverer a\xE7\u0131l\u0131\u015F aral\u0131\u011F\u0131n\u0131 k\u0131sar, blind'lardaki iki coverer neredeyse hi\xE7 k\u0131smaz \xE7\xFCnk\xFC flop'u pozisyonda oynars\u0131n \u2014 cover skaler de\u011Fil, pozisyona ba\u011Fl\u0131d\u0131r.",
+    source: "B\xF6l\xFCm 28.11",
+    kavram: "pko-cover-kalitesi-pozisyon"
+  },
+  {
+    q: "A\xE7t\u0131n, biri flat'ledi, arkadan kelleli k\u0131sa bir oyuncu jam geldi. Re-jam karar\u0131n\u0131 verirken \xF6nce neye bakars\u0131n?",
+    options: ["K\u0131san\u0131n stack'ine ve kellesine \u2014 as\u0131l risk onunla kurdu\u011Fun ili\u015Fkide", "Seninle flat'\xE7i aras\u0131ndaki cover ili\u015Fkisine \u2014 as\u0131l risk flat'\xE7inin over-call'unda"],
+    correct: 1,
+    explain: "Re-jam'in k\u0131say\u0131 de\u011Fil flat'\xE7iyi \xE7a\u011F\u0131r\u0131r: flat'\xE7i seni cover ediyorsa geni\u015F over-call eder ve stack'in iki yelpazeye ba\u011Flan\u0131r; sen flat'\xE7iyi cover ediyorsan o dar \xF6der, jam \xE7o\u011Funlukla k\u0131saya kar\u015F\u0131 HU kal\u0131r.",
+    source: "B\xF6l\xFCm 28.12-EK",
+    kavram: "pko-rejam-kapisi-flatci"
+  },
+  {
+    q: "Masada zorunlu de\u011Fil ama katlanabilen bir mikro stack var; basamak/ICM bask\u0131s\u0131 senin kelle-primini a\u015F\u0131yor. 'Herkes basama\u011Fa s\u0131k\u0131\u015Ft\u0131, jam'lerim' ezberiyle mi hareket edersin?",
+    options: ["Hay\u0131r \u2014 \xF6nce mikronun katlan\u0131p katlanamad\u0131\u011F\u0131na bak, ancak o zaman \xF6deme dara d\xF6ner", "Evet \u2014 mikro varken orta stack'ler seni genelde rahat \xF6der, jam \xE7o\u011Funlukla standart hatt\u0131r"],
+    correct: 0,
+    explain: "Karar a\u011Fac\u0131n\u0131n ilk sorusu stack de\u011Fil, opsiyon: mikro zorunlu all-in'se herkes rahat \xF6der ve jam'i kesmen gerekir; mikro katlanabiliyorsa basamak/ICM riski senin kelle-primini a\u015Ft\u0131\u011F\u0131nda \xF6deme dara d\xF6ner \u2014 ezber yerine \xF6nce mikroya bak.",
+    source: "B\xF6l\xFCm 28.15",
+    kavram: "pko-mikro-fold-opsiyonu"
+  },
+  {
+    q: "Main Event \u20AC5.3K'de Day 1'sin, 28bb'sin, marjinal bir jam/call an\u0131ndas\u0131n. Ayn\u0131 el, ayn\u0131 pozisyon, ayn\u0131 28bb SHR \u20AC100K'da olsa ICM karar\u0131 say\u0131l\u0131rd\u0131. Burada nas\u0131l karar verirsin?",
+    options: ["Main Day 1'de saf chipEV karar\u0131 ver \u2014 burada ICM hen\xFCz Day 3'e kadar fiilen a\xE7\u0131k de\u011Fil, saha b\xFCy\xFCk ve rec-a\u011F\u0131rl\u0131kl\u0131", "ICM'i hafif a\xE7, karar\u0131n\u0131 bir kademe daralt"],
+    correct: 0,
+    explain: "Ayn\u0131 stack/el/pozisyon eventten evente farkl\u0131 karar tipi \xFCretir: Main rec-a\u011F\u0131rl\u0131kl\u0131 ve b\xFCy\xFCk saha y\xFCz\xFCnden ICM'i Day 3'e kadar a\xE7maz; SHR k\xFC\xE7\xFCk saha ve dik \xF6deme y\xFCz\xFCnden erken a\xE7ar.",
+    source: "B\xF6l\xFCm 12.0",
+    kavram: "icm-acilma-zamani-event-bagli"
+  },
+  {
+    q: "Ge\xE7 kay\u0131t h\xE2l\xE2 a\xE7\u0131kken ICM prim hesaplay\u0131c\u0131s\u0131 jam karar\u0131n i\xE7in belirli bir risk primi g\xF6steriyor. Bu say\u0131y\u0131 oldu\u011Fu gibi mi kullan\u0131rs\u0131n?",
+    options: ["Hay\u0131r \u2014 g\xF6sterilenden bir t\u0131k d\xFC\u015F\xFCkt\xFCr, bir kademe d\xFC\u015F", "Evet \u2014 hesaplay\u0131c\u0131 nihai sahay\u0131 ve \xF6deme tablosunu zaten modelliyor, g\xF6sterilen say\u0131 aynen g\xFCvenilirdir, ek d\xFCzeltmeye gerek yok"],
+    correct: 0,
+    explain: "Hesaplay\u0131c\u0131 sahay\u0131 kapanm\u0131\u015F sayar; kay\u0131t a\xE7\u0131kken gelecek oyuncular havuzu ve \xF6denen yeri b\xFCy\xFCt\xFCr, bubble'\u0131 uzakla\u015Ft\u0131r\u0131r \u2014 ger\xE7ek prim g\xF6sterilenden bir t\u0131k d\xFC\u015F\xFCkt\xFCr.",
+    source: "B\xF6l\xFCm 12.0-EK",
+    kavram: "gec-kayit-acikken-prim-carpitmasi"
+  },
+  {
+    q: "3-handed'e yak\u0131n k\u0131sa bir masadas\u0131n, 22bb'sin, arkandaki blindler seni cover ediyor, ante k\xFC\xE7\xFCk. Elin raise-call aral\u0131\u011F\u0131n\u0131n tam tepesinde. Open-jam m\u0131 open-raise mi?",
+    options: ["Open-raise \u2014 tepe raise-call aral\u0131\u011F\u0131na ait, jam tepesiz kal\u0131r", "Open-jam \u2014 22bb'yi cover edilirken bile tek hamlede kullanmak fold equity'den yeterli, \xFCstelik ante k\xFC\xE7\xFCkken risk d\xFC\u015F\xFCk"],
+    correct: 0,
+    explain: "Bu ko\u015Fulda (ICM a\xE7\u0131k, k\u0131sa masa, cover ediliyorsun, ante k\xFC\xE7\xFCk) raise-call aral\u0131\u011F\u0131n\u0131n tepesi jam'e de\u011Fil raise'e ta\u015F\u0131n\u0131r; kalan jam aral\u0131\u011F\u0131 tepesizdir ve her jam eksiye gider \u2014 open-jam fiilen s\u0131f\u0131rlan\u0131r.",
+    source: "B\xF6l\xFCm 12.1-EK-3",
+    kavram: "cover-edilen-kisa-masada-jam-yok"
+  },
+  {
+    q: "~28bb'sin, seni cover eden bir rakip var, ama o rakip her elle jam'ine %90 katlanacak kadar geni\u015F a\xE7\u0131yor. 'Fold equity \xE7ok y\xFCksek, jam' m\u0131 dersin?",
+    options: ["\xD6nce non-all-in 3-bet'i de\u011Ferlendir \u2014 ayn\u0131 fold'u \xE7ok daha az stack riskiyle alan hat, cover ediliyorken jam'i domine edebilir", "Jam \u2014 %90 fold equity tek ba\u015F\u0131na yeterli lisanst\u0131r"],
+    correct: 0,
+    explain: "ICM'de cover edilirken jam EV'sini fold equity de\u011Fil, riske at\u0131lan stack'in \xF6d\xFCle oran\u0131 s\u0131n\u0131rlar; 25bb \xFCst\xFCnde a\u011Fa\xE7 non-all-in 3-bet'e ve se\xE7ici call'a kayar, fold equity'nin tek ba\u015F\u0131na lisans oldu\u011Fu bant ~20bb alt\u0131d\u0131r.",
+    source: "B\xF6l\xFCm 12.1-EK",
+    kavram: "fold-equity-tek-basina-jam-lisansi-degil"
+  },
+  {
+    q: "\u0130ki farkl\u0131 k\u0131sa stack sana jam att\u0131: biri turnuva boyunca g\xF6rd\xFC\u011F\xFCn any-two geni\u015F bir jam'ci, di\u011Feri yaln\u0131z Ax/Kx-a\u011F\u0131rl\u0131kl\u0131 dar bir jam'ci. Elinde AQo var. Hangisine kar\u015F\u0131 call daha g\xFC\xE7l\xFC?",
+    options: ["Dar/bloker jam'ciye kar\u015F\u0131 \u2014 AQ o dokuda de\u011Ferlenir", "Any-two geni\u015F jam'ciye kar\u015F\u0131 \u2014 \xE7\xF6p dokusu AQ'yu domine edecek el vermez, \xE7iftler ise onu domine etti\u011Fi i\xE7in orada de\u011Ferlenir"],
+    correct: 0,
+    explain: "Geni\u015F any-two jam'in b\xFCy\xFCk k\u0131sm\u0131 \xE7ift-a\u011F\u0131rl\u0131kl\u0131d\u0131r ve \xE7ift AQ'yu domine eder; dar/bloker Ax/Kx jam'inde ise y\xFCksek Ax domine etti\u011Fi el bulur, \xE7iftler flip'e iner \u2014 AQ orada call'da de\u011Ferlenir.",
+    source: "B\xF6l\xFCm 12.1-EK-2",
+    kavram: "jam-dokusu-call-malzemesini-secer"
+  },
+  {
+    q: "ICM primi k\xFC\xE7\xFCk (%2 mertebesinde) ama s\u0131f\u0131r de\u011Fil. '\u0130hmal ederim, chipEV aynen oynar\u0131m' m\u0131 dersin?",
+    options: ["Hay\u0131r \u2014 k\xFC\xE7\xFCk prim bile rakibin 3-bet call oran\u0131n\u0131 keser, flat ilk d\xFC\u015Fen dilim olur, b\xFCy\xFCk \xE7iftler trap yerine 3-bet'e d\xF6ner", "Evet \u2014 %2 ihmal edilecek kadar k\xFC\xE7\xFCkt\xFCr, chipEV chart'\u0131 aynen ge\xE7erlidir"],
+    correct: 0,
+    explain: "K\xFC\xE7\xFCk prim \xF6nce rakiplerin 3-bet'e call oran\u0131n\u0131 d\xFC\u015F\xFCr\xFCr; bu, flat'i cazipsizle\u015Ftirip trap'i kapat\u0131r ve b\xFCy\xFCk \xE7iftleri non-all-in 3-bet'e iter \u2014 prim k\xFC\xE7\xFCk olsa da \u015Fekillendirici etkisi vard\u0131r.",
+    source: "B\xF6l\xFCm 12.1-EK-4",
+    kavram: "kucuk-prim-3bet-defterini-bicimlendirir"
+  },
+  {
+    q: "K\u0131sa bir stack \xF6nce sana k\xFC\xE7\xFCk (non-all-in) 3-bet att\u0131, sen fold ettin. Birka\xE7 el sonra ayn\u0131 k\u0131sa stack bu kez all-in geldi, elinde 88 var. Ayn\u0131 el listesiyle mi kar\u015F\u0131l\u0131k verirsin?",
+    options: ["Evet \u2014 k\u0131san\u0131n aksiyonu jam m\u0131 3-bet mi oldu\u011Funa bak\u0131lmaks\u0131z\u0131n ayn\u0131 el listesi her durumda ge\xE7erlidir, basit ve tutarl\u0131d\u0131r", "Hay\u0131r \u2014 jam'e \xE7ift call'da ya\u015Far, non-all-in 3-bet'e ayn\u0131 \xE7ift fold olur"],
+    correct: 1,
+    explain: "K\u0131san\u0131n jam aral\u0131\u011F\u0131 orta blo\u011Fu (orta \xE7ift, geni\u015F Ax) ta\u015F\u0131r ve \xE7ift onu domine eder; ayn\u0131 k\u0131san\u0131n non-all-in 3-bet'i ise polard\u0131r (tepe + katlanabilen bloker) \u2014 orta \xE7ift orada ne domine eder ne fold ettirir, do\u011Fru hat fold'dur.",
+    source: "B\xF6l\xFCm 12.1-EK-5",
+    kavram: "kisanin-jam-vs-3bet-farkli-defter"
+  },
+  {
+    q: "HJ'den a\xE7t\u0131n ama pre-FT'de masa k\u0131sa/primli oldu\u011Fu i\xE7in fiili a\xE7\u0131l\u0131\u015F y\xFCzden ~%39 \u2014 bu fiilen BTN aral\u0131\u011F\u0131. K\u0131sa SB jam att\u0131, elinde KQo var. 'HJ etiketi i\xE7in zay\u0131f' diyerek fold mu edersin?",
+    options: ["Evet \u2014 HJ etiketiyle KQo zay\u0131ft\u0131r, fold bas\u0131l\u0131r", "Hay\u0131r \u2014 SB jam'ini senin ger\xE7ek a\xE7\u0131l\u0131\u015F y\xFCzdene g\xF6re kurar; masa k\u0131sa/primliyken HJ fiilen BTN aral\u0131\u011F\u0131d\u0131r, KQo bu y\xFCzden call defterinde"],
+    correct: 1,
+    explain: "SB k\u0131sa jam'ini pozisyon etiketine de\u011Fil senin fiili a\xE7\u0131l\u0131\u015F y\xFCzdene g\xF6re kurar; etiketle oynarsan over-fold edip soyulursun \u2014 bu spotta KQo call defterindedir.",
+    source: "B\xF6l\xFCm 12.1-EK-6",
+    kavram: "acilis-yuzdesi-pozisyon-etiketini-gecersiz-kilar"
+  },
+  {
+    q: "37bb'sin, arkanda tavan primli blind'lar var, teoride geni\u015F open-jam EV+ g\xF6r\xFCn\xFCyor. Ama masada bir oyuncu birka\xE7 elde JJ+/AKs ile geni\u015F call yapt\u0131\u011F\u0131n\u0131 g\xF6rd\xFCn. Jam aral\u0131\u011F\u0131n\u0131 teorik haliyle mi korursun?",
+    options: ["Evet \u2014 teorik EV h\xE2l\xE2 pozitif g\xF6r\xFCn\xFCyor, geni\u015F jam aral\u0131\u011F\u0131n\u0131 sim'in dedi\u011Fi gibi aynen s\xFCrd\xFCrmek do\u011Frudur", "Hay\u0131r \u2014 g\xF6zlenen geni\u015F call jam'i s\u0131f\u0131rlar; jam'i kes, open'\u0131 da daralt"],
+    correct: 1,
+    explain: "G\xF6zlenen geni\u015F call jam dilimini pratikte s\u0131f\u0131rlar; jam'den d\xFC\u015Fen eller raise-fold'a inince arkadakiler k\xE2rl\u0131 rejam bulur, bu y\xFCzden open aral\u0131\u011F\u0131 da birlikte daralmak zorunda kal\u0131r.",
+    source: "B\xF6l\xFCm 12.1-EK-7",
+    kavram: "derin-jam-gozlenen-calla-kirilir"
+  },
+  {
+    q: "Sen ve bir ba\u015Fka oyuncu benzer k\u0131sa stack'lersiniz, lider uzakta \u2014 'aram\u0131zda prim s\u0131f\u0131r, chipEV oyna' diye d\xFC\u015F\xFCn\xFCyorsun. Ama masada senden de k\u0131sa \xFC\xE7\xFCnc\xFC bir stack var ve \xF6deme lineer. Bu varsay\u0131m do\u011Fru mu?",
+    options: ["Do\u011Fru \u2014 iki benzer k\u0131sa aras\u0131nda prim ko\u015Fulsuz s\u0131f\u0131rd\u0131r", "Yanl\u0131\u015F \u2014 masada daha k\u0131sa bir stack varsa ve \xF6deme lineerse prim yeniden y\xFCkselir, 'k\u0131sa-k\u0131sa=s\u0131f\u0131r prim' yaln\u0131z ba\u015Fka k\u0131sa yokken ge\xE7erlidir"],
+    correct: 1,
+    explain: "'K\u0131sa-k\u0131sa = s\u0131f\u0131r prim' yaln\u0131z masada ba\u015Fka k\u0131sa yokken ve \xF6deme tepe-a\u011F\u0131rl\u0131kl\u0131yken ge\xE7erlidir; \xFC\xE7\xFCnc\xFC k\u0131sa stack ve lineer \xF6deme varken prim geri gelir.",
+    source: "B\xF6l\xFCm 12.1-EK-8",
+    kavram: "benzer-kisa-stack-prim-kosula-bagli"
+  },
+  {
+    q: "Orta-derin stack'sin, arkanda seni cover eden ve primli oyuncular var. Marjinal bir jam dilimin var ama arkadakilerden biri ge\xE7en elde JJ ile geni\u015F call yapt\u0131. Bu dilimi jam'den \xE7\u0131kar\u0131nca nereye ta\u015F\u0131rs\u0131n?",
+    options: ["Raise'e \u2014 ayn\u0131 eli koru, yaln\u0131zca daha k\xFC\xE7\xFCk bir boyla dene ve fold equity'yi biraz d\xFC\u015F\xFCrerek yeniden dene", "Hi\xE7bir yere \u2014 direkt fold; raise rejam makas\u0131 a\xE7ar, arkadakiler cezas\u0131z ezer"],
+    correct: 1,
+    explain: "Jam'den d\xFC\u015Fen eller raise'e ta\u015F\u0131n\u0131rsa raise-call/raise-fold makas\u0131 a\xE7\u0131l\u0131r ve arkadakiler rejam'le cezas\u0131z ezer; do\u011Fru hat marjinal dilimi do\u011Frudan fold'a almak, value-jam'i korumakt\u0131r.",
+    source: "B\xF6l\xFCm 12.1-EK-9",
+    kavram: "pahali-jam-kesilince-raise-degil-fold"
+  },
+  {
+    q: "Orta stack a\xE7t\u0131, onu cover eden b\xFCy\xFCk stack polar bir 3-bet yapt\u0131. Sen BB'de k\u0131sa-orta stack'sin \u2014 \xF6l\xFC para stack'ine g\xF6re b\xFCy\xFCk ama 3-bet'\xE7inin bl\xF6fle rahat\xE7a \xF6deyemeyece\u011Fi kadar uzunsun. Elinde suited Ax var. '\u0130ki g\xFC\xE7l\xFC aksiyon aras\u0131nday\u0131m' diyerek fold mu edersin?",
+    options: ["Evet \u2014 a\xE7an ve 3-bet eden aras\u0131nda s\u0131k\u0131\u015Fan k\u0131sa-orta stack g\xFCvenle fold basar", "Hay\u0131r \u2014 bu \xFC\xE7 bacakl\u0131 pencerede so\u011Fuk jam k\xE2rl\u0131d\u0131r; a\xE7\u0131c\u0131n\u0131n tepesi zaten open-jam'e gitmi\u015F, 3-bet'\xE7i bl\xF6flerini atar, a\xE7\u0131c\u0131 neredeyse hi\xE7 \xF6demez"],
+    correct: 1,
+    explain: "A\xE7\u0131c\u0131n\u0131n a\xE7\u0131l\u0131\u015F aral\u0131\u011F\u0131 tepesizdir (en g\xFC\xE7l\xFC ellerini b\xFCy\xFCk stack'in 3-bet'ine kar\u015F\u0131 zaten open-jam'liyor), 3-bet b\xFCy\xFCk-polar ve senin stack'in yeterince uzun \u2014 jam'in 3-bet'\xE7i bl\xF6flerini atar, a\xE7\u0131c\u0131 neredeyse hi\xE7 \xF6demez.",
+    source: "B\xF6l\xFCm 12.2-EK",
+    kavram: "kisa-orta-bb-soguk-jam-penceresi"
+  },
+  {
+    q: "Orta stack a\xE7\u0131c\u0131ya kar\u015F\u0131 BB'desin ve onu cover ediyorsun (derinsin). Value tepen dar (KK+/AK civar\u0131). Bl\xF6f dilimini nereden se\xE7ersin?",
+    options: ["En y\xFCksek suited konnekt\xF6rlerden \u2014 postflop equity ta\u015F\u0131rlar, call defterinde de ya\u015Farlar, board'a ba\u011Fl\u0131 iyi bir se\xE7imdir", "En dipteki offsuit elden \u2014 rakibin fold aral\u0131\u011F\u0131 suited Ax/Kx'tir, onu bloklamayan el iyi bl\xF6ft\xFCr"],
+    correct: 1,
+    explain: "Cover eden BB'de suited eller call defterinde daha de\u011Ferlidir \xE7\xFCnk\xFC equity'lerini fazlas\u0131yla realize ederler, bl\xF6fe harcanmaz; bl\xF6f en dipteki offsuit elden gelir \xE7\xFCnk\xFC rakibin raise-fold aral\u0131\u011F\u0131n\u0131 (\xE7o\u011Funlukla suited Ax/Kx) bloklamaz.",
+    source: "B\xF6l\xFCm 12.2-EK-2",
+    kavram: "cover-eden-bb-3bet-blof-secimi"
+  },
+  {
+    q: "ICM bask\u0131s\u0131nda (cover ediliyorsun), A-J-3 board\u0131nda rakibin dar ve iyi tan\u0131ml\u0131 value bet'ine kar\u015F\u0131 elindeki KJ ile AK aras\u0131nda hangisi daha iyi call?",
+    options: ["KJ \u2014 rakibin value'sunu (JJ/AJ) bloklar, AK bloklamaz", "AK \u2014 daha g\xFC\xE7l\xFC kicker, daha y\xFCksek showdown de\u011Feri"],
+    correct: 0,
+    explain: "ICM'de polar bete kar\u015F\u0131 'daha g\xFC\xE7l\xFC el daha iyi call' de\u011Fildir; value dar tan\u0131ml\u0131ysa en iyi call rakibin value'sunu bloklay\u0131p bl\xF6f\xFCn\xFC bloklamayan eldir. A-J-3'te KJ, JJ/AJ'yi bloklayarak AK'dan \xFCst\xFCnd\xFCr.",
+    source: "B\xF6l\xFCm 21.1-EK",
+    kavram: "bloker-value-call"
+  },
+  {
+    q: "Derin stack (50bb+), kar\u015F\u0131l\u0131kl\u0131 y\xFCksek ICM primi var. Elinde top set var, river'a geldin \u2014 value bet mi check-back mi?",
+    options: ["Value bet \u2014 top set potu \u015Fi\u015Firecek kadar g\xFC\xE7l\xFC, ince value burada da normal i\u015F g\xF6r\xFCr; rakip domine top pair ve alt setlerle s\u0131k \xF6der, bu spotta ince value her zaman kazan\xE7l\u0131d\u0131r", "Check-back \u2014 \xF6deyen aral\u0131k \xFCst per kombinasyonlar\u0131n\u0131 blokluyor, \xE7o\u011Funlukla straight'e \xE7arp\u0131yorsun"],
+    correct: 1,
+    explain: "Y\xFCksek kar\u015F\u0131l\u0131kl\u0131 primde stack-off e\u015Fi\u011Fi nut'a yakla\u015F\u0131r. Top set \xE7o\u011Funlukla check-back'tir: rakibin \xF6deyen aral\u0131\u011F\u0131n\u0131 (\xFCst per kombinasyonlar\u0131) bloklar ve \xF6dendi\u011Finde straight'e \xE7arpar; d\xFC\u015F\xFCk iki per top set'ten daha iyi raise malzemesidir.",
+    source: "B\xF6l\xFCm 21.1-EK-2",
+    kavram: "yuksek-prim-nut-esigi"
+  },
+  {
+    q: "Cover ediliyorsun (k\u0131sa stack), river geldi ve value aral\u0131\u011F\u0131n nut'a yo\u011Funla\u015Fm\u0131\u015F (full house + nut-flush gibi). 'ICM'de her \u015Feyi k\xFC\xE7\xFClt' refleksiyle boy k\xFC\xE7\xFCltmeli misin?",
+    options: ["Hay\u0131r \u2014 nut-polarize aral\u0131kta b\xFCy\xFCk boy/jam kal\u0131r, indirme yaln\u0131z marjinal aral\u0131\u011F\u0131n kural\u0131d\u0131r", "Evet \u2014 cover ediliyorken her agresif hat, elinin g\xFCc\xFCne bakmaks\u0131z\u0131n bir kademe iner; elin g\xFCc\xFC ne olursa olsun b\xFCy\xFCk boy risk primini art\u0131r\u0131r, g\xFCvenli taraf her zaman k\xFC\xE7\xFCltmektir"],
+    correct: 0,
+    explain: "'Bir kademe indir' marjinal/ince aral\u0131\u011F\u0131n kural\u0131d\u0131r, nut-yo\u011Fun aral\u0131\u011F\u0131n de\u011Fil. River value'su nut'a yo\u011Funla\u015Ft\u0131\u011F\u0131nda b\xFCy\xFCk boy/overbet jam teoride do\u011Fru kal\u0131r; 'her \u015Feyi k\xFC\xE7\xFClt' t\xFCnel g\xF6r\xFC\u015F\xFC burada ba\u015Fl\u0131 ba\u015F\u0131na s\u0131z\u0131nt\u0131d\u0131r.",
+    source: "B\xF6l\xFCm 21.2-EK",
+    kavram: "nut-polarize-istisna"
+  },
+  {
+    q: "ICM bask\u0131s\u0131nda A-x-x (A-high) boardda value elin var (nut-polar: set/d\xFC\u015F\xFCk iki-per). Rakibin aral\u0131\u011F\u0131 bloker-a\u011F\u0131rl\u0131kl\u0131 Ax ve orta ceple dolu. Boy se\xE7imin?",
+    options: ["K\xFC\xE7\xFCk boy \u2014 ICM'de marjinali k\u0131rp, prim her hatt\u0131 bir kademe indirir, burada da ge\xE7erli; A-high board'da bile rakibin geni\u015F k\xFCtlesi k\xFC\xE7\xFCk bet'e yeterince s\u0131k katlan\u0131r", "Pot boy \u2014 k\xFC\xE7\xFCk bet bu k\xFCtleden hi\xE7bir \u015Fey katlatmaz, zay\u0131f Ax'i kay\u0131ts\u0131z k\u0131lar, cepleri katlat\u0131r"],
+    correct: 1,
+    explain: "A-high board ICM'de 'b\xFCy\xFCk\u2192k\xFC\xE7\xFCk' sat\u0131r\u0131n\u0131n d\u0131\u015F\u0131na d\xFC\u015Fer: k\xFC\xE7\xFCk bet rakibin Ax+cep k\xFCtlesinden hi\xE7bir \u015Fey katlatmaz, pot-boy zay\u0131f Ax'i an\u0131nda kay\u0131ts\u0131z k\u0131lar ve cepleri komple katlat\u0131r.",
+    source: "B\xF6l\xFCm 21.2-EK-2",
+    kavram: "a-high-pot-boy"
+  },
+  {
+    q: "ICM bask\u0131s\u0131nda broadway board'da (\xF6r. A-T-4) polar bl\xF6f se\xE7iyorsun. Elindeki adaylar: 3-2 (hi\xE7bir \u015Fey bloklam\u0131yor) ve KQ (gutshot, showdown de\u011Feri var). Hangisi daha iyi bl\xF6f?",
+    options: ["3-2 \u2014 rakibin katlad\u0131\u011F\u0131 her el K/Q/J ta\u015F\u0131r, 3-2 hi\xE7birini bloklamaz", "KQ \u2014 gutshot'la equity de ta\u015F\u0131yor, hem bl\xF6f hem geri d\xF6n\xFC\u015F \u015Fans\u0131 var, daha g\xFCvenli se\xE7im"],
+    correct: 0,
+    explain: "Broadway board'da rakibin katlad\u0131\u011F\u0131 her el K/Q/J ta\u015F\u0131r; en d\xFC\u015F\xFCk kartlar hi\xE7birini bloklamad\u0131\u011F\u0131 i\xE7in en iyi bl\xF6ft\xFCr. KQ gibi gutshot'l\u0131 broadway kombosu showdown'u vard\u0131r ve fold'u bloklar \u2014 burada k\xF6t\xFC bl\xF6ft\xFCr.",
+    source: "B\xF6l\xFCm 21.2-EK-4",
+    kavram: "en-dusuk-kart-blof"
+  },
+  {
+    q: "River (A-Q-6-2-5), elinde zay\u0131f iki-per var ve tahmini equity'n rakibin t\xFCm aral\u0131\u011F\u0131na kar\u015F\u0131 yakla\u015F\u0131k %78. B\xFCy\xFCk bir value bet atmal\u0131 m\u0131s\u0131n?",
+    options: ["Evet \u2014 %78 equity yeterince y\xFCksek, showdown de\u011Feri g\xFC\xE7l\xFC bir hatt\u0131 destekler; bu kadar y\xFCksek bir equity avantaj\u0131n\u0131 masada b\u0131rakmak saf bir chip kayb\u0131 olur, rakip zaten \xE7o\u011Funlukla katlanacakt\u0131r", "Hay\u0131r \u2014 e\u015Fik equity de\u011Fil call aral\u0131\u011F\u0131d\u0131r; katlanan el zaten yendi\u011Fin, \xF6deyen el seni yenen olabilir"],
+    correct: 1,
+    explain: "River'\u0131 yeniden a\xE7an elin e\u015Fi\u011Fi toplam equity de\u011Fil rakibin CALL aral\u0131\u011F\u0131d\u0131r. A-Q-6-2-5'te zay\u0131f iki-per ~%78 equity'yle bile bet etmez \u2014 katlanan her el zaten yendi\u011Fin, \xF6deyen her el seni yenen eldir.",
+    source: "B\xF6l\xFCm 21.2-EK-6",
+    kavram: "call-araligi-esigi"
+  },
+  {
+    q: "ICM bask\u0131s\u0131nda d\xFC\u015F\xFCk bir turn kart\u0131 geldi (board'un \xFCst kart\u0131n\u0131n alt\u0131nda). Orta per'li elinle turn boyun ne olmal\u0131?",
+    options: ["K\xFC\xE7\xFCk-lineer boy \u2014 rakibin e\u015Fle\u015Fmemi\u015F k\xFCtlesi h\xE2l\xE2 katlan\u0131r, per'siz eller de value bet eder", "Polar-b\xFCy\xFCk boy \u2014 d\xFC\u015F\xFCk turn'de bile yaln\u0131z en g\xFC\xE7l\xFC eller devam etmeli; ICM bask\u0131s\u0131 her sokakta ayn\u0131 y\xF6nde i\u015Fler, turn kart\u0131n\u0131n y\xFCksekli\u011Fi rejim se\xE7imini de\u011Fi\u015Ftirmez"],
+    correct: 0,
+    explain: "Turn boyu sokak ba\u015F\u0131na se\xE7ilir; d\xFC\u015F\xFCk turn'de rejim k\xFC\xE7\xFCk-lineerdir. Range-bet sonras\u0131 per'i olmayan ya da orta per'li eller bile value bet eder \xE7\xFCnk\xFC rakibin e\u015Fle\u015Fmemi\u015F k\xFCtlesi h\xE2l\xE2 katlan\u0131r \u2014 koruma sat\u0131n al\u0131rs\u0131n.",
+    source: "B\xF6l\xFCm 21.2-EK-7",
+    kavram: "turn-boy-kart-yuksekligi"
+  },
+  {
+    q: "Derin BB'desin (seni cover ETMEYEN a\xE7\u0131c\u0131 min-raise att\u0131). ICM refleksiyle marjinal suited/ba\u011Flant\u0131l\u0131 eli katlamal\u0131 m\u0131s\u0131n?",
+    options: ["Evet \u2014 ICM bask\u0131s\u0131 alt\u0131nda daralt, marjinali kes; cover ediliyor olman fark etmez; ICM refleksinin evrensel kural\u0131 budur, kimin cover etti\u011Fi preflop savunma geni\u015Fli\u011Fini de\u011Fi\u015Ftirmez", "Hay\u0131r \u2014 a\xE7\u0131c\u0131 seni cover etmiyor, onun her chip'i bust riski ta\u015F\u0131r; derin savunman %90-100'e yakla\u015F\u0131r"],
+    correct: 1,
+    explain: "Seni cover ETMEYEN a\xE7\u0131c\u0131n\u0131n her postflop chip'i bust riski ta\u015F\u0131r \u2014 b\xFCy\xFCk boy atamaz, hero-call yapamaz. Cover edilirken daralan savunma, cover ederken derinde %90-100'e yakla\u015Facak kadar geni\u015Fler.",
+    source: "B\xF6l\xFCm 21.3-EK-2",
+    kavram: "cover-eden-genis-savunma"
+  },
+  {
+    q: "Cover eden BB'sin (chip lider), board Q-7-6 gibi sezgisel-olmayan bir doku. 'Lead sadece nut'um varsa' refleksiyle hi\xE7 lead atmamal\u0131 m\u0131s\u0131n?",
+    options: ["Yanl\u0131\u015F \u2014 bu tip board'larda equity dezavantaj\u0131nda bile orta \xE7iftlerin (6x/7x) say\u0131ca \xFCst\xFCnl\xFC\u011F\xFC seni yar\u0131 frekansla k\xFC\xE7\xFCk lead atmaya iter", "Do\u011Fru \u2014 lead yaln\u0131z d\xFC\u015F\xFCk-ba\u011Flant\u0131l\u0131 nut-avantajl\u0131 board'larda (865 gibi) kullan\u0131l\u0131r, Q76'da check; sezgisel olmayan dokularda equity dezavantaj\u0131 lead'i hakl\u0131 \xE7\u0131karamaz, check-call ile devam etmek daha g\xFCvenlidir"],
+    correct: 0,
+    explain: "Cover eden BB'nin lead haritas\u0131 nut avantaj\u0131 de\u011Fil ikinci/\xFC\xE7\xFCnc\xFC \xE7ift avantaj\u0131d\u0131r. Q76/J54/T64/732 gibi sezgisel olmayan board'larda equity dezavantaj\u0131nda bile 6x/7x'in say\u0131ca \xFCst\xFCnl\xFC\u011F\xFC seni yar\u0131 frekansla k\xFC\xE7\xFCk lead atmaya iter.",
+    source: "B\xF6l\xFCm 21.3-EK-4",
+    kavram: "cover-eden-lead-haritasi"
+  },
+  {
+    q: "2-3 masa kala FT'ye yakla\u015F\u0131yorsun; her eleme b\xFCy\xFCk para anlam\u0131na geliyor. Bu faz prim d\xF6ng\xFCs\xFCnde nerede, nas\u0131l oynars\u0131n?",
+    options: ["Prim ikinci kez y\xFCkselir \u2014 daral, marjinali kes (ikinci fren)", "Prim d\xF6ng\xFCdeki en d\xFC\u015F\xFCk noktas\u0131nda \u2014 gaz ver, chip biriktir"],
+    correct: 0,
+    explain: "Zaman \xE7izelgesinin d\xF6rd\xFCnc\xFC faz\u0131 FT yakla\u015F\u0131m\u0131d\u0131r: prim bubble'dan sonra yeniden y\xFCkselir, 2-3 masa kala ba\u015Flay\u0131p FT bubble'a kadar s\xFCrer. Her eleme b\xFCy\xFCk para ta\u015F\u0131d\u0131\u011F\u0131 i\xE7in bu ikinci frendir.",
+    source: "B\xF6l\xFCm 22.1",
+    kavram: "ft-yaklasimi-ikinci-fren"
+  },
+  {
+    q: "Bubble'a yakla\u015F\u0131rken sen cover eden bir stack'sin (kaybetsen de paraya fold'layabilirsin). Jam'e call aral\u0131\u011F\u0131n\u0131 her elemeden sonra s\u0131k\u0131la\u015Ft\u0131rmal\u0131 m\u0131s\u0131n?",
+    options: ["Hay\u0131r \u2014 cover eden caller'\u0131n aral\u0131\u011F\u0131 bubble yakla\u015F\u0131rken neredeyse de\u011Fi\u015Fmez, senin primin zaten ~0", "Evet \u2014 bubble yakla\u015Ft\u0131k\xE7a herkesin aral\u0131\u011F\u0131 gibi seninki de daral\u0131r; cover eden olsan da olmasan da faz primi tavana \xE7\u0131kt\u0131k\xE7a herkesin call aral\u0131\u011F\u0131 ayn\u0131 oranda s\u0131k\u0131la\u015Fmal\u0131d\u0131r"],
+    correct: 0,
+    explain: "Bubble tek faz de\u011Fil eleme-ba\u015F\u0131na kademedir. Jam'ci taraf\u0131nda alt katman her elemede silinir, ama cover eden caller'\u0131n call aral\u0131\u011F\u0131 (orta \xE7ift + A-y\xFCksek \xE7ekirdek) bubble yakla\u015F\u0131rken neredeyse sabit kal\u0131r \xE7\xFCnk\xFC onun primi zaten ~0'd\u0131r.",
+    source: "B\xF6l\xFCm 22.1-EK",
+    kavram: "cover-eden-caller-sabit"
+  },
+  {
+    q: "Dev sahada (binlerce ki\u015Fi) paradan yakla\u015F\u0131k %20 uzaktas\u0131n ve 15bb'sin \u2014 bu kadar chip'i o kadar eleme boyunca fold'layarak koruyamazs\u0131n. Bu yumu\u015Fak bubble'da m\u0131 stone bubble'da m\u0131s\u0131n, nas\u0131l oynars\u0131n?",
+    options: ["Stone bubble \u2014 call aral\u0131\u011F\u0131n pure-bubble kadar s\u0131k\u0131 olmal\u0131, bu kadar chip'i gamble'a sokma; dev sahada da olsa 15bb h\xE2l\xE2 korunmas\u0131 gereken bir stack'tir, riskli call'lar bu chip'i gereksiz yere tehlikeye atar", "Yumu\u015Fak bubble \u2014 call aral\u0131\u011F\u0131n pure-bubble'a g\xF6re \xE7ok geni\u015F; stack'le hard bubble'a gelmek k\xFC\xE7\xFCk call'lar\u0131 pas ge\xE7mekten de\u011Ferli"],
+    correct: 1,
+    explain: "Test 'paraya fold'layabilir miyim?' sorusudur. 15bb dev sahada o kadar elemeyi fold'layarak bekleyemez \u2014 bu yumu\u015Fak bubble gamble faz\u0131d\u0131r; call aral\u0131\u011F\u0131 chipEV'nin bir kademe alt\u0131na, pure-bubble'a g\xF6re \xE7ok geni\u015F kal\u0131r.",
+    source: "B\xF6l\xFCm 22.1-EK-2",
+    kavram: "yumusak-bubble-saha"
+  },
+  {
+    q: "Prim tavan\u0131nda (bubble yak\u0131n), seni cover ETMEYEN k\u0131sa bir stack sana jam etti. Faz primi tavanda oldu\u011Fu i\xE7in call aral\u0131\u011F\u0131n\u0131 daraltmal\u0131 m\u0131s\u0131n?",
+    options: ["Hay\u0131r \u2014 faz primi yaln\u0131zca cover edenlere uygulan\u0131r; cover etmeyen jam'e kar\u015F\u0131 prim ~0'd\u0131r, geni\u015F call", "Evet \u2014 bubble tavan\u0131ndayken kaynak fark etmez, herkese kar\u015F\u0131 s\u0131k\u0131 call do\u011Fru varsay\u0131lan; faz primi masadaki her rakip i\xE7in ayn\u0131 tavan\u0131 i\u015Faret eder, kimin cover etti\u011Fi ayr\u0131 bir hesap gerektirmez"],
+    correct: 0,
+    explain: "\xD6ncelik kural\u0131: faz primi yaln\u0131zca seni COVER edenlere uygulan\u0131r. Cover etmeyen k\u0131sa bir jam'e kar\u015F\u0131 prim her fazda ~0'd\u0131r \u2014 bubble'da bile geni\u015F call do\u011Fru hatt\u0131r. Faz primin tavan\u0131n\u0131 belirler, cover haritas\u0131 kime uygulanaca\u011F\u0131n\u0131.",
+    source: "B\xF6l\xFCm 22.2",
+    kavram: "faz-primi-oncelik-kurali"
+  },
+  {
+    q: "3-handed's\u0131n. Bir spotta kazan\u0131rsan chip lider olacaks\u0131n; ba\u015Fka bir spotta kazansan bile h\xE2l\xE2 cover edilen orta stack kalacaks\u0131n. \u0130ki spotta da rejam/call aral\u0131\u011F\u0131n ayn\u0131 m\u0131 olmal\u0131?",
+    options: ["Ayn\u0131 olmal\u0131 \u2014 ICM primi eldeki elle belirlenir, gelecekteki rol ayr\u0131 bir hesap de\u011Fildir; double sonras\u0131 hangi stack'e d\xF6n\xFC\u015Fece\u011Fin call e\u015Fi\u011Fini etkilemez, tek belirleyici \u015Fu anki elin g\xFCc\xFCd\xFCr", "Hay\u0131r \u2014 kazan\u0131nca L\u0130DER olaca\u011F\u0131n spotta aral\u0131\u011F\u0131 geni\u015Flet; h\xE2l\xE2 cover edilecek spotta ayn\u0131 geni\u015Flik ge\xE7erli de\u011Fil"],
+    correct: 1,
+    explain: "Ham prim call e\u015Fi\u011Fini belirler ama double'\u0131n gelecek-oyun de\u011Feri ayr\u0131 bir katmand\u0131r: kazan\u0131nca ne hale gelece\u011Fin \xF6nemlidir. 3-handed'da double edince lider olacak spotta aral\u0131\u011F\u0131 belirgin geni\u015Flet; h\xE2l\xE2 cover edilecek spotta bu geni\u015Flik ge\xE7erli de\u011Fildir.",
+    source: "B\xF6l\xFCm 22.2-EK-2",
+    kavram: "gelecek-oyun-rolu"
+  },
+  {
+    q: "ITM hemen sonras\u0131 (d\xF6ng\xFCn\xFCn en d\xFC\u015F\xFCk prim faz\u0131), sahan\u0131n yar\u0131s\u0131 20bb alt\u0131nda ve herkes birbirini eliyor. Sen cover eden derin stack olarak standart 'gaz ver, biriktir' talimat\u0131n\u0131 m\u0131 izlersin?",
+    options: ["Evet \u2014 faz primi d\xFC\u015F\xFCk, chipEV'ye yak\u0131n oyna, agresif biriktir; bu faz d\xF6ng\xFCn\xFCn en gev\u015Fek noktas\u0131d\u0131r ve pop\xFClasyonun ne yapt\u0131\u011F\u0131ndan ba\u011F\u0131ms\u0131z olarak gaz vermek her zaman en y\xFCksek EV'dir", "Hay\u0131r \u2014 pop\xFClasyon zaten \xE7arp\u0131\u015F\u0131yorsa en y\xFCksek EV'in \xE7arp\u0131\u015Fmay\u0131 beklemek, chip riske atmadan ladder'lamakt\u0131r"],
+    correct: 1,
+    explain: "22.2'nin 'gaz' sat\u0131r\u0131 pop\xFClasyonun da gaz vermedi\u011Fini varsayar. Sahan\u0131n yar\u0131s\u0131 k\u0131sayken ve herkes birbirini eliyorken cover eden derin stack i\xE7in en y\xFCksek EV \xE7arp\u0131\u015Fmay\u0131 beklemektir; fren nit de\u011Fildir, yaln\u0131z agresif reg'lere kar\u015F\u0131 marjinal spotlar\u0131 keser.",
+    source: "B\xF6l\xFCm 22.2-EK-3",
+    kavram: "populasyon-kosullu-gaz"
+  },
+  {
+    q: "25bb sa\u011Fl\u0131kl\u0131 bir stack'in var, ladder disiplinini uygulamak istiyorsun. Marjinal ama +EV bir jam/3-bet spotunu s\u0131rf bir basamak korumak i\xE7in pas ge\xE7mek do\u011Fru mu?",
+    options: ["Evet \u2014 laddering orta stack disiplinidir, her marjinal spotu ladder i\xE7in feda et; basamak korumak chip kayb\u0131ndan her zaman daha de\u011Ferlidir, sa\u011Fl\u0131kl\u0131 bir stack bile bu disiplinin d\u0131\u015F\u0131nda kalmaz", "Hay\u0131r \u2014 bu over-ladder'd\u0131r; primin olmad\u0131\u011F\u0131 yerde gaz vermemek chip f\u0131rsat\u0131n\u0131 ka\xE7\u0131r\u0131r, blind'lere eritir"],
+    correct: 1,
+    explain: "Sa\u011Fl\u0131kl\u0131 bir stack'i s\u0131rf ladder i\xE7in nitlemek over-ladder leak'idir: chip biriktirme f\u0131rsat\u0131n\u0131 ka\xE7\u0131r\u0131r ve blind'lere eritir. Laddering primin ger\xE7ekten y\xFCksek oldu\u011Fu spotlar i\xE7indir, her marjinal +EV spotu feda etmek de\u011Fil.",
+    source: "B\xF6l\xFCm 22.3",
+    kavram: "over-ladder-leak"
+  },
+  {
+    q: "Masada hem seni cover eden bir lider hem de seni cover ETMEYEN k\u0131sa bir stack var. Agresif steal bask\u0131n\u0131 kime y\xF6neltirsin?",
+    options: ["Cover etmeyen k\u0131sa stack'e \u2014 ona bask\u0131 ucuz, prim ~0; lidere sayg\u0131 g\xF6ster", "Lidere \u2014 b\xFCy\xFCk stack'i k\xFC\xE7\xFCltmek turnuva pay\u0131n\u0131 en \xE7ok de\u011Fi\u015Ftirir"],
+    correct: 0,
+    explain: "Stack-tarama kural\u0131: cover ETMEYEN bir alt stack'e sald\u0131r, lidere de\u011Fil. Senden k\u0131sa seni cover etmiyorsa ona bask\u0131 ucuzdur (prim ~0); lider seni cover etti\u011Fi i\xE7in prim y\xFCksektir ve sayg\u0131 gerektirir.",
+    source: "B\xF6l\xFCm 22.4",
+    kavram: "cover-etmeyene-saldir"
+  },
+  {
+    q: "30bb'lik derin bir stack'sin, 8bb jam etti; elinde A9o var. 'Ya jam ya fold' refleksiyle bu eli katlamal\u0131 m\u0131s\u0131n, yoksa flat-call m\u0131 do\u011Fru?",
+    options: ["Fold \u2014 rejam-only a\u011Fac\u0131nda A9o k\u0131sa jam'e kar\u015F\u0131 yeterince g\xFC\xE7l\xFC de\u011Fil; bu derinlikte k\u0131san\u0131n jam aral\u0131\u011F\u0131 genelde \xE7iftlerle ve g\xFC\xE7l\xFC Ax'lerle doludur, marjinal offsuit elleri korumak daha g\xFCvenlidir", "Call \u2014 k\u0131san\u0131n jam aral\u0131\u011F\u0131 zay\u0131f Ax/k\xFC\xE7\xFCk \xE7ift/suited Kx yo\u011Fun, A9o onu domine eder; call devam aral\u0131\u011F\u0131n\u0131 geni\u015Fletir"],
+    correct: 1,
+    explain: "6-12bb'lik jam'e kar\u015F\u0131 \u2265~22bb ile 'ya jam ya fold' oynamak A9o gibi elleri yanl\u0131\u015F katlat\u0131r. K\u0131san\u0131n jam aral\u0131\u011F\u0131 zay\u0131f Ax/k\xFC\xE7\xFCk \xE7ift/suited Kx yo\u011Fundur ve A9o onu domine eder; varsay\u0131lan do\u011Fru hat rejam de\u011Fil call'dur.",
+    source: "B\xF6l\xFCm 22.10-EK",
+    kavram: "derin-stack-kisa-jam-call"
+  },
+  {
+    q: "\u015Ei\u015Fmi\u015F HU potunda elinde nuts'a yak\u0131n bir el var (set/iki \xE7ift); bu eli her zaman value bet atarsan river'da senin range'in rakibe capped g\xF6r\xFCn\xFCr. Bu eli HER seferinde value bet mi atars\u0131n, yoksa bazen check-call'da m\u0131 b\u0131rak\u0131rs\u0131n?",
+    options: ["Her zaman value bet at \u2014 check etmek f\u0131rsat maliyetidir, elin bu g\xFCc\xFCnde her zaman en \xE7ok paray\u0131 hemen almal\u0131s\u0131n; potu b\xFCy\xFCtmek i\xE7in her sokakta bast\u0131rmak, rakibin daha ucuz bir turn veya river g\xF6rmesini de engeller ve inisiyatifi elden b\u0131rakmaz", "Bazen check-call'da b\u0131rak \u2014 capped bilinen aral\u0131\u011Fa kar\u015F\u0131 rakip hem daha \xE7ok hem daha b\xFCy\xFCk value bet atar ve yan\u0131na bl\xF6f ekler, EV iki kanaldan kesilir"],
+    correct: 1,
+    explain: "Capped kalman\u0131n cezas\u0131 'bl\xF6f yerim' de\u011Fil, rakibin value hacmini ve boyunu b\xFCy\xFCt\xFCp yan\u0131na bl\xF6f eklemesidir; uncapped check-call iki kap\u0131y\u0131 birden kapat\u0131r.",
+    source: "B\xF6l\xFCm 31.2",
+    kavram: "capped-kalma-cezasi"
+  },
+  {
+    q: "HU'da flop'ta showdown de\u011Feri d\xFC\u015F\xFCk bir elle check-back yapt\u0131n. River'da rakip check etti, gecikmi\u015F bl\xF6f i\xE7in iki aday el var: biri rakibin en g\xFC\xE7l\xFC combolar\u0131n\u0131 BLOKE EDEN, di\u011Feri rakibin fold edece\u011Fi elleri bloklamayan (unblock) bir el. Hangisini se\xE7ersin?",
+    options: ["Unblock eden eli se\xE7 \u2014 rakibin fold edece\u011Fi elleri bloke etmeyen kombo, geni\u015F HU aral\u0131\u011F\u0131nda bloker ta\u015F\u0131maktan daha b\xFCy\xFCk kazan\xE7 sa\u011Flar", "Bloker ta\u015F\u0131yan eli se\xE7 \u2014 rakibin en g\xFC\xE7l\xFC combolar\u0131n\u0131 engellemek, gecikmi\u015F her bl\xF6fte kazanc\u0131 otomatik olarak b\xFCy\xFCt\xFCr; nut'lar\u0131 elinden alan bir bl\xF6f, rakibin en pahal\u0131 \xE7a\u011Fr\u0131lar\u0131n\u0131 do\u011Frudan siler ve river'daki fold karar\u0131n\u0131 kolayla\u015Ft\u0131r\u0131r"],
+    correct: 0,
+    explain: "HU'da bl\xF6f \xE7o\u011Funlukla bloker'\u0131 de\u011Fil unblock'u se\xE7er \u2014 aral\u0131k geni\u015F ve \xE7\xF6p \xE7ok oldu\u011Fu i\xE7in rakibin fold'lar\u0131n\u0131 bloklamamak daha b\xFCy\xFCk kazan\xE7 sa\u011Flar.",
+    source: "B\xF6l\xFCm 31.3",
+    kavram: "gecikmis-blof-unblock"
+  },
+  {
+    q: "Flop J-7-7 rainbow'da BTN olarak ~1/3 pot cbet att\u0131n, BB geni\u015F call etti (Q/K-high + \xE7ekili\u015Fler). Turn J geldi (board J-7-7-J), s\u0131ra BB'de. BB i\xE7in lead atmak mant\u0131kl\u0131 m\u0131, yoksa check'e mi devam etmeli?",
+    options: ["Check'e devam et \u2014 HU'da lead/donk varsay\u0131lan olarak yoktur, iki taraf da ayn\u0131 geni\u015F aral\u0131kla oynad\u0131\u011F\u0131 i\xE7in board kimsenin de\u011Fildir; turn'de tek kart\u0131n de\u011Fi\u015Fmesi bu simetriyi bozacak kadar b\xFCy\xFCk bir olay say\u0131lmaz, IP yine inisiyatifi elinde tutar", "Lead at \u2014 k\xFC\xE7\xFCk cbet'e geni\u015F call verilip turn e\u015Fle\u015Fti\u011Finde asimetri art\u0131k BB'ye ge\xE7mi\u015Ftir, Jx/7x/zay\u0131f Ax ve showdown's\u0131z \xE7ekili\u015Fler \xF6ne \xE7\u0131kar"],
+    correct: 1,
+    explain: "K\xFC\xE7\xFCk c-bet'e geni\u015F call verilip turn e\u015Fle\u015Fti\u011Finde asimetri BB'ye ge\xE7er; bu HU'daki lead'in ba\u015Fl\u0131ca kap\u0131s\u0131d\u0131r.",
+    source: "B\xF6l\xFCm 31.4-EK",
+    kavram: "lead-kapisi-asimetri"
+  },
+  {
+    q: "Derin HU potunda d\xFC\u015F\xFCk-kopuk RAINBOW bir board'da senin range'in equity-edge'i b\xFCy\xFCk (overpair/en-iyi-Tx s\u0131k). Cbet boyunu nas\u0131l se\xE7ersin: 'kuru board = 1/3 pot' ezberini mi uygulars\u0131n, yoksa b\xFCy\xFCk/polar boy mu atars\u0131n?",
+    options: ["B\xFCy\xFCk/polar boy at \u2014 bu geni\u015F-aral\u0131kl\u0131 HU potunda equity-edge b\xFCy\xFCkse kuru board'da k\xFC\xE7\xFCk boy o avantaj\u0131 masada b\u0131rak\u0131r", "1/3 pot at \u2014 kuru/statik board her ko\u015Fulda k\xFC\xE7\xFCk boy gerektirir, b\xFCy\xFCk boy sadece \u0131slak/ba\u011Flant\u0131l\u0131 board'larda mant\u0131kl\u0131d\u0131r"],
+    correct: 0,
+    explain: "B\xFCy\xFCk c-bet boylar\u0131 en \xE7ok rainbow/statik board'da toplan\u0131r; 'kuru=1/3' ezberi HU'da equity-edge'i masada b\u0131rak\u0131r.",
+    source: "B\xF6l\xFCm 31.5",
+    kavram: "rainbow-buyuk-boy"
+  },
+  {
+    q: "HU'da derin stack'te rakip elindeki bir \xE7ifti hi\xE7 d\xFC\u015F\xFCnmeden (snap) flat'ledi. Kitab\u0131n timing-tell mant\u0131\u011F\u0131na g\xF6re bunu nas\u0131l okursun?",
+    options: ["G\xFC\xE7l\xFC bir el olarak oku \u2014 h\u0131zl\u0131 flat \xE7o\u011Funlukla slowplay/trap sinyalidir, rakip seni pota \xE7ekmeye \xE7al\u0131\u015F\u0131yordur; deneyimli oyuncular g\xFC\xE7l\xFC ellerini bilin\xE7li olarak h\u0131zl\u0131 oynay\u0131p karars\u0131zl\u0131k g\xF6stermemeyi tercih eder, bu da timing'i g\xFCvenilmez k\u0131lar", "Pot-kontrol niyeti olarak oku \u2014 d\xFC\u015F\xFCnmeden flat'lemek agresif bir plan\u0131 olmad\u0131\u011F\u0131n\u0131 ilan eder, tek data-point'ten bu projeksiyon HU'da me\u015Frudur"],
+    correct: 1,
+    explain: "Derin stack'te bir \xE7ifti d\xFC\u015F\xFCnmeden flat'leyen rakip pot-kontrol ilan etmi\u015Ftir; VPIP ~%100 oldu\u011Fu i\xE7in tek data-point'ten agresif projeksiyon me\u015Frudur.",
+    source: "B\xF6l\xFCm 31.6",
+    kavram: "timing-tell-pot-kontrol"
+  },
+  {
+    q: "HU'da polar bir spotta rakip yar\u0131m-pot (orta) boyda bet att\u0131. 'Kabiliyetli ama ileri olmayan' oyuncularda kitaba g\xF6re bu boy neyin i\u015Faretidir?",
+    options: ["Bir tell olarak oku \u2014 o spotta boy ya minik ya b\xFCy\xFCk/polar olmal\u0131yd\u0131, orta boy iki i\u015Flevi de \xF6ld\xFCr\xFCr ve seviyesini ele verir", "Dengeli bir se\xE7im olarak oku \u2014 orta boy value ve bl\xF6f\xFC ayn\u0131 anda do\u011Fru oranda ta\u015F\u0131yan sa\u011Fl\u0131kl\u0131 bir kar\u0131\u015F\u0131md\u0131r; her iki ucu da kapsayan bir boy se\xE7mek, rakibe boy \xFCzerinden bilgi vermemenin de en g\xFCvenli yoludur"],
+    correct: 0,
+    explain: "Bu profildeki oyuncunun s\u0131k g\xF6r\xFClen teli makul-orta (yar\u0131m-pot) boydur; ortas\u0131 ne geni\u015F zay\u0131f-value'yu ne nut+bl\xF6f polar\u0131n\u0131 do\u011Fru ta\u015F\u0131r.",
+    source: "B\xF6l\xFCm 31.7",
+    kavram: "orta-boy-tell"
+  },
+  {
+    q: "~15bb HU'da BTN limp'ledi, BB (sen) iso etmeyip check ettin \u2014 limp-call potu kuruldu. River'da rakip b\xFCy\xFCk bet att\u0131. Kitab\u0131n kart-ayr\u0131m\u0131 mant\u0131\u011F\u0131na g\xF6re bu potta rakibin elinde bir As olma ihtimalini nas\u0131l de\u011Ferlendirirsin?",
+    options: ["Y\xFCksek ihtimal ver \u2014 bu derinlikte As'lar genelde limp'lenip pasif oynan\u0131r, potta bolca bulunmas\u0131 beklenir; \xF6zellikle tecr\xFCbesiz rakipler As'\u0131 her zaman agresif oynamaz, bazen s\xFCrprizi korumak i\xE7in sessiz kalmay\u0131 tercih eder", "D\xFC\u015F\xFCk ihtimal ver \u2014 bu derinlikte Ax neredeyse hep jam olarak oynan\u0131r (open-jam/limp-jam/iso-jam), limp-call potuna girmez"],
+    correct: 1,
+    explain: "~15bb'de Ax bu derinlikte ya BTN'nin open-jam/limp-jam'i ya BB'nin iso-jam'idir; limp-call potuna A neredeyse girmez.",
+    source: "B\xF6l\xFCm 31.12",
+    kavram: "limp-call-potu-asiz"
+  },
+  {
+    q: "Derin HU'da (~100bb) senden daha iyi bir rakibe kar\u015F\u0131s\u0131n. 'Potu k\xFC\xE7\xFCk tut, rahat derinli\u011Fe inene kadar bekle' diyerek 3-bet s\u0131kl\u0131\u011F\u0131n\u0131 k\u0131smak mant\u0131kl\u0131 m\u0131?",
+    options: ["Hay\u0131r, k\u0131sma \u2014 me\u015Fru s\u0131k\u0131l\u0131k open-fold/check-fold'dad\u0131r, agresyon dilimini (3-bet/iso/barrel) satmak b\xFCy\xFCk bir EV kayb\u0131d\u0131r ve rakibin bask\u0131s\u0131n\u0131 serbest b\u0131rak\u0131r", "Evet, k\u0131s \u2014 potu k\xFC\xE7\xFCk tutup rakibin %100 VPIP bask\u0131s\u0131ndan ka\xE7\u0131nmak, rahat bir derinli\u011Fe inene kadar en g\xFCvenli yoldur; agresyonu ge\xE7ici olarak azaltmak varyans\u0131 d\xFC\u015F\xFCr\xFCr ve rakibin daha iyi oldu\u011Fu bir alanda ekstra risk almaktan seni korur, kay\u0131p s\u0131n\u0131rlanm\u0131\u015F olur"],
+    correct: 0,
+    explain: "3-bet'i k\u0131smak yanl\u0131\u015F kap\u0131d\u0131r; BTN'yi %100 VPIP'le bast\u0131rmaya b\u0131rak\u0131rs\u0131n ve geride edge olmayan bir derinli\u011Fe inersin. Me\u015Fru s\u0131k\u0131l\u0131k open-fold/check-fold'dad\u0131r, agresyon dilimi sat\u0131lmaz.",
+    source: "B\xF6l\xFCm 31.15",
+    kavram: "underdog-agresyon-satma"
+  },
+  {
+    q: "BvB'de SB'sin, elinde bo\u015Fluklu orta suited bir el var (\xF6r. J9s tipi) \u2014 3-bet yemek istemiyorsun ama iso'ya rahat call edecek kadar da g\xFC\xE7l\xFC de\u011Fil. Kitab\u0131n kova mant\u0131\u011F\u0131na g\xF6re bu el nereye gider?",
+    options: ["Limp-call g\xF6vdesine yerle\u015Ftir \u2014 iso'ya kar\u015F\u0131 rahat\xE7a devam edecek kadar g\xFC\xE7l\xFC oldu\u011Fu i\xE7in o kovaya en uygun eldir; bo\u015Fluklu suited elin flop sonras\u0131 ta\u015F\u0131d\u0131\u011F\u0131 gizli potansiyel, iso'ya kar\u015F\u0131 pozisyon d\u0131\u015F\u0131 bile olsa devam etmeyi hakl\u0131 \xE7\u0131kar\u0131r", "Raise-fold'un do\u011Fal malzemesine yerle\u015Ftir \u2014 kovaya s\u0131\u011Fmayan orta Qx/Jx offsuit ve bo\u015Fluklu orta suited buraya gider, ne limp-call'a ne tepeye s\u0131\u011Far"],
+    correct: 1,
+    explain: "Kova in\u015Fas\u0131na g\xF6re limp-fold, limp-call ve tepe kovalar\u0131na s\u0131\u011Fmayan orta Qx/Jx offsuit ile bo\u015Fluklu orta suited raise-fold'un do\u011Fal malzemesidir.",
+    source: "B\xF6l\xFCm 33.2",
+    kavram: "kova-raise-fold"
+  },
+  {
+    q: "Orta derinlikte (BB'nin iso'su polarize oldu\u011Fu bant) SB'sin, elinde QJs var. Bu bantta BB'nin QJs gibi suited orta elleri iso etmeyip check etti\u011Fini biliyorsun. Ne yapars\u0131n?",
+    options: ["Raise et \u2014 check eden o suited orta banda kar\u015F\u0131 para koymak zorundas\u0131n, limp'lersen rakibe bedava flop vermi\u015F olursun", "Limp et \u2014 pozisyon d\u0131\u015F\u0131 oldu\u011Fun i\xE7in potu k\xFC\xE7\xFCk tutup riski azaltmak, orta derinlikte her zaman daha g\xFCvenli hatt\u0131r; rakibin iso etmedi\u011Fi bir elle para koymak gereksiz risktir"],
+    correct: 0,
+    explain: "KQs/QJs/QTs tipi eller ortada \xE7o\u011Funlukla raise'e kayar: raise'e fold etmeyen ama limp'i iso etmeyen suited orta banda kar\u015F\u0131 para koymak gerekir.",
+    source: "B\xF6l\xFCm 33.3",
+    kavram: "orta-suited-raise"
+  },
+  {
+    q: "BB'sin, SB limp etti. Bu rakip az ve k\xFC\xE7\xFCk limp-reraise yapan gev\u015Fek-pasif bir oyuncu. Iso boyunu ve geni\u015Fli\u011Fini nas\u0131l ayarlars\u0131n?",
+    options: ["Daha b\xFCy\xFCk ve daha dar iso at \u2014 riski azaltmak i\xE7in rakibin nadir reraise'ine kar\u015F\u0131 pay\u0131n\u0131 korumal\u0131s\u0131n; nadir de olsa gelebilecek bir limp-reraise'e kar\u015F\u0131 b\xFCy\xFCk boyla erkenden fiyat sormak, s\xFCrprizin maliyetini azalt\u0131r", "Daha k\xFC\xE7\xFCk ve daha geni\u015F iso at \u2014 az/k\xFC\xE7\xFCk limp-reraise eden havuza kar\u015F\u0131 boy k\xFC\xE7\xFCl\xFCr, geni\u015Flik artar ve daha \xE7ok el iso edilir"],
+    correct: 1,
+    explain: "Az ve k\xFC\xE7\xFCk reraise eden havuza daha k\xFC\xE7\xFCk ve daha geni\u015F iso at\u0131l\u0131r; yetkin limp-reraiser'a kar\u015F\u0131 ise offsuit broadway iso'lar\u0131 k\u0131rp\u0131l\u0131r.",
+    source: "B\xF6l\xFCm 33.4",
+    kavram: "iso-boyu-rakip-cevabi"
+  },
+  {
+    q: "SB'sin, limp'ledin, BB jam etti. BB'nin jam dokusu dar ve Ax/\xE7ift a\u011F\u0131rl\u0131kl\u0131 (value-yo\u011Fun). Elinde 98s (orta suited connector) var. Ayn\u0131 jam'e kar\u015F\u0131 zay\u0131f suited Ax ile kar\u015F\u0131la\u015Ft\u0131r\u0131nca 98s daha m\u0131 iyi bir call aday\u0131d\u0131r?",
+    options: ["Evet \u2014 dar, value-yo\u011Fun Ax/\xE7ift dokusuna kar\u015F\u0131 canl\u0131 bir suited connector, domine edilebilen zay\u0131f suited Ax'ten daha iyi call aday\u0131d\u0131r", "Hay\u0131r \u2014 As i\xE7eren her el, canl\u0131 equity'si y\xFCksek oldu\u011Fu i\xE7in de\u011Fer-yo\u011Fun jam dokusuna kar\u015F\u0131 her zaman daha iyi call aday\u0131d\u0131r"],
+    correct: 0,
+    explain: "BB'nin jam dokusu dar ve value-yo\u011Funsa canl\u0131 orta suited connector, domine edilebilen zay\u0131f suited Ax'ten daha iyi call aday\u0131d\u0131r.",
+    source: "B\xF6l\xFCm 33.4",
+    kavram: "jam-dokusu-call-secimi"
+  },
+  {
+    q: "Sen BB'sin ve SB'yi b\xFCy\xFCk farkla cover ediyorsun; SB k\u0131sa ve limp aral\u0131\u011F\u0131 dar/tavan primli. SB limp etti. Jam m\u0131, min-raise mi tercih edilir?",
+    options: ["Jam et \u2014 k\u0131sa rakibi t\xFCm stack'i riske atarak bask\u0131 alt\u0131nda tutmak, dar limp aral\u0131\u011F\u0131na kar\u015F\u0131 en agresif ve en karl\u0131 yoldur", "Min-raise yap \u2014 jam'e neredeyse e\u015Fit etkiyi daha ucuza sa\u011Flar ve daha \xE7ok bl\xF6f ta\u015F\u0131r, SB'nin dar limp aral\u0131\u011F\u0131 raise'e de fazlas\u0131yla katlan\u0131r"],
+    correct: 1,
+    explain: "Bu ko\u015Fulda jam s\u0131f\u0131r olmal\u0131, min-raise jam gibi \xE7al\u0131\u015F\u0131r \u2014 hem daha ucuzdur hem daha \xE7ok bl\xF6f ta\u015F\u0131r.",
+    source: "B\xF6l\xFCm 33.4-EK",
+    kavram: "cover-eden-bb-min-raise"
+  },
+  {
+    q: "Havuz genelde SB'nin limp'ine seyrek iso ediyor (teoriden az). Elinde AJo var, SB'sin. Limp-reraise mi, a\xE7\u0131l\u0131\u015F raise'i mi tercih edersin?",
+    options: ["A\xE7\u0131l\u0131\u015F raise'ine ta\u015F\u0131 \u2014 havuz seyrek iso etti\u011Fi i\xE7in limp-reraise'in kar\u015F\u0131s\u0131ndaki devam aral\u0131\u011F\u0131 g\xFC\xE7l\xFC kal\u0131r, AJo reraise-value de\u011Fil ince bl\xF6fe d\xF6ner", "Limp-reraise yap \u2014 seyrek iso yapan bir havuzu yakalay\u0131p erkenden b\xFCy\xFCk bir pot kurma \u015Fans\u0131 do\u011Far, tuza\u011F\u0131n kar\u015F\u0131l\u0131\u011F\u0131n\u0131 bulma olas\u0131l\u0131\u011F\u0131 y\xFCksektir"],
+    correct: 0,
+    explain: "Havuz g\xFC\xE7l\xFC elleri teoriden s\u0131k iso etti\u011Fi i\xE7in limp-reraise'in kar\u015F\u0131s\u0131ndaki devam aral\u0131\u011F\u0131 g\xFC\xE7l\xFCd\xFCr; AJo/ATs/KQs s\u0131n\u0131f\u0131 bu aral\u0131\u011Fa domine olur ve a\xE7\u0131l\u0131\u015F raise'ine ta\u015F\u0131nmal\u0131d\u0131r.",
+    source: "B\xF6l\xFCm 33.5",
+    kavram: "value-limp-reraise-daralt"
+  },
+  {
+    q: "S\u0131\u011F bir BvB havuzunda (~15-20bb) rakip SB limp'ine kar\u015F\u0131 normalden \xE7ok jam ediyor ve \xE7ok az iso ediyor. Elinde bo\u015Fluklu orta suited broadway bir el var. Bu havuza kar\u015F\u0131 limp mi, raise mi tercih edersin?",
+    options: ["Raise et \u2014 orta katman kural\u0131 her stack derinli\u011Finde ve her havuz profilinde ayn\u0131 \u015Fekilde ge\xE7erlidir, ko\u015Ful de\u011Fi\u015Ftirmez", "Limp et \u2014 bu havuzda raise'e fazla jam, limp'e ise az non-all-in iso gelir; 'orta suited raise'e kayar' kural\u0131 burada tersine d\xF6ner"],
+    correct: 1,
+    explain: "S\u0131\u011F havuzda orta suited broadway iki y\xF6nde s\u0131k\u0131\u015F\u0131r: raise'e fazla jam gelirken limp'e az iso gelir, bu y\xFCzden postflop OK olan ve tuzak pay\u0131 ta\u015F\u0131yan limp \xF6ne \xE7\u0131kar.",
+    source: "B\xF6l\xFCm 33.5-EK",
+    kavram: "sig-havuz-orta-suited-limp"
+  },
+  {
+    q: "K\u0131sa bir oyuncu (~10-15bb) a\xE7t\u0131, sen derin IP'sin, arkanda da derin blind'lar var. Elin orta-iyi (\xF6rn AJo). Call mi, k\u0131say\u0131 commit eden k\xFC\xE7\xFCk bir 3-bet mi daha iyi?",
+    options: ["K\xFC\xE7\xFCk commit-3-bet at \u2014 k\u0131say\u0131 ucuza commit eden 3-bet flat'ten daha g\xFC\xE7l\xFC \xE7al\u0131\u015F\u0131r, ayr\u0131ca arkadaki derin blind'lar\u0131 da s\u0131k\u0131\u015Ft\u0131r\u0131r", "Call et \u2014 pozisyon avantaj\u0131n\u0131 postflop'ta kullanmak, k\u0131sa rakibe erken taahh\xFCt etmekten her zaman daha karl\u0131d\u0131r ve elin g\xFCc\xFCn\xFC sokak sokak \xF6l\xE7me imk\xE2n\u0131 verir"],
+    correct: 0,
+    explain: "K\u0131say\u0131 commit eden k\xFC\xE7\xFCk 3-bet flat'i domine eder; derin blind'lar da non-all-in squeeze ile flat'i ezdi\u011Fi i\xE7in call daral\u0131r, k\xFC\xE7\xFCk commit-3-bet \xF6ne \xE7\u0131kar.",
+    source: "B\xF6l\xFCm 33.6",
+    kavram: "kisa-aciciya-commit-3bet"
+  },
+  {
+    q: "6-6-6 board'da EP'nin s\u0131k\u0131 a\xE7\u0131l\u0131\u015F aral\u0131\u011F\u0131na kar\u015F\u0131 call d\xFC\u011F\xFCm\xFCndesiniz. Elinizde iki overcard + backdoor flush draw ta\u015F\u0131yan d\xFC\u015F\xFCk suited bir el (J-2s tipi) var; kar\u015F\u0131la\u015Ft\u0131rma offsuit broadway (J-T tipi). Devam e\u015Fi\u011Fini ne belirler, hangi el daha iyi call'd\u0131r?",
+    options: ["Per say\u0131s\u0131 belirler; ikisi de per ta\u015F\u0131mad\u0131\u011F\u0131ndan e\u015Fit de\u011Ferdedirler", "Kicker canl\u0131l\u0131\u011F\u0131 + backdoor belirler; J-2s tipi el JTo'dan daha iyi call'd\u0131r", "Kicker canl\u0131l\u0131\u011F\u0131 belirler ama broadway kartlar\u0131 d\xFC\u015F\xFCk kickerlardan her zaman \xFCst\xFCnd\xFCr"],
+    correct: 1,
+    explain: "Trips board'da e\u015Fi\u011Fi per de\u011Fil kicker'\u0131n canl\u0131l\u0131\u011F\u0131 + backdoor \xE7izer. J-2s tipi el JTo'dan daha iyi call'd\u0131r: JTo'nun tek canl\u0131 kart\u0131n\u0131 rakip daha s\u0131k tutar, d\xFC\u015F\xFCk kicker daha s\u0131k gelir ve geldi\u011Finde \xE7o\u011Funlukla \xF6ndesin.",
+    source: "B\xF6l\xFCm 26.1-EK",
+    kavram: "trips-board-kicker-esigi"
+  },
+  {
+    q: "Flop'ta \xFCstten \xE7ift + flush draw ta\u015F\u0131yan (dominant draw) bir eliniz var, rakip c-bet att\u0131. Do\u011Fru hat check-call m\u0131 check-raise mi?",
+    options: ["Check-call \u2014 dominant draw'lar pahal\u0131 pot kurmadan realize eder", "Check-raise \u2014 b\xFCy\xFCk pot kurup fold equity almak dominant draw'\u0131n de\u011Ferini art\u0131r\u0131r"],
+    correct: 0,
+    explain: "Check-raise b\xFCy\xFCk pot kurar, b\xFCy\xFCk pot net-kararl\u0131 runout ister. Domine eden draw'lar (\xFCstten \xE7ift + FD tipleri) call'da kal\u0131r \u2014 pahal\u0131 pot kurmadan realize eder.",
+    source: "B\xF6l\xFCm 26.2",
+    kavram: "check-raise-net-kararli-runout"
+  },
+  {
+    q: "Rakip b\xFCy\xFCk boyla c-bet att\u0131 ama g\xF6sterdi\u011Fi showdown elleri aras\u0131nda orta g\xFC\xE7te eller de var (88, A-Q tipi) \u2014 aral\u0131k ger\xE7ekte polar de\u011Fil. Elinizde call/fold s\u0131n\u0131r\u0131nda bir el var. Do\u011Fru ayarlama nedir?",
+    options: ["Call aral\u0131\u011F\u0131n\u0131 aynen koruyun; boy b\xFCy\xFCk olsa da tepkinizi de\u011Fi\u015Ftirmeye gerek yoktur", "Call/fold s\u0131n\u0131r\u0131ndaki t\xFCm elleri fold'a \xE7ekin ve raise d\xFC\u011F\xFCm\xFCn\xFC yaln\u0131zca nut ellere saklay\u0131n", "Call aral\u0131\u011F\u0131n\u0131 min-raise'e \xE7evirin: showdown'lu elle koruma-raise, bl\xF6fle equity-raise"],
+    correct: 2,
+    explain: "Polar b\xFCy\xFCk bete reopen k\xE2rs\u0131zd\u0131r; ama rakip b\xFCy\xFCk boyla orta elleri de bet'liyorsa aral\u0131k polar de\u011Fildir \u2192 call aral\u0131\u011F\u0131n\u0131 min-raise aral\u0131\u011F\u0131na d\xF6n\xFC\u015Ft\xFCr: showdown'u olanla koruma-raise, bl\xF6fle equity-raise.",
+    source: "B\xF6l\xFCm 26.2-EK-4",
+    kavram: "buyuk-range-bet-min-raise"
+  },
+  {
+    q: "40bb efektif, 3-bet potu, J-T-x board'da SPR s\u0131\u011F (~2). 3-bettor'\u0131n all-in'ine kar\u015F\u0131 elinizde Q-T (ikinci per + Q yan kart) var. Bloker kilit-testine g\xF6re bu call nas\u0131l de\u011Ferlendirilir?",
+    options: ["Kolay fold \u2014 bu SPR'de ikinci per hi\xE7bir ko\u015Fulda call say\u0131lmaz, bloker testi gereksizdir", "S\u0131n\u0131rda call \u2014 Q yan kart hem value'yu hem semi-bl\xF6f\xFC keser, net y\xF6n kombo say\u0131m\u0131na ba\u011Fl\u0131d\u0131r", "Rahat call \u2014 Q yan kart yaln\u0131zca rakibin value kombolar\u0131n\u0131 bloklar, karar net \u015Fekilde call'd\u0131r"],
+    correct: 1,
+    explain: "Q yan kart hem QQ'yu (value) hem AQ/KQ'yu (semi-bl\xF6f) keser; iki etki \xE7eki\u015Fir. Bloker kilit-testi burada call'u 'rahat' de\u011Fil 's\u0131n\u0131rda' yapar; hangi y\xF6n\xFCn a\u011F\u0131r bast\u0131\u011F\u0131n\u0131 kombo sayarak belirlemek gerekir.",
+    source: "B\xF6l\xFCm 26.2-EK-2",
+    kavram: "bloker-kilit-testi-3bet-pot"
+  },
+  {
+    q: "9-8-5 board, b\xFCy\xFCk c-bet'e raise att\u0131n\u0131z, s\u0131k\u0131 IP caller call etti, river blank geldi ve o all-in geldi. Elinizde KK var (rakibin aral\u0131\u011F\u0131nda AK yok). KK'nin bloker de\u011Feri ve do\u011Fru karar nedir?",
+    options: ["KK rakibin ne value'sunu ne bl\xF6f\xFCn\xFC bloklar; K9/Q9 tipi orta per bu spotta call, KK fold'a yak\u0131nd\u0131r", "KK rakibin hem value hem bl\xF6f kombolar\u0131n\u0131 bloklar, bu y\xFCzden g\xFC\xE7l\xFC bir call say\u0131l\u0131r", "KK en y\xFCksek cep oldu\u011Fu i\xE7in bu spotta otomatik olarak en iyi bluff-catcher'd\u0131r"],
+    correct: 0,
+    explain: "'B\xFCy\xFCk \xE7ift' s\u0131ras\u0131 yanl\u0131\u015F: KK rakibin hi\xE7bir bl\xF6f\xFCn\xFC ve value'sunu bloklamaz (caller'da AK yok); K9/Q9 tipi orta per set ve iki-per'i bloklar \u2192 K9 call, KK fold. Value-bloke kural\u0131 y\xFCksek \xE7ifti ge\xE7er.",
+    source: "B\xF6l\xFCm 26.4-EK",
+    kavram: "buyuk-cift-bloker-degeri"
+  },
+  {
+    q: "SB'den flat'lediniz, flop K-5-3 rainbow, IP k\xFC\xE7\xFCk boyla %100 aral\u0131\u011F\u0131n\u0131 c-bet at\u0131yor (havuz check-raise'e overfold ediyor). Raise-bl\xF6f aday\u0131 se\xE7erken suited Ax mi (A-4s tipi) yoksa suited Kx mi (K-7s tipi) daha iyi adayd\u0131r?",
+    options: ["Suited Ax \u2014 overcard ta\u015F\u0131r, kent/flush draw potansiyeli var, rakibin katlayaca\u011F\u0131 s\u0131n\u0131f\u0131 bloklamaz", "Suited Kx \u2014 \xFCst kart\u0131 ta\u015F\u0131d\u0131\u011F\u0131 ve rakip aral\u0131\u011F\u0131nda daha s\u0131k bulundu\u011Fu i\xE7in genelde daha g\xFC\xE7l\xFC bloker say\u0131l\u0131r", "\u0130kisi de ayn\u0131 bloker g\xFCc\xFCne sahiptir, se\xE7im b\xFCy\xFCk \xF6l\xE7\xFCde masa hissine b\u0131rak\u0131l\u0131r"],
+    correct: 0,
+    explain: "Bl\xF6f aday\u0131 suited Ax'tir: overcard, board etraf\u0131nda kent/flush draw potansiyeli ta\u015F\u0131r ve rakibin katlayaca\u011F\u0131 s\u0131n\u0131f\u0131 bloklamaz. K-7s tipi el 6'ya kent \xE7eviremedi\u011Fi i\xE7in aday de\u011Fildir.",
+    source: "B\xF6l\xFCm 26.5-EK-3",
+    kavram: "sb-flat-blof-adayi-suited-ax"
+  },
+  {
+    q: "Flop'ta OESD'iniz ile check-raise att\u0131n\u0131z, rakip call etti (SPR d\xFC\u015F\xFCk). Turn kart\u0131 d\xFCz\xFCn\xFCz\xFC tamamlad\u0131 ve board'da flush draw h\xE2l\xE2 yok. Bu turn'de nut s\u0131n\u0131f\u0131n\u0131z kilitli mi ak\u0131\u015Fkan m\u0131, do\u011Fru hat nedir?",
+    options: ["Ak\u0131\u015Fkan \u2014 g\xFC\xE7l\xFC eller paray\u0131 river'\u0131 de\u011Fi\u015Ftirmeden koymak ister, jam a\u011F\u0131rl\u0131\u011F\u0131 artmal\u0131 burada", "Ne kilitli ne ak\u0131\u015Fkan \u2014 bu belirsiz turn'de check a\u011F\u0131rl\u0131kl\u0131 gitmek her zaman en g\xFCvenli hatt\u0131r", "Kilitli \u2014 aral\u0131k downbet a\u011F\u0131rl\u0131kl\u0131 gider, ince value ve bl\xF6f ayn\u0131 boyda devam eder"],
+    correct: 2,
+    explain: "Kent tamamland\u0131 ve flush draw yoksa, x/r aral\u0131\u011F\u0131 o kenti ta\u015F\u0131yorsa nut s\u0131n\u0131f\u0131 kilitlidir \u2192 koruma isteyen de jam isteyen de yok, t\xFCm aral\u0131k downbet: ince value + bl\xF6f ayn\u0131 boyda.",
+    source: "B\xF6l\xFCm 26.6",
+    kavram: "turn-kilitli-nut-downbet"
+  },
+  {
+    q: "Yeni bir strateji tasarlad\u0131n\u0131z (\xF6rne\u011Fin her orta per'le check-raise). Bu stratejinin s\xF6m\xFCr\xFClebilir olup olmad\u0131\u011F\u0131n\u0131 hangi testle kontrol edersiniz?",
+    options: ["MDF tablosundan frekans\u0131n do\u011Fru olup olmad\u0131\u011F\u0131n\u0131 sat\u0131r sat\u0131r ve dikkatle kontrol edersiniz", "Rakibin bu stratejiye en k\xE2rl\u0131 cevab\u0131n\u0131 sorars\u0131n\u0131z; cevap dejenereyse strateji yanl\u0131\u015Ft\u0131r", "Ka\xE7 el sonra bu stratejinin kar\u015F\u0131l\u0131\u011F\u0131n\u0131 ald\u0131\u011F\u0131n\u0131z\u0131 say\u0131p uzun vadeli ortalamay\u0131 al\u0131rs\u0131n\u0131z"],
+    correct: 1,
+    explain: "Masada da \xE7al\u0131\u015Fmada da soru \u015Fudur: 'buna kar\u015F\u0131 rakibin en k\xE2rl\u0131 cevab\u0131 ne?' Cevap dejenereyse strateji yanl\u0131\u015Ft\u0131r. S\xF6m\xFCr\xFClebilirli\u011Fi MDF ezberiyle de\u011Fil, rakibin te\u015Fvikiyle test edersin.",
+    source: "B\xF6l\xFCm 27.5",
+    kavram: "tesvik-sanity-check"
+  },
+  {
+    q: "Rakibin garip bir hatt\u0131yla (beklenmedik bir raise'le) sizi ezen bir el geldi. Ka\xE7\u0131n\u0131lmazl\u0131k ilkesine g\xF6re ilk sorunuz ne olmal\u0131 ve bu ne de\u011Fi\u015Ftirir?",
+    options: ["Beni ezen el zaten HER hatta stack'liyor mu diye sorars\u0131n\u0131z; evetse o dal d\xFC\u015Fer, \xE7o\u011Fu kez raise do\u011Frudur", "Rakibin bu tuhaf hatt\u0131 ne s\u0131kl\u0131kla kulland\u0131\u011F\u0131n\u0131 tahmin edip buna g\xF6re ayr\u0131nt\u0131l\u0131 pot-odds hesab\u0131 yapars\u0131n\u0131z", "Elinizin mutlak g\xFCc\xFCne odaklan\u0131p rakibin se\xE7ti\u011Fi garip hatt\u0131 karar\u0131n\u0131zda b\xFCy\xFCk \xF6l\xE7\xFCde g\xF6z ard\u0131 edersiniz"],
+    correct: 0,
+    explain: "Tuhaf hatla kar\u015F\u0131la\u015F\u0131nca ilk soru: beni ezen el beni ZATEN her hatta stack'liyor mu? Evetse o dal karardan d\xFC\u015Fer, karar kalan aral\u0131\u011Fa kar\u015F\u0131 verilir \u2192 \xE7o\u011Fu kez equity-reddi i\xE7in raise (korku-call de\u011Fil).",
+    source: "B\xF6l\xFCm 27.8",
+    kavram: "kacinilmazlik-ilkesi"
+  },
+  {
+    q: "Agres\xF6r\xFCn flop solver \xE7\u0131kt\u0131s\u0131n\u0131 okumaya ba\u015Fl\u0131yorsunuz. Kitaba g\xF6re hangi kolondan ba\u015Flan\u0131r ve s\u0131n\u0131r nas\u0131l bulunur?",
+    options: ["Bet kolonundan ba\u015Flan\u0131r; s\u0131n\u0131r do\u011Frudan kombo say\u0131s\u0131 \xFCzerinden dikkatle hesaplan\u0131r", "\u0130kisi birlikte e\u015Fzamanl\u0131 okunur, hangi kolonun toplam frekans\u0131 b\xFCy\xFCkse o kolondan devam edilir", "Check kolonundan ba\u015Flan\u0131r; en \xE7ok check isteyen s\u0131n\u0131f bulunur, s\u0131n\u0131r bir kart \xF6zelli\u011Fine ba\u011Flan\u0131r"],
+    correct: 2,
+    explain: "Agres\xF6r flop \xE7\u0131kt\u0131s\u0131nda s\u0131ra bellidir: bet kolonundan de\u011Fil CHECK kolonundan ba\u015Fla. En \xE7ok check isteyen s\u0131n\u0131f\u0131 bul; s\u0131n\u0131r\u0131n keyf\xEE olmas\u0131 kusur de\u011Fil \xF6zelliktir \u2014 tek okunabilir kart \xF6zelli\u011Fine ba\u011Flan\u0131r.",
+    source: "B\xF6l\xFCm 27.9",
+    kavram: "check-kolonundan-okuma"
+  },
+  {
+    q: "Turn'de value bet plan\u0131 kuruyorsunuz; iki b\xFCy\xFCk sokak (turn + river) boyunca value istiyorsunuz. Seni yenen elin pay\u0131 sokak ba\u015F\u0131na nas\u0131l de\u011Fi\u015Fir ve bu turn plan\u0131n\u0131z\u0131 nas\u0131l etkilemeli?",
+    options: ["Sabit kal\u0131r \u2014 turn'de ald\u0131\u011F\u0131n\u0131z yenilme pay\u0131 river'da da neredeyse ayn\u0131 seviyede kal\u0131r", "Kabaca ikiye katlan\u0131r \u2014 iki sokak value istiyorsan\u0131z turn'de yenilme pay\u0131n\u0131z d\xFC\u015F\xFCk olmal\u0131", "Sabit kal\u0131r ama river'da rakibin aral\u0131\u011F\u0131 darald\u0131\u011F\u0131ndan bu pay\u0131 hesaba katmaya gerek kalmaz"],
+    correct: 1,
+    explain: "Katlanma kural\u0131: her pot-bet call'u aral\u0131\u011F\u0131 yar\u0131lar, seni yenen pay\u0131n oran\u0131 kabaca ikiye katlan\u0131r \u2014 iki b\xFCy\xFCk sokak value istiyorsan turn'de yenilme pay\u0131n buna g\xF6re k\xFC\xE7\xFCk olmal\u0131.",
+    source: "B\xF6l\xFCm 27.10",
+    kavram: "river-geri-sarim-katlanma"
+  },
+  {
+    q: "60bb derinlikte 3-bet d\xFC\u011F\xFCm\xFCnde s\u0131n\u0131r kombolar\u0131n (KJs/QJs/ATo tipi) hepsini tek tarafa, %100 3-bet'e sabitliyorsunuz (mix'i \xE7\xF6zmek i\xE7in). Bunun 4-bet-jam d\xFC\u011F\xFCm\xFCne etkisi nedir?",
+    options: ["3-bet aral\u0131\u011F\u0131n\u0131n ortalama g\xFCc\xFC d\xFC\u015Fer; sabit call-off'a kar\u015F\u0131 rakibin 4-bet-jam'i neredeyse her elle k\xE2rl\u0131 olur", "Hi\xE7bir etkisi yoktur \u2014 mix'li eller aral\u0131k \xF6l\xE7e\u011Finde n\xF6trd\xFCr, bu y\xFCzden sabitleme her ko\u015Fulda g\xFCvenlidir", "3-bet aral\u0131\u011F\u0131 bu sabitlemeyle g\xFC\xE7lenir, \xE7\xFCnk\xFC s\u0131n\u0131r kombolar\u0131 art\u0131k her zaman 3-bet g\xF6rm\xFC\u015F olur"],
+    correct: 0,
+    explain: "60bb 3-bet d\xFC\u011F\xFCm\xFCnde s\u0131n\u0131r kombolar\u0131 %100 3-bet'e \xE7ekmek 3-bet aral\u0131\u011F\u0131n\u0131n ortalama g\xFCc\xFCn\xFC d\xFC\u015F\xFCr\xFCr; call-off aral\u0131\u011F\u0131n sabit kal\u0131r \u2192 BTN'nin 60bb 4-bet-jam'i hemen her iki kartla k\xE2rl\u0131 olur, 3-bet'in kendisi eksiye d\xF6ner.",
+    source: "B\xF6l\xFCm 27.12-EK",
+    kavram: "60bb-sabitleme-tuzagi"
+  },
+  {
+    q: "Flop'ta bir dokuyu tam-aral\u0131\u011F\u0131n\u0131zla check'e indirdiniz (sadele\u015Ftirme). Kitaba g\xF6re bu, turn'de neye bor\xE7 yazar?",
+    options: ["Yaln\u0131zca bl\xF6f frekans\u0131n\u0131z\u0131 etkiler, value bet plan\u0131n\u0131z bu sadele\u015Ftirmeden hi\xE7 etkilenmez", "Hi\xE7bir \u015Feye \u2014 sadele\u015Ftirme tamamen bedavad\u0131r, turn'de istedi\u011Finiz gibi serbest\xE7e oynan\u0131r", "Turn'de g\xFC\xE7l\xFC bir check aral\u0131\u011F\u0131 b\u0131rak\u0131r; probe bet'lerine kar\u015F\u0131 fazladan savunma bor\xE7lusunuzdur"],
+    correct: 2,
+    explain: "Sadele\u015Ftirme bedava de\u011Fildir; faturas\u0131 bir sonraki sokakta kesilir. Tam-aral\u0131k check'e indirdi\u011Fin doku, turn'de solver'dan g\xFC\xE7l\xFC bir check aral\u0131\u011F\u0131 b\u0131rak\u0131r: probe'a fazladan savunma bor\xE7lusun.",
+    source: "B\xF6l\xFCm 27.13",
+    kavram: "turn-sadelestirme-borcu"
+  },
+  {
+    q: "Bir sadele\u015Ftirmeyi (\xF6rne\u011Fin ara boylar\u0131 at\u0131p tek boya inmeyi) masaya ta\u015F\u0131y\u0131p ta\u015F\u0131mayaca\u011F\u0131n\u0131za nas\u0131l karar verirsiniz?",
+    options: ["Sadele\u015Ftirmeyi her zaman ve ko\u015Fulsuz masaya ta\u015F\u0131rs\u0131n\u0131z, \xE7\xFCnk\xFC basitlik hata pay\u0131n\u0131 azalt\u0131r", "Node-lock ile kendi \xE7al\u0131\u015Ft\u0131rman\u0131zda EV kayb\u0131n\u0131 \xF6l\xE7ersiniz; azsa ta\u015F\u0131r, \xE7oksa ta\u015F\u0131mazs\u0131n\u0131z", "Ba\u015Fkas\u0131n\u0131n 'aral\u0131k zaten kovaya yak\u0131ns\u0131yor, EV kayb\u0131 s\u0131f\u0131r' iddias\u0131n\u0131 olgu olarak kabul edersiniz"],
+    correct: 1,
+    explain: "Node-locking ile bir boyu/aksiyonu kilitleyip EV kayb\u0131n\u0131 \xF6l\xE7. Az kaybediyorsa masaya ta\u015F\u0131nabilir; \xE7ok kaybediyorsa ta\u015F\u0131nmaz. Sonucu KEND\u0130 \xE7al\u0131\u015Ft\u0131rmanda g\xF6r \u2014 ba\u015Fkas\u0131n\u0131n iddias\u0131n\u0131 olgu gibi alma.",
+    source: "B\xF6l\xFCm 27.3-EK",
+    kavram: "node-lock-sadelestirme-sinama"
+  },
+  {
+    q: "BTN a\xE7t\u0131, BB flat etti (BB'nin aral\u0131\u011F\u0131 geni\u015F \u2014 blind savunmas\u0131). Board 9-4-2 rainbow, d\xFC\u015F\xFCk-ba\u011Flant\u0131s\u0131z, kuru. Sen BTN'sin, k\xFC\xE7\xFCk c-bet boyu ve frekans\u0131 nas\u0131l olmal\u0131?",
+    options: ["Frekans GTO'nun alt\u0131nda kal\u0131r \u2014 rec sahada hava-cbet k\u0131s\u0131l\u0131r, station geni\u015F \xE7a\u011F\u0131r\u0131r", "Frekans neredeyse range-bete \xE7\u0131kar \u2014 BB'nin dip k\xFCtlesi k\xFC\xE7\xFCk bete zaten katlan\u0131yor", "Boy b\xFCy\xFCt\xFClmeli \u2014 BB'nin dip k\xFCtlesi ancak b\xFCy\xFCk boya katlan\u0131r, k\xFC\xE7\xFCk yetersiz kal\u0131r"],
+    correct: 1,
+    explain: "Rakip aral\u0131\u011F\u0131 geni\u015F, board onu \u0131skalam\u0131\u015F ve boy k\xFC\xE7\xFCk oldu\u011Funda k\xFC\xE7\xFCk-bet frekans\u0131 teorik kar\u0131\u015F\u0131m\u0131n \xFCst\xFCne \xE7\u0131kar; d\xFC\u015F\xFCk-orta ba\u011Flant\u0131s\u0131z kuru board'da neredeyse range-bet olur, \xE7\xFCnk\xFC aral\u0131\u011F\u0131n dibi (backdoor'suz suited \xE7\xF6p, offsuit broadway) zaten k\xFC\xE7\xFCk bete katlan\u0131r.",
+    source: "B\xF6l\xFCm 18.0-EK-3",
+    kavram: "genis-aralik-dip-kucuk-bet"
+  },
+  {
+    q: "EP a\xE7t\u0131 (PFR), BTN call etti. Board 9-8-7 iki renk \u2014 orta-ba\u011Flant\u0131l\u0131, nut her iki aral\u0131kta da var (set, d\xFCz, iki-per payla\u015F\u0131l\u0131yor). C-bet frekans\u0131 ve boyu nas\u0131l olmal\u0131?",
+    options: ["K\xFC\xE7\xFCk boy, y\xFCksek frekans \u2014 board'a en ufak ba\u011F\u0131 olan her el (gutshot, backdoor, overpair) bet eder, k\u0131l pay\u0131 avantaj paraya \xE7evrilir", "B\xFCy\xFCk boy, d\xFC\u015F\xFCk frekans \u2014 nut payla\u015F\u0131ld\u0131\u011F\u0131 i\xE7in yaln\u0131z ger\xE7ek value ve nut \xE7ekili\u015Fleri bet eder; ince value showdown'a b\u0131rak\u0131l\u0131r, marjinal eller gereksiz risk almaz", "Check-a\u011F\u0131rl\u0131kl\u0131 \u2014 board rakibin aral\u0131\u011F\u0131na en az senin kadar yar\u0131yor, agres\xF6rl\xFCk riskli"],
+    correct: 0,
+    explain: "Nut'un payla\u015F\u0131ld\u0131\u011F\u0131 orta-ba\u011Flant\u0131l\u0131 board'da k\xFC\xE7\xFCk avantaj + payla\u015F\u0131lan nut k\xFC\xE7\xFCk bet, y\xFCksek frekans \xFCretir: ba\u011F\u0131 olan her el ucuza i\xE7eride kal\u0131r, rakip az katlansa da k\u0131l pay\u0131 equity \xFCst\xFCnl\xFC\u011F\xFC paraya d\xF6ner. Ba\u011Flant\u0131 d\xFC\u015F\xFCnce (8-7-6'ya inince) frekans da d\xFC\u015Fer.",
+    source: "B\xF6l\xFCm 18.2-EK-6",
+    kavram: "orta-baglanti-boy-tersi"
+  },
+  {
+    q: "OOP PFR'sin, BTN call etti. Board K-T-8 tek renk (mono) \u2014 rakibin y\xFCksek suited kombolar\u0131n\u0131n \xE7o\u011Fu (broadway+Ax-suit) art\u0131k per ya da d\xFCz olmu\u015F. Bet frekans\u0131 nas\u0131l se\xE7ilir?",
+    options: ["Mono her zaman check-a\u011F\u0131rl\u0131k ister \u2014 kimde nut flush belirsizken agres\xF6rl\xFCk riskli", "Frekans d\xFC\u015F\xFCk kal\u0131r \u2014 rakibin renk kartl\u0131 elleri h\xE2l\xE2 tehlikeli, agres\xF6rl\xFCk geri teper", "Board rakibin suited kombolar\u0131n\u0131 yakt\u0131\u011F\u0131 i\xE7in y\xFCksek frekans k\xFC\xE7\xFCk bet, raise azd\u0131r"],
+    correct: 2,
+    explain: "Mono flopta OOP PFR vs BTN d\xFC\u011F\xFCm\xFCnde soru 'kimde nut flush' de\u011Fil, 'board rakibin y\xFCksek suited'\u0131n\u0131 yakt\u0131 m\u0131'd\u0131r. Board rakibin flush ihtimalini kendi i\xE7inde eritmi\u015Fse (\xE7o\u011Fu suited kombinasyon art\u0131k per/d\xFCz olmu\u015F) y\xFCksek frekans k\xFC\xE7\xFCk bet do\u011Frudur; yakmad\u0131ysa (d\xFC\u015F\xFCk mono) check-a\u011F\u0131rl\u0131k d\xF6ner.",
+    source: "B\xF6l\xFCm 18.2-EK-9",
+    kavram: "mono-frekans-yakti-mi"
+  },
+  {
+    q: "~30bb'de OOP a\xE7\u0131c\u0131s\u0131n (PFR), IP call etti. Board A-8-6 iki renk (flush-draw'lu) \u2014 orta-A. Boy se\xE7imi nas\u0131l olmal\u0131?",
+    options: ["1/3 pot \u2014 alt per zaten k\xFC\xE7\xFCk bete kay\u0131ts\u0131zd\u0131r, b\xFCy\xFCtmenin faydas\u0131 yoktur", "2/3 pot \u2014 k\xFC\xE7\xFCk bet backdoor-fd kombolar\u0131n\u0131 i\xE7eride tutar, 2/3 onlar\u0131 kay\u0131ts\u0131zl\u0131\u011Fa iter", "Check-a\u011F\u0131rl\u0131k \u2014 orta-A board caller'\u0131n per aral\u0131\u011F\u0131na yarar, agres\xF6rl\xFCk gereksiz; flop'ta potu \u015Fi\u015Firmemek turn plan\u0131n\u0131 esnek tutar"],
+    correct: 1,
+    explain: "Orta-A + flush-draw board'da hedef caller'\u0131n backdoor-fd kombolar\u0131d\u0131r (Q9/J9 tipi): k\xFC\xE7\xFCk bet onlar\u0131 i\xE7eride b\u0131rak\u0131r, 2/3 boy onlar\u0131 kay\u0131ts\u0131zl\u0131\u011Fa iter. A-6-2 rainbow'da o kombolar zaten katland\u0131\u011F\u0131 i\xE7in k\xFC\xE7\xFCk yeterken, fd'li board boyu b\xFCy\xFCt\xFCr.",
+    source: "B\xF6l\xFCm 18.2-EK-11",
+    kavram: "a-orta-fd-2-3-boy"
+  },
+  {
+    q: "Board 8-8-3 rainbow (kuru, e\u015Fle\u015Fmi\u015F), sen IP PFR'sin. 100bb'de k\xFC\xE7\xFCk c-bet (1/3) standart; 25bb'ye inince boy nas\u0131l de\u011Fi\u015Fmeli?",
+    options: ["Boy b\xFCy\xFCr \u2014 s\u0131\u011Fda BB'nin raise-fold aday\u0131 azal\u0131r, kalan raise \xE7o\u011Funlukla jam'e d\xF6ner, orta/b\xFCy\xFCk boy g\xFCvenlidir", "Boy ayn\u0131 kal\u0131r \u2014 kuru e\u015Fle\u015Fmi\u015F board her derinlikte 1/3'\xFCn evidir", "Boy k\xFC\xE7\xFCl\xFCr \u2014 s\u0131\u011Fda BB'nin backdoor'lu \xE7\xF6p\xFC bile raise'ledi\u011Fi i\xE7in k\xFC\xE7\xFCk boy \u015Fart; b\xFCy\xFCk boy s\u0131\u011F SPR'de gereksiz risk yarat\u0131r, ince value'yu tehlikeye atar"],
+    correct: 0,
+    explain: "Kuru/e\u015Fle\u015Fmi\u015F board'da derinlik ile boy ters mekanizmayla hareket eder: derinde BB'nin devam\u0131 raise-a\u011F\u0131rl\u0131kl\u0131d\u0131r (k\xFC\xE7\xFCk boy + y\xFCksek check mant\u0131kl\u0131), s\u0131\u011Fla\u015Ft\u0131k\xE7a raise-fold aday\u0131 azal\u0131r ve kalan raise jam'e d\xF6ner \u2014 bu da orta/b\xFCy\xFCk boyu g\xFCvenli k\u0131lar. Islak/ba\u011Flant\u0131l\u0131 board'da y\xF6n tersinedir.",
+    source: "B\xF6l\xFCm 18.2-EK-3",
+    kavram: "derinlik-boy-yon-kuru-islak"
+  },
+  {
+    q: "SB'den 3-bet ettin (3-bettor), BTN call etti (caller), HU. Board A-6-2 rainbow \u2014 A-high kopuk. Boy se\xE7imi nas\u0131l olmal\u0131?",
+    options: ["B\xFCy\xFCk boy \u2014 Ax'in oran\u0131 yo\u011Fun, potu \u015Fimdi b\xFCy\xFCtmek mant\u0131kl\u0131", "Check-a\u011F\u0131rl\u0131k \u2014 nut avantaj\u0131 belirsiz oldu\u011Fu i\xE7in agres\xF6rl\xFCk riskli", "K\xFC\xE7\xFCk boy \u2014 k\xFC\xE7\xFCk bet zaten ucuz oldu\u011Fu i\xE7in verimli, b\xFCy\xFCk boy caller'\u0131n Ax'ini yine katlatmaz, yaln\u0131z kendi bl\xF6flerinin fiyat\u0131n\u0131 art\u0131r\u0131r"],
+    correct: 2,
+    explain: "3-bettor'\u0131n Ax'i oran olarak yo\u011Fun ama s\u0131n\u0131f olarak dar/u\xE7-a\u011F\u0131rl\u0131kl\u0131d\u0131r (AA/AK/AQ); caller'\u0131nki orta-s\u0131n\u0131f ve geni\u015Ftir. A-high board'da b\xFCy\xFCk bet caller'\u0131n Ax'ini yine katlatmaz, yaln\u0131z kendi dar/u\xE7 Ax'ini polar bir a\u011Faca zorlar \u2014 b\xFCy\xFCk boy \xE7o\u011Funlukla gereksizdir.",
+    source: "B\xF6l\xFCm 32.0",
+    kavram: "a-high-buyuk-boy-gereksiz"
+  },
+  {
+    q: "~40bb, 3-bet potu, sen 3-bettor'sun (OOP). Board T-9-6 rainbow \u2014 orta-ba\u011Flant\u0131l\u0131, iki aral\u0131k da neredeyse \u0131skalam\u0131yor. Elinde top pair var. Hat se\xE7imi nas\u0131l olmal\u0131?",
+    options: ["Ara boy (yar\u0131m pot) \u2014 hem value al\u0131rs\u0131n hem riski b\xF6lersin", "Jam ya da check \u2014 ara boylar\u0131n EV kayb\u0131 s\u0131f\u0131ra yak\u0131n, a\u011Fa\xE7 iki dall\u0131d\u0131r", "Her zaman check \u2014 orta-ba\u011Flant\u0131l\u0131 board'da agres\xF6rl\xFCk riskli, riski turn'e ertelemek daha iyi"],
+    correct: 1,
+    explain: "SPR ~2 civar\u0131nda orta-ba\u011Flant\u0131l\u0131 board'da a\u011Fa\xE7 iki dall\u0131d\u0131r: jam (top pair, overpair, g\xFC\xE7l\xFC \xE7ekili\u015F) ya da check (para koymak istemeyen alt per/zay\u0131f eller); ara boylar ayn\u0131 elleri d\xFC\u015F\xFCk frekansta oynatan kopyalard\u0131r ve EV kayb\u0131 s\u0131f\u0131ra yak\u0131nd\u0131r.",
+    source: "B\xF6l\xFCm 32.1",
+    kavram: "sig-spr-jam-check"
+  },
+  {
+    q: "3-bet potu, sen 3-bettor'sun, board A-K-4 rainbow. Elinde JJ (alt \xE7ift) var. C-bet mi check mi?",
+    options: ["Check \u2014 caller'\u0131n Kx'i JJ'yi ge\xE7mi\u015F, katlatt\u0131\u011F\u0131 zaten geride olan, \xE7a\u011F\u0131rd\u0131\u011F\u0131 daha iyi per; alt \xE7ift bu board'da bet istemiyor", "Bet \u2014 top-iki-broadway board'da agres\xF6rl\xFCk her zaman do\u011Frudur, alt \xE7ift de bu ak\u0131\u015Fa kat\u0131lmal\u0131; check etmek inisiyatifi b\u0131rak\u0131r, rakibe bedava kart verir", "Bet \u2014 JJ h\xE2l\xE2 ikinci en iyi \xE7ift, value bet at\u0131lmal\u0131"],
+    correct: 0,
+    explain: "A-K-x board'da alt-\xE7ift pusulas\u0131 JJ'yi check'e koyar: caller'\u0131n Kx'i JJ'yi ge\xE7mi\u015Ftir, JJ'in katlatt\u0131\u011F\u0131 el zaten geride, \xE7a\u011F\u0131rd\u0131\u011F\u0131 el daha iyi perdir. Bu boyun b\xFCy\xFCkl\xFC\u011F\xFCn\xFC Ax/Kx + gutshot bl\xF6fler polar b\xFCy\xFCk \u015Fekilde al\u0131r \u2014 alt \xE7ift katman\u0131 d\xFC\u015Fer.",
+    source: "B\xF6l\xFCm 32.2",
+    kavram: "alt-cift-pusulasi-ak"
+  },
+  {
+    q: "3-bet potu, sen 3-bettor'sun, board A-J-5 rainbow. Elinde TT (alt \xE7ift) var. Boy/frekans nas\u0131l olmal\u0131?",
+    options: ["Check \u2014 A-J-x board'da her alt \xE7ift geride kalm\u0131\u015Ft\u0131r, agres\xF6rl\xFCk riskli", "B\xFCy\xFCk, polar \u2014 TT'nin de Ax/Kx gibi b\xFCy\xFCk boy bl\xF6f\xFCne kat\u0131lmas\u0131 gerekir", "K\xFC\xE7\xFCk, tam-aral\u0131k \u2014 Kx/Qx gibi persiz overcard'lar k\xFC\xE7\xFCk bete katlan\u0131r ya da geride call eder, alt \xE7ift de bu tam-aral\u0131k ak\u0131\u015F\u0131na e\u015Flik eder"],
+    correct: 2,
+    explain: "A-J-x board'da alt \xE7ift (TT) bet istiyor: Kx/Qx gibi persiz overcard'lar k\xFC\xE7\xFCk bete ya katlan\u0131r ya geride call eder, bu y\xFCzden alt \xE7ift k\xFC\xE7\xFCk value olarak aral\u0131\u011Fa e\u015Flik eder \u2014 tek k\xFC\xE7\xFCk boy, tam-aral\u0131k.",
+    source: "B\xF6l\xFCm 32.2",
+    kavram: "alt-cift-pusulasi-aj"
+  },
+  {
+    q: "3-bet potu, SPR ~3-4, sen 3-bettor'sun. Board K-Q-T iki renk \u2014 \xFC\xE7 broadway. Boy se\xE7imi nas\u0131l olmal\u0131?",
+    options: ["Pot-boy polar \u2014 J-T-x tipi dinamik dokularla ayn\u0131 \u015Fekilde oynan\u0131r", "K\xFC\xE7\xFCk \u2014 nut avantaj\u0131 ince (caller'da AJ/JT/iki-per/set yo\u011Fun), b\xFCy\xFCk boy caller'\u0131n g\xFC\xE7l\xFC kesimine commit olmak demektir", "Jam \u2014 SPR bu bantta zaten commit ettirir, ara boy anlams\u0131zd\u0131r"],
+    correct: 1,
+    explain: "\xDC\xE7-broadway board'da nut avantaj\u0131 ince kal\u0131r: caller'\u0131n AJ/JT/iki-per/set kesimi yo\u011Fundur, senin overpair'lerin \xE7o\u011Fu capped. B\xFCy\xFCk boy bu g\xFC\xE7l\xFC kesime commit olmak anlam\u0131na gelir; boy k\xFC\xE7\xFCk tutulur, hedef otomatik-fold blo\u011Fu ucuza toplan\u0131r.",
+    source: "B\xF6l\xFCm 32.3",
+    kavram: "uc-broadway-nut-ince-kucuk"
+  },
+  {
+    q: "~40bb, 3-bet potu, board 6-5-2 rainbow \u2014 d\xFC\u015F\xFCk kopuk. Elinde JJ (overpair) var, caller iki-overcard + backdoor ile devam ediyor. Boy nas\u0131l se\xE7ilmeli?",
+    options: ["B\xFCy\xFCk/geometrik \u2014 SPR zaten commit ettiriyor, erimeden \xF6nce value al\u0131nmal\u0131", "K\xFC\xE7\xFCk \u2014 overpair bu board'da merged, d\xFC\u015F\xFCk frekansla k\xFC\xE7\xFCk yeterli", "Check \u2014 caller'\u0131n set/iki-per pay\u0131 (22/55/66) nut avantaj\u0131n\u0131 ona veriyor, agres\xF6rl\xFCk riskli"],
+    correct: 0,
+    explain: "S\u0131\u011Fda d\xFC\u015F\xFCk-kopuk board'da overpair k\u0131r\u0131lgand\u0131r: her overcard turn'\xFC tehdittir, ama boyun b\xFCy\xFCkl\xFC\u011F\xFC SPR'nin zaten commit ettirmesinden ve erimeden \xF6nce al\u0131nan value'dan gelir \u2014 suited Tx/9x pot-boyla katlat\u0131l\u0131r. Nut caller'da olsa da (setler) aral\u0131k/overpair avantaj\u0131 s\u0131\u011Fda b\xFCy\xFCk boyu destekler; 100bb'de ayn\u0131 k\xFCtle merged olup boy k\xFC\xE7\xFCl\xFCr.",
+    source: "B\xF6l\xFCm 32.4",
+    kavram: "kirilgan-overpair-erime-value"
+  },
+  {
+    q: "3-bet potu, sen OOP 3-bettor'sun (SB'den, dar/broadway-a\u011F\u0131r aral\u0131k), board 7-6-5 rainbow \u2014 d\xFC\u015F\xFCk ba\u011Flant\u0131l\u0131, senin offsuit broadway'in bu board'a hi\xE7 de\u011Fmiyor. Hat ne olmal\u0131?",
+    options: ["Tam-aral\u0131k k\xFC\xE7\xFCk bet \u2014 aral\u0131k avantaj\u0131n her d\xFC\u015F\xFCk board'da ge\xE7erlidir", "\xC7o\u011Funlukla check \u2014 overcard/broadway kesimin d\xFCz \xE7ekili\u015Fi alm\u0131yor, elinin \xE7o\u011Fu \xFC\xE7 sokak istemiyor; IP stab eder", "B\xFCy\xFCk boy \u2014 d\xFC\u015F\xFCk board rakibin range'ine yarasa da agres\xF6rl\xFCkle dengelenir; dar/broadway-a\u011F\u0131r aral\u0131kta b\xFCy\xFCk boy bl\xF6f ve value'yu ayn\u0131 a\u011Fa\xE7ta polarla\u015Ft\u0131r\u0131r"],
+    correct: 1,
+    explain: "Dar/broadway-a\u011F\u0131r 3-bet aral\u0131\u011F\u0131nda offsuit broadway kesimi bu d\xFC\u015F\xFCk ba\u011Flant\u0131l\u0131 board'a hi\xE7 de\u011Fmez, overpair \xFC\xE7 sokak istemez \u2014 bu y\xFCzden OOP 3-bettor \xE7o\u011Funlukla check eder ve check aral\u0131\u011F\u0131 zay\u0131f kal\u0131r; devam\u0131 IP'nin stab'i ta\u015F\u0131r. S\u0131n\u0131r soru rakibin overcard kesiminin d\xFCz \xE7ekili\u015Fi al\u0131p almad\u0131\u011F\u0131d\u0131r.",
+    source: "B\xF6l\xFCm 32.5",
+    kavram: "oop-3bettor-dusuk-board-check"
+  },
+  {
+    q: "50-60bb, IP 3-bettor'sun (BTN'den 3-bet, CO call etti). Board 6-5-2 rainbow \u2014 d\xFC\u015F\xFCk kopuk. Elinde KQ (persiz, y\xFCksek-equity orta broadway) var. Hat ne olmal\u0131?",
+    options: ["Bet \u2014 agres\xF6rs\xFCn, d\xFC\u015F\xFCk board'a k\xFC\xE7\xFCk range-bet refleksi burada da ge\xE7erli", "Bet-fold \u2014 k\xFC\xE7\xFCk bet at, raise gelirse b\u0131rak", "Check-back \u2014 bet'lenince daha k\xF6t\xFC el katlanm\u0131yor, daha iyi el \xF6d\xFCyor ya da bl\xF6f-raise'e katlan\u0131yorsun; check turn'de kicker tavan\u0131n\u0131 sende tutar"],
+    correct: 2,
+    explain: "IP 3-bettor'ken d\xFC\u015F\xFCk board'da 'agres\xF6r\xFCm, k\xFC\xE7\xFCk range-bet' refleksi k\xF6k hatad\u0131r: OOP caller'\u0131n aral\u0131\u011F\u0131 bu board'da do\u011Fal value (overpair, set, iki-per) ve do\u011Fal bl\xF6f ta\u015F\u0131r; KQ tipi persiz orta broadway bet'lenince ya daha k\xF6t\xFC el katlanm\u0131yor ya daha iyi el \xF6d\xFCyor ya da bl\xF6f-raise'e katlan\u0131yor. Check-back turn'de K/Q/J gelirse kicker tavan\u0131n\u0131 sende b\u0131rak\u0131r.",
+    source: "B\xF6l\xFCm 32.5-EK",
+    kavram: "ip-3bettor-dusuk-board-check-back"
+  },
+  {
+    q: "BB'de 12bb'sin, rakip derin a\xE7t\u0131 (s\u0131\u011F istisna band\u0131). Flop K-9-4 rainbow (y\xFCksek-kuru), elinde zay\u0131f kicker top pair (K-6). Rakip s\u0131\u011Fda ikinci per, alt per ve A-high'la check-back a\u011F\u0131rl\u0131kl\u0131. Lead atarsan boyu ne olsun?",
+    options: ["K\xFC\xE7\xFCk-orta lead \u2014 \xF6deyecek katman\u0131 (9-x, orta cep, A-high) i\xE7eride tutar", "Jam \u2014 top pair'i b\xFCy\xFCk boyla koru, katlanmayan\u0131 ge\xE7en kals\u0131n \xF6nemli de\u011Fil"],
+    correct: 0,
+    explain: "K-9-4 gibi y\xFCksek-kuru boardda top pair k\u0131r\u0131lgan de\u011Fil, value ister; jam rakibin \xF6deyecek katman\u0131n\u0131 (ikinci per, alt per, A-high) katlat\u0131p yaln\u0131z seni ge\xE7en kal\u0131r. K\xFC\xE7\xFCk-orta lead o katman\u0131 i\xE7eride tutar.",
+    source: "B\xF6l\xFCm 19.1-EK",
+    kavram: "sig-yuksek-board-donk-boy"
+  },
+  {
+    q: "Dinamik orta-ba\u011Flant\u0131l\u0131 board (9-7-5 iki renkli), rakip bu t\xFCr dokularda bet istemeyen bir profil \u2014 top pair'i b\xFCy\xFCk atar, zay\u0131f per'i b\xFCy\xFCk atmaz, \xE7o\u011Fu elle check eder. Elinde overpair (QQ) var. Check-call'a m\u0131 ta\u015F\u0131rs\u0131n, lead mi atars\u0131n?",
+    options: ["Check-call \u2014 overpair burada yaln\u0131zca bluff-catcher, agresyonu rakibe b\u0131rak", "Lead \u2014 rakip bu dokuda bet istemiyor, check ikinize de bedava turn verir"],
+    correct: 1,
+    explain: "Rakip bu dokuda bet istemiyorsa check bedava turn verir; overpair burada en s\u0131k lead eli olur, check-call'a ta\u015F\u0131mak en zay\u0131f kullan\u0131md\u0131r \xE7\xFCnk\xFC rakip check-back ile zay\u0131f elini bedava realize eder.",
+    source: "B\xF6l\xFCm 19.1-EK-4",
+    kavram: "c-bet-isteksizligi-lead"
+  },
+  {
+    q: "Flop check-check gitti, sen OOP'sun. Turn kart\u0131 value elini nuts'a yak\u0131n yapt\u0131 ve bl\xF6f adaylar\u0131n\u0131 (offsuit Ax, gutshot, flush draw) bol tuttu. Probe boyu ne olmal\u0131?",
+    options: ["B\xFCy\xFCk, polarize (~1.2-1.5x pot) \u2014 k\xFC\xE7\xFC\u011Fe katlanmayan katman b\xFCy\xFC\u011Fe katlan\u0131r", "K\xFC\xE7\xFCk-orta, tam aral\u0131\u011Fa yak\u0131n merged bet \u2014 geni\u015F-zay\u0131f check-back'e \xF6zg\xFC boy"],
+    correct: 0,
+    explain: "Turn value'yu nuts'a yak\u0131nla\u015Ft\u0131r\u0131p bl\xF6f adaylar\u0131n\u0131 bol tuttu\u011Funda probe b\xFCy\xFCk ve polarize at\u0131l\u0131r; k\xFC\xE7\xFCk-orta merged boy yaln\u0131z geni\u015F-zay\u0131f check-back kar\u015F\u0131s\u0131ndaki orta-value y\u0131\u011F\u0131n\u0131na \xF6zg\xFCd\xFCr.",
+    source: "B\xF6l\xFCm 19.3-EK",
+    kavram: "probe-boyu-turn-sinifi"
+  },
+  {
+    q: "A-5-2 rainbow board, a\xE7\u0131c\u0131 (OOP) check etti \u2014 bu boardda Ax'siz aral\u0131\u011F\u0131 zay\u0131ft\u0131r. Sen IP'sin, elinde showdown value'suz bir el var. 'Onun board'u' diye check-back mi, k\xFC\xE7\xFCk stab m\u0131?",
+    options: ["Check-back \u2014 Ax olmayan aral\u0131\u011Fa sald\u0131rmak riskli, rakip check-raise'le tuzak kurabilir, elini pasif realize etmek daha g\xFCvenli", "K\xFC\xE7\xFCk stab, neredeyse tam frekans \u2014 check aral\u0131\u011F\u0131 \xE7o\u011Funlukla katlan\u0131r"],
+    correct: 1,
+    explain: "A-d\xFC\u015F\xFCk boardda OOP'nin check aral\u0131\u011F\u0131 Ax'siz ve zay\u0131ft\u0131r; teoride bile k\xFC\xE7\xFCk stab'e b\xFCy\xFCk oranda katlan\u0131r, havuzda daha fazla. IP burada tam frekansa yak\u0131n stab atmal\u0131, 'onun board'u' diye \xE7ekilmemeli.",
+    source: "B\xF6l\xFCm 19.4-EK-2",
+    kavram: "a-dusuk-board-ip-stab"
+  },
+  {
+    q: "ICM a\xE7\u0131k, sen b\xFCy\xFCk stack'sin ve rakibi cover ediyorsun (rakip k\u0131sa ve korkak). Board senin aral\u0131\u011F\u0131na \xE7arp\u0131yor. Donk/lead frekans\u0131n chipEV'e g\xF6re nas\u0131l de\u011Fi\u015Fir?",
+    options: ["De\u011Fi\u015Fmez \u2014 ICM yaln\u0131z call-off e\u015Fi\u011Fini etkiler, lead frekans\u0131 board sahipli\u011Fiyle sabit kal\u0131r, stack ili\u015Fkisi burada devreye girmez", "A\xE7\u0131l\u0131r \u2014 rakip stack-off riskini alamad\u0131\u011F\u0131 i\xE7in sana agresyon lisans\u0131 verir"],
+    correct: 1,
+    explain: "Cover eden taraf\u0131n risk primi d\xFC\u015F\xFCkt\xFCr; cover edilen rakip k\xE2rl\u0131 stack-off'lar\u0131 bile katlar. Bu pasiflik cover edene lead/donk i\xE7in chipEV'dekinden daha geni\u015F bir lisans verir.",
+    source: "B\xF6l\xFCm 19.10",
+    kavram: "icm-cover-eden-lead-acilir"
+  },
+  {
+    q: "Balina limp etti, sen \u226420bb'sin (jam'e s\u0131\u011F\u0131yorsun), elinde KTs var. Balina raise'e domine ellerle CALL eder, jam'e neredeyse hi\xE7 etmez. RAISE mi JAM mi?",
+    options: ["Jam \u2014 balina raise'e her elle kat\u0131labilir, \xFCstelik jam fold-equity'yi de canl\u0131 equity'yle birlikte kullan\u0131r, riski en aza indir", "Raise \u2014 jam'lersen balinan\u0131n domine call'\u0131n\u0131 atars\u0131n, raise onu tutar"],
+    correct: 1,
+    explain: "Balina raise'e domine ellerle call eder, jam'e etmez; bu bantta KTs tipi eller raise ile balinan\u0131n domine call'\u0131n\u0131 potta tutar. Jam o de\u011Ferli call'\u0131 \xFCrk\xFCt\xFCr.",
+    source: "B\xF6l\xFCm 23.1-EK",
+    kavram: "balina-limp-raise-vs-jam"
+  },
+  {
+    q: "Final table reg-yo\u011Fun: herkes yap\u0131\u015Fkan, k\xFC\xE7\xFCk bete raise/float s\u0131k, lead'e raise s\u0131k. Sende ince value bekleyen bir el var. K\xFC\xE7\xFCk-boylu agresyonu mu art\u0131r\u0131rs\u0131n, check-call/check-raise pay\u0131n\u0131 m\u0131 b\xFCy\xFCt\xFCrs\xFCn?",
+    options: ["K\xFC\xE7\xFCk-boylu agresyonu art\u0131r \u2014 ince value'yu erken ve s\u0131k topla, rakip yap\u0131\u015Fkan oldu\u011Fu i\xE7in katlanma riski d\xFC\u015F\xFCk g\xF6r\xFCn\xFCr", "K\xFC\xE7\xFCk-boylu agresyonu d\xFC\u015F\xFCr, check-call/check-raise pay\u0131n\u0131 art\u0131r"],
+    correct: 1,
+    explain: "Reg-yo\u011Fun masada rakip k\xFC\xE7\xFCk bete s\u0131k raise/float ediyorsa k\xFC\xE7\xFCk c-bet ve lead'in gizli EV'si (rakibin overfold'u) \xE7\xF6ker; do\u011Fru y\xF6n k\xFC\xE7\xFCk-boylu agresyonu d\xFC\u015F\xFCr\xFCp check-call/check-raise'i art\u0131rmakt\u0131r.",
+    source: "B\xF6l\xFCm 23.6-EK",
+    kavram: "reg-yogun-ft-agresyon-boyu"
+  },
+  {
+    q: "Pasif/call-a\u011F\u0131rl\u0131kl\u0131 havuz, iki-per tipi g\xFC\xE7l\xFC elin var, flop bet ettin call ald\u0131. Turn'de check-back edip river'a m\u0131 saklars\u0131n, yoksa turn'de mi bas?",
+    options: ["Turn'de bas \u2014 havuz senin yerine pot b\xFCy\xFCtmez, paray\u0131 \xF6ne y\xFCkle", "Turn check-back \u2014 gecikmi\u015F value'yu river'da al, rakip orada da \xF6der"],
+    correct: 0,
+    explain: "Pasif havuzda turn check-back'in EV'si rakibin river'da senin yerine para koymas\u0131na dayan\u0131r; ama havuz river'\u0131 \xE7o\u011Funlukla check-fold eder. \u0130ki-per tipi elle turn bet'ini \u015Fimdi almak paray\u0131 \xF6ne y\xFCkler.",
+    source: "B\xF6l\xFCm 23.11",
+    kavram: "pasif-havuz-value-erken-al"
+  },
+  {
+    q: "Blind'lar ge\xE7 a\xE7\u0131l\u0131\u015F\u0131na dengeden belirgin az 3-bet ediyor (havuz g\xF6zlemi). BTN'den a\xE7\u0131\u015F aral\u0131\u011F\u0131n ve 3-bet yiyince devam \u0131s\u0131r\u0131n nas\u0131l olmal\u0131?",
+    options: ["A\xE7\u0131l\u0131\u015F\u0131 solver'\u0131n \xFCst\xFCne geni\u015Flet; 3-bet yiyince dar devam et", "A\xE7\u0131l\u0131\u015F\u0131 solver seviyesinde tut; 3-bet yiyince bl\xF6f dahil geni\u015F devam et"],
+    correct: 0,
+    explain: "Blind'lar az 3-bet ediyorsa ge\xE7 a\xE7\u0131l\u0131\u015F\u0131 geni\u015Fletmek cezas\u0131z kal\u0131r; ama 3-bet yedi\u011Finde gelen aral\u0131k nut-a\u011F\u0131rl\u0131kl\u0131d\u0131r \u2014 bloker'li 4-bet-jam bl\xF6f\xFCn\xFCn fold equity'si \xE7\xF6ker, dar devam etmek do\u011Frudur.",
+    source: "B\xF6l\xFCm 23.13",
+    kavram: "havuz-3bet-acigi-genis-ac-dar-devam"
+  },
+  {
+    q: "Erken/orta fazda rakipler ICM primini g\xF6rmeden chipEV geni\u015Fli\u011Finde a\xE7\u0131p squeeze'liyor. B\xFCy\xFCk \xE7iftinle (KK) standart ind\xFCksiyon plan\u0131 olan non-all-in 3-bet yerine ne yapars\u0131n?",
+    options: ["Non-all-in 3-bet ile ind\xFCksiyon \u2014 geni\u015F stack-off'a devam etmesini sa\u011Fla", "Do\u011Frudan jam \u2014 geni\u015F stack-off gelen yerde ind\xFCksiyona gerek yok"],
+    correct: 1,
+    explain: "Rakipler zaten primsiz geni\u015F stack-off ediyorsa ind\xFCksiyona gerek kalmaz; b\xFCy\xFCk \xE7iftleri do\u011Frudan jam'lemek ayn\u0131 paray\u0131 daha basit toplar. Onlarla birlikte gev\u015Femek k\xF6k hatad\u0131r, kendi VPIP'ini bir t\u0131k daraltmak do\u011Frudur.",
+    source: "B\xF6l\xFCm 23.15",
+    kavram: "icm-primsiz-havuz-direkt-jam"
+  },
+  {
+    q: "8bb'sin, elinde 55 var. Bu derinlikte k\xFC\xE7\xFCk \xE7iftler band\u0131n en derin ya\u015Fayan JAM'lerinden say\u0131l\u0131r. A\xE7\u0131\u015F karar\u0131n ne?",
+    options: ["Jam \u2014 fold-equity ile canl\u0131 equity birlikte \xE7al\u0131\u015F\u0131r", "Fold \u2014 flop g\xF6rmeden \xE7iftle jam'lemek polarize spew say\u0131l\u0131r"],
+    correct: 0,
+    explain: "4-12bb band\u0131nda a\xE7\u0131\u015F jam ya da fold'dur, ince-boy a\xE7\u0131\u015F yoktur; k\xFC\xE7\xFCk \xE7iftler bu band\u0131n en derin ya\u015Fayan jam'lerindendir ve DEFEND edilmez. Jam'i polarize spew sanmak MTT refleksi hatas\u0131d\u0131r.",
+    source: "B\xF6l\xFCm 30.0",
+    kavram: "micro-kucuk-cift-jam"
+  },
+  {
+    q: "10bb'sin, Q9s ile a\xE7t\u0131n, rakip raise ile kar\u015F\u0131l\u0131k verdi. Flop g\xF6rmek i\xE7in call (flat) m\u0131, yoksa jam-or-fold mu?",
+    options: ["Flat \u2014 Q9s'in postflop equity'si iyi realize edilir", "Jam-or-fold \u2014 bu derinlikte flat fold-equity'yi tamamen b\u0131rak\u0131r"],
+    correct: 1,
+    explain: "Bu derinlikte fringe ellerle raise+ kar\u015F\u0131s\u0131nda flat-call klasik hatad\u0131r; jam-or-fold fold-equity ile canl\u0131 equity'yi birlikte kullan\u0131r, flat ise fold-equity'yi b\u0131rak\u0131p equity'yi k\u0131sa stack'le k\xF6t\xFC realize eder.",
+    source: "B\xF6l\xFCm 30.1",
+    kavram: "fringe-raise-karsisi-jam-or-fold"
+  },
+  {
+    q: "~7bb SB'sin, HJ a\xE7t\u0131 \u2014 jam'lersen rakip fiyat y\xFCz\xFCnden zaten \xE7a\u011F\u0131rmak zorunda, fold-equity s\u0131f\u0131r. Elinde 98s var. Jam m\u0131 flat m\u0131?",
+    options: ["Flat \u2014 fold-equity yokken vurmas\u0131 gereken elle ayn\u0131 equity'yi ucuza al", "Jam \u2014 committed oldu\u011Fun i\xE7in t\xFCm stack'i \u015Fimdi ortaya koy"],
+    correct: 0,
+    explain: "Fold-equity s\u0131f\u0131rsa (rakip fiyatla zaten \xE7a\u011F\u0131rmak zorunda) jam'lemek yaln\u0131z a\xE7\u0131c\u0131n\u0131n aral\u0131\u011F\u0131na flip'e ko\u015Fmakt\u0131r; flat ayn\u0131 equity'yi daha ucuza al\u0131r ve BB'yi de domine etti\u011Fin overcall'larla pota \xE7eker.",
+    source: "B\xF6l\xFCm 30.1-EK",
+    kavram: "fold-equity-sifir-flat"
+  },
+  {
+    q: "10bb BB'sin, derin BTN min-raise att\u0131. Bu derinlikte a\xE7\u0131c\u0131n\u0131n ayr\u0131 bir jam aral\u0131\u011F\u0131 da var (orta blo\u011Fu jam al\u0131r). Min-raise'i nas\u0131l okursun?",
+    options: ["Polar \u2014 tepe + jam'lenemeyecek en g\xFC\xE7l\xFC eller kald\u0131, call dilimini daralt", "ChipEV'deki gibi geni\u015F-merged \u2014 savunmay\u0131 olabildi\u011Fince geni\u015Flet"],
+    correct: 0,
+    explain: "A\xE7\u0131c\u0131n\u0131n ayr\u0131 bir jam aral\u0131\u011F\u0131 oldu\u011Funda min-raise'e orta blok de\u011Fil tepe + jam'lenemeyecek en g\xFC\xE7l\xFC eller kal\u0131r; bu min-raise'i polar yapar. K\u0131sa BB'nin call dilimi bu y\xFCzden dar tutulmal\u0131, gerisi jam ya da fold.",
+    source: "B\xF6l\xFCm 30.2-EK",
+    kavram: "kisa-bb-derin-minraise-polar"
+  },
+  {
+    q: "12bb BB'de flat'ledin, d\xFC\u015F\xFCk-orta ba\u011Flant\u0131l\u0131 flop geldi, elinde set var. Bu s\u0131\u011F bantta jam a\u011Fac\u0131nda (jam/k\xFC\xE7\xFCk/check) set nereye gider?",
+    options: ["Check \u2014 jam aral\u0131\u011F\u0131 zaten k\u0131r\u0131lgan ellerle dolu, nut eklenirse \xE7\u0131plak kal\u0131r", "Jam \u2014 set en g\xFC\xE7l\xFC el, a\u011Fac\u0131n tepesi do\u011Frudan jam'e gider"],
+    correct: 0,
+    explain: "A\u011Fa\xE7 en fazla \xFC\xE7 d\xFC\u011F\xFCmd\xFCr: jam / k\xFC\xE7\xFCk / check. Jam s\u0131n\u0131f\u0131 zaten top/orta per ve draw'larla k\u0131r\u0131lgand\u0131r; set gibi g\xFC\xE7l\xFC nut'lar check'e gider \u2014 yoksa check aral\u0131\u011F\u0131 \xE7\u0131plak kal\u0131p okunur hale gelir.",
+    source: "B\xF6l\xFCm 30.7",
+    kavram: "sig-bb-lead-agaci-set-check"
+  },
+  {
+    q: "200bb'lik tek-raise'li potta overpair'in var, SPR y\xFCksek, IP'desin. Rakip iyi bir reg\xFCler. C-bet frekans\u0131n nas\u0131l olmal\u0131?",
+    options: ["Az c-bet at \u2014 aral\u0131\u011F\u0131n\u0131n ortas\u0131n\u0131 rakibin polar check-raise'ine sokma", "\xC7ok c-bet at \u2014 overpair y\xFCksek SPR'de otomatik value bet'tir"],
+    correct: 0,
+    explain: "Y\xFCksek SPR'de top pair/overpair pot-kontrol elidir, stack-off de\u011Fil; check-raise'ler polar (semi-bluff+nut) oldu\u011Fundan iyi rakibe kar\u015F\u0131 IP'de daha az c-bet at\u0131l\u0131r \u2014 aral\u0131\u011F\u0131n ortas\u0131 check-raise'e sokulmaz.",
+    source: "B\xF6l\xFCm 29.2",
+    kavram: "yuksek-spr-cbet-frekansi"
+  },
+  {
+    q: "200bb derinlikte HJ a\xE7t\u0131, sende orta cep \xE7ifti var (77-99 band\u0131). 3-bet potuna gireceksin \u2014 bu eli 3-bet kar\u0131\u015F\u0131m\u0131na katman mant\u0131\u011F\u0131n ne?",
+    options: ["Orta cepleri sadece flat et \u2014 3-bet aral\u0131\u011F\u0131 yaln\u0131z premium ellerden olu\u015Fur", "Orta cepleri 3-bet kar\u0131\u015F\u0131m\u0131na ekle \u2014 d\xFC\u015F\xFCk board kapsaman yoksa rakip seni soyar"],
+    correct: 1,
+    explain: "Deep 3-bet potunda d\xFC\u015F\xFCk board gelince pocket pair yoksa board oynanamaz; orta cepler 3-bet kar\u0131\u015F\u0131m\u0131na dahil edilerek d\xFC\u015F\xFCk board kapsamas\u0131 sa\u011Flan\u0131r, aksi halde preflop bo\u015Fluk postflop'a cascade eder.",
+    source: "B\xF6l\xFCm 29.1",
+    kavram: "3bet-orta-cep-kapsama"
+  },
+  {
+    q: "200bb derinlikte river'a geldin, elinde iki-per var ama board'da d\xFCz tamamland\u0131 (kart veren, ba\u011Flant\u0131l\u0131 bir yap\u0131). Rakip b\xFCy\xFCk bet att\u0131. Karar?",
+    options: ["Bluff-catcher gibi d\xFC\u015F\xFCn \u2014 bu iki-per board kart verdi\u011Fi i\xE7in 'temiz' de\u011Fil", "\u0130ki-per seni her derinlikte korur, b\xFCy\xFCk bet'e de rahat\xE7a call yapabilirsin"],
+    correct: 0,
+    explain: "Derinde seni koruyan cep \xE7ifti de\u011Fil TEM\u0130Z (ba\u011Flant\u0131s\u0131z, kart vermeyen) iki-per'dir; d\xFCz tamamlayan kirli bir iki-per bu korumay\u0131 ta\u015F\u0131maz.",
+    source: "B\xF6l\xFCm 29.4",
+    kavram: "temiz-iki-per"
+  },
+  {
+    q: "Postflop drill s\u0131ras\u0131nda bir soruyu do\u011Fru cevaplad\u0131n ama cevab\u0131n seni \u015Fa\u015F\u0131rtt\u0131 \u2014 bekledi\u011Finden farkl\u0131 bir mant\u0131kla do\u011Fru \xE7\u0131kt\u0131. Ne yapars\u0131n?",
+    options: ["Do\u011Fru cevap verdi\u011Fin i\xE7in durmadan s\u0131radaki soruya ge\xE7mek do\u011Frudur", "Drill'i durdurup e\u015Fi\u011Fi bulur, \xFC\xE7-par\xE7a format\u0131nda yazars\u0131n, sonra devam edersin"],
+    correct: 1,
+    explain: "Postflop'ta her yanl\u0131\u015F VE her \u015Fa\u015F\u0131rtan do\u011Fru drill'i durdurur; 'do\u011Fru oynad\u0131m, ge\xE7tim' demek hi\xE7bir \u015Fey \xF6\u011Frenmemek demektir \u2014 s\u0131n\u0131f g\xF6r\xFCn\xFCm\xFC a\xE7\u0131l\u0131p e\u015Fik \xFC\xE7-par\xE7a format\u0131nda yaz\u0131lmal\u0131.",
+    source: "B\xF6l\xFCm 9.3",
+    kavram: "postflop-drill-durdurma"
+  },
+  {
+    q: "PLO Day 1'de bust ettin, zorunlu 20 dakikay\u0131 doldurdun; karar k\xF6t\xFC de\u011Fildi (varyans), tilt yok. Re-entry basmadan \xF6nce kart\u0131n son iki sorusu hangileri?",
+    options: ["Toplam seri maruz kalman \xF6n-limitin i\xE7inde mi ve fiziksel durumun ye\u015Fil mi", "Bu event'te ka\xE7 kez re-entry yapt\u0131\u011F\u0131n ve cebindeki nakit miktar\u0131 yeterli mi"],
+    correct: 0,
+    explain: "16.1'in karar kart\u0131 elenme karar\u0131 ve takvimden sonra iki soru daha sorar: toplam seri maruz kalmas\u0131 \xF6n-limitin i\xE7inde mi, fiziksel durum (uyku/saat) ye\u015Fil mi \u2014 biri bile hay\u0131rsa DUR.",
+    source: "B\xF6l\xFCm 10 (Soru 37)",
+    kavram: "reentry-limit-fiziksel-kontrol"
+  },
+  {
+    q: "Turn'de elinde flush draw var. Rakip disiplinli bir reg ve board senin range'ine uygun d\xFC\u015F\xFCyor (rakibinkine de\u011Fil). Karar\u0131n?",
+    options: ["Bet \u2014 hem fold ettirme hem tamamlama olmak \xFCzere iki kazanma yolun var", "Check \u2014 draw'lar turn'de reg'e kar\u015F\u0131 da bedava kart i\xE7in saklanmal\u0131, zira erken bahis sadece range'ini a\xE7\u0131k eder ve pot'u gereksiz \u015Fi\u015Firir"],
+    correct: 0,
+    explain: "Reg'e kar\u015F\u0131 ve board senin aral\u0131\u011F\u0131na uygunsa bet at\u0131l\u0131r: fold ettirmek ve tamamlamak olmak \xFCzere iki kazanma yolu vard\u0131r \u2014 fold equity varken semi-bluff mant\u0131kl\u0131d\u0131r.",
+    source: "B\xF6l\xFCm 6.1",
+    kavram: "fold-equity-semibluff"
+  },
+  {
+    q: "Polar bir overbet d\xFC\u011F\xFCm\xFCndesin, elinde overcard'l\u0131 gutshot var; rakibin top-pair-iyi-kicker ve overpair kombolar\u0131n\u0131 bloklayan bir kart\u0131n var, board rank'i sende de\u011Fil. 6.2'nin 'gutshot \u2192 check' kural\u0131 burada ge\xE7erli mi?",
+    options: ["Evet \u2014 gutshot hi\xE7bir zaman semi-bluff yak\u0131t\u0131 ta\u015F\u0131maz, d\xFC\u011F\xFCm t\xFCr\xFC fark etmez; blokaj de\u011Feri yaln\u0131z iki-per'i kapsayan ellerde say\u0131l\u0131r", "Hay\u0131r \u2014 bu d\xFC\u011F\xFCmde gutshot rakibin devam s\u0131n\u0131f\u0131n\u0131 bloklayan do\u011Fal bir bl\xF6ft\xFCr"],
+    correct: 1,
+    explain: "6.2-EK: efektif-nut overbet d\xFC\u011F\xFCm\xFCnde overcard'l\u0131 gutshot, rakibin top-pair-iyi-kicker/overpair kombolar\u0131n\u0131 bloklayan polar aral\u0131\u011F\u0131n do\u011Fal bl\xF6f\xFCd\xFCr \u2014 genel 'gutshot check' kural\u0131 burada ask\u0131ya al\u0131n\u0131r (iki-per'i bloklamaz, board rank'i gerekir).",
+    source: "B\xF6l\xFCm 6.2-EK",
+    kavram: "gutshot-blok-istisna"
+  },
+  {
+    q: "SHR Day 2 ile Main Day 1A ayn\u0131 ana denk geldi. SHR'de stack'in ortalaman\u0131n belirgin \xFCst\xFCnde ve \xF6demeye yak\u0131ns\u0131n. Karar kural\u0131na g\xF6re hangi event'e kal\u0131rs\u0131n?",
+    options: ["SHR'de kal, Main'i son mermiye b\u0131rak \u2014 o anki kazanma beklentin daha y\xFCksek", "Main'e ge\xE7 \u2014 buy-in daha b\xFCy\xFCk oldu\u011Fu i\xE7in \xF6ncelik her zaman ona verilir, ayr\u0131ca SHR sahas\u0131 k\xFC\xE7\xFCk oldu\u011Fundan marjinal EV fark\u0131 \xF6nemsizdir"],
+    correct: 0,
+    explain: "Karar kural\u0131 buy-in b\xFCy\xFCkl\xFC\u011F\xFCne de\u011Fil o anki kazanma beklentisine (stack derinli\u011Fi \xD7 saha \xD7 \xF6deme yak\u0131nl\u0131\u011F\u0131) bakar: SHR stack'i ortalama \xFCst\xFC ve \xF6demeye yak\u0131nsa SHR'de kal\u0131n\u0131r, Main son mermiye b\u0131rak\u0131l\u0131r.",
+    source: "B\xF6l\xFCm 16.4",
+    kavram: "cakisma-karar-kurali"
+  },
+  {
+    q: "Derin run'das\u0131n, moralin \xE7ok y\xFCksek, uykun bozuk ve '\u015Fimdi her spot oynan\u0131r' hissi var; frekanslar\u0131n s\xFCrekli agresif \xE7\u0131k\u0131yor. 16.2-EK'ye g\xF6re bu ne ve hamlen ne?",
+    options: ["Bu tilt de\u011Fil saf momentum \u2014 ak\u0131\u015F\u0131 bozmadan agresyona aynen devam edersin, \xE7\xFCnk\xFC derin run'da \xF6zg\xFCven art\u0131\u015F\u0131 do\u011Fal ve faydal\u0131 bir sinyaldir", "Co\u015Fku tilt'i \u2014 karar h\u0131z\u0131n\u0131 d\xFC\u015F\xFCr\xFCp baseline frekanslara d\xF6ner, kademe indirirsin"],
+    correct: 1,
+    explain: "16.2-EK: derin-run co\u015Fkusu da tilt \xFCretir (bozuk uyku + s\u0131cak kart + y\xFCkselen imaj \u2192 over-agresyon \u2192 punt). Hamle: karar h\u0131z\u0131n\u0131 d\xFC\u015F\xFCr\xFCp baseline frekanslara d\xF6nmek, marjinal 4/5-bet d\xFC\u011F\xFCm\xFCn\xFC bir kademe indirmek.",
+    source: "B\xF6l\xFCm 16.2-EK",
+    kavram: "cosku-tilt"
+  },
+  {
+    q: "Ayn\u0131 stack da\u011F\u0131l\u0131m\u0131, ayn\u0131 el \u2014 ama masa 3-handed yerine 6-handed, ve \xF6deme yap\u0131s\u0131 lineer (\xFC\xE7\xFCnc\xFC, birincinin yar\u0131s\u0131ndan fazlas\u0131n\u0131 al\u0131yor). Prim tahminin nas\u0131l de\u011Fi\u015Fir?",
+    options: ["6-handed ve lineer \xF6deme primi belirgin y\xFCkseltir \u2014 masa k\u0131sald\u0131k\xE7a prim d\xFC\u015Fer", "Prim yaln\u0131z stack haritas\u0131na ba\u011Fl\u0131d\u0131r, masa b\xFCy\xFCkl\xFC\u011F\xFC \xF6l\xE7\xFCy\xFC hi\xE7 de\u011Fi\u015Ftirmez burada"],
+    correct: 0,
+    explain: "20.3-EK-3: prim tahmininin ilk iki girdisi \xF6deme e\u011Frisi ve kalan oyuncu say\u0131s\u0131d\u0131r \u2014 lineer \xF6deme + kalabal\u0131k masa primi b\xFCy\xFCt\xFCr, masa k\u0131sald\u0131k\xE7a prim d\xFC\u015Fer, HU'da s\u0131f\u0131rd\u0131r; stack haritas\u0131 bu ikisinin \xFCst\xFCne gelir.",
+    source: "B\xF6l\xFCm 20.3-EK-3",
+    kavram: "odeme-egrisi-masa-sayisi"
+  },
+  {
+    q: "Risk primin 'orta' seviyede. Bir elde RFI (iki blind'l\u0131k a\xE7\u0131l\u0131\u015F) yapacaks\u0131n; ba\u015Fka bir spotta ayn\u0131 primle bir 3-bet'e cevap vermen gerekiyor. Primi hangi d\xFC\u011F\xFCme daha sert uygulars\u0131n?",
+    options: ["\u0130kisine de e\u015Fit uygulars\u0131n \u2014 prim sabit bir y\xFCzde olarak ayn\u0131 basar, \xE7\xFCnk\xFC ICM her karar a\u011Fac\u0131 d\xFC\u011F\xFCm\xFCnde ayn\u0131 oranda etki eden sabit bir \xE7arpand\u0131r", "3-bet'e cevaba \u2014 y\u0131\u011F\u0131n\u0131n onda biri masaya girer, a\xE7\u0131l\u0131\u015F chipEV'den ayr\u0131lmaz"],
+    correct: 1,
+    explain: "20.4-EK: prim, riske att\u0131\u011F\u0131n y\u0131\u011F\u0131n oran\u0131yla \xE7al\u0131\u015F\u0131r. \u0130ki blind'l\u0131k a\xE7\u0131l\u0131\u015Fta y\u0131\u011F\u0131n\u0131n k\xFC\xE7\xFCk dilimi riske girdi\u011Fi i\xE7in prim neredeyse hi\xE7 \u0131s\u0131rmaz; 3-bet'e savunma y\u0131\u011F\u0131n\u0131n onda birini koydu\u011Fu i\xE7in ayn\u0131 primle fold belirgin artar, flat yar\u0131lan\u0131r.",
+    source: "B\xF6l\xFCm 20.4-EK",
+    kavram: "prim-yatirim-orani"
+  },
+  {
+    q: "Canl\u0131 bir SHR'desin, k\u0131sa masa (5-6 ki\u015Fi), tam-BB ante uygulan\u0131yor ve \xF6deme tepesi a\u011F\u0131r (birinci, \xFC\xE7\xFCnc\xFCn\xFCn iki kat\u0131ndan fazlas\u0131n\u0131 al\u0131yor). Online'daki aral\u0131\u011F\u0131n\u0131 bire bir mi ta\u015F\u0131rs\u0131n?",
+    options: ["Hay\u0131r \u2014 bir kademe gev\u015Fek oyna: geni\u015F call/jam/3-bet value, limp-raise lisans\u0131 da a\xE7\u0131l\u0131r", "Evet \u2014 ante ve \xF6deme e\u011Frisi yaln\u0131z bubble'da etkilidir, erken masada ezber ge\xE7erlidir; yap\u0131 fark\u0131 yaln\u0131zca son iki masada aral\u0131\u011F\u0131n\u0131 de\u011Fi\u015Ftirmeni gerektirir"],
+    correct: 0,
+    explain: "20.3-EK-4: tepesi a\u011F\u0131r \xF6deme + tam-BB ante iki koldan primi d\xFC\u015F\xFCr\xFCr (basamaklar k\xFC\xE7\xFCk de\u011Ferli + k\u0131sa masada SB a\xE7\u0131l\u0131\u015F/jam dilimi geni\u015Fler, limp geri gelir) \u2014 canl\u0131da ayn\u0131 stack'le online ezberinden bir kademe gev\u015Fek oynan\u0131r, ama \xF6nce lobiden e\u011Fri okunur.",
+    source: "B\xF6l\xFCm 20.3-EK-4",
+    kavram: "canli-yapi-prim-dusurucu"
+  },
+  {
+    q: "Marjinal bir double al\u0131rsan 30bb'den 60bb'ye \xE7\u0131k\u0131p masadaki herkesi cover eden lider olacaks\u0131n (\u015Fu an cover ediliyorsun). Ayn\u0131 boydaki ba\u015Fka bir double ise seni yine cover edilen orta stack'te b\u0131rakacakt\u0131. Bu iki senaryo ayn\u0131 m\u0131 de\u011Ferlendirilir?",
+    options: ["Evet \u2014 var\u0131\u015F noktas\u0131 \xF6nemsizdir, yaln\u0131zca double'\u0131n bb cinsinden b\xFCy\xFCkl\xFC\u011F\xFC karar verir", "Hay\u0131r \u2014 herkesi cover eden lider olaca\u011F\u0131n double, marjinal gamble'\u0131 AL'a yakla\u015Ft\u0131r\u0131r"],
+    correct: 1,
+    explain: "24.2-EK'nin be\u015Finci sorusu 'kazan\u0131rsam kim oluyorum'dur: ayn\u0131 double iki stack'e farkl\u0131 \u015Fey verir \u2014 herkesi cover eden lidere d\xF6n\xFC\u015Ft\xFCren bir double, h\xE2l\xE2 orta/cover edilen b\u0131rakan bir double'dan farkl\u0131 olarak AL'a yakla\u015F\u0131r.",
+    source: "B\xF6l\xFCm 24.2-EK",
+    kavram: "varis-rolu-edge-primi"
+  },
+  {
+    q: "Masadaki en k\u0131sa stack sensin ve kimseyi cover etmiyorsun (kaybetsen zaten bust olacakt\u0131n). Marjinal +EV bir flip \xF6n\xFCnde risk primi a\xE7\u0131s\u0131ndan duru\u015Fun ne?",
+    options: ["Risk primi burada ~0'd\u0131r \u2014 ICM filtresi 'al' der, flip'i almaktan \xE7ekinme", "K\u0131sa stack oldu\u011Fun i\xE7in risk primi en y\xFCksek noktadad\u0131r, flip'i pas ge\xE7melisin"],
+    correct: 0,
+    explain: "24.3'\xFCn ICM istisnas\u0131: kimseyi cover etmeyen en k\u0131sa stack'te risk primi ~0'd\u0131r \xE7\xFCnk\xFC zaten cover ediliyor de\u011Filsin \u2014 bu sat\u0131rda filtre 'al' der.",
+    source: "B\xF6l\xFCm 24.3",
+    kavram: "en-kisa-stack-prim-istisnasi"
   }
 ];
 function optionOrder(q, n) {
@@ -11445,7 +13354,7 @@ check("D6-63 postflop PLO Q \xFCretiliyor", !!postflopQuestion("plo"));
   const badCorrect = SCENARIOS.filter((s) => !(s.correct >= 0 && s.correct < s.options.length));
   const badSource = SCENARIOS.filter((s) => !s.source || !s.source.trim());
   const badKavram = SCENARIOS.filter((s) => typeof s.kavram !== "string" || !s.kavram);
-  check("D4-38 senaryo say\u0131s\u0131 145 (TR; EN paritesi bekliyor)", SCENARIOS.length === 145, String(SCENARIOS.length));
+  check("D4-38 senaryo say\u0131s\u0131 263 (TR; EN paritesi bekliyor)", SCENARIOS.length === 263, String(SCENARIOS.length));
   check("D4-38 t\xFCm correct options s\u0131n\u0131r\u0131nda", badCorrect.length === 0, badCorrect.map((s) => s.q.slice(0, 24)).join("|"));
   check("D4-38 t\xFCm source dolu", badSource.length === 0, String(badSource.length));
   check("D4-38 t\xFCm kavram dolu", badKavram.length === 0, String(badKavram.length));

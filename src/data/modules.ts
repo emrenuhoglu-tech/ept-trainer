@@ -7634,6 +7634,50 @@ export const modules: Module[] = [
         "narration": "Bir rakip all-in olup kalan iki oyuncu arasında dry, yani ekstra para eklenmeyen bir side-pot oluştuğunda, nüt eli düşük SPR'de yavaş oynamak, yani tuzak kurmak, genelde işe yaramaz. Sebep şudur: side-pot rakibinin seni bluf ile yenebilmesi için hem all-in olan oyuncunun elini hem senin elini aynı anda geçmesi gerekir; bu, tek bir bluf çizgisiyle nadiren tutan çift bir koşuldur. Bu yüzden dry side-pot'ta düşük SPR'de nütü saklamak yerine büyük oynamak çoğunlukla daha çok EV getirir. Saklama planı ancak SPR yüksekse ve side-pot rakibinin gerçekten manevra alanı varsa mantıklı olur. Bu bulgu kök hatanın PLO formuna bağlanır: çıplak nüt tek başına yeterli değildir doktrini, burada draw'lara ve derinliğe genişletilmiş hâliyle karşımıza çıkar; non-nut kombolarla şişirilen bir pot, aynı kök hatanın side-pot versiyonudur. Kısacası, all-in bir rakip varken kalan iki elin çift koşulu, senin lehine oynar; bunu kullan, gizleme."
       },
       {
+        "title": "EK: Yığın koyma eşiğin — 3009 elinden ölçüldü",
+        "bullets": [
+          "92 stack-off spotu: en az 50bb yatırıp showdown'a gittiğin eller",
+          "İki çift ve altı: 22 spot, net eksi 24.483 dolar",
+          "Trips ve üstü: 70 spot, net artı 67.861 dolar",
+          "Çizgi tam olarak trips'te; board dokusu ikincil kalıyor"
+        ],
+        "ruleBox": "PLO-6'da elli bb üstü yığını iki çiftle koyma. Eşik trips.",
+        "narration": "Bu sayılar kitaptan değil, senin kendi üç bin dokuz elinden çıktı. En az elli büyük blind yatırıp showdown'a gittiğin doksan iki el var. Bunları yaptığın ele göre ayırdığında çizgi tek yerde beliriyor. İki çift ve altındaki ellerle yirmi iki kez yığın koymuşsun, toplam yirmi dört bin dolar kaybetmişsin. Trips ve üstüyle yetmiş kez koymuşsun, altmış yedi bin dolar kazanmışsın. Arada geçiş yok, kademe yok. Board dokusunun etkisi bunun yanında küçük kalıyor. Yani masada sorman gereken soru board sulu mu değil, elimde trips ya da daha iyisi var mı."
+      },
+      {
+        "title": "EK: İki çiftle yığın koyduğunda showdown'da önde değildin",
+        "bullets": [
+          "Tek çiftle yığın: beş spot, showdown'da önde olma oranı sıfır",
+          "İki çiftle yığın: on yedi spot, önde olma oranı yüzde otuz bir",
+          "Trips ve üstünde bu oran yüzde elli ile seksen altı arasına çıkıyor",
+          "Örneklem küçük ama yön tek taraflı: geride para koyuyorsun"
+        ],
+        "ruleBox": "Kaybın şanssızlık değil; parayı çoğunlukla geride koyuyorsun.",
+        "narration": "Kaybettiğin elleri şanssızlık sanmak kolay, ama veri başka bir şey söylüyor. Tek çiftle yığın koyduğun beş elin hiçbirinde showdown'da önde değildin. İki çiftle koyduğun on yedi elin sadece üçte birinde öndeydin. Trips ve üstüne çıktığında bu oran yüzde elliyi geçiyor, flush'ta yüzde seksen altıya varıyor. Örneklem küçük, bunu abartmıyorum, ama yön tek taraflı. Kötü kart gelmiyor sana; parayı zaten geride olduğun noktada koyuyorsun. Showdown kazanma oranının düşmesi sebep değil, sonuç."
+      },
+      {
+        "title": "EK: Güçlü taraf da kırılıyor — çift çekilişli board",
+        "bullets": [
+          "Trips ve üstüyle de kaybettiğin eller var, hepsinin ortak yanı aynı",
+          "Board'da hem renk hem düz açıkken trips artık nut sınıfı değil",
+          "Full house bile eşli board'da daha büyük full'a kaybediyor",
+          "Kural trips'te başlıyor ama orada bitmiyor: redraw'a bak"
+        ],
+        "ruleBox": "Trips eşiği alt sınır; hem renk hem düz açıksa eşik yukarı kayar.",
+        "narration": "Eşik trips diyoruz ama trips otomatik bilet değil. Kendi verinde trips ve üstüyle kaybettiğin ellerin ortak yanı şu: board'da aynı anda hem renk hem düz açık, ya da board eşli ve senin full house'un en büyüğü değil. Bu durumda yaptığın el sınıf olarak güçlü görünse de rakibin devam aralığında seni geçen kombinasyonlar duruyor. Yani trips alt sınır, tavan değil. İki çekiliş birden açıkken sorman gereken şu: elimde bunu tamamlayan redraw var mı, yoksa sadece şu anki gücümle mi duruyorum. Redraw yoksa trips de call sınıfıdır, raise sınıfı değil."
+      },
+      {
+        "title": "EK: Gece bir buçukta gevşeme — kendi imzan",
+        "bullets": [
+          "Yirmi sekiz Ağustos gecesi beş saat on yedi dakikalık tek oturum",
+          "Saat bire kadar üç saat kaybettikten sonra VPIP kırk yediye çıkmış",
+          "Aynı saatte üç bet oranın da yüzde dokuza sıçramış",
+          "Yığın derinliğin gece boyunca yüz yirmi yediden dört yüz otuz dokuza tırmanmış"
+        ],
+        "ruleBox": "Kayıptan sonra aralığın genişliyorsa mola ver, eşiği değiştirme.",
+        "narration": "Bir gecelik veri kural üretmez ama kendi imzanı tanımana yeter. Yirmi sekiz Ağustos gecesi beş saat on yedi dakika aralıksız oynamışsın. İlk üç saat kaybettikten sonra saat birde oyuna giriş oranın kırk ikiden kırk yediye, üç bet oranın da beşten dokuza çıkmış. Aynı gece yığın derinliğin yüz yirmi yediden dört yüz otuz dokuz büyük blinde tırmanmış. Üçü birlikte olunca kaybın en pahalı saatleri de orada çıkıyor. Buradaki ders şu: kaybettikten sonra aralığın kendiliğinden genişliyorsa bu bir karar değil, bir tepki. Eşiği gevşetmek yerine masadan kalk."
+      },
+      {
         title: "Cheat: masaya oturmadan dokuz satır",
         bullets: [
           "Açılış: UTG dar, CO = UTG + yüzde on, BTN geniş; dangler'lı el erken açılmaz.",

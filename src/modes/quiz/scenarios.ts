@@ -3432,6 +3432,94 @@ export const SCENARIOS: Scenario[] = [
     "source": "Bölüm 12.4-EK-5",
     "kavram": "sb-fazla-fold-blof-3bet-patlamasi"
   },
+  {
+    "q": "PLO-6 cash, CO'dan açtın, board Qd 8c Jd 3d 7d geldi — dört karo var. Elinde Ad Ah Qc 2s Tc 4h: as çiftin var ve karo asını tutuyorsun, ama tek karoyla rengi tamamlayamıyorsun. Rakip yığını koymanı gerektirecek boyda basıyor. Ne yaparsın?",
+    "options": [
+      "Fold — nut renk blokerini tutmak, dört karolu board'da tek çiftle commit gerekçesi değil",
+      "Call — karo asıyla nut rengi bloke ediyorsun, rakip bu boyla blöf yapıyor olmalı"
+    ],
+    "correct": 0,
+    "explain": "Karo ası elinde olduğu için rakibin nut rengini bloke ediyorsun, ama tek karoyla kendin renk yapamıyorsun ve yaptığın el hâlâ tek çift. Bloker rakibin aralığını daraltır, senin elini yükseltmez. Dört karolu board'da rakip nut olmayan renklerle de basar ve tek çift bunların hepsine yenik. Kendi verinde tek çiftle yığın koyduğun beş elin hiçbirinde showdown'da önde değildin.",
+    "source": "Bölüm 15.4",
+    "kavram": "plo6-tek-cift-yigin-esigi"
+  },
+  {
+    "q": "PLO-6 cash, BTN'sin, elinde As Ac ile birlikte T ve J de var. Flop Kc 4d 2c geldi, kuru görünüyor. Rakip pot boyunda basıyor ve yığını koymak yüz elli büyük blinde mal olacak. As çiftinden başka bir şeyin yok. Karar?",
+    "options": [
+      "Raise all-in — kuru board'da overpair PLO-6'da da en güçlü sınıftır",
+      "Fold ya da call — as çifti tek başına yüz elli bb'lik commit için yeterli değil"
+    ],
+    "correct": 1,
+    "explain": "Board kuru göründüğü için overpair güçlü hissettiriyor, ama altı kartta rakibin devam aralığında iki çift ve set yoğunluğu dört karta göre çok daha yüksek. Yaptığın el hâlâ tek çift ve nut redraw taşımıyor. Bu tam olarak on beş nokta dörtte anlatılan çıplak as yığını hatası; kendi verinde en pahalı ellerinin başında geliyor.",
+    "source": "Bölüm 15.4",
+    "kavram": "plo6-ciplak-aa-commit"
+  },
+  {
+    "q": "PLO-6 cash, board 4h 2d 7h Kh 4c — üç kupa var ve board dörtlerle eşli. Elinde as çifti var, tek kupan var ama rengi tamamlayamıyorsun. Board'un dört çifti sayesinde iki çiftin oldu. Rakip yığını koymanı gerektiren bir raise attı. Ne yaparsın?",
+    "options": [
+      "Fold — üç kupalı eşli board'da redraw'suz iki çift commit sınıfı değildir",
+      "Call — as çifti ve board'un dört çiftiyle iki çiftin var, raise blöf olabilir"
+    ],
+    "correct": 0,
+    "explain": "İki çiftin var ama ikinci çifti board veriyor, yani rakipte de aynı dört çifti duruyor ve ayrım tamamen kicker'a kalıyor. Üstelik board hem üç kupa hem eşli: rakibin aralığında flush da trips de var, sende ikisini de tamamlayacak redraw yok. Kendi verinde iki çiftle yığın koyduğun on yedi elin sadece üçte birinde showdown'da öndeydin.",
+    "source": "Bölüm 15.4",
+    "kavram": "plo6-iki-cift-islak-board"
+  },
+  {
+    "q": "PLO-6 cash, UTG'den açtın ve 4-bet'e kadar gittin, elinde papaz çifti var. Flop 6d 8h Ac geldi — as yüksek ve bağlantılı. Papazların board'u hiç tutmadı. Kalan yığınını flop'a koymayı düşünüyorsun. Doğru karar?",
+    "options": [
+      "All-in — 4-bet potunda SPR düşük, papaz çiftiyle commit etmek zorundasın",
+      "Check ya da fold — as yüksek bağlantılı flop papaz çiftini commit sınıfına sokmaz"
+    ],
+    "correct": 1,
+    "explain": "Dört bet potunda SPR'nin düşük olması commit'i otomatik yapmaz; commit eşiğini elin sınıfı belirler. As yüksek bağlantılı bir flopta papaz çifti ne nut ne de nut redraw taşıyor, üstelik as board'da olduğu için rakibin devam aralığı as ağırlıklı. Kendi verinde bu spot yüz büyük blindlik tek çift commit'i olarak geçti ve karşısında düz vardı.",
+    "source": "Bölüm 15.4",
+    "kavram": "plo6-dusuk-spr-commit-yanilgisi"
+  },
+  {
+    "q": "PLO-6 cash, SB'sin, elinde As Ac ve dam çifti var. Board 6h 3c Qc 4s 9s — damlar üçlü yaptı, yani trips damın var. Rakip büyük basıyor ve iki yüz seksen sekiz bb'lik yığın söz konusu. Karar?",
+    "options": [
+      "Commit — trips ve üstü senin verinde yığın koyma eşiğinin üstünde kalıyor",
+      "Fold — iki yüz seksen sekiz bb çok derin, bu derinlikte trips yetmez"
+    ],
+    "correct": 0,
+    "explain": "Ölçülen eşik tam olarak trips'te başlıyor: kendi verinde trips ve üstüyle yetmiş kez yığın koymuşsun ve toplamda kazançlısın. Burada trips damın yüksek trips ve as kickerıyla geliyor, board'da tamamlanmış renk yok. Derinliğin tek başına eşiği yukarı itmesi için board'un ikinci bir tehdit taşıması gerekir; sadece yığın büyük diye eşiği kaydırmak, doğru tarafta olduğun spotlardan kaçmak demektir.",
+    "source": "Bölüm 15.5",
+    "kavram": "plo6-trips-esik-ustu-commit"
+  },
+  {
+    "q": "PLO-6 cash, BTN'sin ve board Ks 7d Qc 9d Jd geldi — üç karo var ve papaz-dam-vale-dokuz düz yapısı açık. Elinde papaz trips'i var; tek karonla rengi tamamlayamıyorsun ve düzü veren onlu da elinde yok. Rakip altmış bb'lik kalan yığın için basıyor. Ne yaparsın?",
+    "options": [
+      "Commit — trips eşiğin üstünde, kural gereği yığını koyarsın",
+      "Fold ya da ucuz call — hem renk hem düz açıkken redraw'suz trips commit sınıfı değil"
+    ],
+    "correct": 1,
+    "explain": "Trips eşiğin alt sınırı, tavanı değil. Bu board'da hem renk hem düz tamamlanmış durumda ve senin elin ikisinden de pay almıyor. Kendi verinde trips ve üstüyle kaybettiğin ellerin ortak özelliği tam olarak bu: iki çekiliş birden açık ve redraw yok. Kural elin sınıfıyla başlar ama redraw sorusuyla biter.",
+    "source": "Bölüm 15.5",
+    "kavram": "plo6-trips-cift-cekilis-istisnasi"
+  },
+  {
+    "q": "PLO-6 cash gecesi: üç saattir kaybediyorsun, oyuna giriş oranın kırk ikiden kırk yediye, üç bet oranın beşten dokuza çıktı. Yığın derinliğin de iki yüz bb'yi aştı. Bu tabloda doğru hamle ne?",
+    "options": [
+      "Masadan kalk — kayıptan sonra kendiliğinden genişleyen aralık karar değil tepkidir",
+      "Devam et ama eşiği sıkılaştır — sayılar zaten gevşediğini gösteriyor, düzeltmek yeter"
+    ],
+    "correct": 0,
+    "explain": "Aralığın bilinçli bir plan olmadan genişlemişse bu bir strateji değişikliği değil, kayba verilen tepkidir. Aynı anda yığın derinliği de arttığı için her hata daha pahalıya mal olur. Masada kalıp eşiği sıkılaştırmak kulağa disiplinli gelir ama gevşemeyi fark eden zihin, aynı seansta onu tutarlı biçimde uygulayamaz; bu yüzden doğru hamle oturumu kapatmaktır.",
+    "source": "Bölüm 15.6",
+    "kavram": "plo6-gece-gevseme-imzasi"
+  },
+  {
+    "q": "PLO-6'da yığın koyma kararını verirken hangi soru önce gelir?",
+    "options": [
+      "Board sulu mu, çünkü kuru board'da daha zayıf elle commit edilebilir",
+      "Elimde trips ya da daha iyisi var mı, ve yoksa nut redraw taşıyor muyum"
+    ],
+    "correct": 1,
+    "explain": "Kendi doksan iki stack-off spotunda ayrım gücü en yüksek değişken board dokusu değil, yaptığın elin sınıfı çıktı. İki çift ve altı toplu olarak kaybettiriyor, trips ve üstü kazandırıyor; doku bunun yanında ikincil bir etki bırakıyor. Kuru board'da tek çiftle commit etmek de aynı hatanın daha az fark edilen biçimi.",
+    "source": "Bölüm 15.4",
+    "kavram": "plo6-commit-soru-sirasi"
+  },
 ];
 
 export function randomScenario(): Scenario {

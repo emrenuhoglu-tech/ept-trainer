@@ -63,9 +63,9 @@ Emre Nuhoğlu
 
 ---
 
-## Bölüm 0 — Masaya Götürülecek 15 Cümle
+## Bölüm 0 — Masaya Götürülecek 14 Cümle
 
-*Bunları ezberle. Masada düşünecek vakit olmadığında karar bu on beş cümleden çıkar. İlk 11 çekirdek; 12–15 v5'te turnuva-icrasından işlendi.*
+*Bunları ezberle. Masada düşünecek vakit olmadığında karar bu on dört cümleden çıkar. İlk 10 çekirdek; 11–14 v5'te turnuva-icrasından işlendi.*
 
 1. **Tek per, şişmiş potta bluff-catcher'dır — AA dahil.**
    Kök hatan bu. Üç elenme buradan geldi.
@@ -94,22 +94,20 @@ Emre Nuhoğlu
 9. **Canlıda kâr blöf 3-bet'ten değil, geniş value 3-bet'inden gelir.**
    Alan fold etmiyor. Dengeyi bırak, dengesizlikten kâr et.
 
-10. **PLO'da çıplak AA, NLH'deki tek per'dir.**
-    Nut potansiyeli yoksa el büyük pot oynamaz.
 
-11. **25–30bb'de değer fold equity'den gelir, kart tamamlamaktan değil.**
+10. **25–30bb'de değer fold equity'den gelir, kart tamamlamaktan değil.**
     Aradığın el gelişebilen değil, şimdiden iyi olan: as, broadway, çift. Bölüm 5.
 
-12. **Turn'de attığın boyut, river'da vereceğin kararın fiyatıdır.**
+11. **Turn'de attığın boyut, river'da vereceğin kararın fiyatıdır.**
     İkinci fıçı, river'da check-fold lüksünü satın alır. Bölüm 11.
 
-13. **ICM'de marjinal call = kök hatanın turnuva-hayatı sürümüdür.**
+12. **ICM'de marjinal call = kök hatanın turnuva-hayatı sürümüdür.**
     Risk premium, bluff-catcher'ın ödeme eşiğini yükseltir. Bölüm 12.
 
-14. **Multiway'de tek per, HU'dakinden bir sınıf aşağıdır.**
+13. **Multiway'de tek per, HU'dakinden bir sınıf aşağıdır.**
     Her ek oyuncu birinin nut olma ihtimalini katlar. Bölüm 13.
 
-15. **Tilt'te alınan karar aralıktan değil, yaradan çıkar — önce yara etiketlenir.**
+14. **Tilt'te alınan karar aralıktan değil, yaradan çıkar — önce yara etiketlenir.**
     Diğer kurallar ancak fark edilen tilt'te devreye girer. Bölüm 16.
 
 ---

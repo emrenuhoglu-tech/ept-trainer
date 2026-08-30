@@ -264,7 +264,7 @@ export default function App() {
                   onClick={() => nav("#/referans/bolum")}
                   className="btn-accent col-span-2 py-2.5"
                 >
-                  📖 Kitap bölümleri (33 bölüm) →
+                  📖 Kitap bölümleri ({NEW_CHAPTERS.length} bölüm) →
                 </button>
               </div>
               <QuickReference />

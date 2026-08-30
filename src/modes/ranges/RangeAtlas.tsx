@@ -257,10 +257,6 @@ function KisaBody({ act }: { act: Action }) {
         <Note>
           Bu bantta <b>3-bet = jam</b> (commit). Flat yok — ne SB'den, ne BB'den, ne IP'den (Bölüm 5.2).
         </Note>
-        <Note>
-          <b>PLO'da bu kart geçersiz</b> — pot-limit'te jam yok, pot-raise var; 25–60bb'de B5 GEÇERSİZ
-          (Bölüm 15.1).
-        </Note>
         {rows.map((r, i) => (
           <div key={i}>
             <div className="mb-1 text-xs font-semibold text-neutral-300">{r.vs}</div>

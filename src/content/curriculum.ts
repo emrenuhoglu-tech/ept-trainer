@@ -356,16 +356,6 @@ export function multiwayMatrix(): MdTable | null {
   return tableFromSection("Bölüm 13", "13.1");
 }
 
-/** PLO stack modları (Bölüm 15.1): mod × NLH'den fark × karakter. */
-export function ploModes(): MdTable | null {
-  return tableFromSection("Bölüm 15", "15.1");
-}
-
-/** PLO SPR × stack-off matrisi (Bölüm 15.2): commit eşiği. */
-export function ploStackOff(): MdTable | null {
-  return tableFromSection("Bölüm 15", "15.2");
-}
-
 // ---- El sinifi danismani (Bolum 4.9-4.11) — el-once arama ----
 // RangeAtlas aralik-once calisir (derinlik+aksiyon -> grid). Bu erisimciler tersini
 // besler: elimdeki sinif -> hangi spotta ne yapiyorum. Poker degeri KITAPTAN gelir.

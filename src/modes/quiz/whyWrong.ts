@@ -193,20 +193,6 @@ export const WHY_WRONG: Record<string, string[]> = {
       "Standart B4 aralığı değişmez sanmak leak: bu bantta 3-bet commit'e yaklaşır, blöf kısmı çöker.",
       "Suited connector blöf tam da kesilen el: 4-bet/jam'e devam edemez, bu bantta uygun değil.",
     ],
-  "€25K PLO HR, elinde 30bb ve çıplak AA. NLH refleksin '30bb altı → Bölüm 5 → 3-bet=JAM' diyor. PLO'da geçerli mi?":
-    [
-      "'30bb her oyunda jam' yanlış: PLO pot-limit, jam yok — B5'in NLH jam/fold refleksi PLO'da geçersiz.",
-      "",
-      "Fold fazla: çıplak AA oynanır ama değeri pre-commit'te (3-bet→SPR≤1), postflop değil; atmak değil.",
-      "Limp-call PLO'da AA'nın değerini bırakır: pot-raise ile SPR'yi düşürüp pre-commit et.",
-    ],
-  "Kısa PLO (<25bb), pot-raise yaptın. Bunun anlamı ne?":
-    [
-      "'Devam kararı ayrı' değil: kısa PLO'da pot-raise = commit, kalan stack flop'ta otomatik gider.",
-      "",
-      "Bilgi raise'i ucuz değil: pot-raise stack'i taahhüt eder; aralığı 'flop'ta stack girecek' varsayımıyla seç.",
-      "'Fold'a hazır ol' commit'le çelişir: pot-raise attıysan dangler'sız güçlü elle girmiş olmalısın, geri dönüş yok.",
-    ],
   "SHR Day 1'de bust ettin, 5 dakika geçti, tilt hafif. Hemen re-entry (aynı event'e ikinci mermi) mantıklı mı?":
     [
       "'Hemen gir' serinin en pahalı kararı (B16.1): SHR tek bullet, tilt'le karar = kök hatanın bankroll ölçeği.",

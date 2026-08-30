@@ -87,7 +87,7 @@ const CARDS: BetCard[] = [
     ],
     note: {
       kind: "uyari",
-      text: "Kitap uyarısı: overbet = büyük value bet, aynı filtre geçerli — “river’da senden zayıf el ödemeyecekse value değildir” (Bölüm 0.2 / Vaka 3). Belirsizse kitabın kuralına dön: büyük pota check-fold, küçük pota check-call. PLO’da “iki pot bet = stack ortada” (Bölüm 8).",
+      text: "Kitap uyarısı: overbet = büyük value bet, aynı filtre geçerli — “river’da senden zayıf el ödemeyecekse value değildir” (Bölüm 0.2 / Vaka 3). Belirsizse kitabın kuralına dön: büyük pota check-fold, küçük pota check-call.",
     },
   },
   {

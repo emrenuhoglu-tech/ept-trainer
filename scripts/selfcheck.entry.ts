@@ -19,8 +19,6 @@ import {
   quickReference,
   bridgeBand,
   multiwayMatrix,
-  ploStackOff,
-  ploModes,
 } from "../src/content/curriculum";
 import { chapterTitles, tableFromSection, rawMarkdown } from "../src/content/curriculum";
 import { modules } from "../src/data/modules";
@@ -112,7 +110,7 @@ check("BTN→SB fold geçerli", poolsFor("BTN", "SB").flatWide === false);
 
 // v5 yeni bölümleri (B11–B16) ChapterView tarafından sectionBlock ile render edilir.
 // Boş dönerse veya tablo kaybolursa yeni Referans görünümü sessizce boşalır → build'i durdur.
-for (const n of [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]) {
+for (const n of [11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]) {
   const body = sectionBlock("Bölüm " + n);
   check(`B${n} sectionBlock dolu`, body.trim().length > 0, String(body.length));
   check(`B${n} en az bir tablo içeriyor`, body.includes("|"));
@@ -187,13 +185,10 @@ check("D4-37 squeezeRange parse", squeezeRange() !== null);
   check("D6-55 quickRef Tilt kartı", !!qr.tilt && qr.tilt.rows.length > 0);
 }
 
-// D1-9 / D1-7 / D6-63: yeni postflop/PLO/köprü tabloları parse ediliyor ve motor soru üretiyor.
+// D1-9 / D1-7: yeni postflop/köprü tabloları parse ediliyor ve motor soru üretiyor.
 check("D1-9 bridgeBand (B14.1) parse", !!bridgeBand() && bridgeBand()!.rows.length > 0);
 check("D1-7 multiwayMatrix (B13.1) parse", !!multiwayMatrix() && multiwayMatrix()!.rows.length > 0);
 check("D1-7 postflop multiway Q üretiliyor", !!postflopQuestion("multiway"));
-check("D6-63 ploStackOff (B15.2) parse", !!ploStackOff() && ploStackOff()!.rows.length > 0);
-check("D6-63 ploModes (B15.1) parse", !!ploModes() && ploModes()!.rows.length > 0);
-check("D6-63 postflop PLO Q üretiliyor", !!postflopQuestion("plo"));
 
 // D4-38: 57 senaryonun yapısal bütünlüğü — correct sınırda, source dolu, kavram dolu, sayı sabit.
 // ---- D-audit kapıları: modül tablo referansları, bölüm kapsaması, başlık bütünlüğü, TTS ----
@@ -267,7 +262,7 @@ check("D6-63 postflop PLO Q üretiliyor", !!postflopQuestion("plo"));
   const badCorrect = SCENARIOS.filter((s) => !(s.correct >= 0 && s.correct < s.options.length));
   const badSource = SCENARIOS.filter((s) => !s.source || !s.source.trim());
   const badKavram = SCENARIOS.filter((s) => typeof s.kavram !== "string" || !s.kavram);
-  check("D4-38 senaryo sayısı 397 (TR; EN paritesi bekliyor)", SCENARIOS.length === 397, String(SCENARIOS.length));
+  check("D4-38 senaryo sayısı 337 (TR; EN paritesi bekliyor)", SCENARIOS.length === 337, String(SCENARIOS.length));
   check("D4-38 tüm correct options sınırında", badCorrect.length === 0, badCorrect.map((s) => s.q.slice(0, 24)).join("|"));
   check("D4-38 tüm source dolu", badSource.length === 0, String(badSource.length));
   check("D4-38 tüm kavram dolu", badKavram.length === 0, String(badKavram.length));
